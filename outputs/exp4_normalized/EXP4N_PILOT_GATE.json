@@ -1,0 +1,158 @@
+{
+ "gate": "EXP4N_PILOT_PHASE_GATE",
+ "verdict": "PASS",
+ "utc": "2026-09-22T18:30:40+00:00",
+ "n": 10,
+ "reference": "outputs/exp4_resource_audit/EXP4_RESOURCE_AUDIT_RESULT.json",
+ "resource_invariance": {
+  "envelope_digests": [
+   "3fd5241db44ca9da"
+  ],
+  "hours_caps": [
+   "2517.1833333333334"
+  ],
+  "distinct_peak_envelopes": 1,
+  "tolerances": [
+   0.0
+  ],
+  "cap_provenance": [
+   "common_reference_envelope_resolved_once"
+  ],
+  "contract_digests": [
+   "2125984c82b60a83"
+  ],
+  "search_params": [
+   "n_keys=8 k_rungs=3 max_rounds=40 lam=2.0 seed=20260825"
+  ]
+ },
+ "health": {
+  "all_converged": true,
+  "all_hours_feasible": true,
+  "all_error_free": true,
+  "n_hit_max_rounds": 1,
+  "max_rounds_cases_still_converged": true,
+  "distinct_geometries": 10,
+  "distinct_plans": 10
+ },
+ "reproduction": [
+  {
+   "label": "rank_50",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#d6f401185657",
+   "exp4n_objective": "3258414.6723882025",
+   "audit_objective": "3258414.6723882025",
+   "abs_delta": "0.0",
+   "exp4n_rounds": 31,
+   "audit_rounds": 31,
+   "objective_bit_exact": true,
+   "rounds_match": true
+  },
+  {
+   "label": "rank_25",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#12165a4c04c6",
+   "exp4n_objective": "3259559.8887108625",
+   "audit_objective": "3259559.8887108625",
+   "abs_delta": "0.0",
+   "exp4n_rounds": 40,
+   "audit_rounds": 40,
+   "objective_bit_exact": true,
+   "rounds_match": true
+  },
+  {
+   "label": "min_aggregate_cap",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#e10f2321e79b",
+   "exp4n_objective": "3262639.47395099",
+   "audit_objective": "3262639.47395099",
+   "abs_delta": "0.0",
+   "exp4n_rounds": 25,
+   "audit_rounds": 25,
+   "objective_bit_exact": true,
+   "rounds_match": true
+  },
+  {
+   "label": "rank_2",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#08f377545e31",
+   "exp4n_objective": "3295108.700013782",
+   "audit_objective": "3295108.700013782",
+   "abs_delta": "0.0",
+   "exp4n_rounds": 17,
+   "audit_rounds": 17,
+   "objective_bit_exact": true,
+   "rounds_match": true
+  },
+  {
+   "label": "rank_100",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#229cb1654b51",
+   "exp4n_objective": "3300323.6855136077",
+   "audit_objective": "3300323.6855136077",
+   "abs_delta": "0.0",
+   "exp4n_rounds": 30,
+   "audit_rounds": 30,
+   "objective_bit_exact": true,
+   "rounds_match": true
+  },
+  {
+   "label": "max_aggregate_cap",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#99c5d391c164",
+   "exp4n_objective": "3302666.8323333533",
+   "audit_objective": "3302666.8323333533",
+   "abs_delta": "0.0",
+   "exp4n_rounds": 17,
+   "audit_rounds": 17,
+   "objective_bit_exact": true,
+   "rounds_match": true
+  },
+  {
+   "label": "rank_3",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#d1f8d2497954",
+   "exp4n_objective": "3304686.7234470607",
+   "audit_objective": "3304686.7234470607",
+   "abs_delta": "0.0",
+   "exp4n_rounds": 16,
+   "audit_rounds": 16,
+   "objective_bit_exact": true,
+   "rounds_match": true
+  },
+  {
+   "label": "rank_150",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#350c7cf4e725",
+   "exp4n_objective": "3313914.9023650214",
+   "audit_objective": "3313914.9023650214",
+   "abs_delta": "0.0",
+   "exp4n_rounds": 17,
+   "audit_rounds": 17,
+   "objective_bit_exact": true,
+   "rounds_match": true
+  },
+  {
+   "label": "rank_1",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce",
+   "exp4n_objective": "3325019.735841233",
+   "audit_objective": "3325019.735841233",
+   "abs_delta": "0.0",
+   "exp4n_rounds": 25,
+   "audit_rounds": 25,
+   "objective_bit_exact": true,
+   "rounds_match": true
+  },
+  {
+   "label": "rank_200",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#96485eb1a98e",
+   "exp4n_objective": "3338651.663250049",
+   "audit_objective": "3338651.663250049",
+   "abs_delta": "0.0",
+   "exp4n_rounds": 28,
+   "audit_rounds": 28,
+   "objective_bit_exact": true,
+   "rounds_match": true
+  }
+ ],
+ "disclosure": [
+  "rank_25 (12165a4c04c6) reaches MAX_ROUNDS=40. exp4_certify.py sets converged=True only when a full round finds no improving block move, so this is a genuine block-local certificate reached on the last permitted round, not a truncation. It has zero round headroom and the audit recorded the same.",
+  "Wall-clock seconds differ from the audit under CPU contention. Seconds are not an identity field; objective and round count are.",
+  "A doubled max_cap line appeared in exp4n.log after the 17:29 reclaim. Verified as a duplicate log write: 10 distinct result files, 10 distinct geometry digests, 10 distinct plan digests, one launcher process."
+ ],
+ "not_claimed": [
+  "This gate certifies that the normalized launcher reproduces the audit pilot under one common envelope. It does NOT certify the 200-candidate ranking, which is not yet computed.",
+  "The common envelope is defensible as COMMON, not as CORRECT. The peak metric remains a cycle/headway proxy and no fleet claim follows from it."
+ ]
+}

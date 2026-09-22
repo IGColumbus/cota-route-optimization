@@ -87,6 +87,16 @@ digest. **If they do not reproduce, STOP and diagnose. Do NOT tune the
 optimizer to force it.** Only after this passes may the full-phase roll widen
 the run, and the beat's PHASE line must be updated when it does.
 
+> **GATE PASSED 18:29 UTC 22 Sep 2026.** All ten reproduce the audit pilot
+> **bit-exactly** — objective equal under `==`, not merely within tolerance —
+> and round count matches on all ten. One envelope digest `3fd5241db44ca9da`,
+> one hours cap, one peak envelope, tolerance 0.0, one contract digest,
+> identical search parameters, all converged, all hours-feasible, all
+> error-free, 10 distinct geometries, 10 distinct plans. Written to
+> `outputs/exp4_normalized/EXP4N_PILOT_GATE.json`. **PHASE IS NOW FULL** —
+> use the full-phase roll. Launched 18:30 UTC as pid 827, 190 remaining
+> of 200.
+
 ## At 200/200
 
 1. **§7 validation.** Exactly one hours envelope, one peak envelope, one
