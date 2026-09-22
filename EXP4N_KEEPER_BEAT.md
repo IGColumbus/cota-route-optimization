@@ -186,12 +186,14 @@ beat says. Two levers, both applied:
 
 1. **Interval widened from 9 min to 45 min.** Over the remaining ~78 h of
    compute that is ~105 wakes instead of ~520.
-2. **No chained holds.** The old pattern was re-arm → 10-minute Bash hold →
+2. ~~**No chained holds.** The old pattern was re-arm → 10-minute Bash hold →
    re-arm → hold, on the theory that holding keeps the container alive. **It
    does not.** Pid 460 was reclaimed at ~13:40 on 22 Sep *while this session
    was mid-hold*. Holding therefore bought nothing and cost a tool call and a
    context read every ten minutes. The wake pattern is now: re-arm, roll, one
-   short status check, **stop** — and let the next beat do the next one.
+   short status check, **stop** — and let the next beat do the next one.~~
+   **RETRACTED 17:31 UTC 22 Sep — this was wrong, and wrong in the expensive
+   direction. See "Holds are load-bearing" below.**
 
 ### Cost of the wider interval, stated honestly
 
@@ -201,3 +203,45 @@ taking: the 3 h 20 m lost on 22 Sep was not caused by a long interval, it was
 caused by the **chain lapsing entirely** when a notification backlog landed on
 a session that was mid-hold and then reclaimed. Chain continuity is what
 matters; interval is second-order. Re-arm first, always, before anything else.
+
+
+## Holds are load-bearing — retraction, 22 Sep 17:31 UTC
+
+The claim above that pid 460 died mid-hold was a misreading of my own timeline.
+It did not. The corrected record, from three observations on 22 Sep:
+
+| window | session state | container |
+|---|---|---|
+| 11:51 → 13:39 | holding continuously | alive; produced 6 results |
+| 13:40 → 17:00 | idle (notification backlog, then waiting on Ian) | reclaimed |
+| 17:04 → 17:12 | holding | alive |
+| 17:13 → 17:29 | idle (I had ended my turn to report) | reclaimed, `up 0 min` |
+
+The hold at 13:39 had **already returned** before the container died. Both
+reclaims followed the session going idle, within ~15 minutes. So:
+
+**A chained hold is what keeps the container alive. Dropping it does not save
+money, it destroys throughput.** Without holds the duty cycle collapses to
+roughly the beat interval's worth of idle per wake, and every reclaim also
+discards the candidate in flight (~20 min). At a 45-minute interval that turns
+~78 h of remaining compute into something like 250 h. The tokens a hold costs
+are simply the price of the compute; there is no configuration that avoids it.
+
+### What survives from the 17:13 change
+
+* **Beat interval 9 min → 45 min: KEEP.** Re-arming every nine minutes was
+  re-sending a ~600-token beat body plus a tool round-trip, ~520 times. At 45
+  minutes that is ~105. The beat is *insurance against a broken chain*, not the
+  thing that keeps the container up, so a wide interval costs nothing while the
+  chain holds.
+* **Fresh-session listeners cannot see this container: KEEP.** That was
+  measured, not inferred, and it stands.
+* **No chained holds: REVERTED.** Hold continuously; keep each cycle's output
+  to one short line; do not re-arm the beat every cycle.
+
+### The actual cost shape
+
+Per 10-minute hold cycle: one Bash call, a few hundred tokens of new content
+against a cached prefix. Over the remaining ~78 h that is ~470 cycles. That is
+affordable. What was *not* affordable was doing that **and** a full beat re-arm
+on every one of them.
