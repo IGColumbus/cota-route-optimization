@@ -152,3 +152,52 @@ the run, and the beat's PHASE line must be updated when it does.
 * Never build a rate or a period out of a few events.
 * A flat beat with cpu advancing is a long candidate, not a stall.
 * A beat firing is **not** evidence the run is alive — only the count moving is.
+
+---
+
+## Listener economics — settled 22 Sep 2026, by experiment
+
+Ian's standing instruction is that routine keeper listeners run on a
+lower-grade model. **On this project that is not configurable, and the reason
+is now measured rather than assumed.**
+
+### The two listener shapes, and why neither is both cheap and useful
+
+| shape | sees this container? | model settable? |
+|---|---|---|
+| `send_later` self-bound beat (`persist_session: true`) | **yes** | **no** — a self-bound fire wakes *this* session and keeps its model |
+| `create_trigger` fresh session (`persist_session: false`) | **no** | yes |
+
+The second row was re-tested, not inherited. Probe
+`trig_01NfXGVZPDsFyFfyv8JF1Zyx` — Haiku, fresh session — was fired at
+17:04 UTC 22 Sep with a prompt whose only job was to `ls` this repo and write
+`outputs/exp4_normalized/WATCHDOG_PROBE.txt`. **The file never appeared in this
+container.** A fresh session gets a different container and a different disk,
+exactly as the two disabled Exp 3 Stage B keepers recorded on 1 Sep. So a cheap
+listener cannot roll this run, and the expensive one cannot be made cheap.
+
+Do not re-run this probe. Do not try to set `model` on a `send_later` beat —
+`update_trigger` accepts the field and it has no effect on a session-bound fire.
+
+### What IS controllable: wake count
+
+Cost is dominated by **how many times this session wakes**, not by what the
+beat says. Two levers, both applied:
+
+1. **Interval widened from 9 min to 45 min.** Over the remaining ~78 h of
+   compute that is ~105 wakes instead of ~520.
+2. **No chained holds.** The old pattern was re-arm → 10-minute Bash hold →
+   re-arm → hold, on the theory that holding keeps the container alive. **It
+   does not.** Pid 460 was reclaimed at ~13:40 on 22 Sep *while this session
+   was mid-hold*. Holding therefore bought nothing and cost a tool call and a
+   context read every ten minutes. The wake pattern is now: re-arm, roll, one
+   short status check, **stop** — and let the next beat do the next one.
+
+### Cost of the wider interval, stated honestly
+
+A reclaim now costs up to ~45 min of idle plus the candidate in flight (~20
+min), against ~9 min + candidate before. That is the trade, and it is worth
+taking: the 3 h 20 m lost on 22 Sep was not caused by a long interval, it was
+caused by the **chain lapsing entirely** when a notification backlog landed on
+a session that was mid-hold and then reclaimed. Chain continuity is what
+matters; interval is second-order. Re-arm first, always, before anything else.
