@@ -1,0 +1,40 @@
+{
+ "audit": "exp4_resource_normalization",
+ "generated_utc": "2026-09-21T23:38:40Z",
+ "cap_provenance_code_path": [
+  "scripts/exp4_launch.py: cons overrides weekday_revenue_vehicle_hours only",
+  "src/cota_opt/exp3_score.py: b_ed = _Baseline(H.baseline, net, ts) -- candidate network",
+  "src/cota_opt/exp2.py:209-211: services/baseline_plan from exp1.build_setup(b_ed)",
+  "src/cota_opt/exp2.py:~300: fit = model.evaluate(baseline_plan)",
+  "src/cota_opt/exp2.py:324: peak_budget = dict(fit.peak_by_period) when sentinel == 'baseline'",
+  "src/cota_opt/exp2.py:327: ResourceBudget(vh_budget, peak_budget, tolerance=budget_tolerance)",
+  "src/cota_opt/frequency.py:374: _feasible tests hours then peak per period"
+ ],
+ "cap_is_candidate_specific": true,
+ "hours_cap_source": "outputs/CANONICAL_ENVELOPE.json weekday_revenue_vehicle_hours",
+ "hours_cap_value": 2517.1833333333334,
+ "envelope_digest": "b6c647d3766338a6",
+ "peak_usage_instrument": "FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover)",
+ "peak_cap_instrument": "identical -- both are FitnessVector.peak_by_period",
+ "budget_tolerance": 0.0,
+ "periods": [
+  "early",
+  "am_peak",
+  "midday",
+  "pm_peak",
+  "evening",
+  "owl"
+ ],
+ "leader_parity_worst_abs_diff": 4.548611111943046e-05,
+ "reference_caps": {
+  "early": 85.28208333333332,
+  "am_peak": 162.00944444444443,
+  "midday": 159.17277777777775,
+  "pm_peak": 176.49305555555554,
+  "evening": 140.19458333333336,
+  "owl": 35.55736111111111
+ },
+ "reference_baseline_vehicle_hours": 2517.1833333333334,
+ "n_candidates": 200,
+ "reconstruction_method": "exp1.build_setup on the candidate network; PathBasedModel inherits resource physics unchanged (exp2.py:53), verified against the live judge.budget for the leader"
+}

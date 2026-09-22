@@ -1,0 +1,21 @@
+PILOT common cap: {"am_peak": 162.0094, "early": 85.2821, "evening": 140.1946, "midday": 159.1728, "owl": 35.5574, "pm_peak": 176.4931}
+hours cap 2517.183333  lam 2.0  seed 20260825  contract 2125984c82b60a83
+pilot: 0 done, 10 remaining of 10
+  [1/10] rank_1             r1    orig 3,511,184.5658 -> norm 3,325,019.7358  d -186,164.8299 (-5.3021%)  rounds 25 conv True (1082s)
+  [2/10] rank_2             r2    orig 3,511,557.9642 -> norm 3,295,108.7000  d -216,449.2642 (-6.1639%)  rounds 17 conv True (883s)
+  [3/10] rank_3             r3    orig 3,514,611.1824 -> norm 3,304,686.7234  d -209,924.4589 (-5.9729%)  rounds 16 conv True (823s)
+  [4/10] rank_25            r25   orig 3,520,776.1031 -> norm 3,259,559.8887  d -261,216.2144 (-7.4193%)  rounds 40 conv True (1507s)
+PILOT common cap: {"am_peak": 162.0094, "early": 85.2821, "evening": 140.1946, "midday": 159.1728, "owl": 35.5574, "pm_peak": 176.4931}
+hours cap 2517.183333  lam 2.0  seed 20260825  contract 2125984c82b60a83
+pilot: 4 done, 6 remaining of 10
+  [1/6] rank_50            r50   orig 3,525,178.3986 -> norm 3,258,414.6724  d -266,763.7262 (-7.5674%)  rounds 31 conv True (2113s)
+  [2/6] rank_100           r100  orig 3,538,293.1173 -> norm 3,300,323.6855  d -237,969.4318 (-6.7255%)  rounds 30 conv True (2085s)
+  [3/6] rank_150           r150  orig 3,554,415.5565 -> norm 3,313,914.9024  d -240,500.6542 (-6.7663%)  rounds 17 conv True (1449s)
+  [4/6] rank_200           r200  orig 3,591,198.3836 -> norm 3,338,651.6633  d -252,546.7203 (-7.0324%)  rounds 28 conv True (2023s)
+  [5/6] min_aggregate_cap  r17   orig 3,518,981.4459 -> norm 3,262,639.4740  d -256,341.9719 (-7.2846%)  rounds 25 conv True (1828s)
+  [6/6] max_aggregate_cap  r71   orig 3,531,144.8139 -> norm 3,302,666.8323  d -228,477.9815 (-6.4704%)  rounds 17 conv True (1466s)
+pilot results on disk: 10 of 10
+PILOT common cap: {"am_peak": 162.0094, "early": 85.2821, "evening": 140.1946, "midday": 159.1728, "owl": 35.5574, "pm_peak": 176.4931}
+hours cap 2517.183333  lam 2.0  seed 20260825  contract 2125984c82b60a83
+pilot: 10 done, 0 remaining of 10
+pilot results on disk: 10 of 10

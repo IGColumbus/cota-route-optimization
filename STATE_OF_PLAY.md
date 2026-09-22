@@ -1,7 +1,9 @@
 # COTA route optimization — state of play
 
-Last updated 2026-09-21. **Experiments 1, 2, 2B, 3 and 4 are closed, and so
-is the Experiment 4 out-of-band audit.** Experiment 3 is frozen at tag
+Last updated 2026-09-22. **Experiments 1, 2, 2B, 3 and 4 are closed, and so
+is the Experiment 4 out-of-band audit — but a resource normalization audit on
+2026-09-22 returned `EXP4_FULL_NORMALIZED_RERUN_REQUIRED`, so Exp 4's GEOMETRY
+conclusion is now provisional.** Experiment 3 is frozen at tag
 `exp3-final-v1`. **Experiment 4 RAN AND COMPLETED** on 2026-09-14: 200 of 200
 promoted candidates certified, zero errors, an exact leader established. It ran
 with **fleet REPORTED, NOT GATED** — the fleet question it was originally
@@ -37,6 +39,20 @@ periods at 99.71–99.97%.** `EXPERIMENT5_OFFON_DIAGNOSTIC.md`.
   *anti*-correlates with certified rank and the promotion cap came within four
   ranks of excluding the winner; **D37**, fast convergence excludes a candidate
   from contention. **No fleet claim and no deployability claim** — see below.
+* **Experiment 4 — RESOURCE NORMALIZATION AUDIT, 2026-09-22:
+  `EXP4_FULL_NORMALIZED_RERUN_REQUIRED`.** The peak-vehicle cap each candidate
+  was optimized against was **its own baseline plan's `peak_by_period`**
+  (`exp2.py:324`), so all 200 were optimized inside boxes they defined for
+  themselves. The hours cap was pinned to the canonical artifact; the peak cap
+  never was. A 10-candidate pilot under ONE common envelope, changing nothing
+  but that provenance, moved **20 of 45 pairwise orderings**, dropped the
+  incumbent from 1st to **9th of 10**, and handed first place to the candidate
+  originally ranked **50 of 200** by **2.0031%**. Improvements span 2.2653
+  percentage points — **99.4% of the entire original 200-candidate spread**.
+  Exp 4's certified ordering must be read as an ordering *of candidate-specific
+  optimization problems*, not of geometries, until a normalized rerun exists.
+  `docs/EXP4_RESOURCE_NORMALIZATION_AUDIT.md`. **The objective values remain
+  exactly reproducible; no rerun has been started.**
 * **Experiment 4 audit — STOPPED at 15 of 200, and the cap was invalid.**
   Discovery rank 237, excluded by the cap, certifies at **3,510,666.7802** —
   **0.014747% better than the incumbent**, inserting at exact rank 1 of 201.

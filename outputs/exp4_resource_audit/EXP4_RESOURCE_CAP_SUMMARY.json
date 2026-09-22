@@ -1,0 +1,346 @@
+{
+ "periods": {
+  "early": {
+   "min": 87.47706597222219,
+   "p05": 87.76546840277776,
+   "p25": 88.34144270833332,
+   "median": 88.82576041666664,
+   "mean": 88.82373194444445,
+   "p75": 89.2574097222222,
+   "p95": 90.01461284722221,
+   "max": 90.27332291666664,
+   "stdev": 0.659619716866399,
+   "coefficient_of_variation": 0.007426165309953017,
+   "range_absolute": 2.796256944444451,
+   "range_ratio_max_over_min": 1.0319656005075935,
+   "range_pct_of_min": 3.196560050759345,
+   "reference_cap": 85.28208333333332,
+   "median_as_pct_of_reference": 104.15524216204066,
+   "n_candidates_above_reference": 200
+  },
+  "am_peak": {
+   "min": 58.318043981481495,
+   "p05": 58.510312268518526,
+   "p25": 58.8942951388889,
+   "median": 59.217173611111114,
+   "mean": 59.21582129629633,
+   "p75": 59.504939814814826,
+   "p95": 60.00974189814816,
+   "max": 60.182215277777786,
+   "stdev": 0.4397464779109338,
+   "coefficient_of_variation": 0.007426165309953031,
+   "range_absolute": 1.8641712962962913,
+   "range_ratio_max_over_min": 1.0319656005075932,
+   "range_pct_of_min": 3.196560050759327,
+   "reference_cap": 162.00944444444443,
+   "median_as_pct_of_reference": 36.551679943213195,
+   "n_candidates_above_reference": 0
+  },
+  "midday": {
+   "min": 29.159021990740747,
+   "p05": 29.255156134259263,
+   "p25": 29.44714756944445,
+   "median": 29.608586805555557,
+   "mean": 29.607910648148167,
+   "p75": 29.752469907407413,
+   "p95": 30.00487094907408,
+   "max": 30.091107638888893,
+   "stdev": 0.2198732389554669,
+   "coefficient_of_variation": 0.007426165309953031,
+   "range_absolute": 0.9320856481481457,
+   "range_ratio_max_over_min": 1.0319656005075932,
+   "range_pct_of_min": 3.196560050759327,
+   "reference_cap": 159.17277777777775,
+   "median_as_pct_of_reference": 18.601539295175407,
+   "n_candidates_above_reference": 0
+  },
+  "pm_peak": {
+   "min": 58.318043981481495,
+   "p05": 58.510312268518526,
+   "p25": 58.8942951388889,
+   "median": 59.217173611111114,
+   "mean": 59.21582129629633,
+   "p75": 59.504939814814826,
+   "p95": 60.00974189814816,
+   "max": 60.182215277777786,
+   "stdev": 0.4397464779109338,
+   "coefficient_of_variation": 0.007426165309953031,
+   "range_absolute": 1.8641712962962913,
+   "range_ratio_max_over_min": 1.0319656005075932,
+   "range_pct_of_min": 3.196560050759327,
+   "reference_cap": 176.49305555555554,
+   "median_as_pct_of_reference": 33.55212669683259,
+   "n_candidates_above_reference": 0
+  },
+  "evening": {
+   "min": 43.738532986111096,
+   "p05": 43.88273420138888,
+   "p25": 44.17072135416666,
+   "median": 44.41288020833332,
+   "mean": 44.41186597222222,
+   "p75": 44.6287048611111,
+   "p95": 45.007306423611105,
+   "max": 45.13666145833332,
+   "stdev": 0.3298098584331995,
+   "coefficient_of_variation": 0.007426165309953017,
+   "range_absolute": 1.3981284722222256,
+   "range_ratio_max_over_min": 1.0319656005075935,
+   "range_pct_of_min": 3.196560050759345,
+   "reference_cap": 140.19458333333336,
+   "median_as_pct_of_reference": 31.679455191742417,
+   "n_candidates_above_reference": 0
+  },
+  "owl": {
+   "min": 29.159021990740747,
+   "p05": 29.255156134259263,
+   "p25": 29.44714756944445,
+   "median": 29.608586805555557,
+   "mean": 29.607910648148167,
+   "p75": 29.752469907407413,
+   "p95": 30.00487094907408,
+   "max": 30.091107638888893,
+   "stdev": 0.2198732389554669,
+   "coefficient_of_variation": 0.007426165309953031,
+   "range_absolute": 0.9320856481481457,
+   "range_ratio_max_over_min": 1.0319656005075932,
+   "range_pct_of_min": 3.196560050759327,
+   "reference_cap": 35.55736111111111,
+   "median_as_pct_of_reference": 83.26992183990657,
+   "n_candidates_above_reference": 0
+  }
+ },
+ "reference_caps": {
+  "early": 85.28208333333332,
+  "am_peak": 162.00944444444443,
+  "midday": 159.17277777777775,
+  "pm_peak": 176.49305555555554,
+  "evening": 140.19458333333336,
+  "owl": 35.55736111111111
+ },
+ "reference_baseline_vehicle_hours": 2517.1833333333334,
+ "n_candidates": 200,
+ "correlations": {
+  "note": "lower objective is better, so a NEGATIVE correlation between cap and objective means a larger endogenous budget went with a BETTER certified result. Correlation is not causation and none is claimed.",
+  "per_period": {
+   "early": {
+    "pearson_cap_vs_objective": 0.08704292263517073,
+    "spearman_cap_vs_objective": 0.05977426677202355,
+    "spearman_cap_vs_certified_rank": 0.05977426677202355
+   },
+   "am_peak": {
+    "pearson_cap_vs_objective": 0.08704292263517276,
+    "spearman_cap_vs_objective": 0.05977426677202355,
+    "spearman_cap_vs_certified_rank": 0.05977426677202355
+   },
+   "midday": {
+    "pearson_cap_vs_objective": 0.08704292263517276,
+    "spearman_cap_vs_objective": 0.05977426677202355,
+    "spearman_cap_vs_certified_rank": 0.05977426677202355
+   },
+   "pm_peak": {
+    "pearson_cap_vs_objective": 0.08704292263517276,
+    "spearman_cap_vs_objective": 0.05977426677202355,
+    "spearman_cap_vs_certified_rank": 0.05977426677202355
+   },
+   "evening": {
+    "pearson_cap_vs_objective": 0.08704292263517073,
+    "spearman_cap_vs_objective": 0.05977426677202355,
+    "spearman_cap_vs_certified_rank": 0.05977426677202355
+   },
+   "owl": {
+    "pearson_cap_vs_objective": 0.08704292263517276,
+    "spearman_cap_vs_objective": 0.05977426677202355,
+    "spearman_cap_vs_certified_rank": 0.05977426677202355
+   }
+  },
+  "aggregate": {
+   "sum_of_six_period_caps": {
+    "pearson_vs_objective": 0.08704292263517172,
+    "spearman_vs_objective": 0.05977426677202355,
+    "spearman_vs_certified_rank": 0.05977426677202355
+   },
+   "max_period_cap": {
+    "pearson_vs_objective": 0.08704292263517073,
+    "spearman_vs_objective": 0.05977426677202355,
+    "spearman_vs_certified_rank": 0.05977426677202355
+   },
+   "sum_normalized_by_reference_sum": {
+    "pearson_vs_objective": 0.08704292263517174,
+    "spearman_vs_objective": 0.05977426677202355,
+    "spearman_vs_certified_rank": 0.05977426677202355
+   },
+   "baseline_vehicle_hours_existing_project_scalar": {
+    "pearson_vs_objective": 0.08704292263517166,
+    "spearman_vs_objective": 0.05977426677202355,
+    "spearman_vs_certified_rank": 0.05977426677202355
+   }
+  },
+  "geometry_change_vs_cap_change": {
+   "pearson_dBaselineVehHours_vs_dSumCap": 1.0,
+   "spearman_dBaselineVehHours_vs_dSumCap": 1.0,
+   "interpretation": "both are read off the same candidate baseline evaluation, so a strong positive relation is mechanical rather than empirical"
+  }
+ },
+ "cross_feasibility": {
+  "envelopes_are_DIAGNOSTIC_not_recommended_budgets": true,
+  "fraction_feasible": {
+   "A_own": {
+    "n": 200,
+    "pct": 100.0
+   },
+   "B_reference": {
+    "n": 0,
+    "pct": 0.0
+   },
+   "C_winner": {
+    "n": 78,
+    "pct": 39.0
+   },
+   "D_componentwise_min": {
+    "n": 2,
+    "pct": 1.0
+   },
+   "E_componentwise_median": {
+    "n": 103,
+    "pct": 51.5
+   },
+   "F_componentwise_max": {
+    "n": 200,
+    "pct": 100.0
+   }
+  },
+  "top20_feasible_under_reference": 0,
+  "winner_feasible_under_reference": false,
+  "winner_feasible_under_min": false,
+  "top5_mutual_feasibility_plan_row_vs_cap_col": {
+   "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce": {
+    "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce": true,
+    "exp4|exp4-pool-v1|65lines#08f377545e31": false,
+    "exp4|exp4-pool-v1|65lines#d1f8d2497954": true,
+    "exp4|exp4-pool-v1|65lines#21fa771c4311": true,
+    "exp4|exp4-pool-v1|65lines#24e142fc0287": true
+   },
+   "exp4|exp4-pool-v1|65lines#08f377545e31": {
+    "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce": true,
+    "exp4|exp4-pool-v1|65lines#08f377545e31": true,
+    "exp4|exp4-pool-v1|65lines#d1f8d2497954": true,
+    "exp4|exp4-pool-v1|65lines#21fa771c4311": true,
+    "exp4|exp4-pool-v1|65lines#24e142fc0287": true
+   },
+   "exp4|exp4-pool-v1|65lines#d1f8d2497954": {
+    "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce": false,
+    "exp4|exp4-pool-v1|65lines#08f377545e31": false,
+    "exp4|exp4-pool-v1|65lines#d1f8d2497954": true,
+    "exp4|exp4-pool-v1|65lines#21fa771c4311": true,
+    "exp4|exp4-pool-v1|65lines#24e142fc0287": true
+   },
+   "exp4|exp4-pool-v1|65lines#21fa771c4311": {
+    "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce": false,
+    "exp4|exp4-pool-v1|65lines#08f377545e31": false,
+    "exp4|exp4-pool-v1|65lines#d1f8d2497954": false,
+    "exp4|exp4-pool-v1|65lines#21fa771c4311": true,
+    "exp4|exp4-pool-v1|65lines#24e142fc0287": false
+   },
+   "exp4|exp4-pool-v1|65lines#24e142fc0287": {
+    "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce": false,
+    "exp4|exp4-pool-v1|65lines#08f377545e31": false,
+    "exp4|exp4-pool-v1|65lines#d1f8d2497954": true,
+    "exp4|exp4-pool-v1|65lines#21fa771c4311": true,
+    "exp4|exp4-pool-v1|65lines#24e142fc0287": true
+   }
+  }
+ },
+ "savings_hypothesis": {
+  "largest_cap_decrease_vs_reference": {
+   "candidate_id": "exp4|exp4-pool-v1|65lines#e10f2321e79b",
+   "certified_rank": 17,
+   "certified_objective": 3518981.4458532785,
+   "sum_cap": 306.16973090277776,
+   "sum_cap_minus_reference": -452.53957465277773,
+   "baseline_vehicle_hours": 912.8041666666667,
+   "baseline_vh_minus_reference": -1604.3791666666666,
+   "optimized_vehicle_hours": 911.0761111111112,
+   "caps": {
+    "early": 87.47706597222219,
+    "am_peak": 58.318043981481495,
+    "midday": 29.159021990740747,
+    "pm_peak": 58.318043981481495,
+    "evening": 43.738532986111096,
+    "owl": 29.159021990740747
+   }
+  },
+  "largest_cap_increase_vs_reference": {
+   "candidate_id": "exp4|exp4-pool-v1|65lines#99c5d391c164",
+   "certified_rank": 71,
+   "certified_objective": 3531144.8138507344,
+   "sum_cap": 315.95663020833337,
+   "sum_cap_minus_reference": -442.7526753472221,
+   "baseline_vehicle_hours": 941.9825000000001,
+   "baseline_vh_minus_reference": -1575.2008333333333,
+   "optimized_vehicle_hours": 939.6504166666667,
+   "caps": {
+    "early": 90.27332291666664,
+    "am_peak": 60.182215277777786,
+    "midday": 30.091107638888893,
+    "pm_peak": 60.182215277777786,
+    "evening": 45.13666145833332,
+    "owl": 30.091107638888893
+   }
+  },
+  "winner": {
+   "candidate_id": "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce",
+   "certified_rank": 1,
+   "certified_objective": 3511184.5657525407,
+   "sum_cap": 309.94708159722217,
+   "sum_cap_minus_reference": -448.7622239583333,
+   "baseline_vehicle_hours": 924.0658333333333,
+   "baseline_vh_minus_reference": -1593.1175,
+   "optimized_vehicle_hours": 922.7448148148148,
+   "caps": {
+    "early": 88.55630902777776,
+    "am_peak": 59.03753935185186,
+    "midday": 29.51876967592593,
+    "pm_peak": 59.03753935185186,
+    "evening": 44.27815451388888,
+    "owl": 29.51876967592593
+   }
+  },
+  "runner_up": {
+   "candidate_id": "exp4|exp4-pool-v1|65lines#08f377545e31",
+   "certified_rank": 2,
+   "certified_objective": 3511557.96418463,
+   "sum_cap": 309.2136371527778,
+   "sum_cap_minus_reference": -449.4956684027777,
+   "baseline_vehicle_hours": 921.8791666666667,
+   "baseline_vh_minus_reference": -1595.3041666666668,
+   "optimized_vehicle_hours": 918.0173148148149,
+   "caps": {
+    "early": 88.3467534722222,
+    "am_peak": 58.89783564814816,
+    "midday": 29.44891782407408,
+    "pm_peak": 58.89783564814816,
+    "evening": 44.1733767361111,
+    "owl": 29.44891782407408
+   }
+  },
+  "median_candidate": {
+   "candidate_id": "exp4|exp4-pool-v1|65lines#13a0dd5dbfc2",
+   "certified_rank": 101,
+   "certified_objective": 3538302.378600798,
+   "sum_cap": 315.44791493055556,
+   "sum_cap_minus_reference": -443.26139062499993,
+   "baseline_vehicle_hours": 940.4658333333334,
+   "baseline_vh_minus_reference": -1576.7175,
+   "optimized_vehicle_hours": 939.1521759259259,
+   "caps": {
+    "early": 90.12797569444443,
+    "am_peak": 60.085317129629644,
+    "midday": 30.042658564814822,
+    "pm_peak": 60.085317129629644,
+    "evening": 45.063987847222215,
+    "owl": 30.042658564814822
+   }
+  },
+  "mechanism": "the cap IS the candidate's own baseline peak_by_period (exp2.py:324), so any geometry that lowers baseline peak demand lowers its own optimization budget by exactly the same amount"
+ }
+}

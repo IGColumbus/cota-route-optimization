@@ -1,0 +1,85 @@
+{
+ "pilot": "exp4_common_cap",
+ "n": 10,
+ "common_envelope_source": "reference_network_baseline_peak_by_period",
+ "common_envelope": {
+  "early": 85.28208333333332,
+  "am_peak": 162.00944444444443,
+  "midday": 159.17277777777775,
+  "pm_peak": 176.49305555555554,
+  "evening": 140.19458333333336,
+  "owl": 35.55736111111111
+ },
+ "selection": [
+  {
+   "label": "rank_1",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce",
+   "certified_rank": 1,
+   "sum_cap": 309.94708159722217,
+   "certified_objective": "3511184.5657525407"
+  },
+  {
+   "label": "rank_2",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#08f377545e31",
+   "certified_rank": 2,
+   "sum_cap": 309.2136371527778,
+   "certified_objective": "3511557.96418463"
+  },
+  {
+   "label": "rank_3",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#d1f8d2497954",
+   "certified_rank": 3,
+   "sum_cap": 312.78135243055556,
+   "certified_objective": "3514611.1823909655"
+  },
+  {
+   "label": "rank_25",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#12165a4c04c6",
+   "certified_rank": 25,
+   "sum_cap": 308.1123524305556,
+   "certified_objective": "3520776.10309261"
+  },
+  {
+   "label": "rank_50",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#d6f401185657",
+   "certified_rank": 50,
+   "sum_cap": 308.45084375,
+   "certified_objective": "3525178.398560694"
+  },
+  {
+   "label": "rank_100",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#229cb1654b51",
+   "certified_rank": 100,
+   "sum_cap": 309.43948437499995,
+   "certified_objective": "3538293.1172838197"
+  },
+  {
+   "label": "rank_150",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#350c7cf4e725",
+   "certified_rank": 150,
+   "sum_cap": 311.2725364583334,
+   "certified_objective": "3554415.5565495663"
+  },
+  {
+   "label": "rank_200",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#96485eb1a98e",
+   "certified_rank": 200,
+   "sum_cap": 308.47180729166666,
+   "certified_objective": "3591198.383597282"
+  },
+  {
+   "label": "min_aggregate_cap",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#e10f2321e79b",
+   "certified_rank": 17,
+   "sum_cap": 306.16973090277776,
+   "certified_objective": "3518981.4458532785"
+  },
+  {
+   "label": "max_aggregate_cap",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#99c5d391c164",
+   "certified_rank": 71,
+   "sum_cap": 315.95663020833337,
+   "certified_objective": "3531144.8138507344"
+  }
+ ]
+}
