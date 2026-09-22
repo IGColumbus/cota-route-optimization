@@ -1,0 +1,4266 @@
+{
+ "archive_id": "EXP4_ENDOGENOUS_CAP_ARCHIVE",
+ "frozen_utc": "2026-09-22T11:39:49Z",
+ "why": "the peak_fleet_by_period 'baseline' sentinel resolved against each candidate's OWN baseline plan (exp2.py:324), so these 200 objectives are valid for 200 DIFFERENT optimization problems and their ranking is not a geometry comparison",
+ "status": "PRESERVED, NOT SUPERSEDED \u2014 audit artifact and comparison dataset",
+ "n_candidates": 200,
+ "incumbent": {
+  "state_key": "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce",
+  "objective_EXACT": 3511184.5657525407,
+  "certified_rank": 1,
+  "discovery_rank": 196
+ },
+ "out_of_band_candidate": {
+  "state_key": "exp4|exp4-pool-v1|65lines#eca7a2a1fb46",
+  "objective_EXACT": 3510666.7802095017,
+  "discovery_rank": 237,
+  "note": "certified in the out-of-band audit, not in the promoted 200; inserted at exact rank 1 of 201 against this archive"
+ },
+ "objective_spread": {
+  "min": 3511184.5657525407,
+  "max": 3591198.383597282,
+  "relative_pct": 2.278826884384883
+ },
+ "candidates": [
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce",
+   "certified_rank": 1,
+   "discovery_rank": 196,
+   "objective_EXACT": "3511184.5657525407",
+   "objective_APPROXIMATE": "3624522.1667785523",
+   "n_lines": 65,
+   "state_digest": "ecb2ffc4bcce2cd7",
+   "plan_digest": "f9595b48c8d59230",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#08f377545e31",
+   "certified_rank": 2,
+   "discovery_rank": 97,
+   "objective_EXACT": "3511557.96418463",
+   "objective_APPROXIMATE": "3623758.5156704206",
+   "n_lines": 65,
+   "state_digest": "08f377545e31e264",
+   "plan_digest": "8d490126eaddd1d2",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#d1f8d2497954",
+   "certified_rank": 3,
+   "discovery_rank": 199,
+   "objective_EXACT": "3514611.1823909655",
+   "objective_APPROXIMATE": "3624527.721223027",
+   "n_lines": 65,
+   "state_digest": "d1f8d249795468a3",
+   "plan_digest": "a9e7da42c423e52b",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#21fa771c4311",
+   "certified_rank": 4,
+   "discovery_rank": 139,
+   "objective_EXACT": "3515010.545682507",
+   "objective_APPROXIMATE": "3624250.7096351343",
+   "n_lines": 65,
+   "state_digest": "21fa771c43113bb0",
+   "plan_digest": "c42d7d8aea2c2e18",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#24e142fc0287",
+   "certified_rank": 5,
+   "discovery_rank": 198,
+   "objective_EXACT": "3515759.623238675",
+   "objective_APPROXIMATE": "3624527.721223027",
+   "n_lines": 65,
+   "state_digest": "24e142fc028759e0",
+   "plan_digest": "b6edcdadb65ba79e",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#03fce0e3f398",
+   "certified_rank": 6,
+   "discovery_rank": 106,
+   "objective_EXACT": "3515967.7334132823",
+   "objective_APPROXIMATE": "3623926.132963452",
+   "n_lines": 65,
+   "state_digest": "03fce0e3f398e7ed",
+   "plan_digest": "5e61f260bf3eec87",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#c85f68507f8c",
+   "certified_rank": 7,
+   "discovery_rank": 158,
+   "objective_EXACT": "3516382.150912489",
+   "objective_APPROXIMATE": "3624307.4671349158",
+   "n_lines": 65,
+   "state_digest": "c85f68507f8c1e16",
+   "plan_digest": "283ce794a5aea9ef",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#98054c48fe48",
+   "certified_rank": 8,
+   "discovery_rank": 195,
+   "objective_EXACT": "3516886.3548730505",
+   "objective_APPROXIMATE": "3624520.3950452176",
+   "n_lines": 65,
+   "state_digest": "98054c48fe4844cf",
+   "plan_digest": "ba0ad1cb272b3e06",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#3302f2af66ee",
+   "certified_rank": 9,
+   "discovery_rank": 142,
+   "objective_EXACT": "3517291.8894720855",
+   "objective_APPROXIMATE": "3624255.488428054",
+   "n_lines": 65,
+   "state_digest": "3302f2af66eee2b5",
+   "plan_digest": "9abb17cb40afbb62",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#113872a5a967",
+   "certified_rank": 10,
+   "discovery_rank": 109,
+   "objective_EXACT": "3517566.4776370795",
+   "objective_APPROXIMATE": "3623935.1931554354",
+   "n_lines": 65,
+   "state_digest": "113872a5a967227a",
+   "plan_digest": "c39c17a0eedf94c1",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#32217e8b5098",
+   "certified_rank": 11,
+   "discovery_rank": 154,
+   "objective_EXACT": "3517869.507531207",
+   "objective_APPROXIMATE": "3624292.2947177878",
+   "n_lines": 65,
+   "state_digest": "32217e8b50987e81",
+   "plan_digest": "5df4a9ebc37ef1fc",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#12ab99b5915e",
+   "certified_rank": 12,
+   "discovery_rank": 135,
+   "objective_EXACT": "3518302.5542372954",
+   "objective_APPROXIMATE": "3624240.9884686517",
+   "n_lines": 65,
+   "state_digest": "12ab99b5915e2cd7",
+   "plan_digest": "6c07bcb9b2e5e77a",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#80a5c289e861",
+   "certified_rank": 13,
+   "discovery_rank": 33,
+   "objective_EXACT": "3518623.2771183895",
+   "objective_APPROXIMATE": "3621095.364632346",
+   "n_lines": 65,
+   "state_digest": "80a5c289e861e779",
+   "plan_digest": "45f998bc1554cf53",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#81d9a2f8c376",
+   "certified_rank": 14,
+   "discovery_rank": 73,
+   "objective_EXACT": "3518745.4973229477",
+   "objective_APPROXIMATE": "3622764.10262257",
+   "n_lines": 65,
+   "state_digest": "81d9a2f8c3765ff9",
+   "plan_digest": "33e0c558cc9b504f",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#feac42afd453",
+   "certified_rank": 15,
+   "discovery_rank": 117,
+   "objective_EXACT": "3518818.4775542533",
+   "objective_APPROXIMATE": "3623976.420703671",
+   "n_lines": 65,
+   "state_digest": "feac42afd4536d45",
+   "plan_digest": "d2ba5459344b3eb7",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#7df991b36df1",
+   "certified_rank": 16,
+   "discovery_rank": 134,
+   "objective_EXACT": "3518829.6042736974",
+   "objective_APPROXIMATE": "3624240.4041927997",
+   "n_lines": 65,
+   "state_digest": "7df991b36df133bc",
+   "plan_digest": "aa0e290e1e187efb",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e10f2321e79b",
+   "certified_rank": 17,
+   "discovery_rank": 123,
+   "objective_EXACT": "3518981.4458532785",
+   "objective_APPROXIMATE": "3624017.3540001404",
+   "n_lines": 65,
+   "state_digest": "e10f2321e79b6977",
+   "plan_digest": "27a0ef0b0abcee09",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#b238cac2845e",
+   "certified_rank": 18,
+   "discovery_rank": 90,
+   "objective_EXACT": "3519034.7204397647",
+   "objective_APPROXIMATE": "3623633.216709827",
+   "n_lines": 65,
+   "state_digest": "b238cac2845e03e2",
+   "plan_digest": "c3b9a27b40da287a",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#ebb81d232aa0",
+   "certified_rank": 19,
+   "discovery_rank": 143,
+   "objective_EXACT": "3519130.1103711505",
+   "objective_APPROXIMATE": "3624255.9686776954",
+   "n_lines": 65,
+   "state_digest": "ebb81d232aa0389e",
+   "plan_digest": "e4cff3d5807c3ffd",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#a5fae152436b",
+   "certified_rank": 20,
+   "discovery_rank": 110,
+   "objective_EXACT": "3519338.2787365755",
+   "objective_APPROXIMATE": "3623935.1931554354",
+   "n_lines": 65,
+   "state_digest": "a5fae152436b5a1b",
+   "plan_digest": "a736a97282ace351",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#3d7c9f161672",
+   "certified_rank": 21,
+   "discovery_rank": 194,
+   "objective_EXACT": "3519637.4645075607",
+   "objective_APPROXIMATE": "3624510.8903469457",
+   "n_lines": 65,
+   "state_digest": "3d7c9f161672ef26",
+   "plan_digest": "a9e850485abecb47",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#72a13b9cf627",
+   "certified_rank": 22,
+   "discovery_rank": 155,
+   "objective_EXACT": "3519691.6552823456",
+   "objective_APPROXIMATE": "3624292.2947177878",
+   "n_lines": 65,
+   "state_digest": "72a13b9cf6278a25",
+   "plan_digest": "1ea1ce27baa2a7cd",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#6c1e400f1379",
+   "certified_rank": 23,
+   "discovery_rank": 160,
+   "objective_EXACT": "3520345.174215813",
+   "objective_APPROXIMATE": "3624310.776260409",
+   "n_lines": 65,
+   "state_digest": "6c1e400f1379f186",
+   "plan_digest": "f82e4596dc76ffd3",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#545eb38f4b57",
+   "certified_rank": 24,
+   "discovery_rank": 137,
+   "objective_EXACT": "3520400.762659103",
+   "objective_APPROXIMATE": "3624248.395288728",
+   "n_lines": 65,
+   "state_digest": "545eb38f4b57bbc3",
+   "plan_digest": "1bc007ffea741360",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#12165a4c04c6",
+   "certified_rank": 25,
+   "discovery_rank": 151,
+   "objective_EXACT": "3520776.10309261",
+   "objective_APPROXIMATE": "3624274.854174218",
+   "n_lines": 65,
+   "state_digest": "12165a4c04c60794",
+   "plan_digest": "6edee9c24bd916ce",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#4ab053a8f77f",
+   "certified_rank": 26,
+   "discovery_rank": 136,
+   "objective_EXACT": "3520796.314478053",
+   "objective_APPROXIMATE": "3624247.5037542456",
+   "n_lines": 65,
+   "state_digest": "4ab053a8f77f9a49",
+   "plan_digest": "67e59859ed168522",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#c39c36214499",
+   "certified_rank": 27,
+   "discovery_rank": 114,
+   "objective_EXACT": "3520858.7430317807",
+   "objective_APPROXIMATE": "3623945.840103859",
+   "n_lines": 65,
+   "state_digest": "c39c3621449962bb",
+   "plan_digest": "024d644f3aa09280",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#00a1a066ae8e",
+   "certified_rank": 28,
+   "discovery_rank": 122,
+   "objective_EXACT": "3520906.51691085",
+   "objective_APPROXIMATE": "3624017.3540001404",
+   "n_lines": 65,
+   "state_digest": "00a1a066ae8ee7bc",
+   "plan_digest": "12bb02750cdc917b",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0252045320c1",
+   "certified_rank": 29,
+   "discovery_rank": 153,
+   "objective_EXACT": "3521156.255557195",
+   "objective_APPROXIMATE": "3624292.2947177878",
+   "n_lines": 65,
+   "state_digest": "0252045320c1b8d8",
+   "plan_digest": "119b2d815c0fb0cc",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#4c98a9adcbd9",
+   "certified_rank": 30,
+   "discovery_rank": 149,
+   "objective_EXACT": "3521651.0790224024",
+   "objective_APPROXIMATE": "3624268.387816839",
+   "n_lines": 65,
+   "state_digest": "4c98a9adcbd9fadb",
+   "plan_digest": "36536803906906a3",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#f0d89fda7557",
+   "certified_rank": 31,
+   "discovery_rank": 148,
+   "objective_EXACT": "3521656.480598898",
+   "objective_APPROXIMATE": "3624267.003470701",
+   "n_lines": 65,
+   "state_digest": "f0d89fda7557322f",
+   "plan_digest": "7240b39934cb96ac",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#08ce303d15b9",
+   "certified_rank": 32,
+   "discovery_rank": 60,
+   "objective_EXACT": "3521700.176749518",
+   "objective_APPROXIMATE": "3621312.7292644475",
+   "n_lines": 65,
+   "state_digest": "08ce303d15b9dd25",
+   "plan_digest": "167804f88757d9a1",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#3ad6fb7cee39",
+   "certified_rank": 33,
+   "discovery_rank": 133,
+   "objective_EXACT": "3521857.0498714335",
+   "objective_APPROXIMATE": "3624240.4041927997",
+   "n_lines": 65,
+   "state_digest": "3ad6fb7cee39bcee",
+   "plan_digest": "d70652353cd80874",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#43b8e5a335f9",
+   "certified_rank": 34,
+   "discovery_rank": 120,
+   "objective_EXACT": "3521896.6164716645",
+   "objective_APPROXIMATE": "3623999.580510936",
+   "n_lines": 65,
+   "state_digest": "43b8e5a335f916c8",
+   "plan_digest": "91a6d8eabe00c66d",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#03ddaa5089cf",
+   "certified_rank": 35,
+   "discovery_rank": 49,
+   "objective_EXACT": "3522738.588747124",
+   "objective_APPROXIMATE": "3621183.2828045604",
+   "n_lines": 65,
+   "state_digest": "03ddaa5089cfdb16",
+   "plan_digest": "226566651299c0c4",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e262be604e11",
+   "certified_rank": 36,
+   "discovery_rank": 163,
+   "objective_EXACT": "3523132.27914844",
+   "objective_APPROXIMATE": "3624318.227102962",
+   "n_lines": 65,
+   "state_digest": "e262be604e110b3f",
+   "plan_digest": "d11e5a3f7521a68b",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#12f767e55302",
+   "certified_rank": 37,
+   "discovery_rank": 29,
+   "objective_EXACT": "3523180.8867645906",
+   "objective_APPROXIMATE": "3621071.413726807",
+   "n_lines": 65,
+   "state_digest": "12f767e55302b599",
+   "plan_digest": "860d16d47ca31e28",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#d9b4952dfca7",
+   "certified_rank": 38,
+   "discovery_rank": 161,
+   "objective_EXACT": "3523481.9058457925",
+   "objective_APPROXIMATE": "3624310.776260409",
+   "n_lines": 65,
+   "state_digest": "d9b4952dfca723f8",
+   "plan_digest": "5b191ba074b7e728",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#995f117521b9",
+   "certified_rank": 39,
+   "discovery_rank": 126,
+   "objective_EXACT": "3523751.54951432",
+   "objective_APPROXIMATE": "3624021.2323215064",
+   "n_lines": 65,
+   "state_digest": "995f117521b9424e",
+   "plan_digest": "cee09d258fed7169",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#27e98a3c03dd",
+   "certified_rank": 40,
+   "discovery_rank": 103,
+   "objective_EXACT": "3523966.976301446",
+   "objective_APPROXIMATE": "3623898.201487316",
+   "n_lines": 65,
+   "state_digest": "27e98a3c03ddb43c",
+   "plan_digest": "56989d0973677010",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#17ba3dab9fb8",
+   "certified_rank": 41,
+   "discovery_rank": 39,
+   "objective_EXACT": "3524070.1604174804",
+   "objective_APPROXIMATE": "3621136.631052433",
+   "n_lines": 65,
+   "state_digest": "17ba3dab9fb8f4db",
+   "plan_digest": "df0c5b2cc71d2e87",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e978e8cc7393",
+   "certified_rank": 42,
+   "discovery_rank": 116,
+   "objective_EXACT": "3524170.5059964024",
+   "objective_APPROXIMATE": "3623976.420703671",
+   "n_lines": 65,
+   "state_digest": "e978e8cc7393f9de",
+   "plan_digest": "a7a2d419cdbedfaa",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#be27a31e5ddf",
+   "certified_rank": 43,
+   "discovery_rank": 127,
+   "objective_EXACT": "3524204.4675950753",
+   "objective_APPROXIMATE": "3624021.2323215064",
+   "n_lines": 65,
+   "state_digest": "be27a31e5ddf1b19",
+   "plan_digest": "78c69a7b2424a75f",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#07d8dadd9362",
+   "certified_rank": 44,
+   "discovery_rank": 98,
+   "objective_EXACT": "3524227.5940536903",
+   "objective_APPROXIMATE": "3623771.604316501",
+   "n_lines": 65,
+   "state_digest": "07d8dadd9362f8ad",
+   "plan_digest": "1400aa66b2a55f23",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e0995f81d96e",
+   "certified_rank": 45,
+   "discovery_rank": 13,
+   "objective_EXACT": "3524530.2851047106",
+   "objective_APPROXIMATE": "3620212.8475256013",
+   "n_lines": 65,
+   "state_digest": "e0995f81d96e083a",
+   "plan_digest": "139f0fcd122627f1",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#2e7cebf918f4",
+   "certified_rank": 46,
+   "discovery_rank": 94,
+   "objective_EXACT": "3524635.725701562",
+   "objective_APPROXIMATE": "3623736.4463558802",
+   "n_lines": 65,
+   "state_digest": "2e7cebf918f4f90e",
+   "plan_digest": "ce8d266513b9e010",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e1d16563d333",
+   "certified_rank": 47,
+   "discovery_rank": 91,
+   "objective_EXACT": "3524777.1321239825",
+   "objective_APPROXIMATE": "3623640.1325801206",
+   "n_lines": 65,
+   "state_digest": "e1d16563d3337dcd",
+   "plan_digest": "bd5f40640421b623",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#26e7a4efc7d8",
+   "certified_rank": 48,
+   "discovery_rank": 119,
+   "objective_EXACT": "3524908.6380053377",
+   "objective_APPROXIMATE": "3623999.580510936",
+   "n_lines": 65,
+   "state_digest": "26e7a4efc7d8dc3e",
+   "plan_digest": "e304c07756614aac",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#ec59b41db804",
+   "certified_rank": 49,
+   "discovery_rank": 96,
+   "objective_EXACT": "3524949.4480044497",
+   "objective_APPROXIMATE": "3623756.4579393733",
+   "n_lines": 65,
+   "state_digest": "ec59b41db80413a2",
+   "plan_digest": "6f956c5ac7934af3",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#d6f401185657",
+   "certified_rank": 50,
+   "discovery_rank": 118,
+   "objective_EXACT": "3525178.398560694",
+   "objective_APPROXIMATE": "3623991.4770318232",
+   "n_lines": 65,
+   "state_digest": "d6f401185657ed73",
+   "plan_digest": "0d986b8b397916d7",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#25f7cef7f2e9",
+   "certified_rank": 51,
+   "discovery_rank": 125,
+   "objective_EXACT": "3525501.969256101",
+   "objective_APPROXIMATE": "3624019.9245529277",
+   "n_lines": 65,
+   "state_digest": "25f7cef7f2e975ee",
+   "plan_digest": "123920ae9039026f",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#35bdcdf10790",
+   "certified_rank": 52,
+   "discovery_rank": 159,
+   "objective_EXACT": "3526284.7645618827",
+   "objective_APPROXIMATE": "3624310.776260409",
+   "n_lines": 65,
+   "state_digest": "35bdcdf107906b07",
+   "plan_digest": "c68e22697d6ae265",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#6dbfed52cb7f",
+   "certified_rank": 53,
+   "discovery_rank": 113,
+   "objective_EXACT": "3526286.83737182",
+   "objective_APPROXIMATE": "3623942.517386465",
+   "n_lines": 65,
+   "state_digest": "6dbfed52cb7f2ef0",
+   "plan_digest": "7a142633969ae91d",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0eb5719e8796",
+   "certified_rank": 54,
+   "discovery_rank": 121,
+   "objective_EXACT": "3526363.2142598988",
+   "objective_APPROXIMATE": "3624016.5535792033",
+   "n_lines": 65,
+   "state_digest": "0eb5719e87963cca",
+   "plan_digest": "fbe2c1397757f414",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#5667143ddd84",
+   "certified_rank": 55,
+   "discovery_rank": 99,
+   "objective_EXACT": "3526452.0736292903",
+   "objective_APPROXIMATE": "3623786.0856222147",
+   "n_lines": 65,
+   "state_digest": "5667143ddd84d060",
+   "plan_digest": "5442c74603043f66",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0f952255f5bd",
+   "certified_rank": 56,
+   "discovery_rank": 150,
+   "objective_EXACT": "3526558.0461361655",
+   "objective_APPROXIMATE": "3624273.567857834",
+   "n_lines": 65,
+   "state_digest": "0f952255f5bdaade",
+   "plan_digest": "d52a0dcdfa3bec6f",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#6235140c6df3",
+   "certified_rank": 57,
+   "discovery_rank": 41,
+   "objective_EXACT": "3526819.5466721836",
+   "objective_APPROXIMATE": "3621139.503667886",
+   "n_lines": 65,
+   "state_digest": "6235140c6df35bb7",
+   "plan_digest": "539480a98ce8a535",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#6addf085b829",
+   "certified_rank": 58,
+   "discovery_rank": 152,
+   "objective_EXACT": "3526850.979154984",
+   "objective_APPROXIMATE": "3624285.1021680813",
+   "n_lines": 65,
+   "state_digest": "6addf085b8295f88",
+   "plan_digest": "18e8f533ffca4e6a",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#ff822f6ab822",
+   "certified_rank": 59,
+   "discovery_rank": 105,
+   "objective_EXACT": "3527706.9736478687",
+   "objective_APPROXIMATE": "3623924.224184008",
+   "n_lines": 65,
+   "state_digest": "ff822f6ab822805e",
+   "plan_digest": "8fe9965f97ae4a36",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#39e73d78adc3",
+   "certified_rank": 60,
+   "discovery_rank": 69,
+   "objective_EXACT": "3528223.7656235066",
+   "objective_APPROXIMATE": "3621593.864609244",
+   "n_lines": 65,
+   "state_digest": "39e73d78adc3e2e6",
+   "plan_digest": "e832b9d2d4269e3e",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#446bd2371357",
+   "certified_rank": 61,
+   "discovery_rank": 68,
+   "objective_EXACT": "3528401.1111612692",
+   "objective_APPROXIMATE": "3621564.6347564366",
+   "n_lines": 65,
+   "state_digest": "446bd23713570fe1",
+   "plan_digest": "3d2736bf8af396c9",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#081afff930ee",
+   "certified_rank": 62,
+   "discovery_rank": 165,
+   "objective_EXACT": "3528659.4833576",
+   "objective_APPROXIMATE": "3624322.289925378",
+   "n_lines": 65,
+   "state_digest": "081afff930eeaecb",
+   "plan_digest": "3014fd7ae43601d2",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#664850ae34f2",
+   "certified_rank": 63,
+   "discovery_rank": 171,
+   "objective_EXACT": "3529150.0225031767",
+   "objective_APPROXIMATE": "3624394.448205972",
+   "n_lines": 65,
+   "state_digest": "664850ae34f2373d",
+   "plan_digest": "17df0af9e6c237db",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#51c9bc9f6cc1",
+   "certified_rank": 64,
+   "discovery_rank": 72,
+   "objective_EXACT": "3529479.603780871",
+   "objective_APPROXIMATE": "3622577.434083837",
+   "n_lines": 65,
+   "state_digest": "51c9bc9f6cc164c5",
+   "plan_digest": "c43c600453e88655",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#f0dccfe1b209",
+   "certified_rank": 65,
+   "discovery_rank": 145,
+   "objective_EXACT": "3529624.5344988955",
+   "objective_APPROXIMATE": "3624260.5235872306",
+   "n_lines": 65,
+   "state_digest": "f0dccfe1b2097277",
+   "plan_digest": "8d023172571d05a3",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#7272b2b37260",
+   "certified_rank": 66,
+   "discovery_rank": 144,
+   "objective_EXACT": "3530593.9107907843",
+   "objective_APPROXIMATE": "3624258.738180108",
+   "n_lines": 65,
+   "state_digest": "7272b2b3726053f4",
+   "plan_digest": "3154d7abae2c7c52",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#06a0b7538dda",
+   "certified_rank": 67,
+   "discovery_rank": 164,
+   "objective_EXACT": "3530623.7339775376",
+   "objective_APPROXIMATE": "3624321.641057033",
+   "n_lines": 65,
+   "state_digest": "06a0b7538dda9db9",
+   "plan_digest": "7b8e462d8ef6f4ac",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e368e4c6663c",
+   "certified_rank": 68,
+   "discovery_rank": 100,
+   "objective_EXACT": "3530740.945360298",
+   "objective_APPROXIMATE": "3623817.636140862",
+   "n_lines": 65,
+   "state_digest": "e368e4c6663c4dc0",
+   "plan_digest": "df6fb2312841b313",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#2c175dbf6a53",
+   "certified_rank": 69,
+   "discovery_rank": 107,
+   "objective_EXACT": "3530948.8544081287",
+   "objective_APPROXIMATE": "3623928.84460839",
+   "n_lines": 65,
+   "state_digest": "2c175dbf6a539738",
+   "plan_digest": "32c999a4c8fa003d",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#57d91472dc28",
+   "certified_rank": 70,
+   "discovery_rank": 40,
+   "objective_EXACT": "3531072.9581492892",
+   "objective_APPROXIMATE": "3621139.503667886",
+   "n_lines": 65,
+   "state_digest": "57d91472dc28a453",
+   "plan_digest": "bea7232fe3ebb9da",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#99c5d391c164",
+   "certified_rank": 71,
+   "discovery_rank": 52,
+   "objective_EXACT": "3531144.8138507344",
+   "objective_APPROXIMATE": "3621197.72261844",
+   "n_lines": 65,
+   "state_digest": "99c5d391c164dc82",
+   "plan_digest": "75c81e0c9b4db3ab",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#a0f74ef83923",
+   "certified_rank": 72,
+   "discovery_rank": 184,
+   "objective_EXACT": "3531302.515422671",
+   "objective_APPROXIMATE": "3624489.3204563875",
+   "n_lines": 65,
+   "state_digest": "a0f74ef83923b3f3",
+   "plan_digest": "cf84e125fb482957",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e539104e3397",
+   "certified_rank": 73,
+   "discovery_rank": 67,
+   "objective_EXACT": "3531431.3031785293",
+   "objective_APPROXIMATE": "3621555.774888763",
+   "n_lines": 65,
+   "state_digest": "e539104e339709a0",
+   "plan_digest": "ae0282656c98803f",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#26ea778a42d5",
+   "certified_rank": 74,
+   "discovery_rank": 170,
+   "objective_EXACT": "3531483.7204951853",
+   "objective_APPROXIMATE": "3624394.448205972",
+   "n_lines": 65,
+   "state_digest": "26ea778a42d540f5",
+   "plan_digest": "1c4d8e389fd45c9d",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#eed717e8318b",
+   "certified_rank": 75,
+   "discovery_rank": 38,
+   "objective_EXACT": "3531535.117875299",
+   "objective_APPROXIMATE": "3621136.4408278205",
+   "n_lines": 65,
+   "state_digest": "eed717e8318b8040",
+   "plan_digest": "3882929c43ff133c",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#02a71a286c3f",
+   "certified_rank": 76,
+   "discovery_rank": 54,
+   "objective_EXACT": "3532034.946140994",
+   "objective_APPROXIMATE": "3621244.8686659206",
+   "n_lines": 65,
+   "state_digest": "02a71a286c3f364b",
+   "plan_digest": "ce14ee23e5ef5732",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#34a619e99f21",
+   "certified_rank": 77,
+   "discovery_rank": 74,
+   "objective_EXACT": "3532601.425937237",
+   "objective_APPROXIMATE": "3623065.9194889823",
+   "n_lines": 65,
+   "state_digest": "34a619e99f213b93",
+   "plan_digest": "d7b4538d987e7c0b",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#b32a8b775c2b",
+   "certified_rank": 78,
+   "discovery_rank": 70,
+   "objective_EXACT": "3534412.4273298313",
+   "objective_APPROXIMATE": "3621676.3763293587",
+   "n_lines": 65,
+   "state_digest": "b32a8b775c2b0b1f",
+   "plan_digest": "f56bb797e6c22e67",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#afa2c72be006",
+   "certified_rank": 79,
+   "discovery_rank": 193,
+   "objective_EXACT": "3534434.337091273",
+   "objective_APPROXIMATE": "3624505.293175509",
+   "n_lines": 65,
+   "state_digest": "afa2c72be0066c9b",
+   "plan_digest": "06edbd8e54205acc",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#b2b43dbb7034",
+   "certified_rank": 80,
+   "discovery_rank": 24,
+   "objective_EXACT": "3534548.3946819203",
+   "objective_APPROXIMATE": "3620866.5484104757",
+   "n_lines": 65,
+   "state_digest": "b2b43dbb70349efb",
+   "plan_digest": "c54d7a2533218876",
+   "rounds": 8,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0bdd18b3f431",
+   "certified_rank": 81,
+   "discovery_rank": 180,
+   "objective_EXACT": "3534750.2970836987",
+   "objective_APPROXIMATE": "3624448.729441771",
+   "n_lines": 65,
+   "state_digest": "0bdd18b3f43142ab",
+   "plan_digest": "8122785b624ef217",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#dd62c1c002ec",
+   "certified_rank": 82,
+   "discovery_rank": 174,
+   "objective_EXACT": "3534927.1495622927",
+   "objective_APPROXIMATE": "3624422.047560957",
+   "n_lines": 65,
+   "state_digest": "dd62c1c002ec3a65",
+   "plan_digest": "c49165b84eee9fac",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#f7d5485bd840",
+   "certified_rank": 83,
+   "discovery_rank": 169,
+   "objective_EXACT": "3535069.7082900093",
+   "objective_APPROXIMATE": "3624385.1275289734",
+   "n_lines": 65,
+   "state_digest": "f7d5485bd840ab5c",
+   "plan_digest": "f6eb9c5d4040a0b7",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#ab7e78e194ba",
+   "certified_rank": 84,
+   "discovery_rank": 130,
+   "objective_EXACT": "3535150.3010122306",
+   "objective_APPROXIMATE": "3624218.173592635",
+   "n_lines": 65,
+   "state_digest": "ab7e78e194bae9ef",
+   "plan_digest": "ed8634111e0c5ce8",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#2e91e1000126",
+   "certified_rank": 85,
+   "discovery_rank": 200,
+   "objective_EXACT": "3535165.607082845",
+   "objective_APPROXIMATE": "3624528.619536508",
+   "n_lines": 65,
+   "state_digest": "2e91e100012607d6",
+   "plan_digest": "d4c65be87cd28a7a",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#89afcb1d01e0",
+   "certified_rank": 86,
+   "discovery_rank": 177,
+   "objective_EXACT": "3535431.354088397",
+   "objective_APPROXIMATE": "3624433.392550507",
+   "n_lines": 65,
+   "state_digest": "89afcb1d01e0b7c6",
+   "plan_digest": "cfe10ce1320c547c",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#05da9d9254f2",
+   "certified_rank": 87,
+   "discovery_rank": 140,
+   "objective_EXACT": "3535436.7638493297",
+   "objective_APPROXIMATE": "3624253.132936629",
+   "n_lines": 65,
+   "state_digest": "05da9d9254f20fbf",
+   "plan_digest": "b4d779b3d2d2bf21",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#5f963d4bb30f",
+   "certified_rank": 88,
+   "discovery_rank": 175,
+   "objective_EXACT": "3535626.085020342",
+   "objective_APPROXIMATE": "3624429.0184121924",
+   "n_lines": 65,
+   "state_digest": "5f963d4bb30f0965",
+   "plan_digest": "fa9899c59746727c",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#11c2ecb78519",
+   "certified_rank": 89,
+   "discovery_rank": 27,
+   "objective_EXACT": "3536057.5924843373",
+   "objective_APPROXIMATE": "3621047.3879403872",
+   "n_lines": 65,
+   "state_digest": "11c2ecb78519b1ff",
+   "plan_digest": "4d164c41210e78fe",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#29c0b77eb870",
+   "certified_rank": 90,
+   "discovery_rank": 141,
+   "objective_EXACT": "3536324.751645186",
+   "objective_APPROXIMATE": "3624253.132936629",
+   "n_lines": 65,
+   "state_digest": "29c0b77eb8702547",
+   "plan_digest": "664516572f60e099",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#b14349a05c65",
+   "certified_rank": 91,
+   "discovery_rank": 34,
+   "objective_EXACT": "3536392.6914285184",
+   "objective_APPROXIMATE": "3621097.10920144",
+   "n_lines": 65,
+   "state_digest": "b14349a05c6509f9",
+   "plan_digest": "e1b2dd05878aee51",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#f217c449dafc",
+   "certified_rank": 92,
+   "discovery_rank": 65,
+   "objective_EXACT": "3536560.515980131",
+   "objective_APPROXIMATE": "3621548.143689369",
+   "n_lines": 65,
+   "state_digest": "f217c449dafc618b",
+   "plan_digest": "899a8e3ec0088d2f",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#ceab9279540c",
+   "certified_rank": 93,
+   "discovery_rank": 55,
+   "objective_EXACT": "3537145.5246466636",
+   "objective_APPROXIMATE": "3621268.630277183",
+   "n_lines": 65,
+   "state_digest": "ceab9279540cf1b8",
+   "plan_digest": "a692d99139582457",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#7bf46b9b2e0a",
+   "certified_rank": 94,
+   "discovery_rank": 138,
+   "objective_EXACT": "3537166.8640556494",
+   "objective_APPROXIMATE": "3624248.5656893393",
+   "n_lines": 65,
+   "state_digest": "7bf46b9b2e0a2154",
+   "plan_digest": "41e070195a3d2cf7",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#9abcf4130fd7",
+   "certified_rank": 95,
+   "discovery_rank": 56,
+   "objective_EXACT": "3537286.0144431493",
+   "objective_APPROXIMATE": "3621274.432437859",
+   "n_lines": 65,
+   "state_digest": "9abcf4130fd764dc",
+   "plan_digest": "49ecb182bbe4f0d0",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#a52e297e84b2",
+   "certified_rank": 96,
+   "discovery_rank": 104,
+   "objective_EXACT": "3537296.2632371094",
+   "objective_APPROXIMATE": "3623917.3454791717",
+   "n_lines": 65,
+   "state_digest": "a52e297e84b24ee6",
+   "plan_digest": "696a46e8de7daefc",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#c6824140fb68",
+   "certified_rank": 97,
+   "discovery_rank": 197,
+   "objective_EXACT": "3537381.6987630967",
+   "objective_APPROXIMATE": "3624526.886537483",
+   "n_lines": 65,
+   "state_digest": "c6824140fb687887",
+   "plan_digest": "c4a97d2f07819ade",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0c061c5da55c",
+   "certified_rank": 98,
+   "discovery_rank": 26,
+   "objective_EXACT": "3537441.2429289646",
+   "objective_APPROXIMATE": "3620997.7304056096",
+   "n_lines": 65,
+   "state_digest": "0c061c5da55cae4b",
+   "plan_digest": "1868007f747a8aea",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#d8ce37fb32b7",
+   "certified_rank": 99,
+   "discovery_rank": 62,
+   "objective_EXACT": "3537827.6564453985",
+   "objective_APPROXIMATE": "3621457.9243793353",
+   "n_lines": 65,
+   "state_digest": "d8ce37fb32b7501e",
+   "plan_digest": "d394cdb891a37989",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#229cb1654b51",
+   "certified_rank": 100,
+   "discovery_rank": 16,
+   "objective_EXACT": "3538293.1172838197",
+   "objective_APPROXIMATE": "3620253.345260709",
+   "n_lines": 65,
+   "state_digest": "229cb1654b519f4d",
+   "plan_digest": "89ceb49dcc3717c6",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#13a0dd5dbfc2",
+   "certified_rank": 101,
+   "discovery_rank": 132,
+   "objective_EXACT": "3538302.378600798",
+   "objective_APPROXIMATE": "3624233.1025881246",
+   "n_lines": 65,
+   "state_digest": "13a0dd5dbfc207f9",
+   "plan_digest": "92a64baf487d0785",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#f4e4cc3e8f83",
+   "certified_rank": 102,
+   "discovery_rank": 8,
+   "objective_EXACT": "3538562.5905993003",
+   "objective_APPROXIMATE": "3620198.8866037033",
+   "n_lines": 65,
+   "state_digest": "f4e4cc3e8f83dc6e",
+   "plan_digest": "16db354df2b12f72",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#baed41dfdd6e",
+   "certified_rank": 103,
+   "discovery_rank": 12,
+   "objective_EXACT": "3538747.261495213",
+   "objective_APPROXIMATE": "3620206.8800558466",
+   "n_lines": 65,
+   "state_digest": "baed41dfdd6ed7d4",
+   "plan_digest": "49d1dde694829c48",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#01053e1ee016",
+   "certified_rank": 104,
+   "discovery_rank": 124,
+   "objective_EXACT": "3539072.7309689224",
+   "objective_APPROXIMATE": "3624018.1762991147",
+   "n_lines": 65,
+   "state_digest": "01053e1ee016216f",
+   "plan_digest": "51b5208a816e842a",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#8fb185fb9c9a",
+   "certified_rank": 105,
+   "discovery_rank": 146,
+   "objective_EXACT": "3540079.646895731",
+   "objective_APPROXIMATE": "3624265.520851524",
+   "n_lines": 65,
+   "state_digest": "8fb185fb9c9ad37c",
+   "plan_digest": "3b3804fad28e5ba4",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#f49131f84c76",
+   "certified_rank": 106,
+   "discovery_rank": 147,
+   "objective_EXACT": "3540376.5458585196",
+   "objective_APPROXIMATE": "3624265.520851524",
+   "n_lines": 65,
+   "state_digest": "f49131f84c761281",
+   "plan_digest": "63fe907ee2bdf397",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e75ee82e034a",
+   "certified_rank": 107,
+   "discovery_rank": 15,
+   "objective_EXACT": "3540722.670714628",
+   "objective_APPROXIMATE": "3620233.860093887",
+   "n_lines": 65,
+   "state_digest": "e75ee82e034a334a",
+   "plan_digest": "cba231a03e6550d1",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#a9687a8f6146",
+   "certified_rank": 108,
+   "discovery_rank": 185,
+   "objective_EXACT": "3540784.281940028",
+   "objective_APPROXIMATE": "3624489.978677667",
+   "n_lines": 65,
+   "state_digest": "a9687a8f614654fb",
+   "plan_digest": "3450a3f4682160af",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e12502aa3359",
+   "certified_rank": 109,
+   "discovery_rank": 112,
+   "objective_EXACT": "3540842.6045076484",
+   "objective_APPROXIMATE": "3623939.8914711466",
+   "n_lines": 65,
+   "state_digest": "e12502aa3359011f",
+   "plan_digest": "f4cc9dbd001653de",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0daa376b8e9d",
+   "certified_rank": 110,
+   "discovery_rank": 186,
+   "objective_EXACT": "3540892.429254189",
+   "objective_APPROXIMATE": "3624490.5120467073",
+   "n_lines": 65,
+   "state_digest": "0daa376b8e9dc1d3",
+   "plan_digest": "a1928c1a54bdc012",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#cee061c4de90",
+   "certified_rank": 111,
+   "discovery_rank": 66,
+   "objective_EXACT": "3541395.1856340906",
+   "objective_APPROXIMATE": "3621552.388674057",
+   "n_lines": 65,
+   "state_digest": "cee061c4de90241e",
+   "plan_digest": "add50a95212f799a",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#84edb6cc540a",
+   "certified_rank": 112,
+   "discovery_rank": 46,
+   "objective_EXACT": "3541407.013493171",
+   "objective_APPROXIMATE": "3621163.675709026",
+   "n_lines": 65,
+   "state_digest": "84edb6cc540a8735",
+   "plan_digest": "93425b2948ff38ae",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#5abe80d13635",
+   "certified_rank": 113,
+   "discovery_rank": 88,
+   "objective_EXACT": "3541542.144081049",
+   "objective_APPROXIMATE": "3623551.8048735335",
+   "n_lines": 65,
+   "state_digest": "5abe80d136353161",
+   "plan_digest": "92b2a2f91a948b9a",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#2e7ca680b95a",
+   "certified_rank": 114,
+   "discovery_rank": 59,
+   "objective_EXACT": "3541556.0440852833",
+   "objective_APPROXIMATE": "3621293.659333718",
+   "n_lines": 65,
+   "state_digest": "2e7ca680b95ae1fb",
+   "plan_digest": "520affc899692edd",
+   "rounds": 5,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#38518f45ddd8",
+   "certified_rank": 115,
+   "discovery_rank": 58,
+   "objective_EXACT": "3541582.676801855",
+   "objective_APPROXIMATE": "3621282.7750545647",
+   "n_lines": 65,
+   "state_digest": "38518f45ddd8202a",
+   "plan_digest": "4c6a890f1c3076cb",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#c625281e02c8",
+   "certified_rank": 116,
+   "discovery_rank": 61,
+   "objective_EXACT": "3541607.497857264",
+   "objective_APPROXIMATE": "3621336.2454391685",
+   "n_lines": 65,
+   "state_digest": "c625281e02c8b8cd",
+   "plan_digest": "0031a58354fd2af0",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#4bd65460f003",
+   "certified_rank": 117,
+   "discovery_rank": 92,
+   "objective_EXACT": "3541825.1648309347",
+   "objective_APPROXIMATE": "3623697.3659503963",
+   "n_lines": 65,
+   "state_digest": "4bd65460f00355ed",
+   "plan_digest": "c792839694d10a21",
+   "rounds": 9,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#3d18a585b4f3",
+   "certified_rank": 118,
+   "discovery_rank": 162,
+   "objective_EXACT": "3541858.2852457305",
+   "objective_APPROXIMATE": "3624314.671767242",
+   "n_lines": 65,
+   "state_digest": "3d18a585b4f31995",
+   "plan_digest": "764fe708bc2a579e",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0b5cd76a4d95",
+   "certified_rank": 119,
+   "discovery_rank": 157,
+   "objective_EXACT": "3542240.814297736",
+   "objective_APPROXIMATE": "3624305.3409292726",
+   "n_lines": 65,
+   "state_digest": "0b5cd76a4d957089",
+   "plan_digest": "8b8a9d7f820854ac",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0ac1e858735c",
+   "certified_rank": 120,
+   "discovery_rank": 156,
+   "objective_EXACT": "3542287.2425543894",
+   "objective_APPROXIMATE": "3624293.082180291",
+   "n_lines": 65,
+   "state_digest": "0ac1e858735ccaa3",
+   "plan_digest": "1b49b6029b2cbd01",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#b29253eb2d98",
+   "certified_rank": 121,
+   "discovery_rank": 48,
+   "objective_EXACT": "3542394.488278728",
+   "objective_APPROXIMATE": "3621180.6100092013",
+   "n_lines": 65,
+   "state_digest": "b29253eb2d98694b",
+   "plan_digest": "b0cf2ac08c6b514b",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#8c0b07ffccb1",
+   "certified_rank": 122,
+   "discovery_rank": 173,
+   "objective_EXACT": "3542490.506115995",
+   "objective_APPROXIMATE": "3624414.0193693438",
+   "n_lines": 65,
+   "state_digest": "8c0b07ffccb1933a",
+   "plan_digest": "c9599dcb75692751",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#931442c18c27",
+   "certified_rank": 123,
+   "discovery_rank": 187,
+   "objective_EXACT": "3543799.120555865",
+   "objective_APPROXIMATE": "3624491.5153699657",
+   "n_lines": 65,
+   "state_digest": "931442c18c27aada",
+   "plan_digest": "e9270d9e68d35d09",
+   "rounds": 9,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#2647272a8b91",
+   "certified_rank": 124,
+   "discovery_rank": 179,
+   "objective_EXACT": "3543841.007804035",
+   "objective_APPROXIMATE": "3624439.5045194887",
+   "n_lines": 65,
+   "state_digest": "2647272a8b91fcea",
+   "plan_digest": "e4f98dc1dc26c8f8",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0ad8275d4fe8",
+   "certified_rank": 125,
+   "discovery_rank": 19,
+   "objective_EXACT": "3544144.6475284905",
+   "objective_APPROXIMATE": "3620590.367685278",
+   "n_lines": 65,
+   "state_digest": "0ad8275d4fe8b158",
+   "plan_digest": "1d01342e64942e84",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0716b118f011",
+   "certified_rank": 126,
+   "discovery_rank": 131,
+   "objective_EXACT": "3544689.7834692206",
+   "objective_APPROXIMATE": "3624228.755515621",
+   "n_lines": 65,
+   "state_digest": "0716b118f011a4d9",
+   "plan_digest": "923401afa3d9c629",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#513af2338267",
+   "certified_rank": 127,
+   "discovery_rank": 20,
+   "objective_EXACT": "3544945.5508960513",
+   "objective_APPROXIMATE": "3620645.289526369",
+   "n_lines": 65,
+   "state_digest": "513af233826746a1",
+   "plan_digest": "54ac18aafd70b185",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#10861b7f4f6b",
+   "certified_rank": 128,
+   "discovery_rank": 192,
+   "objective_EXACT": "3545252.7788831396",
+   "objective_APPROXIMATE": "3624505.187348559",
+   "n_lines": 65,
+   "state_digest": "10861b7f4f6b5ff3",
+   "plan_digest": "2892d79e4e6e273f",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#2faa7024f923",
+   "certified_rank": 129,
+   "discovery_rank": 191,
+   "objective_EXACT": "3545370.53299082",
+   "objective_APPROXIMATE": "3624501.494504511",
+   "n_lines": 65,
+   "state_digest": "2faa7024f92329db",
+   "plan_digest": "b3a9baba730e65f3",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#74ebd8d603b8",
+   "certified_rank": 130,
+   "discovery_rank": 178,
+   "objective_EXACT": "3545819.584213311",
+   "objective_APPROXIMATE": "3624436.522160516",
+   "n_lines": 65,
+   "state_digest": "74ebd8d603b8663c",
+   "plan_digest": "3bce488534d0ca02",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#2d37c860663b",
+   "certified_rank": 131,
+   "discovery_rank": 166,
+   "objective_EXACT": "3546467.6207881263",
+   "objective_APPROXIMATE": "3624361.7295280965",
+   "n_lines": 65,
+   "state_digest": "2d37c860663b1ab4",
+   "plan_digest": "324e4a07559d9e0c",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#134866497ed7",
+   "certified_rank": 132,
+   "discovery_rank": 183,
+   "objective_EXACT": "3546493.2174105896",
+   "objective_APPROXIMATE": "3624469.2516820543",
+   "n_lines": 65,
+   "state_digest": "134866497ed74543",
+   "plan_digest": "c3708c3ea07f6557",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#5743bdb17ada",
+   "certified_rank": 133,
+   "discovery_rank": 4,
+   "objective_EXACT": "3546994.441600903",
+   "objective_APPROXIMATE": "3619792.36030602",
+   "n_lines": 65,
+   "state_digest": "5743bdb17ada9d9a",
+   "plan_digest": "62b5e165de3ef991",
+   "rounds": 7,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#d108352c408e",
+   "certified_rank": 134,
+   "discovery_rank": 189,
+   "objective_EXACT": "3547029.89810057",
+   "objective_APPROXIMATE": "3624499.807816357",
+   "n_lines": 65,
+   "state_digest": "d108352c408e43c5",
+   "plan_digest": "5b0cedbc93f1d789",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0aa85064fdd4",
+   "certified_rank": 135,
+   "discovery_rank": 3,
+   "objective_EXACT": "3548124.533957287",
+   "objective_APPROXIMATE": "3619521.7327961735",
+   "n_lines": 65,
+   "state_digest": "0aa85064fdd42730",
+   "plan_digest": "d0857746538a0bbf",
+   "rounds": 5,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#9c453324e080",
+   "certified_rank": 136,
+   "discovery_rank": 71,
+   "objective_EXACT": "3548258.0436559813",
+   "objective_APPROXIMATE": "3621943.770855251",
+   "n_lines": 65,
+   "state_digest": "9c453324e0806d26",
+   "plan_digest": "a9ce69b789f6c51f",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#202bcbd30b0b",
+   "certified_rank": 137,
+   "discovery_rank": 190,
+   "objective_EXACT": "3548381.111676563",
+   "objective_APPROXIMATE": "3624501.494504511",
+   "n_lines": 65,
+   "state_digest": "202bcbd30b0b7129",
+   "plan_digest": "1ddeba2aa87caf47",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#7aee66b501d2",
+   "certified_rank": 138,
+   "discovery_rank": 45,
+   "objective_EXACT": "3548672.5145278904",
+   "objective_APPROXIMATE": "3621151.0803674944",
+   "n_lines": 65,
+   "state_digest": "7aee66b501d2dc0a",
+   "plan_digest": "bb42c403c245143a",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#3c1fab53ae34",
+   "certified_rank": 139,
+   "discovery_rank": 84,
+   "objective_EXACT": "3549557.30358364",
+   "objective_APPROXIMATE": "3623474.897816014",
+   "n_lines": 65,
+   "state_digest": "3c1fab53ae3402c0",
+   "plan_digest": "51ef2ad9ab1874c5",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#208b85f8a5e6",
+   "certified_rank": 140,
+   "discovery_rank": 23,
+   "objective_EXACT": "3549853.15949673",
+   "objective_APPROXIMATE": "3620845.998532142",
+   "n_lines": 65,
+   "state_digest": "208b85f8a5e66044",
+   "plan_digest": "5d0e677b95295f11",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#eb44aa2e4763",
+   "certified_rank": 141,
+   "discovery_rank": 17,
+   "objective_EXACT": "3550211.587949542",
+   "objective_APPROXIMATE": "3620277.8197553866",
+   "n_lines": 65,
+   "state_digest": "eb44aa2e4763e298",
+   "plan_digest": "c6063c214cbee0ab",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#ac9267f1a2ef",
+   "certified_rank": 142,
+   "discovery_rank": 42,
+   "objective_EXACT": "3551125.224358304",
+   "objective_APPROXIMATE": "3621147.026154408",
+   "n_lines": 65,
+   "state_digest": "ac9267f1a2ef4f6f",
+   "plan_digest": "df9ef90ce0a3f724",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#c374c87023ef",
+   "certified_rank": 143,
+   "discovery_rank": 101,
+   "objective_EXACT": "3551680.424608961",
+   "objective_APPROXIMATE": "3623842.501137904",
+   "n_lines": 65,
+   "state_digest": "c374c87023ef1e23",
+   "plan_digest": "6a2ece67df884cf5",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#5737f7af14a7",
+   "certified_rank": 144,
+   "discovery_rank": 21,
+   "objective_EXACT": "3551868.3721659225",
+   "objective_APPROXIMATE": "3620695.314532663",
+   "n_lines": 65,
+   "state_digest": "5737f7af14a7df8c",
+   "plan_digest": "557fde347f440d93",
+   "rounds": 8,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#087a57214d17",
+   "certified_rank": 145,
+   "discovery_rank": 95,
+   "objective_EXACT": "3552132.7818167927",
+   "objective_APPROXIMATE": "3623748.170081932",
+   "n_lines": 65,
+   "state_digest": "087a57214d1752a0",
+   "plan_digest": "a4ff12a2b0f18354",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#036179be5d4b",
+   "certified_rank": 146,
+   "discovery_rank": 93,
+   "objective_EXACT": "3553012.146829939",
+   "objective_APPROXIMATE": "3623726.429136429",
+   "n_lines": 65,
+   "state_digest": "036179be5d4bafcb",
+   "plan_digest": "e9f396ee6ebc9def",
+   "rounds": 9,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#bb6abbbb8add",
+   "certified_rank": 147,
+   "discovery_rank": 37,
+   "objective_EXACT": "3553126.281504131",
+   "objective_APPROXIMATE": "3621125.3068879624",
+   "n_lines": 65,
+   "state_digest": "bb6abbbb8add969d",
+   "plan_digest": "0d9790e4226a2c51",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e17adda58300",
+   "certified_rank": 148,
+   "discovery_rank": 63,
+   "objective_EXACT": "3553366.955423757",
+   "objective_APPROXIMATE": "3621526.3785019936",
+   "n_lines": 65,
+   "state_digest": "e17adda583003da2",
+   "plan_digest": "0760c3a296eef927",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#11967e711b01",
+   "certified_rank": 149,
+   "discovery_rank": 31,
+   "objective_EXACT": "3553402.196117219",
+   "objective_APPROXIMATE": "3621086.0573391374",
+   "n_lines": 65,
+   "state_digest": "11967e711b012918",
+   "plan_digest": "d37de60f4c31f691",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#350c7cf4e725",
+   "certified_rank": 150,
+   "discovery_rank": 51,
+   "objective_EXACT": "3554415.5565495663",
+   "objective_APPROXIMATE": "3621194.5851632613",
+   "n_lines": 65,
+   "state_digest": "350c7cf4e725ee2f",
+   "plan_digest": "89bb3b75f67161c0",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#73b1c71b41fc",
+   "certified_rank": 151,
+   "discovery_rank": 64,
+   "objective_EXACT": "3554963.4247760726",
+   "objective_APPROXIMATE": "3621542.4722040794",
+   "n_lines": 65,
+   "state_digest": "73b1c71b41fc976b",
+   "plan_digest": "92a1450546f73c5d",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#9a48db1b4458",
+   "certified_rank": 152,
+   "discovery_rank": 188,
+   "objective_EXACT": "3554972.1665011737",
+   "objective_APPROXIMATE": "3624498.3968326813",
+   "n_lines": 65,
+   "state_digest": "9a48db1b44587ffe",
+   "plan_digest": "6e07b41fedd9bcf7",
+   "rounds": 7,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#c053fafadb97",
+   "certified_rank": 153,
+   "discovery_rank": 25,
+   "objective_EXACT": "3555039.6516065765",
+   "objective_APPROXIMATE": "3620928.183814434",
+   "n_lines": 65,
+   "state_digest": "c053fafadb97da92",
+   "plan_digest": "691fc78a7ff6b9c1",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#35e351133d6f",
+   "certified_rank": 154,
+   "discovery_rank": 128,
+   "objective_EXACT": "3555289.8561582733",
+   "objective_APPROXIMATE": "3624099.16978282",
+   "n_lines": 65,
+   "state_digest": "35e351133d6fcafc",
+   "plan_digest": "2622505d56e715f3",
+   "rounds": 5,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e07e623ac167",
+   "certified_rank": 155,
+   "discovery_rank": 35,
+   "objective_EXACT": "3555508.0273391698",
+   "objective_APPROXIMATE": "3621118.097071019",
+   "n_lines": 65,
+   "state_digest": "e07e623ac16796ce",
+   "plan_digest": "9d0c7371bb85a81c",
+   "rounds": 5,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#86a580516347",
+   "certified_rank": 156,
+   "discovery_rank": 32,
+   "objective_EXACT": "3555714.7582296473",
+   "objective_APPROXIMATE": "3621090.801210042",
+   "n_lines": 65,
+   "state_digest": "86a580516347ac35",
+   "plan_digest": "00232553612b48a8",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#34a94a029519",
+   "certified_rank": 157,
+   "discovery_rank": 10,
+   "objective_EXACT": "3555795.5608634674",
+   "objective_APPROXIMATE": "3620201.2520103944",
+   "n_lines": 65,
+   "state_digest": "34a94a029519ca06",
+   "plan_digest": "3ef51291273cc936",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#52d9a64ac9f9",
+   "certified_rank": 158,
+   "discovery_rank": 44,
+   "objective_EXACT": "3555872.795049601",
+   "objective_APPROXIMATE": "3621151.0803674944",
+   "n_lines": 65,
+   "state_digest": "52d9a64ac9f92c70",
+   "plan_digest": "f1d5b2a719f088ad",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#b334833266db",
+   "certified_rank": 159,
+   "discovery_rank": 47,
+   "objective_EXACT": "3555911.108488937",
+   "objective_APPROXIMATE": "3621176.1405262207",
+   "n_lines": 65,
+   "state_digest": "b334833266db8045",
+   "plan_digest": "56ac3ee9f50693e4",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#c48ea2959f6c",
+   "certified_rank": 160,
+   "discovery_rank": 78,
+   "objective_EXACT": "3556164.037347535",
+   "objective_APPROXIMATE": "3623457.968094167",
+   "n_lines": 65,
+   "state_digest": "c48ea2959f6cba22",
+   "plan_digest": "206dc8bdc3eceb47",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#ca20041516cf",
+   "certified_rank": 161,
+   "discovery_rank": 87,
+   "objective_EXACT": "3556178.440524822",
+   "objective_APPROXIMATE": "3623475.4933996187",
+   "n_lines": 65,
+   "state_digest": "ca20041516cf83ee",
+   "plan_digest": "ec27800ab4452c59",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#a2f5fd540ba7",
+   "certified_rank": 162,
+   "discovery_rank": 53,
+   "objective_EXACT": "3556255.6678202907",
+   "objective_APPROXIMATE": "3621212.463252944",
+   "n_lines": 65,
+   "state_digest": "a2f5fd540ba7f752",
+   "plan_digest": "852a99bb3ce8f15d",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#16e8b03c4a01",
+   "certified_rank": 163,
+   "discovery_rank": 43,
+   "objective_EXACT": "3556271.8102817866",
+   "objective_APPROXIMATE": "3621147.3570400598",
+   "n_lines": 65,
+   "state_digest": "16e8b03c4a0169d5",
+   "plan_digest": "f30b48e669af19b1",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#0270ac82da93",
+   "certified_rank": 164,
+   "discovery_rank": 7,
+   "objective_EXACT": "3556339.6479294095",
+   "objective_APPROXIMATE": "3620194.1205149116",
+   "n_lines": 65,
+   "state_digest": "0270ac82da933ed9",
+   "plan_digest": "089545041bf8c68e",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#7b63053f84be",
+   "certified_rank": 165,
+   "discovery_rank": 77,
+   "objective_EXACT": "3556526.138053657",
+   "objective_APPROXIMATE": "3623453.1195339626",
+   "n_lines": 65,
+   "state_digest": "7b63053f84be46bf",
+   "plan_digest": "201745563572ef0b",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#1f2a136ff4a1",
+   "certified_rank": 166,
+   "discovery_rank": 5,
+   "objective_EXACT": "3556595.082994553",
+   "objective_APPROXIMATE": "3619809.4343762966",
+   "n_lines": 65,
+   "state_digest": "1f2a136ff4a198d2",
+   "plan_digest": "5dae506b19182831",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#b3c43fb8ccb1",
+   "certified_rank": 167,
+   "discovery_rank": 6,
+   "objective_EXACT": "3556726.2550695604",
+   "objective_APPROXIMATE": "3620081.842334745",
+   "n_lines": 65,
+   "state_digest": "b3c43fb8ccb127c2",
+   "plan_digest": "b63e0d68905350b3",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#403bb3e801a5",
+   "certified_rank": 168,
+   "discovery_rank": 11,
+   "objective_EXACT": "3556730.28844147",
+   "objective_APPROXIMATE": "3620202.2654463025",
+   "n_lines": 65,
+   "state_digest": "403bb3e801a5fffb",
+   "plan_digest": "6bb347214cc57342",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e5d0b0b5e37b",
+   "certified_rank": 169,
+   "discovery_rank": 50,
+   "objective_EXACT": "3556758.200363788",
+   "objective_APPROXIMATE": "3621190.482232223",
+   "n_lines": 65,
+   "state_digest": "e5d0b0b5e37b6c1c",
+   "plan_digest": "77fcd1294a60e424",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#7a7459722327",
+   "certified_rank": 170,
+   "discovery_rank": 9,
+   "objective_EXACT": "3556768.5210943776",
+   "objective_APPROXIMATE": "3620199.331809458",
+   "n_lines": 65,
+   "state_digest": "7a74597223275320",
+   "plan_digest": "e4f86a7c43b673d4",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#41a1f3d6358e",
+   "certified_rank": 171,
+   "discovery_rank": 80,
+   "objective_EXACT": "3557437.7620782824",
+   "objective_APPROXIMATE": "3623460.1257838556",
+   "n_lines": 65,
+   "state_digest": "41a1f3d6358eb716",
+   "plan_digest": "f68e48547686a111",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#531bd9bff013",
+   "certified_rank": 172,
+   "discovery_rank": 167,
+   "objective_EXACT": "3557619.1592395026",
+   "objective_APPROXIMATE": "3624366.104072949",
+   "n_lines": 65,
+   "state_digest": "531bd9bff013b306",
+   "plan_digest": "4b2f19edb9ad17e9",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#09c5cc4dd6bb",
+   "certified_rank": 173,
+   "discovery_rank": 81,
+   "objective_EXACT": "3557804.766125843",
+   "objective_APPROXIMATE": "3623462.9173550108",
+   "n_lines": 65,
+   "state_digest": "09c5cc4dd6bb0a5c",
+   "plan_digest": "2a26227736bda4c7",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#e19c5c597f1b",
+   "certified_rank": 174,
+   "discovery_rank": 30,
+   "objective_EXACT": "3557897.455163476",
+   "objective_APPROXIMATE": "3621077.872445312",
+   "n_lines": 65,
+   "state_digest": "e19c5c597f1bb5bb",
+   "plan_digest": "a4b67c4db694c719",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#90da3ba5b732",
+   "certified_rank": 175,
+   "discovery_rank": 181,
+   "objective_EXACT": "3557974.2579127834",
+   "objective_APPROXIMATE": "3624451.6640657056",
+   "n_lines": 65,
+   "state_digest": "90da3ba5b73288bd",
+   "plan_digest": "85f299fbb4c1c3d9",
+   "rounds": 12,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#6a40fb5a9de7",
+   "certified_rank": 176,
+   "discovery_rank": 28,
+   "objective_EXACT": "3557979.345294234",
+   "objective_APPROXIMATE": "3621053.0365955476",
+   "n_lines": 65,
+   "state_digest": "6a40fb5a9de7bae8",
+   "plan_digest": "a3baf4fbd0ef393b",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#d57d1794e8c7",
+   "certified_rank": 177,
+   "discovery_rank": 83,
+   "objective_EXACT": "3557994.2593762907",
+   "objective_APPROXIMATE": "3623466.52553871",
+   "n_lines": 65,
+   "state_digest": "d57d1794e8c7e007",
+   "plan_digest": "f369adfc87ad3070",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#ff4e4bb1910b",
+   "certified_rank": 178,
+   "discovery_rank": 85,
+   "objective_EXACT": "3558443.7544507775",
+   "objective_APPROXIMATE": "3623474.897816014",
+   "n_lines": 65,
+   "state_digest": "ff4e4bb1910baf30",
+   "plan_digest": "85e05e6db2f6c9e9",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#8c311773cbae",
+   "certified_rank": 179,
+   "discovery_rank": 82,
+   "objective_EXACT": "3558449.9415374077",
+   "objective_APPROXIMATE": "3623466.1199475024",
+   "n_lines": 65,
+   "state_digest": "8c311773cbaeb5a7",
+   "plan_digest": "4adb1f10ce25bef8",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#378d65f429e7",
+   "certified_rank": 180,
+   "discovery_rank": 22,
+   "objective_EXACT": "3558571.4054483217",
+   "objective_APPROXIMATE": "3620719.7996150125",
+   "n_lines": 65,
+   "state_digest": "378d65f429e74404",
+   "plan_digest": "2f03919537712df9",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#13b8d9ecee0a",
+   "certified_rank": 181,
+   "discovery_rank": 75,
+   "objective_EXACT": "3558749.892137744",
+   "objective_APPROXIMATE": "3623211.642767561",
+   "n_lines": 65,
+   "state_digest": "13b8d9ecee0a3d77",
+   "plan_digest": "1b067124374a48f3",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#1d0aabc5049c",
+   "certified_rank": 182,
+   "discovery_rank": 79,
+   "objective_EXACT": "3558977.9487632075",
+   "objective_APPROXIMATE": "3623459.9404315967",
+   "n_lines": 65,
+   "state_digest": "1d0aabc5049cdeea",
+   "plan_digest": "166fa8bc913a083f",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#be9b37534398",
+   "certified_rank": 183,
+   "discovery_rank": 86,
+   "objective_EXACT": "3559163.9067960046",
+   "objective_APPROXIMATE": "3623475.4933996187",
+   "n_lines": 65,
+   "state_digest": "be9b37534398669f",
+   "plan_digest": "87678c08fb266da8",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#d10361d1b34d",
+   "certified_rank": 184,
+   "discovery_rank": 182,
+   "objective_EXACT": "3559334.9352493696",
+   "objective_APPROXIMATE": "3624463.749611057",
+   "n_lines": 65,
+   "state_digest": "d10361d1b34dd71c",
+   "plan_digest": "f731f1d4411364a6",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#4d8b29db06ed",
+   "certified_rank": 185,
+   "discovery_rank": 89,
+   "objective_EXACT": "3559388.8275483535",
+   "objective_APPROXIMATE": "3623623.8498277445",
+   "n_lines": 65,
+   "state_digest": "4d8b29db06ed6113",
+   "plan_digest": "6c56f77a3e9f3d95",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#55a334008898",
+   "certified_rank": 186,
+   "discovery_rank": 129,
+   "objective_EXACT": "3559535.176527525",
+   "objective_APPROXIMATE": "3624179.767776903",
+   "n_lines": 65,
+   "state_digest": "55a334008898a62a",
+   "plan_digest": "f995e41391b41ab1",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#8cfbb9f72c54",
+   "certified_rank": 187,
+   "discovery_rank": 18,
+   "objective_EXACT": "3559585.5382667636",
+   "objective_APPROXIMATE": "3620295.1626727884",
+   "n_lines": 65,
+   "state_digest": "8cfbb9f72c5422c8",
+   "plan_digest": "b21496735003d942",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#260d2e19636c",
+   "certified_rank": 188,
+   "discovery_rank": 168,
+   "objective_EXACT": "3559923.102051383",
+   "objective_APPROXIMATE": "3624371.21626929",
+   "n_lines": 65,
+   "state_digest": "260d2e19636c0199",
+   "plan_digest": "1b48de32ef868351",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#98561192a965",
+   "certified_rank": 189,
+   "discovery_rank": 172,
+   "objective_EXACT": "3560021.4441423537",
+   "objective_APPROXIMATE": "3624397.0948593793",
+   "n_lines": 65,
+   "state_digest": "98561192a965eeef",
+   "plan_digest": "ab20fe537ce61f38",
+   "rounds": 14,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#68fa9c2f67bd",
+   "certified_rank": 190,
+   "discovery_rank": 57,
+   "objective_EXACT": "3560943.063565131",
+   "objective_APPROXIMATE": "3621282.4883384253",
+   "n_lines": 65,
+   "state_digest": "68fa9c2f67bdc357",
+   "plan_digest": "bd515d4b316840bc",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#236aa4945a39",
+   "certified_rank": 191,
+   "discovery_rank": 76,
+   "objective_EXACT": "3561804.426877061",
+   "objective_APPROXIMATE": "3623339.71404523",
+   "n_lines": 65,
+   "state_digest": "236aa4945a39ab5a",
+   "plan_digest": "769bbe405a353f97",
+   "rounds": 13,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#1e4ab698f22a",
+   "certified_rank": 192,
+   "discovery_rank": 102,
+   "objective_EXACT": "3562567.3671676307",
+   "objective_APPROXIMATE": "3623894.8015233995",
+   "n_lines": 65,
+   "state_digest": "1e4ab698f22af17c",
+   "plan_digest": "cf27a93a528cae18",
+   "rounds": 3,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#d451584c40c6",
+   "certified_rank": 193,
+   "discovery_rank": 115,
+   "objective_EXACT": "3562761.832795983",
+   "objective_APPROXIMATE": "3623949.0973270168",
+   "n_lines": 65,
+   "state_digest": "d451584c40c6acf6",
+   "plan_digest": "6df67a6f9fc93f0e",
+   "rounds": 3,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#aeef8ff78bd1",
+   "certified_rank": 194,
+   "discovery_rank": 111,
+   "objective_EXACT": "3564724.3941063103",
+   "objective_APPROXIMATE": "3623935.4271929627",
+   "n_lines": 65,
+   "state_digest": "aeef8ff78bd192dd",
+   "plan_digest": "32bc4e39b60880ac",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#8965c4f852d3",
+   "certified_rank": 195,
+   "discovery_rank": 176,
+   "objective_EXACT": "3566495.7658477854",
+   "objective_APPROXIMATE": "3624429.45101563",
+   "n_lines": 65,
+   "state_digest": "8965c4f852d3181b",
+   "plan_digest": "9e971826bd5c3002",
+   "rounds": 8,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#935195e7e6a8",
+   "certified_rank": 196,
+   "discovery_rank": 1,
+   "objective_EXACT": "3569059.414066893",
+   "objective_APPROXIMATE": "3618778.096082161",
+   "n_lines": 65,
+   "state_digest": "935195e7e6a80d84",
+   "plan_digest": "6711d6893427e200",
+   "rounds": 5,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#7c4bb6f4daa0",
+   "certified_rank": 197,
+   "discovery_rank": 36,
+   "objective_EXACT": "3569813.094803188",
+   "objective_APPROXIMATE": "3621122.158830025",
+   "n_lines": 65,
+   "state_digest": "7c4bb6f4daa0f0e2",
+   "plan_digest": "4daa3341439fa3c5",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#8fd2f5289ecc",
+   "certified_rank": 198,
+   "discovery_rank": 2,
+   "objective_EXACT": "3572638.0042001065",
+   "objective_APPROXIMATE": "3619307.681741288",
+   "n_lines": 65,
+   "state_digest": "8fd2f5289ecc1815",
+   "plan_digest": "302da43f752194f4",
+   "rounds": 5,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#3b8f442dc97b",
+   "certified_rank": 199,
+   "discovery_rank": 14,
+   "objective_EXACT": "3572954.6377097494",
+   "objective_APPROXIMATE": "3620229.8796578175",
+   "n_lines": 65,
+   "state_digest": "3b8f442dc97b19a6",
+   "plan_digest": "c2db8156bc59c84c",
+   "rounds": 10,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  },
+  {
+   "state_key": "exp4|exp4-pool-v1|65lines#96485eb1a98e",
+   "certified_rank": 200,
+   "discovery_rank": 108,
+   "objective_EXACT": "3591198.383597282",
+   "objective_APPROXIMATE": "3623933.9963145573",
+   "n_lines": 65,
+   "state_digest": "96485eb1a98e2064",
+   "plan_digest": "19173eb852441c54",
+   "rounds": 11,
+   "converged": true,
+   "guarantee": "no block of 8 route-periods moved within 3 ladder rungs of the certified plan improves the objective"
+  }
+ ],
+ "file_digests": {
+  "outputs/exp4/run/STATUS.md": {
+   "sha256": "16e354a9c326a1af0f7f5c3b27399ed91e1d91650d4cb1f2800eff7fb8589e75",
+   "bytes": 1886
+  },
+  "outputs/exp4/run/certified/0082c7142be89a98.json": {
+   "sha256": "1eb3654259866e8dfe8259b62fb9f53fcf8c47ebfb70b169bce6561c3c25b8fc",
+   "bytes": 19060
+  },
+  "outputs/exp4/run/certified/017c059415784416.json": {
+   "sha256": "51719e60b2bb9ad4c02d3a369c54e96a19209f414429908343d0555cbb9730e9",
+   "bytes": 19133
+  },
+  "outputs/exp4/run/certified/0242c4221a77a3e0.json": {
+   "sha256": "781976e12587f4a77b8326da4e7ae4fb2136e977568bb7f63932c8c022408cab",
+   "bytes": 19086
+  },
+  "outputs/exp4/run/certified/02cad752599b64b0.json": {
+   "sha256": "5d69cf22a1034ce006c2804aad9544f1cf50698d99a2ed902c422a810e78160f",
+   "bytes": 19063
+  },
+  "outputs/exp4/run/certified/0366fc3088a91187.json": {
+   "sha256": "00c639783384431c45ce4dad5d2efa83753eb80d30ec4621e3d61aae4f25e19d",
+   "bytes": 19095
+  },
+  "outputs/exp4/run/certified/04339309011fa97c.json": {
+   "sha256": "b52a04cd68f76aa4705ec9f3e719aad55ecd53962ecf034cc76cd6001916f2f2",
+   "bytes": 19139
+  },
+  "outputs/exp4/run/certified/07955f729c27201c.json": {
+   "sha256": "7000f807e939586ab787a2cb249d2f784bc93e1afbc1e71bb8ee97238189419a",
+   "bytes": 19121
+  },
+  "outputs/exp4/run/certified/09ab00df8b030fad.json": {
+   "sha256": "9e8a485504ba46ab63e6c315624149c080d64542d4d7d6cc949971dfb039cd40",
+   "bytes": 19112
+  },
+  "outputs/exp4/run/certified/09f45a19933ba0c0.json": {
+   "sha256": "d1c1e328f34ef5d133d1786a61e9fd648594c411f0d0a4d2ca73866f90e30cf1",
+   "bytes": 19083
+  },
+  "outputs/exp4/run/certified/0a239ee8dbdbbb22.json": {
+   "sha256": "5e799621516dc98411d74462bfa85918713b17e813d65c4777be970ca8f9174a",
+   "bytes": 19134
+  },
+  "outputs/exp4/run/certified/0a81d67a282f5421.json": {
+   "sha256": "da3d1e2d38b21bbd21a2e386946cfe5a11f28ee899df892c706184ee635e9d9c",
+   "bytes": 19104
+  },
+  "outputs/exp4/run/certified/0a905b1e16f496e4.json": {
+   "sha256": "0f80430c87c8da313570d5e2abae01362ad94d28a5a5b70cbdbd86d7bafa812b",
+   "bytes": 19056
+  },
+  "outputs/exp4/run/certified/0bd69968241702c4.json": {
+   "sha256": "e39f03ad94ca58a0a7ad204c5a4bf94ff7e8f63ec9dca4e2bada8ac0af2089a8",
+   "bytes": 19113
+  },
+  "outputs/exp4/run/certified/0c486f6d440fc5b5.json": {
+   "sha256": "547d0e47150b7fecee0ecfb983454c88633d30885e6e60892fd0c3bda0462fe5",
+   "bytes": 19076
+  },
+  "outputs/exp4/run/certified/0ca267d59a09a28d.json": {
+   "sha256": "53f0cc96ebf43e3c51239985c7aedb7d5509b868de5e2e462d4d582a0be71f09",
+   "bytes": 19093
+  },
+  "outputs/exp4/run/certified/0cfa22defdc92aba.json": {
+   "sha256": "ab1d5f081f956b76e0ab5f51336be4db02d47c63f6c274e817b4ac9491ff995f",
+   "bytes": 19122
+  },
+  "outputs/exp4/run/certified/0ead3fcab4b1afee.json": {
+   "sha256": "6c9c0408a25b10b14a814267ab723e4aef503d5966d52d778a886f53f7580912",
+   "bytes": 19055
+  },
+  "outputs/exp4/run/certified/0f4be2d2d6795938.json": {
+   "sha256": "03ecac8694f914b21506e99ebaefd2d99e5c5a28ca4f2454af8181ac7e525315",
+   "bytes": 19111
+  },
+  "outputs/exp4/run/certified/0fbd7554a7182b01.json": {
+   "sha256": "c5bb188351b6e753aaf8dccbdf6e65ddbc1c667a909173386a1b07f94945f6fc",
+   "bytes": 19063
+  },
+  "outputs/exp4/run/certified/110a9bcb0ee55016.json": {
+   "sha256": "9860890a91619cc09b70953c4f6da891ec58cb49794266bfdc5cd151e85c2856",
+   "bytes": 19125
+  },
+  "outputs/exp4/run/certified/11a3c5b88c83013b.json": {
+   "sha256": "21f2c6cccd94663af64f09bcbbd781c327f09b49ad760ffc8f31628d55282d8b",
+   "bytes": 19089
+  },
+  "outputs/exp4/run/certified/12555fa6c4dc90dc.json": {
+   "sha256": "915e742fb62e7284569eed2b3540d1dbc8aefdfa98c4486fab9681b4d3c69beb",
+   "bytes": 19115
+  },
+  "outputs/exp4/run/certified/1353b1d8398db899.json": {
+   "sha256": "66f9952f08629cc478c776decc6c178fe1d3cc8ab7f9aa27fb6a6a6d3f67b8a9",
+   "bytes": 19053
+  },
+  "outputs/exp4/run/certified/148e44faac811dde.json": {
+   "sha256": "ac5acde2b6b4fe000f09bb9b542ba85f41c15a9603b64c693b1f9b67bd481afa",
+   "bytes": 19052
+  },
+  "outputs/exp4/run/certified/14b5440dabd648cc.json": {
+   "sha256": "bb1ecf8f3f1cd3d23c2c2b76abb6a370d6f79df572f7b07d8a699f822d2479d3",
+   "bytes": 19118
+  },
+  "outputs/exp4/run/certified/155edd383962dd41.json": {
+   "sha256": "409fd7ba59529a00db88ba05812e31465e9acbb41262d24d75c9dba4ac2bff61",
+   "bytes": 19049
+  },
+  "outputs/exp4/run/certified/181b80501be575b8.json": {
+   "sha256": "c9a9fca923873dc4927f4e6c2877d4796684e2f3c00dbee8a87d69454345ea2e",
+   "bytes": 19098
+  },
+  "outputs/exp4/run/certified/19da5679b88f3508.json": {
+   "sha256": "0fba43f066b4160ae40c89e72828f8a01ce3f3edb8014eb12e53fc98a357c5ec",
+   "bytes": 19107
+  },
+  "outputs/exp4/run/certified/1afd62c4f11248c0.json": {
+   "sha256": "686581c600c25d6ba7cf1039851f6a5ac7f46944fad1973323b865a21f84283a",
+   "bytes": 19085
+  },
+  "outputs/exp4/run/certified/1affb335c2d837d1.json": {
+   "sha256": "63817948dc318786d93c970afcd8ba8c982fd8c27a2e50404441f80498a3d29a",
+   "bytes": 19146
+  },
+  "outputs/exp4/run/certified/1c3ac919708ea57d.json": {
+   "sha256": "b6ff595a57885909f4236f77d03ca751b2f845708de61ce8591ad49ebedbebfb",
+   "bytes": 19082
+  },
+  "outputs/exp4/run/certified/1c9825cbe62585f5.json": {
+   "sha256": "02e02023113e42c88600988001f44a1d0e395533f2f98c06c9ecab14d3e6df6a",
+   "bytes": 19139
+  },
+  "outputs/exp4/run/certified/1e854fc1ba35ac2c.json": {
+   "sha256": "ba8d1679cc7b3182ed8d6a47a3a044e6f345e1a503b50214fba1b5768d0877b8",
+   "bytes": 19084
+  },
+  "outputs/exp4/run/certified/1ff6a26f1dd077df.json": {
+   "sha256": "c388cfadaa8870a52a9897b7b703035f48c3d3538bb56ca576814fb074ddee1a",
+   "bytes": 19135
+  },
+  "outputs/exp4/run/certified/20a833623770fe71.json": {
+   "sha256": "21cd6b2094df923b271e050296cec5a8170461a8ad19163c3b0c11ff36973e46",
+   "bytes": 19131
+  },
+  "outputs/exp4/run/certified/21666fa2c0e8ef4c.json": {
+   "sha256": "ebf5301cc3a58aec431872a70788dda6d70a4b5162a1847cc32fc07296fff5f6",
+   "bytes": 19099
+  },
+  "outputs/exp4/run/certified/2238cc023893becb.json": {
+   "sha256": "847fb56f6c3d6f837e7fbc1a79570ceab5203c77ef0c250ad481d6609558784c",
+   "bytes": 19113
+  },
+  "outputs/exp4/run/certified/256c6b2811eca60b.json": {
+   "sha256": "5310b2fc3b0e9f0e26940eb29da83ce4538ed46d02334d9ed67f11d4cd8cffc9",
+   "bytes": 19063
+  },
+  "outputs/exp4/run/certified/262b9207800eb82c.json": {
+   "sha256": "094559c9624dffa529ad0d9e238089fac8d644fbe2fa562080611268407e5952",
+   "bytes": 19112
+  },
+  "outputs/exp4/run/certified/26446870e3c027d6.json": {
+   "sha256": "05f3967cdd5509e179bbf35b445d8ab9cb93a980b35a513177702ce0069c1428",
+   "bytes": 19107
+  },
+  "outputs/exp4/run/certified/26491c197d58aa46.json": {
+   "sha256": "f88f62967e894ec46cd289b1bac59b3c5331a8463f3e26d74ebf945237abd4e6",
+   "bytes": 19122
+  },
+  "outputs/exp4/run/certified/297f1a5868205089.json": {
+   "sha256": "e51d2eacf75a39fceaecbe9a52dbb5fc477bb074b7f25a38df9d90d8b03d8e05",
+   "bytes": 19136
+  },
+  "outputs/exp4/run/certified/2aafffc88b90b3cf.json": {
+   "sha256": "9bcd7a07a5da0c558af6f4711d100cba72a0d858324b450418faa05349101786",
+   "bytes": 19046
+  },
+  "outputs/exp4/run/certified/2e5850dd65030ac8.json": {
+   "sha256": "91674ee30b1770e8f6e70c6c8da6c445423d861ea838e980bc3161dbbe655f82",
+   "bytes": 19136
+  },
+  "outputs/exp4/run/certified/2e5a9e0ffdf49e15.json": {
+   "sha256": "f271091f73b9a8f0eefc7c6c3a9b96814c59e9e4d659d9e943dcbc14a240133c",
+   "bytes": 19168
+  },
+  "outputs/exp4/run/certified/316ecff90b08d8a0.json": {
+   "sha256": "e54b6ce23b85cc7779ec98009b2df977081b17a66ae1842f965ffd04d2bbe6fd",
+   "bytes": 19104
+  },
+  "outputs/exp4/run/certified/326d9bd5f3fe4ad2.json": {
+   "sha256": "15aca6afe9341b1e1ed377fb1cbf14a4d6bf6e60122c0160d1070bed5f82626f",
+   "bytes": 19081
+  },
+  "outputs/exp4/run/certified/333e80cefdbda0eb.json": {
+   "sha256": "32bac84d145ff73083a41513d625afedb484f40ea0bcd51a03210c2340f734e8",
+   "bytes": 19052
+  },
+  "outputs/exp4/run/certified/354db8f548c087c3.json": {
+   "sha256": "fcc77d6a56b7ba4f3fc1d63ca961f0c8f46cdf0da3a425bfd81f14e160448644",
+   "bytes": 19106
+  },
+  "outputs/exp4/run/certified/36813b1322b5bb17.json": {
+   "sha256": "e50415618c17627a5b8e0beec17aba922cd4b4765273cff4bb35098daae2abe3",
+   "bytes": 19096
+  },
+  "outputs/exp4/run/certified/390c4084cf1f6e3f.json": {
+   "sha256": "acbc66e1a4d88eaecb553c1fd58c7a1a0c9ec915da29fa85b880ae104eb79cc2",
+   "bytes": 19147
+  },
+  "outputs/exp4/run/certified/3c397f4fe55c5210.json": {
+   "sha256": "b727fd455c6c919220c3941bb25ad8659875cc26103bbb4da5f79e327f3f4ad5",
+   "bytes": 19113
+  },
+  "outputs/exp4/run/certified/3e7a76ede7c4fe36.json": {
+   "sha256": "adb3c80aff37446e1cc2bf3112370e7f474f7d6451453b28cb15b32c11d98f7d",
+   "bytes": 19095
+  },
+  "outputs/exp4/run/certified/3f5c44d2f3747377.json": {
+   "sha256": "545f67368c55895a6b42c1cfae88896f3949b22b53506490ad3ef204aa1cfe90",
+   "bytes": 19108
+  },
+  "outputs/exp4/run/certified/42e50fd88b85fb99.json": {
+   "sha256": "b265b38915ac291ec7a1a04356ffb790690bcd95dbce15570aaa7db86fc28aa5",
+   "bytes": 19066
+  },
+  "outputs/exp4/run/certified/42f778d87dd32d3a.json": {
+   "sha256": "541c6cd7ea21280d63d74c75fb131725b27ead2fc356055675a9c4fa52337ce7",
+   "bytes": 19056
+  },
+  "outputs/exp4/run/certified/43475f64afea744f.json": {
+   "sha256": "ed9d3ef7e26b8162cfa9698b15a740f805aded7c859403419bb94a25cc0552ad",
+   "bytes": 19110
+  },
+  "outputs/exp4/run/certified/44b394dc2dba71fa.json": {
+   "sha256": "3c3410b5685eaccecb7e157a0f9e304bdec4b79bc66ce877eb23d41ef368f97e",
+   "bytes": 19062
+  },
+  "outputs/exp4/run/certified/46370b0d1a0572ef.json": {
+   "sha256": "a51bf841e3e97f19acd9f042652baf8ca4c45666bb310eca49e97cc6c376d2bf",
+   "bytes": 19111
+  },
+  "outputs/exp4/run/certified/464fd3ecc40267ec.json": {
+   "sha256": "76f5377370e445a80590497d76ac6e6ac0610056cbd9cdb187eafeb8fd804e67",
+   "bytes": 19102
+  },
+  "outputs/exp4/run/certified/4751ccdb5e86e061.json": {
+   "sha256": "51d6f7e92cc700b7659415d1b9fd7b12fed2bf97c85518211e4df72995b60c12",
+   "bytes": 19105
+  },
+  "outputs/exp4/run/certified/47e3b516435e3bcb.json": {
+   "sha256": "bc9ac2f64c576e44881f17100e575b907d10652a108cc0996841647953a084b5",
+   "bytes": 19067
+  },
+  "outputs/exp4/run/certified/4882998c4de9376f.json": {
+   "sha256": "56821973f1c5fa55b5115546e64f15f0f39deedbebce02bac65e8cf1815cde19",
+   "bytes": 19129
+  },
+  "outputs/exp4/run/certified/4aea6f7df2f49a64.json": {
+   "sha256": "a52649c3c6dde6d34601a4cceca6baf9395ffda86daeb6481d05c285b60a26b7",
+   "bytes": 19119
+  },
+  "outputs/exp4/run/certified/4cf366554cfd86ff.json": {
+   "sha256": "851f3f48017927d536ed3e626c31af339f51a875d0cd94762475954be07b8f7b",
+   "bytes": 19089
+  },
+  "outputs/exp4/run/certified/4f29f38b2e8fc374.json": {
+   "sha256": "88bb6605c8838f51cc9bd6519b29be9ed8513bb34552684df1998954688b9140",
+   "bytes": 19111
+  },
+  "outputs/exp4/run/certified/50b0b859286e0f5c.json": {
+   "sha256": "2704e1419f89624b152abafea7fad50db77147d86d56d6fb5f53543e66a519a2",
+   "bytes": 19056
+  },
+  "outputs/exp4/run/certified/5179e4cb34bdf80e.json": {
+   "sha256": "f728950a534e18ceda1b4e5f6edbcfbd9f96585c1f0cdda405304c6b706cf860",
+   "bytes": 19140
+  },
+  "outputs/exp4/run/certified/521f6b2766dccb96.json": {
+   "sha256": "a91f5ebe6ca8567d0a2717b5085b8a8377fe874d6061d69989b0bec520fe71ae",
+   "bytes": 19060
+  },
+  "outputs/exp4/run/certified/54266ed024e79ca9.json": {
+   "sha256": "e7db1659be5c9d41ad08c0b0e39e8ee0d0acdbb53eba2f71fec059a344ffbd5a",
+   "bytes": 19101
+  },
+  "outputs/exp4/run/certified/57b6f07901dd1235.json": {
+   "sha256": "ebfddbf5a949a3f859ab7d804c1b5eee0bd36a2bc52a5a222edc3453d35ce648",
+   "bytes": 19108
+  },
+  "outputs/exp4/run/certified/5946f5d5617e375a.json": {
+   "sha256": "45c595f95aa4ef9ece4fdab43a05fe86ed11fe4aedf9553bf8794e5958e047e5",
+   "bytes": 19094
+  },
+  "outputs/exp4/run/certified/5a0ff8a331960d25.json": {
+   "sha256": "d7aa2dbc0a5c4206e5feafa74f92d3e14e2a1a697e4bce7c4387500325c265e3",
+   "bytes": 19071
+  },
+  "outputs/exp4/run/certified/5a980bcbe1b03678.json": {
+   "sha256": "d340d52343864ff9601fbeba9650983099abb779a0b0550eb7a0dee73d14c1c4",
+   "bytes": 19143
+  },
+  "outputs/exp4/run/certified/5c0a31e3698a8bfc.json": {
+   "sha256": "6eea6d66d0c33cd74da9e4a2bbbcc0dcbc4cf662692544993156da99a80dfc2c",
+   "bytes": 19122
+  },
+  "outputs/exp4/run/certified/5c9a3ec398ac699e.json": {
+   "sha256": "2db28a77620da43a3a2ec2c03ea32a6d9b15b7633191a8365559649af560269a",
+   "bytes": 19081
+  },
+  "outputs/exp4/run/certified/5db578f8a7c0a7cd.json": {
+   "sha256": "8db4c43129a905fc35438d987b2f771c545faab0d1e131b3b81b09488cced95e",
+   "bytes": 19147
+  },
+  "outputs/exp4/run/certified/6030598823c80d83.json": {
+   "sha256": "c5cdbd21daa114ebb4a4631303fdd4187983e1747682773b168cf2ad5c96b04c",
+   "bytes": 19098
+  },
+  "outputs/exp4/run/certified/604e4a26b016b88e.json": {
+   "sha256": "0d87e1b6918b2413c248c2c123108a35e13e674507e65108e3b3486e7a1fd558",
+   "bytes": 19064
+  },
+  "outputs/exp4/run/certified/647cfb30e60ff439.json": {
+   "sha256": "28cb5374068810c11b566f005813f3f316910284fc8dcb47e8fc4dbd0f709513",
+   "bytes": 19110
+  },
+  "outputs/exp4/run/certified/6584d4b3932f732a.json": {
+   "sha256": "af28cf51c3012651f3d17bb88884f417e1b2cd809cd99ce2f21517fc85ed10b4",
+   "bytes": 19121
+  },
+  "outputs/exp4/run/certified/671fc6318e32e89e.json": {
+   "sha256": "e61ebae59b89821c1a119b2ef50c51aba97774626d56b12d256e6cad3548aa53",
+   "bytes": 19093
+  },
+  "outputs/exp4/run/certified/6836c590c147bd2c.json": {
+   "sha256": "00e9386e81b0d62b4498a8dfce6a5c36b1a777ad82d2df66f07b16f39aa82988",
+   "bytes": 19054
+  },
+  "outputs/exp4/run/certified/693ff8d8a49be5d1.json": {
+   "sha256": "46ae09ec75b63eaa770c8448a5959b6cdb8378346cc9d10993a5c6ad2e7a69b6",
+   "bytes": 19068
+  },
+  "outputs/exp4/run/certified/69c6d5f9570c6e58.json": {
+   "sha256": "e8515c16e10c23a6d60b83971c45015dfdf1333f90bf2fe4bfe4dbb79ea71ce9",
+   "bytes": 19099
+  },
+  "outputs/exp4/run/certified/6a03fc3b23e46405.json": {
+   "sha256": "3e21fd506a2b54f3ba8cd1d015da71af11954ef16aaa0e3ad1a2d8a9e3d4bb68",
+   "bytes": 19120
+  },
+  "outputs/exp4/run/certified/6a2137c4086f6d72.json": {
+   "sha256": "5b76d4e4f9d342d4a2cd583d0fbe1b9527d8bb1ad2dc149019038d7e4205d48e",
+   "bytes": 19070
+  },
+  "outputs/exp4/run/certified/6b85e42679d9d7a0.json": {
+   "sha256": "3302718591f421a34af3a71206a5ab48cdf976dda2ccf9d15843f8526e4d852f",
+   "bytes": 19061
+  },
+  "outputs/exp4/run/certified/6c0599ea63f0cfaf.json": {
+   "sha256": "6fe0c313c0be0f904c877e356147a4473fcec42db4d508828082fb31a74c9d3a",
+   "bytes": 19076
+  },
+  "outputs/exp4/run/certified/6dad45679ac6ee41.json": {
+   "sha256": "a9571908e0c9126f981a4615f92a17b0ccb5c8b7598d017d8667e0ca5e72dfa7",
+   "bytes": 19126
+  },
+  "outputs/exp4/run/certified/6e61fa370cff6aa9.json": {
+   "sha256": "f0d953bb3c516d6b1c4f62c79bbf39d75f94bd9da211e9cac6d05bf71aa23bcd",
+   "bytes": 19104
+  },
+  "outputs/exp4/run/certified/6ed5489f64705d7f.json": {
+   "sha256": "165094eb601611630395b478dc1485f79a0ab204f5ac1f4bd6f35832742e1f8d",
+   "bytes": 19081
+  },
+  "outputs/exp4/run/certified/6f1d1e0ec098f9c6.json": {
+   "sha256": "c8733cf9eb1d6a874dabe0ac7c1f216595e5a236091f9c745411e37afea7e2a9",
+   "bytes": 19061
+  },
+  "outputs/exp4/run/certified/70a4bc4ef567233f.json": {
+   "sha256": "7ac997c9c7f8f68591b2798171a12007731b06ce0c0506c19cbe279aa449c67a",
+   "bytes": 19147
+  },
+  "outputs/exp4/run/certified/728022f19704f2e9.json": {
+   "sha256": "88221dd59c942decd0a2cf7d5f0f5cc21d19b81f0c46fca201f9294f93f2e39d",
+   "bytes": 19057
+  },
+  "outputs/exp4/run/certified/7399567784de8158.json": {
+   "sha256": "4653ea546e6b9536a7ddb891df8a41d9e45df3b6fdbf1c7dae40483d89315c8d",
+   "bytes": 19061
+  },
+  "outputs/exp4/run/certified/771968ad1e9901dd.json": {
+   "sha256": "02030fba01df72f526529d17ca892bdfbdd053e1918f29deb62d963c08f7d874",
+   "bytes": 19102
+  },
+  "outputs/exp4/run/certified/7789593442923382.json": {
+   "sha256": "6dbb84bf40c598c3dcccc8bffbbbea45e9f233d093d8d8e40c8f177bcf3e8d99",
+   "bytes": 19129
+  },
+  "outputs/exp4/run/certified/797ac0a38d7261bd.json": {
+   "sha256": "2077c9273bf4bd68cfd83576ec59ea22211fed333ff1677c3e7c1a2b2cca832e",
+   "bytes": 19050
+  },
+  "outputs/exp4/run/certified/7a9cb506d4bf6aff.json": {
+   "sha256": "ff8f79493b94341f12892d5f3629c151749d374f6b566e77083d7193031aecec",
+   "bytes": 19132
+  },
+  "outputs/exp4/run/certified/7c4592c103dfd0b7.json": {
+   "sha256": "a6d094369e25d02bfe69fa21501a758b4e599e28b298f3b157db2f2c733776f3",
+   "bytes": 19079
+  },
+  "outputs/exp4/run/certified/7caaf69f84787790.json": {
+   "sha256": "cfa4c2c5d3afc814eda847bae6bcdb459b76a57408f9dcf5584e51929d59c811",
+   "bytes": 19074
+  },
+  "outputs/exp4/run/certified/811267eea1787557.json": {
+   "sha256": "26d425a57621f1116181efcd7714d136d4536233aced83fa831ff2e49ee67720",
+   "bytes": 19116
+  },
+  "outputs/exp4/run/certified/81a580ebc72d6bd5.json": {
+   "sha256": "708fec66692c68425ddfc6930925d2dcab20b33bd30a5edff3b0156398e4c916",
+   "bytes": 19069
+  },
+  "outputs/exp4/run/certified/82e6fa6b313b0ece.json": {
+   "sha256": "364eb0b28352b58a9a5022257d714cac17e890fc0dd6d7b22b67611050dd3e6e",
+   "bytes": 19112
+  },
+  "outputs/exp4/run/certified/85fda9f38212e529.json": {
+   "sha256": "a7db2d46a01ad913084c61f2498a6261613859d15dfd235e6bdf9a6ca4976a0e",
+   "bytes": 19142
+  },
+  "outputs/exp4/run/certified/878abbd76648c274.json": {
+   "sha256": "622018508c46b8d2480d837633b43bd827cfb15e43f4173ab64b4441c83686a5",
+   "bytes": 19062
+  },
+  "outputs/exp4/run/certified/88af4db35240df81.json": {
+   "sha256": "0cf22e8741877a2a8f28104d6a3ce74d0c7b1c02750bf3505870b58dd7b1194b",
+   "bytes": 19130
+  },
+  "outputs/exp4/run/certified/8958301477feee53.json": {
+   "sha256": "54c12eda09316de0f91d3d76b25ef3b497ea370eea43e4f54bbc323279b8c02a",
+   "bytes": 19080
+  },
+  "outputs/exp4/run/certified/8bf2f0a3cd81e590.json": {
+   "sha256": "b15eb2276a605ab7b86ad448be3d75d6d23469e14d23ead8f83102cf132406c6",
+   "bytes": 19073
+  },
+  "outputs/exp4/run/certified/8ee836afc15e19d8.json": {
+   "sha256": "861fc5d7f52a672299b5292de07fee7fb1ec3c8358b68e669108194f1c48aaec",
+   "bytes": 19117
+  },
+  "outputs/exp4/run/certified/8f2de419052d9cfb.json": {
+   "sha256": "bad0642b7b957c93b23248900625f3aea02d84ba906599655edcd15a29c3789c",
+   "bytes": 19045
+  },
+  "outputs/exp4/run/certified/917d18410cf41a72.json": {
+   "sha256": "ca1467a5a10b8fe62324c7be8bee2211505fc76e232665735f17a11a37ed7fe2",
+   "bytes": 19102
+  },
+  "outputs/exp4/run/certified/91d87defa9213b88.json": {
+   "sha256": "c39e12e1524a5cd5ed7522be252c2c19f42691d17ec5ce5f8b24cd746c0a9654",
+   "bytes": 19067
+  },
+  "outputs/exp4/run/certified/91f5204a9dbb9bac.json": {
+   "sha256": "1ab548a71a83bfd4a6cf7251d2c17b1b7e0d8293bb9c7381ead310c2ea6f330d",
+   "bytes": 19111
+  },
+  "outputs/exp4/run/certified/9388642a00dc4376.json": {
+   "sha256": "452d8763650f9b477ffc7c36673268efeb509229ab1d11193f324b7c5e7575a6",
+   "bytes": 19118
+  },
+  "outputs/exp4/run/certified/93bdb6c09710d19c.json": {
+   "sha256": "d49093099878144571b689e2870cfab030590d152e22505a705313fbff952038",
+   "bytes": 19064
+  },
+  "outputs/exp4/run/certified/942a03577021131c.json": {
+   "sha256": "5e4e0f6f1a07c668862014365f17d88464992962bba6030c1e30d1a8eef01cd8",
+   "bytes": 19117
+  },
+  "outputs/exp4/run/certified/9660fce8d88a77e7.json": {
+   "sha256": "4b5b27c75378287600712d8991df2a4d44ef443fb969fb9a1ef961ded902147d",
+   "bytes": 19051
+  },
+  "outputs/exp4/run/certified/96e9702356b0c592.json": {
+   "sha256": "f9f9a68f39f15d46991eee541824f1d09515bac1c0b478d71174a1b1b9fde60a",
+   "bytes": 19064
+  },
+  "outputs/exp4/run/certified/97870e8a42d74e34.json": {
+   "sha256": "67f450b15a508760bc5a197f7db6b88397ad40765163bca63721f620917b196d",
+   "bytes": 19121
+  },
+  "outputs/exp4/run/certified/979c26b1fb80c865.json": {
+   "sha256": "8b734108074e8701d442140ab6d9816c84739cc5a631c529a908158697a9ca22",
+   "bytes": 19147
+  },
+  "outputs/exp4/run/certified/99cd83acf3fc45f2.json": {
+   "sha256": "9ef903ea550a8a44e154b42a04719b9c12b27df987796ff4d28f105acdb51062",
+   "bytes": 19064
+  },
+  "outputs/exp4/run/certified/9abd8ca76a523fef.json": {
+   "sha256": "e05e1811463883749f4b180116fb65af2b0c9b30c0831266d05eb54f521df99c",
+   "bytes": 19074
+  },
+  "outputs/exp4/run/certified/9d625214163324fa.json": {
+   "sha256": "e74e74e0fd4d749e04dadeb01b7f1927eccc7a1a04183ac83bda086cd8a0d904",
+   "bytes": 19051
+  },
+  "outputs/exp4/run/certified/9d84a492aeeed74d.json": {
+   "sha256": "9e7ccae64060f57681bee03bf2745bca9eeb8f61ee7445f46d208749f2225fa7",
+   "bytes": 19074
+  },
+  "outputs/exp4/run/certified/9d86ea9ef13a2054.json": {
+   "sha256": "178c6f8b221014077c9dc4ac206d4a8609b4603c4759b5dd6c8b07ed0bfa5c5a",
+   "bytes": 19060
+  },
+  "outputs/exp4/run/certified/9f92451ead59ba5e.json": {
+   "sha256": "55b3f03af80e29d90fd8cbc10556f4e5dcbcf51f8c3a9018d47c64ff0d9e4fd5",
+   "bytes": 19136
+  },
+  "outputs/exp4/run/certified/9fd3fca5ea313be4.json": {
+   "sha256": "aebaf290f9988dd41007b1cb8522ae02d054e2361663151929eea18933e52cc4",
+   "bytes": 19081
+  },
+  "outputs/exp4/run/certified/a08dffa58efea650.json": {
+   "sha256": "3ce9ffc898a61a99e22553ecd7f90a5640e8adb6d4c450e0f897e53890b95e85",
+   "bytes": 19114
+  },
+  "outputs/exp4/run/certified/a0db76a6a9939ef6.json": {
+   "sha256": "02846ba14a9de99c69339677ec3d0128f374474c5233fd3ff6a21bc16c1335eb",
+   "bytes": 19110
+  },
+  "outputs/exp4/run/certified/a19933545eb34f1b.json": {
+   "sha256": "6061a75736bd56918fb0bf067e560d3b2261fb36319206206690b927a2653d7c",
+   "bytes": 19055
+  },
+  "outputs/exp4/run/certified/a24dc5b0fbf360bd.json": {
+   "sha256": "96fdf663e15bbd12ccb343afd6b24228139c9becc9908ff105ddc73a4c715162",
+   "bytes": 19055
+  },
+  "outputs/exp4/run/certified/a4bb8b18b49dcc76.json": {
+   "sha256": "9c1353ad246053212af5fee3e5b217d0aba4391a4e4b9902c42614e744542899",
+   "bytes": 19118
+  },
+  "outputs/exp4/run/certified/a4c7a9cec4c36c1d.json": {
+   "sha256": "75acfe0712c973a0672a2c9f1a6bf7f0dff60bc36dfefa4d0caddf7196f47e25",
+   "bytes": 19111
+  },
+  "outputs/exp4/run/certified/a571f822ce71bcc5.json": {
+   "sha256": "942531ed8c7034ce072450b4ba9698dc33fedcb419ca145325dabff519d72eb4",
+   "bytes": 19081
+  },
+  "outputs/exp4/run/certified/a94611d9d0e0dfa1.json": {
+   "sha256": "a7a4f8d4f354d0443c6bf5461ab527f11c0eb9c45ba8e00e64bd838d425c6931",
+   "bytes": 19131
+  },
+  "outputs/exp4/run/certified/aa1b61202ee51d59.json": {
+   "sha256": "2d36031b7855a787dd12ded56055c20483cbcef31bf6a5a2606c08b710c5ccbf",
+   "bytes": 19151
+  },
+  "outputs/exp4/run/certified/aae9db2cfcaf6656.json": {
+   "sha256": "d70f7822d520323c7e27677e5c9b6c36ad91a2d248ef411179aa249fe65de6c7",
+   "bytes": 19110
+  },
+  "outputs/exp4/run/certified/ab9c0c6e9fa867d1.json": {
+   "sha256": "22d940f190f5fb40b9edcb2a1a5af8676e76f8ae443cd6e8df391a137c5c2141",
+   "bytes": 19088
+  },
+  "outputs/exp4/run/certified/ac7a24a4d2ebcb0d.json": {
+   "sha256": "340c3c620a769abb4f8047ce4c4dc4c8a76a5b36c8975beb0b396aaae889e87e",
+   "bytes": 19131
+  },
+  "outputs/exp4/run/certified/aca6157f73497078.json": {
+   "sha256": "9457d25ac47c7319c2d87efc15ed8fb622b6642c455893239a555d720e9e563d",
+   "bytes": 19058
+  },
+  "outputs/exp4/run/certified/acd6178d5600ed15.json": {
+   "sha256": "2e640c0edafda589de8ccfc9ef202a22c963157e8d412b639faaf6dbe5d6f384",
+   "bytes": 19135
+  },
+  "outputs/exp4/run/certified/adcca57b3575cf42.json": {
+   "sha256": "396262b12a1fcbc9533c7ca878e2caa87594bec88250af7f219c92800037d003",
+   "bytes": 19143
+  },
+  "outputs/exp4/run/certified/af0613b401d17fce.json": {
+   "sha256": "75b1ff61b88ab1bffc26038ad1a456ec80f05cee479bcb7fbd56decfbdc7f39a",
+   "bytes": 19108
+  },
+  "outputs/exp4/run/certified/b2d642be0644b872.json": {
+   "sha256": "5392a128ff645f9d97bf0a57087616767573ec33e7fa6385e16b741cabd54405",
+   "bytes": 19097
+  },
+  "outputs/exp4/run/certified/b2e05028f4fdfb66.json": {
+   "sha256": "1ede34dd351a82527e1781b0ef181187999fdc5f55797216dc5bac64fad6850a",
+   "bytes": 19119
+  },
+  "outputs/exp4/run/certified/b43a1868d4ef0cb5.json": {
+   "sha256": "68d69a9438683ccbcc45840101181ba20105ae8ba5d8164b7b6187a19511896a",
+   "bytes": 19061
+  },
+  "outputs/exp4/run/certified/b8ae0d0f6ac59584.json": {
+   "sha256": "2722347d6c0ac3dd32ec2ca30c4247c2390d6f1cbfa5f94a29dcbfb862334417",
+   "bytes": 19072
+  },
+  "outputs/exp4/run/certified/bc79a5b52eb67a47.json": {
+   "sha256": "4e395e6c11b1880de4ff6d85bfcecb533b3d492f7d749cb4ffec4be42aa020cb",
+   "bytes": 19083
+  },
+  "outputs/exp4/run/certified/bcafe5e709ce95a8.json": {
+   "sha256": "fe75be66a1a90bd18bfda5aab6bdf1c8e72aac0af8015fd23721641da23ffa91",
+   "bytes": 19136
+  },
+  "outputs/exp4/run/certified/bda57330f256a4ad.json": {
+   "sha256": "7ff1ec5b858f1c3bbbe8ba59fc27787852cfc7c36c0efcdac8613501c18c3b8b",
+   "bytes": 19052
+  },
+  "outputs/exp4/run/certified/bfa972a40d658edf.json": {
+   "sha256": "f36f90d7604f15fd13ba3e13dc314ef28ae1cbe12f45470b0ef894ef4c4efdc2",
+   "bytes": 19129
+  },
+  "outputs/exp4/run/certified/c01746fc81dd8386.json": {
+   "sha256": "b9d920c2b8bed7357fcbaec88c85976a903eb8c2b5bdca1e1addf9911400e5b6",
+   "bytes": 19094
+  },
+  "outputs/exp4/run/certified/c037f16111a8671b.json": {
+   "sha256": "81b64ecae107bfd8e2119a8fd728e0339226d636f02c41056ef9a6c2e09c8ede",
+   "bytes": 19055
+  },
+  "outputs/exp4/run/certified/c13342f221efa3be.json": {
+   "sha256": "eb4f334ca8a90630650c42380c7387c805e3b84446b0b0f95c2dc6533dfc6aa1",
+   "bytes": 19137
+  },
+  "outputs/exp4/run/certified/c1ea928194cc1df0.json": {
+   "sha256": "631bd704b7d01d664984bbbf4362cb7786c28b32940d83614ec6261bb0211ff6",
+   "bytes": 19122
+  },
+  "outputs/exp4/run/certified/c3338e87fcc6393d.json": {
+   "sha256": "123dc9eb0644baf739bda23d9980cf1e5835de94d594ee3a707ed14ae7edeae2",
+   "bytes": 19115
+  },
+  "outputs/exp4/run/certified/c4164a9f89ff0cf6.json": {
+   "sha256": "206a7d5085b19c2ff702feb1bcd4311edb8b4496724ece051dc4fd2f223984be",
+   "bytes": 19131
+  },
+  "outputs/exp4/run/certified/c47ab6c10bb9b4bf.json": {
+   "sha256": "b41e5079483dd454e63f0afc628dd4dfe2fb6c9c24725755d7fbc43961aec999",
+   "bytes": 19092
+  },
+  "outputs/exp4/run/certified/c6cc3c834e44fb3e.json": {
+   "sha256": "c85d1dd565a49b30db0d2beaa7b4a5e3b1c79efc147380a874418367fedf79ba",
+   "bytes": 19117
+  },
+  "outputs/exp4/run/certified/c738177a26151da6.json": {
+   "sha256": "316beaf7db10202363d67e68c02935456133e438daf2744b5ca6b6aaeeb70c4f",
+   "bytes": 19115
+  },
+  "outputs/exp4/run/certified/c7f09aedc730a695.json": {
+   "sha256": "55bfce96d0c3898b71c837df37e8338a46679d0445bc7bd0769e10123df85169",
+   "bytes": 19115
+  },
+  "outputs/exp4/run/certified/cbaa89dde7f87aad.json": {
+   "sha256": "225c96933ee59353e02fef95d390347159182bf9605fdac9494a7c0700e74045",
+   "bytes": 19074
+  },
+  "outputs/exp4/run/certified/cc40b4f4aea3aa05.json": {
+   "sha256": "77d3e1618e41931aae51e1361413fb3f3f469e52d26e8ab1474b037bb3c88605",
+   "bytes": 19155
+  },
+  "outputs/exp4/run/certified/ccacd88d169f9836.json": {
+   "sha256": "11a9322d27b277ff586be851caa8bcce3b795bfc7118b0a74aa6d11213cd802d",
+   "bytes": 19134
+  },
+  "outputs/exp4/run/certified/ce4a8bdb88208d10.json": {
+   "sha256": "1fff71ba665c3c31661275a82715fa218a60042151aa9a42134c7ba77cdf6eda",
+   "bytes": 19143
+  },
+  "outputs/exp4/run/certified/cf1f31cb974044c3.json": {
+   "sha256": "2158dbc87ce030b58fb19b2940143001dcd26f804a9e648b9d8d31ba73d4185a",
+   "bytes": 19109
+  },
+  "outputs/exp4/run/certified/d3fb10fac57dd222.json": {
+   "sha256": "e2484563c1a3b4617edd8773a74d7f6c6192ebdcfb1bc2f019ced4639e79964d",
+   "bytes": 19078
+  },
+  "outputs/exp4/run/certified/d5bdf70d6222db68.json": {
+   "sha256": "ebc321dc39e81e55d62887a94513808455f1004beb72265ef0372ce5b7fe9c22",
+   "bytes": 19117
+  },
+  "outputs/exp4/run/certified/d6a5060807b92c68.json": {
+   "sha256": "e47235872df1a6e2be6acfdda4f58c72ed884bc6d54667afc4148726cf1565ba",
+   "bytes": 19111
+  },
+  "outputs/exp4/run/certified/d9c64b7bfd58e2ab.json": {
+   "sha256": "be0d8d4fcb249cfb4e857311aef9a041d3a0fd685be8d6bf016e78b8290898f2",
+   "bytes": 19131
+  },
+  "outputs/exp4/run/certified/db6ce12d364ffe37.json": {
+   "sha256": "2ac6a33d0d8c7b474e70316aff7a467fc5db894aef5c682fa0f3e6b5032a3abc",
+   "bytes": 19092
+  },
+  "outputs/exp4/run/certified/df608e753450b7cf.json": {
+   "sha256": "389b340a827fc0d5650e0ba0ddc03163e11d22c9b09eb1a0b941775e621d0e49",
+   "bytes": 19110
+  },
+  "outputs/exp4/run/certified/e14477dbb4006c69.json": {
+   "sha256": "84915108f1663e69c6e4fdf4ffaef20f498a078d782ed4152999646dc1e9e34e",
+   "bytes": 19103
+  },
+  "outputs/exp4/run/certified/e278e89487131d7e.json": {
+   "sha256": "663f3745afdb5a995c424e349e1ff614fb7baf5ff50c7e55fd6905c834baec83",
+   "bytes": 19090
+  },
+  "outputs/exp4/run/certified/e32f7b1578c77a97.json": {
+   "sha256": "71e1bdede29df23c0e2456c85cb8cd7d0b86008003ea0f71def3fdc08f5a3958",
+   "bytes": 19059
+  },
+  "outputs/exp4/run/certified/e4bab65345b6a9db.json": {
+   "sha256": "583c156048fc88c0115bbda8765ba8557b143b6b7f569f5bf15483c5b2ab8b52",
+   "bytes": 19068
+  },
+  "outputs/exp4/run/certified/e6817d3c77a84f0b.json": {
+   "sha256": "f7c4488af419cf60b7c732bc1e8ef51a8ccebe1e2ab6e4c375ca07c73b56940f",
+   "bytes": 19066
+  },
+  "outputs/exp4/run/certified/e7839762b4cbab17.json": {
+   "sha256": "01127363b38aa7a8510fa4b9c9fc695e2e9c3291120955febe0bf1f25ac2ee9d",
+   "bytes": 19126
+  },
+  "outputs/exp4/run/certified/e79952c442701fde.json": {
+   "sha256": "4e1975fe75761fcb0ee4bdcd7b660d6d2f34ada443444bca9b5d9d306fe58fc4",
+   "bytes": 19118
+  },
+  "outputs/exp4/run/certified/e96dfd1cfb9fc480.json": {
+   "sha256": "79576fc2e2900d34ec32f2e61da10de547951603e08fb8b87bc700524a12cc80",
+   "bytes": 19057
+  },
+  "outputs/exp4/run/certified/eafba998e68eb66c.json": {
+   "sha256": "51fa238b5794ff767aec4a02ba958ef70e67c7b99ea76d1912f1a03a2222e430",
+   "bytes": 19062
+  },
+  "outputs/exp4/run/certified/ef0b6632e618abf1.json": {
+   "sha256": "fa66ab70a5838007e519e077fc578a22b665e2c01a6e397b5dd81e658f8191b0",
+   "bytes": 19105
+  },
+  "outputs/exp4/run/certified/f07fe360e59b6cc9.json": {
+   "sha256": "0e2443164400bb10534ad30b3def1786c96195f2f653f33d2dfc874d5a4a6135",
+   "bytes": 19111
+  },
+  "outputs/exp4/run/certified/f2402c180285b6e9.json": {
+   "sha256": "30f7cb82e42cf3b4fd6e7834b25e12a02357718a72b74c1a7e7f452ce74d0cf2",
+   "bytes": 19097
+  },
+  "outputs/exp4/run/certified/f2caac21d9aaa0f4.json": {
+   "sha256": "6e1ccaac9b4911c47662f2f3e2e1868e9533dcf37f3ece79d5f914f734f6cad0",
+   "bytes": 19138
+  },
+  "outputs/exp4/run/certified/f32f39d72651249c.json": {
+   "sha256": "044c14ace31ed3de2e1a4a1ab11b214aa4e7f3a28c9a2afbaf3bd365087d6f13",
+   "bytes": 19076
+  },
+  "outputs/exp4/run/certified/f33c210379d15d8d.json": {
+   "sha256": "c997f07172d45fdcc6e28a77c98d5665deb90daf6186bfef9f3d902b4b093f79",
+   "bytes": 19135
+  },
+  "outputs/exp4/run/certified/f415512f3965f72f.json": {
+   "sha256": "29d68c118128d5e3755f11f19357b017584369918b07cc0ff18d287a2ed1fb78",
+   "bytes": 19060
+  },
+  "outputs/exp4/run/certified/f445b16caf4ed6bf.json": {
+   "sha256": "c93322cce9df52393fb3e01d2a17d382ab8035c8f34e5559ceb7bd9c25865b25",
+   "bytes": 19102
+  },
+  "outputs/exp4/run/certified/f4790ef81c1afe44.json": {
+   "sha256": "e00f2f73ba2d491408536df71abb676f0e7a5033a7c2d3ef6a16b8582dce744c",
+   "bytes": 19063
+  },
+  "outputs/exp4/run/certified/f47db8eceae2e1d7.json": {
+   "sha256": "aecffb3d43a0f55f661693bf17eb36d59f973dc9a57da1936d192e2d4408a419",
+   "bytes": 19093
+  },
+  "outputs/exp4/run/certified/f633941464c48d96.json": {
+   "sha256": "8ccd461628761c1dd72979c7a344195d9b2d804bd5a12bb09c243fbdfca12b59",
+   "bytes": 19063
+  },
+  "outputs/exp4/run/certified/f87d19c5cde181f2.json": {
+   "sha256": "f1ef92cb2e7fbf26afdec10e2d233fdd452559a176986559d7eef5e8aea99ed0",
+   "bytes": 19050
+  },
+  "outputs/exp4/run/certified/f89c8716d5235c35.json": {
+   "sha256": "1c13933c9ca9868cff7a6d2bf8e3da78e854ca1ba7366ad7eb9caf7d9b1a8380",
+   "bytes": 19123
+  },
+  "outputs/exp4/run/certified/fa49349e9f75afba.json": {
+   "sha256": "2436cabfe604cabaa3a36211d413bb7cafb07c60074df8789483a56d82804ead",
+   "bytes": 19154
+  },
+  "outputs/exp4/run/certified/fd42581a48d2b88d.json": {
+   "sha256": "720f8ac6133378087d199e2f39612c5b41aa2264fc81d482861fa610afc0b34f",
+   "bytes": 19122
+  },
+  "outputs/exp4/run/certified/fd9df37f7c3475ac.json": {
+   "sha256": "011e85b774c3ea89d45586deb36bbe6838c262d2178b46bc203657732325857b",
+   "bytes": 19125
+  },
+  "outputs/exp4/run/certified/ffe18eedccdef667.json": {
+   "sha256": "942f2b8e1d304bae211c496647be559671f8df573ed16d83e8c1896ecc3c3aa1",
+   "bytes": 19071
+  },
+  "outputs/exp4/run/discovery_vs_certified.json": {
+   "sha256": "b737dfa9434eab2ad391be86f9819b43296c076c60f6e679824798947ebcaf41",
+   "bytes": 1559
+  },
+  "outputs/exp4/run/eval_cache.jsonl": {
+   "sha256": "f73355cf74aa59c850e851cf5a90f6b94cb5e1b39dd48fe3da87a1dd8d8928c2",
+   "bytes": 35599507
+  },
+  "outputs/exp4/run/fleet/0082c7142be89a98.json": {
+   "sha256": "6fc2eaf6745a45dc1f1d815f07d8fbdf5b5103d72ed7a05e7b956f0bcc02c24b",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/017c059415784416.json": {
+   "sha256": "916c06513acedbcd3d77504239b08d3a5eb2509abd4ef0f0a198d859e5ffedb5",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/0242c4221a77a3e0.json": {
+   "sha256": "b92172b84f3d63d9269264e1705aeaeb47c524ffe913164024c5e80b5d34584e",
+   "bytes": 6807
+  },
+  "outputs/exp4/run/fleet/02cad752599b64b0.json": {
+   "sha256": "2f964940911440930129162d7f0a9e2f3ca166677afaf8a98dbba7eb759ceeca",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/0366fc3088a91187.json": {
+   "sha256": "271d6f415337b82c0140edc6085288a5a0c59d75d8bce81369a89b2f0b794142",
+   "bytes": 6797
+  },
+  "outputs/exp4/run/fleet/04339309011fa97c.json": {
+   "sha256": "e5b85b7f7060066455d3fe6a16e47e01406ce489af4763b7d689c12d14677b07",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/07955f729c27201c.json": {
+   "sha256": "5f7219ba80f553ce32a49fdf8dfe0f8aebe9ce19cf992cf6c6f4cdb0e0b6027a",
+   "bytes": 7214
+  },
+  "outputs/exp4/run/fleet/09ab00df8b030fad.json": {
+   "sha256": "a7fccc257121910bb72d250d5b15189ba3364203fc9693cbc245995c7c46d3f3",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/09f45a19933ba0c0.json": {
+   "sha256": "a8184f8e93e64c64742791d566b78613aebb6cc3b5db93a9f7688accabd64f8c",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/0a239ee8dbdbbb22.json": {
+   "sha256": "e3f84c932f6c35ae8698ea39c254b4788569597f549dc056e9744c1c79dc4030",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/0a81d67a282f5421.json": {
+   "sha256": "d8f28e834b600139398eb2bc58cf9f193fb9779f947dbab690c6338f7e54e3ff",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/0a905b1e16f496e4.json": {
+   "sha256": "41f16f7d5f6551a1c59073f8f3aba9c124b350e0223669fa1e6347ad327e01f3",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/0bd69968241702c4.json": {
+   "sha256": "c267921980627ac7e5fce8bd7faff176831c44eec31a258846364b5a8662ca31",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/0c486f6d440fc5b5.json": {
+   "sha256": "0c7d2cd74f32518b3342b69085a9bac57e0a9aa52344ba57ea90046094bcc736",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/0ca267d59a09a28d.json": {
+   "sha256": "ba1a72f7f9ff20fd367ed372bb952df520b3a0c71baeb7896386538666dc0ad2",
+   "bytes": 6812
+  },
+  "outputs/exp4/run/fleet/0cfa22defdc92aba.json": {
+   "sha256": "7afe75f78c72089cf9eb8450d0f9360db55ffa1afb54a9482dad2862cb4a0b02",
+   "bytes": 6796
+  },
+  "outputs/exp4/run/fleet/0ead3fcab4b1afee.json": {
+   "sha256": "5bb143ba9b7fdc34f8bd01583fba6ea413bad257f15050b2f835d08509fdc1b5",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/0f4be2d2d6795938.json": {
+   "sha256": "7ec71e48ace0b7602d2a1a68bdf1863ffe510dd263faf988e9c416023a8e57b1",
+   "bytes": 6797
+  },
+  "outputs/exp4/run/fleet/0fbd7554a7182b01.json": {
+   "sha256": "053f8f2e874361de8276772bb127c317c8c0e21bb2db822b518d01ad485c9ab1",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/110a9bcb0ee55016.json": {
+   "sha256": "ee67816174cde515cab1e1badafb324a497f7e4889967339c163f276a25bda18",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/11a3c5b88c83013b.json": {
+   "sha256": "703e3c52e97a3b2648783d5046487633b1a023a2b36007c6afc28990a952566c",
+   "bytes": 6793
+  },
+  "outputs/exp4/run/fleet/12555fa6c4dc90dc.json": {
+   "sha256": "555f6241eeb63779acf1b4257c2719aa8454d2161545fb1a763d2cbfae5a7ff9",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/1353b1d8398db899.json": {
+   "sha256": "0779ab9f972881b7746ab26cc87cd9b1bea6c93317bfee0a40713922f5256d35",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/148e44faac811dde.json": {
+   "sha256": "f575ff6f1119c33eac5361c1a22247923808df3dd5c26d3e0e2037879c14d72d",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/14b5440dabd648cc.json": {
+   "sha256": "eed4af2a1f13fffe2f61e5c892eff42efef06934c3c5f926fc2ff49cc28c4678",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/155edd383962dd41.json": {
+   "sha256": "66e5391c6c7bf0d2ee6282be197809e3c72a9137c97b892ff92c5309ea234496",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/181b80501be575b8.json": {
+   "sha256": "06193d7b1a1dda4f0bd17373d8b717916094a0124c7427de37c0b5196b94a9e0",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/19da5679b88f3508.json": {
+   "sha256": "f24bb5cf35ea93241f537361a6557665659ff61b9dd66fa438289e61653682e2",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/1afd62c4f11248c0.json": {
+   "sha256": "462eac247826e85900bf4ff5ea7d009e8f2541845f45657a9800a78743bd4071",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/1affb335c2d837d1.json": {
+   "sha256": "4cd52839d70070358a6f542583d7bd558e8a79cdd10cd7620ffe277bfaf3b39c",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/1c3ac919708ea57d.json": {
+   "sha256": "d22d200db20f2fcfa30eb36c02d81756cecd23b0f886ceb1439f87ae313f22b3",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/1c9825cbe62585f5.json": {
+   "sha256": "9612b9b414f9be471cf7318b99de70d3b337dffd5d643aefa10951e25804ef26",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/1e854fc1ba35ac2c.json": {
+   "sha256": "16df09c79765c8e7139ecb9d199734511785eac7b9dc029f72207e0b5648d153",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/1ff6a26f1dd077df.json": {
+   "sha256": "795080df77aaccd36524a38f8d89c98329fb9e8eb3b8d74871d450cfe1f85027",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/20a833623770fe71.json": {
+   "sha256": "a050be25de7fd6522af0095ea17589f8fd1a41ecab619d42e59c8066cd91f4ce",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/21666fa2c0e8ef4c.json": {
+   "sha256": "9a649ce73e2c3eaacf2b295d15482e74192828809b4f66a593245af96ff7a89a",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/2238cc023893becb.json": {
+   "sha256": "b30105618b72a6910a7766e178df411e63149934fe53d9b84e6ac56e9a63299a",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/256c6b2811eca60b.json": {
+   "sha256": "4a0c8e1b747cfaa943872b468d8b389b5c54380c285bb372d143b0442b906d0d",
+   "bytes": 6806
+  },
+  "outputs/exp4/run/fleet/262b9207800eb82c.json": {
+   "sha256": "af7c82678170f9ba8f5d80655b93b14bcb5b06b70711b77e9535da29a038acdd",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/26446870e3c027d6.json": {
+   "sha256": "7d0bf4f5096764cc52514c9759a9ca61da1d837fffbac162b5f1217ce6dc67d2",
+   "bytes": 6798
+  },
+  "outputs/exp4/run/fleet/26491c197d58aa46.json": {
+   "sha256": "ae6d38bb25405492291ac607fb09b525011a9e389cdb9db27d2e3320af0307d8",
+   "bytes": 6812
+  },
+  "outputs/exp4/run/fleet/297f1a5868205089.json": {
+   "sha256": "998546ae625a0dc3fe0bd87bd553eec5eb5025c6ff901720ab087bbc611be27d",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/2aafffc88b90b3cf.json": {
+   "sha256": "5362d217498b786d055872fc39a92c20660882e4468e5728218f03a5030b126c",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/2e5850dd65030ac8.json": {
+   "sha256": "601b71daab05ae06b9541cc334e81db760b42c175050a2be00a4a2fc2ff26ef5",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/2e5a9e0ffdf49e15.json": {
+   "sha256": "68225ce66cbabc6d33489e28b40a958760f299e4b1bdaa3f8498fbf61056119b",
+   "bytes": 7200
+  },
+  "outputs/exp4/run/fleet/316ecff90b08d8a0.json": {
+   "sha256": "9f6b0a16267dac05620c408814b09999c0b361b1588e522f93977ea048415d4c",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/326d9bd5f3fe4ad2.json": {
+   "sha256": "7f30b994dc893e1a09699aa54727cadc01241160833ac3d9686c6065e9654c16",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/333e80cefdbda0eb.json": {
+   "sha256": "f5982d104059ec989d972c3417af68b7c9b2b75b020de03338926d849e25bb8d",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/354db8f548c087c3.json": {
+   "sha256": "7cb85901442f9b4070bd532b9106b33e9d7c7b9bf1e01dfd9409d991c2f06c70",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/36813b1322b5bb17.json": {
+   "sha256": "df006ee100fb51d0515a7f529eeeb8fa8e9834a8d599b134ca660ab06595c5ad",
+   "bytes": 6812
+  },
+  "outputs/exp4/run/fleet/390c4084cf1f6e3f.json": {
+   "sha256": "bd61118dee7e8ea4b1c6ac953d12f55945ac6c3c46375d8ad27574ae07a4ada4",
+   "bytes": 7216
+  },
+  "outputs/exp4/run/fleet/3c397f4fe55c5210.json": {
+   "sha256": "15ee3369d84c385f494a97a190609ebd8139d47a43ae81cc6f43a179c3e4dcfb",
+   "bytes": 6807
+  },
+  "outputs/exp4/run/fleet/3e7a76ede7c4fe36.json": {
+   "sha256": "a5853647967bc162d3b13b9c7aa4238c9769195dd517607a2e43753c4aa5b291",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/3f5c44d2f3747377.json": {
+   "sha256": "6644fb9155a16e685a308083ccaeeb260672a6318ec429e5f15207b95e51dfde",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/42e50fd88b85fb99.json": {
+   "sha256": "37742707d458a9fa7260bab0cfab8b0f17b10df196b365d731385f48478cabea",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/42f778d87dd32d3a.json": {
+   "sha256": "34a768df467ab10c70b839957df6d5a18a0ec014fab2bb90f0c6d067c8ca26a1",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/43475f64afea744f.json": {
+   "sha256": "dcc165a524a7b1ad6a946e722fa66de968b493f06d2d5b44b20cd38cdc099794",
+   "bytes": 6812
+  },
+  "outputs/exp4/run/fleet/44b394dc2dba71fa.json": {
+   "sha256": "a9d4af418b9e664ea89517a2e7d453c164889fd670883a05e3ce6e71377b97d3",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/46370b0d1a0572ef.json": {
+   "sha256": "4483d94926a91872ebdab86bb408e795b44dd962ffdb5736b5c9baf26a1097f6",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/464fd3ecc40267ec.json": {
+   "sha256": "8407bc851cbb6956ceb77a3a5a2e62e1abb3fa76ee4f06bafea924edfab53591",
+   "bytes": 6804
+  },
+  "outputs/exp4/run/fleet/4751ccdb5e86e061.json": {
+   "sha256": "4addb6a4e4a94d902809b22066364ed67a71430ba65395f961bad97e27f9d140",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/47e3b516435e3bcb.json": {
+   "sha256": "6eed5af386d0412120b295e77bb88d359b9f1fa62891f3c8a280e3ffa4729e1f",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/4882998c4de9376f.json": {
+   "sha256": "2f8156a6ca8bdb79391be5552ed8220d3ab9f5b682f28baccdab2f772c004e9d",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/4aea6f7df2f49a64.json": {
+   "sha256": "e5548fb541fabce530894152d17ae1f7f957ec01f5b3bfdf0cb6faf96dd22e18",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/4cf366554cfd86ff.json": {
+   "sha256": "f5b0116f01b816237f26032ea83ff795731a286b5c9a9bca4dceb2bc19fb937a",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/4f29f38b2e8fc374.json": {
+   "sha256": "d13a19afa4fb3346b5a2634e58d3a138f9b5b375438ccc5219edf2fe070486b8",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/50b0b859286e0f5c.json": {
+   "sha256": "4fad6973a6d0e89273ce49bf7e806c4b3107231a9c071034322a81e73926a1e2",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/5179e4cb34bdf80e.json": {
+   "sha256": "c9218f131bd7d5c5e4df5c8bd82759c797d25eaa0eec8f90a4bf85c00212cadb",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/521f6b2766dccb96.json": {
+   "sha256": "55b21c5359360e9cd47ebec1132ccccb275e049200d7f1c3619296f63e98980b",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/54266ed024e79ca9.json": {
+   "sha256": "60317a0a1bc82014193927a9cc08d7de7fd38361b05350af109e7107d48a6d77",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/57b6f07901dd1235.json": {
+   "sha256": "dea845999b2ec405b32fecf4f155126e629046a25e963c4e9a5f6337c5498dab",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/5946f5d5617e375a.json": {
+   "sha256": "607e74b311dea94d35cb8048f137029d64f32aa81ef166e0461c63b67aa3a47d",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/5a0ff8a331960d25.json": {
+   "sha256": "9e772e93b90c16d678f794d9693d767a2f7b1cc9ccc996ff85a55a7263093d8c",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/5a980bcbe1b03678.json": {
+   "sha256": "445fe34c9f2382ab0a3a9abeecba46e35187b6859a2b4e534dea5fda0384ce2a",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/5c0a31e3698a8bfc.json": {
+   "sha256": "144f896c682821436af6b6e4ec5162a1f56082207b1165f69f8a18bf2b16581b",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/5c9a3ec398ac699e.json": {
+   "sha256": "f48c64931530c4821239377c081e9ddb1f4d957852099188babb26f2de811e98",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/5db578f8a7c0a7cd.json": {
+   "sha256": "56ef7e919eb95b26eed0558cb0102035365f1b9b12d7045c3fd2bddccf2051f4",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/6030598823c80d83.json": {
+   "sha256": "df2af28b0c178a99ff4cc794d616122d50e8571e2969ea5c8d4aff5f0ab3a824",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/604e4a26b016b88e.json": {
+   "sha256": "f6523f7f2f4cf8e85d8738a23244bf976b9dee4418f013019d8b77c451382cb1",
+   "bytes": 7216
+  },
+  "outputs/exp4/run/fleet/647cfb30e60ff439.json": {
+   "sha256": "79aeed6a3688ef2ea854a4a847ea6a535a2b124a8f8612924e610aefc14fab1f",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/6584d4b3932f732a.json": {
+   "sha256": "e12f9e3d72eb3d49cfcfaea408930585d1eeecd96b83e3f03464fa297d14ba88",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/671fc6318e32e89e.json": {
+   "sha256": "8c874b2f0c7161a13167a447020fa4d59cf0d85414ca05bb1f640efdf4078018",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/6836c590c147bd2c.json": {
+   "sha256": "a574f9f3c8b2a11867e1af866d9c6826fe6785e46a9dd8366a4b8d5d41efa348",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/693ff8d8a49be5d1.json": {
+   "sha256": "3ca67a0ed49b3e8bfc41098f2250ffa0b47a9419719fafb8c07056b748277055",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/69c6d5f9570c6e58.json": {
+   "sha256": "69ee1acfaa9362074234f0a4f10459198675af63632f3f5ec1737dcc5603f264",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/6a03fc3b23e46405.json": {
+   "sha256": "c99eaf44e3ef74cb7550a2b95ad1244e9da48e03924461fe9cfb66f41a0b4038",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/6a2137c4086f6d72.json": {
+   "sha256": "7e0374c6888733753b021dc926c36842b53fdb5b53db901f537f4ff5ae04bce1",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/6b85e42679d9d7a0.json": {
+   "sha256": "bcc428ace5ed061641d7ba2ecdf04a5348525e8f9ebb796df69f92351822c0af",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/6c0599ea63f0cfaf.json": {
+   "sha256": "125fae8109670e185441a58e2214a427a080192b10789da8379a1e13e80f7d3b",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/6dad45679ac6ee41.json": {
+   "sha256": "20f122acb2e741bce1b1c3ccde33fb97ba62d46d9318b7c18d5e08202bf34dd9",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/6e61fa370cff6aa9.json": {
+   "sha256": "be0cd5b6ad46887b4a20f418d2180b2d5edc010277820022c87e55a2f08394c3",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/6ed5489f64705d7f.json": {
+   "sha256": "b1ad31e241b223c69391d9c06fe51fafa55e8d4dc0cc8df7c1ec113f047f2481",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/6f1d1e0ec098f9c6.json": {
+   "sha256": "38be1f20ebd3c8e610063ee268d20a7b37dacf9b66d8c8f676865efb493cbf6d",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/70a4bc4ef567233f.json": {
+   "sha256": "e8b69981670fb295475a0eca405e44436804091289427f03a0cc55ed7f3f1752",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/728022f19704f2e9.json": {
+   "sha256": "5c27516d974185e348ddaa91cf8efcd5b1aed635f72b8b1fdde894e9635d46fd",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/7399567784de8158.json": {
+   "sha256": "c22fa053edb09b80e7f21b9d8f8f5129423703e279735ba7e869795a21379274",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/771968ad1e9901dd.json": {
+   "sha256": "75c5f808b8528c55fcbeb4b750094e3d7e3452175d81213e9b2b2afdfe2725ec",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/7789593442923382.json": {
+   "sha256": "1660c26c1e3555ea13516937c043edf21f060074a6edf00269594c2e6bf38dae",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/797ac0a38d7261bd.json": {
+   "sha256": "4b69439b65b7d8786e6c46a403560452f2669e7045745701fd918b11eb1fbe79",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/7a9cb506d4bf6aff.json": {
+   "sha256": "51d27782e2ef0be20f21e91432ecfe0e1f028e83a1e8ca25fccf705d702d2f9e",
+   "bytes": 6795
+  },
+  "outputs/exp4/run/fleet/7c4592c103dfd0b7.json": {
+   "sha256": "b720ab13d5987fcb03bb4cb9da444ca39bf12a7a7c4ad83ea8926c76c124c10c",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/7caaf69f84787790.json": {
+   "sha256": "dacd1d7b928982a9be88fce4072f17ddcb81c30b7ce0817a285e54bbeb63ab6f",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/811267eea1787557.json": {
+   "sha256": "b13b81f57665d5fb622ea27580364793e508e2a885b4ee851a552f3f2b291e4a",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/81a580ebc72d6bd5.json": {
+   "sha256": "a63e8197f8d5cdf7e51a7244a30b5feff22855c75b0cb325bd09e0e8ccafbc88",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/82e6fa6b313b0ece.json": {
+   "sha256": "00006ea9c5deda9e4762cd301b407dbf8ff4912f7b9de7b293b88fc6ba51c46b",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/85fda9f38212e529.json": {
+   "sha256": "e10757b4f99f4539117cc4de6e01331bf4d3524fcaa8b6916d31b192dff711b3",
+   "bytes": 6804
+  },
+  "outputs/exp4/run/fleet/878abbd76648c274.json": {
+   "sha256": "cb8aa78a01e8be88f0e621a77d61c128a073fc63875354cbbbe0d7353820dcc3",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/88af4db35240df81.json": {
+   "sha256": "1ef07c16ef89dc1252b371716cff9e536b029c546205e14f927a9c5e44dda8ed",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/8958301477feee53.json": {
+   "sha256": "7421d0b020a255eaf9c82e26589c922f12c5514d94383975a52c5648967a24be",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/8bf2f0a3cd81e590.json": {
+   "sha256": "1e39dfd3022c528cc852ccc83a242e24b3c7b4c80d2a3ee6d5f2fa986232ad26",
+   "bytes": 6795
+  },
+  "outputs/exp4/run/fleet/8ee836afc15e19d8.json": {
+   "sha256": "881346698a8a3158e612c1c6e4750ec9ed94031ed6524588526b5ea35cfb61fd",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/8f2de419052d9cfb.json": {
+   "sha256": "c9b92dec9060b0ac426717ac00262d66e3063b474f2620ef190acb3038118aaf",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/917d18410cf41a72.json": {
+   "sha256": "7740bcc430c21121b8014df81a1952f41c8bc593072cf95fc0da2935187d1dc8",
+   "bytes": 6806
+  },
+  "outputs/exp4/run/fleet/91d87defa9213b88.json": {
+   "sha256": "7ae1c7f471f563ff54c717d6e3c2a405eb1af5b48d9682d75c4cb8ad75ebfece",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/91f5204a9dbb9bac.json": {
+   "sha256": "5bf6035b6d23dda7ad30a802f7a6b21fda4812b7d2c6eaed2e9ea1ad1f49e7da",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/9388642a00dc4376.json": {
+   "sha256": "3a6e61a7db3fd12a3a3108d218a9cee5e2302bdce25c1ce09b0983d545648148",
+   "bytes": 6792
+  },
+  "outputs/exp4/run/fleet/93bdb6c09710d19c.json": {
+   "sha256": "4a10a7fea18615a65053a5e321bf929d743645394e65331e922404b7865f17d5",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/942a03577021131c.json": {
+   "sha256": "b32064b6c6ca3f33a6d96a34548cf01eb8a75f29350984d7949998347f56c6c2",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/9660fce8d88a77e7.json": {
+   "sha256": "1f28dfd0a4d623318f2c0639d0dba7c14f98256f70ded87ce9eec37fd65edd02",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/96e9702356b0c592.json": {
+   "sha256": "f49599357f313588983bf6152e07fedc78bef40124fbe0c7159dcfffffa754de",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/97870e8a42d74e34.json": {
+   "sha256": "5e4e3ff1821f0fea18e5ae6e0bd145fa85e9bfd5b3c2e55da8efe6293d977ff2",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/979c26b1fb80c865.json": {
+   "sha256": "5476745ccba8a9a20af4d04a74195bdb89063f8c098221fd0936c6205f704322",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/99cd83acf3fc45f2.json": {
+   "sha256": "e5269ee26915b5284abc6d4a46c53ce54895d85523df77bc973ca8f10a137b43",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/9abd8ca76a523fef.json": {
+   "sha256": "ff09d44b5b7c8fa358083f86df80ecfd49dad1a0f75af34ee1aef122333d7f6d",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/9d625214163324fa.json": {
+   "sha256": "e388b448ffcc528624a444c09ccf91e3d63dca2d470afb49f63b95c6a65e2300",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/9d84a492aeeed74d.json": {
+   "sha256": "b2d6e7616fdb368e21c76badcfb1158e3b5200bc896cb3abe9100ffc3c3cd4ff",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/9d86ea9ef13a2054.json": {
+   "sha256": "69604d24db7f520bf86b4ac110e4f85348c24d860f1da5cf55aed1fe89fe08c2",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/9f92451ead59ba5e.json": {
+   "sha256": "a8e4d38e0326d8937b9500c7339047aa5b97b72ae0db68d1c9f933149e9a6be1",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/9fd3fca5ea313be4.json": {
+   "sha256": "066a9dab3af363e1dad7294b5687b96c1a8846b04cedba91366cf71fc0e8ac10",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/a08dffa58efea650.json": {
+   "sha256": "090bced3057cb37e77075f201e7ca28c89a82b55b962b27e8c5c728c17d5e28d",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/a0db76a6a9939ef6.json": {
+   "sha256": "5588d05f6030211f51b81414718f0eee866f8d5e2646731b5500dc7cc3877c3c",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/a19933545eb34f1b.json": {
+   "sha256": "70885aeaf561f07b598eb0dc0b1a4817ecc21f313b10a0637e19a0680c69a4f8",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/a24dc5b0fbf360bd.json": {
+   "sha256": "1f6c179c88e0b1d883fda88477c5d7d7b774f0474e1fc915fc3200e0fa52702c",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/a4bb8b18b49dcc76.json": {
+   "sha256": "08da378336b8bf724b4e3e1b2cb17e606681b2bc28d47fab06b285d374ffc2ea",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/a4c7a9cec4c36c1d.json": {
+   "sha256": "14cd0e3c187c75942c5acd407c720f6b3077cbb79a360bb35a7b14e542558c06",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/a571f822ce71bcc5.json": {
+   "sha256": "16f39d249293d53e0978f8fe3c0ac2eccc66e2cb2dc498c48d0426cb54ff7378",
+   "bytes": 6806
+  },
+  "outputs/exp4/run/fleet/a94611d9d0e0dfa1.json": {
+   "sha256": "f66630a3afcb13bf34a7874de595b291b394fcffedad2ade39517ea2c82c42bb",
+   "bytes": 7212
+  },
+  "outputs/exp4/run/fleet/aa1b61202ee51d59.json": {
+   "sha256": "aa5d4b5b1c8f60f3dcc32d1c72a011cd074d9fd7c4361a002b1e63bff3f5933f",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/aae9db2cfcaf6656.json": {
+   "sha256": "72376dd247e9ee9861746660cfe56e062d48114e7db916116e3160fe1a9c0aa6",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/ab9c0c6e9fa867d1.json": {
+   "sha256": "e74ece41a0d251ed264672ae695cbd5eabd7ab84063f8f821d3548788f2a158a",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/ac7a24a4d2ebcb0d.json": {
+   "sha256": "718c2cc9a44f0729a23d2917b68d8109367c0c8da7c9e1f1b16a58d86bb61b17",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/aca6157f73497078.json": {
+   "sha256": "72483f167f7e8a60ca1f9b775202d249e79a2a3fd363dbbb4c7c5b06fa4834be",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/acd6178d5600ed15.json": {
+   "sha256": "8fcd7bf60ed85eddf41d35c1640ba74d3e2ae45f9988d87ead0d103e6a133a56",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/adcca57b3575cf42.json": {
+   "sha256": "73f8191e9e790f2901e5309afa2e1ddf55dd26ed78ce33cd3b743845b2897e30",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/af0613b401d17fce.json": {
+   "sha256": "2b2226becf190578d6c08802b60e823486a53ed9b2726ec1606bc90002e1f435",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/b2d642be0644b872.json": {
+   "sha256": "ca105cac004170d01aec2a70ef452524ee92c885223aa8ef4ccdf54112bf8c99",
+   "bytes": 6812
+  },
+  "outputs/exp4/run/fleet/b2e05028f4fdfb66.json": {
+   "sha256": "9b582701a5bbe11b46c0419718af74005b174513d1a48930527ff40c56aa499f",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/b43a1868d4ef0cb5.json": {
+   "sha256": "272b7f0a8677902c309dc907b8cc56fd47f621e1aac7e81b6c17088b0dc8beef",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/b8ae0d0f6ac59584.json": {
+   "sha256": "43c30bb11784bd4e944ce24d4a2a2d67e113609a31e2abb22792e0a6453b46d2",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/bc79a5b52eb67a47.json": {
+   "sha256": "31655a933655bd78e0350cb82fbf16e762211f1a369be3bef82f030ab325fcbd",
+   "bytes": 7215
+  },
+  "outputs/exp4/run/fleet/bcafe5e709ce95a8.json": {
+   "sha256": "0021fafc3701a0d3f5f41cdae1d8c1949a68a798c5c454bc7cdbc54cb2963ddc",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/bda57330f256a4ad.json": {
+   "sha256": "93890fa32ff018474f455a873f9bf8503318f92aef9860dc402de16f084668d4",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/bfa972a40d658edf.json": {
+   "sha256": "81432e594e0925c450461df628e9e7acbbf1acb43abdd7110a68f455b7f80cd4",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/c01746fc81dd8386.json": {
+   "sha256": "13bcc432414f84dc6250312b506799714a996402e4110fc4f9d0f7ad335742ca",
+   "bytes": 6812
+  },
+  "outputs/exp4/run/fleet/c037f16111a8671b.json": {
+   "sha256": "3019e9c82426572f79cc09bf7135685da8ae2f6865a826611a7fd0a9e4ddea11",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/c13342f221efa3be.json": {
+   "sha256": "1b10b5c8818f612f3063a7c0e3638404f1d7f8772904a2373fb425040eef533e",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/c1ea928194cc1df0.json": {
+   "sha256": "e65953b7c98af0bb861e3e5fd203a010a0b53975824d993207ce32087fb4b524",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/c3338e87fcc6393d.json": {
+   "sha256": "2f1e9eb0fb486bfc28dedf1574536085a44f2e566698471536fdc8cf5ff21ab8",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/c4164a9f89ff0cf6.json": {
+   "sha256": "90f201837fa9589516ecd705cbae3c34907a94cf90e12aeea538cd915de09fdb",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/c47ab6c10bb9b4bf.json": {
+   "sha256": "cab86cd73f06d9b76694aa47c3c2d5e57dbe4fdd381915cfa5ae06bfe0790551",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/c6cc3c834e44fb3e.json": {
+   "sha256": "3abc06ab3be18657150b47763e8d4f32e4f3a7e3fe14563af480f583c8100c9a",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/c738177a26151da6.json": {
+   "sha256": "9f47c41966e2fc8b2df2a40a59c618a81b34c8f8ff4693e1c2295b82f3c65d60",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/c7f09aedc730a695.json": {
+   "sha256": "a600c385f3611e58de5ef8683e5303b02df357052ecf61fde00e6fa66c6a8e58",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/cbaa89dde7f87aad.json": {
+   "sha256": "2f1667a295e91eec2c8b28ef2f3bc51793067d1574ef10ee995fd19ba36bd0fd",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/cc40b4f4aea3aa05.json": {
+   "sha256": "53d9717f2afa449db4b77e9690a4f6a7bc2390d16a9c2aefd7cbc73c9be7f976",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/ccacd88d169f9836.json": {
+   "sha256": "f24964b5292333db5b9147a4534edd2469e01889f69e4ee3a40dbd1679904f33",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/ce4a8bdb88208d10.json": {
+   "sha256": "1112ce7972c8683112f49443cd5c6683b86dda13dff78e67f7de7371d50fa446",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/cf1f31cb974044c3.json": {
+   "sha256": "64dae5fb0462778122462199f2a837560f66e8145358ccadf102bc2358506b3e",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/d3fb10fac57dd222.json": {
+   "sha256": "7135a0a459386ea346a8a6d076793111e52bbba1abc627525e5a6c35a429a3c1",
+   "bytes": 6794
+  },
+  "outputs/exp4/run/fleet/d5bdf70d6222db68.json": {
+   "sha256": "b3132db1ba43daf3d3a947fe10d4f0f3d48c96b6cfb5e569497fad4e87da2eb3",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/d6a5060807b92c68.json": {
+   "sha256": "4abf8517c7a815e6c6588f7df5e8b7111688afeb0663a079f52446f930879791",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/d9c64b7bfd58e2ab.json": {
+   "sha256": "461268e79f1ce721553ff9edefb77748e49e1647257a3d0427093b6a5b460adc",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/db6ce12d364ffe37.json": {
+   "sha256": "63a90b86320476b6dc85604cea31057c6a7bdf0e33dfaad088749b019def6da5",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/df608e753450b7cf.json": {
+   "sha256": "3d82030bb7195d870cc7f216f665b9f9947bf1924c1a1ecfef24b659db284942",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/e14477dbb4006c69.json": {
+   "sha256": "a61bbb4348596ad73da9ff89bfc7dc10995c47850954dfef1551ee7bc69e1602",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/e278e89487131d7e.json": {
+   "sha256": "4709fcafb95ab3b74f01bab46c1319ed166edc696a7b4eb3303616122bafb19d",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/e32f7b1578c77a97.json": {
+   "sha256": "09f1eee590c99865b4149097c42779f4b2b20a3377ccaf76bcd37dde836a88b4",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/e4bab65345b6a9db.json": {
+   "sha256": "1b34a37999f32b02fa15d6aa5fb5b5020bb174f77102ac05283ed6efd4c23826",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/e6817d3c77a84f0b.json": {
+   "sha256": "44b23725bbab72a52d8766c15f988ca322a06af915f6ee1651d7e0eccd9372fa",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/e7839762b4cbab17.json": {
+   "sha256": "45f29e3d7ee842c6735f514fc097276067c2bb4746450446cccadcae0b67a888",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/e79952c442701fde.json": {
+   "sha256": "8ca65bb9cbfa659e97e9ce639a9f0ee9b5ca693a9e2378f7b8dda8bd1ac00060",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/e96dfd1cfb9fc480.json": {
+   "sha256": "34666d4250de6b9f2a978c009cd00241cbccd7132e4d8cc68259f80c54caa42b",
+   "bytes": 6812
+  },
+  "outputs/exp4/run/fleet/eafba998e68eb66c.json": {
+   "sha256": "78c212e5971ee0d4b3057a6cd730b4a13b45898bc0a1111eaceba3ccc3844ba4",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/ef0b6632e618abf1.json": {
+   "sha256": "f3174dffe7ac07b78628dbceffd1923b5ad983a9f45f854891171f53706b3e33",
+   "bytes": 6798
+  },
+  "outputs/exp4/run/fleet/f07fe360e59b6cc9.json": {
+   "sha256": "ab001b7aa1c311fc9b79e02287a5caa0022b55eb79d06faf569391ece537df28",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/f2402c180285b6e9.json": {
+   "sha256": "f8a37df966f91b1f441262cfa421dd5762df464f8d455401adb6c26f4381d266",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/f2caac21d9aaa0f4.json": {
+   "sha256": "02b0bbbc767ba2ca1ab8627edf7947e417023435380bd0de6250fed318fa234d",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/f32f39d72651249c.json": {
+   "sha256": "2f63dcaefc433f1d812b53fe07104e0430a23d1ebf0c999d0f9d349302bed7c7",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/f33c210379d15d8d.json": {
+   "sha256": "f1b9528c82a69995341d9554239a422ea86b44b9daa0cb49f2611d1f64a9a836",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/f415512f3965f72f.json": {
+   "sha256": "4b8a59924dbc12959508f871789a1b5526b7c436fd84de9312caa3862ed7b3aa",
+   "bytes": 7216
+  },
+  "outputs/exp4/run/fleet/f445b16caf4ed6bf.json": {
+   "sha256": "fb2be3839b8c67f690a0ec55ad24b5f6f347b5884a20e416302f8bd54773f1d7",
+   "bytes": 6811
+  },
+  "outputs/exp4/run/fleet/f4790ef81c1afe44.json": {
+   "sha256": "76e31d67c4976fa73e971d3d5bb65c360e25b0cf098c7330e4e9c78736728b13",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/f47db8eceae2e1d7.json": {
+   "sha256": "d596c2c7b4e87623c80546d948d024df6b881d03643f4a57048be22c6733cf81",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/f633941464c48d96.json": {
+   "sha256": "03808a3651a235015e1fae47d510303a71079c2b3c3a68ac495b6c49af757522",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/f87d19c5cde181f2.json": {
+   "sha256": "084dab748d55c6928b453db5d2f94d06d3525d47f3f1a8c11bcb71b41edb0404",
+   "bytes": 6810
+  },
+  "outputs/exp4/run/fleet/f89c8716d5235c35.json": {
+   "sha256": "a109cacccc0d85f2ee65e403209d45c1e47530cd3b76eeec971e77a671063abe",
+   "bytes": 6808
+  },
+  "outputs/exp4/run/fleet/fa49349e9f75afba.json": {
+   "sha256": "ac3045680c7f11aec0566ad6dcfae8c28a07db501b27defd756f939ead4a0c54",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/fleet/fd42581a48d2b88d.json": {
+   "sha256": "0d80ce6697b7cc4fec061ae52fb56e3fccbc1448a08269185c2aeba7d3f9c9bd",
+   "bytes": 6807
+  },
+  "outputs/exp4/run/fleet/fd9df37f7c3475ac.json": {
+   "sha256": "fe04aea13bf5746928a087ed425e040d7e7a807c0cf59b735a4b3fdd460417f1",
+   "bytes": 6812
+  },
+  "outputs/exp4/run/fleet/ffe18eedccdef667.json": {
+   "sha256": "eb688c00863c1d202ad7793e775ac671b1902121a1d1d28f85a0810f8636fb87",
+   "bytes": 6809
+  },
+  "outputs/exp4/run/master_paths.json": {
+   "sha256": "2291622a8e1ab3c1f2744e62aa9fb1a789131bdbc6713739bdcff88261abe88f",
+   "bytes": 250
+  },
+  "outputs/exp4/run/pool.json": {
+   "sha256": "203a96c338dd40baafbc97862b0406f18899d548551df68849ae924b849f5b87",
+   "bytes": 5365
+  },
+  "outputs/exp4/run/preflight.json": {
+   "sha256": "74d7e4c81b323e68661e04fddb2062fbd7b8d515da9ffe60d1882ee2e4f6ff9d",
+   "bytes": 6910
+  },
+  "outputs/exp4/run/promotion.json": {
+   "sha256": "719259b2b3cfe95d53c003be92d042a648ab5e3e1250ca5290e27d636c754f38",
+   "bytes": 10158
+  },
+  "outputs/exp4/run/proposals.json": {
+   "sha256": "82ebffd8aec5a53a4be80fe1a4f0eba842bb22c7d77dfc4bfc9f1ed5b47a5bd9",
+   "bytes": 4026751
+  },
+  "outputs/exp4/run/status.json": {
+   "sha256": "3798b28075d88f4d247aadab30d501fd5ac9bfb62d07b50f889a6b001b76f011",
+   "bytes": 105268
+  }
+ },
+ "n_files_digested": 409,
+ "DO_NOT": "overwrite, move, regenerate or mutate anything under outputs/exp4/. The normalized rerun writes only to outputs/exp4_normalized/."
+}

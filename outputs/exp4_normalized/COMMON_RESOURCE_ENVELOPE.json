@@ -1,0 +1,33 @@
+{
+ "envelope_id": "EXP4N_COMMON_RESOURCE_ENVELOPE",
+ "frozen_utc": "2026-09-22T11:40:35Z",
+ "source": "reference_network_baseline_peak_by_period",
+ "resolved_once_against": "the unedited reference network, before any candidate exists",
+ "instrument": "FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period \u2014 the identical quantity candidate usage is measured in",
+ "periods": [
+  "early",
+  "am_peak",
+  "midday",
+  "pm_peak",
+  "evening",
+  "owl"
+ ],
+ "peak_fleet_by_period": {
+  "early": 85.28208333333332,
+  "am_peak": 162.00944444444443,
+  "midday": 159.17277777777775,
+  "pm_peak": 176.49305555555554,
+  "evening": 140.19458333333336,
+  "owl": 35.55736111111111
+ },
+ "weekday_revenue_vehicle_hours": 2517.1833333333334,
+ "hours_source": "outputs/CANONICAL_ENVELOPE.json",
+ "canonical_envelope_digest": "b6c647d3766338a6",
+ "budget_tolerance": 0.0,
+ "reference_baseline_revenue_veh_hours": 2517.1833333333334,
+ "n_reference_route_periods": 173,
+ "agreement_with_audit_reference_worst_abs": 4.444444445539375e-05,
+ "IMMUTABLE": "every EXP4N candidate must be certified against exactly this vector; the launcher asserts it and every result carries the digest below",
+ "NOT": "not a claim that this envelope is a correct or operationally achievable fleet \u2014 it is a COMMON one, measured with a cycle/headway proxy",
+ "envelope_digest": "3fd5241db44ca9da"
+}
