@@ -73,6 +73,19 @@ def main() -> int:
     ap.add_argument("--out-of-band", action="store_true",
                     help="certify the rank-237 out-of-band candidate instead, "
                     "into its own directory")
+    ap.add_argument("--max-rounds", type=int, default=None,
+                    help="override the round CEILING only. Default None keeps "
+                    "exp4_certify.MAX_ROUNDS. This is the maximum permitted "
+                    "search duration, NOT the convergence criterion: `converged` "
+                    "is still set only when a full round finds no improving "
+                    "block move. Nothing else about the search changes.")
+    ap.add_argument("--out-dir", default=None,
+                    help="subdirectory under outputs/exp4_normalized/ to write "
+                    "into. Default 'certified'. Use a separate directory for "
+                    "any run that must not be mistaken for the production one.")
+    ap.add_argument("--trajectory", action="store_true",
+                    help="record the per-round incumbent objective so "
+                    "convergence shape can be inspected")
     a = ap.parse_args()
 
     from cota_opt.exp4_assemble import assemble
@@ -87,7 +100,12 @@ def main() -> int:
     ENV_DIGEST = str(spec["envelope_digest"])
     VH_CAP = float(spec["weekday_revenue_vehicle_hours"])
 
-    cert_dir = (OUT / "out_of_band") if a.out_of_band else CERT
+    EFF_MAX_ROUNDS = int(a.max_rounds) if a.max_rounds is not None else int(MAX_ROUNDS)
+    assert EFF_MAX_ROUNDS >= 1
+    if a.out_dir:
+        cert_dir = OUT / a.out_dir
+    else:
+        cert_dir = (OUT / "out_of_band") if a.out_of_band else CERT
     cert_dir.mkdir(parents=True, exist_ok=True)
 
     prop = json.loads((LEGACY / "proposals.json").read_text())["proposals"]
@@ -116,7 +134,9 @@ def main() -> int:
     print(f"{EXPERIMENT}  envelope {ENV_DIGEST}  hours {VH_CAP:.6f}  "
           f"lam {LAM}  seed {SEED}  contract {CERTIFICATION_DIGEST}")
     print(f"  peak {json.dumps({p: round(peak[p], 6) for p in PERIODS})}")
-    print(f"  n_keys {N_KEYS}  k_rungs {K_RUNGS}  max_rounds {MAX_ROUNDS}")
+    print(f"  n_keys {N_KEYS}  k_rungs {K_RUNGS}  max_rounds {EFF_MAX_ROUNDS}"
+          + ("" if EFF_MAX_ROUNDS == MAX_ROUNDS else f"  [CEILING OVERRIDDEN from {MAX_ROUNDS}]"))
+    print(f"  writing -> {cert_dir.relative_to(ROOT)}")
     print(f"  {len(keys) - len(todo)} done, {len(todo)} remaining of {len(keys)}"
           + ("  [OUT-OF-BAND]" if a.out_of_band else ""))
 
@@ -144,13 +164,22 @@ def main() -> int:
                "budget_tolerance": 0.0,
                "lam": LAM, "seed": SEED,
                "contract_digest": CERTIFICATION_DIGEST,
-               "n_keys": N_KEYS, "k_rungs": K_RUNGS, "max_rounds": MAX_ROUNDS,
+               "n_keys": N_KEYS, "k_rungs": K_RUNGS, "max_rounds": EFF_MAX_ROUNDS,
+               "max_rounds_default": MAX_ROUNDS,
+               "round_ceiling_overridden": EFF_MAX_ROUNDS != MAX_ROUNDS,
                "cap_provenance": "common_reference_envelope_resolved_once"}
+        traj = []
+        def _prog(rnd, obj, blocks, _t=traj, _t0=None):
+            _t.append({"round": int(rnd), "objective": repr(float(obj)),
+                       "block_enumerations": int(blocks),
+                       "elapsed_s": round(time.time() - ts, 1)})
         try:
             cr = certify(built.network, built.tstats, state_key=k,
                          state_digest=sel.state_digest, harness=H, stops_gdf=sg,
                          lam=LAM, seed=SEED, constraints=cons,
-                         contract_digest=CERTIFICATION_DIGEST)
+                         contract_digest=CERTIFICATION_DIGEST,
+                         max_rounds=EFF_MAX_ROUNDS,
+                         progress=_prog if a.trajectory else None)
         except Exception as e:
             rec.update({"error": f"{type(e).__name__}: {e}"[:500],
                         "seconds": time.time() - ts})
@@ -163,6 +192,11 @@ def main() -> int:
                     "hours_used": repr(hrs),
                     "hours_feasible": hrs <= VH_CAP,
                     "error": None})
+        rec["max_rounds"] = EFF_MAX_ROUNDS      # payload() reports the default
+        rec["max_rounds_default"] = int(MAX_ROUNDS)
+        rec["round_ceiling_overridden"] = EFF_MAX_ROUNDS != int(MAX_ROUNDS)
+        if a.trajectory:
+            rec["round_trajectory"] = traj
         (cert_dir / f"{digest(k)}.json").write_text(json.dumps(rec, indent=1))
         lg = legacy.get(k, {})
         old = float(lg["legacy_objective_EXACT"]) if "legacy_objective_EXACT" in lg \
