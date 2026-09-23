@@ -1,5 +1,39 @@
 # EXP4N — keeper beat protocol
 
+> ## CURRENT STATE, 03:30 UTC 23 Sep 2026 — NOTHING IS RUNNING
+>
+> The MAX_ROUNDS=40 full-200 batch was **aborted** and the round-cap
+> calibration is **complete and reported**. There is no process to keep alive,
+> so there is **no beat armed** — the disk survives container reclaim and
+> everything is committed, so a beat would burn tokens protecting nothing.
+>
+> **Do not launch anything.** Ian's abort instruction, item 7: *"Do not launch
+> the replacement full-200 batch until I review the calibration result."* He
+> has the report and has not replied. Waiting is the correct state, not a
+> stall.
+>
+> **Calibration result:** 21/21 converged under MAX_ROUNDS=200, zero errors,
+> 5.84 h. Rounds min 15 · median 20 · mean 23.86 · p90 36 · max 44. 20/21
+> reproduced the aborted run exactly. Exactly one candidate was truncated by
+> the old ceiling (`12ab99b5915e`, 40r conv False -> 44r conv True, gain
+> 0.001083%, trajectory bit-identical to the aborted final at round 40).
+> `12165a4c04c6` genuinely converged at 40 under both ceilings.
+> **Recommended production cap: MAX_ROUNDS = 120.** Expected full-200 runtime
+> ~56 h. See `outputs/exp4_normalized/EXP4N_ROUND_CAP_CALIBRATION.json` and
+> `docs/EXP4N_ROUND_CAP_FINDING.md` §7-§8.
+>
+> **When Ian approves a cap**, the production run is all 200 from scratch under
+> ONE parameterization, into a **fresh** directory — never `certified/` (the 21
+> aborted 40-cap results) and never `calib_mr200/` (the 21 calibration
+> results). Neither set may be spliced in.
+>
+> ```
+> python3 scripts/exp4n_launch.py --max-rounds <CAP> --out-dir <fresh> --trajectory
+> ```
+>
+> Then re-arm a 45-minute beat, restore the hold-and-roll cadence below, and
+> follow the §7-§13 analysis plan.
+
 Durable copy of the keeper protocol for the Experiment 4 normalized rerun. The
 scheduled beat is a short pointer to this file; everything that does not change
 between beats lives here so it survives compaction and container reclaim.
