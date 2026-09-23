@@ -46,5 +46,78 @@
    "why": "certify() extracts only the system max (fitness.peak_vehicles) from FitnessVector; per-period peak_by_period is not carried into the payload. Rebuilding the model in the launcher to recompute it would duplicate the expensive path-set setup.",
    "recorded_instead": "fitness_EXACT.peak_vehicles (system max), the per-period peak_caps envelope, and the fact that BOTH feasibility arms are enforced in-loop by frequency._feasible:374 so no returned plan can violate either. hours feasibility is additionally re-verified independently in the launcher."
   }
- ]
+ ],
+ "exact_peak_envelope_used_by_this_run": {
+  "note": "Lossless record of the EXACT peak-vehicle envelope this production run used, preserved per Ian's instruction of 23 Sep. Added AFTER the run started; purely additive, alters no existing field, and does not change what the run is doing.",
+  "values": {
+   "early": {
+    "repr": "85.28208333333332",
+    "hex": "0x1.5520da740da73p+6",
+    "ieee754_be_hex": "4055520da740da73",
+    "int_bits": 4635701610041891443,
+    "decimal_exact": "85.282083333333318"
+   },
+   "am_peak": {
+    "repr": "162.00944444444443",
+    "hex": "0x1.4404d5e6f8091p+7",
+    "ieee754_be_hex": "4064404d5e6f8091",
+    "int_bits": 4639904217139478673,
+    "decimal_exact": "162.00944444444443"
+   },
+   "midday": {
+    "repr": "159.17277777777775",
+    "hex": "0x1.3e587654320fep+7",
+    "ieee754_be_hex": "4063e587654320fe",
+    "int_bits": 4639804410803986686,
+    "decimal_exact": "159.17277777777775"
+   },
+   "pm_peak": {
+    "repr": "176.49305555555554",
+    "hex": "0x1.60fc71c71c71cp+7",
+    "ieee754_be_hex": "40660fc71c71c71c",
+    "int_bits": 4640413813902001948,
+    "decimal_exact": "176.49305555555554"
+   },
+   "evening": {
+    "repr": "140.19458333333336",
+    "hex": "0x1.1863a06d3a06ep+7",
+    "ieee754_be_hex": "4061863a06d3a06e",
+    "int_bits": 4639136674949079150,
+    "decimal_exact": "140.19458333333336"
+   },
+   "owl": {
+    "repr": "35.55736111111111",
+    "hex": "0x1.1c7579be02469p+5",
+    "ieee754_be_hex": "4041c7579be02469",
+    "int_bits": 4630201071004820585,
+    "decimal_exact": "35.557361111111113"
+   }
+  },
+  "hours_cap": {
+   "repr": "2517.1833333333334",
+   "hex": "0x1.3aa5ddddddddep+11",
+   "ieee754_be_hex": "40a3aa5dddddddde",
+   "int_bits": 4657753759762210270,
+   "decimal_exact": "2517.1833333333334"
+  },
+  "budget_tolerance": {
+   "repr": "0.0",
+   "hex": "0x0.0p+0",
+   "ieee754_be_hex": "0000000000000000",
+   "int_bits": 0,
+   "decimal_exact": "0"
+  }
+ },
+ "envelope_digest_insufficiency": {
+  "finding": "envelope_digest is NOT sufficient to establish bit-exact peak-envelope identity.",
+  "mechanism": "scripts/exp4n_freeze_envelope.py:100-105 computes the digest over round(peak[p], 9) and round(VH_CAP, 9). Two envelopes differing below the 9th decimal place therefore produce the SAME digest.",
+  "how_it_surfaced": "The first draft of the production contract freeze compared the peak envelope against constants transcribed by hand from a rounded log line. midday and evening were wrong in the last ULP (159.17277777777778 vs the true 159.17277777777775; 140.19458333333333 vs 140.19458333333336). The digest matched in both cases and would not have caught the discrepancy. The explicit bit-exact assertion did.",
+  "why_this_run_is_still_protected": "This run's envelope identity does not rest on the digest. scripts/exp4n_freeze_production_contract.py asserts the production-resolved envelope bit-exactly against COMMON_RESOURCE_ENVELOPE.json AND bit-exactly against the envelope all 21 calibration results actually recorded. Both passed. The digest is corroborating evidence, not the proof.",
+  "deferred_action": {
+   "when": "AFTER EXP4N completes. Explicitly NOT retrofitted into this contract.",
+   "what": "Add a separate exact-envelope fingerprint for future experiments: a hash over a canonical lossless representation of the envelope - raw IEEE-754 bit patterns, or float.hex(), rather than a rounded decimal.",
+   "constraint": "Must NOT be used to invalidate this run, and must NOT replace envelope_digest in artifacts this run already wrote. It is an ADDITIONAL fingerprint for experiments that come after.",
+   "material_already_present": "exact_peak_envelope_used_by_this_run above carries the raw bit patterns, so the future fingerprint can be computed over this run's envelope retroactively for comparison, without re-resolving anything."
+  }
+ }
 }
