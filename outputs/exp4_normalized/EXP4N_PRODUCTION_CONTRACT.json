@@ -1,0 +1,50 @@
+{
+ "artifact": "EXP4N_PRODUCTION_CONTRACT",
+ "status": "FROZEN",
+ "production_max_rounds": 120,
+ "only_intended_difference_from_aborted_run": "max_rounds: 40 -> 120",
+ "search": {
+  "max_rounds": 120,
+  "n_keys": 8,
+  "k_rungs": 3,
+  "lam": 2.0,
+  "seed": 20260825,
+  "tolerance": 0.0,
+  "hours_cap": 2517.1833333333334
+ },
+ "canonical_envelope_digest": "3fd5241db44ca9da",
+ "contract_digest": "2125984c82b60a83",
+ "peak_vehicle_envelope": {
+  "early": "85.28208333333332",
+  "am_peak": "162.00944444444443",
+  "midday": "159.17277777777775",
+  "pm_peak": "176.49305555555554",
+  "evening": "140.19458333333336",
+  "owl": "35.55736111111111"
+ },
+ "cap_provenance": "common_reference_envelope_resolved_once",
+ "envelope_digest_caveat": "envelope_digest is computed over round(peak, 9), so a matching digest is necessary but NOT sufficient for bit-exact envelope equality. This freeze additionally compares the production-resolved envelope bit-exactly against COMMON_RESOURCE_ENVELOPE.json and against the envelope all 21 calibration runs actually used.",
+ "candidate_set_digest": "38e52f0b14b1d554",
+ "candidate_count": 200,
+ "source_tree_git_commit": "431b105a99af9c4a0a4add40b3032ae140040267",
+ "src_cota_opt_content_digest": "add5d0002d29aa49",
+ "src_cota_opt_modified": false,
+ "ceiling_passed_via": "certify(max_rounds=...) keyword from scripts/exp4n_launch.py",
+ "calibration_max_rounds": [
+  200
+ ],
+ "known_output_gaps": [
+  {
+   "field": "initial_objective",
+   "status": "NOT RECORDABLE without changing frozen code",
+   "why": "certify() computes delivered_obj internally (exp4_certify.py:258) but CertifiedResult has no field for it and payload() does not emit it. Exposing it means editing src/cota_opt, which breaks the frozen-source guard; recomputing it means a duplicate gen1 solve per candidate, roughly 11-17h across 200.",
+   "recorded_instead": "objective_APPROXIMATE (the discovery score, a DIFFERENT quantity) and round_trajectory[1], the objective after round 1, which is an exact upper bound on the delivered objective."
+  },
+  {
+   "field": "peak_usage per period",
+   "status": "NOT RECORDABLE without changing frozen code",
+   "why": "certify() extracts only the system max (fitness.peak_vehicles) from FitnessVector; per-period peak_by_period is not carried into the payload. Rebuilding the model in the launcher to recompute it would duplicate the expensive path-set setup.",
+   "recorded_instead": "fitness_EXACT.peak_vehicles (system max), the per-period peak_caps envelope, and the fact that BOTH feasibility arms are enforced in-loop by frequency._feasible:374 so no returned plan can violate either. hours feasibility is additionally re-verified independently in the launcher."
+  }
+ ]
+}

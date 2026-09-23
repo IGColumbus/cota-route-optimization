@@ -86,6 +86,17 @@ def main() -> int:
     ap.add_argument("--trajectory", action="store_true",
                     help="record the per-round incumbent objective so "
                     "convergence shape can be inspected")
+    ap.add_argument("--stop-on-nonconvergence", action="store_true",
+                    help="PRODUCTION RULE. Halt the whole run the moment any "
+                    "candidate returns rounds==max_rounds with converged=False, "
+                    "and write EXP4N_CONVERGENCE_FAILURE.json. A ceiling hit is "
+                    "a diagnostic alarm, not a result to rank.")
+    ap.add_argument("--calibration-dir", default="",
+                    help="PRODUCTION CONTROL. Directory of stored calibration "
+                    "results. Any candidate present there must reproduce its "
+                    "rounds, converged flag and objective exactly; divergence "
+                    "halts the run, because it implies something other than the "
+                    "round ceiling changed.")
     a = ap.parse_args()
 
     from cota_opt.exp4_assemble import assemble
@@ -139,6 +150,26 @@ def main() -> int:
     print(f"  writing -> {cert_dir.relative_to(ROOT)}")
     print(f"  {len(keys) - len(todo)} done, {len(todo)} remaining of {len(keys)}"
           + ("  [OUT-OF-BAND]" if a.out_of_band else ""))
+
+    calib = {}
+    if a.calibration_dir:
+        cd = OUT / a.calibration_dir
+        for f in cd.glob("*.json"):
+            c = json.loads(f.read_text())
+            calib[c["state_key"]] = c
+        print(f"  calibration control: {len(calib)} stored results from "
+              f"{cd.relative_to(ROOT)}")
+    if a.stop_on_nonconvergence:
+        print(f"  STOP-ON-NONCONVERGENCE armed: rounds=={EFF_MAX_ROUNDS} with "
+              f"converged=False halts the run")
+
+    def _halt(kind: str, payload: dict) -> None:
+        payload = {"status": kind, "halted_utc": __import__("datetime").datetime.now(
+                       __import__("datetime").timezone.utc).isoformat(timespec="seconds"),
+                   **payload}
+        (cert_dir.parent / f"{kind}.json").write_text(json.dumps(payload, indent=1))
+        print(f"\n!!! {kind} !!!  written to "
+              f"{(cert_dir.parent / (kind + '.json')).relative_to(ROOT)}")
 
     t0 = time.time(); deadline = t0 + a.max_hours * 3600
     for i, k in enumerate(todo, 1):
@@ -198,6 +229,78 @@ def main() -> int:
         if a.trajectory:
             rec["round_trajectory"] = traj
         (cert_dir / f"{digest(k)}.json").write_text(json.dumps(rec, indent=1))
+
+        # ---- PRODUCTION RULE §5: a ceiling hit is an alarm, not a result ----
+        if a.stop_on_nonconvergence and cr.rounds >= EFF_MAX_ROUNDS and not cr.converged:
+            t = rec.get("round_trajectory") or []
+            objs = [float(x["objective"]) for x in t]
+            impr = [t[i]["round"] for i in range(1, len(objs))
+                    if objs[i] < objs[i - 1] - 1e-9]
+            def _gain(n):
+                return (objs[-1 - n] - objs[-1]) if len(objs) > n else None
+            _halt("EXP4N_CONVERGENCE_FAILURE", {
+                "candidate_id": k, "state_digest": sel.state_digest,
+                "legacy_certified_rank": legacy.get(k, {}).get("certified_rank"),
+                "max_rounds": EFF_MAX_ROUNDS, "rounds": cr.rounds,
+                "converged": cr.converged,
+                "objective_at_ceiling": repr(cr.objective),
+                "objective_trajectory": t,
+                "improving_rounds": impr,
+                "every_round_improved": len(impr) == max(len(objs) - 1, 0),
+                "still_improving_at_ceiling": (len(objs) >= 2 and
+                                               objs[-1] < objs[-2] - 1e-9),
+                "improvement_over_final_10_rounds": (repr(_gain(10))
+                                                     if _gain(10) is not None else None),
+                "improvement_over_final_20_rounds": (repr(_gain(20))
+                                                     if _gain(20) is not None else None),
+                "n_rounds_with_no_improvement": max(len(objs) - 1, 0) - len(impr),
+                "monotone_nonincreasing": all(objs[i] <= objs[i - 1] + 1e-9
+                                              for i in range(1, len(objs))),
+                "hours_used": rec["hours_used"], "hours_cap": repr(VH_CAP),
+                "hours_feasible": rec["hours_feasible"],
+                "peak_vehicles_system": repr(float(f.get("peak_vehicles", float("nan")))),
+                "peak_caps": rec["peak_caps"],
+                "fitness_EXACT": rec.get("fitness_EXACT"),
+                "comparison_vs_40_cap": (
+                    {kk: calib[k].get(kk) for kk in ("rounds", "converged", "objective_EXACT")}
+                    if k in calib else "no stored calibration result for this candidate"),
+                "interpretation_REQUIRED": (
+                    "Mechanical signals only. Classify slow descent vs cycling vs "
+                    "numerical pathology by reading the trajectory; do NOT raise "
+                    "max_rounds, do NOT rank this objective, do NOT treat it as "
+                    "certified."),
+                "candidates_completed_before_halt": len(keys) - len(todo) + i - 1})
+            return 2
+
+        # ---- PRODUCTION CONTROL §6: calibration candidates must reproduce ----
+        if k in calib:
+            c = calib[k]
+            same = (cr.rounds == c["rounds"]
+                    and bool(cr.converged) == bool(c["converged"])
+                    and float(cr.objective) == float(c["objective_EXACT"]))
+            if not same:
+                _halt("EXP4N_REPRODUCTION_FAILURE", {
+                    "candidate_id": k,
+                    "legacy_certified_rank": legacy.get(k, {}).get("certified_rank"),
+                    "stored_calibration": {"rounds": c["rounds"],
+                                           "converged": c["converged"],
+                                           "objective_EXACT": c["objective_EXACT"],
+                                           "max_rounds": c["max_rounds"]},
+                    "production": {"rounds": cr.rounds, "converged": cr.converged,
+                                   "objective_EXACT": repr(cr.objective),
+                                   "max_rounds": EFF_MAX_ROUNDS},
+                    "objective_delta": repr(float(cr.objective) - float(c["objective_EXACT"])),
+                    "why_this_halts": (
+                        "The calibration established that raising the ceiling changes "
+                        "only whether a truncated search is allowed to finish. A "
+                        "divergence here means something OTHER than the round ceiling "
+                        "differs between the two runs, which invalidates the "
+                        "ceiling-only interpretation. Investigate before certifying."),
+                    "candidates_completed_before_halt": len(keys) - len(todo) + i - 1})
+                return 3
+            print(f"       calib-control OK  {k[-12:]} reproduces "
+                  f"{c['rounds']}r conv {c['converged']} exactly")
+
         lg = legacy.get(k, {})
         old = float(lg["legacy_objective_EXACT"]) if "legacy_objective_EXACT" in lg \
             else (float(lg["objective_EXACT"]) if "objective_EXACT" in lg else None)
