@@ -153,19 +153,116 @@ termination — plus the full per-round incumbent trajectory.
 > moves would require modifying the frozen optimizer. The distinction is stated
 > rather than papered over.
 
-**Results: PENDING.** Launched 21:35 UTC 22 Sep as pid 2314.
+**Results.** Ran 21:35 UTC 22 Sep to 03:25 UTC 23 Sep, 5.84 h of compute, all
+21 candidates, zero errors. Full artifact:
+`outputs/exp4_normalized/EXP4N_ROUND_CAP_CALIBRATION.json`.
+
+| legacy rank | candidate | rounds @40-cap | rounds @200-cap | converged | reproduces |
+|---|---|---|---|---|---|
+| 7 | c85f68507f8c | 15 | 15 | yes | exact |
+| 3 | d1f8d2497954 | 16 | 16 | yes | exact |
+| 11 | 32217e8b5098 | 16 | 16 | yes | exact |
+| 2 | 08f377545e31 | 17 | 17 | yes | exact |
+| 10 | 113872a5a967 | 17 | 17 | yes | exact |
+| 5 | 24e142fc0287 | 17 | 17 | yes | exact |
+| 71 | 99c5d391c164 | 17 | 17 | yes | exact |
+| 150 | 350c7cf4e725 | 17 | 17 | yes | exact |
+| 6 | 03fce0e3f398 | 18 | 18 | yes | exact |
+| 14 | 81d9a2f8c376 | 19 | 19 | yes | exact |
+| 4 | 21fa771c4311 | 20 | 20 | yes | exact |
+| 8 | 98054c48fe48 | 21 | 21 | yes | exact |
+| 1 | ecb2ffc4bcce | 25 | 25 | yes | exact |
+| 17 | e10f2321e79b | 25 | 25 | yes | exact |
+| 200 | 96485eb1a98e | 28 | 28 | yes | exact |
+| 100 | 229cb1654b51 | 30 | 30 | yes | exact |
+| 50 | d6f401185657 | 31 | 31 | yes | exact |
+| 13 | 80a5c289e861 | 32 | 32 | yes | exact |
+| 9 | 3302f2af66ee | 36 | 36 | yes | exact |
+| 25 | 12165a4c04c6 | 40 | **40** | yes | exact |
+| 12 | 12ab99b5915e | 40 *(conv False)* | **44** | **yes** | **differs** |
+
+**Distribution:** min 15 · median 20 · mean 23.86 · p90 36 · **max 44** ·
+stdev 8.47. **Not converged by 200: zero.**
+
+**Exactly one of 21 was truncated by the old ceiling**, and 20 of 21 reproduce
+the aborted run's rounds *and* objective exactly.
+
+### The truncated candidate
+
+`12ab99b5915e`, legacy rank 12. Under the 40-cap: `3262415.111480918`, 40
+rounds, `converged False`. Under the 200-cap: `3262379.764323833`, **44
+rounds, `converged True`**.
+
+Its calibration trajectory's objective **at round 40 is bit-identical to the
+aborted run's final objective**. The search path is therefore the same up to
+the old ceiling — direct evidence that only the ceiling moved and no other
+search behaviour changed. It improved in rounds 41, 42 and 43; round 44 found
+no improving move and it converged. It had in fact improved in **every round
+from 2 to 43**, a long monotone descent rather than an oscillation.
+
+Truncation cost: **35.3472 objective units, 0.001083%** — real, but two orders
+of magnitude below the 2.2788% legacy objective spread.
+
+### The zero-headroom candidate
+
+`12165a4c04c6`, legacy rank 25, was the other candidate at the ceiling: 40
+rounds, `converged True`. Under the 200-cap it returned **40 rounds,
+`converged True`, identical objective**. It genuinely converged at round 40;
+the zero headroom was coincidence, not truncation. `converged == True` at the
+ceiling means what it says.
+
+### Runtime model
+
+`seconds ~ 366 + 26.7 * rounds`, pearson r = 0.9922. Fixed overhead ~366 s,
+marginal ~26.7 s per round.
+
+### Sample caveats, stated plainly
+
+n = 21 is **not** a random sample of the 200. It is the 10-candidate audit
+pilot plus legacy ranks 1-14 in order: ranks 1-14, 17, 25, 50, 71, 100, 150,
+200. Fourteen of the 21 are legacy ranks 1-14, so the top of the legacy ranking
+is over-represented and 179 candidates are unsampled. Correlation between
+legacy rank and convergence round is pearson +0.0791, spearman +0.3366 —
+**not a reliable relationship at this n with this composition**, so the
+convergence behaviour of the unsampled 179 should be treated as unknown. The
+maximum of a 21-candidate sample also understates the maximum of 200. All of
+this argues for headroom, not against it.
 
 ## 8. Basis for the production round cap
 
-**PENDING** the pilot. The cap will be justified by the convergence
-distribution observed in *this* regime — min, median, mean, p90 and max
-convergence round, plus the count not converged by 200 — with meaningful
-headroom above the observed maximum. It will not be justified by the legacy
-run, whose distribution has been shown not to transfer.
+**Recommendation: `MAX_ROUNDS = 120`.**
 
-If any candidate fails to converge by 200, that is not a signal to pick a
-larger arbitrary cap. It is a signal that the search or the convergence
-criterion has a deeper problem in this regime, and it will be flagged as such.
+The decisive structural fact is that **raising the ceiling costs nothing for
+candidates that converge earlier.** `exp4_certify.py` breaks out of the round
+loop the moment a full round finds no improving move, so the ceiling only
+consumes time for candidates that would otherwise have been truncated — which
+are precisely the ones that should be allowed to finish. Erring high is close
+to free, and the choice is therefore governed by where a ceiling stops being
+useful as an alarm, not by compute cost.
+
+* **2.7x** the observed maximum natural convergence round of 44.
+* mean 23.86 + **11.3 standard deviations**.
+* A candidate that actually ran the full 120 would take about **59 minutes**
+  (366 + 26.7 x 120 = 3564 s) — tolerable as a worst case.
+* Still low enough that a candidate reaching it is a genuine alarm worth
+  stopping for, rather than a silent multi-hour burn.
+
+Alternatives considered: **100** (2.3x observed max) is defensible but leaves
+less headroom for the 179 unsampled candidates. **200** is known safe — 0/21
+reached it — but a capped candidate would cost ~95 min and the extra headroom
+buys little over 120. **60** is only 1.4x the observed max and sits too close
+to a tail that a 21-candidate sample understates; not recommended.
+
+**Expected full-200 runtime: ~56 h** (200 x the observed 1002 s mean), ~50 h on
+the median, bracketed 42-85 h if every candidate were as fast or as slow as the
+extremes seen. The ceiling does not change runtime for candidates that converge
+naturally, so this is driven by the convergence distribution rather than by the
+cap; even ten candidates running the full 120 rounds would add only about 7 h.
+
+**Stop condition.** If any candidate fails to converge by 120, that is not a
+signal to raise the ceiling again. It is a signal that the search or the
+convergence criterion has a deeper problem in this regime, and it will be
+flagged as such rather than papered over with another arbitrary number.
 
 ## How this should and should not be characterized
 
