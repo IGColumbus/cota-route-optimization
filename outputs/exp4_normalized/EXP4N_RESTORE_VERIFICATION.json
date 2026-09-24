@@ -1,0 +1,399 @@
+{
+ "artifact": "EXP4N_RESTORE_VERIFICATION",
+ "status": "PASS",
+ "purpose": "Establish that the tree rebuilt after total loss of the ephemeral container disk is a valid substrate for resuming the EXP4N production run under the already-frozen contract. This verification does NOT authorize a relaunch and does NOT interpret any partial result.",
+ "restored_from": "cota-exp3-clean-20260923-1825.bundle (tip 4de29b8e), the only durable export of the run",
+ "contract_digest": "2125984c82b60a83",
+ "canonical_envelope_digest": "3fd5241db44ca9da",
+ "candidate_set_digest": "38e52f0b14b1d554",
+ "src_cota_opt_content_digest": "add5d0002d29aa49",
+ "surviving_production_summary": {
+  "n": 24,
+  "rounds_min": 14,
+  "rounds_max": 44,
+  "rounds_mean": 21.416666666666668,
+  "at_ceiling": 0,
+  "all_converged": true
+ },
+ "loss": {
+  "last_reported_progress": "153/200",
+  "results_recovered": 24,
+  "results_lost": 129,
+  "lost_checkpoint_commits": [
+   "f69073b3",
+   "65838b9f",
+   "dd06abb0",
+   "ac56813a"
+  ],
+  "surviving_tip": "4de29b8e9fa7a2d63757db8f0e3b23141e9d3556"
+ },
+ "checks": [
+  {
+   "check": "contract status FROZEN",
+   "ok": true,
+   "got": "FROZEN",
+   "want": "FROZEN"
+  },
+  {
+   "check": "production_max_rounds",
+   "ok": true,
+   "got": 120,
+   "want": 120
+  },
+  {
+   "check": "candidate count",
+   "ok": true,
+   "got": 200,
+   "want": 200
+  },
+  {
+   "check": "candidate ids unique",
+   "ok": true,
+   "got": 200,
+   "want": 200
+  },
+  {
+   "check": "candidate-set digest == contract",
+   "ok": true,
+   "got": "38e52f0b14b1d554",
+   "want": "38e52f0b14b1d554"
+  },
+  {
+   "check": "legacy proposals.json present",
+   "ok": true,
+   "got": true,
+   "want": true
+  },
+  {
+   "check": "legacy eval_cache.jsonl present",
+   "ok": true,
+   "got": true,
+   "want": true
+  },
+  {
+   "check": "src/cota_opt content digest == contract",
+   "ok": true,
+   "got": "add5d0002d29aa49",
+   "want": "add5d0002d29aa49"
+  },
+  {
+   "check": "src/cota_opt clean (unmodified)",
+   "ok": true,
+   "got": "",
+   "want": ""
+  },
+  {
+   "check": "contract source commit present in restored history",
+   "ok": true,
+   "got": true,
+   "want": true
+  },
+  {
+   "check": "src/cota_opt unchanged contract-commit..HEAD",
+   "ok": true,
+   "got": "",
+   "want": ""
+  },
+  {
+   "check": "contract envelope == COMMON_RESOURCE_ENVELOPE (BIT-EXACT)",
+   "ok": true,
+   "got": {
+    "early": 85.28208333333332,
+    "am_peak": 162.00944444444443,
+    "midday": 159.17277777777775,
+    "pm_peak": 176.49305555555554,
+    "evening": 140.19458333333336,
+    "owl": 35.55736111111111
+   },
+   "want": {
+    "early": 85.28208333333332,
+    "am_peak": 162.00944444444443,
+    "midday": 159.17277777777775,
+    "pm_peak": 176.49305555555554,
+    "evening": 140.19458333333336,
+    "owl": 35.55736111111111
+   }
+  },
+  {
+   "check": "contract envelope reprs == frozen reprs (BIT-EXACT)",
+   "ok": true,
+   "got": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   },
+   "want": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   }
+  },
+  {
+   "check": "certified/ has 21 results",
+   "ok": true,
+   "got": 21,
+   "want": 21
+  },
+  {
+   "check": "calib_mr200/ has 21 results",
+   "ok": true,
+   "got": 21,
+   "want": 21
+  },
+  {
+   "check": "EXP4N_ROUND_CAP_CALIBRATION.json present",
+   "ok": true,
+   "got": true,
+   "want": true
+  },
+  {
+   "check": "EXP4N_ABORTED_ROUND_CAP_INVALID.json present",
+   "ok": true,
+   "got": true,
+   "want": true
+  },
+  {
+   "check": "EXP4N_PILOT_GATE.json present",
+   "ok": true,
+   "got": true,
+   "want": true
+  },
+  {
+   "check": "production results recovered",
+   "ok": true,
+   "got": 24,
+   "want": 24
+  },
+  {
+   "check": "survivors uniform max_rounds == contract",
+   "ok": true,
+   "got": [
+    true,
+    120
+   ],
+   "want": [
+    true,
+    120
+   ]
+  },
+  {
+   "check": "survivors uniform n_keys == contract",
+   "ok": true,
+   "got": [
+    true,
+    8
+   ],
+   "want": [
+    true,
+    8
+   ]
+  },
+  {
+   "check": "survivors uniform k_rungs == contract",
+   "ok": true,
+   "got": [
+    true,
+    3
+   ],
+   "want": [
+    true,
+    3
+   ]
+  },
+  {
+   "check": "survivors uniform lam == contract",
+   "ok": true,
+   "got": [
+    true,
+    2.0
+   ],
+   "want": [
+    true,
+    2.0
+   ]
+  },
+  {
+   "check": "survivors uniform seed == contract",
+   "ok": true,
+   "got": [
+    true,
+    20260825
+   ],
+   "want": [
+    true,
+    20260825
+   ]
+  },
+  {
+   "check": "survivors uniform budget_tolerance == contract",
+   "ok": true,
+   "got": [
+    true,
+    0.0
+   ],
+   "want": [
+    true,
+    0.0
+   ]
+  },
+  {
+   "check": "survivors uniform common_envelope_digest == contract",
+   "ok": true,
+   "got": [
+    true,
+    "3fd5241db44ca9da"
+   ],
+   "want": [
+    true,
+    "3fd5241db44ca9da"
+   ]
+  },
+  {
+   "check": "survivors uniform contract_digest == contract",
+   "ok": true,
+   "got": [
+    true,
+    "2125984c82b60a83"
+   ],
+   "want": [
+    true,
+    "2125984c82b60a83"
+   ]
+  },
+  {
+   "check": "survivors uniform hours_cap == contract",
+   "ok": true,
+   "got": [
+    true,
+    "2517.1833333333334"
+   ],
+   "want": [
+    true,
+    "2517.1833333333334"
+   ]
+  },
+  {
+   "check": "survivors uniform cap_provenance == contract",
+   "ok": true,
+   "got": [
+    true,
+    "common_reference_envelope_resolved_once"
+   ],
+   "want": [
+    true,
+    "common_reference_envelope_resolved_once"
+   ]
+  },
+  {
+   "check": "survivors all converged",
+   "ok": true,
+   "got": [
+    true
+   ],
+   "want": [
+    true
+   ]
+  },
+  {
+   "check": "survivors none at the 120 ceiling",
+   "ok": true,
+   "got": 0,
+   "want": 0
+  },
+  {
+   "check": "survivors share one peak envelope",
+   "ok": true,
+   "got": 1,
+   "want": 1
+  },
+  {
+   "check": "survivor envelope == contract (BIT-EXACT)",
+   "ok": true,
+   "got": {
+    "am_peak": "162.00944444444443",
+    "early": "85.28208333333332",
+    "evening": "140.19458333333336",
+    "midday": "159.17277777777775",
+    "owl": "35.55736111111111",
+    "pm_peak": "176.49305555555554"
+   },
+   "want": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   }
+  },
+  {
+   "check": "survivors carry round trajectories",
+   "ok": true,
+   "got": true,
+   "want": true
+  },
+  {
+   "check": "survivors are the contiguous certified_rank prefix 1..24",
+   "ok": true,
+   "got": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+   ],
+   "want": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24
+   ]
+  }
+ ],
+ "failures": []
+}
