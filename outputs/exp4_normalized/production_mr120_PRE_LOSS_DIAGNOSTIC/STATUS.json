@@ -1,0 +1,239 @@
+{
+ "artifact": "EXP4N_PRE_LOSS_PRODUCTION_DIAGNOSTIC",
+ "status": "DIAGNOSTIC ONLY \u2014 SUPERSEDED, NOT PART OF ANY CERTIFIED RUN",
+ "what_these_are": "The 24 production results that survived the 2026-09-24 container loss, out of 153 that had completed. They were produced under the frozen contract 2125984c82b60a83 at max_rounds=120 and passed every parameter check in EXP4N_RESTORE_VERIFICATION.json (35 checks, 0 failures) including a bit-exact six-period envelope comparison.",
+ "why_they_are_archived_rather_than_reused": "The repository owner chose a fresh 200 from scratch over resuming across them. That decision is recorded here because the files pass every automated check that would have permitted reuse: nothing technical excluded them. They are moved out of production_mr120/ so the fresh run starts from an empty directory and no file-existence resume can silently splice them in.",
+ "rules": [
+  "These MUST NOT be copied, merged or symlinked into production_mr120/.",
+  "These MUST NOT be used in any ranking, ordering, margin or geometry claim.",
+  "The fresh run's results are the only production evidence.",
+  "Preserved rather than deleted for the same reason superseded artifacts elsewhere in this project are preserved: a superseded artifact looks entirely legitimate from the inside, and the record of how it looked is part of the evidence."
+ ],
+ "contract_digest": "2125984c82b60a83",
+ "canonical_envelope_digest": "3fd5241db44ca9da",
+ "production_max_rounds": 120,
+ "count": 24,
+ "positions_in_certified_rank_ordering": "1..24 (contiguous prefix, no gaps)",
+ "rounds_min": 14,
+ "rounds_max": 44,
+ "all_converged": true,
+ "any_at_ceiling": false,
+ "manifest": [
+  {
+   "file": "0a905b1e16f496e4.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#c85f68507f8c",
+   "legacy_certified_rank": 7,
+   "objective_EXACT": "3278091.35875412",
+   "rounds": 15,
+   "converged": true,
+   "sha256": "4f92e532769fea2c3d770b685f59d23eaec46adaf3baf58e89e394f21a271973"
+  },
+  {
+   "file": "0c486f6d440fc5b5.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce",
+   "legacy_certified_rank": 1,
+   "objective_EXACT": "3325019.735841233",
+   "rounds": 25,
+   "converged": true,
+   "sha256": "7fdda075dc95c41ba3e0a7874d58ca36b66bbc483bd280f579ad706920163df8"
+  },
+  {
+   "file": "0fbd7554a7182b01.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#d1f8d2497954",
+   "legacy_certified_rank": 3,
+   "objective_EXACT": "3304686.7234470607",
+   "rounds": 16,
+   "converged": true,
+   "sha256": "5a5cc8d3be528863559883f2e7ed22048dac1585169f3299b94662f83fa4b238"
+  },
+  {
+   "file": "1353b1d8398db899.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#32217e8b5098",
+   "legacy_certified_rank": 11,
+   "objective_EXACT": "3283720.728331531",
+   "rounds": 16,
+   "converged": true,
+   "sha256": "00b5a811ee07c72d03b8fd1c711ec90a207ad03aeadbadea51b7da84b84ac79c"
+  },
+  {
+   "file": "148e44faac811dde.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#ebb81d232aa0",
+   "legacy_certified_rank": 19,
+   "objective_EXACT": "3274218.240332634",
+   "rounds": 21,
+   "converged": true,
+   "sha256": "832acc6ae66ed9902462134dd9cb68e6e7273ba954c4eedde045a8363156f578"
+  },
+  {
+   "file": "1e854fc1ba35ac2c.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#98054c48fe48",
+   "legacy_certified_rank": 8,
+   "objective_EXACT": "3296489.459252986",
+   "rounds": 21,
+   "converged": true,
+   "sha256": "6e13d9a6c1ce46eeb4a8cc096e640655714fe901c3ae0a5d227cb7ea6184143e"
+  },
+  {
+   "file": "256c6b2811eca60b.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#12ab99b5915e",
+   "legacy_certified_rank": 12,
+   "objective_EXACT": "3262379.764323833",
+   "rounds": 44,
+   "converged": true,
+   "sha256": "33a3dc8e3c68f2d777605fecbc780c5a7a99ae04ee26566674e048949db2794f"
+  },
+  {
+   "file": "326d9bd5f3fe4ad2.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#81d9a2f8c376",
+   "legacy_certified_rank": 14,
+   "objective_EXACT": "3283747.9148755968",
+   "rounds": 19,
+   "converged": true,
+   "sha256": "a2db651160aa6062a7a92523b0f27194a28061635df0472b2e4ec4c3dbedda1a"
+  },
+  {
+   "file": "333e80cefdbda0eb.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#3d7c9f161672",
+   "legacy_certified_rank": 21,
+   "objective_EXACT": "3279905.771327576",
+   "rounds": 17,
+   "converged": true,
+   "sha256": "ea1be3017318ac3b683fbd047c64415a390a991a7b883572696e0a37fae301c0"
+  },
+  {
+   "file": "47e3b516435e3bcb.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#3302f2af66ee",
+   "legacy_certified_rank": 9,
+   "objective_EXACT": "3255255.9427310824",
+   "rounds": 36,
+   "converged": true,
+   "sha256": "5c19859d29452761191409ba536eb1ba2004af7d31047cad249da6134c92894f"
+  },
+  {
+   "file": "4cf366554cfd86ff.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#08f377545e31",
+   "legacy_certified_rank": 2,
+   "objective_EXACT": "3295108.700013782",
+   "rounds": 17,
+   "converged": true,
+   "sha256": "722d6e82a31b81ff535f1ccc23f0e3ff9246d24a9bd55eab2eded7985e8c62c3"
+  },
+  {
+   "file": "50b0b859286e0f5c.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#b238cac2845e",
+   "legacy_certified_rank": 18,
+   "objective_EXACT": "3329412.7343056295",
+   "rounds": 17,
+   "converged": true,
+   "sha256": "26669da43762b4681f92e23f73781f9e705ce0a807c2475eb59b597958184ad8"
+  },
+  {
+   "file": "671fc6318e32e89e.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#80a5c289e861",
+   "legacy_certified_rank": 13,
+   "objective_EXACT": "3282607.310927693",
+   "rounds": 32,
+   "converged": true,
+   "sha256": "4be149a9cb808079ee0367e49714072de4542ce01869e9ad22c77a0e7d7feb9b"
+  },
+  {
+   "file": "6ed5489f64705d7f.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#feac42afd453",
+   "legacy_certified_rank": 15,
+   "objective_EXACT": "3270213.910585613",
+   "rounds": 14,
+   "converged": true,
+   "sha256": "9716567e2393af20ddfe7d24e006b9c998530cf721d67b421b05f28831a98cfd"
+  },
+  {
+   "file": "6f1d1e0ec098f9c6.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#21fa771c4311",
+   "legacy_certified_rank": 4,
+   "objective_EXACT": "3278791.323674788",
+   "rounds": 20,
+   "converged": true,
+   "sha256": "927ed36f6353006ff4ee7f040e43f67ec8061f1517ea2b9daf6f207d0d022d78"
+  },
+  {
+   "file": "7399567784de8158.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#03fce0e3f398",
+   "legacy_certified_rank": 6,
+   "objective_EXACT": "3268780.0844971463",
+   "rounds": 18,
+   "converged": true,
+   "sha256": "8c5d31e7b9dd716590bf956d952784025bb31087f7aef627d373e8770aa51dac"
+  },
+  {
+   "file": "8f2de419052d9cfb.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#72a13b9cf627",
+   "legacy_certified_rank": 22,
+   "objective_EXACT": "3295250.601799403",
+   "rounds": 16,
+   "converged": true,
+   "sha256": "4b8faa8a80d72138faac2289ff6850ff81df02d941b0bbfcadaa2d705ed3de3e"
+  },
+  {
+   "file": "9660fce8d88a77e7.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#6c1e400f1379",
+   "legacy_certified_rank": 23,
+   "objective_EXACT": "3271349.649979492",
+   "rounds": 25,
+   "converged": true,
+   "sha256": "334f8de154d96310c62d68070877a26cedee3d20d753e3cc8759cd6e2b9f65b9"
+  },
+  {
+   "file": "9d625214163324fa.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#a5fae152436b",
+   "legacy_certified_rank": 20,
+   "objective_EXACT": "3279776.5063013127",
+   "rounds": 20,
+   "converged": true,
+   "sha256": "52047d76521540f6cc42873436b3241006166db17e041884a62a19fa4974904e"
+  },
+  {
+   "file": "9d86ea9ef13a2054.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#113872a5a967",
+   "legacy_certified_rank": 10,
+   "objective_EXACT": "3280077.4587018983",
+   "rounds": 17,
+   "converged": true,
+   "sha256": "b0524c3ec1fa8e8643167937f008ab03fb3963c67544017024ed908dc2b8049c"
+  },
+  {
+   "file": "b43a1868d4ef0cb5.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#545eb38f4b57",
+   "legacy_certified_rank": 24,
+   "objective_EXACT": "3281364.357516194",
+   "rounds": 28,
+   "converged": true,
+   "sha256": "fb183103bdbb799572bec677c708110772c5ae4c03c358fc5ca5840eb193d81d"
+  },
+  {
+   "file": "d3fb10fac57dd222.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#24e142fc0287",
+   "legacy_certified_rank": 5,
+   "objective_EXACT": "3284607.261535495",
+   "rounds": 17,
+   "converged": true,
+   "sha256": "581fef72744b82a2c526050125ef726e9725ae5dfa65efe8406d0aa38eccde2f"
+  },
+  {
+   "file": "f633941464c48d96.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#7df991b36df1",
+   "legacy_certified_rank": 16,
+   "objective_EXACT": "3281857.5928296107",
+   "rounds": 18,
+   "converged": true,
+   "sha256": "34ebbc436455c3321f341da0609b3546ac08f23aa660b0a85266790e4719715c"
+  },
+  {
+   "file": "ffe18eedccdef667.json",
+   "candidate_id": "exp4|exp4-pool-v1|65lines#e10f2321e79b",
+   "legacy_certified_rank": 17,
+   "objective_EXACT": "3262639.47395099",
+   "rounds": 25,
+   "converged": true,
+   "sha256": "4d4dcc5453f8ba5b8aa6c5b7892063acc5d9b516d2118c37a70d20ee62e1cfc8"
+  }
+ ]
+}

@@ -16,3 +16,5 @@ outputs/exp4/run/exp4.pid
 
 # transient: the audit runner pidfile, meaningless across containers
 outputs/exp4_audit/audit.pid
+outputs/exp4_normalized/exp4n_prod.pid
+outputs/exp4_normalized/exp4n_prod.log
