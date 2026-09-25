@@ -1,0 +1,50 @@
+{
+ "artifact": "EXP4N_ENVIRONMENT_GATE",
+ "status": "PASS",
+ "why_this_gate_exists": "The container rebuild on 2026-09-24 wiped every installed package and every data input. EXP4N_PRODUCTION_CONTRACT.json pins src/cota_opt's content digest but never pinned the environment, and no lockfile was ever kept, so the package versions the lost run used cannot be reconstructed from the record. Rather than assume equivalence or discover a divergence at candidate 140 of the relaunch, two candidates produced under the dead environment were rerun under the rebuilt one and compared field by field.",
+ "data_inputs_restored_and_verified": {
+  "method": "every input was recovered from the durable machine and its sha256 compared against the input_checksums recorded in 43 committed experiment.json artifacts BEFORE registration; nothing was re-downloaded, so a republished upstream feed cannot have entered",
+  "cota_gtfs_static": "b11634f117a35a27a1813ed1eeef2b29b9484c6afdda0757262026ed2c9b3bf0",
+  "lodes_od_oh": "98cd08aa85ff1dc839bbedabf3a5d2ecbc7e85c0f6d9c220b6b5892ea838f8db",
+  "lodes_rac_oh": "848b5941128427947acad6a9fabba99d35563ee0313e10dfba74053c261041e4",
+  "lodes_wac_oh": "921573335891c204f8fddeffbf0e9f7ea0105560739dae469bfdc59dff892dab",
+  "cenpop_bg_oh": "ca6e3344ed678e3ac448edf67f151353559fb85cb040266a1dac8868d11805ef",
+  "ntd_cota": "NOT RESTORED - recorded in input_checksums but not imported at runtime (the VOMS=198 fleet-proxy validation parser). Absent from this rerun."
+ },
+ "comparison": {
+  "reference": "outputs/exp4_normalized/production_mr120_PRE_LOSS_DIAGNOSTIC (produced under the dead environment)",
+  "candidates": 2,
+  "fields_compared_each": 24,
+  "includes": "objective_EXACT, plan_EXACT, fitness_EXACT, plan_digest and every per-round trajectory objective"
+ },
+ "results": [
+  {
+   "file": "0a905b1e16f496e4.json",
+   "state_digest": "c85f68507f8c1e16",
+   "objective_EXACT": "3278091.35875412",
+   "rounds": 15,
+   "converged": true,
+   "plan_digest": "13301da31a4729cd",
+   "fields_compared": 24,
+   "fields_differing": [],
+   "trajectory_rounds": 15,
+   "trajectory_identical": true,
+   "bit_exact": true
+  },
+  {
+   "file": "6ed5489f64705d7f.json",
+   "state_digest": "feac42afd4536d45",
+   "objective_EXACT": "3270213.910585613",
+   "rounds": 14,
+   "converged": true,
+   "plan_digest": "a83139bd9a45b8fc",
+   "fields_compared": 24,
+   "fields_differing": [],
+   "trajectory_rounds": 14,
+   "trajectory_identical": true,
+   "bit_exact": true
+  }
+ ],
+ "what_a_pass_licenses": "That the rebuilt environment reproduces the dead one exactly on these two candidates, including the full optimization path (identical plan_digest and identical per-round trajectory, not merely a matching final objective). It does NOT prove equivalence for all 200; the 21 \u00a76 calibration controls remain armed through the relaunch and would halt it on any divergence.",
+ "what_a_pass_does_not_license": "Nothing about the EXP4 winner, geometry, ranking stability, or normalized-vs-legacy. \u00a77 still forbids interpretation until 200/200 certify. The two reference results stay DIAGNOSTIC ONLY and do not enter production."
+}

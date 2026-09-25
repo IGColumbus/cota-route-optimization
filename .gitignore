@@ -18,3 +18,4 @@ outputs/exp4/run/exp4.pid
 outputs/exp4_audit/audit.pid
 outputs/exp4_normalized/exp4n_prod.pid
 outputs/exp4_normalized/exp4n_prod.log
+outputs/exp4_normalized/exp4n_envgate.log
