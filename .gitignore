@@ -19,3 +19,5 @@ outputs/exp4_audit/audit.pid
 outputs/exp4_normalized/exp4n_prod.pid
 outputs/exp4_normalized/exp4n_prod.log
 outputs/exp4_normalized/exp4n_envgate.log
+outputs/exp4_normalized/exp4n_prod_shardB.pid
+outputs/exp4_normalized/exp4n_prod_shardB.log
