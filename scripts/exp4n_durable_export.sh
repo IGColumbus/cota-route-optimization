@@ -29,8 +29,21 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT"
+# DEST fallback (added 27 Sep, 18:47 UTC). /mnt/user-data/outputs is an rclone
+# filestore mount and it began returning "Input/output error" on every write
+# mid-run, with 1.0P reported free -- a transport failure, not a disk-space one.
+# device_commit_files accepts EITHER a stagedPath under that mount OR a fileUuid
+# from SendUserFile, so a broken mount degrades the checkpoint path but does not
+# break it. Write where we can, and let the caller choose the transport.
 DEST="/mnt/user-data/outputs"
-mkdir -p "$DEST"
+if ! ( mkdir -p "$DEST" 2>/dev/null && touch "$DEST/.probe" 2>/dev/null ); then
+    DEST="$HOME/exports"
+    mkdir -p "$DEST"
+    echo "NOTE: /mnt/user-data/outputs is unwritable; writing to $DEST instead." >&2
+    echo "NOTE: commit it with SendUserFile -> device_commit_files fileUuid." >&2
+else
+    rm -f "$DEST/.probe"
+fi
 
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 HEAD_SHA="$(git rev-parse HEAD)"
