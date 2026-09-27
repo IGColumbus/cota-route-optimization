@@ -6,6 +6,18 @@
 # a restart in the same loop the run sits dead until the next backstop beat.
 # That is the 2-hour hole that cost ~38h of wall clock on 25-26 Sep, in miniature.
 set -uo pipefail
+# Ref-lock sweep is the caller's job on the durable side, not here, but record
+# why it must be depth-unlimited: on 27 Sep a failed `gc` task on the durable
+# machine left a .lock on ALL 16 refs, including
+# .git/refs/remotes/cloud/exp3-clean.lock at depth 4. A cleanup written with
+# `find .git -maxdepth 2` missed every one of them, and the NEXT fetch failed
+# with "unable to update local ref" -- caught only because the checkpoint
+# verifies the pointer instead of trusting the fetch's exit status. The gc error
+# had been dismissed as cosmetic one checkpoint earlier. It was not.
+# Fix applied on the durable side: maintenance.auto=false, gc.auto=0,
+# gc.autoDetach=false, fetch.writeCommitGraph=false -- git cannot finish
+# maintenance in a VM that cannot unlink, so it must not start.
+
 cd "$(dirname "$0")/.."
 OUT=outputs/exp4_normalized
 SLEEP_CYCLES="${1:-9}"
