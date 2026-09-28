@@ -35,3 +35,8 @@ outputs/exp5/run/
 outputs/exp5/preflight/*.log
 outputs/exp5/preflight/*.pid
 outputs/exp5/preflight/*.hb.json
+
+# Exp 6 run debris
+outputs/exp6/run/
+outputs/exp6/**/*.log
+outputs/exp6/**/*.pid

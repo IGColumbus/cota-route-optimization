@@ -213,6 +213,9 @@ def run(kind: str, spec, env, *, st: dict, role: str, cell: str,
                     "peak_proxy_by_period": {p: used_peak[p] >= caps[p] * (1 - 1e-6)
                                              for p in PERIODS}},
                 "feasible_under_full_target_constraints": bool(feas)},
+            "baseline_headways": {f"{r}|{p}": (None if math.isinf(v) else
+                                               float(v))
+                                  for (r, p), v in sorted(base_plan.items())},
             "policy_outcome": {"measure": policy_measure,
                                "violation": pol_violation},
             "outcome": {

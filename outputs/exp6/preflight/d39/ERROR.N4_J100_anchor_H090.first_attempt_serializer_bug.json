@@ -1,0 +1,5 @@
+{
+ "error": "ValueError: too many values to unpack (expected 2)",
+ "traceback": "Traceback (most recent call last):\n  File \"/home/claude/columbus-transit-opt/scripts/exp6_cell.py\", line 272, in main\n    rec = run(a.network, spec, env, st=st, role=a.role,\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/claude/columbus-transit-opt/scripts/exp6_cell.py\", line 178, in run\n    n_on_to_off = sum(1 for (r, p), v in cr.plan.items()\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/claude/columbus-transit-opt/scripts/exp6_cell.py\", line 178, in <genexpr>\n    n_on_to_off = sum(1 for (r, p), v in cr.plan.items()\n                            ^^^^^^\nValueError: too many values to unpack (expected 2)\n",
+ "written_utc": "2026-09-28T23:08:52Z"
+}

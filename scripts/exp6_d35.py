@@ -88,7 +88,8 @@ def main() -> int:
     i = 0
     while not ctrl["admitted"] and i < len(B):
         k = B[i]
-        longer = [v for v in full[k] if math.isfinite(v) and v > plan[k]]
+        longer = [v for v in full[k] if math.isfinite(v)
+                  and v > plan[k] * (1 + 1e-6)]
         if longer:
             plan[k] = longer[0]
             trims.append([f"{k[0]}|{k[1]}", base[k], plan[k]])
@@ -113,7 +114,10 @@ def main() -> int:
            "path": ("solve_on_network -> build_setup(policy compiled+attached) "
                     "-> solve_exact(one-rung ladder) -> frequency._feasible"),
            "base_plan_trims_to_fit_envelope": trims,
-           "control_no_policy": ctrl, "regimes": {}}
+           "control_no_policy": ctrl, "regimes": {},
+           "baseline_headways": {f"{k[0]}|{k[1]}": (None if math.isinf(v)
+                                                     else v)
+                                  for k, v in sorted(base.items())}}
 
     def record(name, test_plan, measured, loose, tight, note):
         la, ti = admit(test_plan, loose), admit(test_plan, tight)
@@ -131,11 +135,15 @@ def main() -> int:
     r1 = min(v for v in full[k1] if math.isfinite(v) and base[k1] < v <= 60.0)
     p1 = dict(P0)
     p1[k1] = r1
+    # the plan's measured R1 value: the largest headway on any baseline-served
+    # route-period that runs longer than its own baseline (the trims included)
+    m1 = max(p1[k] for k in B
+             if math.isfinite(p1[k]) and p1[k] > base[k] * (1 + 1e-9))
     record("R1", p1, {"key": f"{k1[0]}|{k1[1]}", "baseline": base[k1],
-                      "headway": r1},
-           PolicySpec("D35_R1_loose", max_headway=r1, catalog_digest=cat),
-           PolicySpec("D35_R1_tight", max_headway=r1 - 0.5, catalog_digest=cat),
-           "headway r1 on one key; H=r1 admits, H=r1-0.5 (< r1, > baseline) refuses")
+                      "headway": r1, "measured_max_headway_above_baseline": m1},
+           PolicySpec("D35_R1_loose", max_headway=m1, catalog_digest=cat),
+           PolicySpec("D35_R1_tight", max_headway=m1 - 0.5, catalog_digest=cat),
+           "H = measured max admits; H = measured max - 0.5 refuses")
 
     # R2: m baseline-served keys OFF
     m = 3

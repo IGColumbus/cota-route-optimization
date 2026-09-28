@@ -1,0 +1,204 @@
+{
+ "network": "N0",
+ "identity": {
+  "state_key": "cota_existing_local_geometry|N0",
+  "state_digest": "f0f24936ab06b4ec",
+  "cardinality": 0,
+  "members": [],
+  "construction": "H.baseline.network / H.baseline.tstats",
+  "network_label": "N0 COTA existing local geometry",
+  "validation": null
+ },
+ "catalog_digest": "e22f2c94c8f53475",
+ "path": "solve_on_network -> build_setup(policy compiled+attached) -> solve_exact(one-rung ladder) -> frequency._feasible",
+ "base_plan_trims_to_fit_envelope": [],
+ "control_no_policy": {
+  "admitted": true,
+  "policy_violation": 0.0,
+  "setup_policy_digest": null
+ },
+ "regimes": {
+  "R1": {
+   "measured": {
+    "key": "001|am_peak",
+    "baseline": 15.0,
+    "headway": 20
+   },
+   "loose_spec": {
+    "cell": "D35_R1_loose",
+    "max_headway": 20,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "tight_spec": {
+    "cell": "D35_R1_tight",
+    "max_headway": 19.5,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "loose": {
+    "admitted": true,
+    "policy_violation": 0.0,
+    "setup_policy_digest": "50d2fca3e03f9915"
+   },
+   "tight": {
+    "admitted": false,
+    "refusal": "no ladder combination fits the envelope; that is a broken budget, not a startable plan"
+   },
+   "note": "headway r1 on one key; H=r1 admits, H=r1-0.5 (< r1, > baseline) refuses",
+   "verdict": "PASS"
+  },
+  "R2": {
+   "measured": {
+    "n_off": 3,
+    "n_baseline_served": 173,
+    "share": 0.017341040462427744
+   },
+   "loose_spec": {
+    "cell": "D35_R2_loose",
+    "max_headway": null,
+    "max_off_share": 0.017341040462427744,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "tight_spec": {
+    "cell": "D35_R2_tight",
+    "max_headway": null,
+    "max_off_share": 0.014450867052023121,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "loose": {
+    "admitted": true,
+    "policy_violation": 0.0,
+    "setup_policy_digest": "26c1596d93576abf"
+   },
+   "tight": {
+    "admitted": false,
+    "refusal": "no ladder combination fits the envelope; that is a broken budget, not a startable plan"
+   },
+   "note": "floor(s*|B|) = m admits; = m-1 refuses",
+   "verdict": "PASS"
+  },
+  "R3": {
+   "measured": {
+    "span_key_off": "001|early",
+    "n_span_keys": 78
+   },
+   "loose_spec": {
+    "cell": "D35_R3_loose",
+    "max_headway": null,
+    "max_off_share": 1.0,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "tight_spec": {
+    "cell": "D35_R3_tight",
+    "max_headway": null,
+    "max_off_share": 1.0,
+    "span": true,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "loose": {
+    "admitted": true,
+    "policy_violation": 0.0,
+    "setup_policy_digest": "6e06247a658c99e3"
+   },
+   "tight": {
+    "admitted": false,
+    "refusal": "no ladder combination fits the envelope; that is a broken budget, not a startable plan"
+   },
+   "note": "loose = a non-binding attached policy (R2 share 1.0), tight = same plus span; both attach, so the difference is the span constraint",
+   "verdict": "PASS"
+  },
+  "R4": {
+   "measured": {
+    "key_off": "041|am_peak",
+    "lost_stop_periods": 1,
+    "n_stop_periods": 16855
+   },
+   "loose_spec": {
+    "cell": "D35_R4_loose",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": 5.932957579353308e-05,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "tight_spec": {
+    "cell": "D35_R4_tight",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": 2.966478789676654e-05,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "loose": {
+    "admitted": true,
+    "policy_violation": 0.0,
+    "setup_policy_digest": "a9f49b68d8dee916"
+   },
+   "tight": {
+    "admitted": false,
+    "refusal": "no ladder combination fits the envelope; that is a broken budget, not a startable plan"
+   },
+   "note": "floor(c*|S|) = lost admits; = lost-1 refuses",
+   "verdict": "PASS"
+  },
+  "R6": {
+   "measured": {
+    "key_off": "041|am_peak",
+    "n_lost_stops": 1,
+    "max_distance_to_served_stop_m": 266.43912607240054
+   },
+   "loose_spec": {
+    "cell": "D35_R6_loose",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": 267.43912607240054,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "tight_spec": {
+    "cell": "D35_R6_tight",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": 265.43912607240054,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "loose": {
+    "admitted": true,
+    "policy_violation": 0.0,
+    "setup_policy_digest": "034005919fe67c4e"
+   },
+   "tight": {
+    "admitted": false,
+    "refusal": "no ladder combination fits the envelope; that is a broken budget, not a startable plan"
+   },
+   "note": "radius d*+1 m admits; d*-1 m refuses",
+   "verdict": "PASS"
+  }
+ },
+ "all_pass": true,
+ "seconds": 600.5,
+ "written_utc": "2026-09-28T23:23:24Z"
+}
