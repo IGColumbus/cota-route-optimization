@@ -21,6 +21,16 @@ set -uo pipefail
 cd "$(dirname "$0")/.."
 OUT=outputs/exp4_normalized
 SLEEP_CYCLES="${1:-9}"
+# DURABLE-SIDE FETCH: always pass --no-write-fetch-head. On 28 Sep at 05:41 a
+# fetch into the durable repo failed with "cannot open .git/FETCH_HEAD:
+# Permission denied" -- a zero-byte FETCH_HEAD the VM could not rewrite, most
+# likely held by OneDrive sync on the Windows side. The fetch printed "verified"
+# for the bundle and then did NOT move the ref; the pointer check caught it.
+# --no-write-fetch-head skips that file entirely and the same fetch succeeded.
+# That is the THIRD silent transport failure in two days (ref locks, the staging
+# mount, this), and all three reported success or said nothing. The pointer
+# comparison is the only reason none of them cost a result.
+
 for _ in $(seq 1 "$SLEEP_CYCLES"); do sleep 58; done
 
 note=""
