@@ -1,0 +1,188 @@
+{
+ "contract": {
+  "digest": "0f62aeabfa341a98",
+  "experiment": "exp4",
+  "version": "4A-original-question-v1",
+  "stage": "certification",
+  "objective": "lambda_scalarized_path_level",
+  "objective_version": "lambda=2.0",
+  "evaluator": "same_route",
+  "envelope": "exp4n_common_reference_envelope_exact_0b46d1abc9a80c80",
+  "pathset_policy": "rebuilt_per_network_per_certify_call",
+  "pool_version": "exp4n-matched-networks-v1",
+  "methodology_generation": "gen2",
+  "solver": {
+   "name": "exp4_certify.certify|n_keys=8|k_rungs=3|max_rounds=120|start=gen1_greedy_20000x1_w0|allow_off=True|tol=0.0",
+   "start_policy": "greedy_only",
+   "restarts": 1,
+   "evaluation_ceiling": 20000,
+   "candidate_width": 0,
+   "require_convergence": true,
+   "seeds": [
+    20260825
+   ]
+  },
+  "allowed_treatment_differences": [
+   "cardinality",
+   "members",
+   "pathset_digest",
+   "state_digest",
+   "state_key"
+  ],
+  "justifications": {
+   "cardinality": "How many lines the network activates. Part of the treatment: service activation, including OFF, is a decision variable in this experiment.",
+   "members": "Which lines it activates. Part of the treatment.",
+   "pathset_digest": "A different route structure has different shortest paths. Requiring identical path sets would admit only a comparison of a network with itself. The path-set POLICY is an identity field of its own and must still match exactly -- that is what stops one arm being enumerated differently from the other.",
+   "state_digest": "The network itself. This IS the treatment.",
+   "state_key": "The network's name. Follows from state_digest."
+  },
+  "search_allowance": "NOT APPLICABLE: firewall.exp4.EXP4_ALLOWANCE is an evaluation budget for the Gen2 exchange search. The block certifier's entitlement is n_keys/k_rungs/max_rounds plus the no-improving-round stop rule, network-independent and carried as identity in the solver policy name. EXP4N never used compare_exp4 either."
+ },
+ "written_utc": "2026-09-28T14:43:43Z",
+ "admission_N3": "ADMITTED",
+ "admission_N4": "ADMITTED",
+ "comparison": {
+  "comparison_id": "cmp-bbc3266fb9841ee5",
+  "contract": "0f62aeabfa341a98",
+  "methodology_generation": "gen2",
+  "control_receipt": "83046f08eb379788",
+  "treatment_receipt": "de9df83a8272dc86",
+  "control_state": "exp3|add_stop-010#22c4c35ac5b2",
+  "treatment_state": "exp4|exp4-pool-v1|65lines#35e351133d6f",
+  "effect": 283973.3668135195,
+  "effect_pct": 9.659245267241864,
+  "components": {
+   "block_enumerations": [
+    1029.0,
+    22.0
+   ],
+   "gc_per_served_trip": [
+    76.44182964886681,
+    72.90373593813524
+   ],
+   "generalized_cost": [
+    859908.5220116506,
+    1198080.5162451442
+   ],
+   "mean_wait_min": [
+    0.0,
+    0.0
+   ],
+   "objective": [
+    3223885.947526011,
+    2939912.5807124916
+   ],
+   "peak_vehicles": [
+    176.0737048611111,
+    176.408056390597
+   ],
+   "revenue_veh_hours": [
+    2517.0171064814813,
+    2517.163119291952
+   ],
+   "rounds": [
+    21.0,
+    1.0
+   ],
+   "served_demand": [
+    11249.18812071367,
+    16433.732796105443
+   ],
+   "unserved_demand": [
+    19699.811879286335,
+    14515.267203894562
+   ]
+  },
+  "declared_differences": [
+   "pathset_digest",
+   "spec.cardinality",
+   "spec.members",
+   "spec.state_digest",
+   "spec.state_key"
+  ],
+  "above_noise_floor": null,
+  "control_signatures": {
+   "treatment": "601100d9f6e07f38",
+   "nuisance": "09a8757fb7028ddb",
+   "evidence": "0f0b008b5df41172",
+   "execution": "e80be8acf103b9bf",
+   "receipt": "83046f08eb379788",
+   "spec": "c4dff16e4ab0e0ea",
+   "contract": "0f62aeabfa341a98"
+  },
+  "treatment_signatures": {
+   "treatment": "ad8d040895575d23",
+   "nuisance": "09a8757fb7028ddb",
+   "evidence": "f4bde91e18d305f8",
+   "execution": "e80be8acf103b9bf",
+   "receipt": "de9df83a8272dc86",
+   "spec": "234f7d4d84aeb55b",
+   "contract": "0f62aeabfa341a98"
+  }
+ },
+ "status": "ADMITTED",
+ "delta43": {
+  "definition": "obj(N4) - obj(N3); positive = N4 worse (objective is minimized)",
+  "objective_N3": "2939912.5807124916",
+  "objective_N4": "3223885.947526011",
+  "delta": "283973.3668135195",
+  "delta_pct_of_N3": 9.659245267241864,
+  "components": {
+   "generalized_cost": {
+    "N3": "1198080.5162451442",
+    "N4": "859908.5220116506",
+    "N4_minus_N3": "-338171.9942334936"
+   },
+   "unserved_demand": {
+    "N3": "14515.267203894562",
+    "N4": "19699.811879286335",
+    "N4_minus_N3": "5184.544675391773"
+   },
+   "served_demand": {
+    "N3": "16433.732796105443",
+    "N4": "11249.18812071367",
+    "N4_minus_N3": "-5184.544675391773"
+   },
+   "revenue_veh_hours": {
+    "N3": "2517.163119291952",
+    "N4": "2517.0171064814813",
+    "N4_minus_N3": "-0.14601281047089287"
+   },
+   "peak_vehicles": {
+    "N3": "176.408056390597",
+    "N4": "176.0737048611111",
+    "N4_minus_N3": "-0.3343515294859003"
+   },
+   "mean_wait_min": {
+    "N3": "0.0",
+    "N4": "0.0",
+    "N4_minus_N3": "0.0"
+   },
+   "gc_per_served_trip": {
+    "N3": "72.90373593813524",
+    "N4": "76.44182964886681",
+    "N4_minus_N3": "3.538093710731573"
+   }
+  },
+  "peak_proxy_by_period": {
+   "N3": {
+    "early": "85.18264126836098",
+    "am_peak": "161.8336124774885",
+    "midday": "159.1430273060628",
+    "pm_peak": "176.408056390597",
+    "evening": "140.14528544603667",
+    "owl": "35.508137626262624"
+   },
+   "N4": {
+    "early": "84.8830972222222",
+    "am_peak": "161.3533587962963",
+    "midday": "159.0399421296296",
+    "pm_peak": "176.0737048611111",
+    "evening": "139.97123842592592",
+    "owl": "33.06628009259259"
+   }
+  },
+  "d33b_band_pct": 0.001897,
+  "ratio_to_band": 5091.853066548162
+ }
+}
