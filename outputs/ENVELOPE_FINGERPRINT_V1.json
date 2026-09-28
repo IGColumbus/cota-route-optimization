@@ -1,0 +1,35 @@
+{
+ "artifact": "ENVELOPE_FINGERPRINT_V1",
+ "purpose": "exact, bit-lossless envelope fingerprint for experiments AFTER EXP4N; closes the deferred action in docs/ENVELOPE_DIGEST_INSUFFICIENCY.md",
+ "authorized_by": "Ian, 2026-09-25, gated on EXP4N completing",
+ "additive_only": true,
+ "NOT": "not retrofitted into the EXP4N contract; not a replacement for envelope_digest in any artifact already written; not usable to invalidate or re-verdict the completed EXP4N run, whose envelope identity was established before launch by bit-exact assertions against the frozen artifact and against the peak_caps of all 21 accepted calibration results",
+ "implementation": "scripts/envelope_fingerprint.py",
+ "lives_outside_src_because": "EXP4N pins src_cota_opt_content_digest = add5d0002d29aa49 over src/cota_opt/**/*.py; adding a module there would move it",
+ "fingerprint_version": "exact-envelope-fp/v1",
+ "exact_envelope_fingerprint": "0b46d1abc9a80c80",
+ "exact_envelope_fingerprint_full": "0b46d1abc9a80c80db12953144eeaa812b1e2a891704916e81c1b2499e40c5d4",
+ "covers": [
+  "peak_fleet_by_period (all six periods)",
+  "weekday_revenue_vehicle_hours",
+  "budget_tolerance",
+  "source"
+ ],
+ "identical_inputs_to": "envelope_digest",
+ "differs_only_in": "lossless IEEE-754 encoding vs round(x, 9)",
+ "exp4n_envelope_reference": {
+  "note": "EXP4N's own envelope under the new fingerprint, computed retrospectively from the int_bits already recorded in its contract. A reference value for future comparison, NOT a verdict on that run.",
+  "envelope_digest_rounded_as_run": "3fd5241db44ca9da",
+  "reconstructed_from_contract_bits_matches_artifact": true,
+  "peak_repr": {
+   "early": "85.28208333333332",
+   "am_peak": "162.00944444444443",
+   "midday": "159.17277777777775",
+   "pm_peak": "176.49305555555554",
+   "evening": "140.19458333333336",
+   "owl": "35.55736111111111"
+  },
+  "hours_repr": "2517.1833333333334"
+ },
+ "usage": "from envelope_fingerprint import fingerprint_envelope_payload; record BOTH envelope_digest and the exact fingerprint in any new experiment's contract, and assert the envelope bit-exactly against its frozen artifact as well -- a fingerprint proves sameness, never correctness"
+}

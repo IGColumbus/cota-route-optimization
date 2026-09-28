@@ -369,3 +369,54 @@ route-periods will raise at write time, which is to say at the end, which is to
 say after the compute. Either round-trip a representative payload at startup or
 write through a coercing helper that has its own test. This is rule 2 pointed at
 the reporting code: do not begin work whose *last* step is unproven.
+
+**33. A pidfile must hold the pid of the process you want to signal.** The
+obvious spelling is wrong: `setsid nohup cmd & echo $! > pidfile` records
+*setsid's* pid, not the worker's. Measured on 2026-09-26: the file said 843 and
+the launcher was 845. A keeper reading that file tests a pid that is already
+gone, concludes a perfectly healthy run is dead, and starts a SECOND worker over
+the same output directory -- which is worse than doing nothing, because two
+writers on one result set is how a batch becomes uninterpretable rather than
+merely late. The fix is to have the process record itself:
+
+    setsid nohup bash -c 'echo $$ > "$0"; exec python3 worker.py "$1"' \
+        "$PIDF" "$ARG" >> "$LOG" 2>&1 < /dev/null &
+
+`exec` matters -- without it `$$` is the wrapper shell, which exits. Then
+confirm the pid is the right process before trusting it, because a recycled pid
+belongs to something else:
+
+    tr '\0' ' ' < /proc/$RPID/cmdline | grep -q worker.py
+
+This was caught before it cost anything, by comparing the pidfile against `ps`
+rather than assuming the write was correct. Rule 27 applied to a pidfile.
+
+**34. `pgrep -cf <pattern>` counts itself.** The grep's own command line
+contains the pattern it is searching for, so the count is never 0 and a health
+check built on it reports "runner alive: 1" while nothing whatsoever is running.
+This was caught on 2026-09-26 only because the claim contradicted a result count
+of zero from the same check. Use the pidfile (rules 25, 33). If a pattern search
+is unavoidable, `pgrep -cf '[w]orker.py'` or compare against `$$`.
+
+**35. A hold that only reports is not a keeper.** The first EXP4N hold cycle
+checked both workers, printed their status, and did nothing about a dead one. It
+read as a keeper in every log line it produced. Because the workers were sharded
+at 6 h, it would have left the run dead at the first shard boundary and reported
+that cleanly every nine minutes. Found roughly 20 minutes before the first
+rollover. A watchdog whose only output is a description of the problem is a
+monitor; rule 27 asks for an effect you can see, and restarting the absent worker
+is that effect.
+
+**36. A git operation that prints success may not have done anything.** Two
+instances on 2026-09-27/28. `git fetch` from a bundle verified the bundle,
+printed a normal fetch summary, and did not move the ref -- it had failed to
+write `FETCH_HEAD` in a directory it could not write, and reported that as
+success; `--no-write-fetch-head` fixes it. Separately, a failed `gc` left a
+`.lock` beside *every* ref including one at depth 4, `find .git -maxdepth 2`
+swept none of them, and the next fetch failed with "unable to update local ref".
+The lock debris was initially called cosmetic, which was wrong and was corrected
+within the hour. The repo now runs with `maintenance.auto=false`, `gc.auto=0`,
+`gc.autoDetach=false`, `fetch.writeCommitGraph=false`. **Verify a push or fetch
+with `git ls-remote` and a rev comparison, never from a GUI's display and never
+from an exit code.** Same shape as rules 24, 26, 27, 29 and 31: a mechanism that
+looks like it is working is not evidence that it ran.

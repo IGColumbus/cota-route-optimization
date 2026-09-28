@@ -1,13 +1,20 @@
 # COTA route optimization — state of play
 
-Last updated 2026-09-22. **Experiments 1, 2, 2B, 3 and 4 are closed, and so
-is the Experiment 4 out-of-band audit — but a resource normalization audit on
-2026-09-22 returned `EXP4_FULL_NORMALIZED_RERUN_REQUIRED`, so Exp 4's GEOMETRY
-conclusion is now provisional.** Experiment 3 is frozen at tag
-`exp3-final-v1`. **Experiment 4 RAN AND COMPLETED** on 2026-09-14: 200 of 200
-promoted candidates certified, zero errors, an exact leader established. It ran
-with **fleet REPORTED, NOT GATED** — the fleet question it was originally
-blocked on is *still open* and the run did not advance it.
+Last updated 2026-09-28. **The normalized rerun ran, and it overturned
+Experiment 4's ranking.** EXP4N completed on 2026-09-28 with
+`EXP4_FULL_NORMALIZED_CERTIFIED` — 200 of 200 candidates re-certified under ONE
+common peak-vehicle envelope, §8 integrity gate 44 checks / 0 failures.
+**Exp 4's leader `...ecb2ffc4bcce` is now rank 185 of 200.** The leader is
+`...35e351133d6f` (legacy rank 154). Spearman **+0.3566**, **36.7% of pairwise
+orderings inverted**, and only one of Exp 4's top ten survives in the normalized
+top ten. `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`.
+
+Experiments 1, 2, 2B, 3 and 4 are closed, and so is the Experiment 4 out-of-band
+audit. Experiment 3 is frozen at tag `exp3-final-v1`. **Both** Exp 4 runs were
+made with **fleet REPORTED, NOT GATED** — the fleet question is *still open* and
+**neither run advanced it**. Experiments 5–7 were blocked on EXP4N certifying;
+that block has now cleared, and **nothing about their premises changed with it**
+— Exp 5's `EXP5_REFRAME_REQUIRED` stands untouched.
 
 **The Exp 4 audit was stopped by decision at 15 of 200 on 2026-09-21.** It
 established that the top-200 promotion cap was **invalid** — an excluded
@@ -33,12 +40,17 @@ periods at 99.71–99.97%.** `EXPERIMENT5_OFFON_DIAGNOSTIC.md`.
   matched-start re-test (D31).
 * **Experiment 3 — eight edit kinds, 84 states: one certified route mutation,
   −0.187% unserved demand**, with a two-regime caveat that travels with it.
-* **Experiment 4 — COMPLETE. Best certified objective 3,511,184.5658**, from
-  `...ecb2ffc4bcce`, over 200 certified candidates. The margin to second is
-  **0.0106%**. Two findings at the time: **D36**, discovery rank
-  *anti*-correlates with certified rank and the promotion cap came within four
-  ranks of excluding the winner; **D37**, fast convergence excludes a candidate
-  from contention. **No fleet claim and no deployability claim** — see below.
+* **Experiment 4 — COMPLETE, and its RANKING IS SUPERSEDED by EXP4N.** Best
+  certified objective 3,511,184.5658 from `...ecb2ffc4bcce` over 200 certified
+  candidates, margin to second **0.0106%**. Those numbers remain exactly
+  reproducible and are **not** withdrawn — but they are an ordering of
+  *candidate-specific optimization problems*, not of geometries, and that
+  candidate now ranks **185 of 200** under a common envelope. Do not quote the
+  Exp 4 ordering as a geometry result; quote EXP4N. Two findings survive: **D36**,
+  discovery rank *anti*-correlates with certified rank and the promotion cap came
+  within four ranks of excluding the winner (reframed by D38); **D37**, fast
+  convergence excludes a candidate from contention. **No fleet claim and no
+  deployability claim** — see below.
 * **Experiment 4 — RESOURCE NORMALIZATION AUDIT, 2026-09-22:
   `EXP4_FULL_NORMALIZED_RERUN_REQUIRED`.** The peak-vehicle cap each candidate
   was optimized against was **its own baseline plan's `peak_by_period`**
@@ -52,7 +64,23 @@ periods at 99.71–99.97%.** `EXPERIMENT5_OFFON_DIAGNOSTIC.md`.
   Exp 4's certified ordering must be read as an ordering *of candidate-specific
   optimization problems*, not of geometries, until a normalized rerun exists.
   `docs/EXP4_RESOURCE_NORMALIZATION_AUDIT.md`. **The objective values remain
-  exactly reproducible; no rerun has been started.**
+  exactly reproducible. The rerun has since been done, and the pilot understated
+  the size of the effect** — next bullet.
+* **EXP4N — NORMALIZED RERUN, COMPLETE 2026-09-28:
+  `EXP4_FULL_NORMALIZED_CERTIFIED`.** 200 of 200 re-certified under one common
+  envelope resolved **once** from the frozen artifact, `MAX_ROUNDS = 120`,
+  79.85 h compute. Leader **`...35e351133d6f`, 3,223,885.9475**, 21 rounds, 65
+  lines, **legacy rank 154**; second `...d451584c40c6` at **+0.387006%**, legacy
+  rank 193. The legacy leader falls to **185 of 200**. Spearman **+0.3566**,
+  **7,296 of 19,900 pairwise orderings inverted (36.7%)**, field spread 4.1710%
+  against legacy's 2.2788%. Rounds min 11 / median 21 / **max 44 against a
+  ceiling of 120** — nothing within 76 rounds of the cap. Verified on two
+  independent channels: §6 calibration controls **21/21** reproduced exactly, and
+  the pre-loss archive **24/24 bit-exact** across 16 fields plus every per-round
+  trajectory objective. **The margin is ~204× the D33-B noise band, which removes
+  solver noise as an explanation and establishes nothing further** — the rule is
+  asymmetric and the block-local residual is unmeasured for every candidate
+  including this one. `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`.
 * **Experiment 4 audit — STOPPED at 15 of 200, and the cap was invalid.**
   Discovery rank 237, excluded by the cap, certifies at **3,510,666.7802** —
   **0.014747% better than the incumbent**, inserting at exact rank 1 of 201.
@@ -187,7 +215,16 @@ nothing more.**
 
 ---
 
-# Experiment 4 — RUN COMPLETE
+# Experiment 4 — RUN COMPLETE (ordering SUPERSEDED by EXP4N)
+
+> **Read this section as the record of the legacy run, not as the current
+> ranking.** Every number below is exactly reproducible and none is withdrawn.
+> What changed is what they are an ordering *of*: each candidate was optimized
+> against a peak-vehicle cap read off its own baseline plan, so this table ranks
+> candidate-specific optimization problems. Under one common envelope the
+> candidate below ranks **185 of 200**. The instruments documented further down
+> — the envelope, the two blocking instruments, the three verdicts, the type
+> system — are unaffected and all still stand.
 
 ```
 exact_leader        exp4|exp4-pool-v1|65lines#ecb2ffc4bcce
@@ -553,13 +590,107 @@ claimed — Gen2 remains at 0.90× exhaustive enumeration on the spaces tested.
 
 ---
 
+# EXP4N — the normalized rerun: CERTIFIED
+
+`EXPERIMENT4_NORMALIZED_CLOSEOUT.md` is the record. This is the summary.
+
+```
+status      EXP4_FULL_NORMALIZED_CERTIFIED     200/200,  §8 gate 44/44
+leader      35e351133d6f   3,223,885.9475   21 rounds  65 lines   legacy 154
+2nd         d451584c40c6   3,236,362.5736   +0.387006%            legacy 193
+legacy #1   ecb2ffc4bcce                     -> NORMALIZED 185 OF 200
+spearman    +0.3566        pairwise inverted 7,296/19,900 (36.7%)
+spread      4.1710% first to last            (legacy spread 2.2788%)
+```
+
+**The one change.** The peak-vehicle envelope is resolved **once**, against the
+unedited reference network, before any candidate exists, and passed to every
+candidate explicitly — so `exp2.py:324` never resolves `"baseline"` against a
+candidate's own geometry. `src/cota_opt` was **not modified**; its content digest
+is `add5d0002d29aa49` at the start and the end of the run. Nothing about the
+demand model, the objective, the exact evaluator, convergence, ladders,
+geometries, the hours cap, the peak *usage* calculation, tolerance or the search
+neighbourhood changed. **This is not the optimizer being adjusted to obtain a
+better answer**; it is the same optimizer asked a well-posed question.
+
+| | |
+|---|---|
+| contract digest | `2125984c82b60a83` |
+| envelope digest | `3fd5241db44ca9da` |
+| candidate-set digest | `38e52f0b14b1d554` |
+| `src/cota_opt` digest | `add5d0002d29aa49` |
+| tie-break digest | `0297e180cf30369d` |
+
+**Two independent verification channels, both clean.** §6's 21 calibration
+controls reproduced **exactly** on objective, rounds and plan — including
+`12ab99b5915e` at 44 rounds, the deepest candidate in the field. And the archive
+that survived the container loss reproduced **24/24 bit-exact** across 16 fields
+plus every per-round trajectory objective. Neither channel was chosen after
+seeing the result.
+
+**Rounds: min 11, median 21, mean 22.2, p90 31, max 44 — ceiling 120.** Nothing
+came within 76 rounds of the cap, so no result is an uncertified upper bound.
+`rounds == MAX_ROUNDS && converged == True` and `rounds == MAX_ROUNDS &&
+converged == False` are different statements and are never conflated: the first
+is a certificate with zero headroom, the second is not a certificate at all.
+
+**The tie-break decided nothing** — zero exact-objective ties in 200 results.
+
+## The pattern at the top, and why it is only a consistency
+
+The normalized top five carry legacy ranks **154, 193, 192, 194, 191** — almost
+entirely from the *bottom* of the legacy ordering. That is consistent with the
+endogenous cap: legacy rank partly recorded how generous a candidate's own
+self-defined envelope happened to be. **It has not been tested.** The test —
+regressing normalized improvement on each candidate's own legacy envelope — is a
+separate diagnostic and has not been run. Recorded so nobody later reads the
+pattern as a demonstrated mechanism.
+
+## What EXP4N does NOT establish
+
+* **Not that the 0.387006% margin is meaningful.** It is ~204× the D33-B noise
+  band, and the band's rule is **asymmetric**: at or below it, the difference is
+  noise; above it, a real difference is **not established, only not excluded**.
+  D33-B is a local check over at most 10 of 173 route-periods and a *lower bound*
+  on the differential-error bound.
+* **No fleet claim.** The instrument still returns `UNDECIDABLE` for every
+  candidate including this leader. Fleet was REPORTED, NOT GATED.
+* **No global optimality.** The `(N,K)` = (8,3) block-local residual is
+  unmeasured for every candidate including the leader.
+* **Nothing about the 1,800 uncertified proposals**, and nothing about the
+  promotion cap, which the out-of-band audit had already shown to be invalid.
+* **Nothing about deployability.** D24 is still open.
+
+## `envelope_digest` is not sufficient, and now there is one that is
+
+`envelope_digest` hashes `round(peak, 9)`, so two envelopes differing below the
+ninth decimal hash the same — which happened: two hand-transcribed peak values
+were wrong in the last ULP during the contract freeze and the digest matched both
+times. The bit-exact assertion caught it. `docs/ENVELOPE_DIGEST_INSUFFICIENCY.md`.
+
+EXP4N's own envelope identity never rested on the digest — it was asserted
+bit-exactly against the frozen artifact *and* against the `peak_caps` of all 21
+accepted calibration results, before launch. `scripts/envelope_fingerprint.py`
+(exact fingerprint **`0b46d1abc9a80c80`**, artifact
+`outputs/ENVELOPE_FINGERPRINT_V1.json`) now supplies a lossless IEEE-754
+fingerprint over the *same four inputs*, for experiments after this one. It is
+**additive**: not retrofitted into the frozen contract, not a replacement in any
+artifact already written, and **not usable to re-verdict a completed run**. It
+lives in `scripts/` precisely so it cannot move `src_cota_opt_content_digest`.
+Its self-test replays the ULP pair and shows the rounded digest colliding where
+the fingerprint separates.
+
+---
+
 # Experiment 5 — resource frontier: built, tested, NOT RUN
 
 `src/cota_opt/exp5_resource.py` and `exp5_frontier.py`, 32 tests. Its stated
-block condition — Experiment 4 — cleared on 2026-09-14. Nothing has been run and
-nothing has been decided about running it. Note that Experiment 5 reasons about
-a *resource frontier*, and Experiment 4 established no fleet number; what that
-implies for Exp 5's premises has not been worked through.
+block condition cleared twice over — Experiment 4 on 2026-09-14, and the EXP4N
+certification on 2026-09-28 — and **it still must not run as specified.**
+Clearing a block is not fixing a premise: EXP4N re-certified the same 200
+candidates under a common envelope and changed **none** of the three defects
+below. Experiment 5 reasons about a *resource frontier*, and neither Exp 4 run
+established a fleet number.
 
 ### The 2026-09-21 OFF→ON diagnostic — the binding constraint is not the one Exp 5 varies
 
@@ -641,7 +772,7 @@ traversal invariance, marginals, diminishing returns and transition matrices.
 
 ---
 
-## Operations — 32 rules, each bought with lost work
+## Operations — 36 rules, each bought with lost work
 
 `OPERATIONS.md`. The costly ones:
 
@@ -659,6 +790,19 @@ traversal invariance, marginals, diminishing returns and transition matrices.
   enumeration ran 41.9 minutes, computed its answer, printed its verdict, and
   died in `json.dumps` on a tuple key with nothing on disk.
 * **32 — validate a serializer before the long run, not after it.**
+* **33 — a pidfile must hold the pid of the process you want to signal.**
+  `setsid nohup cmd & echo $! > pidfile` records *setsid's* pid, not the
+  worker's. The keeper then reads a healthy run as dead and starts a second one
+  over the same output directory. Fix: `echo $$` inside a `bash -c` that
+  `exec`s the worker, then confirm against `/proc/<pid>/cmdline`.
+* **34 — `pgrep -cf <pattern>` counts itself.** Its own command line contains
+  the pattern, so it never returns 0 and "runner alive: 1" can mean nothing is
+  running. Caught only because it contradicted a zero result count.
+* **35 — a hold that only reports is not a keeper.** The first hold cycle
+  checked and printed and did not restart; it would have left the run dead at
+  every 6 h shard boundary.
+* **36 — a git operation that prints success may not have moved the ref.**
+  Verify with `git ls-remote`, never from a GUI or an exit code.
 
 The recurring shape across 24, 26, 27, 29, 31 and D35: *a mechanism that looks
 like it is working is not evidence that it ran.* The §9 amendment is the same
@@ -675,8 +819,18 @@ The Experiment 3 history was collapsed from 2,875 commits to 328 with a
 The sandbox holds no git credential and neither does the VM behind the folder
 bridge. **GitHub Desktop has its own token and can push.** The loop: sandbox
 bundles → `device_commit_files` into the clone → `git fetch <bundle>` →
-fast-forward the local branch → **Ian clicks Push in GitHub Desktop**.
-`PUSH_TO_GITHUB.md` documents the traps.
+fast-forward the local branch → **Push in GitHub Desktop**, which can be driven
+by computer control rather than waiting for Ian. `PUSH_TO_GITHUB.md` documents
+the traps. Two learned on 2026-09-27/28:
+
+* **`git fetch` from a bundle can print success and not move the ref.** It wrote
+  `FETCH_HEAD` in a directory it could not write and reported the fetch as done.
+  Use `--no-write-fetch-head`, and **verify with `git ls-remote`** — never from
+  the GUI's own display or the fetch's exit code.
+* **A failed `gc` leaves a `.lock` on every ref, at any depth.** `find .git
+  -maxdepth 2` sweeps none of the deep ones and the next fetch fails with
+  "unable to update local ref". The repo now runs with `maintenance.auto=false`,
+  `gc.auto=0`, `gc.autoDetach=false`, `fetch.writeCommitGraph=false`.
 
 **Use the clone at `C:\Users\ianjg\OneDrive\Documents\GitHub\cota-route-optimization`.**
 The one at `C:\Users\ianjg\source\repos\cota-route-optimization` is stale —
@@ -689,8 +843,15 @@ the repository as locked. The fix is to `mv` the lock (and any
 `.git/objects/pack/tmp_*`) into a `_to_delete/` folder rather than trying to
 remove it.
 
-The 23 files the clone reports as modified are **pure CRLF noise** — zero changed
-lines under `--ignore-cr-at-eol`. Do not commit them.
+The files the clone reports as modified are **pure CRLF noise** — 23 at the time
+this was first written, 35 as of 2026-09-28, zero changed lines under
+`--ignore-cr-at-eol` in every case. Do not commit them. **Check the count each
+time rather than trusting this number**; the point is the test, not the total.
+
+**`_to_delete/` is tracked on `master`** — 11.4 MB of lock debris committed by
+Ian on 2026-09-21, still in that branch's tree. Left alone deliberately: it is
+his branch and his commits. `exp3-clean` carries a `.gitignore` entry so the
+folder cannot be committed again from this side.
 
 ## Known limitations, with sizes
 
@@ -700,6 +861,8 @@ lines under `--ignore-cr-at-eol`. Do not commit them.
 | **Deadhead travel time** | **unavailable; bracket width 180–212 (18%)** | **still open. Exp 4 ran with fleet REPORTED, NOT GATED; no fleet claim follows from it** |
 | **Terminal identity** | **`parent_station` empty in 2,949/2,949 stops; 83.3% of candidate trips stranded** | **still open (D24), reclassified as post-result validation. Exp 4 completed without it** |
 | **Discovery ordering (D36, reframed by D38)** | **discovery span 0.159% in band and 0.0077% out of band, against exact spans of 2.28% and 1.73%** | **not an inverted ranker — close to a constant plus noise in the regions measured. The cap selected on a quantity ~1,100× smaller than its own error** |
+| **Endogenous peak-vehicle cap (Exp 4)** | **CLOSED for the promoted 200 by EXP4N: 36.7% of pairwise orderings inverted, legacy leader 1 → 185** | **repaired, not merely measured. Exp 4's ordering is superseded; its objective values stand. The mechanism behind the top-of-table reshuffle is a stated consistency, NOT a tested one** |
+| **Block-local residual (EXP4N leader included)** | **unmeasured for all 200; (N,K) = (8,3)** | **open, and unchanged by certification. A 0.387006% first-to-second margin under an unmeasured residual is not a durable ordering** |
 | **Promotion cap** | **INVALID — an excluded candidate (rank 237) beats the Exp 4 leader by 0.0147%** | **established. Does not tell you what to replace the cap with** |
 | **Uncertified proposals** | **1,785 of 2000 never certified; ~326–360 h to close** | **unknown, and D38 argues against paying it: the ranking an expansion would use carries almost no information where it was measured** |
 | **Population-level enrichment** | **unanswered; 4 of 5 audit strata empty, the 5th biased to its top third** | **open. Indistinguishable on current evidence from a near-uniform pool** |
