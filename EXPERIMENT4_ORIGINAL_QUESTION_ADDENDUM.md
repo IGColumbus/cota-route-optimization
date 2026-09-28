@@ -186,7 +186,7 @@ under the certified plan (`adequacy.adequacy`):
 
 | | N3 | N4 |
 |---|---|---|
-| flow with a cheaper path than the cache holds | 1.0–3.8% | **17–35%** |
+| flow with a cheaper path than the cache holds | 1.0–3.7% | **8.7–34.8%** (17–35% outside owl) |
 | flow-weighted cost overstatement | 0.04–0.43% | **0.9–5.5%** |
 | OD pairs reachable only by RAPTOR, per period | 1,379–2,662 | **3,252–5,870** |
 
@@ -275,7 +275,7 @@ No map-level physical inspection was done.
 
 | λ | 1.0 | 1.5 | **2.0** | 3.0 | 4.0 |
 |---|---|---|---|---|---|
-| Δ43 % of N3 | −1.31 | +5.13 | **+9.66** | +15.62 | +19.35 |
+| Δ43 % of N3 | −1.31 | +5.13 | **+9.66** | +15.61 | +19.35 |
 
 The sign flips at **λ ≈ 1.087**. The preregistered comparison is λ = 2, and the
 certification contract requires robustness at λ ≥ 2, where N4 stays worse and
