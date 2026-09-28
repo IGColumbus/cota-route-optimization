@@ -1,0 +1,203 @@
+{
+ "artifact": "EXP6_CONSTRAINT_CATALOG",
+ "version": "1.0",
+ "frozen_utc": "2026-09-28T23:13:16Z",
+ "prose": "EXPERIMENT6_CONSTRAINT_CATALOG.md",
+ "prose_sha256": "91e764bf1694fa25bd342b1d0c94e9d838cf6b2a07084220359e7b81756e4a43",
+ "bottom_line": "no implemented regime has a documented COTA numeric anchor; all are study safeguards; the COTA-compliant combined regime is NOT run",
+ "sources": {
+  "S1": {
+   "title": "FTA Circular C 4702.1B, Title VI Requirements and Guidelines for FTA Recipients, Chapter IV",
+   "date": "2012-10-01 (current)",
+   "url": "https://www.transit.dot.gov/sites/fta.dot.gov/files/docs/FTA_Title_VI_FINAL.pdf",
+   "establishes": "fixed-route providers must set quantitative system-wide standards (vehicle load, vehicle headway, on-time performance, service availability) and, for 50+ peak vehicles in a 200,000+ UZA, major-service-change / disparate-impact / disproportionate-burden policies; FTA prescribes no values (the provider sets thresholds; examples are illustrative)"
+  },
+  "S2": {
+   "title": "49 CFR 37.131(a)(1)",
+   "date": "eCFR current as of 2026-09-22",
+   "url": "https://www.ecfr.gov/current/title-49/subtitle-A/part-37/subpart-F/section-37.131",
+   "quote": "The entity shall provide complementary paratransit service to origins and destinations within corridors with a width of three-fourths of a mile on each side of each fixed route."
+  },
+  "S3": {
+   "title": "49 CFR 37.131(e)",
+   "date": "eCFR current as of 2026-09-22",
+   "url": "https://www.ecfr.gov/current/title-49/subtitle-A/part-37/subpart-F/section-37.131",
+   "quote": "The complementary paratransit service shall be available throughout the same hours and days as the entity's fixed route service."
+  },
+  "S4": {
+   "title": "cota.com Title VI page, Codes & Policies, Service Changes, Services pages",
+   "date": "retrieved 2026-09-28",
+   "urls": [
+    "https://www.cota.com/title-vi/",
+    "https://www.cota.com/about-us/codes-policies/",
+    "https://www.cota.com/servicechanges/",
+    "https://www.cota.com/services/"
+   ],
+   "establishes": "no published numeric service standard, major-service-change definition, or frequent-network definition located; COTA values are UNKNOWN to this study"
+  },
+  "S5": {
+   "title": "config/constraints.yaml service policy (repo)",
+   "establishes": "study's own ladder: policy_max_headway_min 60 with baseline exception, policy_min_headway_min 5 -- a study safeguard since Exp 1"
+  }
+ },
+ "regimes": {
+  "R1": {
+   "name": "maximum-headway floor",
+   "parameter": "max_headway",
+   "classification": "study safeguard",
+   "cota_anchor": null,
+   "sweep": [
+    60.0,
+    30.0,
+    20.0
+   ],
+   "data_sufficient": true,
+   "status": "IMPLEMENTED",
+   "sources": [
+    "S1",
+    "S4",
+    "S5"
+   ]
+  },
+  "R2": {
+   "name": "OFF share cap",
+   "parameter": "max_off_share",
+   "classification": "study safeguard",
+   "cota_anchor": null,
+   "sweep": [
+    0.25,
+    0.1,
+    0.05
+   ],
+   "data_sufficient": true,
+   "status": "IMPLEMENTED",
+   "note": "share 0 is identical to R1 H=60 (ladder already caps at max(60, baseline)) and is not run twice",
+   "sources": [
+    "S4",
+    "S5"
+   ]
+  },
+  "R3": {
+   "name": "span preservation (period granularity)",
+   "parameter": "span",
+   "classification": "study safeguard",
+   "cota_anchor": null,
+   "sweep": [
+    true
+   ],
+   "data_sufficient": true,
+   "status": "IMPLEMENTED",
+   "sources": [
+    "S4"
+   ]
+  },
+  "R4": {
+   "name": "stop-period coverage preservation",
+   "parameter": "max_lost_share",
+   "classification": "study safeguard",
+   "cota_anchor": null,
+   "sweep": [
+    0.05,
+    0.01,
+    0.0
+   ],
+   "data_sufficient": true,
+   "status": "IMPLEMENTED",
+   "sources": [
+    "S1",
+    "S4"
+   ]
+  },
+  "R5": {
+   "name": "localized accessibility-loss cap",
+   "parameter": null,
+   "classification": "study safeguard (Title VI form would need COTA thresholds and demographic data)",
+   "cota_anchor": null,
+   "sweep": [],
+   "data_sufficient": false,
+   "status": "UNIMPLEMENTABLE_WITH_CURRENT_DATA (Title VI form: no COTA thresholds, no ACS minority/low-income data in the registry); generic form EXCLUDED -- not implemented before freeze (needs per-zone evaluator output inside the feasibility predicate)",
+   "sources": [
+    "S1",
+    "S4"
+   ]
+  },
+  "R6": {
+   "name": "ADA-corridor area preservation (fixed-route safeguard)",
+   "parameter": "area_radius_m",
+   "classification": "study safeguard borrowing the legal 3/4-mile corridor width (S2); ADA binds paratransit given the fixed route and does not require fixed-route preservation",
+   "cota_anchor": null,
+   "sweep": [
+    1207.008
+   ],
+   "data_sufficient": true,
+   "approximation": "route corridors approximated by stop points, straight-line distance in EPSG:32617",
+   "status": "IMPLEMENTED",
+   "sources": [
+    "S2",
+    "S3"
+   ]
+  },
+  "R7": {
+   "name": "protected / frequent / core corridors",
+   "parameter": null,
+   "classification": null,
+   "cota_anchor": null,
+   "sweep": [],
+   "data_sufficient": false,
+   "status": "EXCLUDED -- no authoritative COTA frequent-network definition located",
+   "sources": [
+    "S4"
+   ]
+  }
+ },
+ "grid": {
+  "REF": {},
+  "R1_H60": {
+   "max_headway": 60.0
+  },
+  "R1_H30": {
+   "max_headway": 30.0
+  },
+  "R1_H20": {
+   "max_headway": 20.0
+  },
+  "R2_S25": {
+   "max_off_share": 0.25
+  },
+  "R2_S10": {
+   "max_off_share": 0.1
+  },
+  "R2_S05": {
+   "max_off_share": 0.05
+  },
+  "R3_SPAN": {
+   "span": true
+  },
+  "R4_C05": {
+   "max_lost_share": 0.05
+  },
+  "R4_C01": {
+   "max_lost_share": 0.01
+  },
+  "R4_C00": {
+   "max_lost_share": 0.0
+  },
+  "R6_ADA": {
+   "area_radius_m": 1207.008
+  },
+  "B1": {
+   "max_off_share": 0.1,
+   "span": true,
+   "area_radius_m": 1207.008
+  },
+  "B2": {
+   "max_lost_share": 0.01,
+   "span": true
+  }
+ },
+ "bundles_preregistered": {
+  "B1": "R2 0.10 + R3 + R6",
+  "B2": "R4 0.01 + R3"
+ },
+ "implementation": "src/cota_opt/policy.py (PolicySpec, CompiledPolicy); enforced in frequency._feasible"
+}

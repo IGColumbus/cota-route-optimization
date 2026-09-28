@@ -57,7 +57,7 @@ def base_config_digest(st: dict, cons: dict) -> str:
 
 def run(kind: str, spec, env, *, st: dict, role: str, cell: str,
         anchor: dict | None, anchor_meta: dict | None,
-        heartbeat: Path | None) -> dict:
+        heartbeat: Path | None, raw_out: Path | None = None) -> dict:
     import cota_opt.exp3_score as E3
     from cota_opt.configs import load_constraints
     from cota_opt.exp3_cell import code_version, repo_revision
@@ -110,6 +110,18 @@ def run(kind: str, spec, env, *, st: dict, role: str, cell: str,
     finally:
         E3.solve_on_network = orig
     secs = time.time() - t0
+    # OPERATIONS rule 31: checkpoint the expensive result the instant it
+    # exists, before any post-processing that could fail.
+    if raw_out is not None and refused is None:
+        CC.atomic_write_json(raw_out, {
+            "checkpoint": "raw certify() result, written before post-processing",
+            "payload": {k: (v if not isinstance(v, float) or math.isfinite(v)
+                            else repr(v)) for k, v in cr.payload().items()
+                        if k != "plan_EXACT"},
+            "plan_EXACT": {k: (None if math.isinf(v) else v)
+                           for k, v in cr.plan.items()},
+            "start": dict(cr.start), "round_trajectory": traj,
+            "seconds": round(secs, 1), "written_utc": CC.utc()})
     judge = judges[0] if judges else None
     pol = getattr(judge.model, "policy", None) if judge else None
     base_rec = {
@@ -175,9 +187,9 @@ def run(kind: str, spec, env, *, st: dict, role: str, cell: str,
         used_peak[p] <= caps[p] * (1 + CC.EPS_REL) for p in PERIODS)
         and (pol_violation in (None, 0.0)))
     base_plan = judge.baseline_plan.headways if judge else {}
-    n_on_to_off = sum(1 for (r, p), v in cr.plan.items()
-                      if math.isinf(v) and math.isfinite(base_plan.get((r, p),
-                                                                      math.inf)))
+    n_on_to_off = sum(1 for k, v in cr.plan.items()
+                      if math.isinf(v) and math.isfinite(base_plan.get(
+                          tuple(k.split("|", 1)), math.inf)))
     return {**base_rec, "status": "CERTIFIED",
             "search": {"lam": LAM, "seed": SEED, "n_keys": N_KEYS,
                        "k_rungs": K_RUNGS, "max_rounds": MAX_ROUNDS,
@@ -272,7 +284,8 @@ def main() -> int:
         rec = run(a.network, spec, env, st=st, role=a.role,
                   cell=a.cell if spec is not None else MR.cell_id(a.hours, a.peak),
                   anchor=anchor, anchor_meta=meta,
-                  heartbeat=ROOT / a.heartbeat if a.heartbeat else None)
+                  heartbeat=ROOT / a.heartbeat if a.heartbeat else None,
+                  raw_out=out.with_name("RAW." + out.name))
         CC.atomic_write_json(out, rec)
         if rec["status"] == "ANCHOR_REFUSED":
             print(f"{a.network} {rec['cell']} ANCHOR_REFUSED: {rec['refusal'][:160]}")
