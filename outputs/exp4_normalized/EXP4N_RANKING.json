@@ -1,0 +1,1710 @@
+{
+ "artifact": "EXP4N_RANKING",
+ "section": "\u00a79",
+ "gated_on": {
+  "integrity_gate": "PASS",
+  "n_certified": 200
+ },
+ "tie_break": [
+  "fewer_active_lines",
+  "fewer_off_route_periods",
+  "lexicographic_line_ids"
+ ],
+ "tie_break_digest": "0297e180cf30369d",
+ "tie_break_engaged": {
+  "exact_objective_ties": 0,
+  "note": "the tie-break decides nothing unless two certified objectives are exactly equal"
+ },
+ "contract_digest": "2125984c82b60a83",
+ "canonical_envelope_digest": "3fd5241db44ca9da",
+ "leader": {
+  "candidate_id": "exp4|exp4-pool-v1|65lines#35e351133d6f",
+  "state_digest": "35e351133d6fcafc",
+  "objective_EXACT": "3223885.947526011",
+  "rounds": 21,
+  "converged": true,
+  "n_lines": 65,
+  "plan_digest": "898b95fd93c33414",
+  "legacy_certified_rank": 154
+ },
+ "runner_up": {
+  "candidate_id": "exp4|exp4-pool-v1|65lines#d451584c40c6",
+  "state_digest": "d451584c40c6acf6",
+  "objective_EXACT": "3236362.573619726",
+  "legacy_certified_rank": 193
+ },
+ "margin_first_to_second": {
+  "absolute": "12476.626093714964",
+  "percent": 0.3870058152426094
+ },
+ "field_spread_percent": 4.170957675216204,
+ "normalized_vs_legacy": {
+  "spearman_rank_correlation": 0.3565874146853672,
+  "pairwise_orderings_inverted": 7296,
+  "pairwise_orderings_total": 19900,
+  "pairwise_inverted_fraction": 0.36663316582914574,
+  "legacy_leader": {
+   "candidate_id": "exp4|exp4-pool-v1|65lines#ecb2ffc4bcce",
+   "legacy_rank": 1,
+   "normalized_rank": 185
+  },
+  "new_leader_legacy_rank": 154,
+  "biggest_risers": [
+   {
+    "key": "d451584c40c6",
+    "legacy": 193,
+    "normalized": 2
+   },
+   {
+    "key": "aeef8ff78bd1",
+    "legacy": 194,
+    "normalized": 4
+   },
+   {
+    "key": "1e4ab698f22a",
+    "legacy": 192,
+    "normalized": 3
+   },
+   {
+    "key": "236aa4945a39",
+    "legacy": 191,
+    "normalized": 5
+   },
+   {
+    "key": "260d2e19636c",
+    "legacy": 188,
+    "normalized": 15
+   }
+  ],
+  "biggest_fallers": [
+   {
+    "key": "ecb2ffc4bcce",
+    "legacy": 1,
+    "normalized": 185
+   },
+   {
+    "key": "b238cac2845e",
+    "legacy": 18,
+    "normalized": 191
+   },
+   {
+    "key": "c39c36214499",
+    "legacy": 27,
+    "normalized": 168
+   },
+   {
+    "key": "d1f8d2497954",
+    "legacy": 3,
+    "normalized": 135
+   },
+   {
+    "key": "2e91e1000126",
+    "legacy": 85,
+    "normalized": 198
+   }
+  ]
+ },
+ "ordering": [
+  {
+   "rank": 1,
+   "key": "35e351133d6f",
+   "objective_EXACT": "3223885.947526011",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 154
+  },
+  {
+   "rank": 2,
+   "key": "d451584c40c6",
+   "objective_EXACT": "3236362.573619726",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 193
+  },
+  {
+   "rank": 3,
+   "key": "1e4ab698f22a",
+   "objective_EXACT": "3246112.2649917817",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 192
+  },
+  {
+   "rank": 4,
+   "key": "aeef8ff78bd1",
+   "objective_EXACT": "3248735.1631195126",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 194
+  },
+  {
+   "rank": 5,
+   "key": "236aa4945a39",
+   "objective_EXACT": "3251418.2882540063",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 191
+  },
+  {
+   "rank": 6,
+   "key": "3302f2af66ee",
+   "objective_EXACT": "3255255.9427310824",
+   "rounds": 36,
+   "n_lines": 65,
+   "legacy_rank": 9
+  },
+  {
+   "rank": 7,
+   "key": "4bd65460f003",
+   "objective_EXACT": "3255316.3143632975",
+   "rounds": 31,
+   "n_lines": 65,
+   "legacy_rank": 117
+  },
+  {
+   "rank": 8,
+   "key": "34a619e99f21",
+   "objective_EXACT": "3257144.9864825928",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 77
+  },
+  {
+   "rank": 9,
+   "key": "c374c87023ef",
+   "objective_EXACT": "3257221.043974912",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 143
+  },
+  {
+   "rank": 10,
+   "key": "9c453324e080",
+   "objective_EXACT": "3258197.1330382265",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 136
+  },
+  {
+   "rank": 11,
+   "key": "d6f401185657",
+   "objective_EXACT": "3258414.6723882025",
+   "rounds": 31,
+   "n_lines": 65,
+   "legacy_rank": 50
+  },
+  {
+   "rank": 12,
+   "key": "12165a4c04c6",
+   "objective_EXACT": "3259559.8887108625",
+   "rounds": 40,
+   "n_lines": 65,
+   "legacy_rank": 25
+  },
+  {
+   "rank": 13,
+   "key": "a0f74ef83923",
+   "objective_EXACT": "3259856.87992946",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 72
+  },
+  {
+   "rank": 14,
+   "key": "25f7cef7f2e9",
+   "objective_EXACT": "3260703.3118132073",
+   "rounds": 24,
+   "n_lines": 65,
+   "legacy_rank": 51
+  },
+  {
+   "rank": 15,
+   "key": "260d2e19636c",
+   "objective_EXACT": "3262118.2792016165",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 188
+  },
+  {
+   "rank": 16,
+   "key": "12ab99b5915e",
+   "objective_EXACT": "3262379.764323833",
+   "rounds": 44,
+   "n_lines": 65,
+   "legacy_rank": 12
+  },
+  {
+   "rank": 17,
+   "key": "e10f2321e79b",
+   "objective_EXACT": "3262639.47395099",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 17
+  },
+  {
+   "rank": 18,
+   "key": "036179be5d4b",
+   "objective_EXACT": "3263542.331370637",
+   "rounds": 23,
+   "n_lines": 65,
+   "legacy_rank": 146
+  },
+  {
+   "rank": 19,
+   "key": "e262be604e11",
+   "objective_EXACT": "3264127.9482021327",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 36
+  },
+  {
+   "rank": 20,
+   "key": "ec59b41db804",
+   "objective_EXACT": "3266282.2030160455",
+   "rounds": 34,
+   "n_lines": 65,
+   "legacy_rank": 49
+  },
+  {
+   "rank": 21,
+   "key": "90da3ba5b732",
+   "objective_EXACT": "3268672.7610725407",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 175
+  },
+  {
+   "rank": 22,
+   "key": "13b8d9ecee0a",
+   "objective_EXACT": "3268707.7006841586",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 181
+  },
+  {
+   "rank": 23,
+   "key": "03fce0e3f398",
+   "objective_EXACT": "3268780.0844971463",
+   "rounds": 18,
+   "n_lines": 65,
+   "legacy_rank": 6
+  },
+  {
+   "rank": 24,
+   "key": "995f117521b9",
+   "objective_EXACT": "3269461.778400037",
+   "rounds": 29,
+   "n_lines": 65,
+   "legacy_rank": 39
+  },
+  {
+   "rank": 25,
+   "key": "98561192a965",
+   "objective_EXACT": "3269946.802755535",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 189
+  },
+  {
+   "rank": 26,
+   "key": "ff822f6ab822",
+   "objective_EXACT": "3269995.1278465735",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 59
+  },
+  {
+   "rank": 27,
+   "key": "55a334008898",
+   "objective_EXACT": "3270078.6445320877",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 186
+  },
+  {
+   "rank": 28,
+   "key": "feac42afd453",
+   "objective_EXACT": "3270213.910585613",
+   "rounds": 14,
+   "n_lines": 65,
+   "legacy_rank": 15
+  },
+  {
+   "rank": 29,
+   "key": "e12502aa3359",
+   "objective_EXACT": "3270414.8263049237",
+   "rounds": 26,
+   "n_lines": 65,
+   "legacy_rank": 109
+  },
+  {
+   "rank": 30,
+   "key": "0bdd18b3f431",
+   "objective_EXACT": "3270739.4896008605",
+   "rounds": 29,
+   "n_lines": 65,
+   "legacy_rank": 81
+  },
+  {
+   "rank": 31,
+   "key": "7272b2b37260",
+   "objective_EXACT": "3270847.4743887717",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 66
+  },
+  {
+   "rank": 32,
+   "key": "6c1e400f1379",
+   "objective_EXACT": "3271349.649979492",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 23
+  },
+  {
+   "rank": 33,
+   "key": "be27a31e5ddf",
+   "objective_EXACT": "3272678.298608315",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 43
+  },
+  {
+   "rank": 34,
+   "key": "ebb81d232aa0",
+   "objective_EXACT": "3274218.240332634",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 19
+  },
+  {
+   "rank": 35,
+   "key": "3ad6fb7cee39",
+   "objective_EXACT": "3274693.558683245",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 33
+  },
+  {
+   "rank": 36,
+   "key": "11c2ecb78519",
+   "objective_EXACT": "3275471.7686723405",
+   "rounds": 28,
+   "n_lines": 65,
+   "legacy_rank": 89
+  },
+  {
+   "rank": 37,
+   "key": "2c175dbf6a53",
+   "objective_EXACT": "3276552.121317232",
+   "rounds": 34,
+   "n_lines": 65,
+   "legacy_rank": 69
+  },
+  {
+   "rank": 38,
+   "key": "d9b4952dfca7",
+   "objective_EXACT": "3276589.5090431506",
+   "rounds": 23,
+   "n_lines": 65,
+   "legacy_rank": 38
+  },
+  {
+   "rank": 39,
+   "key": "b3c43fb8ccb1",
+   "objective_EXACT": "3276695.5315283793",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 167
+  },
+  {
+   "rank": 40,
+   "key": "4ab053a8f77f",
+   "objective_EXACT": "3278062.7149679344",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 26
+  },
+  {
+   "rank": 41,
+   "key": "c85f68507f8c",
+   "objective_EXACT": "3278091.35875412",
+   "rounds": 15,
+   "n_lines": 65,
+   "legacy_rank": 7
+  },
+  {
+   "rank": 42,
+   "key": "01053e1ee016",
+   "objective_EXACT": "3278371.078330395",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 104
+  },
+  {
+   "rank": 43,
+   "key": "21fa771c4311",
+   "objective_EXACT": "3278791.323674788",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 4
+  },
+  {
+   "rank": 44,
+   "key": "6addf085b829",
+   "objective_EXACT": "3278942.4774374394",
+   "rounds": 29,
+   "n_lines": 65,
+   "legacy_rank": 58
+  },
+  {
+   "rank": 45,
+   "key": "0ac1e858735c",
+   "objective_EXACT": "3279690.223175545",
+   "rounds": 32,
+   "n_lines": 65,
+   "legacy_rank": 120
+  },
+  {
+   "rank": 46,
+   "key": "a5fae152436b",
+   "objective_EXACT": "3279776.5063013127",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 20
+  },
+  {
+   "rank": 47,
+   "key": "3d7c9f161672",
+   "objective_EXACT": "3279905.771327576",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 21
+  },
+  {
+   "rank": 48,
+   "key": "113872a5a967",
+   "objective_EXACT": "3280077.4587018983",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 10
+  },
+  {
+   "rank": 49,
+   "key": "13a0dd5dbfc2",
+   "objective_EXACT": "3280684.2277541854",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 101
+  },
+  {
+   "rank": 50,
+   "key": "545eb38f4b57",
+   "objective_EXACT": "3281364.357516194",
+   "rounds": 28,
+   "n_lines": 65,
+   "legacy_rank": 24
+  },
+  {
+   "rank": 51,
+   "key": "8fb185fb9c9a",
+   "objective_EXACT": "3281503.1974098333",
+   "rounds": 26,
+   "n_lines": 65,
+   "legacy_rank": 105
+  },
+  {
+   "rank": 52,
+   "key": "d10361d1b34d",
+   "objective_EXACT": "3281750.7433424913",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 184
+  },
+  {
+   "rank": 53,
+   "key": "7df991b36df1",
+   "objective_EXACT": "3281857.5928296107",
+   "rounds": 18,
+   "n_lines": 65,
+   "legacy_rank": 16
+  },
+  {
+   "rank": 54,
+   "key": "e978e8cc7393",
+   "objective_EXACT": "3282556.1269549252",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 42
+  },
+  {
+   "rank": 55,
+   "key": "80a5c289e861",
+   "objective_EXACT": "3282607.310927693",
+   "rounds": 32,
+   "n_lines": 65,
+   "legacy_rank": 13
+  },
+  {
+   "rank": 56,
+   "key": "35bdcdf10790",
+   "objective_EXACT": "3282676.601621685",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 52
+  },
+  {
+   "rank": 57,
+   "key": "8c0b07ffccb1",
+   "objective_EXACT": "3282807.446126733",
+   "rounds": 39,
+   "n_lines": 65,
+   "legacy_rank": 122
+  },
+  {
+   "rank": 58,
+   "key": "664850ae34f2",
+   "objective_EXACT": "3283231.415777838",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 63
+  },
+  {
+   "rank": 59,
+   "key": "0eb5719e8796",
+   "objective_EXACT": "3283251.825760302",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 54
+  },
+  {
+   "rank": 60,
+   "key": "27e98a3c03dd",
+   "objective_EXACT": "3283383.789719506",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 40
+  },
+  {
+   "rank": 61,
+   "key": "0f952255f5bd",
+   "objective_EXACT": "3283581.1651490224",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 56
+  },
+  {
+   "rank": 62,
+   "key": "9a48db1b4458",
+   "objective_EXACT": "3283716.4517955435",
+   "rounds": 27,
+   "n_lines": 65,
+   "legacy_rank": 152
+  },
+  {
+   "rank": 63,
+   "key": "32217e8b5098",
+   "objective_EXACT": "3283720.728331531",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 11
+  },
+  {
+   "rank": 64,
+   "key": "81d9a2f8c376",
+   "objective_EXACT": "3283747.9148755968",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 14
+  },
+  {
+   "rank": 65,
+   "key": "07d8dadd9362",
+   "objective_EXACT": "3283918.3711664984",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 44
+  },
+  {
+   "rank": 66,
+   "key": "2e7ca680b95a",
+   "objective_EXACT": "3284030.262234592",
+   "rounds": 26,
+   "n_lines": 65,
+   "legacy_rank": 114
+  },
+  {
+   "rank": 67,
+   "key": "09c5cc4dd6bb",
+   "objective_EXACT": "3284157.373590463",
+   "rounds": 18,
+   "n_lines": 65,
+   "legacy_rank": 173
+  },
+  {
+   "rank": 68,
+   "key": "5667143ddd84",
+   "objective_EXACT": "3284539.360866313",
+   "rounds": 23,
+   "n_lines": 65,
+   "legacy_rank": 55
+  },
+  {
+   "rank": 69,
+   "key": "24e142fc0287",
+   "objective_EXACT": "3284607.261535495",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 5
+  },
+  {
+   "rank": 70,
+   "key": "5f963d4bb30f",
+   "objective_EXACT": "3285345.6385133094",
+   "rounds": 28,
+   "n_lines": 65,
+   "legacy_rank": 88
+  },
+  {
+   "rank": 71,
+   "key": "f49131f84c76",
+   "objective_EXACT": "3285651.210132233",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 106
+  },
+  {
+   "rank": 72,
+   "key": "17ba3dab9fb8",
+   "objective_EXACT": "3286061.6304739346",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 41
+  },
+  {
+   "rank": 73,
+   "key": "57d91472dc28",
+   "objective_EXACT": "3286624.2488589366",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 70
+  },
+  {
+   "rank": 74,
+   "key": "06a0b7538dda",
+   "objective_EXACT": "3286682.2067501643",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 67
+  },
+  {
+   "rank": 75,
+   "key": "00a1a066ae8e",
+   "objective_EXACT": "3287375.914203915",
+   "rounds": 15,
+   "n_lines": 65,
+   "legacy_rank": 28
+  },
+  {
+   "rank": 76,
+   "key": "e75ee82e034a",
+   "objective_EXACT": "3288394.146243433",
+   "rounds": 23,
+   "n_lines": 65,
+   "legacy_rank": 107
+  },
+  {
+   "rank": 77,
+   "key": "b14349a05c65",
+   "objective_EXACT": "3288411.5551373735",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 91
+  },
+  {
+   "rank": 78,
+   "key": "8965c4f852d3",
+   "objective_EXACT": "3289203.5630729888",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 195
+  },
+  {
+   "rank": 79,
+   "key": "05da9d9254f2",
+   "objective_EXACT": "3289499.3457992985",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 87
+  },
+  {
+   "rank": 80,
+   "key": "4c98a9adcbd9",
+   "objective_EXACT": "3289514.750585653",
+   "rounds": 27,
+   "n_lines": 65,
+   "legacy_rank": 30
+  },
+  {
+   "rank": 81,
+   "key": "4d8b29db06ed",
+   "objective_EXACT": "3289683.4784753723",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 185
+  },
+  {
+   "rank": 82,
+   "key": "dd62c1c002ec",
+   "objective_EXACT": "3289687.385923704",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 82
+  },
+  {
+   "rank": 83,
+   "key": "e539104e3397",
+   "objective_EXACT": "3289724.883500559",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 73
+  },
+  {
+   "rank": 84,
+   "key": "f0d89fda7557",
+   "objective_EXACT": "3291026.2946477737",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 31
+  },
+  {
+   "rank": 85,
+   "key": "d57d1794e8c7",
+   "objective_EXACT": "3291046.5224260446",
+   "rounds": 36,
+   "n_lines": 65,
+   "legacy_rank": 177
+  },
+  {
+   "rank": 86,
+   "key": "74ebd8d603b8",
+   "objective_EXACT": "3291271.318387497",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 130
+  },
+  {
+   "rank": 87,
+   "key": "2e7cebf918f4",
+   "objective_EXACT": "3291441.0073400247",
+   "rounds": 14,
+   "n_lines": 65,
+   "legacy_rank": 46
+  },
+  {
+   "rank": 88,
+   "key": "e368e4c6663c",
+   "objective_EXACT": "3291444.8378065918",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 68
+  },
+  {
+   "rank": 89,
+   "key": "081afff930ee",
+   "objective_EXACT": "3292003.248767171",
+   "rounds": 29,
+   "n_lines": 65,
+   "legacy_rank": 62
+  },
+  {
+   "rank": 90,
+   "key": "29c0b77eb870",
+   "objective_EXACT": "3292258.5320361746",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 90
+  },
+  {
+   "rank": 91,
+   "key": "e0995f81d96e",
+   "objective_EXACT": "3292676.8107201136",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 45
+  },
+  {
+   "rank": 92,
+   "key": "43b8e5a335f9",
+   "objective_EXACT": "3293058.4474693188",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 34
+  },
+  {
+   "rank": 93,
+   "key": "5abe80d13635",
+   "objective_EXACT": "3293380.1991373994",
+   "rounds": 33,
+   "n_lines": 65,
+   "legacy_rank": 113
+  },
+  {
+   "rank": 94,
+   "key": "39e73d78adc3",
+   "objective_EXACT": "3293387.036493258",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 60
+  },
+  {
+   "rank": 95,
+   "key": "e07e623ac167",
+   "objective_EXACT": "3294116.5079829367",
+   "rounds": 32,
+   "n_lines": 65,
+   "legacy_rank": 155
+  },
+  {
+   "rank": 96,
+   "key": "e1d16563d333",
+   "objective_EXACT": "3294434.5384071833",
+   "rounds": 31,
+   "n_lines": 65,
+   "legacy_rank": 47
+  },
+  {
+   "rank": 97,
+   "key": "08f377545e31",
+   "objective_EXACT": "3295108.700013782",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 2
+  },
+  {
+   "rank": 98,
+   "key": "72a13b9cf627",
+   "objective_EXACT": "3295250.601799403",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 22
+  },
+  {
+   "rank": 99,
+   "key": "7bf46b9b2e0a",
+   "objective_EXACT": "3295513.7878063926",
+   "rounds": 26,
+   "n_lines": 65,
+   "legacy_rank": 94
+  },
+  {
+   "rank": 100,
+   "key": "26ea778a42d5",
+   "objective_EXACT": "3295777.355785578",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 74
+  },
+  {
+   "rank": 101,
+   "key": "03ddaa5089cf",
+   "objective_EXACT": "3295924.6720398837",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 35
+  },
+  {
+   "rank": 102,
+   "key": "446bd2371357",
+   "objective_EXACT": "3296148.229725745",
+   "rounds": 15,
+   "n_lines": 65,
+   "legacy_rank": 61
+  },
+  {
+   "rank": 103,
+   "key": "98054c48fe48",
+   "objective_EXACT": "3296489.459252986",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 8
+  },
+  {
+   "rank": 104,
+   "key": "cee061c4de90",
+   "objective_EXACT": "3297957.6299251597",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 111
+  },
+  {
+   "rank": 105,
+   "key": "c6824140fb68",
+   "objective_EXACT": "3298154.526664265",
+   "rounds": 32,
+   "n_lines": 65,
+   "legacy_rank": 97
+  },
+  {
+   "rank": 106,
+   "key": "34a94a029519",
+   "objective_EXACT": "3298474.3841122244",
+   "rounds": 35,
+   "n_lines": 65,
+   "legacy_rank": 157
+  },
+  {
+   "rank": 107,
+   "key": "a52e297e84b2",
+   "objective_EXACT": "3298534.00604124",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 96
+  },
+  {
+   "rank": 108,
+   "key": "b32a8b775c2b",
+   "objective_EXACT": "3298620.659524996",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 78
+  },
+  {
+   "rank": 109,
+   "key": "2647272a8b91",
+   "objective_EXACT": "3298763.8664187277",
+   "rounds": 26,
+   "n_lines": 65,
+   "legacy_rank": 124
+  },
+  {
+   "rank": 110,
+   "key": "02a71a286c3f",
+   "objective_EXACT": "3298787.3032366084",
+   "rounds": 23,
+   "n_lines": 65,
+   "legacy_rank": 76
+  },
+  {
+   "rank": 111,
+   "key": "0252045320c1",
+   "objective_EXACT": "3299068.1022524093",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 29
+  },
+  {
+   "rank": 112,
+   "key": "ab7e78e194ba",
+   "objective_EXACT": "3299294.247133462",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 84
+  },
+  {
+   "rank": 113,
+   "key": "3d18a585b4f3",
+   "objective_EXACT": "3299349.9953839313",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 118
+  },
+  {
+   "rank": 114,
+   "key": "26e7a4efc7d8",
+   "objective_EXACT": "3300030.8404908897",
+   "rounds": 15,
+   "n_lines": 65,
+   "legacy_rank": 48
+  },
+  {
+   "rank": 115,
+   "key": "229cb1654b51",
+   "objective_EXACT": "3300323.6855136077",
+   "rounds": 30,
+   "n_lines": 65,
+   "legacy_rank": 100
+  },
+  {
+   "rank": 116,
+   "key": "6235140c6df3",
+   "objective_EXACT": "3300395.281343579",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 57
+  },
+  {
+   "rank": 117,
+   "key": "0b5cd76a4d95",
+   "objective_EXACT": "3300760.348679319",
+   "rounds": 33,
+   "n_lines": 65,
+   "legacy_rank": 119
+  },
+  {
+   "rank": 118,
+   "key": "f7d5485bd840",
+   "objective_EXACT": "3300835.0237737717",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 83
+  },
+  {
+   "rank": 119,
+   "key": "7a7459722327",
+   "objective_EXACT": "3301113.8085322245",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 170
+  },
+  {
+   "rank": 120,
+   "key": "513af2338267",
+   "objective_EXACT": "3301715.021756391",
+   "rounds": 14,
+   "n_lines": 65,
+   "legacy_rank": 127
+  },
+  {
+   "rank": 121,
+   "key": "73b1c71b41fc",
+   "objective_EXACT": "3301729.3619430168",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 151
+  },
+  {
+   "rank": 122,
+   "key": "f4e4cc3e8f83",
+   "objective_EXACT": "3301739.5662124",
+   "rounds": 15,
+   "n_lines": 65,
+   "legacy_rank": 102
+  },
+  {
+   "rank": 123,
+   "key": "89afcb1d01e0",
+   "objective_EXACT": "3301991.298448541",
+   "rounds": 24,
+   "n_lines": 65,
+   "legacy_rank": 86
+  },
+  {
+   "rank": 124,
+   "key": "08ce303d15b9",
+   "objective_EXACT": "3302230.326026597",
+   "rounds": 38,
+   "n_lines": 65,
+   "legacy_rank": 32
+  },
+  {
+   "rank": 125,
+   "key": "3b8f442dc97b",
+   "objective_EXACT": "3302631.9149997467",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 199
+  },
+  {
+   "rank": 126,
+   "key": "99c5d391c164",
+   "objective_EXACT": "3302666.8323333533",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 71
+  },
+  {
+   "rank": 127,
+   "key": "10861b7f4f6b",
+   "objective_EXACT": "3302799.8019519793",
+   "rounds": 29,
+   "n_lines": 65,
+   "legacy_rank": 128
+  },
+  {
+   "rank": 128,
+   "key": "baed41dfdd6e",
+   "objective_EXACT": "3303220.943524775",
+   "rounds": 18,
+   "n_lines": 65,
+   "legacy_rank": 103
+  },
+  {
+   "rank": 129,
+   "key": "b29253eb2d98",
+   "objective_EXACT": "3303372.8089654655",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 121
+  },
+  {
+   "rank": 130,
+   "key": "afa2c72be006",
+   "objective_EXACT": "3303559.033007103",
+   "rounds": 14,
+   "n_lines": 65,
+   "legacy_rank": 79
+  },
+  {
+   "rank": 131,
+   "key": "2faa7024f923",
+   "objective_EXACT": "3303857.6055520815",
+   "rounds": 23,
+   "n_lines": 65,
+   "legacy_rank": 129
+  },
+  {
+   "rank": 132,
+   "key": "f0dccfe1b209",
+   "objective_EXACT": "3304264.182679413",
+   "rounds": 18,
+   "n_lines": 65,
+   "legacy_rank": 65
+  },
+  {
+   "rank": 133,
+   "key": "12f767e55302",
+   "objective_EXACT": "3304405.735359232",
+   "rounds": 31,
+   "n_lines": 65,
+   "legacy_rank": 37
+  },
+  {
+   "rank": 134,
+   "key": "7b63053f84be",
+   "objective_EXACT": "3304570.972941558",
+   "rounds": 30,
+   "n_lines": 65,
+   "legacy_rank": 165
+  },
+  {
+   "rank": 135,
+   "key": "d1f8d2497954",
+   "objective_EXACT": "3304686.7234470607",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 3
+  },
+  {
+   "rank": 136,
+   "key": "d8ce37fb32b7",
+   "objective_EXACT": "3304946.2381121553",
+   "rounds": 34,
+   "n_lines": 65,
+   "legacy_rank": 99
+  },
+  {
+   "rank": 137,
+   "key": "eb44aa2e4763",
+   "objective_EXACT": "3304947.7560188016",
+   "rounds": 13,
+   "n_lines": 65,
+   "legacy_rank": 141
+  },
+  {
+   "rank": 138,
+   "key": "931442c18c27",
+   "objective_EXACT": "3305082.2790001766",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 123
+  },
+  {
+   "rank": 139,
+   "key": "ca20041516cf",
+   "objective_EXACT": "3305371.300045275",
+   "rounds": 15,
+   "n_lines": 65,
+   "legacy_rank": 161
+  },
+  {
+   "rank": 140,
+   "key": "531bd9bff013",
+   "objective_EXACT": "3305639.1734332507",
+   "rounds": 11,
+   "n_lines": 65,
+   "legacy_rank": 172
+  },
+  {
+   "rank": 141,
+   "key": "eed717e8318b",
+   "objective_EXACT": "3306257.9445191473",
+   "rounds": 18,
+   "n_lines": 65,
+   "legacy_rank": 75
+  },
+  {
+   "rank": 142,
+   "key": "e19c5c597f1b",
+   "objective_EXACT": "3306649.417601289",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 174
+  },
+  {
+   "rank": 143,
+   "key": "51c9bc9f6cc1",
+   "objective_EXACT": "3306653.741796622",
+   "rounds": 13,
+   "n_lines": 65,
+   "legacy_rank": 64
+  },
+  {
+   "rank": 144,
+   "key": "f217c449dafc",
+   "objective_EXACT": "3307098.8258318133",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 92
+  },
+  {
+   "rank": 145,
+   "key": "9abcf4130fd7",
+   "objective_EXACT": "3307411.2738584178",
+   "rounds": 27,
+   "n_lines": 65,
+   "legacy_rank": 95
+  },
+  {
+   "rank": 146,
+   "key": "1d0aabc5049c",
+   "objective_EXACT": "3307545.319277739",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 182
+  },
+  {
+   "rank": 147,
+   "key": "d108352c408e",
+   "objective_EXACT": "3307900.6344859074",
+   "rounds": 28,
+   "n_lines": 65,
+   "legacy_rank": 134
+  },
+  {
+   "rank": 148,
+   "key": "68fa9c2f67bd",
+   "objective_EXACT": "3308007.464330079",
+   "rounds": 23,
+   "n_lines": 65,
+   "legacy_rank": 190
+  },
+  {
+   "rank": 149,
+   "key": "0c061c5da55c",
+   "objective_EXACT": "3308120.8634131723",
+   "rounds": 29,
+   "n_lines": 65,
+   "legacy_rank": 98
+  },
+  {
+   "rank": 150,
+   "key": "38518f45ddd8",
+   "objective_EXACT": "3308590.4897446856",
+   "rounds": 34,
+   "n_lines": 65,
+   "legacy_rank": 115
+  },
+  {
+   "rank": 151,
+   "key": "7c4bb6f4daa0",
+   "objective_EXACT": "3308892.4418128016",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 197
+  },
+  {
+   "rank": 152,
+   "key": "8c311773cbae",
+   "objective_EXACT": "3309038.8403248796",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 179
+  },
+  {
+   "rank": 153,
+   "key": "134866497ed7",
+   "objective_EXACT": "3310088.326499621",
+   "rounds": 27,
+   "n_lines": 65,
+   "legacy_rank": 132
+  },
+  {
+   "rank": 154,
+   "key": "0270ac82da93",
+   "objective_EXACT": "3310267.4106211932",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 164
+  },
+  {
+   "rank": 155,
+   "key": "a2f5fd540ba7",
+   "objective_EXACT": "3311146.1993533326",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 162
+  },
+  {
+   "rank": 156,
+   "key": "ceab9279540c",
+   "objective_EXACT": "3311483.8500303836",
+   "rounds": 20,
+   "n_lines": 65,
+   "legacy_rank": 93
+  },
+  {
+   "rank": 157,
+   "key": "bb6abbbb8add",
+   "objective_EXACT": "3311614.72099063",
+   "rounds": 24,
+   "n_lines": 65,
+   "legacy_rank": 147
+  },
+  {
+   "rank": 158,
+   "key": "0716b118f011",
+   "objective_EXACT": "3311945.504146614",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 126
+  },
+  {
+   "rank": 159,
+   "key": "378d65f429e7",
+   "objective_EXACT": "3312380.9259063494",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 180
+  },
+  {
+   "rank": 160,
+   "key": "350c7cf4e725",
+   "objective_EXACT": "3313914.9023650214",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 150
+  },
+  {
+   "rank": 161,
+   "key": "52d9a64ac9f9",
+   "objective_EXACT": "3313965.7776483055",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 158
+  },
+  {
+   "rank": 162,
+   "key": "6dbfed52cb7f",
+   "objective_EXACT": "3314059.584231086",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 53
+  },
+  {
+   "rank": 163,
+   "key": "0ad8275d4fe8",
+   "objective_EXACT": "3314118.0940339034",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 125
+  },
+  {
+   "rank": 164,
+   "key": "e5d0b0b5e37b",
+   "objective_EXACT": "3315456.223736984",
+   "rounds": 31,
+   "n_lines": 65,
+   "legacy_rank": 169
+  },
+  {
+   "rank": 165,
+   "key": "3c1fab53ae34",
+   "objective_EXACT": "3315656.3455442805",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 139
+  },
+  {
+   "rank": 166,
+   "key": "ff4e4bb1910b",
+   "objective_EXACT": "3315836.932340669",
+   "rounds": 15,
+   "n_lines": 65,
+   "legacy_rank": 178
+  },
+  {
+   "rank": 167,
+   "key": "c48ea2959f6c",
+   "objective_EXACT": "3316937.4353350434",
+   "rounds": 30,
+   "n_lines": 65,
+   "legacy_rank": 160
+  },
+  {
+   "rank": 168,
+   "key": "c39c36214499",
+   "objective_EXACT": "3317315.6942514293",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 27
+  },
+  {
+   "rank": 169,
+   "key": "84edb6cc540a",
+   "objective_EXACT": "3317359.6278598756",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 112
+  },
+  {
+   "rank": 170,
+   "key": "c053fafadb97",
+   "objective_EXACT": "3317364.379410701",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 153
+  },
+  {
+   "rank": 171,
+   "key": "8cfbb9f72c54",
+   "objective_EXACT": "3317721.3656754745",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 187
+  },
+  {
+   "rank": 172,
+   "key": "7aee66b501d2",
+   "objective_EXACT": "3318109.3685984276",
+   "rounds": 23,
+   "n_lines": 65,
+   "legacy_rank": 138
+  },
+  {
+   "rank": 173,
+   "key": "b2b43dbb7034",
+   "objective_EXACT": "3318279.349600712",
+   "rounds": 22,
+   "n_lines": 65,
+   "legacy_rank": 80
+  },
+  {
+   "rank": 174,
+   "key": "e17adda58300",
+   "objective_EXACT": "3319184.04733467",
+   "rounds": 28,
+   "n_lines": 65,
+   "legacy_rank": 148
+  },
+  {
+   "rank": 175,
+   "key": "11967e711b01",
+   "objective_EXACT": "3319425.703065632",
+   "rounds": 15,
+   "n_lines": 65,
+   "legacy_rank": 149
+  },
+  {
+   "rank": 176,
+   "key": "208b85f8a5e6",
+   "objective_EXACT": "3319842.662774853",
+   "rounds": 13,
+   "n_lines": 65,
+   "legacy_rank": 140
+  },
+  {
+   "rank": 177,
+   "key": "1f2a136ff4a1",
+   "objective_EXACT": "3320433.0874468405",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 166
+  },
+  {
+   "rank": 178,
+   "key": "6a40fb5a9de7",
+   "objective_EXACT": "3321041.5402422054",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 176
+  },
+  {
+   "rank": 179,
+   "key": "b334833266db",
+   "objective_EXACT": "3321137.805644375",
+   "rounds": 29,
+   "n_lines": 65,
+   "legacy_rank": 159
+  },
+  {
+   "rank": 180,
+   "key": "ac9267f1a2ef",
+   "objective_EXACT": "3322120.8457414187",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 142
+  },
+  {
+   "rank": 181,
+   "key": "2d37c860663b",
+   "objective_EXACT": "3322330.122722133",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 131
+  },
+  {
+   "rank": 182,
+   "key": "a9687a8f6146",
+   "objective_EXACT": "3323770.5739278845",
+   "rounds": 16,
+   "n_lines": 65,
+   "legacy_rank": 108
+  },
+  {
+   "rank": 183,
+   "key": "403bb3e801a5",
+   "objective_EXACT": "3323825.3927225377",
+   "rounds": 18,
+   "n_lines": 65,
+   "legacy_rank": 168
+  },
+  {
+   "rank": 184,
+   "key": "202bcbd30b0b",
+   "objective_EXACT": "3324944.808857423",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 137
+  },
+  {
+   "rank": 185,
+   "key": "ecb2ffc4bcce",
+   "objective_EXACT": "3325019.735841233",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 1
+  },
+  {
+   "rank": 186,
+   "key": "be9b37534398",
+   "objective_EXACT": "3325344.3066897024",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 183
+  },
+  {
+   "rank": 187,
+   "key": "16e8b03c4a01",
+   "objective_EXACT": "3326170.9631128325",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 163
+  },
+  {
+   "rank": 188,
+   "key": "5743bdb17ada",
+   "objective_EXACT": "3326654.7074562013",
+   "rounds": 25,
+   "n_lines": 65,
+   "legacy_rank": 133
+  },
+  {
+   "rank": 189,
+   "key": "86a580516347",
+   "objective_EXACT": "3327139.3592807855",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 156
+  },
+  {
+   "rank": 190,
+   "key": "087a57214d17",
+   "objective_EXACT": "3328704.4587889016",
+   "rounds": 31,
+   "n_lines": 65,
+   "legacy_rank": 145
+  },
+  {
+   "rank": 191,
+   "key": "b238cac2845e",
+   "objective_EXACT": "3329412.7343056295",
+   "rounds": 17,
+   "n_lines": 65,
+   "legacy_rank": 18
+  },
+  {
+   "rank": 192,
+   "key": "c625281e02c8",
+   "objective_EXACT": "3329528.5755084893",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 116
+  },
+  {
+   "rank": 193,
+   "key": "41a1f3d6358e",
+   "objective_EXACT": "3330506.2442584336",
+   "rounds": 21,
+   "n_lines": 65,
+   "legacy_rank": 171
+  },
+  {
+   "rank": 194,
+   "key": "0daa376b8e9d",
+   "objective_EXACT": "3331442.347440547",
+   "rounds": 19,
+   "n_lines": 65,
+   "legacy_rank": 110
+  },
+  {
+   "rank": 195,
+   "key": "5737f7af14a7",
+   "objective_EXACT": "3331519.5582508678",
+   "rounds": 30,
+   "n_lines": 65,
+   "legacy_rank": 144
+  },
+  {
+   "rank": 196,
+   "key": "96485eb1a98e",
+   "objective_EXACT": "3338651.663250049",
+   "rounds": 28,
+   "n_lines": 65,
+   "legacy_rank": 200
+  },
+  {
+   "rank": 197,
+   "key": "8fd2f5289ecc",
+   "objective_EXACT": "3340943.1572141936",
+   "rounds": 23,
+   "n_lines": 65,
+   "legacy_rank": 198
+  },
+  {
+   "rank": 198,
+   "key": "2e91e1000126",
+   "objective_EXACT": "3341190.4161460623",
+   "rounds": 18,
+   "n_lines": 65,
+   "legacy_rank": 85
+  },
+  {
+   "rank": 199,
+   "key": "0aa85064fdd4",
+   "objective_EXACT": "3347197.923909702",
+   "rounds": 15,
+   "n_lines": 65,
+   "legacy_rank": 135
+  },
+  {
+   "rank": 200,
+   "key": "935195e7e6a8",
+   "objective_EXACT": "3358352.865894564",
+   "rounds": 18,
+   "n_lines": 65,
+   "legacy_rank": 196
+  }
+ ],
+ "what_this_does_not_establish": "That the first-to-second margin is meaningful. \u00a77's noise band is D33-B's 0.0018970%% and the rule is asymmetric: at or below the band is noise; above it is NOT thereby established, only not excluded. \u00a710 applies it. Also unchanged: no fleet claim (the instrument returns UNDECIDABLE for every candidate), no global optimality (the (N,K)-block-local residual is unmeasured), and nothing about the 1800 uncertified proposals."
+}
