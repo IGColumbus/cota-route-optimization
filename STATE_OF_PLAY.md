@@ -1,40 +1,71 @@
 # COTA route optimization — state of play
 
-Last updated 2026-09-28. **The normalized rerun ran, and it overturned
-Experiment 4's ranking.** EXP4N completed on 2026-09-28 with
-`EXP4_FULL_NORMALIZED_CERTIFIED` — 200 of 200 candidates re-certified under ONE
-common peak-vehicle envelope, §8 integrity gate 44 checks / 0 failures.
-**Exp 4's leader `...ecb2ffc4bcce` is now rank 185 of 200.** The leader is
-`...35e351133d6f` (legacy rank 154). Spearman **+0.3566**, **36.7% of pairwise
-orderings inverted**, and only one of Exp 4's top ten survives in the normalized
-top ten. `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`.
+Last updated 2026-09-28 (evening). **The original Experiment 4 question has now
+been answered, and the answer is no.** Under the identical EXP4N certification
+contract, the normalized leader N4 (`...35e351133d6f`) does **not** beat
+Experiment 3's constrained redesign N3 (`add_stop-010`):
 
-Experiments 1, 2, 2B, 3 and 4 are closed, and so is the Experiment 4 out-of-band
+* Δ43 = obj(N4) − obj(N3) = **+283,973 (+9.66% of N3)**; lower is better;
+* N4 serves **31.5% fewer** modeled trips for the same hours and peak proxy;
+* the comparison is firewall-admitted;
+* it survives an omission-corrected path costing (+7.87%);
+* it holds for every fixed-plan λ above 1.087.
+
+The result is conditional on the frozen path model, which fits N4 markedly
+worse, and on the same-route waiting model, whose cross-route omission on N4 is
+12.47% of GC. See `EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` (additive; the
+EXP4N ranking is not reopened). Before any number was used, the runner
+reproduced EXP4N's N4 bit-exactly (objective, plan, 21 rounds, full trajectory).
+
+**EXP4N**, completed 2026-09-28 with `EXP4_FULL_NORMALIZED_CERTIFIED`:
+
+* 200 of 200 candidates re-certified under ONE common peak-vehicle envelope;
+* §8 integrity gate: 44 checks, 0 failures;
+* **Exp 4's leader `...ecb2ffc4bcce` is now rank 185 of 200**; the leader is
+  `...35e351133d6f` (legacy rank 154);
+* Spearman **+0.3566**; **36.7% of pairwise orderings inverted**;
+* only one of Exp 4's top ten survives in the normalized top ten.
+
+See `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`.
+
+Experiments 1, 2, 2B, 3 and 4 are closed, as is the Experiment 4 out-of-band
 audit. Experiment 3 is frozen at tag `exp3-final-v1`. **Both** Exp 4 runs were
-made with **fleet REPORTED, NOT GATED** — the fleet question is *still open* and
-**neither run advanced it**. Experiments 5–7 were blocked on EXP4N certifying;
-that block has now cleared, and **it changed Exp 5's premise.** The premise audit
-found the hours cap never binds (36.16–37.33% spent) — measured on the legacy plans.
-Under the common envelope every certified plan spends **99.92–100.00%** of it.
-`EXP5_REFRAME_REQUIRED` must be re-audited against EXP4N before Exp 5 is
-reframed or run. (A version of this page written earlier the same day said
-EXP4N changed none of Exp 5's premises. That was asserted without being
-measured, and it was wrong.)
+made with **fleet REPORTED, NOT GATED**. The fleet question is *still open*, and
+**neither run advanced it**.
+
+**Experiment 5 was reframed and is RUNNING.** The original premise, design and
+module are retired explicitly in `EXPERIMENT5_PREMISE_RETIREMENT.md`:
+
+* hours slack; Arm B hours-null; 30/35/40% cuts;
+* block-fleet axis and the 1.307 factor;
+* `exp5_resource.py` as the treatment.
+
+The premise is retired because under the common envelope every certified plan
+spends 99.92–100.00% of the hours cap (N4 99.9934%). The legacy premise audit
+measured 36–37%, on the legacy plans.
+
+Exp 5 is now a **modeled operating-resource frontier**:
+
+* two axes: revenue vehicle-hours and the six-period solver peak-concurrency
+  proxy (not fleet);
+* networks N4 and N0, at 75–150%;
+* 32 cells through the unchanged EXP4N certifier;
+* contract frozen before the first production cell
+  (`outputs/exp5/EXP5_CONTRACT.json`, EXP5_FRONTIER `395ee3c960f51935`).
+
+The N4 J100 reproduction gate has passed.
+
+(A version of this page written earlier on 2026-09-28 said EXP4N changed none
+of Exp 5's premises. That was asserted without being measured, and it was
+wrong.)
 
 **The Exp 4 audit was stopped by decision at 15 of 200 on 2026-09-21.** It
-established that the top-200 promotion cap was **invalid** — an excluded
-candidate certifies better than the Exp 4 leader — and it produced **D38**,
-which reframes D36: discovery scores are nearly flat in the region measured, so
-discovery is not an inverted ranker but close to a constant plus noise. Its own
-preregistered question, whether discovery enriches at the population level,
-is **unanswered and not answerable from what was run**.
-
-**Experiment 5 is built, its block condition has cleared, and a premise audit
-on 2026-09-21 returned `EXP5_REFRAME_REQUIRED`. It must not run as specified.**
-`EXPERIMENT5_PREMISE_AUDIT.md`. A follow-up diagnostic the same day found why:
-**the hours axis Exp 5 is built on never binds, and a per-candidate
-peak-vehicle cap read off the candidate's own baseline plan binds at all six
-periods at 99.71–99.97%.** `EXPERIMENT5_OFFON_DIAGNOSTIC.md`.
+established that the top-200 promotion cap was **invalid**: an excluded candidate
+certifies better than the Exp 4 leader. It also produced **D38**, which reframes
+D36: discovery scores are nearly flat in the region measured, so discovery is
+not an inverted ranker but close to a constant plus noise. Its own
+preregistered question, whether discovery enriches at the population level, is
+**unanswered and not answerable from what was run**.
 
 ## The headline, in one line each
 
@@ -88,6 +119,25 @@ periods at 99.71–99.97%.** `EXPERIMENT5_OFFON_DIAGNOSTIC.md`.
   solver noise as an explanation and establishes nothing further** — the rule is
   asymmetric and the block-local residual is unmeasured for every candidate
   including this one. `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`.
+* **Experiment 4 — ORIGINAL QUESTION ADDENDUM, 2026-09-28: N4 does NOT beat
+  N3.** Matched EXP4N contract `EXP4A_MATCHED` (`0f62aeabfa341a98`):
+  * N3 re-solved from a treatment-independent greedy start: **2,939,912.5807**,
+    1 round, converged;
+  * N4 (EXP4N, authoritative): **3,223,885.9475**;
+  * Δ43 **+283,973.37 (+9.66%)**, firewall-admitted, with only network fields
+    differing; 5,092× the D33-B band, which is veto-only and establishes
+    nothing by itself;
+  * N4 loses 5,185 served trips and serves fewer stops in every period.
+
+  The diagnostics are gates 4-8 to 4-11, run as diagnostics and not discharged:
+  * path adequacy is much worse on N4 (8.7–34.8% of flow improvable vs 1.0–3.7%);
+  * common-lines exposure is 12.47% of GC on N4 (`potentially_frontier_changing`),
+    so the margin is model-dependent;
+  * crowding does not bind at this demand scale.
+
+  Gate 4-12 is deferred to Exp 7. Gate 4-13, fleet and physical inspection are
+  UNRESOLVED. No global-optimality, deployment or fleet claim.
+  `EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md`.
 * **Experiment 4 audit — STOPPED at 15 of 200, and the cap was invalid.**
   Discovery rank 237, excluded by the cap, certifies at **3,510,666.7802** —
   **0.014747% better than the incumbent**, inserting at exact rank 1 of 201.
@@ -97,8 +147,10 @@ periods at 99.71–99.97%.** `EXPERIMENT5_OFFON_DIAGNOSTIC.md`.
   arithmetically forced and D36's −0.9930 was largely the same artifact. The
   audit's own question is **unanswered**: certifying in rank order left four of
   five strata empty. `EXPERIMENT4_AUDIT_CLOSEOUT.md`.
-* **Experiment 5 — resource frontier: implemented, tested, NOT RUN, and
-  `EXP5_REFRAME_REQUIRED`.** Three independent defects, any one sufficient —
+* **Experiment 5 — ORIGINAL DESIGN RETIRED (history below); reframed as a
+  modeled operating-resource frontier and RUNNING** — see the top of this page
+  and `EXPERIMENT5_PREMISE_RETIREMENT.md`. The superseded audit, preserved:
+  *(2026-09-21, legacy plans)* `EXP5_REFRAME_REQUIRED`. Three independent defects, any one sufficient —
   all measured on the LEGACY Exp 4 plans; EXP4N removes the second:
   the fleet axis cannot be measured (200 of 200 Exp 4 candidates have a fleet
   bracket containing the *entire* Exp 5 cap grid); no cell binds (every
