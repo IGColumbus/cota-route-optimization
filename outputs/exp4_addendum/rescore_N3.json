@@ -1,0 +1,49 @@
+{
+ "network": "N3",
+ "status": "DIAGNOSTIC_ONLY_NOT_CERTIFIED",
+ "plan_digest": "28135d0fa655e6e1",
+ "unserved_weight_x_lambda": 120.0,
+ "per_period": {
+  "early": {
+   "pairs_newly_reachable": 1831,
+   "flow_newly_reachable": 112.86844232210022
+  },
+  "am_peak": {
+   "pairs_newly_reachable": 2662,
+   "flow_newly_reachable": 773.271793036121
+  },
+  "midday": {
+   "pairs_newly_reachable": 1765,
+   "flow_newly_reachable": 726.304561787209
+  },
+  "pm_peak": {
+   "pairs_newly_reachable": 2401,
+   "flow_newly_reachable": 748.7400631153558
+  },
+  "evening": {
+   "pairs_newly_reachable": 1379,
+   "flow_newly_reachable": 226.87048759261083
+  },
+  "owl": {
+   "pairs_newly_reachable": 1919,
+   "flow_newly_reachable": 125.11791219851823
+  }
+ },
+ "cached": {
+  "gc_served_only": 1198080.5162451442,
+  "served": 16433.732796105443,
+  "unserved": 14515.26720389456,
+  "objective": 2939912.5807124916
+ },
+ "corrected": {
+  "gc_served_only": 1343733.0271233842,
+  "served": 18100.60992194685,
+  "unserved": 12848.390078053153,
+  "objective": 2885539.8364897626
+ },
+ "cached_reproduces_certified": {
+  "objective_rel_err": 0.0,
+  "served_rel_err": 0.0
+ },
+ "seconds": 1043.3
+}

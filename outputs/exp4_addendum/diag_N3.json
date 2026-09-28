@@ -1,0 +1,408 @@
+{
+ "network": "N3",
+ "identity": {
+  "state_key": "exp3|add_stop-010#22c4c35ac5b2",
+  "state_digest": "430aca035c70715b",
+  "cardinality": 1,
+  "members": [
+   "add_stop-010#22c4c35ac5b2"
+  ],
+  "construction": "geometry.apply_edits(H.baseline, [edit_from_record(pool[N3])])",
+  "network_label": "N3 final Exp 3 constrained redesign",
+  "validation": "contract.validate_applied: OK (Experiment 3's own structural validator, as Stage B ran it)"
+ },
+ "record_plan_digest": "28135d0fa655e6e1",
+ "setup_matches_certified_fitness": true,
+ "status": "DIAGNOSTIC_ONLY",
+ "periods": {
+  "early": {
+   "od_pairs": 20000,
+   "flow": 1547.45,
+   "structural_unserved_flow": 745.9646096156321,
+   "structural_unserved_share": 0.48206055744329834,
+   "served_flow": 681.0951276777812,
+   "retention_mean": 0.4401403132106247,
+   "evaluate": {
+    "generalized_cost": 100645.2831542703,
+    "generalized_cost_served_only": 48663.99081493718,
+    "unserved_demand": 866.3548723222189,
+    "unserved_structural": 745.9646096156321,
+    "unserved_discouraged": 120.39026270658678,
+    "served_demand": 681.0951276777812,
+    "mean_cost_per_served_trip": 71.44962405010712
+   },
+   "one_seat_and_transfers": {
+    "served_flow_on_transit_paths": 654.6170670749311,
+    "one_seat_share": 0.6296621196313718,
+    "mean_boardings_per_served_trip": 1.3811535456286563,
+    "share_with_2plus_transfers": 0.010815665260028026
+   },
+   "stops_served": 1870,
+   "path_adequacy": {
+    "period": "early",
+    "od_pairs_compared": 9318,
+    "flow_share_improvable": 0.00995032144944477,
+    "mean_overstatement_min": 0.028352889889283615,
+    "mean_overstatement_pct": 0.03618760136396941,
+    "p95_overstatement_min": 1.4210854715202004e-14,
+    "max_overstatement_min": 20.281784820779336,
+    "pairs_improvable": 118,
+    "pairs_reachable_only_by_raptor": 1831
+   },
+   "transfer_depth_probe": {
+    "max_rounds": 4,
+    "note": "cached path set (built at max_rounds=3) vs fresh RAPTOR one boarding deeper; OD-cost gap only, plan not re-optimized",
+    "period": "early",
+    "od_pairs_compared": 9318,
+    "flow_share_improvable": 0.00995032144944477,
+    "mean_overstatement_min": 0.028352889889283615,
+    "mean_overstatement_pct": 0.03618760136396941,
+    "p95_overstatement_min": 1.4210854715202004e-14,
+    "max_overstatement_min": 20.281784820779336,
+    "pairs_improvable": 118,
+    "pairs_reachable_only_by_raptor": 1831
+   },
+   "crowding_NOT_PRICED": {
+    "bus_capacity": 60.0,
+    "active_route_periods_with_load": 13,
+    "peak_load_per_trip_median": 2.40730995402167,
+    "peak_load_per_trip_p95": 3.318866971924481,
+    "peak_load_per_trip_max": 3.651212244216259,
+    "share_over_capacity": 0.0,
+    "period_duration_units": "hours"
+   }
+  },
+  "am_peak": {
+   "od_pairs": 20000,
+   "flow": 6808.780000000001,
+   "structural_unserved_flow": 1756.7238781888768,
+   "structural_unserved_share": 0.25800861214327336,
+   "served_flow": 3911.2376402391806,
+   "retention_mean": 0.5744403021156771,
+   "evaluate": {
+    "generalized_cost": 472402.83948500484,
+    "generalized_cost_served_only": 298550.29789935565,
+    "unserved_demand": 2897.5423597608196,
+    "unserved_structural": 1756.7238781888768,
+    "unserved_discouraged": 1140.8184815719428,
+    "served_demand": 3911.2376402391806,
+    "mean_cost_per_served_trip": 76.3314135729934
+   },
+   "one_seat_and_transfers": {
+    "served_flow_on_transit_paths": 3794.7341735866407,
+    "one_seat_share": 0.5484304222736214,
+    "mean_boardings_per_served_trip": 1.472252455072671,
+    "share_with_2plus_transfers": 0.020682877346292632
+   },
+   "stops_served": 2478,
+   "path_adequacy": {
+    "period": "am_peak",
+    "od_pairs_compared": 14048,
+    "flow_share_improvable": 0.03100680313739889,
+    "mean_overstatement_min": 0.3077847922308087,
+    "mean_overstatement_pct": 0.3303886297636463,
+    "p95_overstatement_min": 2.842170943040401e-14,
+    "max_overstatement_min": 119.49751691642291,
+    "pairs_improvable": 484,
+    "pairs_reachable_only_by_raptor": 2662
+   },
+   "transfer_depth_probe": {
+    "max_rounds": 4,
+    "note": "cached path set (built at max_rounds=3) vs fresh RAPTOR one boarding deeper; OD-cost gap only, plan not re-optimized",
+    "period": "am_peak",
+    "od_pairs_compared": 14048,
+    "flow_share_improvable": 0.031037401956284485,
+    "mean_overstatement_min": 0.309076438806358,
+    "mean_overstatement_pct": 0.33177513537733055,
+    "p95_overstatement_min": 2.842170943040401e-14,
+    "max_overstatement_min": 119.49751691642291,
+    "pairs_improvable": 485,
+    "pairs_reachable_only_by_raptor": 2745
+   },
+   "crowding_NOT_PRICED": {
+    "bus_capacity": 60.0,
+    "active_route_periods_with_load": 31,
+    "peak_load_per_trip_median": 5.398540271363887,
+    "peak_load_per_trip_p95": 26.377534759407066,
+    "peak_load_per_trip_max": 68.32340065490861,
+    "share_over_capacity": 0.03225806451612903,
+    "period_duration_units": "hours"
+   }
+  },
+  "midday": {
+   "od_pairs": 20000,
+   "flow": 10213.170000000002,
+   "structural_unserved_flow": 3769.1009849476695,
+   "structural_unserved_share": 0.3690432045043477,
+   "served_flow": 5515.224162021984,
+   "retention_mean": 0.5400110016793985,
+   "evaluate": {
+    "generalized_cost": 674366.0904738596,
+    "generalized_cost_served_only": 392489.3401951784,
+    "unserved_demand": 4697.945837978018,
+    "unserved_structural": 3769.1009849476695,
+    "unserved_discouraged": 928.8448530303485,
+    "served_demand": 5515.224162021984,
+    "mean_cost_per_served_trip": 71.16471219753369
+   },
+   "one_seat_and_transfers": {
+    "served_flow_on_transit_paths": 5340.468962043174,
+    "one_seat_share": 0.5587331912366714,
+    "mean_boardings_per_served_trip": 1.4622916774758647,
+    "share_with_2plus_transfers": 0.02102486871253638
+   },
+   "stops_served": 2249,
+   "path_adequacy": {
+    "period": "midday",
+    "od_pairs_compared": 11880,
+    "flow_share_improvable": 0.019407227932974298,
+    "mean_overstatement_min": 0.054971214669724495,
+    "mean_overstatement_pct": 0.07106765298995336,
+    "p95_overstatement_min": 1.4210854715202004e-14,
+    "max_overstatement_min": 17.207922362540486,
+    "pairs_improvable": 259,
+    "pairs_reachable_only_by_raptor": 1765
+   },
+   "transfer_depth_probe": {
+    "max_rounds": 4,
+    "note": "cached path set (built at max_rounds=3) vs fresh RAPTOR one boarding deeper; OD-cost gap only, plan not re-optimized",
+    "period": "midday",
+    "od_pairs_compared": 11880,
+    "flow_share_improvable": 0.019407227932974298,
+    "mean_overstatement_min": 0.054971214669724495,
+    "mean_overstatement_pct": 0.07106765298995336,
+    "p95_overstatement_min": 1.4210854715202004e-14,
+    "max_overstatement_min": 17.207922362540486,
+    "pairs_improvable": 259,
+    "pairs_reachable_only_by_raptor": 1766
+   },
+   "crowding_NOT_PRICED": {
+    "bus_capacity": 60.0,
+    "active_route_periods_with_load": 18,
+    "peak_load_per_trip_median": 3.6154857499219464,
+    "peak_load_per_trip_p95": 5.445199467309339,
+    "peak_load_per_trip_max": 6.499232715727185,
+    "share_over_capacity": 0.0,
+    "period_duration_units": "hours"
+   }
+  },
+  "pm_peak": {
+   "od_pairs": 20000,
+   "flow": 7427.76,
+   "structural_unserved_flow": 2321.0379839411535,
+   "structural_unserved_share": 0.3124815535156162,
+   "served_flow": 4137.941898484513,
+   "retention_mean": 0.5570914917127793,
+   "evaluate": {
+    "generalized_cost": 501673.5724622605,
+    "generalized_cost_served_only": 304284.4863713312,
+    "unserved_demand": 3289.818101515488,
+    "unserved_structural": 2321.0379839411535,
+    "unserved_discouraged": 968.7801175743343,
+    "served_demand": 4137.941898484513,
+    "mean_cost_per_served_trip": 73.5352244754265
+   },
+   "one_seat_and_transfers": {
+    "served_flow_on_transit_paths": 4010.8472075908335,
+    "one_seat_share": 0.5477637156498053,
+    "mean_boardings_per_served_trip": 1.478815245800777,
+    "share_with_2plus_transfers": 0.02657896145058282
+   },
+   "stops_served": 2504,
+   "path_adequacy": {
+    "period": "pm_peak",
+    "od_pairs_compared": 13267,
+    "flow_share_improvable": 0.03747041664373383,
+    "mean_overstatement_min": 0.37461607982515915,
+    "mean_overstatement_pct": 0.4337483314518285,
+    "p95_overstatement_min": 2.842170943040401e-14,
+    "max_overstatement_min": 118.85180539473549,
+    "pairs_improvable": 547,
+    "pairs_reachable_only_by_raptor": 2401
+   },
+   "transfer_depth_probe": {
+    "max_rounds": 4,
+    "note": "cached path set (built at max_rounds=3) vs fresh RAPTOR one boarding deeper; OD-cost gap only, plan not re-optimized",
+    "period": "pm_peak",
+    "od_pairs_compared": 13267,
+    "flow_share_improvable": 0.03839506852330893,
+    "mean_overstatement_min": 0.4017199476325801,
+    "mean_overstatement_pct": 0.46513047992459744,
+    "p95_overstatement_min": 2.842170943040401e-14,
+    "max_overstatement_min": 118.85180539473549,
+    "pairs_improvable": 560,
+    "pairs_reachable_only_by_raptor": 2569
+   },
+   "crowding_NOT_PRICED": {
+    "bus_capacity": 60.0,
+    "active_route_periods_with_load": 31,
+    "peak_load_per_trip_median": 3.9964557842513155,
+    "peak_load_per_trip_p95": 8.347442709656507,
+    "peak_load_per_trip_max": 12.798531900843418,
+    "share_over_capacity": 0.0,
+    "period_duration_units": "hours"
+   }
+  },
+  "evening": {
+   "od_pairs": 20000,
+   "flow": 3713.88,
+   "structural_unserved_flow": 1444.613006909391,
+   "structural_unserved_share": 0.38897675932162346,
+   "served_flow": 1936.2121499789273,
+   "retention_mean": 0.5213448334299782,
+   "evaluate": {
+    "generalized_cost": 244702.5373929228,
+    "generalized_cost_served_only": 138042.46639165844,
+    "unserved_demand": 1777.6678500210728,
+    "unserved_structural": 1444.613006909391,
+    "unserved_discouraged": 333.05484311168175,
+    "served_demand": 1936.2121499789273,
+    "mean_cost_per_served_trip": 71.29511422245791
+   },
+   "one_seat_and_transfers": {
+    "served_flow_on_transit_paths": 1872.6648045320871,
+    "one_seat_share": 0.5594123962634304,
+    "mean_boardings_per_served_trip": 1.463063360215498,
+    "share_with_2plus_transfers": 0.022475756478928622
+   },
+   "stops_served": 2157,
+   "path_adequacy": {
+    "period": "evening",
+    "od_pairs_compared": 11610,
+    "flow_share_improvable": 0.03539757245479317,
+    "mean_overstatement_min": 0.13850445862493824,
+    "mean_overstatement_pct": 0.1781692198031925,
+    "p95_overstatement_min": 2.842170943040401e-14,
+    "max_overstatement_min": 17.293507614774015,
+    "pairs_improvable": 466,
+    "pairs_reachable_only_by_raptor": 1379
+   },
+   "transfer_depth_probe": {
+    "max_rounds": 4,
+    "note": "cached path set (built at max_rounds=3) vs fresh RAPTOR one boarding deeper; OD-cost gap only, plan not re-optimized",
+    "period": "evening",
+    "od_pairs_compared": 11610,
+    "flow_share_improvable": 0.03539757245479317,
+    "mean_overstatement_min": 0.13850445862493824,
+    "mean_overstatement_pct": 0.1781692198031925,
+    "p95_overstatement_min": 2.842170943040401e-14,
+    "max_overstatement_min": 17.293507614774015,
+    "pairs_improvable": 466,
+    "pairs_reachable_only_by_raptor": 1380
+   },
+   "crowding_NOT_PRICED": {
+    "bus_capacity": 60.0,
+    "active_route_periods_with_load": 18,
+    "peak_load_per_trip_median": 2.199630269865301,
+    "peak_load_per_trip_p95": 3.3130129731039117,
+    "peak_load_per_trip_max": 3.3949869425906156,
+    "share_over_capacity": 0.0,
+    "period_duration_units": "hours"
+   }
+  },
+  "owl": {
+   "od_pairs": 20000,
+   "flow": 1237.96,
+   "structural_unserved_flow": 954.868427337879,
+   "structural_unserved_share": 0.771324135947752,
+   "served_flow": 252.02181770305614,
+   "retention_mean": 0.20357832054594344,
+   "evaluate": {
+    "generalized_cost": 75206.22551049993,
+    "generalized_cost_served_only": 16049.934572683314,
+    "unserved_demand": 985.9381822969438,
+    "unserved_structural": 954.868427337879,
+    "unserved_discouraged": 31.069754959064795,
+    "served_demand": 252.02181770305614,
+    "mean_cost_per_served_trip": 63.6847028521717
+   },
+   "one_seat_and_transfers": {
+    "served_flow_on_transit_paths": 230.83936922077612,
+    "one_seat_share": 0.7859122045829255,
+    "mean_boardings_per_served_trip": 1.2149168566527806,
+    "share_with_2plus_transfers": 0.0008290612357059214
+   },
+   "stops_served": 1053,
+   "path_adequacy": {
+    "period": "owl",
+    "od_pairs_compared": 3348,
+    "flow_share_improvable": 0.026937712797917082,
+    "mean_overstatement_min": 0.17962980380789334,
+    "mean_overstatement_pct": 0.2613129839583177,
+    "p95_overstatement_min": 1.4210854715202004e-14,
+    "max_overstatement_min": 27.070846890730337,
+    "pairs_improvable": 113,
+    "pairs_reachable_only_by_raptor": 1919
+   },
+   "transfer_depth_probe": {
+    "max_rounds": 4,
+    "note": "cached path set (built at max_rounds=3) vs fresh RAPTOR one boarding deeper; OD-cost gap only, plan not re-optimized",
+    "period": "owl",
+    "od_pairs_compared": 3348,
+    "flow_share_improvable": 0.026937712797917082,
+    "mean_overstatement_min": 0.17962980380789334,
+    "mean_overstatement_pct": 0.2613129839583177,
+    "p95_overstatement_min": 1.4210854715202004e-14,
+    "max_overstatement_min": 27.070846890730337,
+    "pairs_improvable": 113,
+    "pairs_reachable_only_by_raptor": 1920
+   },
+   "crowding_NOT_PRICED": {
+    "bus_capacity": 60.0,
+    "active_route_periods_with_load": 7,
+    "peak_load_per_trip_median": 0.6330040669202341,
+    "peak_load_per_trip_p95": 0.8992314242172413,
+    "peak_load_per_trip_max": 0.9302984083192872,
+    "share_over_capacity": 0.0,
+    "period_duration_units": "hours"
+   }
+  }
+ },
+ "common_lines_bound": {
+  "n_legs_with_alternatives": 7287.0,
+  "flow_touched": 2777.2663275792916,
+  "total_bound_min": 13946.9045795017,
+  "bound_share_of_generalized_cost_pct": 1.164104114071743,
+  "median_saving_min": 4.928571428571429,
+  "p95_saving_min": 10.545454545454547,
+  "median_lines_available": 2.0,
+  "cross_route_bound_min": 13946.9045795017,
+  "cross_route_share_of_generalized_cost_pct": 1.164104114071743,
+  "same_route_bound_min": 0.0,
+  "same_route_share_of_generalized_cost_pct": 0.0,
+  "same_route_pattern_share_of_bound_pct": 0.0,
+  "legs_whose_alternatives_are_all_same_route": 0.0,
+  "exp1_effect_pct_compared_against": 2.0,
+  "verdict": "locally_meaningful",
+  "explanation": "the bound is 1.16% of generalized cost against a 2.0% claimed effect: too small to overturn the direction, large enough to matter for corridor-level numbers on the routes listed"
+ },
+ "physical_sanity": {
+  "n_patterns": 111,
+  "n_routes_in_plan": 39,
+  "n_routes_active": 33,
+  "n_route_periods": 173,
+  "n_off": 54,
+  "headway_min_active": 10.0,
+  "headway_max_active": 180.0,
+  "n_active_headway_over_60": 25,
+  "routes_active_in_one_period_only": [
+   "022"
+  ],
+  "active_by_period": {
+   "early": 13,
+   "am_peak": 31,
+   "midday": 18,
+   "pm_peak": 32,
+   "evening": 18,
+   "owl": 7
+  },
+  "total_stops_in_patterns": 2949
+ },
+ "totals": {
+  "flow": 30949.000000000004,
+  "structural_unserved_share": 0.35517492943037254,
+  "served_share": 0.5309939835246839
+ },
+ "seconds": 729.2,
+ "written_utc": "2026-09-28T15:07:27Z"
+}

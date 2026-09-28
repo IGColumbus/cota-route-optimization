@@ -1,0 +1,113 @@
+{
+ "status": "DIAGNOSTIC_ONLY",
+ "direction": "N3 -> N4",
+ "per_period": {
+  "early": {
+   "flow": 1547.44999999995,
+   "reachable_N3_not_N4": 452.7502436827778,
+   "reachable_N4_not_N3": 84.99679958225822,
+   "served_N3": 681.0951276777805,
+   "served_N4": 380.12424505204046,
+   "served_lost": 366.8543697234705,
+   "served_gained": 65.88348709773229,
+   "one_seat_N3": 412.18757000127005,
+   "one_seat_N4": 294.9117301689209,
+   "stops_served_N3": 1870,
+   "stops_served_N4": 1584,
+   "stops_losing_service": 702,
+   "stops_gaining_service": 416
+  },
+  "am_peak": {
+   "flow": 6808.780000000087,
+   "reachable_N3_not_N4": 3105.8659690174322,
+   "reachable_N4_not_N3": 536.1426671913719,
+   "served_N3": 3911.237640239196,
+   "served_N4": 2067.4310705641838,
+   "served_lost": 2251.7124158346965,
+   "served_gained": 407.9058461596889,
+   "one_seat_N3": 2081.1476652362517,
+   "one_seat_N4": 1433.3915841592793,
+   "stops_served_N3": 2478,
+   "stops_served_N4": 1678,
+   "stops_losing_service": 1053,
+   "stops_gaining_service": 253
+  },
+  "midday": {
+   "flow": 10213.169999998807,
+   "reachable_N3_not_N4": 1917.3605687192282,
+   "reachable_N4_not_N3": 1129.996029938141,
+   "served_N3": 5515.224162021979,
+   "served_N4": 4467.308541691418,
+   "served_lost": 1800.4922492358576,
+   "served_gained": 752.5766289053543,
+   "one_seat_N3": 2983.8972658627545,
+   "one_seat_N4": 2963.8197876455833,
+   "stops_served_N3": 2249,
+   "stops_served_N4": 1994,
+   "stops_losing_service": 563,
+   "stops_gaining_service": 308
+  },
+  "pm_peak": {
+   "flow": 7427.759999999824,
+   "reachable_N3_not_N4": 2068.1976833486424,
+   "reachable_N4_not_N3": 625.3553455073738,
+   "served_N3": 4137.941898484494,
+   "served_N4": 2866.679812227137,
+   "served_lost": 1707.0819043288616,
+   "served_gained": 435.81981807147616,
+   "one_seat_N3": 2196.9965693336144,
+   "one_seat_N4": 1923.182049335681,
+   "stops_served_N3": 2504,
+   "stops_served_N4": 1924,
+   "stops_losing_service": 831,
+   "stops_gaining_service": 251
+  },
+  "evening": {
+   "flow": 3713.879999999912,
+   "reachable_N3_not_N4": 987.3025877296078,
+   "reachable_N4_not_N3": 322.06502940085255,
+   "served_N3": 1936.2121499789407,
+   "served_N4": 1321.3527655356468,
+   "served_lost": 845.4963703581245,
+   "served_gained": 230.6369859148412,
+   "one_seat_N3": 1047.591905701488,
+   "one_seat_N4": 930.8038008213479,
+   "stops_served_N3": 2157,
+   "stops_served_N4": 1887,
+   "stops_losing_service": 684,
+   "stops_gaining_service": 414
+  },
+  "owl": {
+   "flow": 1237.960000000221,
+   "reachable_N3_not_N4": 204.77928302771576,
+   "reachable_N4_not_N3": 98.1643941606935,
+   "served_N3": 252.0218177030543,
+   "served_N4": 146.29168564319673,
+   "served_lost": 178.56249133043022,
+   "served_gained": 72.83235927057152,
+   "one_seat_N3": 181.41947756883076,
+   "one_seat_N4": 111.86269361169148,
+   "stops_served_N3": 1053,
+   "stops_served_N4": 1000,
+   "stops_losing_service": 573,
+   "stops_gaining_service": 520
+  }
+ },
+ "written_utc": "2026-09-28T15:30:00Z",
+ "totals": {
+  "flow": 30948.999999998803,
+  "reachable_N3_not_N4": 8736.256335525404,
+  "reachable_N4_not_N3": 2796.7202657806906,
+  "served_N3": 16433.732796105443,
+  "served_N4": 11249.188120713623,
+  "served_lost": 7150.199800811441,
+  "served_gained": 1965.6551254196643,
+  "one_seat_N3": 8903.24045370421,
+  "one_seat_N4": 7657.971645742504
+ },
+ "notes": [
+  "flow is the model's OD demand (top-20,000 LODES-proxy pairs); 'served' applies the evaluator's retention curve",
+  "one-seat = served flow whose chosen cached path has exactly one boarding (walk-only excluded)",
+  "neighbourhood-level aggregation is NOT computed here (UNRESOLVED for gate 4-8)"
+ ]
+}

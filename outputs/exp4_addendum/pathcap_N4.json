@@ -1,0 +1,22 @@
+{
+ "network": "N4",
+ "status": "DIAGNOSTIC_ONLY",
+ "plan_digest": "898b95fd93c33414",
+ "rows": {
+  "contract(4)": {
+   "objective": "3223885.947526011",
+   "generalized_cost": "859908.5220116506",
+   "unserved_demand": "19699.811879286335",
+   "total_paths": 85857,
+   "seconds": 1130.6
+  },
+  "6": {
+   "objective": "3223885.947526011",
+   "generalized_cost": "859908.5220116506",
+   "unserved_demand": "19699.811879286335",
+   "total_paths": 85857,
+   "seconds": 892.3
+  }
+ },
+ "objective_change_pct_4_to_6": 0.0
+}
