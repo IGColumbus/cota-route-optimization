@@ -1,0 +1,56 @@
+{
+ "artifact": "EXP4N_FINAL_STATUS",
+ "section": "\u00a710",
+ "status": "EXP4_FULL_NORMALIZED_CERTIFIED",
+ "because": "200/200 certified and \u00a78 passed with 0 failures",
+ "n_certified": 200,
+ "integrity_gate": "PASS",
+ "contract_digest": "2125984c82b60a83",
+ "canonical_envelope_digest": "3fd5241db44ca9da",
+ "candidate_set_digest": "38e52f0b14b1d554",
+ "src_cota_opt_content_digest": "add5d0002d29aa49",
+ "tie_break_digest": "0297e180cf30369d",
+ "leader": {
+  "candidate_id": "exp4|exp4-pool-v1|65lines#35e351133d6f",
+  "state_digest": "35e351133d6fcafc",
+  "objective_EXACT": "3223885.947526011",
+  "rounds": 21,
+  "converged": true,
+  "n_lines": 65,
+  "plan_digest": "898b95fd93c33414",
+  "legacy_certified_rank": 154
+ },
+ "runner_up": {
+  "candidate_id": "exp4|exp4-pool-v1|65lines#d451584c40c6",
+  "state_digest": "d451584c40c6acf6",
+  "objective_EXACT": "3236362.573619726",
+  "legacy_certified_rank": 193
+ },
+ "margin_first_to_second": {
+  "absolute": "12476.626093714964",
+  "percent": 0.3870058152426094
+ },
+ "noise_band": {
+  "percent": 0.001897,
+  "source": "D33-B (2026-09-02, 375 cells, Stage B effort), per protocol amendment #1",
+  "margin_percent": 0.3870058152426094,
+  "margin_is_above_band": true,
+  "rule": "ASYMMETRIC. At or below the band: the difference is noise. ABOVE the band: a real difference is NOT thereby established, it is only NOT EXCLUDED. D33-B is a LOCAL check over at most 10 of 173 route-periods and is a LOWER BOUND on the differential-error bound; a margin above it is not thereby established, only not excluded.",
+  "reading": "The 0.387006%% margin is ~204x the band, so solver noise at the measured scale does not explain it. That removes one alternative explanation. It does not by itself make the leader the best geometry, because the block-local residual is unmeasured for every candidate including this one."
+ },
+ "what_this_certifies": [
+  "All 200 promoted Exp 4 candidates were re-certified under ONE common peak-vehicle envelope, resolved once from the frozen artifact rather than per-candidate from its own baseline plan.",
+  "Every candidate converged strictly below the 120-round ceiling (max 44, headroom 76), so no result is a truncated upper bound.",
+  "The parameterisation was identical across all 200 and equal to the frozen contract on every recorded field, including a bit-exact six-period peak envelope.",
+  "21/21 calibration controls and 24/24 pre-loss archive survivors reproduced exactly, across a container rebuild, a fresh package set and a re-registered data tree."
+ ],
+ "what_this_does_not_certify": [
+  "No fleet claim. The blocking instrument returns UNDECIDABLE for every candidate including the leader; deadhead provenance and terminal identity are both still OPEN.",
+  "No global optimality. The (N,K)-block-local guarantee is local and its residual is unmeasured for every candidate.",
+  "Nothing about the 1,785 uncertified proposals, and D38 argues the discovery ordering carries almost no information where it was measured.",
+  "No operational deployability claim. Fleet was REPORTED, NOT GATED.",
+  "The peak cap is still measured with the cycle-over-headway proxy that contract.py refuses by name. Normalization fixed the cap's PROVENANCE (one common envelope, not per-candidate), not the INSTRUMENT."
+ ],
+ "supersedes": "Experiment 4's certified ordering is now superseded for any geometry claim. Its objective values remain exactly reproducible and its artifacts stay readable; what is withdrawn is the reading of that ordering as an ordering OF GEOMETRIES.",
+ "unblocks": "Experiments 5-7, subject to their own preregistration in docs/EXPERIMENTS_5_7_PROTOCOL_INTAKE.md and docs/RELEASE_AND_REPORTING_GUIDELINES.md."
+}
