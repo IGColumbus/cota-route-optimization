@@ -21,3 +21,9 @@ outputs/exp4_normalized/exp4n_prod.log
 outputs/exp4_normalized/exp4n_envgate.log
 outputs/exp4_normalized/exp4n_prod_shardB.pid
 outputs/exp4_normalized/exp4n_prod_shardB.log
+
+# lock debris moved aside on the durable machine, whose VM cannot unlink.
+# It is working-tree litter, never repository content: 11.4 MB of it reached
+# `master` in two commits on 2026-09-21 and is still there. Ignoring it here so
+# a future session cannot repeat that on this branch.
+_to_delete/
