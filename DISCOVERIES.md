@@ -2372,3 +2372,51 @@ was decided by a quantity ~1,100× smaller than the error in it.
 
 Full accounting in `EXPERIMENT4_AUDIT_CLOSEOUT.md`, including three retracted
 interim throughput claims.
+
+## D39 — the block certifier is start-basin dependent on a greenfield network, at the 1–2% scale
+
+*Found by Experiment 5's preregistered monotonicity gate, 2026-09-28.
+`EXPERIMENT5_CLOSEOUT.md` §4.*
+
+Loosening a resource cap can only enlarge the feasible set. So on one network,
+a looser cell's certified objective must not be worse than a tighter cell's,
+provided the tighter cell's certified plan fits inside the looser caps
+("realized-plan nesting", checked for every pair).
+
+The two networks behaved differently:
+
+* **N0** (existing geometry): 99 of 99 pairs are monotone.
+* **N4** (EXP4N leader): 12 of 99 regress, by 0.13% to 1.70%.
+
+The worst cases:
+
+* H110, H125 and H150 all return the same plan at 3,274,458.25. That is 1.57%
+  worse than J100's plan, which fits inside their caps, and 1.70% worse than
+  H090's.
+* At the EXP4N envelope itself, H090's plan is 0.133% better than EXP4N's
+  certified N4.
+
+The cause is not budget, order or nondeterminism:
+
+* budgets are exact;
+* the D35 reach tests pass;
+* the reversed-order sentinels are bit-exact.
+
+It is the start. Certification begins from a Gen1 greedy build under the cell's
+own caps. Different caps give a different start, and (8, 3)-block-local search
+converges into a different local optimum. N0 certifies in one round almost
+everywhere; N4 needs 10–27 rounds over 390 route-periods, about 57% of them OFF.
+
+**What it changes:**
+
+* D33-B (0.0018970%) was already labelled a *local lower bound*. This is a
+  measured *lower bound on the residual itself*, about 900× larger.
+* Any EXP4N-style margin below ~2% on a greenfield network is within the
+  demonstrated start-basin variation. That includes EXP4N's first-to-second
+  margin of 0.387%.
+* Margins far above it survive: Δ43 is 9.51–9.66%, and N4 vs N0 is 8–12%.
+
+**What it does not change:** every certified number is still exactly
+reproducible under its contract. The fix, if one is wanted, is multiple
+treatment-independent starts per certification — which is gate 12's
+restart-diversity obligation, never measured for the block certifier.

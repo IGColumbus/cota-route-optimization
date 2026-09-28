@@ -1,6 +1,6 @@
 {
  "artifact": "EXP5_ANALYSIS",
- "written_utc": "2026-09-28T21:32:12Z",
+ "written_utc": "2026-09-28T21:33:27Z",
  "status": "FAILED: EXP5_MONOTONICITY_FAILURE on 12 pairs",
  "contract_file_sha256": "f88f04d0fb6c1d361e11e5cbad7e586c52e384731424a87619f0208662fa2983",
  "missing_cells": [],
@@ -4987,6 +4987,15 @@
     "upper_same_terminal_NOT_CERTIFIED": 635
    },
    "tt_vs_model_hours": 0.4653917724064562
+  },
+  "N4_P090": {
+   "verdict": "UNDECIDABLE",
+   "raw": "UNDECIDABLE",
+   "bracket": {
+    "lower_zero_deadhead": 159,
+    "upper_same_terminal_NOT_CERTIFIED": 725
+   },
+   "tt_vs_model_hours": 0.461125961346263
   },
   "N4_P110": {
    "verdict": "UNDECIDABLE",

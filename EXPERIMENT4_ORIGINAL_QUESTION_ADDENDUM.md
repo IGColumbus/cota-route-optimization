@@ -333,3 +333,22 @@ deployment or implementation claim.
 
 Not claimed: global optimality; "best of 2,000"; deployable; fleet-feasible;
 "COTA should implement" either network.
+
+## 8. Post-script from Experiment 5 (added 2026-09-28, after §1–7 were written)
+
+Experiment 5 re-certified N4 at 16 resource cells (`EXPERIMENT5_CLOSEOUT.md` §4).
+That run showed the block certifier lands in **start-dependent local optima on
+N4, differing by up to 1.70%**. Two consequences for this addendum:
+
+* **The EXP4N N4 plan is not the best known N4 plan under the EXP4N
+  envelope.** The Exp 5 H090 plan fits the same caps and scores
+  3,219,614.74, which is 0.133% better. Using it, Δ43 = **+279,702 (+9.51%)**.
+  The sign and order of magnitude are unchanged.
+* **Result A needs a stronger caveat.** The observed start-basin gap (≥1.70%)
+  is about 4.4× EXP4N's first-to-second margin (0.387%). The EXP4N ordering is
+  exactly reproducible under its contract, but it is not robust to start basin
+  among closely spaced candidates.
+
+Experiment 5 also compared N4 with N0 (the existing geometry) at all 16 cells.
+N4 is worse at every cell, by 8.07–11.59%, and all 16 comparisons are
+firewall-admitted.
