@@ -1,0 +1,121 @@
+{
+ "artifact": "EXP4A_CONTRACT",
+ "frozen_utc": "2026-09-28T14:05:47Z",
+ "purpose": "Experiment 4 original question: N3 (final Exp 3 constrained redesign) vs N4 (EXP4N normalized leader) under the SAME EXP4N certification contract. Additive; EXPERIMENT4_NORMALIZED_CLOSEOUT.md and the EXP4N ranking are not reopened.",
+ "contract": {
+  "digest": "0f62aeabfa341a98",
+  "experiment": "exp4",
+  "version": "4A-original-question-v1",
+  "stage": "certification",
+  "objective": "lambda_scalarized_path_level",
+  "objective_version": "lambda=2.0",
+  "evaluator": "same_route",
+  "envelope": "exp4n_common_reference_envelope_exact_0b46d1abc9a80c80",
+  "pathset_policy": "rebuilt_per_network_per_certify_call",
+  "pool_version": "exp4n-matched-networks-v1",
+  "methodology_generation": "gen2",
+  "solver": {
+   "name": "exp4_certify.certify|n_keys=8|k_rungs=3|max_rounds=120|start=gen1_greedy_20000x1_w0|allow_off=True|tol=0.0",
+   "start_policy": "greedy_only",
+   "restarts": 1,
+   "evaluation_ceiling": 20000,
+   "candidate_width": 0,
+   "require_convergence": true,
+   "seeds": [
+    20260825
+   ]
+  },
+  "allowed_treatment_differences": [
+   "cardinality",
+   "members",
+   "pathset_digest",
+   "state_digest",
+   "state_key"
+  ],
+  "justifications": {
+   "cardinality": "How many lines the network activates. Part of the treatment: service activation, including OFF, is a decision variable in this experiment.",
+   "members": "Which lines it activates. Part of the treatment.",
+   "pathset_digest": "A different route structure has different shortest paths. Requiring identical path sets would admit only a comparison of a network with itself. The path-set POLICY is an identity field of its own and must still match exactly -- that is what stops one arm being enumerated differently from the other.",
+   "state_digest": "The network itself. This IS the treatment.",
+   "state_key": "The network's name. Follows from state_digest."
+  },
+  "search_allowance": "NOT APPLICABLE: firewall.exp4.EXP4_ALLOWANCE is an evaluation budget for the Gen2 exchange search. The block certifier's entitlement is n_keys/k_rungs/max_rounds plus the no-improving-round stop rule, network-independent and carried as identity in the solver policy name. EXP4N never used compare_exp4 either."
+ },
+ "certify_call": {
+  "function": "cota_opt.exp4_certify.certify",
+  "lam": 2.0,
+  "seed": 20260825,
+  "n_keys": 8,
+  "k_rungs": 3,
+  "max_rounds": 120,
+  "allow_off": true,
+  "waiting_model": "same_route",
+  "contract_digest_arg": "2125984c82b60a83",
+  "start": "gen1 greedy 20000/1/0 inside certify (treatment-independent; no warm start from N4)",
+  "pathsets": "one _CandidatePathsets scope per certify call"
+ },
+ "envelope": {
+  "rounded_envelope_digest": "3fd5241db44ca9da",
+  "exact_fingerprint": "0b46d1abc9a80c80",
+  "hours_cap": "2517.1833333333334",
+  "peak_proxy_caps": {
+   "early": "85.28208333333332",
+   "am_peak": "162.00944444444443",
+   "midday": "159.17277777777775",
+   "pm_peak": "176.49305555555554",
+   "evening": "140.19458333333336",
+   "owl": "35.55736111111111"
+  },
+  "tolerance": 0.0,
+  "asserted_against": [
+   "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "outputs/exp4_normalized/EXP4N_PRODUCTION_CONTRACT.json",
+   "outputs/ENVELOPE_FINGERPRINT_V1.json"
+  ]
+ },
+ "networks": {
+  "N4": {
+   "state_key": "exp4|exp4-pool-v1|65lines#35e351133d6f",
+   "state_digest": "35e351133d6fcafc",
+   "result_source": "EXP4N production_mr120 (authoritative); re-run here ONLY as the equivalence canary"
+  },
+  "N3": {
+   "state_key": "exp3|add_stop-010#22c4c35ac5b2",
+   "construction": "geometry.apply_edits(H.baseline, [mutate.edit_from_record(outputs/exp3/mutation_pool.json[add_stop-010#22c4c35ac5b2])]); contract.validate_applied",
+   "provenance": "pre_exp4_baseline_v1 incumbent singleton; its historical score is provenance only",
+   "representation_bridge": "exp4_assemble.rebuild_like_assembler vs legacy at certify's first step (D34)"
+  }
+ },
+ "canary_gate": {
+  "network": "N4",
+  "must_equal_bit_exact": {
+   "objective_EXACT": "3223885.947526011",
+   "plan_digest": "898b95fd93c33414",
+   "rounds": 21,
+   "converged": true,
+   "round_trajectory": "all 21 objectives equal outputs/exp4_normalized/production_mr120/cc40b4f4aea3aa05.json"
+  },
+  "on_failure": "EXP4_CONTROL_PIPELINE_EQUIVALENCE_FAILURE -- stop"
+ },
+ "n3_admission": {
+  "requires": [
+   "converged True",
+   "rounds < 120",
+   "enforced budget == envelope bit-exact",
+   "firewall admit() under this contract digest",
+   "compare() refuses nothing but NETWORK_DIFFERENCES"
+  ],
+  "raw_subtraction": "diagnostic only unless admitted"
+ },
+ "delta43": "obj(N4) - obj(N3), with components generalized_cost, unserved_demand, served_demand, revenue_veh_hours, peak proxy",
+ "code": {
+  "code_version": "src-51dd455d9e1a",
+  "src_cota_opt_content_digest": "add5d0002d29aa49",
+  "runner_sha256": {
+   "exp45_certify_cell.py": "7135b1554c8620b3",
+   "exp45_contracts.py": "bf1d2b60a2ce7432",
+   "exp5_model_resource.py": "5c85226d321fdbc5",
+   "envelope_fingerprint.py": "26cc93c9c6a9ab7b"
+  }
+ }
+}
