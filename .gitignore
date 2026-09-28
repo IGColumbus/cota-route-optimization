@@ -27,3 +27,11 @@ outputs/exp4_normalized/exp4n_prod_shardB.log
 # `master` in two commits on 2026-09-21 and is still there. Ignoring it here so
 # a future session cannot repeat that on this branch.
 _to_delete/
+
+# Exp 4A/5 run debris (logs, pids, heartbeats) and large OD dumps
+outputs/exp4_addendum/run/
+outputs/exp4_addendum/*.od.json
+outputs/exp5/run/
+outputs/exp5/preflight/*.log
+outputs/exp5/preflight/*.pid
+outputs/exp5/preflight/*.hb.json
