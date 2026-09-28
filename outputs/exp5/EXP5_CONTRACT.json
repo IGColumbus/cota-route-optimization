@@ -1,0 +1,1202 @@
+{
+ "artifact": "EXP5_CONTRACT",
+ "version": "5.0",
+ "frozen_utc": "2026-09-28T15:00:29Z",
+ "question": "Modeled operating-resource frontier: how the certified objective of a FIXED network responds to revenue vehicle-hours and to the six-period solver peak-concurrency proxy, separately and jointly. Frequency and ON/OFF only; geometry fixed per network.",
+ "retired": {
+  "module": "src/cota_opt/exp5_resource.py",
+  "status": "SUPERSEDED FOR PRODUCTION; preserved unmodified as history",
+  "why": "its second resource is block-derived physical fleet (135/187/173/197/178/149, integral, floored), which the production optimizer does not enforce; frequency._feasible constrains the cycle-over-headway peak proxy. The object was internally consistent for a physical-fleet experiment and does not match the resource the solver constrains.",
+  "superseded_design": "September 23 Exp 5 plan: six peak cells, one predicted-null hours cell (Arm B), and 30/35/40% hours service cuts (Arm C)",
+  "why_design_superseded": "built on the premise that hours are slack (~36-37% used), measured on the LEGACY endogenous-cap Exp 4 plans. Under EXP4N's common envelope every certified plan uses 99.92-100.00% of the hours cap and N4 uses 2517.0171064814813 of 2517.1833333333334. The hours-null and deep-cut logic describe an operating point that no longer exists."
+ },
+ "retired_premises": [
+  "hours are slack (36-37% used) -- measured on legacy endogenous-cap plans; EXP4N N4 uses 2517.0171064814813 of 2517.1833333333334 h (99.9934%)",
+  "Arm B hours-only predicted null",
+  "30/35/40% hours service cuts",
+  "block-derived physical fleet as the peak axis; the 1.307 factor"
+ ],
+ "contracts": {
+  "EXP5_FRONTIER": {
+   "digest": "395ee3c960f51935",
+   "experiment": "exp5",
+   "version": "5.0-model-resource-frontier",
+   "stage": "certification",
+   "objective": "lambda_scalarized_path_level",
+   "objective_version": "lambda=2.0",
+   "evaluator": "same_route",
+   "envelope": "exp5_scaled_exp4n_common_envelope",
+   "pathset_policy": "rebuilt_per_network_per_certify_call",
+   "pool_version": "exp5-networks-N0-N4-v1",
+   "methodology_generation": "gen2",
+   "solver": {
+    "name": "exp4_certify.certify|n_keys=8|k_rungs=3|max_rounds=120|start=gen1_greedy_20000x1_w0|allow_off=True|tol=0.0",
+    "start_policy": "greedy_only",
+    "restarts": 1,
+    "evaluation_ceiling": 20000,
+    "candidate_width": 0,
+    "require_convergence": true,
+    "seeds": [
+     20260825
+    ]
+   },
+   "allowed_treatment_differences": [
+    "envelope_digest",
+    "envelope_used_vh"
+   ],
+   "justifications": {
+    "envelope_digest": "The resource cell IS the treatment: the exact IEEE-754 fingerprint of the hours cap and six peak-proxy caps. Topology, evaluator, objective, seed, start policy, search policy and path policy must all still match.",
+    "envelope_used_vh": "The hours cap enforced by the budget. One of the two declared treatment axes; it follows from envelope_digest."
+   },
+   "search_allowance": "NOT APPLICABLE: firewall.exp4.EXP4_ALLOWANCE is an evaluation budget for the Gen2 exchange search. The block certifier's entitlement is n_keys/k_rungs/max_rounds plus the no-improving-round stop rule, network-independent and carried as identity in the solver policy name. EXP4N never used compare_exp4 either."
+  },
+  "EXP5_STRUCTURE": {
+   "digest": "2315b87e21123cbc",
+   "experiment": "exp5",
+   "version": "5.0-structure-at-matched-cell",
+   "stage": "certification",
+   "objective": "lambda_scalarized_path_level",
+   "objective_version": "lambda=2.0",
+   "evaluator": "same_route",
+   "envelope": "exp5_scaled_exp4n_common_envelope",
+   "pathset_policy": "rebuilt_per_network_per_certify_call",
+   "pool_version": "exp5-networks-N0-N4-v1",
+   "methodology_generation": "gen2",
+   "solver": {
+    "name": "exp4_certify.certify|n_keys=8|k_rungs=3|max_rounds=120|start=gen1_greedy_20000x1_w0|allow_off=True|tol=0.0",
+    "start_policy": "greedy_only",
+    "restarts": 1,
+    "evaluation_ceiling": 20000,
+    "candidate_width": 0,
+    "require_convergence": true,
+    "seeds": [
+     20260825
+    ]
+   },
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ],
+   "justifications": {
+    "cardinality": "How many lines the network activates. Part of the treatment: service activation, including OFF, is a decision variable in this experiment.",
+    "members": "Which lines it activates. Part of the treatment.",
+    "pathset_digest": "A different route structure has different shortest paths. Requiring identical path sets would admit only a comparison of a network with itself. The path-set POLICY is an identity field of its own and must still match exactly -- that is what stops one arm being enumerated differently from the other.",
+    "state_digest": "The network itself. This IS the treatment.",
+    "state_key": "The network's name. Follows from state_digest."
+   },
+   "search_allowance": "NOT APPLICABLE: firewall.exp4.EXP4_ALLOWANCE is an evaluation budget for the Gen2 exchange search. The block certifier's entitlement is n_keys/k_rungs/max_rounds plus the no-improving-round stop rule, network-independent and carried as identity in the solver policy name. EXP4N never used compare_exp4 either."
+  }
+ },
+ "comparison_rules": {
+  "within_network_across_cells": "EXP5_FRONTIER (only envelope fields may differ)",
+  "across_networks": "EXP5_STRUCTURE, IDENTICAL cell only"
+ },
+ "networks": {
+  "N4": {
+   "state_key": "exp4|exp4-pool-v1|65lines#35e351133d6f",
+   "state_digest": "35e351133d6fcafc",
+   "cardinality": 65,
+   "construction": "exp4_assemble.assemble(Exp4Selection)",
+   "network_label": "N4 EXP4N normalized leader",
+   "exp4n_result": "outputs/exp4_normalized/production_mr120/cc40b4f4aea3aa05.json"
+  },
+  "N0": {
+   "state_key": "cota_existing_local_geometry|N0",
+   "state_digest": "f0f24936ab06b4ec",
+   "cardinality": 0,
+   "construction": "H.baseline.network / H.baseline.tstats",
+   "network_label": "N0 COTA existing local geometry",
+   "definition": "COTA existing local geometry (H.baseline.network), validated path, peak express locked (lock_classes=('peak_express',)) exactly as the frozen model requires for every network"
+  },
+  "N3": {
+   "status": "NOT AN EXPERIMENT 5 NETWORK"
+  }
+ },
+ "resource_axes": {
+  "hours": "scheduled_weekday_revenue_vehicle_hours",
+  "peak": "solver_peak_concurrency_proxy",
+  "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+  "scaling_rule": "continuous_exact_multiplication_no_rounding",
+  "tolerance": 0.0,
+  "base": {
+   "rounded_envelope_digest": "3fd5241db44ca9da",
+   "exact_fingerprint": "0b46d1abc9a80c80",
+   "hours_cap": "2517.1833333333334",
+   "peak_proxy_caps": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   }
+  },
+  "not": "physical vehicles, fleet or buses; no per-bus figure is derivable from this experiment"
+ },
+ "levels": [
+  0.75,
+  0.9,
+  1.0,
+  1.1,
+  1.25,
+  1.5
+ ],
+ "cells": [
+  {
+   "cell_id": "J075",
+   "arm": "A_joint",
+   "hours_cap": "1887.8875",
+   "peak_proxy_caps": {
+    "early": "63.961562499999985",
+    "am_peak": "121.50708333333333",
+    "midday": "119.37958333333331",
+    "pm_peak": "132.36979166666666",
+    "evening": "105.14593750000002",
+    "owl": "26.668020833333337"
+   },
+   "hours_multiplier": 0.75,
+   "peak_multiplier": 0.75,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "ecae0062d315c0cd",
+   "cell_exact_fingerprint": "49f91172a26adc69",
+   "cell_exact_fingerprint_full": "49f91172a26adc69a2cdd9250deab25b6dc00fabd941e38a693b049786327714"
+  },
+  {
+   "cell_id": "J090",
+   "arm": "A_joint",
+   "hours_cap": "2265.465",
+   "peak_proxy_caps": {
+    "early": "76.753875",
+    "am_peak": "145.80849999999998",
+    "midday": "143.25549999999998",
+    "pm_peak": "158.84375",
+    "evening": "126.17512500000002",
+    "owl": "32.001625000000004"
+   },
+   "hours_multiplier": 0.9,
+   "peak_multiplier": 0.9,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "5ec223840e9602ed",
+   "cell_exact_fingerprint": "d11efd3a14949dc8",
+   "cell_exact_fingerprint_full": "d11efd3a14949dc853830d50065bb5e0bd15ef4645cb1cc56a528766c5a0b860"
+  },
+  {
+   "cell_id": "J100",
+   "arm": "A_joint",
+   "hours_cap": "2517.1833333333334",
+   "peak_proxy_caps": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   },
+   "hours_multiplier": 1.0,
+   "peak_multiplier": 1.0,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "3fd5241db44ca9da",
+   "cell_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_exact_fingerprint_full": "0b46d1abc9a80c80db12953144eeaa812b1e2a891704916e81c1b2499e40c5d4"
+  },
+  {
+   "cell_id": "J110",
+   "arm": "A_joint",
+   "hours_cap": "2768.901666666667",
+   "peak_proxy_caps": {
+    "early": "93.81029166666666",
+    "am_peak": "178.21038888888887",
+    "midday": "175.09005555555555",
+    "pm_peak": "194.14236111111111",
+    "evening": "154.2140416666667",
+    "owl": "39.11309722222223"
+   },
+   "hours_multiplier": 1.1,
+   "peak_multiplier": 1.1,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "25d71579088dd93c",
+   "cell_exact_fingerprint": "8921d1925fe41465",
+   "cell_exact_fingerprint_full": "8921d1925fe414653c498951e925802f133343d62dabf641af343533dfe62194"
+  },
+  {
+   "cell_id": "J125",
+   "arm": "A_joint",
+   "hours_cap": "3146.479166666667",
+   "peak_proxy_caps": {
+    "early": "106.60260416666665",
+    "am_peak": "202.51180555555553",
+    "midday": "198.9659722222222",
+    "pm_peak": "220.61631944444443",
+    "evening": "175.2432291666667",
+    "owl": "44.44670138888889"
+   },
+   "hours_multiplier": 1.25,
+   "peak_multiplier": 1.25,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "96e42eb415c7831b",
+   "cell_exact_fingerprint": "92c97c2af119b077",
+   "cell_exact_fingerprint_full": "92c97c2af119b0770fb7982acc13a0ea850ac80ae5d2b21c580618dfafc4fd5b"
+  },
+  {
+   "cell_id": "J150",
+   "arm": "A_joint",
+   "hours_cap": "3775.775",
+   "peak_proxy_caps": {
+    "early": "127.92312499999997",
+    "am_peak": "243.01416666666665",
+    "midday": "238.75916666666663",
+    "pm_peak": "264.7395833333333",
+    "evening": "210.29187500000003",
+    "owl": "53.336041666666674"
+   },
+   "hours_multiplier": 1.5,
+   "peak_multiplier": 1.5,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "a9be29ba71ddef9d",
+   "cell_exact_fingerprint": "704e43d5d5b88b8b",
+   "cell_exact_fingerprint_full": "704e43d5d5b88b8b82bf187a938d01e3e15d7696c95f9de6ecf27b4ca08d8352"
+  },
+  {
+   "cell_id": "H075",
+   "arm": "B_hours_only",
+   "hours_cap": "1887.8875",
+   "peak_proxy_caps": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   },
+   "hours_multiplier": 0.75,
+   "peak_multiplier": 1.0,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "ea1b8ed182bc3869",
+   "cell_exact_fingerprint": "737b1633c435eef5",
+   "cell_exact_fingerprint_full": "737b1633c435eef56245cc944e7af63806194547a0f4845713a3321121e77d71"
+  },
+  {
+   "cell_id": "H090",
+   "arm": "B_hours_only",
+   "hours_cap": "2265.465",
+   "peak_proxy_caps": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   },
+   "hours_multiplier": 0.9,
+   "peak_multiplier": 1.0,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "832c0299603fc6e2",
+   "cell_exact_fingerprint": "c08511562fdf762c",
+   "cell_exact_fingerprint_full": "c08511562fdf762cbdbae3d23bc4124593e40d5c8310d15f61de6289dffcbe02"
+  },
+  {
+   "cell_id": "H110",
+   "arm": "B_hours_only",
+   "hours_cap": "2768.901666666667",
+   "peak_proxy_caps": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   },
+   "hours_multiplier": 1.1,
+   "peak_multiplier": 1.0,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "675e8c9c163889d6",
+   "cell_exact_fingerprint": "24e0a25cfa000582",
+   "cell_exact_fingerprint_full": "24e0a25cfa000582458ea964acf9e3c33671ed97dadae849c5a25c324d04bcb7"
+  },
+  {
+   "cell_id": "H125",
+   "arm": "B_hours_only",
+   "hours_cap": "3146.479166666667",
+   "peak_proxy_caps": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   },
+   "hours_multiplier": 1.25,
+   "peak_multiplier": 1.0,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "a8916d3a78fcb192",
+   "cell_exact_fingerprint": "57c3ba80b76aa3b2",
+   "cell_exact_fingerprint_full": "57c3ba80b76aa3b2233795405ae47f6fca82af9bf10d6d51ff286f3b9524aa26"
+  },
+  {
+   "cell_id": "H150",
+   "arm": "B_hours_only",
+   "hours_cap": "3775.775",
+   "peak_proxy_caps": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   },
+   "hours_multiplier": 1.5,
+   "peak_multiplier": 1.0,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "fece1fc6f694b615",
+   "cell_exact_fingerprint": "408115557e25bf7d",
+   "cell_exact_fingerprint_full": "408115557e25bf7d64508d09a52ca404f76babf7f444698d7551eec2a284e102"
+  },
+  {
+   "cell_id": "P075",
+   "arm": "C_peak_proxy_only",
+   "hours_cap": "2517.1833333333334",
+   "peak_proxy_caps": {
+    "early": "63.961562499999985",
+    "am_peak": "121.50708333333333",
+    "midday": "119.37958333333331",
+    "pm_peak": "132.36979166666666",
+    "evening": "105.14593750000002",
+    "owl": "26.668020833333337"
+   },
+   "hours_multiplier": 1.0,
+   "peak_multiplier": 0.75,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "5d67fb0ae4e8027a",
+   "cell_exact_fingerprint": "533d658ae3d36536",
+   "cell_exact_fingerprint_full": "533d658ae3d3653641a20353c281b04e8ac189653c056282f17d680aa188dddf"
+  },
+  {
+   "cell_id": "P090",
+   "arm": "C_peak_proxy_only",
+   "hours_cap": "2517.1833333333334",
+   "peak_proxy_caps": {
+    "early": "76.753875",
+    "am_peak": "145.80849999999998",
+    "midday": "143.25549999999998",
+    "pm_peak": "158.84375",
+    "evening": "126.17512500000002",
+    "owl": "32.001625000000004"
+   },
+   "hours_multiplier": 1.0,
+   "peak_multiplier": 0.9,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "54361a6e2353b142",
+   "cell_exact_fingerprint": "58e15642818193ee",
+   "cell_exact_fingerprint_full": "58e15642818193eee2ad0787a8d036541fb9b57c37552c04b8ffefc887a2bdcd"
+  },
+  {
+   "cell_id": "P110",
+   "arm": "C_peak_proxy_only",
+   "hours_cap": "2517.1833333333334",
+   "peak_proxy_caps": {
+    "early": "93.81029166666666",
+    "am_peak": "178.21038888888887",
+    "midday": "175.09005555555555",
+    "pm_peak": "194.14236111111111",
+    "evening": "154.2140416666667",
+    "owl": "39.11309722222223"
+   },
+   "hours_multiplier": 1.0,
+   "peak_multiplier": 1.1,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "0dbd7a152166c56b",
+   "cell_exact_fingerprint": "53f34946f2fb628d",
+   "cell_exact_fingerprint_full": "53f34946f2fb628df17d52ef7925e817ed7db2593dda717bbdf082e8ac7f7bbe"
+  },
+  {
+   "cell_id": "P125",
+   "arm": "C_peak_proxy_only",
+   "hours_cap": "2517.1833333333334",
+   "peak_proxy_caps": {
+    "early": "106.60260416666665",
+    "am_peak": "202.51180555555553",
+    "midday": "198.9659722222222",
+    "pm_peak": "220.61631944444443",
+    "evening": "175.2432291666667",
+    "owl": "44.44670138888889"
+   },
+   "hours_multiplier": 1.0,
+   "peak_multiplier": 1.25,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "f867479a2d2225e4",
+   "cell_exact_fingerprint": "cf8a231d2967aaef",
+   "cell_exact_fingerprint_full": "cf8a231d2967aaef8bd1fefc537aef34922041e614fc34fb275e7ed3141c6ccd"
+  },
+  {
+   "cell_id": "P150",
+   "arm": "C_peak_proxy_only",
+   "hours_cap": "2517.1833333333334",
+   "peak_proxy_caps": {
+    "early": "127.92312499999997",
+    "am_peak": "243.01416666666665",
+    "midday": "238.75916666666663",
+    "pm_peak": "264.7395833333333",
+    "evening": "210.29187500000003",
+    "owl": "53.336041666666674"
+   },
+   "hours_multiplier": 1.0,
+   "peak_multiplier": 1.5,
+   "hours_semantics": "scheduled_weekday_revenue_vehicle_hours",
+   "peak_semantics": "solver_peak_concurrency_proxy",
+   "peak_instrument": "frequency.FrequencyModel.peak_vehicles = cycle/headway, cycle = 2*runtime*(1+layover), summed per period; the quantity frequency._feasible compares against ResourceBudget.peak_vehicles_by_period",
+   "peak_units": "proxy units (cycle-over-headway concurrency), NOT physical vehicles",
+   "scaling_rule": "continuous_exact_multiplication_no_rounding",
+   "tolerance": 0.0,
+   "source_artifact": "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+   "base_rounded_envelope_digest": "3fd5241db44ca9da",
+   "base_exact_fingerprint": "0b46d1abc9a80c80",
+   "cell_rounded_envelope_digest": "25bb00f917170eba",
+   "cell_exact_fingerprint": "3fb16a8039fabfd3",
+   "cell_exact_fingerprint_full": "3fb16a8039fabfd30d937905878f07270392b9bed0b561c5a3c570aa28dba552"
+  }
+ ],
+ "nested_pairs": [
+  [
+   "J090",
+   "J075"
+  ],
+  [
+   "J100",
+   "J075"
+  ],
+  [
+   "J100",
+   "J090"
+  ],
+  [
+   "J100",
+   "H075"
+  ],
+  [
+   "J100",
+   "H090"
+  ],
+  [
+   "J100",
+   "P075"
+  ],
+  [
+   "J100",
+   "P090"
+  ],
+  [
+   "J110",
+   "J075"
+  ],
+  [
+   "J110",
+   "J090"
+  ],
+  [
+   "J110",
+   "J100"
+  ],
+  [
+   "J110",
+   "H075"
+  ],
+  [
+   "J110",
+   "H090"
+  ],
+  [
+   "J110",
+   "H110"
+  ],
+  [
+   "J110",
+   "P075"
+  ],
+  [
+   "J110",
+   "P090"
+  ],
+  [
+   "J110",
+   "P110"
+  ],
+  [
+   "J125",
+   "J075"
+  ],
+  [
+   "J125",
+   "J090"
+  ],
+  [
+   "J125",
+   "J100"
+  ],
+  [
+   "J125",
+   "J110"
+  ],
+  [
+   "J125",
+   "H075"
+  ],
+  [
+   "J125",
+   "H090"
+  ],
+  [
+   "J125",
+   "H110"
+  ],
+  [
+   "J125",
+   "H125"
+  ],
+  [
+   "J125",
+   "P075"
+  ],
+  [
+   "J125",
+   "P090"
+  ],
+  [
+   "J125",
+   "P110"
+  ],
+  [
+   "J125",
+   "P125"
+  ],
+  [
+   "J150",
+   "J075"
+  ],
+  [
+   "J150",
+   "J090"
+  ],
+  [
+   "J150",
+   "J100"
+  ],
+  [
+   "J150",
+   "J110"
+  ],
+  [
+   "J150",
+   "J125"
+  ],
+  [
+   "J150",
+   "H075"
+  ],
+  [
+   "J150",
+   "H090"
+  ],
+  [
+   "J150",
+   "H110"
+  ],
+  [
+   "J150",
+   "H125"
+  ],
+  [
+   "J150",
+   "H150"
+  ],
+  [
+   "J150",
+   "P075"
+  ],
+  [
+   "J150",
+   "P090"
+  ],
+  [
+   "J150",
+   "P110"
+  ],
+  [
+   "J150",
+   "P125"
+  ],
+  [
+   "J150",
+   "P150"
+  ],
+  [
+   "H075",
+   "J075"
+  ],
+  [
+   "H090",
+   "J075"
+  ],
+  [
+   "H090",
+   "J090"
+  ],
+  [
+   "H090",
+   "H075"
+  ],
+  [
+   "H110",
+   "J075"
+  ],
+  [
+   "H110",
+   "J090"
+  ],
+  [
+   "H110",
+   "J100"
+  ],
+  [
+   "H110",
+   "H075"
+  ],
+  [
+   "H110",
+   "H090"
+  ],
+  [
+   "H110",
+   "P075"
+  ],
+  [
+   "H110",
+   "P090"
+  ],
+  [
+   "H125",
+   "J075"
+  ],
+  [
+   "H125",
+   "J090"
+  ],
+  [
+   "H125",
+   "J100"
+  ],
+  [
+   "H125",
+   "H075"
+  ],
+  [
+   "H125",
+   "H090"
+  ],
+  [
+   "H125",
+   "H110"
+  ],
+  [
+   "H125",
+   "P075"
+  ],
+  [
+   "H125",
+   "P090"
+  ],
+  [
+   "H150",
+   "J075"
+  ],
+  [
+   "H150",
+   "J090"
+  ],
+  [
+   "H150",
+   "J100"
+  ],
+  [
+   "H150",
+   "H075"
+  ],
+  [
+   "H150",
+   "H090"
+  ],
+  [
+   "H150",
+   "H110"
+  ],
+  [
+   "H150",
+   "H125"
+  ],
+  [
+   "H150",
+   "P075"
+  ],
+  [
+   "H150",
+   "P090"
+  ],
+  [
+   "P075",
+   "J075"
+  ],
+  [
+   "P090",
+   "J075"
+  ],
+  [
+   "P090",
+   "J090"
+  ],
+  [
+   "P090",
+   "P075"
+  ],
+  [
+   "P110",
+   "J075"
+  ],
+  [
+   "P110",
+   "J090"
+  ],
+  [
+   "P110",
+   "J100"
+  ],
+  [
+   "P110",
+   "H075"
+  ],
+  [
+   "P110",
+   "H090"
+  ],
+  [
+   "P110",
+   "P075"
+  ],
+  [
+   "P110",
+   "P090"
+  ],
+  [
+   "P125",
+   "J075"
+  ],
+  [
+   "P125",
+   "J090"
+  ],
+  [
+   "P125",
+   "J100"
+  ],
+  [
+   "P125",
+   "H075"
+  ],
+  [
+   "P125",
+   "H090"
+  ],
+  [
+   "P125",
+   "P075"
+  ],
+  [
+   "P125",
+   "P090"
+  ],
+  [
+   "P125",
+   "P110"
+  ],
+  [
+   "P150",
+   "J075"
+  ],
+  [
+   "P150",
+   "J090"
+  ],
+  [
+   "P150",
+   "J100"
+  ],
+  [
+   "P150",
+   "H075"
+  ],
+  [
+   "P150",
+   "H090"
+  ],
+  [
+   "P150",
+   "P075"
+  ],
+  [
+   "P150",
+   "P090"
+  ],
+  [
+   "P150",
+   "P110"
+  ],
+  [
+   "P150",
+   "P125"
+  ]
+ ],
+ "canonical_order": [
+  [
+   "N4",
+   "J100"
+  ],
+  [
+   "N0",
+   "J100"
+  ],
+  [
+   "N4",
+   "J075"
+  ],
+  [
+   "N0",
+   "J075"
+  ],
+  [
+   "N4",
+   "J090"
+  ],
+  [
+   "N0",
+   "J090"
+  ],
+  [
+   "N4",
+   "J110"
+  ],
+  [
+   "N0",
+   "J110"
+  ],
+  [
+   "N4",
+   "J125"
+  ],
+  [
+   "N0",
+   "J125"
+  ],
+  [
+   "N4",
+   "J150"
+  ],
+  [
+   "N0",
+   "J150"
+  ],
+  [
+   "N4",
+   "H075"
+  ],
+  [
+   "N0",
+   "H075"
+  ],
+  [
+   "N4",
+   "H090"
+  ],
+  [
+   "N0",
+   "H090"
+  ],
+  [
+   "N4",
+   "H110"
+  ],
+  [
+   "N0",
+   "H110"
+  ],
+  [
+   "N4",
+   "H125"
+  ],
+  [
+   "N0",
+   "H125"
+  ],
+  [
+   "N4",
+   "H150"
+  ],
+  [
+   "N0",
+   "H150"
+  ],
+  [
+   "N4",
+   "P075"
+  ],
+  [
+   "N0",
+   "P075"
+  ],
+  [
+   "N4",
+   "P090"
+  ],
+  [
+   "N0",
+   "P090"
+  ],
+  [
+   "N4",
+   "P110"
+  ],
+  [
+   "N0",
+   "P110"
+  ],
+  [
+   "N4",
+   "P125"
+  ],
+  [
+   "N0",
+   "P125"
+  ],
+  [
+   "N4",
+   "P150"
+  ],
+  [
+   "N0",
+   "P150"
+  ]
+ ],
+ "sharding": "index % 2 over the complete canonical list; one fresh subprocess per cell",
+ "solver": {
+  "certify_call": "cota_opt.exp4_certify.certify",
+  "lam": 2.0,
+  "seed": 20260825,
+  "n_keys": 8,
+  "k_rungs": 3,
+  "max_rounds": 120,
+  "allow_off": true,
+  "waiting_model": "same_route",
+  "contract_digest_arg": "2125984c82b60a83",
+  "start": "gen1 greedy 20000/1/0 inside certify, per cell; treatment-independent; NO warm start across cells",
+  "pathsets": "rebuilt per certify call (one _CandidatePathsets scope); no cross-cell sharing"
+ },
+ "gates": {
+  "reproduction": "N4 J100 must equal EXP4N production_mr120 bit-exactly (objective, plan digest, rounds, converged, trajectory) else EXP5_REPRODUCTION_FAILURE",
+  "reference": "N0 J100 is a NEW reference cell (no prior value); re-run as the N0 sentinel/control",
+  "reach_D35": "every cell runs the reach test: hours cap and the most-utilized period's peak cap each moved to usage x (1 +/- 1e-6) must flip admissibility, else EXP5_CONSTRAINT_INERT",
+  "enforced_budget": "exactly one budget per cell, bit-equal to the cell's caps, else EXP5_CONSTRAINT_INERT",
+  "convergence": "converged and rounds < 120 else EXP5_CONVERGENCE_FAILURE",
+  "feasibility": "certified plan within enforced caps (x(1+1e-9)) else EXP5_INFEASIBLE_CERTIFIED_PLAN",
+  "monotonicity": {
+   "check": "for every nested (looser, tighter) pair on one network: the tighter cell's realized plan usage fits the looser caps, so obj(looser) <= obj(tighter) is required",
+   "band_pct": 0.001897,
+   "band_source": "D33-B (local lower bound; veto-only)",
+   "within_band_regression": "UNRESOLVED",
+   "above_band_regression": "EXP5_MONOTONICITY_FAILURE"
+  },
+  "order_invariance": {
+   "sentinels_reversed_order": [
+    [
+     "N0",
+     "J100"
+    ],
+    [
+     "N4",
+     "J150"
+    ],
+    [
+     "N4",
+     "J100"
+    ],
+    [
+     "N4",
+     "J075"
+    ]
+   ],
+   "rule": "each sentinel must equal its production cell bit-exactly (objective, plan digest, rounds) else EXP5_ORDER_DEPENDENCE_FAILURE"
+  }
+ },
+ "blocking": "DIAGNOSTIC ONLY: FEASIBLE / INFEASIBLE / UNDECIDABLE at analysis time; never filters, ranks or gates a cell",
+ "marginals": "three separate units -- objective per revenue vehicle-hour (Arm B), objective per proxy unit at the binding period (Arm C), objective per joint 1% scale (Arm A); finite differences between adjacent levels only; no per-bus figure; no knee claimed",
+ "record_schema": "exp45_cell/v1 (identity, search, resource {requested, enforced, used, slack, utilization_pct, binding, feasible}, outcome {objective, fitness, plan (null=OFF), rounds, trajectory}, execution {start_audit, evaluator, pathset_digest}, provenance, reach_test_d35)",
+ "statuses": [
+  "EXP5_FRONTIER_CERTIFIED",
+  "EXP5_REPRODUCTION_FAILURE",
+  "EXP5_CONSTRAINT_INERT",
+  "EXP5_CONVERGENCE_FAILURE",
+  "EXP5_INFEASIBLE_CERTIFIED_PLAN",
+  "EXP5_MONOTONICITY_FAILURE",
+  "EXP5_ORDER_DEPENDENCE_FAILURE",
+  "EXP5_INSTRUMENTATION_FAILURE",
+  "UNRESOLVED"
+ ],
+ "preflight": [
+  {
+   "network": "N0",
+   "cell": "J100",
+   "objective_EXACT": "2945632.2349138106",
+   "plan_digest": "c4591ff0f6e2d8ad",
+   "reach": "PASS"
+  },
+  {
+   "network": "N4",
+   "cell": "J100",
+   "objective_EXACT": "3223885.947526011",
+   "plan_digest": "898b95fd93c33414",
+   "reach": "PASS"
+  }
+ ],
+ "code": {
+  "code_version": "src-51dd455d9e1a",
+  "src_cota_opt_content_digest": "add5d0002d29aa49",
+  "runner_sha256": {
+   "exp45_certify_cell.py": "7135b1554c8620b3",
+   "exp45_contracts.py": "bf1d2b60a2ce7432",
+   "exp5_model_resource.py": "5c85226d321fdbc5",
+   "envelope_fingerprint.py": "26cc93c9c6a9ab7b",
+   "exp5_run.py": "e407fd4b3b3aebf2",
+   "exp5_freeze_contract.py": "1416486615413a4d"
+  }
+ },
+ "contract_file_sha256": "f88f04d0fb6c1d361e11e5cbad7e586c52e384731424a87619f0208662fa2983"
+}
