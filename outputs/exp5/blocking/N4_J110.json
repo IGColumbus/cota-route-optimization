@@ -1,0 +1,31 @@
+{
+ "cell": "N4_J110.json",
+ "network": "N4",
+ "cell_id": "J110",
+ "status": "DIAGNOSTIC_ONLY",
+ "verdict": "UNDECIDABLE",
+ "instrument_raw_verdict": "INFEASIBLE",
+ "timetable_vs_model_hours_rel_diff": 0.4613087988313988,
+ "reasons": [
+  "INSTRUMENT INCONSISTENT: the materialized timetable carries 1491.495 vehicle-hours, the certified plan's FitnessVector 2768.739 (46.1% apart); the instrument's own verdict (INFEASIBLE) is recorded but not adopted",
+  "the matching-independent per-period LOWER bound exceeds the envelope in midday (190 > 173) -- no choice of blocking can fix this",
+  "the per-period figure is a property of the maximum matching found, not of the schedule: an equally maximum matching gives {'am_peak': 215, 'early': 79, 'evening': 274, 'midday': 301, 'owl': 152, 'pm_peak': 288}. It is reported as a diagnostic and gates nothing (AMENDMENT 1)"
+ ],
+ "fleet_bracket_blocks": {
+  "lower_zero_deadhead": 190,
+  "upper_same_terminal_NOT_CERTIFIED": 832
+ },
+ "physical_fleet_reference": {
+  "am_peak": 187,
+  "early": 135,
+  "evening": 178,
+  "midday": 173,
+  "owl": 149,
+  "pm_peak": 197
+ },
+ "physical_fleet_reference_digest": "b6c647d3766338a6",
+ "timetable_vehicle_hours": 1491.495277777774,
+ "cell_hours_cap": 2768.901666666667,
+ "n_trips": 1314,
+ "seconds": 0.1
+}
