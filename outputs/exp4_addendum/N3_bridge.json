@@ -1,0 +1,61 @@
+{
+ "written_utc": "2026-09-28T14:30:45Z",
+ "network": "N3",
+ "identity": {
+  "state_key": "exp3|add_stop-010#22c4c35ac5b2",
+  "state_digest": "430aca035c70715b",
+  "cardinality": 1,
+  "members": [
+   "add_stop-010#22c4c35ac5b2"
+  ],
+  "construction": "geometry.apply_edits(H.baseline, [edit_from_record(pool[N3])])",
+  "network_label": "N3 final Exp 3 constrained redesign",
+  "validation": "contract.validate_applied: OK (Experiment 3's own structural validator, as Stage B ran it)"
+ },
+ "rows": {
+  "legacy": {
+   "n_patterns": 111,
+   "plan_digest": "28135d0fa655e6e1",
+   "fitness": {
+    "generalized_cost": "1198080.5162451442",
+    "unserved_demand": "14515.267203894562",
+    "served_demand": "16433.732796105443",
+    "revenue_veh_hours": "2517.163119291952",
+    "peak_vehicles": "176.408056390597",
+    "gc_per_served_trip": "72.90373593813524"
+   },
+   "peak_by_period": {
+    "early": "85.18264126836098",
+    "am_peak": "161.8336124774885",
+    "midday": "159.1430273060628",
+    "pm_peak": "176.408056390597",
+    "evening": "140.14528544603667",
+    "owl": "35.508137626262624"
+   },
+   "seconds": 615.3
+  },
+  "assembled": {
+   "n_patterns": 111,
+   "plan_digest": "28135d0fa655e6e1",
+   "fitness": {
+    "generalized_cost": "1198080.5162451442",
+    "unserved_demand": "14515.267203894562",
+    "served_demand": "16433.732796105443",
+    "revenue_veh_hours": "2517.163119291952",
+    "peak_vehicles": "176.40805639059698",
+    "gc_per_served_trip": "72.90373593813524"
+   },
+   "peak_by_period": {
+    "early": "85.18264126836098",
+    "am_peak": "161.8336124774885",
+    "midday": "159.1430273060628",
+    "pm_peak": "176.40805639059698",
+    "evening": "140.14528544603667",
+    "owl": "35.508137626262624"
+   },
+   "seconds": 812.7
+  }
+ },
+ "identical": false,
+ "configuration": "certify()'s first step: gen1 greedy 20000/1/0, allow_off=True, EXP4N common envelope, fresh path-set scope per arm"
+}
