@@ -853,6 +853,28 @@ Ian on 2026-09-21, still in that branch's tree. Left alone deliberately: it is
 his branch and his commits. `exp3-clean` carries a `.gitignore` entry so the
 folder cannot be committed again from this side.
 
+**GitHub is not yet the complete record.** Checked 2026-09-28 against
+`git ls-remote`: GitHub holds four branches (`master`, `exp3`, `exp3-clean`,
+`frombundle`) and **no tags**.
+
+* **The five freeze tags** — `exp3-final-v1`, `exp3-frozen-v1`,
+  `gen1-frozen-v1`, `pre-exp3-v1`, `pre-exp3-v2` — exist in the clone. Every
+  tagged commit is reachable from a GitHub branch, so the code at each freeze
+  point is safe; only the *names* this document cites are missing upstream.
+* **`backup-exp3-preclean` (`e733daa86`), the pre-collapse Experiment 3
+  history, is not on GitHub at all.** Its only durable copies are the older
+  `cota-*.bundle` files in Ian's Downloads (25 of them, Sep 1–23), plus
+  unreferenced objects in the clone that any future `gc` would be free to
+  discard. The cloud container holds neither the tags nor this branch.
+
+**Do not delete those 25 older bundles** until the tags and
+`backup-exp3-preclean` are on GitHub — which needs an explicit push of those
+refs (e.g. `git push origin backup-exp3-preclean --tags` from the clone, or from
+the container once the repo is in the session's authorized sources and the refs
+have been bundled across). The 69 EXP4N checkpoint bundles were deleted on
+2026-09-28 only after every one of their heads was proven reachable from
+GitHub's `exp3-clean`; the older bundles do not pass that test.
+
 ## Known limitations, with sizes
 
 | Limitation | Size | Direction |
