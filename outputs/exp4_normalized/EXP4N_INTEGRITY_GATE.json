@@ -1,0 +1,559 @@
+{
+ "artifact": "EXP4N_INTEGRITY_GATE",
+ "section": "\u00a78",
+ "status": "PASS",
+ "contract_digest": "2125984c82b60a83",
+ "canonical_envelope_digest": "3fd5241db44ca9da",
+ "candidate_set_digest": "38e52f0b14b1d554",
+ "src_cota_opt_content_digest": "add5d0002d29aa49",
+ "tie_break_digest": "0297e180cf30369d",
+ "n_results": 200,
+ "rounds": {
+  "min": 11,
+  "median": 21,
+  "p90": 31,
+  "max": 44,
+  "ceiling": 120,
+  "headroom_rounds": 76,
+  "at_ceiling": 0
+ },
+ "calibration_controls": {
+  "in_set": 21,
+  "encountered": 21,
+  "reproduced": 21,
+  "detail": [
+   {
+    "key": "229cb1654b51",
+    "rounds": 30,
+    "objective": "3300323.6855136077",
+    "reproduced": true
+   },
+   {
+    "key": "c85f68507f8c",
+    "rounds": 15,
+    "objective": "3278091.35875412",
+    "reproduced": true
+   },
+   {
+    "key": "ecb2ffc4bcce",
+    "rounds": 25,
+    "objective": "3325019.735841233",
+    "reproduced": true
+   },
+   {
+    "key": "d1f8d2497954",
+    "rounds": 16,
+    "objective": "3304686.7234470607",
+    "reproduced": true
+   },
+   {
+    "key": "99c5d391c164",
+    "rounds": 17,
+    "objective": "3302666.8323333533",
+    "reproduced": true
+   },
+   {
+    "key": "32217e8b5098",
+    "rounds": 16,
+    "objective": "3283720.728331531",
+    "reproduced": true
+   },
+   {
+    "key": "98054c48fe48",
+    "rounds": 21,
+    "objective": "3296489.459252986",
+    "reproduced": true
+   },
+   {
+    "key": "12ab99b5915e",
+    "rounds": 44,
+    "objective": "3262379.764323833",
+    "reproduced": true
+   },
+   {
+    "key": "96485eb1a98e",
+    "rounds": 28,
+    "objective": "3338651.663250049",
+    "reproduced": true
+   },
+   {
+    "key": "81d9a2f8c376",
+    "rounds": 19,
+    "objective": "3283747.9148755968",
+    "reproduced": true
+   },
+   {
+    "key": "3302f2af66ee",
+    "rounds": 36,
+    "objective": "3255255.9427310824",
+    "reproduced": true
+   },
+   {
+    "key": "08f377545e31",
+    "rounds": 17,
+    "objective": "3295108.700013782",
+    "reproduced": true
+   },
+   {
+    "key": "80a5c289e861",
+    "rounds": 32,
+    "objective": "3282607.310927693",
+    "reproduced": true
+   },
+   {
+    "key": "21fa771c4311",
+    "rounds": 20,
+    "objective": "3278791.323674788",
+    "reproduced": true
+   },
+   {
+    "key": "03fce0e3f398",
+    "rounds": 18,
+    "objective": "3268780.0844971463",
+    "reproduced": true
+   },
+   {
+    "key": "350c7cf4e725",
+    "rounds": 17,
+    "objective": "3313914.9023650214",
+    "reproduced": true
+   },
+   {
+    "key": "12165a4c04c6",
+    "rounds": 40,
+    "objective": "3259559.8887108625",
+    "reproduced": true
+   },
+   {
+    "key": "113872a5a967",
+    "rounds": 17,
+    "objective": "3280077.4587018983",
+    "reproduced": true
+   },
+   {
+    "key": "24e142fc0287",
+    "rounds": 17,
+    "objective": "3284607.261535495",
+    "reproduced": true
+   },
+   {
+    "key": "d6f401185657",
+    "rounds": 31,
+    "objective": "3258414.6723882025",
+    "reproduced": true
+   },
+   {
+    "key": "e10f2321e79b",
+    "rounds": 25,
+    "objective": "3262639.47395099",
+    "reproduced": true
+   }
+  ]
+ },
+ "pre_loss_archive_crosscheck": {
+  "compared": 24,
+  "bit_exact": 24,
+  "fields": [
+   "objective_EXACT",
+   "rounds",
+   "converged",
+   "plan_digest",
+   "state_digest",
+   "geometry_digest",
+   "block_enumerations",
+   "combinations",
+   "hours_used",
+   "hours_feasible",
+   "fitness_EXACT",
+   "plan_EXACT",
+   "common_envelope_digest",
+   "contract_digest",
+   "max_rounds",
+   "peak_caps"
+  ]
+ },
+ "what_a_pass_licenses": "\u00a79 ranking recomputation under the frozen tie-break may proceed. It does NOT by itself establish any margin as meaningful \u2014 \u00a77's noise band and the standing D36/D38 and fleet caveats still govern every claim.",
+ "checks": [
+  {
+   "check": "candidate set is 200",
+   "ok": true,
+   "got": 200,
+   "want": 200
+  },
+  {
+   "check": "result files == 200",
+   "ok": true,
+   "got": 200,
+   "want": 200
+  },
+  {
+   "check": "no duplicate results",
+   "ok": true,
+   "got": 200,
+   "want": 200
+  },
+  {
+   "check": "no missing candidates",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "no extra results",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "candidate-set digest == contract",
+   "ok": true,
+   "got": "38e52f0b14b1d554",
+   "want": "38e52f0b14b1d554"
+  },
+  {
+   "check": "all converged is True",
+   "ok": true,
+   "got": [
+    "True"
+   ],
+   "want": [
+    "True"
+   ]
+  },
+  {
+   "check": "no errors",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "all hours_feasible",
+   "ok": true,
+   "got": [
+    "True"
+   ],
+   "want": [
+    "True"
+   ]
+  },
+  {
+   "check": "every record carries a guarantee string",
+   "ok": true,
+   "got": true,
+   "want": true
+  },
+  {
+   "check": "every record carries a round trajectory",
+   "ok": true,
+   "got": true,
+   "want": true
+  },
+  {
+   "check": "no candidate reached the 120 ceiling",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "no candidate is rounds==ceiling AND converged==False",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "max_rounds uniform across 200 and == contract",
+   "ok": true,
+   "got": [
+    1,
+    120
+   ],
+   "want": [
+    1,
+    120
+   ]
+  },
+  {
+   "check": "n_keys uniform across 200 and == contract",
+   "ok": true,
+   "got": [
+    1,
+    8
+   ],
+   "want": [
+    1,
+    8
+   ]
+  },
+  {
+   "check": "k_rungs uniform across 200 and == contract",
+   "ok": true,
+   "got": [
+    1,
+    3
+   ],
+   "want": [
+    1,
+    3
+   ]
+  },
+  {
+   "check": "lam uniform across 200 and == contract",
+   "ok": true,
+   "got": [
+    1,
+    2.0
+   ],
+   "want": [
+    1,
+    2.0
+   ]
+  },
+  {
+   "check": "seed uniform across 200 and == contract",
+   "ok": true,
+   "got": [
+    1,
+    20260825
+   ],
+   "want": [
+    1,
+    20260825
+   ]
+  },
+  {
+   "check": "budget_tolerance uniform across 200 and == contract",
+   "ok": true,
+   "got": [
+    1,
+    0.0
+   ],
+   "want": [
+    1,
+    0.0
+   ]
+  },
+  {
+   "check": "hours_cap uniform across 200 and == contract",
+   "ok": true,
+   "got": [
+    1,
+    "2517.1833333333334"
+   ],
+   "want": [
+    1,
+    "2517.1833333333334"
+   ]
+  },
+  {
+   "check": "common_envelope_digest uniform across 200 and == contract",
+   "ok": true,
+   "got": [
+    1,
+    "3fd5241db44ca9da"
+   ],
+   "want": [
+    1,
+    "3fd5241db44ca9da"
+   ]
+  },
+  {
+   "check": "contract_digest uniform across 200 and == contract",
+   "ok": true,
+   "got": [
+    1,
+    "2125984c82b60a83"
+   ],
+   "want": [
+    1,
+    "2125984c82b60a83"
+   ]
+  },
+  {
+   "check": "cap_provenance uniform across 200 and == contract",
+   "ok": true,
+   "got": [
+    1,
+    "common_reference_envelope_resolved_once"
+   ],
+   "want": [
+    1,
+    "common_reference_envelope_resolved_once"
+   ]
+  },
+  {
+   "check": "contract envelope == frozen artifact (BIT-EXACT)",
+   "ok": true,
+   "got": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   },
+   "want": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   }
+  },
+  {
+   "check": "all 200 share ONE peak envelope",
+   "ok": true,
+   "got": 1,
+   "want": 1
+  },
+  {
+   "check": "that envelope == frozen artifact (BIT-EXACT)",
+   "ok": true,
+   "got": {
+    "am_peak": "162.00944444444443",
+    "early": "85.28208333333332",
+    "evening": "140.19458333333336",
+    "midday": "159.17277777777775",
+    "owl": "35.55736111111111",
+    "pm_peak": "176.49305555555554"
+   },
+   "want": {
+    "early": "85.28208333333332",
+    "am_peak": "162.00944444444443",
+    "midday": "159.17277777777775",
+    "pm_peak": "176.49305555555554",
+    "evening": "140.19458333333336",
+    "owl": "35.55736111111111"
+   }
+  },
+  {
+   "check": "200 distinct state_digests",
+   "ok": true,
+   "got": 200,
+   "want": 200
+  },
+  {
+   "check": "200 distinct geometry_digests",
+   "ok": true,
+   "got": 200,
+   "want": 200
+  },
+  {
+   "check": "200 distinct plan_digests",
+   "ok": true,
+   "got": 200,
+   "want": 200
+  },
+  {
+   "check": "src/cota_opt content digest == contract",
+   "ok": true,
+   "got": "add5d0002d29aa49",
+   "want": "add5d0002d29aa49"
+  },
+  {
+   "check": "src/cota_opt clean in git",
+   "ok": true,
+   "got": "",
+   "want": ""
+  },
+  {
+   "check": "contract records src_cota_opt_modified False",
+   "ok": true,
+   "got": false,
+   "want": false
+  },
+  {
+   "check": "TIE_BREAK constant unchanged",
+   "ok": true,
+   "got": [
+    "fewer_active_lines",
+    "fewer_off_route_periods",
+    "lexicographic_line_ids"
+   ],
+   "want": [
+    "fewer_active_lines",
+    "fewer_off_route_periods",
+    "lexicographic_line_ids"
+   ]
+  },
+  {
+   "check": "calibration set size",
+   "ok": true,
+   "got": 21,
+   "want": 21
+  },
+  {
+   "check": "every calibration candidate in the 200 reproduced exactly",
+   "ok": true,
+   "got": [
+    21,
+    21
+   ],
+   "want": [
+    21,
+    21
+   ]
+  },
+  {
+   "check": "every archived survivor reproduced bit-exactly",
+   "ok": true,
+   "got": [
+    24,
+    24
+   ],
+   "want": [
+    24,
+    24
+   ]
+  },
+  {
+   "check": "no hardlink/symlink shared with certified/",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "no symlinks in production_mr120/",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "no hardlink/symlink shared with calib_mr200/",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "no symlinks in production_mr120/",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "no hardlink/symlink shared with envgate_mr120/",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "no symlinks in production_mr120/",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "no hardlink/symlink shared with production_mr120_PRE_LOSS_DIAGNOSTIC/",
+   "ok": true,
+   "got": [],
+   "want": []
+  },
+  {
+   "check": "no symlinks in production_mr120/",
+   "ok": true,
+   "got": [],
+   "want": []
+  }
+ ],
+ "failures": []
+}
