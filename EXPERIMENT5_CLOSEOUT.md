@@ -15,7 +15,7 @@ Completed 2026-09-28. The run was:
 
 * 32 production cells, 4 order sentinels and 1 preflight;
 * about 6.5 h wall on 2 cores;
-* one container reclaim at ~17:14 UTC, during which two in-flight cells died
+* one container reclaim between 17:14 and 17:40 UTC, during which two in-flight cells died
   without writing. They were re-run from scratch in fresh processes. One of them
   is also a sentinel, N4 J150, and it matched bit-exactly.
 
@@ -163,7 +163,7 @@ across 390 route-periods, about 57% of them OFF, and is not.
 
 1. **The EXP4N N4 result is not the best known N4 plan under the EXP4N
    envelope.** The H090 plan fits the J100 (= EXP4N) caps and scores
-   **3,219,614.74**, 0.133% better than EXP4N's certified 3,223,885.95.
+   **3,219,614.74**, 0.132% better than EXP4N's certified 3,223,885.95.
 2. **The block certifier's start-basin residual on N4 is at least 1.70% of the
    objective.** That is a lower bound, exhibited by feasible plans. It is about
    **900× the D33-B band** (0.0018970%), which confirms in the strongest terms
@@ -193,7 +193,7 @@ EXP4N's blocking instrument was run on all 32 plans against COTA's
 block-derived physical fleet (unscaled). **All 32 are UNDECIDABLE**:
 
 * The instrument's materialized timetable does not reproduce the certified
-  plans' own vehicle-hours. It is 18–23% off on N0 and 46–47% off on N4.
+  plans' own vehicle-hours. It is 17.8–22.7% off on N0 and 45.6–47.0% off on N4.
 * A verdict computed on a different amount of service is about a different plan.
   The instrument's raw verdicts (INFEASIBLE for all N0 cells and for N4 J110–J150,
   H110+ and P110+; UNDECIDABLE otherwise) are recorded, not adopted.

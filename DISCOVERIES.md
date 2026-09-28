@@ -2393,7 +2393,7 @@ The worst cases:
 * H110, H125 and H150 all return the same plan at 3,274,458.25. That is 1.57%
   worse than J100's plan, which fits inside their caps, and 1.70% worse than
   H090's.
-* At the EXP4N envelope itself, H090's plan is 0.133% better than EXP4N's
+* At the EXP4N envelope itself, H090's plan is 0.132% better than EXP4N's
   certified N4.
 
 The cause is not budget, order or nondeterminism:

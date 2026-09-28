@@ -67,7 +67,7 @@ The results:
 * That start-basin residual is at least 1.70%, about 4.4× EXP4N's
   first-to-second margin.
 * The EXP4N N4 plan is not the best known N4 plan under the EXP4N envelope: the
-  H090 plan is 0.133% better. Using it, Δ43 is still +9.51%.
+  H090 plan is 0.132% better. Using it, Δ43 is still +9.51%.
 
 Blocking is diagnostic only. It is UNDECIDABLE for all 32 cells: the
 materializer does not reproduce the plans' own vehicle-hours.

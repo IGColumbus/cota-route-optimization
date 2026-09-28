@@ -342,7 +342,7 @@ N4, differing by up to 1.70%**. Two consequences for this addendum:
 
 * **The EXP4N N4 plan is not the best known N4 plan under the EXP4N
   envelope.** The Exp 5 H090 plan fits the same caps and scores
-  3,219,614.74, which is 0.133% better. Using it, Δ43 = **+279,702 (+9.51%)**.
+  3,219,614.74, which is 0.132% better. Using it, Δ43 = **+279,702 (+9.51%)**.
   The sign and order of magnitude are unchanged.
 * **Result A needs a stronger caveat.** The observed start-basin gap (≥1.70%)
   is about 4.4× EXP4N's first-to-second margin (0.387%). The EXP4N ordering is
