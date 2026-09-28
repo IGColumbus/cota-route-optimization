@@ -13,8 +13,13 @@ Experiments 1, 2, 2B, 3 and 4 are closed, and so is the Experiment 4 out-of-band
 audit. Experiment 3 is frozen at tag `exp3-final-v1`. **Both** Exp 4 runs were
 made with **fleet REPORTED, NOT GATED** — the fleet question is *still open* and
 **neither run advanced it**. Experiments 5–7 were blocked on EXP4N certifying;
-that block has now cleared, and **nothing about their premises changed with it**
-— Exp 5's `EXP5_REFRAME_REQUIRED` stands untouched.
+that block has now cleared, and **it changed Exp 5's premise.** The premise audit
+found the hours cap never binds (36.16–37.33% spent) — measured on the legacy plans.
+Under the common envelope every certified plan spends **99.92–100.00%** of it.
+`EXP5_REFRAME_REQUIRED` must be re-audited against EXP4N before Exp 5 is
+reframed or run. (A version of this page written earlier the same day said
+EXP4N changed none of Exp 5's premises. That was asserted without being
+measured, and it was wrong.)
 
 **The Exp 4 audit was stopped by decision at 15 of 200 on 2026-09-21.** It
 established that the top-200 promotion cap was **invalid** — an excluded
@@ -38,8 +43,10 @@ periods at 99.71–99.97%.** `EXPERIMENT5_OFFON_DIAGNOSTIC.md`.
 * **Experiment 2 — route geometry: no supportable claim.**
 * **Experiment 2B — all 240 feasible combinations: certified NULL**, surviving a
   matched-start re-test (D31).
-* **Experiment 3 — eight edit kinds, 84 states: one certified route mutation,
-  −0.187% unserved demand**, with a two-regime caveat that travels with it.
+* **Experiment 3 — eight edit kinds, 84 states: 29 mutations certified, one
+  certified leader at −0.187% on the λ=2 objective**, with a two-regime caveat
+  that travels with it. (Earlier versions of this page said "unserved demand";
+  the certified effect is on the scalarized λ=2 objective.)
 * **Experiment 4 — COMPLETE, and its RANKING IS SUPERSEDED by EXP4N.** Best
   certified objective 3,511,184.5658 from `...ecb2ffc4bcce` over 200 certified
   candidates, margin to second **0.0106%**. Those numbers remain exactly
@@ -91,7 +98,8 @@ periods at 99.71–99.97%.** `EXPERIMENT5_OFFON_DIAGNOSTIC.md`.
   audit's own question is **unanswered**: certifying in rank order left four of
   five strata empty. `EXPERIMENT4_AUDIT_CLOSEOUT.md`.
 * **Experiment 5 — resource frontier: implemented, tested, NOT RUN, and
-  `EXP5_REFRAME_REQUIRED`.** Three independent defects, any one sufficient:
+  `EXP5_REFRAME_REQUIRED`.** Three independent defects, any one sufficient —
+  all measured on the LEGACY Exp 4 plans; EXP4N removes the second:
   the fleet axis cannot be measured (200 of 200 Exp 4 candidates have a fleet
   bracket containing the *entire* Exp 5 cap grid); no cell binds (every
   certified plan spends 36–37% of the hours cap, and 0 of 200 exceed even the
@@ -187,7 +195,7 @@ permitted. It cannot prove a permitted difference was actually *applied*.
 Stage B preregistered and frozen before any cell ran. 200 cells, 0 firewall
 refusals, evaluation-path digest identical at first and last cell.
 
-> **`add_stop-010#22c4c35ac5b2`: −0.1866% unserved demand, |mean Δ| / SD(Δ) =
+> **`add_stop-010#22c4c35ac5b2`: −0.1866% on the λ=2 objective, |mean Δ| / SD(Δ) =
 > 78.6**, certified against control *and* distinguishable from all 28 other
 > certified candidates.
 
@@ -636,6 +644,12 @@ is a certificate with zero headroom, the second is not a certificate at all.
 
 **The tie-break decided nothing** — zero exact-objective ties in 200 results.
 
+**Resource use changed, not only the ordering.** Same fields, same cap, both
+runs: legacy plans spent 36.16–37.33% of the hours cap and switched off 78.5–86.9% of
+route-periods; EXP4N plans spend 99.92–100.00% and switch off 56.2–67.4%. Descriptive, not
+preregistered — recorded in `outputs/CANONICAL_RESULTS_v2.json` under
+`exp4.resource_use`, computed from the per-candidate results rather than typed.
+
 ## The pattern at the top, and why it is only a consistency
 
 The normalized top five carry legacy ranks **154, 193, 192, 194, 191** — almost
@@ -686,10 +700,13 @@ the fingerprint separates.
 
 `src/cota_opt/exp5_resource.py` and `exp5_frontier.py`, 32 tests. Its stated
 block condition cleared twice over — Experiment 4 on 2026-09-14, and the EXP4N
-certification on 2026-09-28 — and **it still must not run as specified.**
-Clearing a block is not fixing a premise: EXP4N re-certified the same 200
-candidates under a common envelope and changed **none** of the three defects
-below. Experiment 5 reasons about a *resource frontier*, and neither Exp 4 run
+certification on 2026-09-28 — and **it still must not run as specified.** But
+the premise audit below was measured on the LEGACY Exp 4 plans, and EXP4N moved
+one of its three defects outright: under the common envelope every certified
+plan spends **99.92–100.00%** of the hours cap (legacy 36.16–37.33%) and switches off 56.2–67.4% of
+route-periods (legacy 78.5–86.9%). "No cell binds" was a property of the endogenous
+cap. The fleet-axis and proxy-instrument defects were not re-measured.
+Re-audit against EXP4N before reframing or running anything. Neither Exp 4 run
 established a fleet number.
 
 ### The 2026-09-21 OFF→ON diagnostic — the binding constraint is not the one Exp 5 varies
@@ -848,10 +865,13 @@ this was first written, 35 as of 2026-09-28, zero changed lines under
 `--ignore-cr-at-eol` in every case. Do not commit them. **Check the count each
 time rather than trusting this number**; the point is the test, not the total.
 
-**`_to_delete/` is tracked on `master`** — 11.4 MB of lock debris committed by
-Ian on 2026-09-21, still in that branch's tree. Left alone deliberately: it is
-his branch and his commits. `exp3-clean` carries a `.gitignore` entry so the
-folder cannot be committed again from this side.
+**`master` is the main branch, and it is current.** It had fallen 616 commits
+behind `exp3-clean`. On 2026-09-28 its four master-only commits were merged in —
+history preserved, nothing force-pushed — and `master` was fast-forwarded to the
+result, so both branches point at the same commit. Those four commits had added
+`HISTORY_NOTE.md`, which is kept, plus 32 git lock/temp files under `_to_delete/`
+and six transport bundles at the root, which were debris: gone from the tree,
+still in history. Work lands on `master` from here on.
 
 **GitHub is not yet the complete record.** Checked 2026-09-28 against
 `git ls-remote`: GitHub holds four branches (`master`, `exp3`, `exp3-clean`,
@@ -866,6 +886,12 @@ folder cannot be committed again from this side.
   `cota-*.bundle` files in Ian's Downloads (25 of them, Sep 1–23), plus
   unreferenced objects in the clone that any future `gc` would be free to
   discard. The cloud container holds neither the tags nor this branch.
+* **Consequence: the Gen1 freeze cannot be verified from a GitHub clone.**
+  `scripts/gen1_freeze.py --verify` checks that `exp3-frozen-v1` and
+  `exp3-final-v1` still point at their frozen commits; without the tags it
+  fails. In Ian's clone both point exactly where the freeze recorded.
+* **`EXP3_HISTORY_MAP.json`**, cited by `HISTORY_NOTE.md` and in this section,
+  is not in any branch on GitHub.
 
 **Do not delete those 25 older bundles** until the tags and
 `backup-exp3-preclean` are on GitHub — which needs an explicit push of those

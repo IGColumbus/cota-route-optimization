@@ -85,3 +85,18 @@ With all three fixed, the Experiment 3 chain reproduces 2B's recorded numbers
 exactly: the zero-edit state at 9812.3 unserved / 1,785,263 gc / 2507.8
 vehicle-hours, and `splice|011|034|WESHIGW` at **−0.5846%, against 2B's
 −0.5846% — a gap of 0.0000 points.**
+
+<!-- exp4-superseded:begin -->
+## exp4 — Route geometry at scale -- 200 promoted candidate networks certified by exact optimization, then re-certified under one common resource envelope
+
+*Written by `scripts/canonical_results_v2.py`.*
+
+*ORDERING ONLY. The legacy run resolved each candidate's peak-vehicle cap against that candidate's own baseline plan (exp2.py:324), so all 200 were optimized inside boxes they defined for themselves: it ranks candidate-specific optimization problems, not geometries. The legacy leader ecb2ffc4bcce (3,511,184.5658) ranks 185 of 200 under the common envelope. Every legacy objective value remains exactly reproducible and none is withdrawn.*
+
+- `EXPERIMENT4_CLOSEOUT.md`
+- `outputs/exp4/run/certified/*.json`
+- `outputs/exp4/run/discovery_vs_certified.json`
+
+**Current instead:** `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`, `outputs/exp4_normalized/EXP4N_FINAL_STATUS.json`, `outputs/exp4_normalized/EXP4N_RANKING.json`, `outputs/exp4_normalized/EXP4N_INTEGRITY_GATE.json`, `outputs/exp4_normalized/EXP4N_PRODUCTION_CONTRACT.json`, `outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json`, `outputs/exp4_normalized/production_mr120/*.json`
+
+<!-- exp4-superseded:end -->

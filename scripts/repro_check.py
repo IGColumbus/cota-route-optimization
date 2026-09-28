@@ -103,15 +103,20 @@ def c_manifest_points_at_real_files() -> None:
     p = OUT / "CANONICAL_RESULTS.json"
     if not p.exists():
         return check("results manifest present", False, str(p))
-    d = json.loads(p.read_text())
+    # v1 is Gen1-frozen; v2 (scripts/canonical_results_v2.py) adds the
+    # experiments closed after it. Both must point only at files that exist.
     absent = []
-    for name, e in d["experiments"].items():
-        for rel in e.get("canonical", []):
-            if "*" in rel:
-                if not list(ROOT.glob(rel)):
-                    absent.append(f"{name}:{rel}")
-            elif not (ROOT / rel).exists():
-                absent.append(f"{name}:{rel}")
+    for mp in (p, OUT / "CANONICAL_RESULTS_v2.json"):
+        if not mp.exists():
+            continue
+        d = json.loads(mp.read_text())
+        for name, e in d["experiments"].items():
+            for rel in e.get("canonical", []):
+                if "*" in rel:
+                    if not list(ROOT.glob(rel)):
+                        absent.append(f"{mp.name}:{name}:{rel}")
+                elif not (ROOT / rel).exists():
+                    absent.append(f"{mp.name}:{name}:{rel}")
     check("every canonical artifact in the manifest exists", not absent,
           f"missing: {absent or 'none'}")
 

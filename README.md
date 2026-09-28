@@ -7,11 +7,12 @@ A research platform for one question:
 > allocation, transfer timing, stop structure, and eventually route topology?
 
 Everything here is built from public data, calibrated where public data allows,
-and explicit about the rest. It has retracted its own headline answer **four
+and explicit about the rest. It has retracted its own headline answer **five
 times** — for a modelling error, an under-powered search, an evaluator that was
-silently the wrong model, and a benefit that turned out to be the search rather
-than the intervention. Those retractions are the most useful output so far, and
-all four are documented rather than quietly fixed.
+silently the wrong model, a benefit that turned out to be the search rather
+than the intervention, and a geometry ranking that turned out to rank each
+candidate's self-drawn resource cap. Those retractions are the most useful
+output so far, and all five are documented rather than quietly fixed.
 
 ## What we currently believe
 
@@ -76,8 +77,62 @@ The same leader wins at λ ∈ {1, 2, 4}, so this is a result about the network
 rather than about one point on the cost/coverage trade-off. Full account in
 `EXPERIMENT2_CLOSEOUT.md`.
 
-**Experiment 3 — route mutation** has not started. Its rules are committed in
-`EXPERIMENT3_CONTRACT.md` before any candidate exists.
+**Experiment 3 — route mutation, closed and certified** (frozen at `exp3-final-v1`).
+
+> Of 84 census states across eight edit kinds, 39 were promoted and **29 remain
+> certified** against the unedited control. The leader,
+> `add_stop-010#22c4c35ac5b2`, improves the λ=2 objective by **−0.18657%** with
+> |mean Δ| / SD = **78.6** over five paired seeds, and is distinguishable from
+> all 28 other certified candidates.
+
+Certified means distinguishable from solver variance at the stated effort —
+nothing more, and the mechanism is not established. The certified set is not
+uniform in effort: 23 of the 29 carry 40-restart verdicts and 6, the leader
+among them, carry 20-restart verdicts. Anyone quoting the number quotes that
+split with it. The discovery stage was also found to have had its optimizer
+chosen by the treatment (D27) and was corrected before certification.
+`EXPERIMENT3_CLOSURE.md`.
+
+**Experiment 4 — route geometry at scale, certified under one common resource
+envelope.**
+
+> 200 promoted candidate networks were certified by exact optimization, then
+> **re-certified under one common peak-vehicle envelope**
+> (`EXP4_FULL_NORMALIZED_CERTIFIED`: 200/200, integrity gate passed). The best
+> is `35e351133d6f` at **3,223,885.9475**, ahead of the second by **0.387006%**.
+
+The first run reported a different leader, `ecb2ffc4bcce`. Under the common
+envelope it ranks **185 of 200**. That run resolved each candidate's
+peak-vehicle cap against the candidate's own baseline plan (`exp2.py:324`), so
+every candidate was optimized inside a box it drew for itself: it ranked
+candidate-specific optimization problems, not geometries. Fixing the envelope,
+and nothing else, inverted **36.7%** of pairwise orderings (Spearman
+**+0.3566**); `src/cota_opt` is byte-identical across the rerun. The first run's
+objective values remain exactly reproducible and are not withdrawn — its
+ordering is superseded. `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`.
+
+It does not establish:
+
+* **that the 0.387006% margin is meaningful.** It is ~204× the D33-B noise
+  band, which rules out solver noise and establishes nothing further, and the
+  block-local residual is unmeasured for every candidate, the leader included;
+* **any fleet or deployability claim** — the fleet instrument returns
+  `UNDECIDABLE` for every candidate;
+* **anything about the 1,800 proposals** the top-200 promotion cap excluded. An
+  out-of-band audit showed that cap is invalid (`EXPERIMENT4_AUDIT_CLOSEOUT.md`).
+
+The common envelope also changed how much service the plans run. Under the
+first run's self-drawn caps, certified plans spent **36.16–37.33%** of the 2,517 weekday
+vehicle-hours and switched off **78.5–86.9%** of route-periods; under the common
+envelope they spend **99.92–100.00%** and switch off **56.2–67.4%**. Descriptive, not
+preregistered.
+
+**Experiment 5 — resource frontier: built and tested, not run.** Its premise
+audit (`EXP5_REFRAME_REQUIRED`) found that the hours axis never binds — but that
+was measured on the first Exp 4 run's plans, and on the normalized plans the
+hours cap binds at 99.92–100.00%. The premise has to be re-audited against the normalized
+run before Experiment 5 is reframed or run. Experiments 5–7 are unblocked, and
+each needs its own preregistration first.
 
 ## The Model A → Model B correction
 
@@ -97,7 +152,7 @@ the config default; the run's log reported the *harness's* setting, which was a
 different object. Correcting it changed six of twelve candidates' signs and
 halved the headline geometry claim. Every experiment artifact now records the
 model the evaluator actually used, and a run that cannot state it produces no
-artifact. See `outputs/CANONICAL_RESULTS.json` for which artifacts are current
+artifact. See `outputs/CANONICAL_RESULTS_v2.json` for which artifacts are current
 and which are superseded — nothing was deleted, and a superseded artifact looks
 entirely legitimate from the inside.
 
@@ -112,6 +167,8 @@ entirely legitimate from the inside.
 | stop-service penalty | unmeasurable from this feed (−157 s/stop, inverted) | blocks any consolidation claim resting on runtime savings |
 | novel-link running time | MAE 17.2 s, aggregate bias +0.41% | unbiased, but 20.5% median APE on a single link |
 | scheduled ≠ actual | unquantified | no reliability penalty anywhere |
+| fleet requirement | `UNDECIDABLE` for every Exp 4 candidate; deadhead times and terminal identity are not public | no fleet or deployability claim |
+| block-local residual | unmeasured for every Exp 4 candidate, the leader included | a 0.387006% first-to-second margin is not a durable ordering |
 
 ## What it does
 
@@ -215,4 +272,5 @@ skeptic protocol for surprising results.
 `EXPERIMENT3_CONTRACT.md` fixes what Experiment 3 may mutate, before any
 candidate exists. `DISCOVERIES.md` is the research diary and keeps every path
 taken, including the wrong ones; this README describes what we currently
-believe, which is a much shorter list.
+believe, which is a much shorter list. `STATE_OF_PLAY.md` is the long-form
+current state.
