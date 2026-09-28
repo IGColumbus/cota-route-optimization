@@ -62,6 +62,9 @@ class PathBasedModel(FrequencyModel):
         super().__init__(services, periods, demand, weights, assumptions,
                          connections)
         self.evaluators = evaluators
+        # Experiment 6 policy constraints (policy.CompiledPolicy), attached by
+        # build_setup only when constraints carry a non-empty policy.
+        self.policy = None
         # crowding: {period: CrowdingModel}; priced at the peak load point
         self.crowding = crowding or {}
         self.locked = locked or set()
@@ -148,6 +151,8 @@ class PathBasedModel(FrequencyModel):
             served_demand=served,
             mean_wait_min=0.0,
             gc_per_served_trip=(gc / served) if served else 0.0,
+            policy_violation=(0.0 if self.policy is None
+                              else self.policy.violation(h)),
         )
 
     def detail(self, plan: FrequencyPlan) -> dict[str, Any]:
@@ -337,6 +342,28 @@ def build_setup(b: Baseline, rn: RaptorNetwork, zs: ZoneSystem, od: ODTable,
     # a locked route-period has exactly one option: today's headway
     for k in locked:
         ladders[k] = [baseline_plan.headways[k]]
+    # Experiment 6: a non-empty policy is compiled against THIS setup's keys,
+    # baseline headways, route stop sets and projected stop coordinates, and
+    # attached to the model, where every evaluation is stamped with its
+    # violation and `frequency._feasible` refuses any violation. The ladder
+    # filter only removes rungs no feasible plan could use.
+    pol = cons.get("policy")
+    if pol is not None:
+        checks["policy_digest"] = pol.digest
+        checks["policy_cell"] = pol.cell
+    if pol is not None and not pol.is_empty:
+        from pyproj import Transformer
+        tr = Transformer.from_crs("EPSG:4326", a["crs"]["projected"],
+                                  always_xy=True)
+        stop_xy = {sid: tr.transform(st.lon, st.lat)
+                   for sid, st in b.network.stops.items()}
+        base = {k: float(baseline_plan.headways[k]) for k in model.keys}
+        model.policy = pol.compile(model.keys, base, b.network.route_stops,
+                                   stop_xy)
+        ladders = model.policy.filter_ladders(ladders)
+        bvec = np.array([base[k] for k in model.keys])
+        checks["policy_baseline_measure"] = model.policy.measure(bvec)
+        checks["policy_baseline_violation"] = model.policy.violation(bvec)
     checks["locked_route_periods"] = len(locked)
     checks["locked_routes"] = sorted({k[0] for k in locked})
     checks["with_crowding"] = bool(with_crowding)

@@ -158,6 +158,10 @@ class FitnessVector:
     served_demand: float = 0.0
     mean_wait_min: float = 0.0
     gc_per_served_trip: float = 0.0
+    #: Experiment 6 policy constraints: how far the plan is outside the
+    #: attached policy (0 = inside, and always 0 when no policy is attached).
+    #: `_feasible` refuses anything > 0.
+    policy_violation: float = 0.0
 
     def scalarized(self, w_unserved: float, multiplier: float = 1.0) -> float:
         return self.generalized_cost + multiplier * w_unserved * self.unserved_demand
@@ -372,6 +376,8 @@ _EPS_REL = 1e-9
 
 def _feasible(model: FrequencyModel, fit: FitnessVector,
               budget: ResourceBudget) -> bool:
+    if fit.policy_violation > 0.0:
+        return False
     if fit.revenue_veh_hours > budget.vh_cap() * (1.0 + _EPS_REL):
         return False
     for p, v in fit.peak_by_period.items():
@@ -522,6 +528,12 @@ def optimize_frequencies(
 
     # ---- starting point A: minimum service everywhere --------------------
     idx0 = L_len - 1
+    # Experiment 6: with a policy attached, minimum service must itself be
+    # policy-feasible, so the start is the deterministic policy repair of
+    # minimum service. Without one this is untouched.
+    _pol = getattr(model, "policy", None)
+    if _pol is not None:
+        idx0 = _pol.minimum_start(L, L_len, idx0)
     h0 = L[np.arange(n), idx0]
     if not feasible(model.evaluate_array(h0)):
         raise ValueError(

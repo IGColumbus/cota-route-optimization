@@ -102,6 +102,13 @@ class CertificationError(RuntimeError):
     """Certification could not establish its own guarantee."""
 
 
+class AnchorRefused(CertificationError):
+    """An explicit anchor was not a real, admissible plan for this cell.
+
+    Refused, never repaired: an anchor that is snapped, trimmed or refitted is
+    a different plan from the one whose provenance was recorded."""
+
+
 class PathsetScopeViolation(CertificationError):
     """A candidate's path-set cache was used outside that candidate."""
 
@@ -192,7 +199,8 @@ def certify(network, tstats, *, state_key: str, state_digest: str,
             allow_off: bool = True, n_keys: int = N_KEYS,
             k_rungs: int = K_RUNGS, max_rounds: int = MAX_ROUNDS,
             code_version: str = "", contract_digest: str = "",
-            progress=None) -> CertifiedResult:
+            progress=None, anchor: dict | None = None,
+            anchor_provenance: str = "") -> CertifiedResult:
     """Certify one candidate. The returned objective is the only usable number.
 
     The starting point is Gen1's delivered plan -- not because it is trusted,
@@ -256,6 +264,59 @@ def certify(network, tstats, *, state_key: str, state_digest: str,
                   obj=float(start["fit"].scalarized(w_uns, lam)),
                   fit=start["fit"])
     delivered_obj = cur.obj
+    start_info = {"source": "greedy", "greedy_objective": cur.obj,
+                  "greedy_plan_digest": digest({f"{r}|{p}": float(v) for
+                                                (r, p), v in cur.plan.items()})}
+
+    # EXPLICIT ANCHOR (Experiment 6, D39). Absent by default, and when absent
+    # nothing below this block differs from the validated EXP4N path. When
+    # present, the greedy start above still runs -- it is what builds the setup
+    # and the FULL ladders -- but the block search starts from the anchor
+    # instead. The anchor must be a real plan on this network: exactly this
+    # network's route-periods, every value an exact rung of the full ladder,
+    # and admissible under this call's complete constraints. That last test is
+    # the target cell's own feasibility path -- the exact solver on a one-rung
+    # ladder -- so an anchor that does not fit is refused by the same predicate
+    # that decides every other plan, never repaired.
+    if anchor is not None:
+        a = {(k if isinstance(k, tuple) else tuple(str(k).split("|", 1))):
+             float(v) for k, v in anchor.items()}
+        if set(a) != set(cur.plan):
+            raise AnchorRefused(
+                f"{state_key}: anchor covers {len(a)} route-periods, this "
+                f"network has {len(cur.plan)}; symmetric difference "
+                f"{sorted(set(a) ^ set(cur.plan))[:5]}")
+        try:
+            adm = solve_on_network(
+                network, tstats, iterations=20_000, restarts=1, width=0,
+                solver="exact", exact_max_combinations=10,
+                ladder_override={k: [a[k]] for k in keys}, **common)
+        except ValueError as ex:
+            if "no ladder combination fits the envelope" in str(ex):
+                raise AnchorRefused(
+                    f"{state_key}: anchor is infeasible under this cell's "
+                    f"constraints ({ex})") from None
+            raise
+        off_rung = [k for k in a if k in full and not any(
+            (math.isinf(v) and math.isinf(a[k])) or v == a[k] for v in full[k])]
+        if off_rung:
+            raise AnchorRefused(
+                f"{state_key}: anchor values are not exact ladder rungs for "
+                f"{len(off_rung)} route-periods, e.g. "
+                f"{[(k, a[k]) for k in off_rung[:3]]}")
+        got = {f"{r}|{p}": float(v) for (r, p), v in adm["plan"].headways.items()}
+        want = {f"{r}|{p}": float(v) for (r, p), v in a.items()}
+        if digest(got) != digest(want):
+            raise AnchorRefused(f"{state_key}: admission returned a different "
+                                f"plan from the anchor supplied")
+        cur = _Cursor(plan=dict(adm["plan"].headways),
+                      obj=float(adm["fit"].scalarized(w_uns, lam)),
+                      fit=adm["fit"])
+        delivered_obj = cur.obj
+        start_info = {**start_info, "source": "anchor",
+                      "anchor_plan_digest": digest(want),
+                      "anchor_objective": cur.obj,
+                      "anchor_provenance": anchor_provenance}
 
     ks = sorted(keys)
     rounds = 0
@@ -294,7 +355,8 @@ def certify(network, tstats, *, state_key: str, state_digest: str,
     if cur.obj > delivered_obj + 1e-6:
         raise CertificationError(
             f"{state_key}: certification returned a WORSE objective than the "
-            f"delivered plan ({cur.obj:,.6f} vs {delivered_obj:,.6f}). The "
+            f"{'anchor' if anchor is not None else 'delivered'} plan "
+            f"({cur.obj:,.6f} vs {delivered_obj:,.6f}). The "
             f"delivered plan's own rungs are kept in every block, so this is "
             f"impossible unless the two stages are solving different problems.")
 
@@ -333,7 +395,8 @@ def certify(network, tstats, *, state_key: str, state_digest: str,
         n_keys=n_keys, k_rungs=k_rungs, rounds=rounds, converged=converged,
         block_enumerations=blocks, combinations=combos_total,
         seconds=time.time() - t0, plan=plan_str,
-        code_version=code_version, contract_digest=contract_digest)
+        code_version=code_version, contract_digest=contract_digest,
+        start=start_info)
 
 
 def n_off_in(plan: dict) -> int:

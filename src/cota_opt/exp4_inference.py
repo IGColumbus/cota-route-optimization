@@ -174,6 +174,10 @@ class CertifiedResult:
     #: this is the content behind it. Optional and defaulted so no existing
     #: receipt changes shape.
     plan: Mapping[str, float] = field(default_factory=dict)
+    #: How the search was started (Experiment 6): greedy or explicit anchor,
+    #: with the greedy objective and, for an anchor, its digest, objective and
+    #: provenance. Not emitted by payload(), so no existing receipt changes.
+    start: Mapping[str, object] = field(default_factory=dict)
 
     def payload(self) -> dict:
         return {"stage": "certification", "approximate": False,
