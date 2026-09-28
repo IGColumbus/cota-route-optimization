@@ -33,27 +33,44 @@ audit. Experiment 3 is frozen at tag `exp3-final-v1`. **Both** Exp 4 runs were
 made with **fleet REPORTED, NOT GATED**. The fleet question is *still open*, and
 **neither run advanced it**.
 
-**Experiment 5 was reframed and is RUNNING.** The original premise, design and
-module are retired explicitly in `EXPERIMENT5_PREMISE_RETIREMENT.md`:
+**Experiment 5 ran and its preregistered acceptance rule FAILED, on N4 only:
+`EXP5_MONOTONICITY_FAILURE`.** See `EXPERIMENT5_CLOSEOUT.md`.
 
-* hours slack; Arm B hours-null; 30/35/40% cuts;
-* block-fleet axis and the 1.307 factor;
-* `exp5_resource.py` as the treatment.
+The original premise and design are retired in
+`EXPERIMENT5_PREMISE_RETIREMENT.md`. Hours were not slack under the common
+envelope (99.92–100.00% used).
 
-The premise is retired because under the common envelope every certified plan
-spends 99.92–100.00% of the hours cap (N4 99.9934%). The legacy premise audit
-measured 36–37%, on the legacy plans.
+The reframed experiment:
 
-Exp 5 is now a **modeled operating-resource frontier**:
-
-* two axes: revenue vehicle-hours and the six-period solver peak-concurrency
+* a modeled frontier over revenue vehicle-hours and the solver peak-concurrency
   proxy (not fleet);
-* networks N4 and N0, at 75–150%;
-* 32 cells through the unchanged EXP4N certifier;
-* contract frozen before the first production cell
-  (`outputs/exp5/EXP5_CONTRACT.json`, EXP5_FRONTIER `395ee3c960f51935`).
+* N4 and N0 at 16 cells each, 75–150%;
+* 32 certifications with EXP4N's unchanged certifier;
+* the contract frozen before the first production cell.
 
-The N4 J100 reproduction gate has passed.
+Every other gate passed:
+
+* reproduction of EXP4N's N4 was bit-exact;
+* D35 reach, convergence and feasibility 32/32;
+* firewall 46/46;
+* reversed-order sentinels 4/4 bit-exact.
+
+The results:
+
+* **N0 is monotone on all 99 nested pairs.** Both axes bind at today's levels.
+  Above them only the peak proxy binds; below them, cutting hours costs
+  0.57–2.05%.
+* **N4 is worse than N0 at every cell**, by 8.07–11.59%.
+* **On N4, 12 of 99 pairs regress by up to 1.70%.** Cause: certification starts
+  from a greedy build under each cell's own caps and lands in different local
+  optima (**D39**).
+* That start-basin residual is at least 1.70%, about 4.4× EXP4N's
+  first-to-second margin.
+* The EXP4N N4 plan is not the best known N4 plan under the EXP4N envelope: the
+  H090 plan is 0.133% better. Using it, Δ43 is still +9.51%.
+
+Blocking is diagnostic only. It is UNDECIDABLE for all 32 cells: the
+materializer does not reproduce the plans' own vehicle-hours.
 
 (A version of this page written earlier on 2026-09-28 said EXP4N changed none
 of Exp 5's premises. That was asserted without being measured, and it was
@@ -148,7 +165,7 @@ preregistered question, whether discovery enriches at the population level, is
   audit's own question is **unanswered**: certifying in rank order left four of
   five strata empty. `EXPERIMENT4_AUDIT_CLOSEOUT.md`.
 * **Experiment 5 — ORIGINAL DESIGN RETIRED (history below); reframed as a
-  modeled operating-resource frontier and RUNNING** — see the top of this page
+  modeled operating-resource frontier, RUN, `EXP5_MONOTONICITY_FAILURE` (N4 only; D39)** — see the top of this page
   and `EXPERIMENT5_PREMISE_RETIREMENT.md`. The superseded audit, preserved:
   *(2026-09-21, legacy plans)* `EXP5_REFRAME_REQUIRED`. Three independent defects, any one sufficient —
   all measured on the LEGACY Exp 4 plans; EXP4N removes the second:

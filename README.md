@@ -114,8 +114,9 @@ ordering is superseded. `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`.
 It does not establish:
 
 * **that the 0.387006% margin is meaningful.** It is ~204× the D33-B noise
-  band, which rules out solver noise and establishes nothing further, and the
-  block-local residual is unmeasured for every candidate, the leader included;
+  band, which rules out solver noise and establishes nothing further. Experiment
+  5 later measured a start-basin residual of at least 1.70% on the leader (D39),
+  larger than this margin;
 * **any fleet or deployability claim** — the fleet instrument returns
   `UNDECIDABLE` for every candidate;
 * **anything about the 1,800 proposals** the top-200 promotion cap excluded. An
@@ -127,12 +128,48 @@ vehicle-hours and switched off **78.5–86.9%** of route-periods; under the comm
 envelope they spend **99.92–100.00%** and switch off **56.2–67.4%**. Descriptive, not
 preregistered.
 
-**Experiment 5 — resource frontier: built and tested, not run.** Its premise
-audit (`EXP5_REFRAME_REQUIRED`) found that the hours axis never binds — but that
-was measured on the first Exp 4 run's plans, and on the normalized plans the
-hours cap binds at 99.92–100.00%. The premise has to be re-audited against the normalized
-run before Experiment 5 is reframed or run. Experiments 5–7 are unblocked, and
-each needs its own preregistration first.
+**Experiment 4, original question — the greenfield leader does not beat the
+constrained redesign.** Experiment 4 was built to ask whether the best greenfield
+network beats Experiment 3's leader. EXP4N never ran that comparison. Run under
+the identical EXP4N certification contract (`EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md`):
+
+> obj(N4) − obj(N3) = **+283,973 (+9.66% of N3)**. Lower is better, so the
+> greenfield leader is **worse**. It serves **31.5% fewer** modeled trips on the
+> same hours and peak proxy. Firewall-admitted; only network fields differ.
+
+The pipeline first reproduced EXP4N's N4 bit-exactly. The result is conditional
+on the path model, which fits N4 much worse, and on the same-route waiting
+model, whose cross-route omission is 12.47% of generalized cost on N4. It
+survives an omission-corrected costing (+7.87%) and every fixed-plan λ above
+1.087. Gates 4-12 and 4-13, fleet and physical inspection are not discharged.
+
+**Experiment 5 — modeled resource frontier: run, and its preregistered
+acceptance rule FAILED on N4 (`EXP5_MONOTONICITY_FAILURE`).** The original
+design is retired (`EXPERIMENT5_PREMISE_RETIREMENT.md`): hours were not slack
+once plans were normalized.
+
+The reframed experiment:
+
+* two fixed networks: N4 and N0, COTA's existing geometry;
+* two axes: revenue vehicle-hours and the solver's peak-concurrency proxy, which
+  is not fleet;
+* 16 cells each, from 75% to 150%;
+* EXP4N's certifier throughout.
+
+Every gate passed except monotonicity: reproduction, reach, convergence, the
+firewall (46/46) and order sentinels (4/4). `EXPERIMENT5_CLOSEOUT.md`.
+
+* **On N0 (all 99 nested pairs monotone):** both axes bind at today's levels.
+  Above them, only the peak proxy binds; extra hours change nothing. Below them,
+  cutting hours costs 0.57–2.05% of the objective.
+* **N4 is worse than N0 at all 16 cells**, by 8.07–11.59%.
+* **On N4, 12 of 99 pairs regress** by up to 1.70%: a looser budget certifies a
+  worse plan. The cause is the start, which differs by cap, landing the (8,3)
+  block search in different local optima (**D39**). That residual is ~4.4×
+  EXP4N's first-to-second margin. EXP4N's ranking stays reproducible, but it
+  cannot be read as robust among closely spaced candidates.
+
+Experiments 6–7 are unblocked, and each needs its own preregistration first.
 
 ## The Model A → Model B correction
 
