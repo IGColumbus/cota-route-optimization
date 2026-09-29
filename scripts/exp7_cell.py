@@ -74,6 +74,7 @@ def run(kind: str, spec, env, *, st: dict, role: str, cell: str,
     H = L.harness_for(st["H"], lv)
     lam = float(lv.lam)
     net, ts, ident = CC.build_network(kind, st)
+    net, ts, ident = L.network_for(net, ts, ident, lv, kind)
     cons = env.to_constraints(load_constraints())
     if spec is not None:
         cons = {**cons, "policy": spec}
@@ -110,6 +111,7 @@ def run(kind: str, spec, env, *, st: dict, role: str, cell: str,
     E3.solve_on_network = wrapped
     refused = None
     try:
+      with L.weights_patch(lv):
         cr = certify(net, ts, state_key=ident["state_key"],
                      state_digest=ident["state_digest"], harness=H,
                      stops_gdf=st["sg"], lam=lam, seed=SEED, constraints=cons,

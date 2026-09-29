@@ -71,6 +71,8 @@ def main() -> int:
     lv = L.BASE if a.level == "BASE" else L.from_file(ROOT / a.level_file, a.level)
     st = CC.boot()
     net, ts, ident = CC.build_network(a.network, st)
+    net, ts, ident = L.network_for(net, ts, ident, lv, a.network)
+    L.weights_patch(lv).__enter__()      # process lifetime (one level per process)
     env = MR.load_base()
     cons = {**env.to_constraints(load_constraints()), "policy": spec}
     relaxed = {**MR.scale(env, 10.0, 10.0).to_constraints(load_constraints()),

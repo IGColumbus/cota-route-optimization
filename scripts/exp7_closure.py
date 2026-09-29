@@ -82,6 +82,26 @@ class Group:
     policies: list[str]
     edges: list[tuple[str, str]] = field(default_factory=list)  # (tighter, looser)
     within: bool = True             # False for the F4 (REF-only) track
+    # level -> dimension, for every NON-BASE level. levels[0] is the one
+    # canonical BASE. Given, the X stage is dimension-local (0929 decision):
+    # all-pairs among {BASE} + the dimension's levels, dimensions in the
+    # order of first appearance in `levels`; no edge between non-BASE levels
+    # of different dimensions. None = complete all-pairs (tests only).
+    dimension_of: dict | None = None
+
+    def x_groups(self) -> list[list[str]]:
+        if self.dimension_of is None:
+            return [list(self.levels)]
+        base = self.levels[0]
+        if base in self.dimension_of:
+            raise ValueError("BASE must not belong to a dimension")
+        order: list[str] = []
+        for lv in self.levels[1:]:
+            d = self.dimension_of[lv]
+            if d not in order:
+                order.append(d)
+        return [[base] + [lv for lv in self.levels[1:]
+                          if self.dimension_of[lv] == d] for d in order]
 
     def cells(self):
         return [(lv, p) for lv in self.levels for p in self.policies]
@@ -184,13 +204,15 @@ def run(group: Group, best: dict, ops: Ops, *, ceiling: int, eps: float = 1e-9,
                                     ((lv, b), (lv, a), "reverse")):
                     seq.append(("W", src, tgt,
                                 f"pass {p} W {lv} {d}: {src[1]} -> {tgt[1]}"))
-        # stage X: cross-level all-pairs, same policy
+        # stage X: cross-level all-pairs within each dimension group (BASE in
+        # every group; one canonical BASE cell), same policy
         for pol in group.policies:
-            for tl in group.levels:
-                for sl in group.levels:
-                    if sl != tl:
-                        seq.append(("X", (sl, pol), (tl, pol),
-                                    f"pass {p} X {pol}: {sl} -> {tl}"))
+            for grp in group.x_groups():
+                for tl in grp:
+                    for sl in grp:
+                        if sl != tl:
+                            seq.append(("X", (sl, pol), (tl, pol),
+                                        f"pass {p} X {pol}: {sl} -> {tl}"))
         return seq
 
     # A resumed run continues the interrupted pass at its cursor, so its

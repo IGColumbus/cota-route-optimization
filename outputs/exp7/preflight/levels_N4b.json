@@ -1,0 +1,408 @@
+{
+ "note": "subset of outputs/exp7/EXP7_LEVELS.json for splitting the N4 reach across two lanes",
+ "levels": [
+  {
+   "name": "A3_RT110",
+   "dimension": "A3",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A3 as issued: +10% uniform runtime (passenger time and vehicle-hours; envelope unchanged).",
+   "network": [
+    [
+     "runtime_scale",
+     {
+      "factor": 1.1
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A3_RT120",
+   "dimension": "A3",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A3 as issued: +20% uniform runtime.",
+   "network": [
+    [
+     "runtime_scale",
+     {
+      "factor": 1.2
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A3_RTNOISE",
+   "dimension": "A3",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A3 as issued: per-link lognormal noise, median |error| 20.5% (outputs/runtime_validation.json median_ape_pct 20.5035), one seeded draw, same multiplier for a link on every pattern.",
+   "network": [
+    [
+     "runtime_noise",
+     {
+      "median_abs_error": 0.205,
+      "seed": 20260929
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A5_LAM1",
+   "dimension": "A5",
+   "lam": 1.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: lambda = 1 (below the certified lambda>=2 frontier; labelled as such).",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A5_LAM4",
+   "dimension": "A5",
+   "lam": 4.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: lambda = 4.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A5_TP050",
+   "dimension": "A5",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: transfer penalty x0.5 (10 -> 5 min).",
+   "weights": [
+    [
+     "transfer_penalty",
+     0.5
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A5_TP200",
+   "dimension": "A5",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: transfer penalty x2 (10 -> 20 min).",
+   "weights": [
+    [
+     "transfer_penalty",
+     2.0
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A6_WALKSPD85",
+   "dimension": "A6",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.walk_speed_m_per_min",
+     68.0
+    ]
+   ],
+   "od": [],
+   "rationale": "A6 as issued: walk speed -15% (80 -> 68 m/min).",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A6_MAXWALK75",
+   "dimension": "A6",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.access_radius_m",
+     450.0
+    ],
+    [
+     "path_assignment.walk_radius_m",
+     300.0
+    ]
+   ],
+   "od": [],
+   "rationale": "A6 as issued: maximum walking distance -25%; operationalized (0929) on both walking caps: access 600 -> 450 m and transfer walk 400 -> 300 m.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM01",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-1 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 1,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM02",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-2 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 2,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM03",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-3 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 3,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM04",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-4 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 4,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM05",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-5 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 5,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM06",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-6 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 6,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM07",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-7 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 7,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM08",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-8 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 8,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM09",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-9 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 9,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM10",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-10 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 10,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A8_ZERO150",
+   "dimension": "A8",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.cost_retention_zero_min",
+     150
+    ]
+   ],
+   "od": [],
+   "rationale": "A8 (0929 amendment, not as issued): retention zero breakpoint 210 -> 150 min; full_min 60 and floor 0.10 fixed.",
+   "provenance": "amendment_0929"
+  },
+  {
+   "name": "A8_FLOOR0",
+   "dimension": "A8",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.cost_retention_floor",
+     0.0
+    ]
+   ],
+   "od": [],
+   "rationale": "A8 (0929 amendment, not as issued): retention floor 0.10 -> 0.00; full_min 60 and zero_min 210 fixed.",
+   "provenance": "amendment_0929"
+  },
+  {
+   "name": "B1_COMMONLINES",
+   "dimension": "B_assignment",
+   "lam": 2.0,
+   "waiting_model": "pattern",
+   "overrides": [],
+   "od": [],
+   "rationale": "Class B as issued: common-lines assignment (cross-route waiting). Reported as MODEL DISAGREEMENT, not a Class A result.",
+   "provenance": "class_b_0923"
+  },
+  {
+   "name": "X_TOPK40K",
+   "dimension": "X_od_coverage",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "wider_top_k",
+     {
+      "top_k": 40000
+     }
+    ]
+   ],
+   "rationale": "Additional post-Exp-6 sensitivity (not a Sept 23 row): top 40,000 OD pairs; discharges the Exp 4A wider-OD deferral.",
+   "provenance": "additional_post_exp6"
+  },
+  {
+   "name": "X_ROUNDS4",
+   "dimension": "X_path_enumeration",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.max_rounds",
+     4
+    ]
+   ],
+   "od": [],
+   "rationale": "Additional post-Exp-6 sensitivity (not a Sept 23 row): one more boarding in path enumeration; the only path-model knob that reaches the evaluator.",
+   "provenance": "additional_post_exp6"
+  }
+ ]
+}

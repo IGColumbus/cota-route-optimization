@@ -133,7 +133,8 @@ def main() -> int:
             if key not in final:
                 continue
             ref = final[key]
-            comp = R._compile_all(con, n, ref) if ref["status"] == "CERTIFIED" else {}
+            comp = R._compile_all(con, n, ref, lvs[lv]) \
+                if ref["status"] == "CERTIFIED" else {}
             for c in t6["policies"]:
                 cell = final[("F6", lv, n, c)]
                 adm = None

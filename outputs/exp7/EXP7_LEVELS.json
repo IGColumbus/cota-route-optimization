@@ -1,0 +1,868 @@
+{
+ "status": "DECLARED 2026-09-29 -- not frozen until exp7_freeze.py passes all gates",
+ "provenance_classes": {
+  "as_issued_0923": "Sept 23 as-issued Class A row (levels as issued; any numeric operationalization is marked in the rationale)",
+  "amendment_0929": "Sept 29 operational amendment (A8, and A4 which is declared but unimplemented)",
+  "class_b_0923": "Sept 23 as-issued Class B (model disagreement)",
+  "additional_post_exp6": "additional post-Exp-6 sensitivity, not a Sept 23 row"
+ },
+ "declared_not_run": [
+  {
+   "name": "A4_WAIT375",
+   "dimension": "A4",
+   "provenance": "amendment_0929",
+   "setting": "waiting.schedule_coefficient 0.375",
+   "status": "UNIMPLEMENTED",
+   "why": "schedule_coefficient only changes expected wait for effective headways above random_arrival_threshold_min (12); there is no headway-variance term (pathset.py _wait; weights.reliability 0.0 unused). A headway-variance penalty mainly inflates random-arrival wait on frequent service, which this coefficient cannot touch."
+  },
+  {
+   "name": "A4_WAIT500",
+   "dimension": "A4",
+   "provenance": "amendment_0929",
+   "setting": "waiting.schedule_coefficient 0.50",
+   "status": "UNIMPLEMENTED",
+   "why": "as A4_WAIT375"
+  },
+  {
+   "name": "B2_JOBS_ACCESS_OBJECTIVE",
+   "dimension": "B_objective",
+   "provenance": "class_b_0923",
+   "status": "UNTESTED",
+   "why": "no jobs-accessibility objective exists on the frozen production path; adding one needs src/cota_opt changes"
+  },
+  {
+   "name": "PATH_WIDTH / SCENARIO_COUNT",
+   "provenance": "additional_post_exp6",
+   "status": "DROPPED",
+   "why": "measured inert (max_paths_per_od 2 and 8; n_random_scenarios 5): identical objective to BASE on N0 and N3"
+  },
+  {
+   "name": "PERIOD_TILT",
+   "provenance": "additional_post_exp6",
+   "status": "NOT INCLUDED",
+   "why": "not a Sept 23 row; omitted to bound compute; the period profile assumption remains untested (claim bound)"
+  }
+ ],
+ "levels": [
+  {
+   "name": "A1_NC025",
+   "dimension": "A1",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "noncommute_add",
+     {
+      "decay_km": 4.0,
+      "share_of_commute": 0.25,
+      "zone_weight": "workers_plus_jobs"
+     }
+    ]
+   ],
+   "rationale": "A1 as issued: non-commute trips added at 25% of commute volume. Gravity-form operationalization (0929): noncommute_proxy, zone weight workers+jobs, 4 km exponential decay, on the commute OD pair set.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A1_NC050",
+   "dimension": "A1",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "noncommute_add",
+     {
+      "decay_km": 4.0,
+      "share_of_commute": 0.5,
+      "zone_weight": "workers_plus_jobs"
+     }
+    ]
+   ],
+   "rationale": "A1 as issued: non-commute trips added at 50% of commute volume. Gravity-form operationalization (0929): noncommute_proxy, zone weight workers+jobs, 4 km exponential decay, on the commute OD pair set.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A1_NC100",
+   "dimension": "A1",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "noncommute_add",
+     {
+      "decay_km": 4.0,
+      "share_of_commute": 1.0,
+      "zone_weight": "workers_plus_jobs"
+     }
+    ]
+   ],
+   "rationale": "A1 as issued: non-commute trips added at 100% of commute volume. Gravity-form operationalization (0929): noncommute_proxy, zone weight workers+jobs, 4 km exponential decay, on the commute OD pair set.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT01",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 1,
+      "seed": 20260901
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 1 of 20 of the LODES block pairs (seed 20260901); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT02",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 2,
+      "seed": 20260902
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 2 of 20 of the LODES block pairs (seed 20260902); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT03",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 3,
+      "seed": 20260903
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 3 of 20 of the LODES block pairs (seed 20260903); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT04",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 4,
+      "seed": 20260904
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 4 of 20 of the LODES block pairs (seed 20260904); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT05",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 5,
+      "seed": 20260905
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 5 of 20 of the LODES block pairs (seed 20260905); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT06",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 6,
+      "seed": 20260906
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 6 of 20 of the LODES block pairs (seed 20260906); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT07",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 7,
+      "seed": 20260907
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 7 of 20 of the LODES block pairs (seed 20260907); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT08",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 8,
+      "seed": 20260908
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 8 of 20 of the LODES block pairs (seed 20260908); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT09",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 9,
+      "seed": 20260909
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 9 of 20 of the LODES block pairs (seed 20260909); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT10",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 10,
+      "seed": 20260910
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 10 of 20 of the LODES block pairs (seed 20260910); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT11",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 11,
+      "seed": 20260911
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 11 of 20 of the LODES block pairs (seed 20260911); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT12",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 12,
+      "seed": 20260912
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 12 of 20 of the LODES block pairs (seed 20260912); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT13",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 13,
+      "seed": 20260913
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 13 of 20 of the LODES block pairs (seed 20260913); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT14",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 14,
+      "seed": 20260914
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 14 of 20 of the LODES block pairs (seed 20260914); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT15",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 15,
+      "seed": 20260915
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 15 of 20 of the LODES block pairs (seed 20260915); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT16",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 16,
+      "seed": 20260916
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 16 of 20 of the LODES block pairs (seed 20260916); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT17",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 17,
+      "seed": 20260917
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 17 of 20 of the LODES block pairs (seed 20260917); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT18",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 18,
+      "seed": 20260918
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 18 of 20 of the LODES block pairs (seed 20260918); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT19",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 19,
+      "seed": 20260919
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 19 of 20 of the LODES block pairs (seed 20260919); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT20",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 20,
+      "seed": 20260920
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 20 of 20 of the LODES block pairs (seed 20260920); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A3_RT110",
+   "dimension": "A3",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A3 as issued: +10% uniform runtime (passenger time and vehicle-hours; envelope unchanged).",
+   "network": [
+    [
+     "runtime_scale",
+     {
+      "factor": 1.1
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A3_RT120",
+   "dimension": "A3",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A3 as issued: +20% uniform runtime.",
+   "network": [
+    [
+     "runtime_scale",
+     {
+      "factor": 1.2
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A3_RTNOISE",
+   "dimension": "A3",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A3 as issued: per-link lognormal noise, median |error| 20.5% (outputs/runtime_validation.json median_ape_pct 20.5035), one seeded draw, same multiplier for a link on every pattern.",
+   "network": [
+    [
+     "runtime_noise",
+     {
+      "median_abs_error": 0.205,
+      "seed": 20260929
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A5_LAM1",
+   "dimension": "A5",
+   "lam": 1.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: lambda = 1 (below the certified lambda>=2 frontier; labelled as such).",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A5_LAM4",
+   "dimension": "A5",
+   "lam": 4.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: lambda = 4.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A5_TP050",
+   "dimension": "A5",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: transfer penalty x0.5 (10 -> 5 min).",
+   "weights": [
+    [
+     "transfer_penalty",
+     0.5
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A5_TP200",
+   "dimension": "A5",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: transfer penalty x2 (10 -> 20 min).",
+   "weights": [
+    [
+     "transfer_penalty",
+     2.0
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A6_WALKSPD85",
+   "dimension": "A6",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.walk_speed_m_per_min",
+     68.0
+    ]
+   ],
+   "od": [],
+   "rationale": "A6 as issued: walk speed -15% (80 -> 68 m/min).",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A6_MAXWALK75",
+   "dimension": "A6",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.access_radius_m",
+     450.0
+    ],
+    [
+     "path_assignment.walk_radius_m",
+     300.0
+    ]
+   ],
+   "od": [],
+   "rationale": "A6 as issued: maximum walking distance -25%; operationalized (0929) on both walking caps: access 600 -> 450 m and transfer walk 400 -> 300 m.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM01",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-1 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 1,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM02",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-2 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 2,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM03",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-3 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 3,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM04",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-4 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 4,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM05",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-5 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 5,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM06",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-6 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 6,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM07",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-7 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 7,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM08",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-8 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 8,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM09",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-9 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 9,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A7_RM10",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-10 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 10,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A8_ZERO150",
+   "dimension": "A8",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.cost_retention_zero_min",
+     150
+    ]
+   ],
+   "od": [],
+   "rationale": "A8 (0929 amendment, not as issued): retention zero breakpoint 210 -> 150 min; full_min 60 and floor 0.10 fixed.",
+   "provenance": "amendment_0929"
+  },
+  {
+   "name": "A8_FLOOR0",
+   "dimension": "A8",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.cost_retention_floor",
+     0.0
+    ]
+   ],
+   "od": [],
+   "rationale": "A8 (0929 amendment, not as issued): retention floor 0.10 -> 0.00; full_min 60 and zero_min 210 fixed.",
+   "provenance": "amendment_0929"
+  },
+  {
+   "name": "B1_COMMONLINES",
+   "dimension": "B_assignment",
+   "lam": 2.0,
+   "waiting_model": "pattern",
+   "overrides": [],
+   "od": [],
+   "rationale": "Class B as issued: common-lines assignment (cross-route waiting). Reported as MODEL DISAGREEMENT, not a Class A result.",
+   "provenance": "class_b_0923"
+  },
+  {
+   "name": "X_TOPK40K",
+   "dimension": "X_od_coverage",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "wider_top_k",
+     {
+      "top_k": 40000
+     }
+    ]
+   ],
+   "rationale": "Additional post-Exp-6 sensitivity (not a Sept 23 row): top 40,000 OD pairs; discharges the Exp 4A wider-OD deferral.",
+   "provenance": "additional_post_exp6"
+  },
+  {
+   "name": "X_ROUNDS4",
+   "dimension": "X_path_enumeration",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.max_rounds",
+     4
+    ]
+   ],
+   "od": [],
+   "rationale": "Additional post-Exp-6 sensitivity (not a Sept 23 row): one more boarding in path enumeration; the only path-model knob that reaches the evaluator.",
+   "provenance": "additional_post_exp6"
+  }
+ ]
+}

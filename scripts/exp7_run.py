@@ -235,12 +235,22 @@ def _plan_vec(rec, keys):
                      for (r, q) in keys])
 
 
-def _compile_all(con, net: str, ref_rec: dict) -> dict:
+_BOOT = {}
+
+
+def _compile_all(con, net: str, ref_rec: dict, lv=None) -> dict:
     """Compiled policy per cell on this network (as exp2.build_setup builds
-    it), from the network's REF baseline headways. Level-independent."""
+    it), from the REF baseline headways of the SAME level. Policies do not
+    depend on demand, lambda, waiting or path model; they DO depend on the
+    network, so a level with a network transform (A3 runtime, A7 route
+    removal) is compiled on its transformed network and its own REF record."""
     from pyproj import Transformer
-    st = CC.boot()
-    netw, _, _ = CC.build_network(net, st)
+    if "st" not in _BOOT:
+        _BOOT["st"] = CC.boot()
+    st = _BOOT["st"]
+    netw, ts_, id_ = CC.build_network(net, st)
+    if lv is not None:
+        netw, _, _ = L.network_for(netw, ts_, id_, lv, net)
     keys = [tuple(k.split("|", 1)) for k in sorted(ref_rec["outcome"]["plan_EXACT"])]
     bh = ref_rec["baseline_headways"]
     base = {k: (math.inf if bh[f"{k[0]}|{k[1]}"] is None
@@ -290,7 +300,10 @@ def closure(track: str, net: str) -> int:
     order = con["level_order"]
     group = E.Group(levels=order, policies=list(t["policies"]),
                     edges=[tuple(e) for e in t.get("adjacent_edges", [])],
-                    within=bool(t["within_level_closure"]))
+                    within=bool(t["within_level_closure"]),
+                    # 0929 decision: dimension-local X, BASE the only hub
+                    dimension_of={lv: levels(con)[lv].dimension
+                                  for lv in order[1:]})
     paths = {}
     for lv in order:
         for c in t["policies"]:
@@ -299,9 +312,12 @@ def closure(track: str, net: str) -> int:
                 raise SystemExit(f"initial {track}/{lv}/{net}_{c} missing; "
                                  f"closure refuses an incomplete upstream stage")
             paths[(lv, c)] = p
-    ref = json.loads(paths[(order[0], "REF")].read_text())
-    comp = _compile_all(con, net, ref)
-    keyset = comp["__keys__"]
+    lvs = levels(con)
+    comp_base = _compile_all(con, net, json.loads(paths[(order[0], "REF")]
+                                                  .read_text()))
+    comp_by_lv = {lv: (comp_base if not lvs[lv].network else _compile_all(
+        con, net, json.loads(paths[(lv, "REF")].read_text()), lvs[lv]))
+        for lv in order}
     state_p = d / f"closure_state_{net}.json"
     ledger = d / f"closure_ledger_{net}.jsonl"
     state = json.loads(state_p.read_text()) if state_p.exists() else None
@@ -311,6 +327,8 @@ def closure(track: str, net: str) -> int:
     def precheck(tgt, src: E.Rec):
         srec = json.loads((ROOT / src.ref).read_text())
         ks = set(srec["outcome"]["plan_EXACT"])
+        comp = comp_by_lv[tgt[0]]
+        keyset = comp["__keys__"]
         if ks != keyset:
             return f"representation: key sets differ ({len(ks ^ keyset)})"
         v = comp[tgt[1]]["violation"](srec)

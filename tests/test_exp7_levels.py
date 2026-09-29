@@ -34,9 +34,13 @@ def test_round_trip_and_digest_sensitivity():
 def test_undeclared_and_harness_build_knobs_refused():
     with pytest.raises(ValueError):
         L.level("x", "d", overrides={"crowding.bus_capacity": 80})
-    for k in L.HARNESS_BUILD_KEYS:
-        with pytest.raises(ValueError):
-            L.level("x", "d", overrides={k: 800})
+    # walk/access radius reach the evaluator through the view (solve_on_network
+    # rebuilds RAPTOR and zones per call): accepted, verified by the preflight
+    L.level("x", "d", overrides={"path_assignment.access_radius_m": 450.0})
+    with pytest.raises(ValueError):
+        L.level("x", "d", network=[("teleport", {})])
+    with pytest.raises(ValueError):
+        L.level("x", "d", weights={"unserved": 2.0})
     with pytest.raises(ValueError):
         L.level("x", "d", od=[("reweight_everything", {})])
     with pytest.raises(ValueError):
@@ -74,3 +78,29 @@ def test_noncommute_requires_declared_parameterization():
                            "zone_weight": "workers_plus_jobs"}, {})
     assert abs(out.flow.sum() - od.flow.sum()) < 1e-9
     assert not np.allclose(out.flow, od.flow)
+
+
+def test_new_fields_keep_old_digests_and_round_trip():
+    old = L.level("R_LAM1", "lambda", lam=1.0)
+    assert "network" not in old.payload() and "weights" not in old.payload()
+    lv = L.level("A3", "A3", network=[("runtime_scale", {"factor": 1.1})],
+                 weights={"transfer_penalty": 2.0}, provenance="as_issued_0923")
+    assert L.from_payload(lv.payload()) == lv and not lv.is_base
+    assert lv.changes_pathsets
+
+
+def test_lognormal_sigma_hits_target():
+    import numpy as np
+    s = L._lognormal_sigma(0.205)
+    z = np.random.default_rng(1).standard_normal(200_000)
+    assert abs(np.median(np.abs(np.exp(s * z) - 1)) - 0.205) < 0.003
+
+
+def test_weights_patch_is_scoped():
+    import cota_opt.exp2 as X
+    base = X.load_cost_weights()
+    lv = L.level("tp", "A5", weights={"transfer_penalty": 2.0})
+    with L.weights_patch(lv):
+        assert X.load_cost_weights()["transfer_penalty"] == 2 * base["transfer_penalty"]
+        assert X.load_cost_weights()["unserved"] == base["unserved"]
+    assert X.load_cost_weights() == base

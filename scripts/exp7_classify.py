@@ -139,3 +139,57 @@ def decompose(initial_level, closed_level, closed_base) -> dict:
             is None else closed_level - initial_level,
             "sensitivity_effect": None if closed_level is None or closed_base
             is None else closed_level - closed_base}
+
+
+# ---------------------------------------------------------------------------
+# Sept 23 finalization (docs/EXPERIMENT7_SEPT23_FINALIZATION.md)
+# ---------------------------------------------------------------------------
+SIGN_ROBUST = "SIGN_ROBUST"
+SIGN_SENSITIVE = "SIGN_SENSITIVE"
+MAG_UNINFORMATIVE = "MAGNITUDE_RATIO_UNINFORMATIVE"
+MAG_BANDS = ((0.10, "Highly stable magnitude"),
+             (0.25, "Stable magnitude"),
+             (0.50, "Moderately sensitive magnitude"),
+             (float("inf"), "Highly sensitive magnitude"))
+
+
+def sign_robustness(base_effect: float, level_effects: dict,
+                    *, tau: float = TAU_ABS) -> dict:
+    """SIGN_ROBUST iff no applicable level shows SIGN_FLIP, TO_TIE or
+    FROM_TIE against BASE. Levels whose effect is None (undefined, e.g. an
+    empty cell) are not 'supported' and are listed separately."""
+    events, unsupported = {}, []
+    for lv, e in level_effects.items():
+        if e is None:
+            unsupported.append(lv)
+            continue
+        f = sign_flip(base_effect, e, tau=tau)
+        if f:
+            events[lv] = f
+    return {"label": SIGN_SENSITIVE if events else SIGN_ROBUST,
+            "events": events, "unsupported_levels": sorted(unsupported)}
+
+
+def magnitude_band(base_effect: float, level_effect: float,
+                   *, tau: float = TAU_ABS) -> dict:
+    """Relative change |e - b| / |b| against the certified BASE magnitude.
+    |b| <= tau: MAGNITUDE_RATIO_UNINFORMATIVE, absolute movement reported."""
+    if base_effect is None or level_effect is None:
+        return {"label": None, "relative_change": None, "absolute_change": None}
+    absd = level_effect - base_effect
+    if abs(base_effect) <= tau:
+        return {"label": MAG_UNINFORMATIVE, "relative_change": None,
+                "absolute_change": absd}
+    rel = abs(absd) / abs(base_effect)
+    lab = next(name for cap, name in MAG_BANDS if rel <= cap)
+    return {"label": lab, "relative_change": rel, "absolute_change": absd}
+
+
+def worst_magnitude(bands: list[dict]) -> str | None:
+    """The least stable band across levels (descriptive summary)."""
+    order = [n for _, n in MAG_BANDS]
+    labs = [b["label"] for b in bands if b["label"] in order]
+    if not labs:
+        return MAG_UNINFORMATIVE if any(b["label"] == MAG_UNINFORMATIVE
+                                        for b in bands) else None
+    return max(labs, key=order.index)

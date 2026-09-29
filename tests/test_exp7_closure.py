@@ -274,3 +274,56 @@ def test_interrupted_run_resumes_to_same_fixed_point():
     assert st["passes_completed"] == ref["passes_completed"]
     assert st["improvements"] == ref["improvements"]
     assert st["tried"] == ref["tried"]
+
+
+def test_dimension_local_x_uses_base_as_the_only_hub():
+    # dims: A = {a1}, B = {b1}. Plan Pa found at a1 would be best at b1, but
+    # there is no a1 -> b1 edge; it reaches b1 only by first improving BASE.
+    L_ = ["BASE", "a1", "b1"]
+    dims = {"a1": "A", "b1": "B"}
+    obj = {("BASE", "REF"): {"base": 10, "Pa": 12},     # Pa WORSE at BASE
+           ("a1", "REF"): {"a": 10, "Pa": 5, "base": 11},
+           ("b1", "REF"): {"b": 10, "Pa": 1, "base": 11}}
+    w = World(obj)
+    best = {("BASE", "REF"): w.rec(("BASE", "REF"), "base"),
+            ("a1", "REF"): w.rec(("a1", "REF"), "Pa"),
+            ("b1", "REF"): w.rec(("b1", "REF"), "b")}
+    g = E.Group(levels=L_, policies=["REF"], within=False, dimension_of=dims)
+    assert g.x_groups() == [["BASE", "a1"], ["BASE", "b1"]]
+    st = E.run(g, best, w.ops(), ceiling=8)
+    assert st["status"] == E.FIXED_POINT
+    assert best[("b1", "REF")].plan_digest == "b"          # never offered Pa
+    pairs = {(r["source_cell"][0], r["target_cell"][0]) for r in w.receipts}
+    assert ("a1", "b1") not in pairs and ("b1", "a1") not in pairs
+
+    # Now Pa IS better at BASE: it becomes BASE, then reaches b1 next.
+    obj2 = {k: dict(v) for k, v in obj.items()}
+    obj2[("BASE", "REF")]["Pa"] = 9
+    w2 = World(obj2)
+    best2 = {("BASE", "REF"): w2.rec(("BASE", "REF"), "base"),
+             ("a1", "REF"): w2.rec(("a1", "REF"), "Pa"),
+             ("b1", "REF"): w2.rec(("b1", "REF"), "b")}
+    st2 = E.run(g, best2, w2.ops(), ceiling=8)
+    assert st2["status"] == E.FIXED_POINT
+    assert best2[("BASE", "REF")].plan_digest == "Pa"
+    assert best2[("b1", "REF")].plan_digest == "Pa"
+    imp = {tuple(i["cell"]): i for i in st2["improvements"]}
+    assert imp[("b1", "REF")]["from"] == ["BASE", "REF"]
+
+
+def test_sept23_sign_and_magnitude():
+    s = K.sign_robustness(-10.0, {"a": -9.0, "b": -20.0, "c": None})
+    assert s["label"] == K.SIGN_ROBUST and s["unsupported_levels"] == ["c"]
+    s = K.sign_robustness(-10.0, {"a": -9.0, "b": 0.0})
+    assert s["label"] == K.SIGN_SENSITIVE and s["events"] == {"b": "TO_TIE"}
+    assert K.sign_robustness(-10.0, {"a": 3.0})["events"] == {"a": "SIGN_FLIP"}
+    assert K.magnitude_band(-10.0, -10.9)["label"] == "Highly stable magnitude"
+    assert K.magnitude_band(-10.0, -10.0 - 2.5)["label"] == "Stable magnitude"
+    assert K.magnitude_band(-10.0, -14.0)["label"] == "Moderately sensitive magnitude"
+    assert K.magnitude_band(-10.0, -15.1)["label"] == "Highly sensitive magnitude"
+    m = K.magnitude_band(0.0, 5.0)
+    assert m["label"] == K.MAG_UNINFORMATIVE and m["relative_change"] is None \
+        and m["absolute_change"] == 5.0
+    assert K.worst_magnitude([K.magnitude_band(-10, -10.5),
+                              K.magnitude_band(-10, -13)]) == \
+        "Moderately sensitive magnitude"

@@ -112,21 +112,32 @@ def estimate(n_levels: int, n_policies: int = 14, lanes: int = 2,
 
 def gates(levels, lvfile) -> dict:
     g = {}
-    # The Sept 23 original is unavailable (docs/EXPERIMENT7_PROTOCOL.md §0);
-    # the governing text is the dated replacement, which must be APPROVED.
-    proto = ROOT / "docs/EXPERIMENT7_PROTOCOL.md"
-    g["G1_protocol_approved"] = proto.exists() and any(
-        ln.startswith("**Status: APPROVED") or ln.startswith("Status: APPROVED")
-        for ln in proto.read_text().splitlines())
+    # Governing text (0929): as-issued Sept 23 section, the same-day Sept 23
+    # classification revision, and the 0929 amendment, kept separately.
+    g["G1_governing_text"] = all((ROOT / "docs" / f).exists() for f in (
+        "EXPERIMENT7_PROTOCOL_AS_ISSUED.md", "EXPERIMENT7_SEPT23_FINALIZATION.md",
+        "EXPERIMENT7_AMENDMENT.md", "EXPERIMENT7_PROTOCOL.md"))
     am = ROOT / "docs/EXPERIMENT7_AMENDMENT.md"
-    g["G2_amendment_names_levels"] = am.exists() and len(levels) > 1 and all(
-        lv.name in am.read_text() for lv in levels)
+    proto = (ROOT / "docs/EXPERIMENT7_PROTOCOL.md").read_text()
+    nb = [lv for lv in levels if not lv.is_base]
+    g["G2_levels_declared_with_provenance"] = am.exists() and bool(nb) and all(
+        lv.provenance and lv.dimension.split("_")[0] in proto for lv in nb)
     br = PRE / "base_repro" / "BASE_REPRO_VERDICT.json"
     g["G3_base_reproduction"] = br.exists() and json.loads(br.read_text())["passed"]
     ok = True
-    for n in ("N0", "N3", "N4"):
-        p = PRE / f"reach_matrix_{n}.json"
-        ok &= p.exists() and json.loads(p.read_text()).get("passed", False)
+    names = {lv.name for lv in levels if not lv.is_base}
+    for part in (("N0",), ("N3",), ("N4a", "N4b")):
+        seen: dict = {}
+        for f in part:
+            p = PRE / "reach_matrix" / f"{f}.json"
+            if not p.exists():
+                ok = False
+                continue
+            d = json.loads(p.read_text())
+            ok &= bool(d.get("verdict", {}).get("BASE_reproduces_record"))
+            seen.update({k: v for k, v in d.get("verdict", {}).items()
+                         if k != "BASE_reproduces_record"})
+        ok &= all(seen.get(n) == "REACHES" for n in names)
     g["G4_level_reach"] = ok
     r = subprocess.run([sys.executable, "-m", "pytest", "-q",
                         "tests/test_exp7_closure.py",
@@ -136,6 +147,7 @@ def gates(levels, lvfile) -> dict:
     g["G6_src_digest_matches_exp6"] = CC.src_content_digest() == EXP6_SRC
     pt = PRE / "transfer" / "TRANSFER_PREFLIGHT_VERDICT.json"
     fw = PRE / "FIREWALL_PREFLIGHT.json"
+    g["G8_stage_design_decided"] = (OUT / "EXP7_STAGE_DECISION.json").exists()
     g["G7_transfer_refusal_emptiness_firewall"] = pt.exists() and \
         json.loads(pt.read_text())["passed"] and fw.exists() and \
         json.loads(fw.read_text())["passed"]
@@ -160,7 +172,7 @@ def main() -> int:
     con = {
         "artifact": "EXP7_CONTRACT", "version": "7.0",
         "frozen": not a.draft,
-        "protocol": "docs/EXPERIMENT7_PROTOCOL.md",
+        "protocol": ["docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md", "docs/EXPERIMENT7_SEPT23_FINALIZATION.md", "docs/EXPERIMENT7_AMENDMENT.md", "docs/EXPERIMENT7_PROTOCOL.md"],
         "amendment": "docs/EXPERIMENT7_AMENDMENT.md",
         "level_file": a.levels,
         "levels": [{**lv.payload(), "digest": lv.digest} for lv in levels],

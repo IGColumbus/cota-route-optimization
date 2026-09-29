@@ -6,13 +6,18 @@ is kept unchanged as history. It amends Ian's 23 September Exp 7 protocol. That
 text is kept **separately and verbatim** as
 `docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md` and is not restated here.*
 
-> **Update 2026-09-29.** The 23 September original is unavailable, and Ian
-> chose not to block on recovering it. The base text is now the dated
-> replacement **`docs/EXPERIMENT7_PROTOCOL.md`** (PROPOSED). That protocol
-> supplies the findings, dimensions, levels and stability bands that §0 and
-> §8 below leave open, and it wins where the two differ. No
-> `EXPERIMENT7_PROTOCOL_AS_ISSUED.md` exists or will be created without the
-> original.
+> **Governing update, 2026-09-29 (later).**
+> * Ian supplied the substantive as-issued Sept 23 text, now in
+>   `docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md`.
+> * He also supplied the same-day Sept 23 classification revision, now in
+>   `docs/EXPERIMENT7_SEPT23_FINALIZATION.md`.
+> * §13 below records his governing decisions. **Where §13 conflicts with
+>   §§0–12, §13 wins.** That covers:
+>   * §0: the as-issued text is no longer missing;
+>   * §2: F1–F3 and F5 are carried;
+>   * §3: the X stage is now dimension-local;
+>   * §7/§8: bands and levels.
+> * The consolidated view is `docs/EXPERIMENT7_PROTOCOL.md`.
 
 **Status: NOT IN FORCE. Nothing here authorizes production compute.** It comes
 into force when the gates in §10 pass and `outputs/exp7/EXP7_CONTRACT.json` is
@@ -548,3 +553,88 @@ Neither bound covers a closure that needs more than 2 passes (the ceiling is
    chain. What it gives up is transfers between unrelated dimensions (e.g. a
    λ-level plan offered to a period-tilt level). Whether that loss is
    acceptable is a scientific choice, and it is Ian's.
+
+
+---
+
+## 13. Governing decisions of 2026-09-29 (supersede conflicting text above)
+
+**13.1 Provenance.** There was no single 23 September document containing
+the as-issued matrix, the final magnitude bands and A8. The records are kept
+apart:
+
+* the as-issued section: `EXPERIMENT7_PROTOCOL_AS_ISSUED.md`;
+* the same-day classification revision:
+  `EXPERIMENT7_SEPT23_FINALIZATION.md`;
+* this amendment.
+
+The as-issued F4 and F6, the COTA-compliant solution, and the rule
+"re-optimize only under the two Class A perturbations that moved F1 and F4
+most" are preserved as history. They are superseded here only where D39
+requires it (§13.6).
+
+**13.2 Findings.**
+
+* F1, F2, F3 and F5 are the as-issued findings. They are subject to the
+  firewall and classification machinery.
+* F1 is reported in the solver's actual resource terminology.
+* F5 keeps Exp 5's terminal `EXP5_MONOTONICITY_FAILURE` and basin
+  dependence.
+* F4, F6 and AF1 are defined as in §§1–2.
+
+**13.3 Classification** (replaces §2's `magnitude_stable` factor-of-two and
+any other band wording):
+
+* **Sign robustness:** `SIGN_ROBUST` / `SIGN_SENSITIVE`.
+* **Magnitude:** Highly stable (≤ 10%), Stable (≤ 25%), Moderately
+  sensitive (≤ 50%), Highly sensitive (> 50%). Descriptive only.
+* **`MAGNITUDE_RATIO_UNINFORMATIVE`:** emitted when the absolute BASE effect
+  is ≤ τ = 1e-9, with absolute movement reported instead.
+* **Separate descriptors, never labels:** operational fragility, policy
+  conflict, model dependence.
+* Implemented as `exp7_classify.sign_robustness`, `magnitude_band` and
+  `worst_magnitude`.
+
+**13.4 Operational amendments.** These are chosen on 29 Sep. They are never
+described as Sept 23 values.
+
+* **A8:**
+  * `A8_ZERO150` (zero_min 150);
+  * `A8_FLOOR0` (floor 0.00);
+  * full_min stays 60, so robustness to full_min is not tested.
+* **A4:** `A4_WAIT375` and `A4_WAIT500` (schedule_coefficient 0.375 and
+  0.50) were operationalized as instructed. They are **marked
+  UNIMPLEMENTED** under the instruction's own condition:
+  * the coefficient changes wait only for effective headways above 12 min;
+  * the production path has no headway-variance term;
+  * so it does not represent a headway-variance penalty, which acts mainly on
+    frequent random-arrival service.
+
+  **Bound:** no reliability-robustness claim.
+* **As-issued rows needing a numeric operationalization** (each stated in
+  `EXP7_LEVELS.json`):
+  * A1: gravity form and pair support;
+  * A3: the noise distribution and seed; the envelope held fixed;
+  * A6: which walking caps;
+  * A7: the ranking basis and resources left in the envelope.
+
+**13.5 Additional sensitivities (not Sept 23 rows).**
+
+* Kept: `X_TOPK40K` and `X_ROUNDS4`.
+* Dropped: the inert path-width and scenario-count settings, with their
+  bound.
+* Not included: period tilt, with its bound.
+* Class B common-lines is a model-disagreement level (`B1_COMMONLINES`).
+* The jobs-accessibility objective is untested: it would need src changes.
+
+**13.6 X-stage sharing.** Dimension-local all-pairs, with one canonical BASE
+in every dimension group and no edge between non-BASE levels of different
+dimensions (implemented and tested; see `docs/EXPERIMENT7_PROTOCOL.md` §4).
+
+* A plan crosses dimensions only by first becoming the certified BASE
+  incumbent (improving it by more than ε).
+* Global passes repeat until no improvement anywhere.
+* Unchanged: ceiling 8, ε, dedup, resume, refusals, blocking.
+
+**13.7 Open.** Which levels get re-optimization versus fixed-solution
+evaluation (`docs/EXPERIMENT7_PROTOCOL.md` §6).

@@ -50,6 +50,7 @@ def evaluate(net, ts, st, lv, plan_keyed, cons):
                   allow_off=True)
     t0 = time.time()
     try:
+      with L.weights_patch(lv):
         r = E3.solve_on_network(net, ts, constraints=cons, solver="exact",
                                 exact_max_combinations=10,
                                 ladder_override={k: [v] for k, v in
@@ -76,10 +77,11 @@ def reach(a) -> int:
     levels = [L.BASE] + [L.from_payload(p) for p in
                          json.loads((ROOT / a.level_file).read_text())["levels"]]
     st = CC.boot()
-    net, ts, ident = CC.build_network(a.network, st)
+    net0, ts0, ident0 = CC.build_network(a.network, st)
     cons = MR.load_base().to_constraints(load_constraints())
     out_p = ROOT / a.out
     out = json.loads(out_p.read_text()) if out_p.exists() else {"rows": {}}
+    ident = ident0
     out.update(schema="exp7_preflight_reach/v1", network=a.network,
                plan_from=a.plan_from, plan_digest=rec["outcome"]["plan_digest"],
                record_objective=rec["outcome"]["objective_EXACT"],
@@ -87,8 +89,16 @@ def reach(a) -> int:
     for lv in levels:
         if lv.name in out["rows"]:
             continue
-        row = {"level": lv.payload(), "level_digest": lv.digest,
-               **evaluate(net, ts, st, lv, plan, cons)}
+        try:
+            net, ts, ident = L.network_for(net0, ts0, ident0, lv, a.network)
+            keys_net = {(pt.route_id) for pt in net.patterns.values()}
+            plan_lv = {k: v for k, v in plan.items() if k[0] in keys_net}
+            ev = evaluate(net, ts, st, lv, plan_lv, cons)
+            if len(plan_lv) != len(plan):
+                ev["plan_restricted_to_remaining_routes"] = len(plan) - len(plan_lv)
+        except Exception as ex:          # recorded, never hidden
+            ev = {"admitted": False, "error": f"{type(ex).__name__}: {ex}"[:400]}
+        row = {"level": lv.payload(), "level_digest": lv.digest, **ev}
         out["rows"][lv.name] = row
         CC.atomic_write_json(out_p, out)
         print(lv.name, row.get("objective"), row.get("seconds"), flush=True)

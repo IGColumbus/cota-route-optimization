@@ -1,0 +1,422 @@
+{
+ "note": "subset of outputs/exp7/EXP7_LEVELS.json for splitting the N4 reach across two lanes",
+ "levels": [
+  {
+   "name": "A1_NC025",
+   "dimension": "A1",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "noncommute_add",
+     {
+      "decay_km": 4.0,
+      "share_of_commute": 0.25,
+      "zone_weight": "workers_plus_jobs"
+     }
+    ]
+   ],
+   "rationale": "A1 as issued: non-commute trips added at 25% of commute volume. Gravity-form operationalization (0929): noncommute_proxy, zone weight workers+jobs, 4 km exponential decay, on the commute OD pair set.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A1_NC050",
+   "dimension": "A1",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "noncommute_add",
+     {
+      "decay_km": 4.0,
+      "share_of_commute": 0.5,
+      "zone_weight": "workers_plus_jobs"
+     }
+    ]
+   ],
+   "rationale": "A1 as issued: non-commute trips added at 50% of commute volume. Gravity-form operationalization (0929): noncommute_proxy, zone weight workers+jobs, 4 km exponential decay, on the commute OD pair set.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A1_NC100",
+   "dimension": "A1",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "noncommute_add",
+     {
+      "decay_km": 4.0,
+      "share_of_commute": 1.0,
+      "zone_weight": "workers_plus_jobs"
+     }
+    ]
+   ],
+   "rationale": "A1 as issued: non-commute trips added at 100% of commute volume. Gravity-form operationalization (0929): noncommute_proxy, zone weight workers+jobs, 4 km exponential decay, on the commute OD pair set.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT01",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 1,
+      "seed": 20260901
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 1 of 20 of the LODES block pairs (seed 20260901); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT02",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 2,
+      "seed": 20260902
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 2 of 20 of the LODES block pairs (seed 20260902); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT03",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 3,
+      "seed": 20260903
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 3 of 20 of the LODES block pairs (seed 20260903); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT04",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 4,
+      "seed": 20260904
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 4 of 20 of the LODES block pairs (seed 20260904); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT05",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 5,
+      "seed": 20260905
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 5 of 20 of the LODES block pairs (seed 20260905); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT06",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 6,
+      "seed": 20260906
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 6 of 20 of the LODES block pairs (seed 20260906); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT07",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 7,
+      "seed": 20260907
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 7 of 20 of the LODES block pairs (seed 20260907); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT08",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 8,
+      "seed": 20260908
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 8 of 20 of the LODES block pairs (seed 20260908); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT09",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 9,
+      "seed": 20260909
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 9 of 20 of the LODES block pairs (seed 20260909); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT10",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 10,
+      "seed": 20260910
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 10 of 20 of the LODES block pairs (seed 20260910); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT11",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 11,
+      "seed": 20260911
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 11 of 20 of the LODES block pairs (seed 20260911); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT12",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 12,
+      "seed": 20260912
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 12 of 20 of the LODES block pairs (seed 20260912); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT13",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 13,
+      "seed": 20260913
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 13 of 20 of the LODES block pairs (seed 20260913); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT14",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 14,
+      "seed": 20260914
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 14 of 20 of the LODES block pairs (seed 20260914); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT15",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 15,
+      "seed": 20260915
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 15 of 20 of the LODES block pairs (seed 20260915); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT16",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 16,
+      "seed": 20260916
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 16 of 20 of the LODES block pairs (seed 20260916); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT17",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 17,
+      "seed": 20260917
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 17 of 20 of the LODES block pairs (seed 20260917); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT18",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 18,
+      "seed": 20260918
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 18 of 20 of the LODES block pairs (seed 20260918); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT19",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 19,
+      "seed": 20260919
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 19 of 20 of the LODES block pairs (seed 20260919); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  },
+  {
+   "name": "A2_BOOT20",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 20,
+      "seed": 20260920
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 20 of 20 of the LODES block pairs (seed 20260920); harness pipeline unchanged.",
+   "provenance": "as_issued_0923"
+  }
+ ]
+}
