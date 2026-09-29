@@ -6,6 +6,14 @@ is kept unchanged as history. It amends Ian's 23 September Exp 7 protocol. That
 text is kept **separately and verbatim** as
 `docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md` and is not restated here.*
 
+> **Update 2026-09-29.** The 23 September original is unavailable, and Ian
+> chose not to block on recovering it. The base text is now the dated
+> replacement **`docs/EXPERIMENT7_PROTOCOL.md`** (PROPOSED). That protocol
+> supplies the findings, dimensions, levels and stability bands that §0 and
+> §8 below leave open, and it wins where the two differ. No
+> `EXPERIMENT7_PROTOCOL_AS_ISSUED.md` exists or will be created without the
+> original.
+
 **Status: NOT IN FORCE. Nothing here authorizes production compute.** It comes
 into force when the gates in §10 pass and `outputs/exp7/EXP7_CONTRACT.json` is
 frozen by `scripts/exp7_freeze.py`.

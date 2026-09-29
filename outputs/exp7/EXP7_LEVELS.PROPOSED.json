@@ -1,0 +1,182 @@
+{
+ "status": "PROPOSED -- not frozen; see docs/EXPERIMENT7_PROTOCOL.md",
+ "levels": [
+  {
+   "name": "LAM_1_5",
+   "dimension": "lambda",
+   "lam": 1.5,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "unserved-trip weight below the certified frontier (lambda>=2); reported as outside it"
+  },
+  {
+   "name": "LAM_4",
+   "dimension": "lambda",
+   "lam": 4.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "unserved-trip weight doubled; inside the certified region"
+  },
+  {
+   "name": "WAIT_PATTERN",
+   "dimension": "waiting_model",
+   "lam": 2.0,
+   "waiting_model": "pattern",
+   "overrides": [],
+   "od": [],
+   "rationale": "common-lines waiting across routes; addresses the documented 12.47% cross-route common-lines omission on N4"
+  },
+  {
+   "name": "RET_STRICT",
+   "dimension": "retention",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.cost_retention_floor",
+     0.05
+    ],
+    [
+     "path_assignment.cost_retention_full_min",
+     45
+    ],
+    [
+     "path_assignment.cost_retention_zero_min",
+     150
+    ]
+   ],
+   "od": [],
+   "rationale": "riders discouraged sooner: whole curve shifted toward stronger loss"
+  },
+  {
+   "name": "RET_LENIENT",
+   "dimension": "retention",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.cost_retention_floor",
+     0.2
+    ],
+    [
+     "path_assignment.cost_retention_full_min",
+     90
+    ],
+    [
+     "path_assignment.cost_retention_zero_min",
+     300
+    ]
+   ],
+   "od": [],
+   "rationale": "riders tolerate longer journeys: whole curve shifted toward weaker loss"
+  },
+  {
+   "name": "PERIODS_FLAT",
+   "dimension": "temporal",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "periods_tilt",
+     {
+      "strength": 0.5,
+      "toward": [
+       "midday",
+       "evening"
+      ]
+     }
+    ]
+   ],
+   "rationale": "Exp 4 plan's periods_flat direction; strength fixed here"
+  },
+  {
+   "name": "PERIODS_PEAKED",
+   "dimension": "temporal",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "periods_tilt",
+     {
+      "strength": 0.5,
+      "toward": [
+       "am_peak",
+       "pm_peak"
+      ]
+     }
+    ]
+   ],
+   "rationale": "Exp 4 plan's periods_peaked direction; strength fixed here"
+  },
+  {
+   "name": "NONCOMMUTE_30",
+   "dimension": "spatial",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "noncommute_blend",
+     {
+      "decay_km": 4.0,
+      "share_b": 0.3,
+      "zone_weight": "workers_plus_jobs"
+     }
+    ]
+   ],
+   "rationale": "Exp 4 plan's noncommute_30 share; stress direction, not an estimate"
+  },
+  {
+   "name": "NONCOMMUTE_50",
+   "dimension": "spatial",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "noncommute_blend",
+     {
+      "decay_km": 4.0,
+      "share_b": 0.5,
+      "zone_weight": "workers_plus_jobs"
+     }
+    ]
+   ],
+   "rationale": "Exp 4 plan's noncommute_50 share; stress direction, not an estimate"
+  },
+  {
+   "name": "TOPK_40K",
+   "dimension": "od_coverage",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "wider_top_k",
+     {
+      "top_k": 40000
+     }
+    ]
+   ],
+   "rationale": "Exp 4 plan's retention_wider_od (top 40,000 pairs); discharges the Exp 4A wider-OD deferral"
+  },
+  {
+   "name": "ROUNDS_4",
+   "dimension": "path_enumeration",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.max_rounds",
+     4
+    ]
+   ],
+   "od": [],
+   "rationale": "one more boarding in path enumeration; the only path-model knob that reaches the evaluator"
+  }
+ ]
+}

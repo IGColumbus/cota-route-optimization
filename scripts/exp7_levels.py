@@ -147,12 +147,21 @@ def _od_transform(H, od, kind: str, p: dict, a: dict):
             float(a["demand_proxy"]["assumed_weekday_linked_trips"]))
     if kind == "noncommute_blend":
         import numpy as np
-        zw = np.asarray(p["zone_weight_array"], float) if "zone_weight_array" \
-            in p else None
-        if zw is None:
-            raise ValueError("noncommute_blend needs its zone-weight and "
-                             "distance parameterization fixed by the protocol")
-        nc = R.noncommute_proxy(od, zw, decay_km=float(p.get("decay_km", 4.0)))
+        # Replacement-protocol parameterization (EXPERIMENT7_PROTOCOL.md):
+        # zone weight = workers + jobs of the harness's own ZoneSystem (an
+        # activity proxy), Euclidean centroid distance in the projected CRS
+        # (metres -> km), exponential decay with the declared scale.
+        if p.get("zone_weight") != "workers_plus_jobs":
+            raise ValueError("noncommute_blend: only zone_weight="
+                             "'workers_plus_jobs' is declared")
+        Z = H.zones
+        zw = np.asarray(Z.workers, float) + np.asarray(Z.jobs, float)
+        x, y = np.asarray(Z.x, float), np.asarray(Z.y, float)
+
+        def km(i, j):
+            return float(np.hypot(x[i] - x[j], y[i] - y[j])) / 1000.0
+        nc = R.noncommute_proxy(od, zw, decay_km=float(p["decay_km"]),
+                                distance=km)
         return R.blend(od, nc, float(p["share_b"]))
     raise ValueError(kind)
 

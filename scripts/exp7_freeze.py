@@ -6,8 +6,10 @@
 Writes outputs/exp7/EXP7_CONTRACT.json (or EXP7_CONTRACT.DRAFT.json with
 --draft). A non-draft freeze REFUSES unless every readiness gate passes:
 
-  G1  docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md exists (Ian's text, verbatim)
+  G1  docs/EXPERIMENT7_PROTOCOL.md (dated replacement; the Sept 23 original
+      is unavailable) carries "Status: APPROVED"
   G2  docs/EXPERIMENT7_AMENDMENT.md exists and names every level in the file
+      (the protocol's level table is copied into it at approval)
   G3  BASE reproduction canaries reproduced Exp 6 bit-exactly
   G4  every non-BASE level REACHES the evaluator (preflight reach, N0 and N3;
       N4 for F4 levels)
@@ -110,14 +112,19 @@ def estimate(n_levels: int, n_policies: int = 14, lanes: int = 2,
 
 def gates(levels, lvfile) -> dict:
     g = {}
-    g["G1_as_issued_text"] = (ROOT / "docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md").exists()
+    # The Sept 23 original is unavailable (docs/EXPERIMENT7_PROTOCOL.md §0);
+    # the governing text is the dated replacement, which must be APPROVED.
+    proto = ROOT / "docs/EXPERIMENT7_PROTOCOL.md"
+    g["G1_protocol_approved"] = proto.exists() and any(
+        ln.startswith("**Status: APPROVED") or ln.startswith("Status: APPROVED")
+        for ln in proto.read_text().splitlines())
     am = ROOT / "docs/EXPERIMENT7_AMENDMENT.md"
     g["G2_amendment_names_levels"] = am.exists() and len(levels) > 1 and all(
         lv.name in am.read_text() for lv in levels)
     br = PRE / "base_repro" / "BASE_REPRO_VERDICT.json"
     g["G3_base_reproduction"] = br.exists() and json.loads(br.read_text())["passed"]
     ok = True
-    for n in ("N0", "N3"):
+    for n in ("N0", "N3", "N4"):
         p = PRE / f"reach_matrix_{n}.json"
         ok &= p.exists() and json.loads(p.read_text()).get("passed", False)
     g["G4_level_reach"] = ok
@@ -153,7 +160,7 @@ def main() -> int:
     con = {
         "artifact": "EXP7_CONTRACT", "version": "7.0",
         "frozen": not a.draft,
-        "protocol": "docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md",
+        "protocol": "docs/EXPERIMENT7_PROTOCOL.md",
         "amendment": "docs/EXPERIMENT7_AMENDMENT.md",
         "level_file": a.levels,
         "levels": [{**lv.payload(), "digest": lv.digest} for lv in levels],
@@ -203,3 +210,43 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+def estimate_dims(dim_sizes: list[int], n_policies: int = 14, lanes: int = 2,
+                  f6_within_ran_per_level: float = 22.5,
+                  second_pass: float = 0.25, scope: str = "dimension") -> dict:
+    """Estimate for a matrix of dimensions (each with k non-BASE levels).
+
+    scope="dimension": the X stage runs all-pairs among {BASE} + that
+    dimension's levels, per dimension (BASE shared by every dimension).
+    scope="all": all-pairs among every level.
+    Same throughput and RAN assumptions as `estimate` (every pass-1 X
+    candidate RAN, plus a `second_pass` share; W stage as Exp 6).
+    """
+    new = sum(dim_sizes)
+    if scope == "dimension":
+        pairs = sum((k + 1) * k for k in dim_sizes)
+    else:
+        L_ = new + 1
+        pairs = L_ * (L_ - 1)
+    s_mean = (SEC["N0"] + SEC["N3"]) / 2
+    f6_init = new * 2 * (n_policies - 0.5)
+    f6_w = new * 2 * f6_within_ran_per_level
+    f6_x = 2 * n_policies * pairs * (1 + second_pass)
+    f4_init = {"N0": new, "N3": new, "N4": new}
+    f4_x = {n: pairs * (1 + second_pass) for n in ("N0", "N3", "N4")}
+    sent = 4
+    cpu_f6 = (f6_init + f6_w + f6_x + sent) * s_mean
+    cpu_f4 = sum((f4_init[n] + f4_x[n]) * SEC[n] for n in f4_init)
+    return {"scope": scope, "new_levels": new, "x_pairs": pairs,
+            "certifications": {"f6_initial": round(f6_init), "f6_W": round(f6_w),
+                               "f6_X": round(f6_x),
+                               "f4_initial": sum(f4_init.values()),
+                               "f4_X": round(sum(f4_x.values())),
+                               "sentinels": sent},
+            "total_certifications": round(f6_init + f6_w + f6_x + sent
+                                          + sum(f4_init.values())
+                                          + sum(f4_x.values())),
+            "wall_hours_f6": round(cpu_f6 / 3600 / lanes, 1),
+            "wall_hours_f4": round(cpu_f4 / 3600 / lanes, 1),
+            "wall_hours_total": round((cpu_f6 + cpu_f4) / 3600 / lanes, 1)}

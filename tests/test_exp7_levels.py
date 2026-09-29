@@ -6,6 +6,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "scripts"))
 
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 import exp7_levels as L  # noqa: E402
 
 
@@ -40,3 +41,36 @@ def test_undeclared_and_harness_build_knobs_refused():
         L.level("x", "d", od=[("reweight_everything", {})])
     with pytest.raises(ValueError):
         L.level("x", "d", waiting_model="magic")
+
+
+def test_noncommute_requires_declared_parameterization():
+    import numpy as np
+
+    class Z:
+        workers = np.array([1.0, 2.0, 3.0])
+        jobs = np.array([3.0, 2.0, 1.0])
+        x = np.array([0.0, 1000.0, 2000.0])
+        y = np.zeros(3)
+
+    class OD:
+        def __init__(self):
+            self.origin = np.array([0, 1, 2, 0])
+            self.dest = np.array([1, 2, 0, 2])
+            self.flow = np.array([1.0, 2.0, 3.0, 4.0])
+            self.source, self.notes = "t", ""
+
+        def __len__(self):
+            return 4
+
+    class H:
+        zones = Z()
+    from cota_opt.odmatrix import ODTable
+    od = ODTable(np.array([0, 1, 2, 0]), np.array([1, 2, 0, 2]),
+                 np.array([1.0, 2.0, 3.0, 4.0]), "t", "")
+    with pytest.raises(ValueError):
+        L._od_transform(H, od, "noncommute_blend", {"share_b": 0.3}, {})
+    out = L._od_transform(H, od, "noncommute_blend",
+                          {"share_b": 0.3, "decay_km": 4.0,
+                           "zone_weight": "workers_plus_jobs"}, {})
+    assert abs(out.flow.sum() - od.flow.sum()) < 1e-9
+    assert not np.allclose(out.flow, od.flow)
