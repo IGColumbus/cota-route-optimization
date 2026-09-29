@@ -1,0 +1,154 @@
+{
+ "schema": "exp7_stage1_cell/v1",
+ "variant": "N0S",
+ "level": {
+  "name": "A2_BOOT16",
+  "dimension": "A2",
+  "lam": 2.0,
+  "waiting_model": "same_route",
+  "overrides": [],
+  "od": [
+   [
+    "bootstrap_lodes",
+    {
+     "draw": 16,
+     "seed": 20260916
+    }
+   ]
+  ],
+  "rationale": "A2 as issued: bootstrap draw 16 of 20 of the LODES block pairs (seed 20260916); harness pipeline unchanged.",
+  "provenance": "as_issued_0923"
+ },
+ "level_digest": "9b3e6eda1664f20f",
+ "identity": {
+  "state_key": "exp2b|splice-011-034-WESHIGW#2c53c24a4f24",
+  "state_digest": "159a0c775b9fcc66",
+  "cardinality": 1,
+  "members": [
+   "splice-011-034-WESHIGW#2c53c24a4f24"
+  ],
+  "construction": "geometry.apply_edits(H.baseline, [edit_from_record(pool[splice-011-034])])",
+  "network_label": "N0 + Exp 2B splice 011+034 at WESHIGW"
+ },
+ "lam": 2.0,
+ "waiting_model": "same_route",
+ "w_unserved": 60.0,
+ "build_solution": "F2_SPLICE_20260825",
+ "internal_consistency_build_plan_equals_solve": true,
+ "evaluator_checks": {
+  "gtfs_scheduled_revenue_veh_hours": 2516.233333333333,
+  "model_baseline_revenue_veh_hours": 2516.2333333333336,
+  "vh_relative_error": 1.80725429896458e-16,
+  "n_route_periods": 167,
+  "periods_modelled": [
+   "early",
+   "am_peak",
+   "midday",
+   "pm_peak",
+   "evening",
+   "owl"
+  ],
+  "od_pairs": 20000,
+  "od_total_trips": 30949.0,
+  "od_source": "LODES bootstrap draw 16 (seed 20260916)",
+  "baseline_generalized_cost": 1785145.7563415584,
+  "baseline_unserved_demand": 10564.875364135789,
+  "baseline_served_demand": 20384.124635864206,
+  "baseline_gc_per_served_trip": 87.5752963755304,
+  "total_paths": 150653,
+  "locked_route_periods": 28,
+  "locked_routes": [
+   "041",
+   "042",
+   "043",
+   "044",
+   "045",
+   "046",
+   "051",
+   "052",
+   "061",
+   "071",
+   "072",
+   "073",
+   "074",
+   "075"
+  ],
+  "with_crowding": false,
+  "common_lines": "same_route",
+  "common_lines_source": "explicit",
+  "allow_off": true
+ },
+ "pathset_total_paths": 150653,
+ "rows": {
+  "F2_SPLICE_20260825": {
+   "objective": 2991169.2071133354,
+   "generalized_cost": 1802958.696822845,
+   "unserved_demand": 9901.754252420753,
+   "served_demand": 21047.245747579247,
+   "gc_per_served_trip": 85.66245286655678,
+   "revenue_veh_hours": 2514.3822760235607,
+   "peak_vehicles": 176.29287268510072,
+   "peak_by_period": {
+    "early": 85.14806186868682,
+    "am_peak": 161.89858648451653,
+    "midday": 159.15471343235458,
+    "pm_peak": 176.29287268510072,
+    "evening": 140.07724014673943,
+    "owl": 35.31697916663067
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_SPLICE_20260826": {
+   "objective": 2991169.2071133354,
+   "generalized_cost": 1802958.696822845,
+   "unserved_demand": 9901.754252420753,
+   "served_demand": 21047.245747579247,
+   "gc_per_served_trip": 85.66245286655678,
+   "revenue_veh_hours": 2514.3822760235607,
+   "peak_vehicles": 176.29287268510072,
+   "peak_by_period": {
+    "early": 85.14806186868682,
+    "am_peak": 161.89858648451653,
+    "midday": 159.15471343235458,
+    "pm_peak": 176.29287268510072,
+    "evening": 140.07724014673943,
+    "owl": 35.31697916663067
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_SPLICE_20260827": {
+   "objective": 2991169.2071133354,
+   "generalized_cost": 1802958.696822845,
+   "unserved_demand": 9901.754252420753,
+   "served_demand": 21047.245747579247,
+   "gc_per_served_trip": 85.66245286655678,
+   "revenue_veh_hours": 2514.3822760235607,
+   "peak_vehicles": 176.29287268510072,
+   "peak_by_period": {
+    "early": 85.14806186868682,
+    "am_peak": 161.89858648451653,
+    "midday": 159.15471343235458,
+    "pm_peak": 176.29287268510072,
+    "evening": 140.07724014673943,
+    "owl": 35.31697916663067
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  }
+ },
+ "n_rows": 3,
+ "n_errors": 0,
+ "registry_sha256": "28c607a27aedf7c544ec83bf2eb1cb8ac95ab518a57ebb16945b6717fc940746",
+ "provenance": {
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "runner_sha256": {
+   "exp7_stage1.py": "3024e849a5f8015d",
+   "exp7_levels.py": "27a45f94661e9b3e"
+  },
+  "levels_file_sha256": "112690806d22647eaebeda2c3b21fe59a7ada69117c9f5a15f529fd23d381333"
+ },
+ "seconds": 293.3,
+ "written_utc": "2026-09-29T20:04:07Z"
+}
