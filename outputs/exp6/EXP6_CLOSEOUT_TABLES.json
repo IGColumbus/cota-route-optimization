@@ -1,0 +1,1590 @@
+{
+  "source_root": "/home/claude/columbus-transit-opt",
+  "analysis_sha256": "b96aca0d719964724227607a7f43e3367cddab0895a13392e0c64f4353ac4391",
+  "analysis_status": "EXP6_POLICY_FRONTIER_CERTIFIED",
+  "cells": [
+    {
+      "network": "N0",
+      "cell": "REF",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N0_REF__from_R2_S25__aed848588abad24d.json",
+      "initial_objective": 2945632.2349138106,
+      "final_objective": 2941892.371426373,
+      "initial_to_final_pct": -0.12696301470055246,
+      "initial_plan": "c4591ff0f6e2d8ad",
+      "final_plan": "aed848588abad24d",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R2_S25",
+      "greedy_cost": 0.0,
+      "greedy_cost_pct": 0.0,
+      "closed_cost": 0.0,
+      "closed_cost_pct": 0.0,
+      "basin_contamination": 0.0,
+      "served_initial": 16527.423651710982,
+      "served_final": 21143.69720673002,
+      "unserved_final": 9805.302793269986,
+      "gc_final": 1765256.0362339746,
+      "gc_initial": 1215043.0731191286,
+      "gc_per_served_final": 83.48852232295945,
+      "n_off_initial": 50,
+      "n_off_final": 15,
+      "n_baseline_on_now_off": 15,
+      "hours_used": 2515.678063539719,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": null,
+      "rounds_initial": 1,
+      "rounds_final": 1
+    },
+    {
+      "network": "N0",
+      "cell": "R1_H60",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/initial/N0_R1_H60.json",
+      "initial_objective": 2956071.2947759135,
+      "final_objective": 2956071.2947759135,
+      "initial_to_final_pct": 0.0,
+      "initial_plan": "859272a34d3d7e7d",
+      "final_plan": "859272a34d3d7e7d",
+      "winning_basin": "greedy",
+      "anchor_source_cell": null,
+      "greedy_cost": 10439.059862102848,
+      "greedy_cost_pct": 0.35439114694534485,
+      "closed_cost": 14178.92334954068,
+      "closed_cost_pct": 0.48196608031129456,
+      "basin_contamination": -3739.863487437833,
+      "served_initial": 21208.4610965757,
+      "served_final": 21208.4610965757,
+      "unserved_final": 9740.538903424305,
+      "gc_final": 1787206.6263649971,
+      "gc_initial": 1787206.6263649971,
+      "gc_per_served_final": 84.26856706984545,
+      "n_off_initial": 0,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2515.768259086433,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 0,
+        "r1_over_cap": 0
+      },
+      "rounds_initial": 2,
+      "rounds_final": 2
+    },
+    {
+      "network": "N0",
+      "cell": "R1_H30",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/initial/N0_R1_H30.json",
+      "initial_objective": 2958795.1254437594,
+      "final_objective": 2958795.1254437594,
+      "initial_to_final_pct": 0.0,
+      "initial_plan": "60f0b38cfeeea459",
+      "final_plan": "60f0b38cfeeea459",
+      "winning_basin": "greedy",
+      "anchor_source_cell": null,
+      "greedy_cost": 13162.890529948752,
+      "greedy_cost_pct": 0.4468613010793555,
+      "closed_cost": 16902.754017386585,
+      "closed_cost_pct": 0.5745537865884368,
+      "basin_contamination": -3739.863487437833,
+      "served_initial": 21183.61113640647,
+      "served_final": 21183.61113640647,
+      "unserved_final": 9765.388863593533,
+      "gc_final": 1786948.4618125358,
+      "gc_initial": 1786948.4618125358,
+      "gc_per_served_final": 84.3552334068982,
+      "n_off_initial": 0,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2515.0202919839494,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": true
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 0,
+        "r1_over_cap": 0
+      },
+      "rounds_initial": 1,
+      "rounds_final": 1
+    },
+    {
+      "network": "N0",
+      "cell": "R1_H20",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/initial/N0_R1_H20.json",
+      "initial_objective": 2968717.0781066534,
+      "final_objective": 2968717.0781066534,
+      "initial_to_final_pct": 0.0,
+      "initial_plan": "f631e3af54d09026",
+      "final_plan": "f631e3af54d09026",
+      "winning_basin": "greedy",
+      "anchor_source_cell": null,
+      "greedy_cost": 23084.84319284279,
+      "greedy_cost_pct": 0.7836973984472387,
+      "closed_cost": 26824.706680280622,
+      "closed_cost_pct": 0.9118180848769357,
+      "basin_contamination": -3739.863487437833,
+      "served_initial": 21094.413757389328,
+      "served_final": 21094.413757389328,
+      "unserved_final": 9854.586242610676,
+      "gc_final": 1786166.7289933723,
+      "gc_initial": 1786166.7289933723,
+      "gc_per_served_final": 84.67486935339372,
+      "n_off_initial": 0,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2512.913832760206,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": true,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": true
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 0,
+        "r1_over_cap": 0
+      },
+      "rounds_initial": 1,
+      "rounds_final": 1
+    },
+    {
+      "network": "N0",
+      "cell": "R2_S25",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N0_R2_S25__from_R2_S10__2d28790ca3efef6e.json",
+      "initial_objective": 2942231.967139845,
+      "final_objective": 2941892.371426373,
+      "initial_to_final_pct": -0.01154211215379174,
+      "initial_plan": "8f61179b6e4d5831",
+      "final_plan": "aed848588abad24d",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R2_S10",
+      "greedy_cost": -3400.2677739658393,
+      "greedy_cost_pct": -0.11543422609460041,
+      "closed_cost": 0.0,
+      "closed_cost_pct": 0.0,
+      "basin_contamination": -3400.2677739658393,
+      "served_initial": 18394.69355688197,
+      "served_final": 21143.69720673002,
+      "unserved_final": 9805.302793269986,
+      "gc_final": 1765256.0362339746,
+      "gc_initial": 1435715.1939656814,
+      "gc_per_served_final": 83.48852232295945,
+      "n_off_initial": 39,
+      "n_off_final": 15,
+      "n_baseline_on_now_off": 15,
+      "hours_used": 2515.678063539719,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 15,
+        "n_baseline_stop_periods": 0
+      },
+      "rounds_initial": 1,
+      "rounds_final": 2
+    },
+    {
+      "network": "N0",
+      "cell": "R2_S10",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N0_R2_S10__from_R2_S25__aed848588abad24d.json",
+      "initial_objective": 2949292.57104456,
+      "final_objective": 2941892.371426373,
+      "initial_to_final_pct": -0.25091439522957587,
+      "initial_plan": "a928acb38df54e14",
+      "final_plan": "aed848588abad24d",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R2_S25",
+      "greedy_cost": 3660.3361307494342,
+      "greedy_cost_pct": 0.12426317472237114,
+      "closed_cost": 0.0,
+      "closed_cost_pct": 0.0,
+      "basin_contamination": 3660.3361307494342,
+      "served_initial": 20302.962180793154,
+      "served_final": 21143.69720673002,
+      "unserved_final": 9805.302793269986,
+      "gc_final": 1765256.0362339746,
+      "gc_initial": 1671768.0327397382,
+      "gc_per_served_final": 83.48852232295945,
+      "n_off_initial": 17,
+      "n_off_final": 15,
+      "n_baseline_on_now_off": 15,
+      "hours_used": 2515.678063539719,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 15,
+        "n_baseline_stop_periods": 0
+      },
+      "rounds_initial": 1,
+      "rounds_final": 1
+    },
+    {
+      "network": "N0",
+      "cell": "R2_S05",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/initial/N0_R2_S05.json",
+      "initial_objective": 2948128.7679281253,
+      "final_objective": 2948128.7679281253,
+      "initial_to_final_pct": 0.0,
+      "initial_plan": "2f72d1b9840d45d4",
+      "final_plan": "2f72d1b9840d45d4",
+      "winning_basin": "greedy",
+      "anchor_source_cell": null,
+      "greedy_cost": 2496.533014314715,
+      "greedy_cost_pct": 0.08475372399595442,
+      "closed_cost": 6236.396501752548,
+      "closed_cost_pct": 0.21198588236349514,
+      "basin_contamination": -3739.863487437833,
+      "served_initial": 21140.082563244952,
+      "served_final": 21140.082563244952,
+      "unserved_final": 9808.917436755053,
+      "gc_final": 1771058.6755175192,
+      "gc_initial": 1771058.6755175192,
+      "gc_per_served_final": 83.77728280951737,
+      "n_off_initial": 8,
+      "n_off_final": 8,
+      "n_baseline_on_now_off": 8,
+      "hours_used": 2515.309477681211,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 8,
+        "n_baseline_stop_periods": 0
+      },
+      "rounds_initial": 2,
+      "rounds_final": 2
+    },
+    {
+      "network": "N0",
+      "cell": "R3_SPAN",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N0_R3_SPAN__from_B1__859272a34d3d7e7d.json",
+      "initial_objective": 2961387.5034942282,
+      "final_objective": 2956071.2947759135,
+      "initial_to_final_pct": -0.1795174968504465,
+      "initial_plan": "300ca438da01200d",
+      "final_plan": "859272a34d3d7e7d",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "B1",
+      "greedy_cost": 15755.268580417614,
+      "greedy_cost_pct": 0.534868826925321,
+      "closed_cost": 14178.92334954068,
+      "closed_cost_pct": 0.48196608031129456,
+      "basin_contamination": 1576.3452308769338,
+      "served_initial": 17057.797020212925,
+      "served_final": 21208.4610965757,
+      "unserved_final": 9740.538903424305,
+      "gc_final": 1787206.6263649971,
+      "gc_initial": 1294443.1459197788,
+      "gc_per_served_final": 84.26856706984545,
+      "n_off_initial": 25,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2515.768259086433,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 0,
+        "r3_span_off": 0
+      },
+      "rounds_initial": 5,
+      "rounds_final": 1
+    },
+    {
+      "network": "N0",
+      "cell": "R4_C05",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N0_R4_C05__from_R4_C01__b1de91e0d533ea1d.json",
+      "initial_objective": 2954931.6584397713,
+      "final_objective": 2949074.5026453477,
+      "initial_to_final_pct": -0.198216286244541,
+      "initial_plan": "28590b3beb79c844",
+      "final_plan": "a9a538d8a83ab52f",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R4_C01",
+      "greedy_cost": 9299.42352596065,
+      "greedy_cost_pct": 0.3157021238339603,
+      "closed_cost": 7182.131218974944,
+      "closed_cost_pct": 0.24413303792934807,
+      "basin_contamination": 2117.292306985706,
+      "served_initial": 19556.28018632289,
+      "served_final": 20501.154923858896,
+      "unserved_final": 10447.84507614111,
+      "gc_final": 1695333.0935084147,
+      "gc_initial": 1587805.280798517,
+      "gc_per_served_final": 82.6945164701631,
+      "n_off_initial": 22,
+      "n_off_final": 14,
+      "n_baseline_on_now_off": 14,
+      "hours_used": 2516.583058218321,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 14,
+        "n_baseline_stop_periods": 16855,
+        "r4_lost_stop_periods": 838
+      },
+      "rounds_initial": 2,
+      "rounds_final": 3
+    },
+    {
+      "network": "N0",
+      "cell": "R4_C01",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/initial/N0_R4_C01.json",
+      "initial_objective": 2954482.0004912065,
+      "final_objective": 2954482.0004912065,
+      "initial_to_final_pct": 0.0,
+      "initial_plan": "b1de91e0d533ea1d",
+      "final_plan": "b1de91e0d533ea1d",
+      "winning_basin": "greedy",
+      "anchor_source_cell": null,
+      "greedy_cost": 8849.765577395912,
+      "greedy_cost_pct": 0.3004368798148645,
+      "closed_cost": 12589.629064833745,
+      "closed_cost_pct": 0.4279432241339842,
+      "basin_contamination": -3739.863487437833,
+      "served_initial": 20545.771658981565,
+      "served_final": 20545.771658981565,
+      "unserved_final": 10403.22834101844,
+      "gc_final": 1706094.5995689938,
+      "gc_initial": 1706094.5995689938,
+      "gc_per_served_final": 83.03872095371878,
+      "n_off_initial": 9,
+      "n_off_final": 9,
+      "n_baseline_on_now_off": 9,
+      "hours_used": 2516.5947248850725,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 9,
+        "n_baseline_stop_periods": 16855,
+        "r4_lost_stop_periods": 151
+      },
+      "rounds_initial": 2,
+      "rounds_final": 2
+    },
+    {
+      "network": "N0",
+      "cell": "R4_C00",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N0_R4_C00__from_R1_H60__859272a34d3d7e7d.json",
+      "initial_objective": 2956115.3930336195,
+      "final_objective": 2956071.2947759135,
+      "initial_to_final_pct": -0.001491763745419305,
+      "initial_plan": "bf0dbf0cf28fde1c",
+      "final_plan": "859272a34d3d7e7d",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R1_H60",
+      "greedy_cost": 10483.158119808882,
+      "greedy_cost_pct": 0.35588821970219986,
+      "closed_cost": 14178.92334954068,
+      "closed_cost_pct": 0.48196608031129456,
+      "basin_contamination": -3695.765229731798,
+      "served_initial": 21204.56465289593,
+      "served_final": 21208.4610965757,
+      "unserved_final": 9740.538903424305,
+      "gc_final": 1787206.6263649971,
+      "gc_initial": 1786783.1513811303,
+      "gc_per_served_final": 84.26856706984545,
+      "n_off_initial": 0,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2515.768259086433,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 16855,
+        "r4_lost_stop_periods": 0
+      },
+      "rounds_initial": 2,
+      "rounds_final": 1
+    },
+    {
+      "network": "N0",
+      "cell": "R6_ADA",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N0_R6_ADA__from_R4_C00__859272a34d3d7e7d.json",
+      "initial_objective": 2954998.1050359528,
+      "final_objective": 2954847.7300574416,
+      "initial_to_final_pct": -0.005088835023442392,
+      "initial_plan": "7a9923f6d7438021",
+      "final_plan": "b517f6731e99c4d3",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R4_C00",
+      "greedy_cost": 9365.870122142136,
+      "greedy_cost_pct": 0.31795789070783925,
+      "closed_cost": 12955.35863106884,
+      "closed_cost_pct": 0.44037500341276764,
+      "basin_contamination": -3589.4885089267045,
+      "served_initial": 20014.951702685783,
+      "served_final": 21197.935497905575,
+      "unserved_final": 9751.06450209443,
+      "gc_final": 1784719.9898061103,
+      "gc_initial": 1642912.309358246,
+      "gc_per_served_final": 84.19310408706765,
+      "n_off_initial": 16,
+      "n_off_final": 2,
+      "n_baseline_on_now_off": 2,
+      "hours_used": 2514.8349257530235,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 2,
+        "n_baseline_stop_periods": 16855,
+        "r6_uncovered_stop_periods": 0
+      },
+      "rounds_initial": 2,
+      "rounds_final": 4
+    },
+    {
+      "network": "N0",
+      "cell": "B1",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N0_B1__from_R1_H60__859272a34d3d7e7d.json",
+      "initial_objective": 2959465.8168958137,
+      "final_objective": 2956071.2947759135,
+      "initial_to_final_pct": -0.11470050103368752,
+      "initial_plan": "79878cacd593ab06",
+      "final_plan": "859272a34d3d7e7d",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R1_H60",
+      "greedy_cost": 13833.58198200306,
+      "greedy_cost_pct": 0.4696303163048401,
+      "closed_cost": 14178.92334954068,
+      "closed_cost_pct": 0.48196608031129456,
+      "basin_contamination": -345.3413675376214,
+      "served_initial": 20168.90292929715,
+      "served_final": 21208.4610965757,
+      "unserved_final": 9740.538903424305,
+      "gc_final": 1787206.6263649971,
+      "gc_initial": 1665854.1684114712,
+      "gc_per_served_final": 84.26856706984545,
+      "n_off_initial": 7,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2515.768259086433,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 16855,
+        "r3_span_off": 0,
+        "r6_uncovered_stop_periods": 0
+      },
+      "rounds_initial": 2,
+      "rounds_final": 1
+    },
+    {
+      "network": "N0",
+      "cell": "B2",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N0_B2__from_R1_H60__859272a34d3d7e7d.json",
+      "initial_objective": 2956692.06409274,
+      "final_objective": 2956071.2947759135,
+      "initial_to_final_pct": -0.020995399702436184,
+      "initial_plan": "5deb5a8bd7d8763f",
+      "final_plan": "859272a34d3d7e7d",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R1_H60",
+      "greedy_cost": 11059.829178929329,
+      "greedy_cost_pct": 0.37546537710444833,
+      "closed_cost": 14178.92334954068,
+      "closed_cost_pct": 0.48196608031129456,
+      "basin_contamination": -3119.0941706113517,
+      "served_initial": 20521.379392978968,
+      "served_final": 21208.4610965757,
+      "unserved_final": 9740.538903424305,
+      "gc_final": 1787206.6263649971,
+      "gc_initial": 1705377.5912502157,
+      "gc_per_served_final": 84.26856706984545,
+      "n_off_initial": 6,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2515.768259086433,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 16855,
+        "r3_span_off": 0,
+        "r4_lost_stop_periods": 0
+      },
+      "rounds_initial": 2,
+      "rounds_final": 1
+    },
+    {
+      "network": "N3",
+      "cell": "REF",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N3_REF__from_R2_S25__fdec5c5475c73736.json",
+      "initial_objective": 2939912.5807124916,
+      "final_objective": 2935166.0254381876,
+      "initial_to_final_pct": -0.16145225900403026,
+      "initial_plan": "28135d0fa655e6e1",
+      "final_plan": "fdec5c5475c73736",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R2_S25",
+      "greedy_cost": 0.0,
+      "greedy_cost_pct": 0.0,
+      "closed_cost": 0.0,
+      "closed_cost_pct": 0.0,
+      "basin_contamination": 0.0,
+      "served_initial": 16433.732796105443,
+      "served_final": 21104.059416040294,
+      "unserved_final": 9844.94058395971,
+      "gc_final": 1753773.1553630226,
+      "gc_initial": 1198080.5162451442,
+      "gc_per_served_final": 83.10122336132424,
+      "n_off_initial": 54,
+      "n_off_final": 17,
+      "n_baseline_on_now_off": 17,
+      "hours_used": 2516.373410297668,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": null,
+      "rounds_initial": 1,
+      "rounds_final": 1
+    },
+    {
+      "network": "N3",
+      "cell": "R1_H60",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/initial/N3_R1_H60.json",
+      "initial_objective": 2950532.5669298135,
+      "final_objective": 2950532.5669298135,
+      "initial_to_final_pct": 0.0,
+      "initial_plan": "591eebe7630410f2",
+      "final_plan": "591eebe7630410f2",
+      "winning_basin": "greedy",
+      "anchor_source_cell": null,
+      "greedy_cost": 10619.986217321828,
+      "greedy_cost_pct": 0.3612347621148674,
+      "closed_cost": 15366.54149162583,
+      "closed_cost_pct": 0.5235322758047998,
+      "basin_contamination": -4746.5552743040025,
+      "served_initial": 21234.46531750442,
+      "served_final": 21234.46531750442,
+      "unserved_final": 9714.534682495585,
+      "gc_final": 1784788.4050303434,
+      "gc_initial": 1784788.4050303434,
+      "gc_per_served_final": 84.05148791568917,
+      "n_off_initial": 0,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2515.761224521931,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 0,
+        "r1_over_cap": 0
+      },
+      "rounds_initial": 2,
+      "rounds_final": 2
+    },
+    {
+      "network": "N3",
+      "cell": "R1_H30",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/initial/N3_R1_H30.json",
+      "initial_objective": 2953789.4868896715,
+      "final_objective": 2953789.4868896715,
+      "initial_to_final_pct": 0.0,
+      "initial_plan": "d5f131ff9dd2bf24",
+      "final_plan": "d5f131ff9dd2bf24",
+      "winning_basin": "greedy",
+      "anchor_source_cell": null,
+      "greedy_cost": 13876.906177179888,
+      "greedy_cost_pct": 0.47201764665454105,
+      "closed_cost": 18623.46145148389,
+      "closed_cost_pct": 0.6344943110570249,
+      "basin_contamination": -4746.5552743040025,
+      "served_initial": 21216.300057533957,
+      "served_final": 21216.300057533957,
+      "unserved_final": 9732.69994246605,
+      "gc_final": 1785865.4937937455,
+      "gc_initial": 1785865.4937937455,
+      "gc_per_served_final": 84.17421930076732,
+      "n_off_initial": 0,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2514.5083621730246,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 0,
+        "r1_over_cap": 0
+      },
+      "rounds_initial": 1,
+      "rounds_final": 1
+    },
+    {
+      "network": "N3",
+      "cell": "R1_H20",
+      "status": "INFEASIBLE_UNDER_ENVELOPE",
+      "final_record": "outputs/exp6/initial/N3_R1_H20.json",
+      "usage_vs_caps_of_minimum_service_plan": {
+        "hours": [
+          "2214.5191387827317",
+          "2517.1833333333334",
+          false
+        ],
+        "early": [
+          "85.29871576328418",
+          "85.28208333333332",
+          true
+        ],
+        "am_peak": [
+          "139.56445573158038",
+          "162.00944444444443",
+          false
+        ],
+        "midday": [
+          "135.2086240558552",
+          "159.17277777777775",
+          false
+        ],
+        "pm_peak": [
+          "150.80303324244883",
+          "176.49305555555554",
+          false
+        ],
+        "evening": [
+          "125.25773323917416",
+          "140.19458333333336",
+          false
+        ],
+        "owl": [
+          "35.53073897660963",
+          "35.55736111111111",
+          false
+        ]
+      }
+    },
+    {
+      "network": "N3",
+      "cell": "R2_S25",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N3_R2_S25__from_R2_S10__fdec5c5475c73736.json",
+      "initial_objective": 2937538.0276397127,
+      "final_objective": 2935166.0254381876,
+      "initial_to_final_pct": -0.080747965786537,
+      "initial_plan": "b2302ca64a98d7e3",
+      "final_plan": "fdec5c5475c73736",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R2_S10",
+      "greedy_cost": -2374.5530727789737,
+      "greedy_cost_pct": -0.0807695129561811,
+      "closed_cost": 0.0,
+      "closed_cost_pct": 0.0,
+      "basin_contamination": -2374.5530727789737,
+      "served_initial": 18414.39770779448,
+      "served_final": 21104.059416040294,
+      "unserved_final": 9844.94058395971,
+      "gc_final": 1753773.1553630226,
+      "gc_initial": 1433385.7525750508,
+      "gc_per_served_final": 83.10122336132424,
+      "n_off_initial": 39,
+      "n_off_final": 17,
+      "n_baseline_on_now_off": 17,
+      "hours_used": 2516.373410297668,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 17,
+        "n_baseline_stop_periods": 0
+      },
+      "rounds_initial": 1,
+      "rounds_final": 1
+    },
+    {
+      "network": "N3",
+      "cell": "R2_S10",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N3_R2_S10__from_R2_S05__561444f68239da95.json",
+      "initial_objective": 2943352.3652995555,
+      "final_objective": 2935166.0254381876,
+      "initial_to_final_pct": -0.2781297936964702,
+      "initial_plan": "446b6ff3c3331d59",
+      "final_plan": "fdec5c5475c73736",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R2_S05",
+      "greedy_cost": 3439.7845870638266,
+      "greedy_cost_pct": 0.11700295476915815,
+      "closed_cost": 0.0,
+      "closed_cost_pct": 0.0,
+      "basin_contamination": 3439.7845870638266,
+      "served_initial": 20311.259677624563,
+      "served_final": 21104.059416040294,
+      "unserved_final": 9844.94058395971,
+      "gc_final": 1753773.1553630226,
+      "gc_initial": 1666823.5266145025,
+      "gc_per_served_final": 83.10122336132424,
+      "n_off_initial": 17,
+      "n_off_final": 17,
+      "n_baseline_on_now_off": 17,
+      "hours_used": 2516.373410297668,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 17,
+        "n_baseline_stop_periods": 0
+      },
+      "rounds_initial": 1,
+      "rounds_final": 4
+    },
+    {
+      "network": "N3",
+      "cell": "R2_S05",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/initial/N3_R2_S05.json",
+      "initial_objective": 2942494.1602012054,
+      "final_objective": 2942494.1602012054,
+      "initial_to_final_pct": 0.0,
+      "initial_plan": "561444f68239da95",
+      "final_plan": "561444f68239da95",
+      "winning_basin": "greedy",
+      "anchor_source_cell": null,
+      "greedy_cost": 2581.57948871376,
+      "greedy_cost_pct": 0.08781143717164919,
+      "closed_cost": 7328.134763017762,
+      "closed_cost_pct": 0.24966678884625457,
+      "basin_contamination": -4746.5552743040025,
+      "served_initial": 21168.516706130864,
+      "served_final": 21168.516706130864,
+      "unserved_final": 9780.48329386914,
+      "gc_final": 1768836.1649369085,
+      "gc_initial": 1768836.1649369085,
+      "gc_per_served_final": 83.55975950004164,
+      "n_off_initial": 8,
+      "n_off_final": 8,
+      "n_baseline_on_now_off": 8,
+      "hours_used": 2516.6623303410797,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 8,
+        "n_baseline_stop_periods": 0
+      },
+      "rounds_initial": 2,
+      "rounds_final": 2
+    },
+    {
+      "network": "N3",
+      "cell": "R3_SPAN",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N3_R3_SPAN__from_B1__591eebe7630410f2.json",
+      "initial_objective": 2956630.557945732,
+      "final_objective": 2950532.5669298135,
+      "initial_to_final_pct": -0.20624798724110593,
+      "initial_plan": "566fcf2afb99a31a",
+      "final_plan": "591eebe7630410f2",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "B1",
+      "greedy_cost": 16717.97723324038,
+      "greedy_cost_pct": 0.568655590064816,
+      "closed_cost": 15366.54149162583,
+      "closed_cost_pct": 0.5235322758047998,
+      "basin_contamination": 1351.4357416145504,
+      "served_initial": 17092.711241271154,
+      "served_final": 21234.46531750442,
+      "unserved_final": 9714.534682495585,
+      "gc_final": 1784788.4050303434,
+      "gc_initial": 1293875.9068982701,
+      "gc_per_served_final": 84.05148791568917,
+      "n_off_initial": 25,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2515.761224521931,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 0,
+        "r3_span_off": 0
+      },
+      "rounds_initial": 4,
+      "rounds_final": 1
+    },
+    {
+      "network": "N3",
+      "cell": "R4_C05",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N3_R4_C05__from_R4_C01__a31340754c802f19.json",
+      "initial_objective": 2949618.181180831,
+      "final_objective": 2944578.3549554152,
+      "initial_to_final_pct": -0.170863681868078,
+      "initial_plan": "47447e8c1fc65e1a",
+      "final_plan": "4e49377ae82b3c69",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R4_C01",
+      "greedy_cost": 9705.600468339399,
+      "greedy_cost_pct": 0.33013228121181865,
+      "closed_cost": 9412.329517227598,
+      "closed_cost_pct": 0.32067451843111466,
+      "basin_contamination": 293.27095111180097,
+      "served_initial": 19569.783033873562,
+      "served_final": 21167.303428536125,
+      "unserved_final": 9781.696571463877,
+      "gc_final": 1770774.7663797496,
+      "gc_initial": 1584112.1452456578,
+      "gc_per_served_final": 83.6561337327705,
+      "n_off_initial": 23,
+      "n_off_final": 6,
+      "n_baseline_on_now_off": 6,
+      "hours_used": 2515.779408479202,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 6,
+        "n_baseline_stop_periods": 16859,
+        "r4_lost_stop_periods": 832
+      },
+      "rounds_initial": 1,
+      "rounds_final": 2
+    },
+    {
+      "network": "N3",
+      "cell": "R4_C01",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N3_R4_C01__from_R4_C00__591eebe7630410f2.json",
+      "initial_objective": 2951441.288567108,
+      "final_objective": 2949169.0785097736,
+      "initial_to_final_pct": -0.07698645628277571,
+      "initial_plan": "7fb143000d8dc34b",
+      "final_plan": "a31340754c802f19",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R4_C00",
+      "greedy_cost": 11528.707854616456,
+      "greedy_cost_pct": 0.3921445804290704,
+      "closed_cost": 14003.05307158595,
+      "closed_cost_pct": 0.47707873933623396,
+      "basin_contamination": -2474.345216969494,
+      "served_initial": 20504.67688825913,
+      "served_final": 21210.10626566318,
+      "unserved_final": 9738.893734336822,
+      "gc_final": 1780501.830389355,
+      "gc_initial": 1698122.5151582037,
+      "gc_per_served_final": 83.94591748329856,
+      "n_off_initial": 10,
+      "n_off_final": 1,
+      "n_baseline_on_now_off": 1,
+      "hours_used": 2515.611224521931,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 1,
+        "n_baseline_stop_periods": 16859,
+        "r4_lost_stop_periods": 137
+      },
+      "rounds_initial": 3,
+      "rounds_final": 2
+    },
+    {
+      "network": "N3",
+      "cell": "R4_C00",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/initial/N3_R4_C00.json",
+      "initial_objective": 2950532.5669298135,
+      "final_objective": 2950532.5669298135,
+      "initial_to_final_pct": 0.0,
+      "initial_plan": "591eebe7630410f2",
+      "final_plan": "591eebe7630410f2",
+      "winning_basin": "greedy",
+      "anchor_source_cell": null,
+      "greedy_cost": 10619.986217321828,
+      "greedy_cost_pct": 0.3612347621148674,
+      "closed_cost": 15366.54149162583,
+      "closed_cost_pct": 0.5235322758047998,
+      "basin_contamination": -4746.5552743040025,
+      "served_initial": 21234.46531750442,
+      "served_final": 21234.46531750442,
+      "unserved_final": 9714.534682495585,
+      "gc_final": 1784788.4050303434,
+      "gc_initial": 1784788.4050303434,
+      "gc_per_served_final": 84.05148791568917,
+      "n_off_initial": 0,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2515.761224521931,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 16859,
+        "r4_lost_stop_periods": 0
+      },
+      "rounds_initial": 2,
+      "rounds_final": 2
+    },
+    {
+      "network": "N3",
+      "cell": "R6_ADA",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/initial/N3_R6_ADA.json",
+      "initial_objective": 2949413.8828011495,
+      "final_objective": 2949413.8828011495,
+      "initial_to_final_pct": 0.0,
+      "initial_plan": "0afda9bbeb993aa2",
+      "final_plan": "0afda9bbeb993aa2",
+      "winning_basin": "greedy",
+      "anchor_source_cell": null,
+      "greedy_cost": 9501.30208865786,
+      "greedy_cost_pct": 0.32318315010425264,
+      "closed_cost": 14247.857362961862,
+      "closed_cost_pct": 0.4854191292581078,
+      "basin_contamination": -4746.5552743040025,
+      "served_initial": 19986.980605199984,
+      "served_final": 19986.980605199984,
+      "unserved_final": 10962.019394800016,
+      "gc_final": 1633971.5554251475,
+      "gc_initial": 1633971.5554251475,
+      "gc_per_served_final": 81.75179571645951,
+      "n_off_initial": 18,
+      "n_off_final": 18,
+      "n_baseline_on_now_off": 18,
+      "hours_used": 2514.195714706256,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 18,
+        "n_baseline_stop_periods": 16859,
+        "r6_uncovered_stop_periods": 0
+      },
+      "rounds_initial": 1,
+      "rounds_final": 1
+    },
+    {
+      "network": "N3",
+      "cell": "B1",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N3_B1__from_R1_H60__591eebe7630410f2.json",
+      "initial_objective": 2954543.2167176595,
+      "final_objective": 2950532.5669298135,
+      "initial_to_final_pct": -0.1357451725584045,
+      "initial_plan": "d28d446a443a986b",
+      "final_plan": "591eebe7630410f2",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R1_H60",
+      "greedy_cost": 14630.63600516785,
+      "greedy_cost_pct": 0.4976554779605758,
+      "closed_cost": 15366.54149162583,
+      "closed_cost_pct": 0.5235322758047998,
+      "basin_contamination": -735.9054864579812,
+      "served_initial": 20120.992966527894,
+      "served_final": 21234.46531750442,
+      "unserved_final": 9714.534682495585,
+      "gc_final": 1784788.4050303434,
+      "gc_initial": 1655182.3727010062,
+      "gc_per_served_final": 84.05148791568917,
+      "n_off_initial": 9,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2515.761224521931,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 16859,
+        "r3_span_off": 0,
+        "r6_uncovered_stop_periods": 0
+      },
+      "rounds_initial": 2,
+      "rounds_final": 1
+    },
+    {
+      "network": "N3",
+      "cell": "B2",
+      "status": "CERTIFIED",
+      "final_record": "outputs/exp6/closure/N3_B2__from_R1_H60__591eebe7630410f2.json",
+      "initial_objective": 2951774.4228982246,
+      "final_objective": 2950532.5669298135,
+      "initial_to_final_pct": -0.04207150650732158,
+      "initial_plan": "706aeff762c4e540",
+      "final_plan": "591eebe7630410f2",
+      "winning_basin": "anchor",
+      "anchor_source_cell": "R1_H60",
+      "greedy_cost": 11861.842185732909,
+      "greedy_cost_pct": 0.40347601706096226,
+      "closed_cost": 15366.54149162583,
+      "closed_cost_pct": 0.5235322758047998,
+      "basin_contamination": -3504.699305892922,
+      "served_initial": 20473.332493249476,
+      "served_final": 21234.46531750442,
+      "unserved_final": 9714.534682495585,
+      "gc_final": 1784788.4050303434,
+      "gc_initial": 1694694.3220881608,
+      "gc_per_served_final": 84.05148791568917,
+      "n_off_initial": 8,
+      "n_off_final": 0,
+      "n_baseline_on_now_off": 0,
+      "hours_used": 2515.761224521931,
+      "hours_cap": 2517.1833333333334,
+      "binding_resource": {
+        "hours": false,
+        "peak_proxy_by_period": {
+          "early": false,
+          "am_peak": false,
+          "midday": false,
+          "pm_peak": false,
+          "evening": false,
+          "owl": false
+        }
+      },
+      "policy_measure": {
+        "n_baseline_served_rp": 173,
+        "n_off_baseline_served": 0,
+        "n_baseline_stop_periods": 16859,
+        "r3_span_off": 0,
+        "r4_lost_stop_periods": 0
+      },
+      "rounds_initial": 3,
+      "rounds_final": 1
+    }
+  ],
+  "identical_final_plans": {
+    "N0": {
+      "aed848588abad24d": [
+        "REF",
+        "R2_S25",
+        "R2_S10"
+      ],
+      "859272a34d3d7e7d": [
+        "R1_H60",
+        "R3_SPAN",
+        "R4_C00",
+        "B1",
+        "B2"
+      ]
+    },
+    "N3": {
+      "fdec5c5475c73736": [
+        "REF",
+        "R2_S25",
+        "R2_S10"
+      ],
+      "591eebe7630410f2": [
+        "R1_H60",
+        "R3_SPAN",
+        "R4_C00",
+        "B1",
+        "B2"
+      ]
+    }
+  },
+  "structure": [
+    {
+      "cell": "REF",
+      "admitted": true,
+      "closed_effect": -6726.345988185145,
+      "closed_effect_pct": -0.2286401111582435,
+      "greedy_only_raw_pct": -0.19417407691039656,
+      "cost_diff_pct_points": 0.0
+    },
+    {
+      "cell": "R1_H60",
+      "admitted": true,
+      "closed_effect": -5538.727846099995,
+      "closed_effect_pct": -0.1873678708591452,
+      "greedy_only_raw_pct": -0.1873678708591452,
+      "cost_diff_pct_points": 0.04156619549350521
+    },
+    {
+      "cell": "R1_H30",
+      "admitted": true,
+      "closed_effect": -5005.63855408784,
+      "closed_effect_pct": -0.16917827500263627,
+      "greedy_only_raw_pct": -0.16917827500263627,
+      "cost_diff_pct_points": 0.05994052446858811
+    },
+    {
+      "cell": "R1_H20",
+      "admitted": null,
+      "note": "empty feasible set on N3"
+    },
+    {
+      "cell": "R2_S25",
+      "admitted": true,
+      "closed_effect": -6726.345988185145,
+      "closed_effect_pct": -0.2286401111582435,
+      "greedy_only_raw_pct": -0.15953669025950754,
+      "cost_diff_pct_points": 0.0
+    },
+    {
+      "cell": "R2_S10",
+      "admitted": true,
+      "closed_effect": -6726.345988185145,
+      "closed_effect_pct": -0.2286401111582435,
+      "greedy_only_raw_pct": -0.2014112063117808,
+      "cost_diff_pct_points": 0.0
+    },
+    {
+      "cell": "R2_S05",
+      "admitted": true,
+      "closed_effect": -5634.60772691993,
+      "closed_effect_pct": -0.19112488532445612,
+      "greedy_only_raw_pct": -0.19112488532445612,
+      "cost_diff_pct_points": 0.03768090648275943
+    },
+    {
+      "cell": "R3_SPAN",
+      "admitted": true,
+      "closed_effect": -5538.727846099995,
+      "closed_effect_pct": -0.1873678708591452,
+      "greedy_only_raw_pct": -0.16063232329046262,
+      "cost_diff_pct_points": 0.04156619549350521
+    },
+    {
+      "cell": "R4_C05",
+      "admitted": true,
+      "closed_effect": -4496.147689932492,
+      "closed_effect_pct": -0.15245961693742918,
+      "greedy_only_raw_pct": -0.1798172639209459,
+      "cost_diff_pct_points": 0.0765414805017666
+    },
+    {
+      "cell": "R4_C01",
+      "admitted": true,
+      "closed_effect": -5312.921981432941,
+      "closed_effect_pct": -0.17982583683195988,
+      "greedy_only_raw_pct": -0.10291861394291416,
+      "cost_diff_pct_points": 0.049135515202249735
+    },
+    {
+      "cell": "R4_C00",
+      "admitted": true,
+      "closed_effect": -5538.727846099995,
+      "closed_effect_pct": -0.1873678708591452,
+      "greedy_only_raw_pct": -0.18885683951859647,
+      "cost_diff_pct_points": 0.04156619549350521
+    },
+    {
+      "cell": "R6_ADA",
+      "admitted": true,
+      "closed_effect": -5433.847256292123,
+      "closed_effect_pct": -0.1838960160626108,
+      "greedy_only_raw_pct": -0.18897549292118107,
+      "cost_diff_pct_points": 0.04504412584534018
+    },
+    {
+      "cell": "B1",
+      "admitted": true,
+      "closed_effect": -5538.727846099995,
+      "closed_effect_pct": -0.1873678708591452,
+      "greedy_only_raw_pct": -0.16633407792888466,
+      "cost_diff_pct_points": 0.04156619549350521
+    },
+    {
+      "cell": "B2",
+      "admitted": true,
+      "closed_effect": -5538.727846099995,
+      "closed_effect_pct": -0.1873678708591452,
+      "greedy_only_raw_pct": -0.1663223997600972,
+      "cost_diff_pct_points": 0.04156619549350521
+    }
+  ],
+  "structure_range_pct": [
+    -0.2286401111582435,
+    -0.15245961693742918
+  ],
+  "history_check": {
+    "N3": {
+      "historical_record": "outputs/exp4_addendum/N3.json",
+      "historical_objective": "2939912.5807124916",
+      "historical_plan": "28135d0fa655e6e1",
+      "exp6_initial_REF_objective": "2939912.5807124916",
+      "exp6_initial_REF_plan": "28135d0fa655e6e1",
+      "bit_identical": true
+    },
+    "N0": {
+      "historical_record": "outputs/exp5/cells/N0_J100.json",
+      "historical_objective": "2945632.2349138106",
+      "historical_plan": "c4591ff0f6e2d8ad",
+      "exp6_initial_REF_objective": "2945632.2349138106",
+      "exp6_initial_REF_plan": "c4591ff0f6e2d8ad",
+      "bit_identical": true
+    }
+  },
+  "contamination_summary": {
+    "n_cells": 25,
+    "n_negative_greedy_cost": 2,
+    "negative_greedy": [
+      [
+        "N0",
+        "R2_S25",
+        -0.11543422609460041
+      ],
+      [
+        "N3",
+        "R2_S25",
+        -0.0807695129561811
+      ]
+    ],
+    "max_abs_contamination_pct_points": 0.16247666440248387,
+    "n_cells_changed_basin": {
+      "N0": 9,
+      "N3": 8
+    }
+  },
+  "event_logs": {
+    "closure_N0.events.log": {
+      "first": "02:45:04 start N0_R2_S10__from_B1__79878cacd593ab06.json",
+      "last": "07:01:00 closure fixed point reached",
+      "notable": [
+        "02:55:03 improved R2_S10: 2949292.5710 -> 2948591.8760 via B1",
+        "03:05:42 improved R3_SPAN: 2961387.5035 -> 2959016.7421 via B1",
+        "03:30:05 improved R3_SPAN: 2959016.7421 -> 2956692.0641 via B2",
+        "04:10:32 improved B1: 2959465.8169 -> 2956071.2948 via R1_H60",
+        "04:19:58 improved B2: 2956692.0641 -> 2956071.2948 via R1_H60",
+        "04:39:42 improved R4_C00: 2956115.3930 -> 2956071.2948 via R1_H60",
+        "04:50:08 improved R2_S10: 2948591.8760 -> 2941962.2573 via R2_S05",
+        "04:59:43 improved R2_S25: 2942231.9671 -> 2941892.3714 via R2_S10",
+        "05:09:08 improved R2_S10: 2941962.2573 -> 2941892.3714 via R2_S25",
+        "05:19:19 improved REF: 2945632.2349 -> 2941892.3714 via R2_S25",
+        "05:55:05 improved R6_ADA: 2954998.1050 -> 2954847.7301 via R4_C00",
+        "06:06:33 improved R4_C05: 2954931.6584 -> 2949074.5026 via R4_C01",
+        "06:28:58 pass 1 complete; improved=True",
+        "06:49:50 improved R3_SPAN: 2956692.0641 -> 2956071.2948 via B1",
+        "07:01:00 pass 2 complete; improved=True",
+        "07:01:00 pass 3 complete; improved=False",
+        "07:01:00 closure fixed point reached"
+      ]
+    },
+    "closure_N3.events.log": {
+      "first": "02:53:45 start N3_R2_S10__from_B1__d28d446a443a986b.json",
+      "last": "06:36:25 closure fixed point reached",
+      "notable": [
+        "03:14:21 improved R3_SPAN: 2956630.5579 -> 2954293.7580 via B1",
+        "03:38:34 improved R3_SPAN: 2954293.7580 -> 2951774.4229 via B2",
+        "04:08:22 improved B1: 2954543.2167 -> 2950532.5669 via R1_H60",
+        "04:17:46 improved B2: 2951774.4229 -> 2950532.5669 via R1_H60",
+        "04:38:11 improved R2_S10: 2943352.3653 -> 2935166.0254 via R2_S05",
+        "04:47:32 improved R2_S25: 2937538.0276 -> 2935166.0254 via R2_S10",
+        "04:57:19 improved REF: 2939912.5807 -> 2935166.0254 via R2_S25",
+        "05:18:12 improved R4_C01: 2951441.2886 -> 2949169.0785 via R4_C00",
+        "05:43:16 improved R4_C05: 2949618.1812 -> 2944578.3550 via R4_C01",
+        "06:04:33 pass 1 complete; improved=True",
+        "06:25:16 improved R3_SPAN: 2951774.4229 -> 2950532.5669 via B1",
+        "06:36:25 pass 2 complete; improved=True",
+        "06:36:25 pass 3 complete; improved=False",
+        "06:36:25 closure fixed point reached"
+      ]
+    },
+    "initial0.events.log": {
+      "first": "00:09:58 start N0_REF.json",
+      "last": "02:44:42 initial shard complete",
+      "notable": [
+        "00:45:30 halt present ['initial/ERROR.N3_R1_H20.json']",
+        "00:59:33 resumed after Amendment 1",
+        "02:44:42 initial shard complete"
+      ]
+    },
+    "initial1.events.log": {
+      "first": "00:09:58 start N3_REF.json",
+      "last": "02:53:29 initial shard complete",
+      "notable": [
+        "01:09:23 resumed after Amendment 1 (N3_R1_H20 proven INFEASIBLE_UNDER_ENVELOPE)",
+        "02:53:29 initial shard complete"
+      ]
+    },
+    "sentinels.events.log": {
+      "first": "06:43:07 start N3_R4_C01.json",
+      "last": "07:24:40 sentinel N0 REF equal=True",
+      "notable": [
+        "06:54:17 sentinel N3 R4_C01 equal=True",
+        "07:04:10 sentinel N0 R2_S10 equal=True",
+        "07:14:33 sentinel N3 REF equal=True",
+        "07:24:40 sentinel N0 REF equal=True"
+      ]
+    }
+  }
+}

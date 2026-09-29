@@ -1,0 +1,268 @@
+{
+  "what": "cross-experiment consistency check, N3 (Exp 4A) vs N0 (Exp 5 J100)",
+  "generated_by": "prep/n3_vs_n0_crossexp_check.py (read-only)",
+  "inputs": {
+    "outputs/exp4_addendum/N3.json": "a01e53d6542e6a786bb466a2bc2c7e6fd25ad6ebdd16d0d63c6506d343d8034f",
+    "outputs/exp5/cells/N0_J100.json": "5c9ea9852666f0292c01335e89f2dc9e2cdbafcfdcc9e9cd041ecf93a5e60d3f"
+  },
+  "raw_objectives": {
+    "N3": 2939912.5807124916,
+    "N0": 2945632.2349138106,
+    "raw_difference_N3_minus_N0": -5719.6542013189755,
+    "raw_pct_of_N0": -0.19417407691039656,
+    "note": "raw numbers for orientation only; the reportable figure is the firewall comparison's effect, if admitted"
+  },
+  "record_facts": {
+    "N0_exp5_J100": {
+      "experiment": "exp5",
+      "role": "reference_cell",
+      "cell_id": "J100",
+      "record_contract_digest": "395ee3c960f51935",
+      "state_key": "cota_existing_local_geometry|N0",
+      "state_digest": "f0f24936ab06b4ec",
+      "construction": "H.baseline.network / H.baseline.tstats",
+      "evaluator_used": "same_route",
+      "evaluator_source": "explicit",
+      "lam": 2.0,
+      "seed": 20260825,
+      "n_keys": 8,
+      "k_rungs": 3,
+      "max_rounds": 120,
+      "allow_off": true,
+      "waiting_model": "same_route",
+      "start": "gen1 greedy 20000/1/0",
+      "certification_digest": "2125984c82b60a83",
+      "envelope_exact_fingerprint": "0b46d1abc9a80c80",
+      "envelope_rounded_digest": "3fd5241db44ca9da",
+      "enforced_matches_requested_bit_exact": true,
+      "feasible_under_enforced_caps": true,
+      "pathset_digest": "9e61800321a95d93",
+      "start_audit_winning_start": "greedy",
+      "start_audit_forced_greedy_fallback": false,
+      "start_audit_initial_rejection": null,
+      "config_digest": "9325879176f9070c",
+      "data_digest": "15fa44df0f1075a2",
+      "code_version": "src-51dd455d9e1a",
+      "src_cota_opt_content_digest": "add5d0002d29aa49",
+      "repo_revision": "4a9bc6b5",
+      "runner_sha256": {
+        "exp45_certify_cell.py": "7135b1554c8620b3",
+        "exp45_contracts.py": "bf1d2b60a2ce7432",
+        "exp5_model_resource.py": "5c85226d321fdbc5",
+        "envelope_fingerprint.py": "26cc93c9c6a9ab7b"
+      },
+      "objective_EXACT": "2945632.2349138106",
+      "plan_digest": "c4591ff0f6e2d8ad",
+      "rounds": 1,
+      "converged": true
+    },
+    "N3_exp4a": {
+      "experiment": "exp4a",
+      "role": "treatment_N3",
+      "cell_id": "J100",
+      "record_contract_digest": "0f62aeabfa341a98",
+      "state_key": "exp3|add_stop-010#22c4c35ac5b2",
+      "state_digest": "430aca035c70715b",
+      "construction": "geometry.apply_edits(H.baseline, [edit_from_record(pool[N3])])",
+      "evaluator_used": "same_route",
+      "evaluator_source": "explicit",
+      "lam": 2.0,
+      "seed": 20260825,
+      "n_keys": 8,
+      "k_rungs": 3,
+      "max_rounds": 120,
+      "allow_off": true,
+      "waiting_model": "same_route",
+      "start": "gen1 greedy 20000/1/0",
+      "certification_digest": "2125984c82b60a83",
+      "envelope_exact_fingerprint": "0b46d1abc9a80c80",
+      "envelope_rounded_digest": "3fd5241db44ca9da",
+      "enforced_matches_requested_bit_exact": true,
+      "feasible_under_enforced_caps": true,
+      "pathset_digest": "aefeeebfc5d976a1",
+      "start_audit_winning_start": "greedy",
+      "start_audit_forced_greedy_fallback": false,
+      "start_audit_initial_rejection": null,
+      "config_digest": "9325879176f9070c",
+      "data_digest": "15fa44df0f1075a2",
+      "code_version": "src-51dd455d9e1a",
+      "src_cota_opt_content_digest": "add5d0002d29aa49",
+      "repo_revision": "7c4f67cf",
+      "runner_sha256": {
+        "exp45_certify_cell.py": "7135b1554c8620b3",
+        "exp45_contracts.py": "bf1d2b60a2ce7432",
+        "exp5_model_resource.py": "5c85226d321fdbc5",
+        "envelope_fingerprint.py": "26cc93c9c6a9ab7b"
+      },
+      "objective_EXACT": "2939912.5807124916",
+      "plan_digest": "28135d0fa655e6e1",
+      "rounds": 1,
+      "converged": true
+    }
+  },
+  "fields_that_differ": {
+    "experiment": {
+      "N0_exp5": "exp5",
+      "N3_exp4a": "exp4a"
+    },
+    "role": {
+      "N0_exp5": "reference_cell",
+      "N3_exp4a": "treatment_N3"
+    },
+    "record_contract_digest": {
+      "N0_exp5": "395ee3c960f51935",
+      "N3_exp4a": "0f62aeabfa341a98"
+    },
+    "state_key": {
+      "N0_exp5": "cota_existing_local_geometry|N0",
+      "N3_exp4a": "exp3|add_stop-010#22c4c35ac5b2"
+    },
+    "state_digest": {
+      "N0_exp5": "f0f24936ab06b4ec",
+      "N3_exp4a": "430aca035c70715b"
+    },
+    "construction": {
+      "N0_exp5": "H.baseline.network / H.baseline.tstats",
+      "N3_exp4a": "geometry.apply_edits(H.baseline, [edit_from_record(pool[N3])])"
+    },
+    "pathset_digest": {
+      "N0_exp5": "9e61800321a95d93",
+      "N3_exp4a": "aefeeebfc5d976a1"
+    },
+    "repo_revision": {
+      "N0_exp5": "4a9bc6b5",
+      "N3_exp4a": "7c4f67cf"
+    },
+    "objective_EXACT": {
+      "N0_exp5": "2945632.2349138106",
+      "N3_exp4a": "2939912.5807124916"
+    },
+    "plan_digest": {
+      "N0_exp5": "c4591ff0f6e2d8ad",
+      "N3_exp4a": "28135d0fa655e6e1"
+    }
+  },
+  "firewall": {
+    "EXP4A_MATCHED": {
+      "contract_digest": "0f62aeabfa341a98",
+      "admit_N0": "ADMITTED",
+      "admit_N3": "ADMITTED",
+      "admissible": true,
+      "comparison_id": "cmp-aa4c45646faa1d41",
+      "effect_N3_minus_N0": -5719.6542013189755,
+      "effect_pct_of_N0": -0.19417407691039656,
+      "declared_differences": [
+        "pathset_digest",
+        "spec.cardinality",
+        "spec.members",
+        "spec.state_digest",
+        "spec.state_key"
+      ],
+      "components_treatment_N3_control_N0": {
+        "block_enumerations": [
+          22.0,
+          22.0
+        ],
+        "gc_per_served_trip": [
+          72.90373593813524,
+          73.51678632581931
+        ],
+        "generalized_cost": [
+          1198080.5162451442,
+          1215043.0731191286
+        ],
+        "mean_wait_min": [
+          0.0,
+          0.0
+        ],
+        "objective": [
+          2939912.5807124916,
+          2945632.2349138106
+        ],
+        "peak_vehicles": [
+          176.408056390597,
+          176.25887731481484
+        ],
+        "revenue_veh_hours": [
+          2517.163119291952,
+          2516.8529304708036
+        ],
+        "rounds": [
+          1.0,
+          1.0
+        ],
+        "served_demand": [
+          16433.732796105443,
+          16527.423651710982
+        ],
+        "unserved_demand": [
+          14515.267203894562,
+          14421.576348289018
+        ]
+      }
+    },
+    "EXP5_STRUCTURE": {
+      "contract_digest": "2315b87e21123cbc",
+      "admit_N0": "ADMITTED",
+      "admit_N3": "ADMITTED",
+      "admissible": true,
+      "comparison_id": "cmp-b14894a8598436fd",
+      "effect_N3_minus_N0": -5719.6542013189755,
+      "effect_pct_of_N0": -0.19417407691039656,
+      "declared_differences": [
+        "pathset_digest",
+        "spec.cardinality",
+        "spec.members",
+        "spec.state_digest",
+        "spec.state_key"
+      ],
+      "components_treatment_N3_control_N0": {
+        "block_enumerations": [
+          22.0,
+          22.0
+        ],
+        "gc_per_served_trip": [
+          72.90373593813524,
+          73.51678632581931
+        ],
+        "generalized_cost": [
+          1198080.5162451442,
+          1215043.0731191286
+        ],
+        "mean_wait_min": [
+          0.0,
+          0.0
+        ],
+        "objective": [
+          2939912.5807124916,
+          2945632.2349138106
+        ],
+        "peak_vehicles": [
+          176.408056390597,
+          176.25887731481484
+        ],
+        "revenue_veh_hours": [
+          2517.163119291952,
+          2516.8529304708036
+        ],
+        "rounds": [
+          1.0,
+          1.0
+        ],
+        "served_demand": [
+          16433.732796105443,
+          16527.423651710982
+        ],
+        "unserved_demand": [
+          14515.267203894562,
+          14421.576348289018
+        ]
+      }
+    }
+  },
+  "exp3_certified_reference": {
+    "leader": "add_stop-010#22c4c35ac5b2",
+    "effect_pct": -0.18657,
+    "note": "Exp 3's certified effect is under the Exp 3 contract (Stage B, 5 paired seeds, 20 restarts), a different instrument and envelope; it is quoted for orientation, not firewall-compared here"
+  }
+}
