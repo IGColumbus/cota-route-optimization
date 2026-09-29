@@ -1,0 +1,10 @@
+{
+ "G1_as_issued_text": false,
+ "G2_amendment_names_levels": false,
+ "G3_base_reproduction": true,
+ "G4_level_reach": false,
+ "G5_unit_tests": true,
+ "G6_src_digest_matches_exp6": true,
+ "G7_transfer_refusal_emptiness_firewall": true
+}
+REFUSED: readiness gates not all passed

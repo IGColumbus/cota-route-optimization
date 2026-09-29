@@ -487,36 +487,56 @@ the evaluator (waiting model), and its digest is part of `config_digest`.
 
 ## 11. Compute
 
-Estimated by `exp7_freeze.estimate` from measured Exp 6 and D39 throughput,
-with all assumptions stated in its docstring. Per-certification time on the
-2-core box: N0 about 610 s, N3 about 615 s, N4 about 1,150 s.
+Estimated by `exp7_freeze.estimate` from measured throughput, with every
+assumption stated in its docstring.
 
-The count depends on the number of levels L, which is pending. The
-**cross-level all-pairs X stage grows as L(L−1)**:
+**Measured seconds per certification** (2-core box, two lanes):
 
-| L (incl. BASE) | certifications, expected | certifications, upper bound | wall h, expected | wall h, upper bound |
+| work | N0 | N3 | N4 |
+|---|---|---|---|
+| Exp 6 initial cells | 596 | 611 | — |
+| Exp 6 closure transfers | 627 | 624 | — |
+| Exp 7 smoke cross-level transfers | 346 and 601 | — | — |
+| D39 anchored runs | — | — | 1,079–1,148 |
+
+The estimate uses N0 610 s, N3 615 s and N4 1,150 s.
+
+**The cross-level all-pairs X stage grows as L(L−1)** in the number of levels
+L. In the smoke run, every pass-1 candidate RAN (2 of 2), so the expected case
+assumes all pass-1 X candidates run.
+
+| L (incl. BASE) | certifications, expected | certifications, upper | wall h, expected | wall h, upper |
 |---|---|---|---|---|
-| 3 | 271 | 617 | 24 | 54 |
-| 5 | 692 | 1,725 | 60 | 150 |
-| 6 | 961 | 2,465 | 84 | 215 |
+| 3 | 388 | 617 | 34 | 54 |
+| 4 | 695 | 1,109 | 61 | 96 |
+| 5 | 1,080 | 1,725 | 94 | 150 |
+| 6 | 1,542 | 2,465 | 135 | 215 |
+| 8 | 2,700 | 4,317 | 236 | 376 |
+| 11 | 5,018 | 8,025 | 438 | 700 |
 
 The totals include:
 
-* the new initial cells;
-* the W stage (≈22.5 RAN per network per level, as in Exp 6);
-* the X stage (expected 50% of pass-1 candidates RAN, plus a 25% second
-  pass; the upper bound assumes every candidate RAN in 2 passes);
+* the new initial cells (BASE reuses Exp 6);
+* the W stage (≈22.5 RAN per network per level, as measured in Exp 6);
+* the X stage (the expected case adds a 25% second pass; the upper bound
+  assumes every candidate RAN in 2 passes);
 * the F4 track including N4;
 * 4 sentinels.
 
-Preflight overhead (about 2.5 h, already executed) is excluded.
-
----
+Neither bound covers a closure that needs more than 2 passes (the ceiling is
+8). The executed preflight (about 3.5 h wall) is excluded.
 
 ## 12. Inputs still required from Ian
 
 1. The 23 September Exp 7 text, verbatim, including dimensions, levels, A8
    retention settings, bands, and F1–F3 and F5.
-2. If the as-issued matrix has many levels, whether the all-pairs X stage
-   stays within one dimension's levels plus BASE, or spans all levels. This
-   instruction currently says all levels, and §11 prices it that way.
+2. **Scope of the all-pairs X stage.** "All-pairs within each network and
+   compatible policy regime" is implemented across **all** levels. That is
+   quadratic in L (§11): about 94 h wall for L = 5, and about 438 h for
+   L = 11.
+
+   The cheaper alternative is all-pairs **within each dimension**, with BASE
+   joining every dimension. It still never forwards only winners along a
+   chain. What it gives up is transfers between unrelated dimensions (e.g. a
+   λ-level plan offered to a period-tilt level). Whether that loss is
+   acceptable is a scientific choice, and it is Ian's.

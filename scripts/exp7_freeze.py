@@ -14,7 +14,8 @@ Writes outputs/exp7/EXP7_CONTRACT.json (or EXP7_CONTRACT.DRAFT.json with
   G5  unit tests for the closure engine and classification pass
   G6  src/cota_opt content digest equals Exp 6's (b63ae2dba134245e), or the
       BASE reuse flag is off
-  G7  production-path transfer/refusal/emptiness preflights passed
+  G7  production-path transfer/refusal/emptiness preflights and the
+      firewall preflight (admit/refuse, level binding) passed
 
 The contract carries: the levels (payload + digest) and their order, the two
 tracks (F6: N0/N3 x full Exp 6 policy graph with within-level closure; F4:
@@ -56,7 +57,7 @@ SEC = {"N0": 610.0, "N3": 615.0, "N4": 1150.0}
 
 def estimate(n_levels: int, n_policies: int = 14, lanes: int = 2,
              f6_within_ran_per_level: float = 22.5,
-             x_ran_share: float = 0.5, base_reuse: bool = True) -> dict:
+             x_ran_share: float = 1.0, base_reuse: bool = True) -> dict:
     """Certifications and wall hours. Explicit assumptions, all stated:
 
     F6 initial     (L - base) x 2 networks x 14 cells (N3 R1_H20 costs a
@@ -64,10 +65,13 @@ def estimate(n_levels: int, n_policies: int = 14, lanes: int = 2,
     F6 W stage     ~22.5 RAN per network per level (Exp 6: 24 N0, 21 N3); at
                    BASE imported from Exp 6 where the same transfer exists
     F6 X stage     worst case per pass: 14 policies x L(L-1) ordered pairs per
-                   network. Expected RAN share after dedup (identical plan,
-                   policy refusal, memo): x_ran_share of pass-1 candidates, and
-                   a second pass of 25% of that (Exp 6: all improvements in
-                   passes 1-2). Upper bound: every candidate RAN, 2 passes.
+                   network. Expected: every pass-1 candidate RAN (x_ran_share
+                   1.0 -- the smoke run RAN 2/2: different objectives give
+                   different plans, so identical-plan skips are rare), plus a
+                   second pass of 25% (sources that improved; Exp 6: all
+                   improvements in passes 1-2). Upper bound: every candidate
+                   RAN in 2 passes. Neither bound covers a run that needs more
+                   than 2 passes (ceiling 8).
     F4 initial     L x N4 + (L - base) x (N0 + N3)
     F4 X stage     3 networks x L(L-1), same RAN share
     sentinels      4 reruns
@@ -108,7 +112,7 @@ def gates(levels, lvfile) -> dict:
     g = {}
     g["G1_as_issued_text"] = (ROOT / "docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md").exists()
     am = ROOT / "docs/EXPERIMENT7_AMENDMENT.md"
-    g["G2_amendment_names_levels"] = am.exists() and all(
+    g["G2_amendment_names_levels"] = am.exists() and len(levels) > 1 and all(
         lv.name in am.read_text() for lv in levels)
     br = PRE / "base_repro" / "BASE_REPRO_VERDICT.json"
     g["G3_base_reproduction"] = br.exists() and json.loads(br.read_text())["passed"]
@@ -118,13 +122,16 @@ def gates(levels, lvfile) -> dict:
         ok &= p.exists() and json.loads(p.read_text()).get("passed", False)
     g["G4_level_reach"] = ok
     r = subprocess.run([sys.executable, "-m", "pytest", "-q",
-                        "tests/test_exp7_closure.py"], cwd=ROOT,
+                        "tests/test_exp7_closure.py",
+                        "tests/test_exp7_levels.py"], cwd=ROOT,
                        capture_output=True, text=True)
     g["G5_unit_tests"] = r.returncode == 0
     g["G6_src_digest_matches_exp6"] = CC.src_content_digest() == EXP6_SRC
     pt = PRE / "transfer" / "TRANSFER_PREFLIGHT_VERDICT.json"
-    g["G7_transfer_refusal_emptiness"] = pt.exists() and \
-        json.loads(pt.read_text())["passed"]
+    fw = PRE / "FIREWALL_PREFLIGHT.json"
+    g["G7_transfer_refusal_emptiness_firewall"] = pt.exists() and \
+        json.loads(pt.read_text())["passed"] and fw.exists() and \
+        json.loads(fw.read_text())["passed"]
     return g
 
 

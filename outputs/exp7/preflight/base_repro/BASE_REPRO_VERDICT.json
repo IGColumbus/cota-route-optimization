@@ -16,6 +16,21 @@
    "plan_digest": "a928acb38df54e14",
    "seconds": 477.6
   },
+  "N0_REF": {
+   "equal": {
+    "objective_EXACT": true,
+    "plan_digest": true,
+    "rounds": true,
+    "fitness_EXACT": true,
+    "converged": true,
+    "config_digest": true,
+    "pathset_digest": true
+   },
+   "objective": "2945632.2349138106",
+   "exp6_objective": "2945632.2349138106",
+   "plan_digest": "c4591ff0f6e2d8ad",
+   "seconds": 435.1
+  },
   "N3_REF": {
    "equal": {
     "objective_EXACT": true,
@@ -34,5 +49,5 @@
  },
  "passed": true,
  "src_cota_opt_content_digest": "b63ae2dba134245e",
- "written_utc": "2026-09-29T12:18:35Z"
+ "written_utc": "2026-09-29T14:19:41Z"
 }
