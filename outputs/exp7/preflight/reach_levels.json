@@ -126,6 +126,34 @@
     ]
    ],
    "rationale": "reach: wider OD"
+  },
+  {
+   "name": "R_PATHS8",
+   "dimension": "path_model",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.max_paths_per_od",
+     8
+    ]
+   ],
+   "od": [],
+   "rationale": "reach: path-set width above the scenario count (R_PATHS2 is at or below it, and pathset.py raises the cap to the scenario count)"
+  },
+  {
+   "name": "R_SCEN5",
+   "dimension": "path_model",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.n_random_scenarios",
+     5
+    ]
+   ],
+   "od": [],
+   "rationale": "reach: number of random enumeration scenarios"
   }
  ]
 }

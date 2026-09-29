@@ -49,7 +49,8 @@ import exp6_grid as G  # noqa: E402
 import exp7_closure as E  # noqa: E402
 import exp7_levels as L  # noqa: E402
 
-OUT = ROOT / "outputs" / "exp7"
+# EXP7_OUT redirects every output (smoke runs only); production uses the default.
+OUT = ROOT / os.environ.get("EXP7_OUT", "outputs/exp7")
 INIT = OUT / "initial"
 CLOS = OUT / "closure"
 SENT = OUT / "sentinels"
@@ -78,6 +79,8 @@ def levels(con) -> dict[str, L.SensitivityLevel]:
 def canonical(con) -> list[tuple[str, str, str, str]]:
     out = []
     for track in ("F6", "F4"):
+        if track not in con["tracks"]:
+            continue
         t = con["tracks"][track]
         for lv in con["level_order"]:
             for c in t["policies"]:

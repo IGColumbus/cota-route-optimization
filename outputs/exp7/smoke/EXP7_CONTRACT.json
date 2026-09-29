@@ -1,0 +1,63 @@
+{
+ "artifact": "EXP7_CONTRACT",
+ "version": "7.0-SMOKE",
+ "frozen": false,
+ "note": "SMOKE CONTRACT for the driver path (F4, N0, BASE + instrument level R_LAM1). Not the Exp 7 contract.",
+ "level_file": "outputs/exp7/preflight/reach_levels.json",
+ "levels": [
+  {
+   "name": "BASE",
+   "dimension": "none",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "Experiment 6 exactly",
+   "digest": "79b97699909ebb59"
+  },
+  {
+   "name": "R_LAM1",
+   "dimension": "lambda",
+   "lam": 1.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "reach: lambda",
+   "digest": "dbdcac110276e744"
+  }
+ ],
+ "level_order": [
+  "BASE",
+  "R_LAM1"
+ ],
+ "tracks": {
+  "F4": {
+   "networks": [
+    "N0"
+   ],
+   "policies": [
+    "REF"
+   ],
+   "within_level_closure": false,
+   "adjacent_edges": [],
+   "strict_pairs": []
+  }
+ },
+ "closure": {
+  "pass_ceiling": 8,
+  "improvement_eps": 1e-09
+ },
+ "catalog": {
+  "digest": "e22f2c94c8f53475"
+ },
+ "base_reuse_exp6_initial": true,
+ "base_reuse_justification": "G3 passed: outputs/exp7/preflight/base_repro/BASE_REPRO_VERDICT.json",
+ "sentinels": [
+  [
+   "F4",
+   "R_LAM1",
+   "N0",
+   "REF"
+  ]
+ ]
+}

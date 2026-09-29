@@ -1,0 +1,79 @@
+{
+ "schema": "exp7_cell/v1",
+ "experiment": "exp7",
+ "role": "preflight_refusal",
+ "track": "F6",
+ "level": {
+  "name": "BASE",
+  "dimension": "none",
+  "lam": 2.0,
+  "waiting_model": "same_route",
+  "overrides": [],
+  "od": [],
+  "rationale": "Experiment 6 exactly"
+ },
+ "level_digest": "79b97699909ebb59",
+ "network": "N0",
+ "cell": "REF",
+ "identity": {
+  "state_key": "cota_existing_local_geometry|N0",
+  "state_digest": "f0f24936ab06b4ec",
+  "cardinality": 0,
+  "members": [],
+  "construction": "H.baseline.network / H.baseline.tstats",
+  "network_label": "N0 COTA existing local geometry",
+  "validation": null
+ },
+ "policy": {
+  "spec": {
+   "cell": "REF",
+   "max_headway": null,
+   "max_off_share": null,
+   "span": false,
+   "max_lost_share": null,
+   "area_radius_m": null,
+   "catalog_digest": "e22f2c94c8f53475"
+  },
+  "digest": "b2133c6c34a7d13f",
+  "attached": false,
+  "setup_policy_digest": "b2133c6c34a7d13f"
+ },
+ "anchor": {
+  "source_record": "outputs/exp6/preflight/d39/N4_J100_anchor_H090.json",
+  "source_record_sha256": "e511d20746c47e45",
+  "source_network": "N4",
+  "source_cell": "J100",
+  "source_plan_digest": "d319bb5f4d7a6c2b",
+  "source_objective_in_source_cell": "3207566.4176655654",
+  "label": "preflight: wrong network, must be refused"
+ },
+ "provenance": {
+  "code_version": "src-17659e64846b",
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "repo_revision": "5bf86ded",
+  "base_config_digest": "9325879176f9070c",
+  "config_digest": "ab57a694dcf7b24b",
+  "data_inputs": {
+   "cenpop_bg_oh": "ca6e3344ed678e3ac448edf67f151353559fb85cb040266a1dac8868d11805ef",
+   "cota_gtfs_static": "b11634f117a35a27a1813ed1eeef2b29b9484c6afdda0757262026ed2c9b3bf0",
+   "lodes_od_oh": "98cd08aa85ff1dc839bbedabf3a5d2ecbc7e85c0f6d9c220b6b5892ea838f8db",
+   "lodes_rac_oh": "848b5941128427947acad6a9fabba99d35563ee0313e10dfba74053c261041e4",
+   "lodes_wac_oh": "921573335891c204f8fddeffbf0e9f7ea0105560739dae469bfdc59dff892dab"
+  },
+  "data_digest": "15fa44df0f1075a2",
+  "runner_sha256": {
+   "exp7_cell.py": "bba6e534c1e88951",
+   "exp7_levels.py": "10ba6b4056889d1b",
+   "exp6_grid.py": "945b4500b2c755c2",
+   "exp45_certify_cell.py": "7135b1554c8620b3",
+   "exp45_contracts.py": "bf1d2b60a2ce7432",
+   "exp5_model_resource.py": "5c85226d321fdbc5"
+  },
+  "python": "3.11.15",
+  "pid": 1004
+ },
+ "written_utc": "2026-09-29T12:37:16Z",
+ "status": "ANCHOR_REFUSED",
+ "refusal": "cota_existing_local_geometry|N0: anchor covers 390 route-periods, this network has 173; symmetric difference [('001', 'am_peak'), ('001', 'early'), ('001', 'evening'), ('001', 'midday'), ('001', 'owl')]",
+ "seconds": 451.7
+}

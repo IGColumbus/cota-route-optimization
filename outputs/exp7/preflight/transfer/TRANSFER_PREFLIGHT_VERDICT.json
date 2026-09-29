@@ -1,0 +1,65 @@
+{
+ "schema": "exp7_transfer_preflight/v1",
+ "checks": {
+  "cross_level_transfer_admitted": true,
+  "transfer_reevaluated_under_target_lambda": true,
+  "transfer_never_worse_than_anchor": true,
+  "policy_refusal_by_certifier": true,
+  "representation_refusal_by_certifier": true,
+  "emptiness_reproven_at_level": true,
+  "greedy_vs_transfer_at_level_recorded": true
+ },
+ "passed": true,
+ "detail": {
+  "transfer": {
+   "objective": "2336835.607884194",
+   "anchor_objective_under_target": 2353574.2038301737,
+   "plan_digest": "dce81533ffeb4097",
+   "rounds": 5
+  },
+  "greedy_at_level": {
+   "objective": "1831271.7883544443",
+   "plan_digest": "76430e1f43635d31"
+  },
+  "policy_refusal": "cota_existing_local_geometry|N0: anchor is infeasible under this cell's constraints (no ladder combination fits the envelope; that is a broken budget, not a startable plan)",
+  "representation_refusal": "cota_existing_local_geometry|N0: anchor covers 390 route-periods, this network has 173; symmetric difference [('001', 'am_peak'), ('001', 'early'), ('001', 'evening'), ('001', 'midday'), ('001', 'owl')]",
+  "emptiness": {
+   "hours": [
+    "2214.5191387827317",
+    "2517.1833333333334",
+    false
+   ],
+   "early": [
+    "85.29871576328418",
+    "85.28208333333332",
+    true
+   ],
+   "am_peak": [
+    "139.56445573158038",
+    "162.00944444444443",
+    false
+   ],
+   "midday": [
+    "135.2086240558552",
+    "159.17277777777775",
+    false
+   ],
+   "pm_peak": [
+    "150.80303324244883",
+    "176.49305555555554",
+    false
+   ],
+   "evening": [
+    "125.25773323917416",
+    "140.19458333333336",
+    false
+   ],
+   "owl": [
+    "35.53073897660963",
+    "35.55736111111111",
+    false
+   ]
+  }
+ },
+ "written_utc": "2026-09-29T12:54:15Z"
+}

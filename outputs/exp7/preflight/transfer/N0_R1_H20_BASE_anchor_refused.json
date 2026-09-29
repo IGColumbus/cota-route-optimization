@@ -1,0 +1,79 @@
+{
+ "schema": "exp7_cell/v1",
+ "experiment": "exp7",
+ "role": "preflight_refusal",
+ "track": "F6",
+ "level": {
+  "name": "BASE",
+  "dimension": "none",
+  "lam": 2.0,
+  "waiting_model": "same_route",
+  "overrides": [],
+  "od": [],
+  "rationale": "Experiment 6 exactly"
+ },
+ "level_digest": "79b97699909ebb59",
+ "network": "N0",
+ "cell": "R1_H20",
+ "identity": {
+  "state_key": "cota_existing_local_geometry|N0",
+  "state_digest": "f0f24936ab06b4ec",
+  "cardinality": 0,
+  "members": [],
+  "construction": "H.baseline.network / H.baseline.tstats",
+  "network_label": "N0 COTA existing local geometry",
+  "validation": null
+ },
+ "policy": {
+  "spec": {
+   "cell": "R1_H20",
+   "max_headway": 20.0,
+   "max_off_share": null,
+   "span": false,
+   "max_lost_share": null,
+   "area_radius_m": null,
+   "catalog_digest": "e22f2c94c8f53475"
+  },
+  "digest": "92b5948940dd49f1",
+  "attached": true,
+  "setup_policy_digest": "92b5948940dd49f1"
+ },
+ "anchor": {
+  "source_record": "outputs/exp6/closure/N0_REF__from_R2_S25__aed848588abad24d.json",
+  "source_record_sha256": "1ceb32e250cea878",
+  "source_network": "N0",
+  "source_cell": "REF",
+  "source_plan_digest": "aed848588abad24d",
+  "source_objective_in_source_cell": "2941892.371426373",
+  "label": "preflight: must be refused"
+ },
+ "provenance": {
+  "code_version": "src-17659e64846b",
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "repo_revision": "5bf86ded",
+  "base_config_digest": "9325879176f9070c",
+  "config_digest": "d95b597b2cb7f386",
+  "data_inputs": {
+   "cenpop_bg_oh": "ca6e3344ed678e3ac448edf67f151353559fb85cb040266a1dac8868d11805ef",
+   "cota_gtfs_static": "b11634f117a35a27a1813ed1eeef2b29b9484c6afdda0757262026ed2c9b3bf0",
+   "lodes_od_oh": "98cd08aa85ff1dc839bbedabf3a5d2ecbc7e85c0f6d9c220b6b5892ea838f8db",
+   "lodes_rac_oh": "848b5941128427947acad6a9fabba99d35563ee0313e10dfba74053c261041e4",
+   "lodes_wac_oh": "921573335891c204f8fddeffbf0e9f7ea0105560739dae469bfdc59dff892dab"
+  },
+  "data_digest": "15fa44df0f1075a2",
+  "runner_sha256": {
+   "exp7_cell.py": "bba6e534c1e88951",
+   "exp7_levels.py": "10ba6b4056889d1b",
+   "exp6_grid.py": "945b4500b2c755c2",
+   "exp45_certify_cell.py": "7135b1554c8620b3",
+   "exp45_contracts.py": "bf1d2b60a2ce7432",
+   "exp5_model_resource.py": "5c85226d321fdbc5"
+  },
+  "python": "3.11.15",
+  "pid": 975
+ },
+ "written_utc": "2026-09-29T12:29:43Z",
+ "status": "ANCHOR_REFUSED",
+ "refusal": "cota_existing_local_geometry|N0: anchor is infeasible under this cell's constraints (no ladder combination fits the envelope; that is a broken budget, not a startable plan)",
+ "seconds": 337.5
+}
