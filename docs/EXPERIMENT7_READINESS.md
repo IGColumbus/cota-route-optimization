@@ -8,17 +8,24 @@
 *Experiment 6 is untouched: `EXP6_POLICY_FRONTIER_CERTIFIED`, and
 `outputs/exp6/` is unmodified.*
 
-## Decision: NOT READY
+## Decision: NOT READY (updated 2026-09-29, later the same day)
 
-The implementation and the executed evidence agree with each other. The
-governing text is incomplete.
+Ian chose not to block on the 23 September original. The governing text is now
+the dated replacement `docs/EXPERIMENT7_PROTOCOL.md`, **PROPOSED** and awaiting
+his review. There is no `EXPERIMENT7_PROTOCOL_AS_ISSUED.md`.
 
-* The as-issued Exp 7 section is not in the repository, so the sensitivity
-  matrix cannot be declared.
-* The freeze script refuses, as designed:
-  `outputs/exp7/preflight/freeze_check/FREEZE_ATTEMPT.txt`.
+Every remaining blocker comes from an executed check, not a prediction:
 
-No production cell has been run.
+| gate | state |
+|---|---|
+| G1 protocol approved | **FAIL**: proposed, not approved |
+| G2 levels frozen and named | **FAIL**: proposed (`EXP7_LEVELS.PROPOSED.json`) |
+| G4 matrix reach N0/N3/N4 | **NOT PASSED YET**: running (`preflight/reach_matrix_*.json`) |
+| X-stage scope | **OPEN**: Ian's decision (protocol §4) |
+| AF2 in/out | **OPEN**: Ian's decision (protocol §2) |
+| G3, G5, G6, G7 | PASS (below) |
+
+The freeze script refuses on the failing gates (`preflight/freeze_check/`).
 
 ## Gates passed (executed, evidence committed)
 
@@ -75,21 +82,9 @@ No production cell has been run.
 * The analysis produced `NOT_CERTIFIABLE_UNFROZEN_CONTRACT(...)`, which is
   correct.
 
-## Blockers (unresolved)
+## Blockers
 
-1. **G1: the as-issued Exp 7 text is missing.** It was requested from Ian and
-   has not been received. It is not reconstructed.
-2. **G2 / G4: the matrix.** The dimensions, levels, A8 retention settings and
-   bands come from item 1.
-   * Once they are entered in `outputs/exp7/EXP7_LEVELS.json`, each level
-     needs a reach run on N0 and N3. That is about 5 min per level per
-     network.
-   * Any level that is a path-set-width or scenario-count variation will be
-     **INERT** and must be re-specified or dropped, with a claim bound.
-3. **Decision needed: the scope of the X stage.** All-pairs across all levels
-   costs L(L−1) (see the compute table). The alternative is all-pairs within
-   each dimension, with BASE joining all dimensions. This is a scientific
-   choice, and it is Ian's.
+See the table under Decision. The earlier list (missing as-issued text) is superseded by the replacement protocol.
 
 ## Compute (from measured throughput; `exp7_freeze.estimate`)
 
