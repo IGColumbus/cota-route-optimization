@@ -1,0 +1,845 @@
+{
+ "artifact": "EXP6_CONTRACT",
+ "version": "6.0",
+ "frozen_utc": "2026-09-29T00:09:39Z",
+ "protocol": "EXPERIMENT6_PROTOCOL.md",
+ "amendment": "EXPERIMENT6_D39_AMENDMENT.md",
+ "networks": {
+  "N0": {
+   "state_key": "cota_existing_local_geometry|N0",
+   "state_digest": "f0f24936ab06b4ec",
+   "construction": "H.baseline.network / H.baseline.tstats",
+   "network_label": "N0 COTA existing local geometry"
+  },
+  "N3": {
+   "state_key": "exp3|add_stop-010#22c4c35ac5b2",
+   "state_digest": "430aca035c70715b",
+   "construction": "geometry.apply_edits(H.baseline, [edit_from_record(pool[N3])])",
+   "network_label": "N3 final Exp 3 constrained redesign"
+  }
+ },
+ "N4": "not a production network; used only for the D39 preflight",
+ "evaluator": "same_route (Model B)",
+ "lam": 2.0,
+ "envelope": {
+  "rounded_envelope_digest": "3fd5241db44ca9da",
+  "exact_fingerprint": "0b46d1abc9a80c80",
+  "hours_cap": "2517.1833333333334",
+  "peak_proxy_caps": {
+   "early": "85.28208333333332",
+   "am_peak": "162.00944444444443",
+   "midday": "159.17277777777775",
+   "pm_peak": "176.49305555555554",
+   "evening": "140.19458333333336",
+   "owl": "35.55736111111111"
+  },
+  "tolerance": 0.0,
+  "semantics": "solver peak-concurrency proxy, not fleet"
+ },
+ "certifier": {
+  "function": "cota_opt.exp4_certify.certify",
+  "n_keys": 8,
+  "k_rungs": 3,
+  "max_rounds": 120,
+  "convergence_mandatory": true,
+  "certification_digest": "2125984c82b60a83",
+  "base_start": "Gen1 greedy 20000/1/0 built under the cell's own constraints (policy-feasible minimum-service repair first); treatment-independent procedure",
+  "explicit_anchor": "certify(anchor=...): refused unless a real plan on the network, exact ladder rungs, admissible under the target's full constraints; result never worse than the anchor"
+ },
+ "code": {
+  "code_version": "src-17659e64846b",
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "runner_sha256": {
+   "exp6_cell.py": "79c60052e5493a5d",
+   "exp6_grid.py": "945b4500b2c755c2",
+   "exp6_run.py": "6363d4c983d95873",
+   "exp6_contracts.py": "3ae4e09ba9e8b36d",
+   "exp45_certify_cell.py": "7135b1554c8620b3",
+   "exp45_contracts.py": "bf1d2b60a2ce7432",
+   "exp5_model_resource.py": "5c85226d321fdbc5"
+  }
+ },
+ "catalog": {
+  "path": "outputs/exp6/EXP6_CONSTRAINT_CATALOG.json",
+  "digest": "e22f2c94c8f53475"
+ },
+ "cells": {
+  "REF": {
+   "spec": {
+    "cell": "REF",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "b2133c6c34a7d13f"
+  },
+  "R1_H60": {
+   "spec": {
+    "cell": "R1_H60",
+    "max_headway": 60.0,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "278146a2dc525267"
+  },
+  "R1_H30": {
+   "spec": {
+    "cell": "R1_H30",
+    "max_headway": 30.0,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "98914a418dbf89a3"
+  },
+  "R1_H20": {
+   "spec": {
+    "cell": "R1_H20",
+    "max_headway": 20.0,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "92b5948940dd49f1"
+  },
+  "R2_S25": {
+   "spec": {
+    "cell": "R2_S25",
+    "max_headway": null,
+    "max_off_share": 0.25,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "1d448a78286be7dc"
+  },
+  "R2_S10": {
+   "spec": {
+    "cell": "R2_S10",
+    "max_headway": null,
+    "max_off_share": 0.1,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "87e1d3558d0644fb"
+  },
+  "R2_S05": {
+   "spec": {
+    "cell": "R2_S05",
+    "max_headway": null,
+    "max_off_share": 0.05,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "4c6331283fe104e7"
+  },
+  "R3_SPAN": {
+   "spec": {
+    "cell": "R3_SPAN",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": true,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "03894d6e28a89f83"
+  },
+  "R4_C05": {
+   "spec": {
+    "cell": "R4_C05",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": 0.05,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "24ab847f57da55a8"
+  },
+  "R4_C01": {
+   "spec": {
+    "cell": "R4_C01",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": 0.01,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "95ba59a77ff70b93"
+  },
+  "R4_C00": {
+   "spec": {
+    "cell": "R4_C00",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": 0.0,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "8a09b6d60950d646"
+  },
+  "R6_ADA": {
+   "spec": {
+    "cell": "R6_ADA",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": 1207.008,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "59f97c0068606278"
+  },
+  "B1": {
+   "spec": {
+    "cell": "B1",
+    "max_headway": null,
+    "max_off_share": 0.1,
+    "span": true,
+    "max_lost_share": null,
+    "area_radius_m": 1207.008,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "321d380979ab68b8"
+  },
+  "B2": {
+   "spec": {
+    "cell": "B2",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": true,
+    "max_lost_share": 0.01,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "digest": "a2b2f45b665e089a"
+  }
+ },
+ "canonical_order": [
+  [
+   "N0",
+   "REF"
+  ],
+  [
+   "N3",
+   "REF"
+  ],
+  [
+   "N0",
+   "R1_H60"
+  ],
+  [
+   "N3",
+   "R1_H60"
+  ],
+  [
+   "N0",
+   "R1_H30"
+  ],
+  [
+   "N3",
+   "R1_H30"
+  ],
+  [
+   "N0",
+   "R1_H20"
+  ],
+  [
+   "N3",
+   "R1_H20"
+  ],
+  [
+   "N0",
+   "R2_S25"
+  ],
+  [
+   "N3",
+   "R2_S25"
+  ],
+  [
+   "N0",
+   "R2_S10"
+  ],
+  [
+   "N3",
+   "R2_S10"
+  ],
+  [
+   "N0",
+   "R2_S05"
+  ],
+  [
+   "N3",
+   "R2_S05"
+  ],
+  [
+   "N0",
+   "R3_SPAN"
+  ],
+  [
+   "N3",
+   "R3_SPAN"
+  ],
+  [
+   "N0",
+   "R4_C05"
+  ],
+  [
+   "N3",
+   "R4_C05"
+  ],
+  [
+   "N0",
+   "R4_C01"
+  ],
+  [
+   "N3",
+   "R4_C01"
+  ],
+  [
+   "N0",
+   "R4_C00"
+  ],
+  [
+   "N3",
+   "R4_C00"
+  ],
+  [
+   "N0",
+   "R6_ADA"
+  ],
+  [
+   "N3",
+   "R6_ADA"
+  ],
+  [
+   "N0",
+   "B1"
+  ],
+  [
+   "N3",
+   "B1"
+  ],
+  [
+   "N0",
+   "B2"
+  ],
+  [
+   "N3",
+   "B2"
+  ]
+ ],
+ "nesting": {
+  "strict_pairs": [
+   [
+    "B1",
+    "R2_S10"
+   ],
+   [
+    "B1",
+    "R2_S25"
+   ],
+   [
+    "B1",
+    "R3_SPAN"
+   ],
+   [
+    "B1",
+    "R6_ADA"
+   ],
+   [
+    "B1",
+    "REF"
+   ],
+   [
+    "B2",
+    "R3_SPAN"
+   ],
+   [
+    "B2",
+    "R4_C01"
+   ],
+   [
+    "B2",
+    "R4_C05"
+   ],
+   [
+    "B2",
+    "REF"
+   ],
+   [
+    "R1_H20",
+    "B1"
+   ],
+   [
+    "R1_H20",
+    "B2"
+   ],
+   [
+    "R1_H20",
+    "R1_H30"
+   ],
+   [
+    "R1_H20",
+    "R1_H60"
+   ],
+   [
+    "R1_H20",
+    "R2_S05"
+   ],
+   [
+    "R1_H20",
+    "R2_S10"
+   ],
+   [
+    "R1_H20",
+    "R2_S25"
+   ],
+   [
+    "R1_H20",
+    "R3_SPAN"
+   ],
+   [
+    "R1_H20",
+    "R4_C00"
+   ],
+   [
+    "R1_H20",
+    "R4_C01"
+   ],
+   [
+    "R1_H20",
+    "R4_C05"
+   ],
+   [
+    "R1_H20",
+    "R6_ADA"
+   ],
+   [
+    "R1_H20",
+    "REF"
+   ],
+   [
+    "R1_H30",
+    "B1"
+   ],
+   [
+    "R1_H30",
+    "B2"
+   ],
+   [
+    "R1_H30",
+    "R1_H60"
+   ],
+   [
+    "R1_H30",
+    "R2_S05"
+   ],
+   [
+    "R1_H30",
+    "R2_S10"
+   ],
+   [
+    "R1_H30",
+    "R2_S25"
+   ],
+   [
+    "R1_H30",
+    "R3_SPAN"
+   ],
+   [
+    "R1_H30",
+    "R4_C00"
+   ],
+   [
+    "R1_H30",
+    "R4_C01"
+   ],
+   [
+    "R1_H30",
+    "R4_C05"
+   ],
+   [
+    "R1_H30",
+    "R6_ADA"
+   ],
+   [
+    "R1_H30",
+    "REF"
+   ],
+   [
+    "R1_H60",
+    "B1"
+   ],
+   [
+    "R1_H60",
+    "B2"
+   ],
+   [
+    "R1_H60",
+    "R2_S05"
+   ],
+   [
+    "R1_H60",
+    "R2_S10"
+   ],
+   [
+    "R1_H60",
+    "R2_S25"
+   ],
+   [
+    "R1_H60",
+    "R3_SPAN"
+   ],
+   [
+    "R1_H60",
+    "R4_C00"
+   ],
+   [
+    "R1_H60",
+    "R4_C01"
+   ],
+   [
+    "R1_H60",
+    "R4_C05"
+   ],
+   [
+    "R1_H60",
+    "R6_ADA"
+   ],
+   [
+    "R1_H60",
+    "REF"
+   ],
+   [
+    "R2_S05",
+    "R2_S10"
+   ],
+   [
+    "R2_S05",
+    "R2_S25"
+   ],
+   [
+    "R2_S05",
+    "REF"
+   ],
+   [
+    "R2_S10",
+    "R2_S25"
+   ],
+   [
+    "R2_S10",
+    "REF"
+   ],
+   [
+    "R2_S25",
+    "REF"
+   ],
+   [
+    "R3_SPAN",
+    "REF"
+   ],
+   [
+    "R4_C00",
+    "R4_C01"
+   ],
+   [
+    "R4_C00",
+    "R4_C05"
+   ],
+   [
+    "R4_C00",
+    "R6_ADA"
+   ],
+   [
+    "R4_C00",
+    "REF"
+   ],
+   [
+    "R4_C01",
+    "R4_C05"
+   ],
+   [
+    "R4_C01",
+    "REF"
+   ],
+   [
+    "R4_C05",
+    "REF"
+   ],
+   [
+    "R6_ADA",
+    "REF"
+   ]
+  ],
+  "equal_pairs": [],
+  "adjacent_edges": [
+   [
+    "B1",
+    "R2_S10"
+   ],
+   [
+    "B1",
+    "R3_SPAN"
+   ],
+   [
+    "B1",
+    "R6_ADA"
+   ],
+   [
+    "B2",
+    "R3_SPAN"
+   ],
+   [
+    "B2",
+    "R4_C01"
+   ],
+   [
+    "R1_H20",
+    "R1_H30"
+   ],
+   [
+    "R1_H30",
+    "R1_H60"
+   ],
+   [
+    "R1_H60",
+    "B1"
+   ],
+   [
+    "R1_H60",
+    "B2"
+   ],
+   [
+    "R1_H60",
+    "R2_S05"
+   ],
+   [
+    "R1_H60",
+    "R4_C00"
+   ],
+   [
+    "R2_S05",
+    "R2_S10"
+   ],
+   [
+    "R2_S10",
+    "R2_S25"
+   ],
+   [
+    "R2_S25",
+    "REF"
+   ],
+   [
+    "R3_SPAN",
+    "REF"
+   ],
+   [
+    "R4_C00",
+    "R4_C01"
+   ],
+   [
+    "R4_C00",
+    "R6_ADA"
+   ],
+   [
+    "R4_C01",
+    "R4_C05"
+   ],
+   [
+    "R4_C05",
+    "REF"
+   ],
+   [
+    "R6_ADA",
+    "REF"
+   ]
+  ],
+  "rule": "A tighter than B iff A's PolicySpec implies every constraint of B (PolicySpec.at_least_as_tight_as) and not vice versa; same network, same envelope, same evaluator",
+  "numerical_falsification": {
+   "N0": {
+    "network": "N0",
+    "samples": 3000,
+    "counterexamples": [],
+    "n_counterexamples": 0
+   },
+   "N3": {
+    "network": "N3",
+    "samples": 3000,
+    "counterexamples": [],
+    "n_counterexamples": 0
+   }
+  }
+ },
+ "closure": {
+  "pass_ceiling": 8,
+  "algorithm": "scripts/exp6_run.py closure (docstring)",
+  "improvement_eps": 1e-09,
+  "no_cross_network_sharing": true
+ },
+ "monotonicity": {
+  "rule": "post-closure, for every strict pair (A tighter than B) obj(B) <= obj(A) + 1e-9 * |obj(A)|",
+  "failure": "EXP6_POLICY_MONOTONICITY_FAILURE",
+  "d33b_does_not_waive": true
+ },
+ "reference": {
+  "cell": "REF",
+  "rule": "after closure no policy cell may beat REF on the same network",
+  "failure": "EXP6_REFERENCE_CLOSURE_FAILURE"
+ },
+ "firewall": {
+  "EXP6_POLICY": {
+   "digest": "393f45ac10d28cb9",
+   "version": "6.0-policy-within-network",
+   "solver": "exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ceiling=8|allow_off=True|tol=0.0",
+   "envelope": "exp4n_common_reference_envelope_exact_0b46d1abc9a80c80",
+   "evaluator": "same_route",
+   "objective": "lambda_scalarized_path_level",
+   "objective_version": "lambda=2.0",
+   "pathset_policy": "rebuilt_per_network_per_certify_call",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ],
+   "justifications": {
+    "config_digest": "The policy cell IS the treatment. config_digest = digest({base_config, policy spec}); the analysis asserts base_config identical across all cells, so this admits exactly the declared policy-level difference and nothing else in configuration."
+   }
+  },
+  "EXP6_STRUCTURE": {
+   "digest": "fad14449dc3db7c6",
+   "version": "6.0-structure-at-matched-policy",
+   "solver": "exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ceiling=8|allow_off=True|tol=0.0",
+   "envelope": "exp4n_common_reference_envelope_exact_0b46d1abc9a80c80",
+   "evaluator": "same_route",
+   "objective": "lambda_scalarized_path_level",
+   "objective_version": "lambda=2.0",
+   "pathset_policy": "rebuilt_per_network_per_certify_call",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ],
+   "justifications": {
+    "cardinality": "How many lines the network activates. Part of the treatment: service activation, including OFF, is a decision variable in this experiment.",
+    "members": "Which lines it activates. Part of the treatment.",
+    "pathset_digest": "A different route structure has different shortest paths. Requiring identical path sets would admit only a comparison of a network with itself. The path-set POLICY is an identity field of its own and must still match exactly -- that is what stops one arm being enumerated differently from the other.",
+    "state_digest": "The network itself. This IS the treatment.",
+    "state_key": "The network's name. Follows from state_digest."
+   }
+  }
+ },
+ "sentinels": [
+  [
+   "N3",
+   "R4_C01"
+  ],
+  [
+   "N0",
+   "R2_S10"
+  ],
+  [
+   "N3",
+   "REF"
+  ],
+  [
+   "N0",
+   "REF"
+  ]
+ ],
+ "preflight": {
+  "default_equivalence": {
+   "N4": {
+    "objective_EXACT": "3223885.947526011",
+    "plan_digest": "898b95fd93c33414",
+    "rounds": 21,
+    "converged": true
+   },
+   "N3": {
+    "objective_EXACT": "2939912.5807124916",
+    "plan_digest": "28135d0fa655e6e1",
+    "rounds": 1,
+    "converged": true
+   },
+   "N0": {
+    "objective_EXACT": "2945632.2349138106",
+    "plan_digest": "c4591ff0f6e2d8ad",
+    "rounds": 1,
+    "converged": true
+   }
+  },
+  "d39": {
+   "J100": {
+    "status": "CERTIFIED",
+    "objective": "3207566.4176655654",
+    "anchor_objective": 3219614.742641489,
+    "rounds": 6
+   },
+   "H110": {
+    "status": "CERTIFIED",
+    "objective": "3207230.8312193276",
+    "anchor_objective": 3219614.742641489,
+    "rounds": 5
+   }
+  },
+  "d35": {
+   "N0": {
+    "R1": "PASS",
+    "R2": "PASS",
+    "R3": "PASS",
+    "R4": "PASS",
+    "R6": "PASS"
+   },
+   "N3": {
+    "R1": "PASS",
+    "R2": "PASS",
+    "R3": "PASS",
+    "R4": "PASS",
+    "R6": "PASS"
+   }
+  }
+ },
+ "statuses": [
+  "EXP6_POLICY_FRONTIER_CERTIFIED",
+  "EXP6_PIPELINE_EQUIVALENCE_FAILURE",
+  "EXP6_D39_PREFLIGHT_FAILURE",
+  "EXP6_CONSTRAINT_INERT",
+  "EXP6_START_CLOSURE_FAILURE",
+  "EXP6_POLICY_MONOTONICITY_FAILURE",
+  "EXP6_REFERENCE_CLOSURE_FAILURE",
+  "EXP6_ORDER_DEPENDENCE_FAILURE",
+  "EXP6_CONVERGENCE_FAILURE",
+  "EXP6_INFEASIBLE_CERTIFIED_PLAN",
+  "EXP6_INSTRUMENTATION_FAILURE"
+ ],
+ "claims": {
+  "permitted": "Under the frozen Model B demand/evaluation model, common modeled operating resource envelope, and the declared basin-closure search, imposing policy constraint X changes the best-known modeled objective by Y relative to the matched unconstrained reference.",
+  "prohibited": [
+   "global optimum",
+   "buses or fleet",
+   "deployability",
+   "operating dollars",
+   "study safeguard presented as COTA policy",
+   "Title VI compliance adjudicated",
+   "N4 worth implementing"
+  ]
+ }
+}
