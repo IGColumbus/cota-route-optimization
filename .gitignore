@@ -43,3 +43,5 @@ outputs/exp6/**/*.pid
 .claude/
 outputs/exp7/run/
 outputs/exp7/smoke/run/
+outputs/exp7/stage1/*.events.log
+outputs/exp7/stage1/emptiness/RAW.*
