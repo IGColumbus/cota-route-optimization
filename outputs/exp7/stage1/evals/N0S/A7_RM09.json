@@ -1,0 +1,32 @@
+{
+ "schema": "exp7_stage1_cell/v1",
+ "variant": "N0S",
+ "level": {
+  "name": "A7_RM09",
+  "dimension": "A7",
+  "lam": 2.0,
+  "waiting_model": "same_route",
+  "overrides": [],
+  "od": [],
+  "rationale": "A7 as issued: remove the rank-9 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+  "network": [
+   [
+    "remove_route",
+    {
+     "rank": 9,
+     "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+    }
+   ]
+  ],
+  "provenance": "as_issued_0923"
+ },
+ "level_digest": "f18f20da86f66965",
+ "status": "NOT_APPLICABLE",
+ "why": "A7 removes route 034, which is a member of the Exp 2B splice treatment splice-011-034-WESHIGW#2c53c24a4f24; the treatment is undefined on that network",
+ "rows": {},
+ "n_rows": 0,
+ "n_errors": 0,
+ "internal_consistency_build_plan_equals_solve": true,
+ "registry_sha256": "28c607a27aedf7c544ec83bf2eb1cb8ac95ab518a57ebb16945b6717fc940746",
+ "written_utc": "2026-09-29T23:13:43Z"
+}
