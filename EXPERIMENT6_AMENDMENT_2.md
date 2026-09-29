@@ -14,8 +14,10 @@ The first analysis run had every other gate passing:
 * reference closure clean;
 * sentinels 4/4.
 
-The firewall still **refused 35 comparisons**, and every refusal named one
-dimension: `starts_attempted`. The receipt put the **winning** basin into that
+The firewall still **refused 33 comparisons** (policy 23, structure 10). Every
+refusal named one dimension, `starts_attempted`. The superseded analysis
+truncates its refusal text, so this was confirmed by recomputing the
+comparisons with the old receipt encoding. The receipt put the **winning** basin into that
 opportunity field (`["greedy", "anchor:<digest>"]` for a cell whose best plan
 came from a transfer, `["greedy"]` otherwise). Two cells that received the
 identical procedure therefore looked as if they had received different

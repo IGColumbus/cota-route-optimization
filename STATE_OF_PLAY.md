@@ -55,7 +55,9 @@ not only on N4.** Closure moved both reference cells to a different basin:
   bit-for-bit. So those records, exact under their contracts, are **not the
   best-known plans** under the EXP4N envelope. They are not reopened, and Δ43
   stays +9.66%.
-* D39 is a property of this objective and certifier.
+* Start-basin dependence (D39) appears on N0, N3 and N4 under this objective
+  and certifier. Whether the objective or the search is the cause is not
+  separated.
 * Served trips and GC from any single-basin run are basin-dependent.
 
 **Finding 2 — modeled policy cost**, closed cell − closed REF, in objective
@@ -79,8 +81,9 @@ equivalent.
 **Finding 3 — single-start pricing is contaminated at the scale of the prices.**
 * Greedy-only prices differ from closure-adjusted prices by −0.162 to +0.124
   percentage points.
-* Most of that comes from the reference itself being stuck, which lowered every
-  greedy-only price by 0.13–0.16 pp.
+* Most of that comes from the reference itself being stuck in its greedy basin
+  (0.13–0.16 pp too high). For most cells this made the greedy-only price too
+  low; R2_S10, R3_SPAN and R4_C05 went the other way.
 * It produced **two impossible negative prices**: R2_S25 at −0.115% on N0 and
   −0.081% on N3.
 * It priced R3 span above R1 H = 30, although R1 H = 30 implies R3.

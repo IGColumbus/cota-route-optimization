@@ -42,7 +42,7 @@ artifacts):
   * REF N3 − N0 = −6,726.35 (−0.229%), 13 admitted, range −0.2286% to
     −0.1525%.
   * Identical-plan groups.
-  * Amendment 2: 35 refusals, then 25/25 and 13/13 admitted.
+  * Amendment 2: 33 refusals, then 25/25 and 13/13 admitted.
   * Closure end times 06:36:25 (N3) and 07:01:00 (N0).
   * Sentinels 06:43:07–07:24:40.
   * Initial solves 00:09:58–02:53:29.

@@ -25,8 +25,10 @@ both reference cells to a plan with the same objective to within 0.13–0.16%.
 That plan serves about 4,600 more modeled trips, runs 35–37 fewer OFF
 route-periods, and costs about 45% more generalized cost. The single-greedy-start
 plans behind Exp 4A's N3 and Exp 5's N0 J100 were therefore not the best-known
-plans under the EXP4N envelope. D39 is a property of this objective and
-certifier, not of the greenfield network.
+plans under the EXP4N envelope. Start-basin dependence (D39) appears on N0, N3
+and N4 under this objective and certifier, so it is not a peculiarity of the
+greenfield network. The data do not separate the objective from the search
+procedure as its cause.
 
 Completed 2026-09-29. Governing text:
 * `EXPERIMENT6_PROTOCOL.md`;
@@ -133,8 +135,8 @@ The reading is **policy infeasible under the modeled envelope**, and the margin
 is 0.0166 proxy units in one period. That is a result, not a failure. The cell
 has no plan, no receipt and **no finite policy cost**. Closure receipted 6
 transfers into or out of it as `SKIPPED_EMPTY_FEASIBLE_SET`. N0 R1_H20 is
-feasible (§7), so this asymmetry is a property of N3's resource use: the added
-stop lengthens route 001.
+feasible (§7). The asymmetry is consistent with N3's resource use (the added
+stop lengthens route 001; see the D35 trims), but that cause was not tested.
 
 The start-failure trace is kept at
 `outputs/exp6/initial/TRACE.N3_R1_H20.certifier_start_error.json`.
@@ -196,8 +198,9 @@ The largest initial → closure corrections:
 violations**; no policy cell beats its REF.
 
 **Amendment 2** (the firewall receipt start encoding). The first analysis run
-had every gate passing except the firewall, which refused 35 comparisons. Every
-refusal named one dimension only: `starts_attempted`. The receipt had put the
+had every gate passing except the firewall, which refused 33 comparisons (policy 23, structure 10). A recomputation with the
+old receipt encoding confirms that every refusal named one dimension only:
+`starts_attempted`. The receipt had put the
 *winning* basin into that opportunity field, so cells given the identical
 procedure looked as if they had different opportunity. Per protocol §11,
 opportunity is the procedure: same base start, closure algorithm, pass ceiling,
@@ -224,7 +227,7 @@ reversed order are equal in objective, plan digest and rounds
 | | initial REF (greedy basin) | closed REF | change |
 |---|---|---|---|
 | **N0** objective | 2,945,632.23 | 2,941,892.37 | **−0.127%** |
-| N0 served (of 30,949 modeled trips) | 16,527 | 21,144 | +4,617 |
+| N0 served (of 30,949 modeled trips) | 16,527 | 21,144 | +4,616 |
 | N0 OFF route-periods | 50 | 15 | −35 |
 | N0 generalized cost | 1,215,043 | 1,765,256 | +45.3% |
 | **N3** objective | 2,939,912.58 | 2,935,166.03 | **−0.161%** |
@@ -507,7 +510,7 @@ halt.
   closure (or cross-seeding) at every sensitivity level, because §8.1 shows the
   basin correction is the same order as the prices themselves.
 * **F4 (N4 does not beat N3/N0)**: the negative result is robust to the basin
-  corrections seen here, which are about 0.1–0.5% against a gap of about 9%.
+  corrections seen here, at most 0.28% per cell against a gap of about 9%.
   Its sensitivity robustness is untested.
 * **N3 vs N0** (0.15–0.23%) is of the same order as the basin corrections, so
   any Exp 7 robustness label for it must come from closure-adjusted comparisons.
