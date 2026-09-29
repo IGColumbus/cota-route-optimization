@@ -1,0 +1,155 @@
+{
+ "schema": "exp7_stage1_cell/v1",
+ "variant": "N0S",
+ "level": {
+  "name": "A1_NC100",
+  "dimension": "A1",
+  "lam": 2.0,
+  "waiting_model": "same_route",
+  "overrides": [],
+  "od": [
+   [
+    "noncommute_add",
+    {
+     "decay_km": 4.0,
+     "share_of_commute": 1.0,
+     "zone_weight": "workers_plus_jobs"
+    }
+   ]
+  ],
+  "rationale": "A1 as issued: non-commute trips added at 100% of commute volume. Gravity-form operationalization (0929): noncommute_proxy, zone weight workers+jobs, 4 km exponential decay, on the commute OD pair set.",
+  "provenance": "as_issued_0923"
+ },
+ "level_digest": "ac2933519a06c9d9",
+ "identity": {
+  "state_key": "exp2b|splice-011-034-WESHIGW#2c53c24a4f24",
+  "state_digest": "159a0c775b9fcc66",
+  "cardinality": 1,
+  "members": [
+   "splice-011-034-WESHIGW#2c53c24a4f24"
+  ],
+  "construction": "geometry.apply_edits(H.baseline, [edit_from_record(pool[splice-011-034])])",
+  "network_label": "N0 + Exp 2B splice 011+034 at WESHIGW"
+ },
+ "lam": 2.0,
+ "waiting_model": "same_route",
+ "w_unserved": 60.0,
+ "build_solution": "F2_SPLICE_20260825",
+ "internal_consistency_build_plan_equals_solve": true,
+ "evaluator_checks": {
+  "gtfs_scheduled_revenue_veh_hours": 2516.233333333333,
+  "model_baseline_revenue_veh_hours": 2516.2333333333336,
+  "vh_relative_error": 1.80725429896458e-16,
+  "n_route_periods": 167,
+  "periods_modelled": [
+   "early",
+   "am_peak",
+   "midday",
+   "pm_peak",
+   "evening",
+   "owl"
+  ],
+  "od_pairs": 20000,
+  "od_total_trips": 61898.0,
+  "od_source": "LEHD LODES8 2022 OD (JT00 main)+noncommute_add",
+  "baseline_generalized_cost": 3133834.2410962405,
+  "baseline_unserved_demand": 15368.453470266091,
+  "baseline_served_demand": 46529.54652973392,
+  "baseline_gc_per_served_trip": 67.35148899621484,
+  "total_paths": 150046,
+  "locked_route_periods": 28,
+  "locked_routes": [
+   "041",
+   "042",
+   "043",
+   "044",
+   "045",
+   "046",
+   "051",
+   "052",
+   "061",
+   "071",
+   "072",
+   "073",
+   "074",
+   "075"
+  ],
+  "with_crowding": false,
+  "common_lines": "same_route",
+  "common_lines_source": "explicit",
+  "allow_off": true
+ },
+ "pathset_total_paths": 150046,
+ "rows": {
+  "F2_SPLICE_20260825": {
+   "objective": 4853293.945229938,
+   "generalized_cost": 3140854.3404729976,
+   "unserved_demand": 14270.330039641176,
+   "served_demand": 47627.66996035882,
+   "gc_per_served_trip": 65.94600036254502,
+   "revenue_veh_hours": 2514.3822760235607,
+   "peak_vehicles": 176.29287268510072,
+   "peak_by_period": {
+    "early": 85.14806186868682,
+    "am_peak": 161.89858648451653,
+    "midday": 159.15471343235458,
+    "pm_peak": 176.29287268510072,
+    "evening": 140.07724014673943,
+    "owl": 35.31697916663067
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_SPLICE_20260826": {
+   "objective": 4853293.945229938,
+   "generalized_cost": 3140854.3404729976,
+   "unserved_demand": 14270.330039641176,
+   "served_demand": 47627.66996035882,
+   "gc_per_served_trip": 65.94600036254502,
+   "revenue_veh_hours": 2514.3822760235607,
+   "peak_vehicles": 176.29287268510072,
+   "peak_by_period": {
+    "early": 85.14806186868682,
+    "am_peak": 161.89858648451653,
+    "midday": 159.15471343235458,
+    "pm_peak": 176.29287268510072,
+    "evening": 140.07724014673943,
+    "owl": 35.31697916663067
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_SPLICE_20260827": {
+   "objective": 4853293.945229938,
+   "generalized_cost": 3140854.3404729976,
+   "unserved_demand": 14270.330039641176,
+   "served_demand": 47627.66996035882,
+   "gc_per_served_trip": 65.94600036254502,
+   "revenue_veh_hours": 2514.3822760235607,
+   "peak_vehicles": 176.29287268510072,
+   "peak_by_period": {
+    "early": 85.14806186868682,
+    "am_peak": 161.89858648451653,
+    "midday": 159.15471343235458,
+    "pm_peak": 176.29287268510072,
+    "evening": 140.07724014673943,
+    "owl": 35.31697916663067
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  }
+ },
+ "n_rows": 3,
+ "n_errors": 0,
+ "registry_sha256": "28c607a27aedf7c544ec83bf2eb1cb8ac95ab518a57ebb16945b6717fc940746",
+ "provenance": {
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "runner_sha256": {
+   "exp7_stage1.py": "3024e849a5f8015d",
+   "exp7_levels.py": "27a45f94661e9b3e"
+  },
+  "levels_file_sha256": "112690806d22647eaebeda2c3b21fe59a7ada69117c9f5a15f529fd23d381333"
+ },
+ "seconds": 298.1,
+ "written_utc": "2026-09-29T17:24:06Z"
+}
