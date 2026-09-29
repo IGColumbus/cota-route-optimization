@@ -38,6 +38,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "scripts"))
 
+from cota_opt.firewall.core import digest  # noqa: E402
 from cota_opt.firewall import (EventType, ExecutionEvent,  # noqa: E402
                                ExecutionReceipt, ExperimentContract,
                                NETWORK_DIFFERENCES, SolverPolicy, StartPolicy,
@@ -102,6 +103,23 @@ def contracts_for(lv) -> dict[str, ExperimentContract]:
     }
 
 
+def _base_digest():
+    import exp7_levels as L
+    return L.BASE.digest
+
+
+BASE_DIGEST = _base_digest()
+
+
+def contract_level_digest(c: ExperimentContract) -> str:
+    """The level a per-level contract was built for (from its pool_version)."""
+    import re
+    m = re.match(r"exp7-F[46]-level-.+-([0-9a-f]{16})-networks-", c.pool_version)
+    if not m:
+        raise ValueError(f"not a per-level Exp 7 contract: {c.pool_version}")
+    return m.group(1)
+
+
 METRIC_FIELDS = ("generalized_cost", "unserved_demand", "served_demand",
                  "gc_per_served_trip", "revenue_veh_hours", "peak_vehicles")
 
@@ -120,6 +138,17 @@ def receipt_for(rec: dict, contract: ExperimentContract,
         track = own
     elif own is not None and own != track:
         raise ValueError(f"record is {own}, used as {track}")
+    # LEVEL BINDING. The firewall whitelists config_digest for EXP7_POLICY, and
+    # the level digest lives inside config_digest, so a mixed-level pair would
+    # otherwise pass as a "policy difference" (found by the firewall
+    # preflight, 2026-09-29). The record's level must be the contract's level,
+    # and the level digest is also folded into data_digest, which no Exp 7
+    # contract whitelists, so the firewall itself refuses a mixed-level pair.
+    want = contract_level_digest(contract)
+    got = rec.get("level_digest") or BASE_DIGEST
+    if got != want:
+        raise ValueError(f"record certified at level {got}, contract is for "
+                         f"level {want}")
     ident = rec["identity"]
     audit = rec["execution"]["start_audit"]
     spec = build_spec(
@@ -128,7 +157,9 @@ def receipt_for(rec: dict, contract: ExperimentContract,
         members=tuple(ident["members"]),
         envelope_digest=rec["resource"]["enforced_exact_fingerprint"],
         config_digest=rec["provenance"]["config_digest"],
-        data_digest=rec["provenance"]["data_digest"],
+        data_digest=(rec["provenance"]["data_digest"] if got == BASE_DIGEST
+                     else digest({"data": rec["provenance"]["data_digest"],
+                                  "level": got})),
         code_version=rec["provenance"]["code_version"],
         seed=int(rec["search"]["seed"]))
     events = []

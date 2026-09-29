@@ -431,6 +431,17 @@ the evaluator (waiting model), and its digest is part of `config_digest`.
   * `starts_attempted` is the procedure (opportunity): `exp7_combined_closure`
     or `exp7_cross_level_closure`;
   * `winning_start` is the basin that won (outcome).
+* **Level binding.** The firewall preflight
+  (`outputs/exp7/preflight/FIREWALL_PREFLIGHT.json`) found that, without
+  extra binding, EXP7_POLICY admitted a pair certified at different levels.
+  The level digest sits inside `config_digest`, which that contract
+  whitelists, so the level difference passed as a "policy difference".
+  Two fixes close this:
+  * `receipt_for` refuses a record whose level is not the contract's level;
+  * the level digest is folded into `data_digest`, which no Exp 7 contract
+    whitelists, so the firewall itself refuses mixed-level receipts.
+
+  Both refusals are preflight-tested.
 * Raw objectives are never compared across levels; the contracts refuse it.
   Cross-level statements are made only about prices and signed differences,
   each admitted within its own level.

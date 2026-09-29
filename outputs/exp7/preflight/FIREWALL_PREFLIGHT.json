@@ -1,0 +1,62 @@
+{
+ "schema": "exp7_firewall_preflight/v1",
+ "rows": {
+  "admit_policy_BASE_N0_REF_vs_R2_S10_canary": {
+   "admitted": true,
+   "effect": 7400.199618187267,
+   "effect_pct": 0.2515455592482906,
+   "declared": [
+    "spec.config_digest"
+   ]
+  },
+  "admit_structure_BASE_REF_N0_vs_N3": {
+   "admitted": true,
+   "effect": -6726.345988185145,
+   "effect_pct": -0.2286401111582435,
+   "declared": [
+    "pathset_digest",
+    "spec.cardinality",
+    "spec.members",
+    "spec.state_digest",
+    "spec.state_key"
+   ]
+  },
+  "admit_f4_BASE_REF_N0_vs_N3_initial": {
+   "admitted": true,
+   "effect": -5719.6542013189755,
+   "effect_pct": -0.19417407691039656,
+   "declared": [
+    "pathset_digest",
+    "spec.cardinality",
+    "spec.members",
+    "spec.state_digest",
+    "spec.state_key"
+   ]
+  },
+  "refuse_policy_BASE_given_R_LAM1_record": {
+   "admitted": false,
+   "refused_by": "receipt_builder",
+   "why": "record certified at level dbdcac110276e744, contract is for level 79b97699909ebb59"
+  },
+  "refuse_policy_R_LAM1_given_BASE_record": {
+   "admitted": false,
+   "refused_by": "receipt_builder",
+   "why": "record certified at level 79b97699909ebb59, contract is for level dbdcac110276e744"
+  },
+  "refuse_F6_record_used_as_F4": {
+   "admitted": false,
+   "refused_by": "receipt_builder",
+   "why": "record is F6, used as F4"
+  },
+  "refuse_F6_vs_F4_mixed": {
+   "admitted": false,
+   "why": "InadmissibleComparison(contract=ExperimentContract(experiment='exp7', version='7.0-f4-reference-cells-matched-procedure', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp7-F4-level-BASE-79"
+  },
+  "refuse_mixed_level_receipts_at_firewall": {
+   "admitted": false,
+   "why": "InadmissibleComparison(contract=ExperimentContract(experiment='exp7', version='7.0-policy-within-network-within-level', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp7-F6-level-BASE-79b9"
+  }
+ },
+ "passed": true,
+ "written_utc": "2026-09-29T13:16:27Z"
+}
