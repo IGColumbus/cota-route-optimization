@@ -1,0 +1,59 @@
+{
+ "artifact": "EXP7_ANALYSIS",
+ "written_utc": "2026-09-29T14:11:46Z",
+ "contract_file": "outputs/exp7/EXP7_CONTRACT.json",
+ "closure": {
+  "F4/N0": {
+   "status": "FIXED_POINT",
+   "passes": 1,
+   "n_improvements": 0,
+   "improvements_by_stage": {
+    "W": 0,
+    "X": 0
+   }
+  }
+ },
+ "record_checks": {
+  "convergence": {
+   "n": 2,
+   "all_pass": true
+  },
+  "feasible": {
+   "n": 2,
+   "all_pass": true
+  },
+  "policy": {
+   "n": 2,
+   "all_pass": true
+  },
+  "level": {
+   "n": 2,
+   "all_pass": true
+  }
+ },
+ "monotonicity": {
+  "n_pairs": 0,
+  "n_violations": 0,
+  "violations": []
+ },
+ "f6_prices": [],
+ "f6_ranks": {},
+ "f6_transitions": [],
+ "f6_sign_changes": [],
+ "f6_basin_vs_sensitivity": [],
+ "af1_n3_minus_n0": [],
+ "f4": [],
+ "sentinels": [
+  {
+   "cell": [
+    "F4",
+    "R_LAM1",
+    "N0",
+    "REF"
+   ],
+   "ok": true
+  }
+ ],
+ "failures": [],
+ "status": "NOT_CERTIFIABLE_UNFROZEN_CONTRACT(EXP7_SENSITIVITY_CERTIFIED)"
+}

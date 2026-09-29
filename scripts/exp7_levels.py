@@ -38,6 +38,10 @@ sys.path.insert(0, str(ROOT / "src"))
 
 ALLOWED_OVERRIDE_PREFIXES = ("path_assignment.", "demand_proxy.period_shares",
                              "waiting.")
+# Consumed when the HARNESS is built (RAPTOR footpaths, zone access), not by
+# build_setup, so a harness VIEW cannot reach them: refused, fail-closed.
+HARNESS_BUILD_KEYS = ("path_assignment.walk_radius_m",
+                      "path_assignment.access_radius_m")
 OD_KINDS = ("scale", "wider_top_k", "periods_tilt", "noncommute_blend")
 
 
@@ -55,6 +59,10 @@ class SensitivityLevel:
         for k, _ in self.overrides:
             if not k.startswith(ALLOWED_OVERRIDE_PREFIXES):
                 raise ValueError(f"override {k!r} is not a declared knob")
+            if k in HARNESS_BUILD_KEYS:
+                raise ValueError(f"override {k!r} is consumed at harness "
+                                 f"construction; a harness view cannot reach "
+                                 f"it (needs a rebuilt harness, not supported)")
         for kind, _ in self.od:
             if kind not in OD_KINDS:
                 raise ValueError(f"unknown od transform {kind!r}")

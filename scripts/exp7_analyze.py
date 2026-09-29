@@ -107,11 +107,12 @@ def main() -> int:
     out["record_checks"] = {k: {"n": len(v), "all_pass": all(v)} for k, v in rc.items()}
 
     # ---- monotonicity (hard, within level) -----------------------------------
-    t6 = con["tracks"]["F6"]
+    t6 = con["tracks"].get("F6") or {"networks": [], "policies": [],
+                                      "strict_pairs": []}
     strict = [tuple(x) for x in t6["strict_pairs"]]
     mono = []
     for n in t6["networks"]:
-        if states.get(("F6", n), {}) and states[("F6", n)]["status"] == E.FIXED_POINT:
+        if (states.get(("F6", n)) or {}).get("status") == E.FIXED_POINT:
             best = {(lv, c): E.Rec(**states[("F6", n)]["best"][f"{lv}|{c}"])
                     for lv in order for c in t6["policies"]}
             g = E.Group(order, t6["policies"])
@@ -274,6 +275,9 @@ def main() -> int:
     out["status"] = ("EXP7_SENSITIVITY_CERTIFIED" if not fails and not a.partial
                      else "EXP7_PARTIAL" if a.partial and not fails
                      else "EXP7_BLOCKED")
+    if not con.get("frozen"):
+        # a smoke or draft contract can never yield a certified status
+        out["status"] = "NOT_CERTIFIABLE_UNFROZEN_CONTRACT(" + out["status"] + ")"
     atomic_write_json(R.OUT / "EXP7_ANALYSIS.json", out)
     print(out["status"], fails[:10])
     return 0 if not fails else 3

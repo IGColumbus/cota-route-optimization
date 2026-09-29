@@ -1,0 +1,36 @@
+{
+ "passes_completed": 1,
+ "status": "FIXED_POINT",
+ "tried": [
+  [
+   "BASE|REF",
+   "76430e1f43635d31"
+  ],
+  [
+   "R_LAM1|REF",
+   "c4591ff0f6e2d8ad"
+  ]
+ ],
+ "found_in_pass": {
+  "BASE|REF": 0,
+  "R_LAM1|REF": 0
+ },
+ "improvements": [],
+ "cursor": 0,
+ "pass_improved": false,
+ "blocking": [],
+ "best": {
+  "BASE|REF": {
+   "status": "CERTIFIED",
+   "objective": 2945632.2349138106,
+   "plan_digest": "c4591ff0f6e2d8ad",
+   "ref": "outputs/exp6/initial/N0_REF.json"
+  },
+  "R_LAM1|REF": {
+   "status": "CERTIFIED",
+   "objective": 1831271.7883544443,
+   "plan_digest": "76430e1f43635d31",
+   "ref": "outputs/exp7/smoke/initial/F4/R_LAM1/N0_REF.json"
+  }
+ }
+}

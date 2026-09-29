@@ -154,6 +154,20 @@
    ],
    "od": [],
    "rationale": "reach: number of random enumeration scenarios"
+  },
+  {
+   "name": "R_ROUNDS4",
+   "dimension": "path_model",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.max_rounds",
+     4
+    ]
+   ],
+   "od": [],
+   "rationale": "reach: RAPTOR rounds (boardings) in path enumeration"
   }
  ]
 }

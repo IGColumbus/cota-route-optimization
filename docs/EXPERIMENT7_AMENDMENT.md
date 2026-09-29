@@ -377,21 +377,42 @@ tie.
 **Levels.** *The as-issued levels are entered here and in
 `outputs/exp7/EXP7_LEVELS.json` when received.*
 
-**What the implementation can reach.** Each knob is shown to reach the
-evaluator by the reach preflight (`scripts/exp7_preflight.py reach`). The
-preflight's instrument levels are **not** matrix levels.
+**What the implementation can reach.** The reach preflight
+(`scripts/exp7_preflight.py reach`) evaluates one fixed certified plan — the
+Exp 6 closed REF — under each knob, through the production path. BASE
+reproduces the record bit-exactly. The preflight's instrument levels are
+**not** matrix levels.
 
-| dimension | knob | reach level |
-|---|---|---|
-| λ | `certify(lam=…)` | `R_LAM1` |
-| waiting model | `same_route` / `pattern` (common lines) | `R_WAIT_PATTERN` |
-| waiting parameters | `waiting.*` | `R_WAITCOEF` |
-| retention (A8-type) | `path_assignment.cost_retention_*` | `R_RET_ZERO300`, `R_RET_FLOOR0` |
-| path model | `path_assignment.max_paths_per_od` and other `path_assignment.*` | `R_PATHS2` |
-| demand scale | OD × factor | `R_SCALE15` |
-| period mix | `tilt_periods` on `demand_proxy.period_shares` | `R_TILT_PEAK` |
-| wider OD universe | the harness's own LODES pipeline at a larger top-k | `R_TOPK40K` |
-| non-commute blend | `noncommute_proxy` + `blend` | **not runnable**: its zone weight and distance parameterization is unspecified and is not invented here |
+| dimension | knob | reach level | N0 result |
+|---|---|---|---|
+| λ | `certify(lam=…)` | `R_LAM1` | REACHES |
+| waiting model | `same_route` / `pattern` (common lines) | `R_WAIT_PATTERN` | REACHES |
+| waiting parameters | `waiting.schedule_coefficient` | `R_WAITCOEF` | REACHES |
+| retention (A8-type) | `path_assignment.cost_retention_zero_min` | `R_RET_ZERO300` | REACHES |
+| retention (A8-type) | `path_assignment.cost_retention_floor` | `R_RET_FLOOR0` | REACHES |
+| demand scale | OD × 1.5 | `R_SCALE15` | REACHES (GC per served trip unchanged, as predicted by `robustness.scale_od`) |
+| period mix | `tilt_periods` toward the peaks | `R_TILT_PEAK` | REACHES |
+| wider OD universe | the harness's own LODES pipeline, top-k 40,000 | `R_TOPK40K` | REACHES (40,000 pairs, same total trips) |
+| path-set width | `path_assignment.max_paths_per_od` = 2 or 8 | `R_PATHS2`, `R_PATHS8` | **INERT** |
+| enumeration scenarios | `path_assignment.n_random_scenarios` = 5 | `R_SCEN5` | **INERT** |
+| RAPTOR rounds | `path_assignment.max_rounds` = 4 | `R_ROUNDS4` | pending |
+| walk/access radius | `path_assignment.walk_radius_m`, `access_radius_m` | — | **refused**: consumed when the harness is built, so a harness view cannot reach it |
+| non-commute blend | `noncommute_proxy` + `blend` | — | **not runnable**: its parameterization is unspecified and is not invented here |
+
+**Why the path-model knobs are inert** (read from the frozen source, and
+consistent with the measurements):
+
+* `pathset.build_pathset` contributes at most one path per OD per enumeration
+  scenario, and raises the per-OD cap to the scenario count. A cap below the
+  count is therefore raised, and a cap above it is never reached.
+* `exp3_score.solve_on_network` passes `n_random_scenarios=0` explicitly, so
+  the configured value (3) is not used on the production path.
+
+Consequence: a path-model dimension expressed through these two knobs would
+be a no-op. Any as-issued path-model level must use a knob that reaches the
+evaluator (e.g. `max_rounds`, once confirmed). Otherwise F4, F6 and AF1 are
+stated as conditional on the path model. `src/cota_opt` is not changed to make
+a knob reach; doing so would break BASE reuse (G6).
 
 **Claim bounds for omitted variations.**
 

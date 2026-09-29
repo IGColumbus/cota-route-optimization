@@ -1,0 +1,488 @@
+{
+ "rows": {
+  "BASE": {
+   "level": {
+    "name": "BASE",
+    "dimension": "none",
+    "lam": 2.0,
+    "waiting_model": "same_route",
+    "overrides": [],
+    "od": [],
+    "rationale": "Experiment 6 exactly"
+   },
+   "level_digest": "79b97699909ebb59",
+   "admitted": true,
+   "objective": 2941892.371426373,
+   "generalized_cost": 1765256.0362339746,
+   "unserved_demand": 9805.302793269986,
+   "served_demand": 21143.69720673002,
+   "gc_per_served_trip": 83.48852232295945,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 20000,
+   "od_total": 30949.0,
+   "seconds": 312.7
+  },
+  "R_LAM1": {
+   "level": {
+    "name": "R_LAM1",
+    "dimension": "lambda",
+    "lam": 1.0,
+    "waiting_model": "same_route",
+    "overrides": [],
+    "od": [],
+    "rationale": "reach: lambda"
+   },
+   "level_digest": "dbdcac110276e744",
+   "admitted": true,
+   "objective": 2353574.2038301737,
+   "generalized_cost": 1765256.0362339746,
+   "unserved_demand": 9805.302793269986,
+   "served_demand": 21143.69720673002,
+   "gc_per_served_trip": 83.48852232295945,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 20000,
+   "od_total": 30949.0,
+   "seconds": 305.9,
+   "moved": [
+    "objective"
+   ]
+  },
+  "R_WAIT_PATTERN": {
+   "level": {
+    "name": "R_WAIT_PATTERN",
+    "dimension": "waiting_model",
+    "lam": 2.0,
+    "waiting_model": "pattern",
+    "overrides": [],
+    "od": [],
+    "rationale": "reach: pattern waiting model"
+   },
+   "level_digest": "77b09d1c925972c7",
+   "admitted": true,
+   "objective": 3017227.5773792774,
+   "generalized_cost": 1781962.392185881,
+   "unserved_demand": 10293.876543278304,
+   "served_demand": 20655.1234567217,
+   "gc_per_served_trip": 86.27217338688844,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "pattern",
+   "od_pairs": 20000,
+   "od_total": 30949.0,
+   "seconds": 295.2,
+   "moved": [
+    "objective",
+    "generalized_cost",
+    "unserved_demand",
+    "served_demand",
+    "gc_per_served_trip"
+   ]
+  },
+  "R_WAITCOEF": {
+   "level": {
+    "name": "R_WAITCOEF",
+    "dimension": "waiting",
+    "lam": 2.0,
+    "waiting_model": "same_route",
+    "overrides": [
+     [
+      "waiting.schedule_coefficient",
+      0.5
+     ]
+    ],
+    "od": [],
+    "rationale": "reach: schedule-wait coefficient"
+   },
+   "level_digest": "3e4f4631bc6dc003",
+   "admitted": true,
+   "objective": 3163922.312114586,
+   "generalized_cost": 1739365.898435145,
+   "unserved_demand": 11871.303447328677,
+   "served_demand": 19077.696552671325,
+   "gc_per_served_trip": 91.17274161652355,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 20000,
+   "od_total": 30949.0,
+   "seconds": 305.5,
+   "moved": [
+    "objective",
+    "generalized_cost",
+    "unserved_demand",
+    "served_demand",
+    "gc_per_served_trip"
+   ]
+  },
+  "R_RET_ZERO300": {
+   "level": {
+    "name": "R_RET_ZERO300",
+    "dimension": "retention",
+    "lam": 2.0,
+    "waiting_model": "same_route",
+    "overrides": [
+     [
+      "path_assignment.cost_retention_zero_min",
+      300
+     ]
+    ],
+    "od": [],
+    "rationale": "reach: retention zero point"
+   },
+   "level_digest": "791bc6a27d277e4b",
+   "admitted": true,
+   "objective": 2983586.359774422,
+   "generalized_cost": 2106504.0565763703,
+   "unserved_demand": 7309.019193317096,
+   "served_demand": 23639.980806682903,
+   "gc_per_served_trip": 89.10768895298224,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 20000,
+   "od_total": 30949.0,
+   "seconds": 314.1,
+   "moved": [
+    "objective",
+    "generalized_cost",
+    "unserved_demand",
+    "served_demand",
+    "gc_per_served_trip"
+   ]
+  },
+  "R_RET_FLOOR0": {
+   "level": {
+    "name": "R_RET_FLOOR0",
+    "dimension": "retention",
+    "lam": 2.0,
+    "waiting_model": "same_route",
+    "overrides": [
+     [
+      "path_assignment.cost_retention_floor",
+      0.0
+     ]
+    ],
+    "od": [],
+    "rationale": "reach: retention floor"
+   },
+   "level_digest": "1eb1334db8fa2172",
+   "admitted": true,
+   "objective": 2926997.068299019,
+   "generalized_cost": 1659391.0283644013,
+   "unserved_demand": 10563.38366612181,
+   "served_demand": 20385.616333878195,
+   "gc_per_served_trip": 81.40009118128614,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 20000,
+   "od_total": 30949.0,
+   "seconds": 326.3,
+   "moved": [
+    "objective",
+    "generalized_cost",
+    "unserved_demand",
+    "served_demand",
+    "gc_per_served_trip"
+   ]
+  },
+  "R_PATHS2": {
+   "level": {
+    "name": "R_PATHS2",
+    "dimension": "path_model",
+    "lam": 2.0,
+    "waiting_model": "same_route",
+    "overrides": [
+     [
+      "path_assignment.max_paths_per_od",
+      2
+     ]
+    ],
+    "od": [],
+    "rationale": "reach: path-set width"
+   },
+   "level_digest": "ec2e543812381f29",
+   "admitted": true,
+   "objective": 2941892.371426373,
+   "generalized_cost": 1765256.0362339746,
+   "unserved_demand": 9805.302793269986,
+   "served_demand": 21143.69720673002,
+   "gc_per_served_trip": 83.48852232295945,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 20000,
+   "od_total": 30949.0,
+   "seconds": 293.5,
+   "moved": []
+  },
+  "R_SCALE15": {
+   "level": {
+    "name": "R_SCALE15",
+    "dimension": "demand_scale",
+    "lam": 2.0,
+    "waiting_model": "same_route",
+    "overrides": [],
+    "od": [
+     [
+      "scale",
+      {
+       "factor": 1.5
+      }
+     ]
+    ],
+    "rationale": "reach: OD scale"
+   },
+   "level_digest": "a2ec33bacadea5a3",
+   "admitted": true,
+   "objective": 4412838.557139559,
+   "generalized_cost": 2647884.0543509615,
+   "unserved_demand": 14707.954189904976,
+   "served_demand": 31715.545810095024,
+   "gc_per_served_trip": 83.48852232295945,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 20000,
+   "od_total": 46423.50000000001,
+   "seconds": 291.4,
+   "moved": [
+    "objective",
+    "generalized_cost",
+    "unserved_demand",
+    "served_demand"
+   ]
+  },
+  "R_TILT_PEAK": {
+   "level": {
+    "name": "R_TILT_PEAK",
+    "dimension": "period_mix",
+    "lam": 2.0,
+    "waiting_model": "same_route",
+    "overrides": [],
+    "od": [
+     [
+      "periods_tilt",
+      {
+       "strength": 0.5,
+       "toward": [
+        "am_peak",
+        "pm_peak"
+       ]
+      }
+     ]
+    ],
+    "rationale": "reach: period tilt"
+   },
+   "level_digest": "ea751d920aba49c6",
+   "admitted": true,
+   "objective": 2938747.087977413,
+   "generalized_cost": 1782053.6158474358,
+   "unserved_demand": 9639.112267749812,
+   "served_demand": 21309.88773225019,
+   "gc_per_served_trip": 83.62566890253918,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 20000,
+   "od_total": 30949.0,
+   "seconds": 296.4,
+   "moved": [
+    "objective",
+    "generalized_cost",
+    "unserved_demand",
+    "served_demand",
+    "gc_per_served_trip"
+   ]
+  },
+  "R_TOPK40K": {
+   "level": {
+    "name": "R_TOPK40K",
+    "dimension": "wider_od",
+    "lam": 2.0,
+    "waiting_model": "same_route",
+    "overrides": [],
+    "od": [
+     [
+      "wider_top_k",
+      {
+       "top_k": 40000
+      }
+     ]
+    ],
+    "rationale": "reach: wider OD"
+   },
+   "level_digest": "6fb3691c0cb3562e",
+   "admitted": true,
+   "objective": 3015683.7203005916,
+   "generalized_cost": 1775849.5503353258,
+   "unserved_demand": 10331.951416377213,
+   "served_demand": 20617.048583622785,
+   "gc_per_served_trip": 86.13500342362181,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 40000,
+   "od_total": 30949.0,
+   "seconds": 331.5,
+   "moved": [
+    "objective",
+    "generalized_cost",
+    "unserved_demand",
+    "served_demand",
+    "gc_per_served_trip"
+   ]
+  },
+  "R_PATHS8": {
+   "level": {
+    "name": "R_PATHS8",
+    "dimension": "path_model",
+    "lam": 2.0,
+    "waiting_model": "same_route",
+    "overrides": [
+     [
+      "path_assignment.max_paths_per_od",
+      8
+     ]
+    ],
+    "od": [],
+    "rationale": "reach: path-set width above the scenario count (R_PATHS2 is at or below it, and pathset.py raises the cap to the scenario count)"
+   },
+   "level_digest": "d4fe2ccf21f1b5b2",
+   "admitted": true,
+   "objective": 2941892.371426373,
+   "generalized_cost": 1765256.0362339746,
+   "unserved_demand": 9805.302793269986,
+   "served_demand": 21143.69720673002,
+   "gc_per_served_trip": 83.48852232295945,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 20000,
+   "od_total": 30949.0,
+   "seconds": 321.9,
+   "moved": []
+  },
+  "R_SCEN5": {
+   "level": {
+    "name": "R_SCEN5",
+    "dimension": "path_model",
+    "lam": 2.0,
+    "waiting_model": "same_route",
+    "overrides": [
+     [
+      "path_assignment.n_random_scenarios",
+      5
+     ]
+    ],
+    "od": [],
+    "rationale": "reach: number of random enumeration scenarios"
+   },
+   "level_digest": "ba97588db7e40268",
+   "admitted": true,
+   "objective": 2941892.371426373,
+   "generalized_cost": 1765256.0362339746,
+   "unserved_demand": 9805.302793269986,
+   "served_demand": 21143.69720673002,
+   "gc_per_served_trip": 83.48852232295945,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 20000,
+   "od_total": 30949.0,
+   "seconds": 320.5,
+   "moved": []
+  },
+  "R_ROUNDS4": {
+   "level": {
+    "name": "R_ROUNDS4",
+    "dimension": "path_model",
+    "lam": 2.0,
+    "waiting_model": "same_route",
+    "overrides": [
+     [
+      "path_assignment.max_rounds",
+      4
+     ]
+    ],
+    "od": [],
+    "rationale": "reach: RAPTOR rounds (boardings) in path enumeration"
+   },
+   "level_digest": "9a965d7de3d84147",
+   "admitted": true,
+   "objective": 2943633.5487030614,
+   "generalized_cost": 1768245.2904522596,
+   "unserved_demand": 9794.902152090013,
+   "served_demand": 21154.09784790999,
+   "gc_per_served_trip": 83.58878280535896,
+   "revenue_veh_hours": 2515.678063539719,
+   "peak_vehicles": 176.12717824074073,
+   "policy_violation": 0.0,
+   "waiting_model_used": "same_route",
+   "od_pairs": 20000,
+   "od_total": 30949.0,
+   "seconds": 330.6,
+   "moved": [
+    "objective",
+    "generalized_cost",
+    "unserved_demand",
+    "served_demand",
+    "gc_per_served_trip"
+   ]
+  }
+ },
+ "schema": "exp7_preflight_reach/v1",
+ "network": "N0",
+ "plan_from": "outputs/exp6/closure/N0_REF__from_R2_S25__aed848588abad24d.json",
+ "plan_digest": "aed848588abad24d",
+ "record_objective": "2941892.371426373",
+ "identity": {
+  "state_key": "cota_existing_local_geometry|N0",
+  "state_digest": "f0f24936ab06b4ec",
+  "cardinality": 0,
+  "members": [],
+  "construction": "H.baseline.network / H.baseline.tstats",
+  "network_label": "N0 COTA existing local geometry",
+  "validation": null
+ },
+ "verdict": {
+  "BASE_reproduces_record": true,
+  "R_LAM1": "REACHES",
+  "R_WAIT_PATTERN": "REACHES",
+  "R_WAITCOEF": "REACHES",
+  "R_RET_ZERO300": "REACHES",
+  "R_RET_FLOOR0": "REACHES",
+  "R_PATHS2": "EXP7_LEVEL_INERT",
+  "R_SCALE15": "REACHES",
+  "R_TILT_PEAK": "REACHES",
+  "R_TOPK40K": "REACHES",
+  "R_PATHS8": "EXP7_LEVEL_INERT",
+  "R_SCEN5": "EXP7_LEVEL_INERT",
+  "R_ROUNDS4": "REACHES"
+ },
+ "passed": false,
+ "provenance": {
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "runner_sha256": {
+   "exp7_preflight.py": "026f69ed18a74d03",
+   "exp7_levels.py": "70073c497bd602d7"
+  },
+  "written_utc": "2026-09-29T14:10:14Z"
+ }
+}
