@@ -1,0 +1,691 @@
+{
+ "schema": "exp7_stage1_cell/v1",
+ "variant": "N0",
+ "level": {
+  "name": "A3_RT120",
+  "dimension": "A3",
+  "lam": 2.0,
+  "waiting_model": "same_route",
+  "overrides": [],
+  "od": [],
+  "rationale": "A3 as issued: +20% uniform runtime.",
+  "network": [
+   [
+    "runtime_scale",
+    {
+     "factor": 1.2
+    }
+   ]
+  ],
+  "provenance": "as_issued_0923"
+ },
+ "level_digest": "e0724580ad2652d4",
+ "identity": {
+  "state_key": "cota_existing_local_geometry|N0+A3_RT120",
+  "state_digest": "da559912f84ed614",
+  "cardinality": 0,
+  "members": [],
+  "construction": "H.baseline.network / H.baseline.tstats",
+  "network_label": "N0 COTA existing local geometry",
+  "validation": null,
+  "untransformed_state_digest": "f0f24936ab06b4ec",
+  "network_transform": [
+   {
+    "runtime_scale": 1.2
+   }
+  ]
+ },
+ "lam": 2.0,
+ "waiting_model": "same_route",
+ "w_unserved": 60.0,
+ "build_solution": "F1_BASELINE",
+ "internal_consistency_build_plan_equals_solve": true,
+ "evaluator_checks": {
+  "gtfs_scheduled_revenue_veh_hours": 3020.62,
+  "model_baseline_revenue_veh_hours": 3020.62,
+  "vh_relative_error": 0.0,
+  "n_route_periods": 173,
+  "periods_modelled": [
+   "early",
+   "am_peak",
+   "midday",
+   "pm_peak",
+   "evening",
+   "owl"
+  ],
+  "od_pairs": 20000,
+  "od_total_trips": 30949.0,
+  "od_source": "LEHD LODES8 2022 OD (JT00 main)",
+  "baseline_generalized_cost": 1753813.4288245777,
+  "baseline_unserved_demand": 11440.735611963088,
+  "baseline_served_demand": 19508.264388036914,
+  "baseline_gc_per_served_trip": 89.90104880370966,
+  "total_paths": 151296,
+  "locked_route_periods": 28,
+  "locked_routes": [
+   "041",
+   "042",
+   "043",
+   "044",
+   "045",
+   "046",
+   "051",
+   "052",
+   "061",
+   "071",
+   "072",
+   "073",
+   "074",
+   "075"
+  ],
+  "with_crowding": false,
+  "common_lines": "same_route",
+  "common_lines_source": "explicit",
+  "allow_off": true
+ },
+ "pathset_total_paths": 151296,
+ "rows": {
+  "F1_BASELINE": {
+   "objective": 3126701.7022601482,
+   "generalized_cost": 1753813.4288245777,
+   "unserved_demand": 11440.735611963088,
+   "served_demand": 19508.264388036914,
+   "gc_per_served_trip": 89.90104880370966,
+   "revenue_veh_hours": 3020.62,
+   "peak_vehicles": 211.79166666666669,
+   "peak_by_period": {
+    "early": 102.3385,
+    "am_peak": 194.41133333333337,
+    "midday": 191.00733333333335,
+    "pm_peak": 211.79166666666669,
+    "evening": 168.23349999999996,
+    "owl": 42.66883333333333
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F1_PLAN_20260825": {
+   "objective": 3073575.38451038,
+   "generalized_cost": 1773615.9290474693,
+   "unserved_demand": 10832.995462190926,
+   "served_demand": 20116.004537809076,
+   "gc_per_served_trip": 88.1693939625966,
+   "revenue_veh_hours": 3019.9744358898824,
+   "peak_vehicles": 211.79091944444448,
+   "peak_by_period": {
+    "early": 102.25155303030303,
+    "am_peak": 194.37217728291316,
+    "midday": 190.96644153584512,
+    "pm_peak": 211.79091944444448,
+    "evening": 168.21452531757015,
+    "owl": 42.64757575755582
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F1_PLAN_20260826": {
+   "objective": 3071499.475794074,
+   "generalized_cost": 1774579.7190910468,
+   "unserved_demand": 10807.664639191893,
+   "served_demand": 20141.33536080811,
+   "gc_per_served_trip": 88.1063587543506,
+   "revenue_veh_hours": 3018.5083616985603,
+   "peak_vehicles": 211.78087314814817,
+   "peak_by_period": {
+    "early": 102.33396969696967,
+    "am_peak": 194.2253387114846,
+    "midday": 190.7255165358451,
+    "pm_peak": 211.78087314814817,
+    "evening": 168.23087180502534,
+    "owl": 42.64757575755582
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F1_PLAN_20260827": {
+   "objective": 3073484.271710961,
+   "generalized_cost": 1773929.7774566421,
+   "unserved_demand": 10829.620785452658,
+   "served_demand": 20119.379214547345,
+   "gc_per_served_trip": 88.17020438553092,
+   "revenue_veh_hours": 3019.578014136101,
+   "peak_vehicles": 211.79045648148153,
+   "peak_by_period": {
+    "early": 102.14828535353534,
+    "am_peak": 194.40796966386554,
+    "midday": 190.91274292473398,
+    "pm_peak": 211.79045648148153,
+    "evening": 168.20623875491643,
+    "owl": 42.64757575755582
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_CONTROL_20260825": {
+   "objective": 3068238.7213262646,
+   "generalized_cost": 1775465.3549698226,
+   "unserved_demand": 10773.111386303683,
+   "served_demand": 20175.88861369632,
+   "gc_per_served_trip": 87.99936344635424,
+   "revenue_veh_hours": 3019.355277546225,
+   "peak_vehicles": 211.72969722222228,
+   "peak_by_period": {
+    "early": 102.31567424242422,
+    "am_peak": 194.3591581232493,
+    "midday": 190.92264570251177,
+    "pm_peak": 211.72969722222228,
+    "evening": 168.0991723832113,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_CONTROL_20260826": {
+   "objective": 3068038.991669784,
+   "generalized_cost": 1775239.9724589295,
+   "unserved_demand": 10773.325160090453,
+   "served_demand": 20175.67483990955,
+   "gc_per_served_trip": 87.98912485184006,
+   "revenue_veh_hours": 3020.3656647914577,
+   "peak_vehicles": 211.75425277777782,
+   "peak_by_period": {
+    "early": 102.32909090909088,
+    "am_peak": 194.40451901960785,
+    "midday": 191.0014739432525,
+    "pm_peak": 211.75425277777782,
+    "evening": 168.2122706828358,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_CONTROL_20260827": {
+   "objective": 3069031.881699249,
+   "generalized_cost": 1774278.6385585743,
+   "unserved_demand": 10789.610359505625,
+   "served_demand": 20159.389640494377,
+   "gc_per_served_trip": 88.01251774977166,
+   "revenue_veh_hours": 3019.266120688616,
+   "peak_vehicles": 211.72128055555558,
+   "peak_by_period": {
+    "early": 102.22506818190085,
+    "am_peak": 194.4004924089636,
+    "midday": 190.8344151469562,
+    "pm_peak": 211.72128055555558,
+    "evening": 168.22650043595812,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F3_CONTROL_20260825": {
+   "objective": 3067970.309435273,
+   "generalized_cost": 1775632.2302696637,
+   "unserved_demand": 10769.483993046744,
+   "served_demand": 20179.51600695326,
+   "gc_per_served_trip": 87.99181455381951,
+   "revenue_veh_hours": 3018.157997860241,
+   "peak_vehicles": 211.43033611111116,
+   "peak_by_period": {
+    "early": 102.18917424242422,
+    "am_peak": 194.3048523529412,
+    "midday": 190.85548250806733,
+    "pm_peak": 211.43033611111116,
+    "evening": 168.18419942622208,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F3_CONTROL_20260826": {
+   "objective": 3067970.309435273,
+   "generalized_cost": 1775632.2302696637,
+   "unserved_demand": 10769.483993046744,
+   "served_demand": 20179.51600695326,
+   "gc_per_served_trip": 87.99181455381951,
+   "revenue_veh_hours": 3018.157997860241,
+   "peak_vehicles": 211.43033611111116,
+   "peak_by_period": {
+    "early": 102.18917424242422,
+    "am_peak": 194.3048523529412,
+    "midday": 190.85548250806733,
+    "pm_peak": 211.43033611111116,
+    "evening": 168.18419942622208,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F3_CONTROL_20260827": {
+   "objective": 3067908.1142640566,
+   "generalized_cost": 1775499.86578077,
+   "unserved_demand": 10770.06873736072,
+   "served_demand": 20178.931262639282,
+   "gc_per_served_trip": 87.98780483821052,
+   "revenue_veh_hours": 3019.025551623681,
+   "peak_vehicles": 211.74882222222226,
+   "peak_by_period": {
+    "early": 102.27925757575753,
+    "am_peak": 194.3048523529412,
+    "midday": 190.85548250806733,
+    "pm_peak": 211.74882222222226,
+    "evening": 168.14971488321135,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F3_CONTROL_20260828": {
+   "objective": 3067897.618068379,
+   "generalized_cost": 1775662.744105344,
+   "unserved_demand": 10768.623949691957,
+   "served_demand": 20180.376050308045,
+   "gc_per_served_trip": 87.98957659058287,
+   "revenue_veh_hours": 3018.8510510003375,
+   "peak_vehicles": 211.38022500000005,
+   "peak_by_period": {
+    "early": 102.31631313131311,
+    "am_peak": 194.3048523529412,
+    "midday": 190.95310473028957,
+    "pm_peak": 211.38022500000005,
+    "evening": 168.21103275955537,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F3_CONTROL_20260829": {
+   "objective": 3067877.911516388,
+   "generalized_cost": 1776361.8053992915,
+   "unserved_demand": 10762.634217642471,
+   "served_demand": 20186.365782357534,
+   "gc_per_served_trip": 87.99809854589056,
+   "revenue_veh_hours": 3019.672418022481,
+   "peak_vehicles": 211.6904055555556,
+   "peak_by_period": {
+    "early": 102.18917424242422,
+    "am_peak": 194.32546859946518,
+    "midday": 190.97511445251178,
+    "pm_peak": 211.6904055555556,
+    "evening": 168.22963303797323,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F4_N0_J100": {
+   "objective": 3036505.4900321793,
+   "generalized_cost": 1221105.5820822737,
+   "unserved_demand": 15128.332566249215,
+   "served_demand": 15820.667433750788,
+   "gc_per_served_trip": 77.18420143749726,
+   "revenue_veh_hours": 3020.223516564964,
+   "peak_vehicles": 211.51065277777778,
+   "peak_by_period": {
+    "early": 102.33710606068877,
+    "am_peak": 194.40491523809524,
+    "midday": 190.92464937641722,
+    "pm_peak": 211.51065277777778,
+    "evening": 167.99423214800254,
+    "owl": 42.653383838366395
+   },
+   "n_off": 50,
+   "plan_restricted_routes": []
+  },
+  "F5_N0_J090": {
+   "objective": 3064820.386595822,
+   "generalized_cost": 1154371.8994597846,
+   "unserved_demand": 15920.404059466975,
+   "served_demand": 15028.595940533027,
+   "gc_per_served_trip": 76.81169312339912,
+   "revenue_veh_hours": 2716.341311270506,
+   "peak_vehicles": 190.56985000000003,
+   "peak_by_period": {
+    "early": 91.90636212109784,
+    "am_peak": 174.83272571428571,
+    "midday": 171.84129577664396,
+    "pm_peak": 190.56985000000003,
+    "evening": 151.32182047904132,
+    "owl": 38.341
+   },
+   "n_off": 55,
+   "plan_restricted_routes": []
+  },
+  "F5_N0_J110": {
+   "objective": 3007933.9042004533,
+   "generalized_cost": 1255708.2884527121,
+   "unserved_demand": 14601.880131231175,
+   "served_demand": 16347.119868768828,
+   "gc_per_served_trip": 76.8152615588109,
+   "revenue_veh_hours": 3322.4526725408223,
+   "peak_vehicles": 232.23314166666665,
+   "peak_by_period": {
+    "early": 112.50746212109783,
+    "am_peak": 213.7188914285968,
+    "midday": 209.9632188208616,
+    "pm_peak": 232.23314166666665,
+    "evening": 185.0555251512881,
+    "owl": 46.759522727272724
+   },
+   "n_off": 47,
+   "plan_restricted_routes": []
+  },
+  "F5_N0_P090": {
+   "objective": 3064820.386595822,
+   "generalized_cost": 1154371.8994597846,
+   "unserved_demand": 15920.404059466975,
+   "served_demand": 15028.595940533027,
+   "gc_per_served_trip": 76.81169312339912,
+   "revenue_veh_hours": 2716.341311270506,
+   "peak_vehicles": 190.56985000000003,
+   "peak_by_period": {
+    "early": 91.90636212109784,
+    "am_peak": 174.83272571428571,
+    "midday": 171.84129577664396,
+    "pm_peak": 190.56985000000003,
+    "evening": 151.32182047904132,
+    "owl": 38.341
+   },
+   "n_off": 55,
+   "plan_restricted_routes": []
+  },
+  "F5_N0_P110": {
+   "objective": 3018699.0700863274,
+   "generalized_cost": 1274308.476110987,
+   "unserved_demand": 14536.58828312784,
+   "served_demand": 16412.411716872164,
+   "gc_per_served_trip": 77.64297521253272,
+   "revenue_veh_hours": 3020.5354715115036,
+   "peak_vehicles": 232.53373888888893,
+   "peak_by_period": {
+    "early": 109.73029343434345,
+    "am_peak": 212.95551047619045,
+    "midday": 208.92342715419494,
+    "pm_peak": 232.53373888888893,
+    "evening": 149.52516298122296,
+    "owl": 15.741873737373737
+   },
+   "n_off": 50,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_REF": {
+   "objective": 3054178.1730590696,
+   "generalized_cost": 1755399.6425431033,
+   "unserved_demand": 10823.154420966386,
+   "served_demand": 20125.84557903362,
+   "gc_per_served_trip": 87.22116224382718,
+   "revenue_veh_hours": 3018.813676247663,
+   "peak_vehicles": 211.35261388888892,
+   "peak_by_period": {
+    "early": 102.32818484856755,
+    "am_peak": 194.04282759103643,
+    "midday": 190.82684431362287,
+    "pm_peak": 211.35261388888892,
+    "evening": 168.19073282569295,
+    "owl": 42.613006060565354
+   },
+   "n_off": 15,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_R1_H60": {
+   "objective": 3067937.435865838,
+   "generalized_cost": 1776261.6949204549,
+   "unserved_demand": 10763.964507878192,
+   "served_demand": 20185.035492121813,
+   "gc_per_served_trip": 87.99893840234895,
+   "revenue_veh_hours": 3018.921910903719,
+   "peak_vehicles": 211.68100277777782,
+   "peak_by_period": {
+    "early": 102.25242424242421,
+    "am_peak": 194.3048523529412,
+    "midday": 190.85548250806733,
+    "pm_peak": 211.68100277777782,
+    "evening": 168.18419942622208,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_R1_H30": {
+   "objective": 3070409.4058002066,
+   "generalized_cost": 1775932.7850853023,
+   "unserved_demand": 10787.305172624205,
+   "served_demand": 20161.694827375803,
+   "gc_per_served_trip": 88.08449886236342,
+   "revenue_veh_hours": 3018.0243503807387,
+   "peak_vehicles": 211.66908611111117,
+   "peak_by_period": {
+    "early": 102.15646313131309,
+    "am_peak": 194.29338456582636,
+    "midday": 190.70398598028953,
+    "pm_peak": 211.66908611111117,
+    "evening": 168.21368719075946,
+    "owl": 42.66883333327269
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_R1_H20": {
+   "objective": 3079539.9903173563,
+   "generalized_cost": 1774464.6050049583,
+   "unserved_demand": 10875.62821093665,
+   "served_demand": 20073.371789063352,
+   "gc_per_served_trip": 88.39893086480599,
+   "revenue_veh_hours": 3015.496599312247,
+   "peak_vehicles": 211.49965555555562,
+   "peak_by_period": {
+    "early": 102.33850000004479,
+    "am_peak": 194.1259033334273,
+    "midday": 190.46746540205825,
+    "pm_peak": 211.49965555555562,
+    "evening": 168.003405032515,
+    "owl": 42.66883333327269
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_R2_S25": {
+   "objective": 3054178.1730590696,
+   "generalized_cost": 1755399.6425431033,
+   "unserved_demand": 10823.154420966386,
+   "served_demand": 20125.84557903362,
+   "gc_per_served_trip": 87.22116224382718,
+   "revenue_veh_hours": 3018.813676247663,
+   "peak_vehicles": 211.35261388888892,
+   "peak_by_period": {
+    "early": 102.32818484856755,
+    "am_peak": 194.04282759103643,
+    "midday": 190.82684431362287,
+    "pm_peak": 211.35261388888892,
+    "evening": 168.19073282569295,
+    "owl": 42.613006060565354
+   },
+   "n_off": 15,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_R2_S10": {
+   "objective": 3054178.1730590696,
+   "generalized_cost": 1755399.6425431033,
+   "unserved_demand": 10823.154420966386,
+   "served_demand": 20125.84557903362,
+   "gc_per_served_trip": 87.22116224382718,
+   "revenue_veh_hours": 3018.813676247663,
+   "peak_vehicles": 211.35261388888892,
+   "peak_by_period": {
+    "early": 102.32818484856755,
+    "am_peak": 194.04282759103643,
+    "midday": 190.82684431362287,
+    "pm_peak": 211.35261388888892,
+    "evening": 168.19073282569295,
+    "owl": 42.613006060565354
+   },
+   "n_off": 15,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_R2_S05": {
+   "objective": 3060037.709443467,
+   "generalized_cost": 1760661.2881550654,
+   "unserved_demand": 10828.136844070015,
+   "served_demand": 20120.863155929987,
+   "gc_per_served_trip": 87.50426234255096,
+   "revenue_veh_hours": 3018.371373217453,
+   "peak_vehicles": 211.35261388888892,
+   "peak_by_period": {
+    "early": 102.25242424242421,
+    "am_peak": 194.04282759103643,
+    "midday": 190.82684431362287,
+    "pm_peak": 211.35261388888892,
+    "evening": 168.19073282569295,
+    "owl": 42.55348484848954
+   },
+   "n_off": 8,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_R3_SPAN": {
+   "objective": 3067937.435865838,
+   "generalized_cost": 1776261.6949204549,
+   "unserved_demand": 10763.964507878192,
+   "served_demand": 20185.035492121813,
+   "gc_per_served_trip": 87.99893840234895,
+   "revenue_veh_hours": 3018.921910903719,
+   "peak_vehicles": 211.68100277777782,
+   "peak_by_period": {
+    "early": 102.25242424242421,
+    "am_peak": 194.3048523529412,
+    "midday": 190.85548250806733,
+    "pm_peak": 211.68100277777782,
+    "evening": 168.18419942622208,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_R4_C05": {
+   "objective": 3060113.4383377815,
+   "generalized_cost": 1680701.1378171802,
+   "unserved_demand": 11495.102504338345,
+   "served_demand": 19453.89749566166,
+   "gc_per_served_trip": 86.39405744745942,
+   "revenue_veh_hours": 3019.8996698619853,
+   "peak_vehicles": 211.4810305555556,
+   "peak_by_period": {
+    "early": 102.25242424242421,
+    "am_peak": 194.33107235294113,
+    "midday": 190.9593338969562,
+    "pm_peak": 211.4810305555556,
+    "evening": 167.97550357368752,
+    "owl": 42.64907424240946
+   },
+   "n_off": 14,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_R4_C01": {
+   "objective": 3065647.882523045,
+   "generalized_cost": 1691394.7550507355,
+   "unserved_demand": 11452.109395602576,
+   "served_demand": 19496.890604397428,
+   "gc_per_served_trip": 86.7520257137438,
+   "revenue_veh_hours": 3019.913669862087,
+   "peak_vehicles": 211.4810305555556,
+   "peak_by_period": {
+    "early": 102.25242424242421,
+    "am_peak": 194.33107235294113,
+    "midday": 190.9593338969562,
+    "pm_peak": 211.4810305555556,
+    "evening": 167.97550357368752,
+    "owl": 42.65175757576226
+   },
+   "n_off": 9,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_R4_C00": {
+   "objective": 3067937.435865838,
+   "generalized_cost": 1776261.6949204549,
+   "unserved_demand": 10763.964507878192,
+   "served_demand": 20185.035492121813,
+   "gc_per_served_trip": 87.99893840234895,
+   "revenue_veh_hours": 3018.921910903719,
+   "peak_vehicles": 211.68100277777782,
+   "peak_by_period": {
+    "early": 102.25242424242421,
+    "am_peak": 194.3048523529412,
+    "midday": 190.85548250806733,
+    "pm_peak": 211.68100277777782,
+    "evening": 168.18419942622208,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_R6_ADA": {
+   "objective": 3066728.394619166,
+   "generalized_cost": 1773859.6841470972,
+   "unserved_demand": 10773.905920600573,
+   "served_demand": 20175.09407939943,
+   "gc_per_served_trip": 87.92324224938143,
+   "revenue_veh_hours": 3017.8019109036277,
+   "peak_vehicles": 211.68100277777782,
+   "peak_by_period": {
+    "early": 102.25242424242421,
+    "am_peak": 194.3048523529412,
+    "midday": 190.85548250806733,
+    "pm_peak": 211.68100277777782,
+    "evening": 168.18419942622208,
+    "owl": 42.450681818145796
+   },
+   "n_off": 2,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_B1": {
+   "objective": 3067937.435865838,
+   "generalized_cost": 1776261.6949204549,
+   "unserved_demand": 10763.964507878192,
+   "served_demand": 20185.035492121813,
+   "gc_per_served_trip": 87.99893840234895,
+   "revenue_veh_hours": 3018.921910903719,
+   "peak_vehicles": 211.68100277777782,
+   "peak_by_period": {
+    "early": 102.25242424242421,
+    "am_peak": 194.3048523529412,
+    "midday": 190.85548250806733,
+    "pm_peak": 211.68100277777782,
+    "evening": 168.18419942622208,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F6_N0_B2": {
+   "objective": 3067937.435865838,
+   "generalized_cost": 1776261.6949204549,
+   "unserved_demand": 10763.964507878192,
+   "served_demand": 20185.035492121813,
+   "gc_per_served_trip": 87.99893840234895,
+   "revenue_veh_hours": 3018.921910903719,
+   "peak_vehicles": 211.68100277777782,
+   "peak_by_period": {
+    "early": 102.25242424242421,
+    "am_peak": 194.3048523529412,
+    "midday": 190.85548250806733,
+    "pm_peak": 211.68100277777782,
+    "evening": 168.18419942622208,
+    "owl": 42.665348484829906
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  }
+ },
+ "n_rows": 31,
+ "n_errors": 0,
+ "registry_sha256": "28c607a27aedf7c544ec83bf2eb1cb8ac95ab518a57ebb16945b6717fc940746",
+ "provenance": {
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "runner_sha256": {
+   "exp7_stage1.py": "3024e849a5f8015d",
+   "exp7_levels.py": "27a45f94661e9b3e"
+  },
+  "levels_file_sha256": "112690806d22647eaebeda2c3b21fe59a7ada69117c9f5a15f529fd23d381333"
+ },
+ "seconds": 266.5,
+ "written_utc": "2026-09-29T21:28:11Z"
+}
