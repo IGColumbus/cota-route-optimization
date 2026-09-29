@@ -22,11 +22,26 @@ output so far, and all five are documented rather than quietly fixed.
 > 2,517 weekday revenue vehicle-hours reduces unserved demand by
 > **6.65% ± 0.06**, serves **3.30% ± 0.03** more trips, raises total
 > generalized cost by **0.88% ± 0.04** and lowers cost per trip actually served
-> by **2.34% ± 0.01** — with **no additional buses** (197.0 peak vehicles
-> against 197.0).
+> by **2.34% ± 0.01** — using 2,516.5 of 2,517.2 vehicle-hours and without
+> exceeding the baseline's per-period **peak-concurrency proxy**, which the
+> solver enforced as a cap. That proxy is not a bus count. **The plan's physical
+> fleet requirement has not been verified.**
 
 Total cost rises because the plan serves 3.3% more people; cost per person
 served falls. Three seeds at full effort on one shared candidate set.
+
+*Correction (fleet wording).* Earlier versions of this page said "no additional
+buses (197.0 peak vehicles against 197.0)". Both 197.0 figures come from one
+proxy (`blocks.fleet_estimate`, recorded in `outputs/fleet_check_modelB.json`
+→ `candidate_fleet`): the per-route cycle-over-headway sum at pm peak, multiplied
+by the baseline's interlining factor 197 / 150.73 = 1.307. The baseline reads
+197.0 by construction, and the plan reads 196.999. The only physical count here,
+197 from COTA's published blocks, applies to the existing schedule only.
+No modified plan has a blocking-based vehicle count
+(`FLEET_AND_BLOCKING.md`, `docs/RELEASE_AND_REPORTING_GUIDELINES.md`). The
+canonical records (`outputs/canonical/exp1_final.json`,
+`CANONICAL_RESULTS*.json`) are immutable and keep the old wording. The
+correction is carried additively in the results registry.
 
 Two things travel with that number and may not be dropped:
 
@@ -169,7 +184,87 @@ firewall (46/46) and order sentinels (4/4). `EXPERIMENT5_CLOSEOUT.md`.
   EXP4N's first-to-second margin. EXP4N's ranking stays reproducible, but it
   cannot be read as robust among closely spaced candidates.
 
-Experiments 6–7 are unblocked, and each needs its own preregistration first.
+**Experiment 6 — the modeled price of policy constraints on N0 and N3:
+`EXP6_POLICY_FRONTIER_CERTIFIED`.** Details are in `EXPERIMENT6_CLOSEOUT.md`.
+
+The question: what does imposing a policy constraint cost on the **modeled**
+objective? It is asked for the existing geometry (N0) and for the Experiment 3
+redesign (N3). The setup:
+
+* the frozen Model B demand and evaluation model;
+* the EXP4N common envelope;
+* λ = 2;
+* a declared **basin-closure** search. Each cell is solved from its own greedy
+  start, then its best plans are transferred across the policy nesting graph
+  as explicit anchors until nothing improves. Monotonicity is then enforced.
+
+Every gate passed: 54/54 record checks, closure fixed point in 3 of 8 passes on
+both networks, 0/120 post-closure monotonicity violations, a clean reference
+closure, firewall 25/25 policy and 13/13 structure, and 4/4 sentinels.
+
+**The biggest finding is not a price.** Closure moved both unconstrained
+reference cells into a different basin, at almost the same objective:
+
+| | objective | served trips | OFF route-periods |
+|---|---|---|---|
+| N0, greedy basin → closed | −0.127% | 16,527 → 21,144 | 50 → 15 |
+| N3, greedy basin → closed | −0.161% | 16,434 → 21,104 | 54 → 17 |
+
+What that means:
+
+* The λ = 2 objective is flat across very different plans.
+* D39's start-basin dependence is not special to N4.
+* Served-trip and generalized-cost figures from any single-start run are
+  basin-dependent.
+* The Exp 4A N3 and Exp 5 N0 records are exact records of their own contracts.
+  They are not the best-known plans under that envelope, and they are not
+  reopened.
+
+**Modeled policy cost** (closed cell − closed reference; objective units, not
+dollars):
+
+* **N0: 0 to +0.912%.**
+  * R2 OFF caps at 25% and 10%: 0. They do not bind at the best-known
+    unconstrained plan.
+  * R2 at 5%: +0.212%.
+  * R4 coverage: +0.244% / +0.428% / +0.482% (c = 0.05 / 0.01 / 0).
+  * R6 ¾-mile area: +0.440%.
+  * R1 60-min headway floor: +0.482%. R3 span, R4 at c = 0 and both bundles
+    ended on the same plan as R1 H = 60.
+  * R1 H = 30: +0.575%. R1 H = 20: +0.912%.
+* **N3: 0 to +0.634%.** Each binding safeguard costs slightly more than on N0,
+  by +0.04 to +0.08 percentage points.
+* **R1 at H = 20 is infeasible under the modeled envelope on N3** (Amendment 1).
+  Even minimum service exceeds the early-period peak-proxy cap, by 0.0166 proxy
+  units. That is a result, and it has no finite cost.
+
+**Single-start pricing would have been wrong.** Greedy-only prices differed
+from closure-adjusted prices by −0.162 to +0.124 percentage points. They
+included two impossible negative prices: R2_S25 at −0.115% on N0 and −0.081%
+on N3. Before closure, 22 of 120 nested pairs were non-monotone.
+
+**N3 vs N0 at matched policy** (firewall-admitted, 13 cells):
+
+* N3 is better in every cell, by **0.153% to 0.229%**.
+* At REF the gap is −0.229% closure-adjusted, against −0.194% single-start and
+  −0.187% in Exp 3's certification.
+
+Scope notes:
+
+* Every regime is a **study safeguard**. None has a documented COTA numeric
+  anchor, so none is COTA policy or Title VI compliance.
+* R5 is `UNIMPLEMENTABLE_WITH_CURRENT_DATA` (Title VI form).
+* R7 is excluded: there is no authoritative COTA frequent-network definition.
+* The "COTA-compliant" combined regime was not run.
+* Physical fleet is UNDECIDABLE. No valid instrument exists, and none was run.
+* The closure certifies a fixed point of anchor transfers, **not a global
+  optimum**. The flat objective above is direct evidence that better plans may
+  exist.
+
+Experiment 7 needs its amendment first (draft: `docs/EXPERIMENT7_AMENDMENT_DRAFT.md`).
+F4 becomes the robustness of the negative N4 result, and F6 becomes the N0/N3
+policy price. Exp 7 must carry closure, or an equivalent, at every sensitivity
+level, because basin corrections here are the same size as the prices.
 
 ## The Model A → Model B correction
 
@@ -189,7 +284,8 @@ the config default; the run's log reported the *harness's* setting, which was a
 different object. Correcting it changed six of twelve candidates' signs and
 halved the headline geometry claim. Every experiment artifact now records the
 model the evaluator actually used, and a run that cannot state it produces no
-artifact. See `outputs/CANONICAL_RESULTS_v2.json` for which artifacts are current
+artifact. See `outputs/CANONICAL_RESULTS_v4.json` (v1–v3 are kept unchanged)
+for which artifacts are current
 and which are superseded — nothing was deleted, and a superseded artifact looks
 entirely legitimate from the inside.
 
@@ -204,7 +300,9 @@ entirely legitimate from the inside.
 | stop-service penalty | unmeasurable from this feed (−157 s/stop, inverted) | blocks any consolidation claim resting on runtime savings |
 | novel-link running time | MAE 17.2 s, aggregate bias +0.41% | unbiased, but 20.5% median APE on a single link |
 | scheduled ≠ actual | unquantified | no reliability penalty anywhere |
-| fleet requirement | `UNDECIDABLE` for every Exp 4 candidate; deadhead times and terminal identity are not public | no fleet or deployability claim |
+| fleet requirement | `UNDECIDABLE` for every Exp 4 candidate and all 32 Exp 5 cells; never measured for the Exp 1 plan. Deadhead times and terminal identity are not public | no fleet or deployability claim for any modified plan, Exp 1 included |
+| start-basin dependence (D39) | ≥ 1.70% of the objective on N4 (Exp 5); 0.13–0.16% on N0/N3 references (Exp 6) | single-greedy-start certifications are not robust among closely spaced results. Exp 6's nesting closure repairs this within a nested grid, but it is not a global optimum |
+| flat objective | plans 0.13–0.16% apart differ by ~4,600 served trips (+28%) and ~45% GC (Exp 6 REF) | served-trip and GC figures from single-basin runs are basin-dependent; quote the objective |
 | block-local residual | unmeasured for every Exp 4 candidate, the leader included | a 0.387006% first-to-second margin is not a durable ordering |
 
 ## What it does
@@ -256,7 +354,7 @@ src/cota_opt/      production logic (typed, tested)
   ntd.py           ratio-verified NTD profile parsing
   harness.py       one cached entry point for the whole build chain
   cache.py         content-addressed cache + checkpointed result store
-tests/             354 deterministic tests
+tests/             890 deterministic tests (collected at master f79227cc, 2026-09-29)
 config/            sources, assumptions, cost weights, constraints, scenarios
 scripts/           experiment runners
 outputs/           reports, experiment records, per-cell checkpoints
@@ -266,7 +364,7 @@ outputs/           reports, experiment records, per-cell checkpoints
 
 ```bash
 pip install -e ".[dev]"
-python -m pytest                      # 354 tests
+python -m pytest                      # 890 tests; the `slow` ones need data/raw + data/cache
 
 python -m cota_opt.cli sources        # what data is registered
 python -m cota_opt.cli ingest-gtfs path/to/cota.gtfs.zip

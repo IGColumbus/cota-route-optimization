@@ -1,6 +1,128 @@
 # COTA route optimization — state of play
 
-Last updated 2026-09-28 (evening). **The original Experiment 4 question has now
+Last updated 2026-09-29. **Experiment 6 closed with
+`EXP6_POLICY_FRONTIER_CERTIFIED`**
+(`outputs/exp6/EXP6_ANALYSIS.json`, `EXPERIMENT6_CLOSEOUT.md`).
+
+It measured the **modeled** price of policy constraints on two networks:
+* N0: existing geometry, `f0f24936ab06b4ec`;
+* N3: `add_stop-010#22c4c35ac5b2`, `430aca035c70715b`.
+
+The setup:
+* the frozen Model B demand and evaluation model;
+* the EXP4N common envelope (`3fd5241db44ca9da` / exact `0b46d1abc9a80c80`);
+* λ = 2;
+* the declared basin-closure procedure. Each cell is first solved from its own
+  greedy start. It is then closed over the policy nesting graph (60 strict
+  pairs, 20 Hasse edges) with explicit anchors until a full pass improves
+  nothing. Monotonicity is enforced after closure, and the reference cells take
+  part in the closure.
+
+Frozen artifacts:
+* contract `outputs/exp6/EXP6_CONTRACT.json`: sha256 `5bf1cb82ad8829a8…`,
+  frozen 2026-09-29T00:09Z; firewall `EXP6_POLICY` `393f45ac10d28cb9` and
+  `EXP6_STRUCTURE` `fad14449dc3db7c6`;
+* source `b63ae2dba134245e` / `src-17659e64846b`;
+* catalog `e22f2c94c8f53475`;
+* Amendment 1 (`INFEASIBLE_UNDER_ENVELOPE` cells) and Amendment 2 (receipt
+  start encoding; §6 of the closeout).
+
+**Gates, all passed:**
+* **Preflight.** Default-path equivalence was bit-exact for N4 (EXP4N), N3
+  (Exp 4A) and N0 (Exp 5 J100). The D39 canary passed: anchored at Exp 5's N4
+  H090 plan, N4 certifies at **3,207,566.4177** under the EXP4N envelope, 0.506%
+  better than EXP4N's own plan. D35 passed for R1/R2/R3/R4/R6 on both networks.
+* **Records.** 27 of 28 cells certified. 54/54 record checks passed (27 initial
+  + 27 final).
+* **Closure** reached its fixed point in **3 of 8 passes** on both networks. N0
+  ran 24 anchored certifications and N3 ran 21, across 120 receipts each. Cells
+  that changed basin: 9 on N0, 8 on N3.
+* **Monotonicity: 22/120 violations** after the initial greedy solves (reported,
+  not gated), and **0/120 after closure**. Reference closure is clean.
+* **Firewall** (after Amendment 2): policy 25/25 admitted, structure 13/13
+  admitted.
+* **Sentinels:** 4/4 bit-exact.
+
+**Finding 1 — the objective is flat across very different plans on N0 and N3,
+not only on N4.** Closure moved both reference cells to a different basin:
+
+| network | objective | served trips (of 30,949) | OFF route-periods | GC |
+|---|---|---|---|---|
+| N0 | 2,945,632.23 → 2,941,892.37 (**−0.127%**) | 16,527 → 21,144 | 50 → 15 | +45% |
+| N3 | 2,939,912.58 → 2,935,166.03 (**−0.161%**) | 16,434 → 21,104 | 54 → 17 | +46% |
+
+* The Exp 6 initial REFs reproduce the Exp 4A N3 and Exp 5 N0 J100 records
+  bit-for-bit. So those records, exact under their contracts, are **not the
+  best-known plans** under the EXP4N envelope. They are not reopened, and Δ43
+  stays +9.66%.
+* D39 is a property of this objective and certifier.
+* Served trips and GC from any single-basin run are basin-dependent.
+
+**Finding 2 — modeled policy cost**, closed cell − closed REF, in objective
+units and not dollars:
+
+| safeguard | N0 | N3 |
+|---|---|---|
+| R2 OFF share 25%, 10% | 0 (does not bind at the best-known REF plan) | 0 |
+| R2 5% | +0.212% | +0.250% |
+| R4 coverage, c = 0.05 / 0.01 | +0.244% / +0.428% | +0.321% / +0.477% |
+| R6 ¾-mile | +0.440% | +0.485% |
+| R1 H = 60 = R3 span = R4 c = 0 = B1 = B2 (one shared final plan, 0 OFF) | +0.482% | +0.524% |
+| R1 H = 30 | +0.575% | +0.634% |
+| R1 H = 20 | +0.912% | **infeasible under the modeled envelope** (minimum service: early peak proxy 85.2987 > 85.2821) |
+
+The shared plans mean one of two things, and the experiment cannot separate
+them. Either relaxing R1_H60 to R3, R4 at c = 0 or the bundles buys nothing, or
+closure found nothing better. It is not a claim that the constraints are
+equivalent.
+
+**Finding 3 — single-start pricing is contaminated at the scale of the prices.**
+* Greedy-only prices differ from closure-adjusted prices by −0.162 to +0.124
+  percentage points.
+* Most of that comes from the reference itself being stuck, which lowered every
+  greedy-only price by 0.13–0.16 pp.
+* It produced **two impossible negative prices**: R2_S25 at −0.115% on N0 and
+  −0.081% on N3.
+* It priced R3 span above R1 H = 30, although R1 H = 30 implies R3.
+
+**Finding 4 — N3 is better than N0 in all 13 comparable cells** (EXP6_STRUCTURE),
+by **0.153% to 0.229%**. At REF the gap is −6,726.35 (−0.229%), against −0.194%
+from single starts and −0.187% in Exp 3's certification. Each binding
+safeguard costs 0.04–0.08 pp more on N3.
+
+**Every regime is a study safeguard.** None is COTA policy or Title VI
+compliance, and no COTA numeric anchor was found. R5 is
+`UNIMPLEMENTABLE_WITH_CURRENT_DATA` (Title VI form), and R7 is excluded. The
+"COTA-compliant" combined regime was not run. **Physical fleet is UNDECIDABLE
+for every cell.** No valid instrument exists (Exp 5's materializer is off by
+17.8–47% on vehicle-hours), so none was run. There is no dollar, bus,
+deployability or global-optimum claim, and Finding 1 is direct evidence
+against reading any closed plan as optimal.
+
+Compute: preflight 2026-09-28 22:18 → 2026-09-29 00:01; production 00:09:58 →
+07:24:40 UTC on 2 cores. The Amendment 1 halt ran 00:45:30 → 00:59:33 / 01:09:23.
+Closure reached its fixed point at 06:36:25 (N3) and 07:01:00 (N0).
+
+**Cross-experiment consistency check, 2026-09-28 (additive, read-only;
+superseded in size by Exp 6's closed REF comparison, −0.229%).** The
+Exp 4A matched N3 record (`outputs/exp4_addendum/N3.json`, 2,939,912.5807) and
+the Exp 5 N0 J100 reference cell (`outputs/exp5/cells/N0_J100.json`,
+2,945,632.2349) were built under different experiment contracts, `0f62…` and
+`395e…`. Their recorded execution is otherwise identical: evaluator, λ, exact
+envelope, certifier, seed, config, data, code and runner hashes. Rebuilt as
+receipts and judged with `firewall.compare`, they are **admitted** under both
+`EXP4A_MATCHED` and `EXP5_STRUCTURE`, with only network fields differing:
+
+* N3 − N0 = **−5,719.65 (−0.194%)**, against Exp 3's certified −0.187%;
+* N3 serves 93.7 fewer modeled trips, and its lower generalized cost carries
+  the λ = 2 objective.
+
+This is corroboration, not a new certification. Both are one-round
+greedy-basin results, and the gap is smaller than D39's N4 basin residual.
+
+---
+
+Earlier on 2026-09-28 (evening). **The original Experiment 4 question has now
 been answered, and the answer is no.** Under the identical EXP4N certification
 contract, the normalized leader N4 (`...35e351133d6f`) does **not** beat
 Experiment 3's constrained redesign N3 (`add_stop-010`):
@@ -86,8 +208,13 @@ preregistered question, whether discovery enriches at the population level, is
 
 ## The headline, in one line each
 
-* **Experiment 1 — frequency redistribution: −6.65% ± 0.06 unserved demand at no
-  additional buses.** Certified, λ≥2. Untouched by everything that follows.
+* **Experiment 1 — frequency redistribution: −6.65% ± 0.06 unserved demand inside
+  the baseline's hours and per-period peak-concurrency proxy.** Certified, λ≥2.
+  The objective result is untouched by everything that follows. The old
+  wording, "at no additional buses" (197.0 against 197.0), is **withdrawn as a
+  fleet claim**. Both figures are the cycle-over-headway proxy scaled by the
+  baseline interlining factor (`blocks.fleet_estimate`), so the baseline reads
+  197.0 by construction. The plan's physical fleet was never measured.
 * **Experiment 2 — route geometry: no supportable claim.**
 * **Experiment 2B — all 240 feasible combinations: certified NULL**, surviving a
   matched-start re-test (D31).
@@ -181,6 +308,15 @@ preregistered question, whether discovery enriches at the population level, is
   which binds at 99.71–99.97% in all six periods while hours sit at 36.66%.
   Reframing onto revenue vehicle-hours is **retracted**: it would delete the
   only binding constraint.
+
+* **Experiment 6 — modeled policy price on N0/N3: `EXP6_POLICY_FRONTIER_CERTIFIED`.**
+  * Closure-adjusted costs are 0 to +0.912% on N0 and 0 to +0.634% on N3.
+  * R1 at H = 20 is infeasible under the envelope on N3.
+  * N3 beats N0 in all 13 comparable cells, by 0.153–0.229%.
+  * Single-start pricing was off by up to 0.16 pp, with two negative prices.
+  * The objective is flat across plans that differ by ~28% in served trips.
+  * All regimes are study safeguards; fleet is UNDECIDABLE; no global optimum.
+  * `EXPERIMENT6_CLOSEOUT.md`.
 
 ## D27 — the optimizer was chosen by the treatment
 
@@ -765,7 +901,7 @@ the fingerprint separates.
 
 ---
 
-# Experiment 5 — resource frontier: built, tested, NOT RUN
+# Experiment 5 — the ORIGINAL design: built, tested, NOT RUN (retired; the reframed experiment ran — see the top of this page)
 
 `src/cota_opt/exp5_resource.py` and `exp5_frontier.py`, 32 tests. Its stated
 block condition cleared twice over — Experiment 4 on 2026-09-14, and the EXP4N
@@ -943,8 +1079,10 @@ and six transport bundles at the root, which were debris: gone from the tree,
 still in history. Work lands on `master` from here on.
 
 **GitHub is not yet the complete record.** Checked 2026-09-28 against
-`git ls-remote`: GitHub holds four branches (`master`, `exp3`, `exp3-clean`,
-`frombundle`) and **no tags**.
+`git ls-remote`, and re-checked from the container later that day with the same
+result: GitHub holds four branches (`master`, `exp3`, `exp3-clean`,
+`frombundle`) and **no tags**. At that check `origin/master` was `84d96e0d`, so
+the Exp 6 commits were not on GitHub.
 
 * **The five freeze tags** — `exp3-final-v1`, `exp3-frozen-v1`,
   `gen1-frozen-v1`, `pre-exp3-v1`, `pre-exp3-v2` — exist in the clone. Every

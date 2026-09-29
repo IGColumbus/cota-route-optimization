@@ -108,8 +108,24 @@ no version of this where the cost is "not measurable".
 > certified fleet equality. Nothing in this project knows the fleet requirement
 > of any modified network: `FLEET_AND_BLOCKING.md` and
 > `EXPERIMENT5_PREMISE_AUDIT.md`.
+>
+> **Provenance resolved 2026-09-29.** Both 197.0 figures come from
+> `blocks.fleet_estimate` (`scripts/run_diagnostics.py` →
+> `outputs/fleet_check_modelB.json`, `candidate_fleet`). The instrument takes
+> the per-route cycle-over-headway sum at the peak period (150.73 on the
+> baseline) and multiplies it by the baseline interlining factor
+> 197 / 150.73 = 1.307. The baseline therefore reads 197.0 by construction, and
+> the plan reads 196.999. It is a peak-concurrency proxy, not a physical count,
+> and it applies the factor `FLEET_AND_BLOCKING.md` forbids using as an exchange
+> rate. The optimizer was also given per-period caps on the same
+> cycle-over-headway proxy (`config/constraints.yaml`:
+> `peak_fleet_by_period: baseline`, tolerance 0). So the defensible statement
+> is: *the plan does not exceed the baseline's peak-concurrency proxy; its
+> physical fleet requirement is not verified.* The heading below is kept as
+> history and is withdrawn as a fleet claim.
 
-**It needs no additional buses.** The block-derived fleet proxy puts the
+**It needs no additional buses.** *(Withdrawn as a fleet claim; see the
+correction above.)* The block-derived fleet proxy puts the
 balanced plan at **197.0 peak vehicles against a 197.0 baseline**. The proxy is
 not tuned: reconstructing COTA's blocks from the feed gives 197 peak vehicles
 against NTD's independently reported VOMS of 198. The optimizer was given a
