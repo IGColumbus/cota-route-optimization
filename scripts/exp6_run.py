@@ -93,13 +93,37 @@ def logger(name):
     return log
 
 
-def ensure(out: Path, cmd, log) -> dict:
+EMPTY_SET_MSG = "minimum-service plan already exceeds the budget"
+
+
+def ensure(out: Path, cmd, log, net: str | None = None,
+           cell: str | None = None, cat: str | None = None) -> dict:
+    """Run a cell unless its record exists. Amendment 1: if the certifier
+    cannot even start because the policy's minimum-service plan exceeds the
+    envelope, and the cell is a pure headway-cap (R1) policy, the emptiness of
+    its feasible set is PROVEN on the production path by
+    exp6_infeasible_cell.py and recorded as INFEASIBLE_UNDER_ENVELOPE. Any
+    other failure stops the run."""
     if out.exists():
         return json.loads(out.read_text())
     log(f"start {out.name}")
     t0 = time.time()
     rc = subprocess.call(cmd, cwd=ROOT)
     log(f"end   {out.name} rc={rc} {time.time() - t0:.0f}s")
+    err = out.with_name("ERROR." + out.name)
+    if rc != 0 and err.exists() and cell is not None and \
+            EMPTY_SET_MSG in json.loads(err.read_text()).get("error", ""):
+        spec = G.specs(cat)[cell]
+        if spec.max_headway is not None and spec.max_off_share is None and \
+                not spec.span and spec.max_lost_share is None and \
+                spec.area_radius_m is None:
+            err.rename(out.with_name("TRACE." + out.name))
+            log(f"empty-feasible-set proof for {out.name}")
+            rc = subprocess.call(
+                [sys.executable, str(ROOT / "scripts/exp6_infeasible_cell.py"),
+                 "--network", net, "--cell", cell, "--catalog-digest", cat,
+                 "--out", str(out.relative_to(ROOT))], cwd=ROOT)
+            log(f"proof {out.name} rc={rc}")
     if rc != 0 or not out.exists():
         raise SystemExit(f"cell failed rc={rc}: {out}")
     return json.loads(out.read_text())
@@ -133,7 +157,8 @@ def initial(k: int, of: int) -> int:
             log(f"halt present {halts()}")
             return 3
         out = INIT / f"{n}_{c}.json"
-        rec = ensure(out, cell_cmd(n, c, "initial", out, cat), log)
+        rec = ensure(out, cell_cmd(n, c, "initial", out, cat), log,
+                     net=n, cell=c, cat=cat)
         check_cell(rec, out, log)
     log("initial shard complete")
     return 0
@@ -198,6 +223,14 @@ def closure(net: str) -> int:
             for src, tgt, direction in ((a, b, "forward"), (b, a, "reverse")):
                 srec = rec_of(src)
                 trec = rec_of(tgt)
+                if srec["status"] != "CERTIFIED" or trec["status"] != "CERTIFIED":
+                    receipt({"network": net, "pass": p, "edge": [a, b],
+                             "direction": direction, "source_cell": src,
+                             "target_cell": tgt,
+                             "action": "SKIPPED_EMPTY_FEASIBLE_SET",
+                             "source_status": srec["status"],
+                             "target_status": trec["status"]})
+                    continue
                 sdig = srec["outcome"]["plan_digest"]
                 before = float(trec["outcome"]["objective_EXACT"])
                 r = {"network": net, "pass": p, "edge": [a, b],

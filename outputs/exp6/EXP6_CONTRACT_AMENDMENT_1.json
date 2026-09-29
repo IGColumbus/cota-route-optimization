@@ -1,0 +1,21 @@
+{
+ "artifact": "EXP6_CONTRACT_AMENDMENT_1",
+ "amends": "outputs/exp6/EXP6_CONTRACT.json",
+ "amended_contract_sha256": "5bf1cb82ad8829a8",
+ "written_utc": "2026-09-29T00:59:33Z",
+ "prose": "EXPERIMENT6_AMENDMENT_1.md",
+ "state_at_amendment": "7 of 28 initial cells certified; N3/R1_H20 start failed (minimum-service plan exceeds envelope)",
+ "new_status": "INFEASIBLE_UNDER_ENVELOPE (pure R1 cells only, proven on the production path)",
+ "runner_sha256": {
+  "exp6_run.py": "55ffbe0b61366ca3",
+  "exp6_analyze.py": "da6792a144c041e2",
+  "exp6_infeasible_cell.py": "c655dffeb1697020",
+  "exp6_cell.py": "79c60052e5493a5d",
+  "exp6_grid.py": "945b4500b2c755c2"
+ },
+ "unchanged": {
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "exp6_cell.py": "unchanged",
+  "certified_records": "unchanged"
+ }
+}

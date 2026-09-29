@@ -62,11 +62,17 @@ def main() -> int:
     rec_checks = {k: [] for k in ("code", "runner", "envelope", "policy",
                                   "feasible", "convergence", "base_config")}
     base_cfgs = set()
+    empty: list = []
     for label, recs in (("initial", init), ("final", final)):
         for (n, c), r in recs.items():
             if r is None:
                 continue
             tag = f"{label}:{n}_{c}"
+            if r["status"] != "CERTIFIED":
+                empty.append({"record": tag, "status": r["status"]})
+                if r["status"] != "INFEASIBLE_UNDER_ENVELOPE":
+                    fails.append(f"{tag}: status {r['status']}")
+                continue
             pv = r["provenance"]
             rec_checks["code"].append((tag, pv["code_version"] ==
                                        con["code"]["code_version"] and
@@ -95,8 +101,13 @@ def main() -> int:
     out["record_checks"] = {k: {"n": len(v), "all_pass": all(ok for _, ok in v)}
                             for k, v in rec_checks.items()}
 
+    out["empty_feasible_sets"] = empty
+
+    def ok_(r):
+        return r["status"] == "CERTIFIED"
+
     def obj(r):
-        return f(r["outcome"]["objective_EXACT"])
+        return f(r["outcome"]["objective_EXACT"]) if ok_(r) else math.inf
 
     # ---- monotonicity: initial (reported) and post-closure (hard) --------
     def mono(recs):
@@ -107,10 +118,12 @@ def main() -> int:
                 if A is None or B is None:
                     continue
                 oa, ob = obj(A), obj(B)
-                viol = ob > oa + REL_EQ * abs(oa)
+                viol = (ob > oa + REL_EQ * abs(oa)) if math.isfinite(oa) else False
                 rows.append({"network": n, "tighter": tight, "looser": loose,
                              "obj_tighter": repr(oa), "obj_looser": repr(ob),
-                             "regression_pct": 100 * (ob - oa) / oa if viol else 0.0,
+                             "regression_pct": (100 * (ob - oa) / oa if viol and
+                                                math.isfinite(ob) else
+                                                (math.inf if viol else 0.0)),
                              "violation": viol})
         return rows
     mi, mf = mono(init), mono(final)
@@ -130,7 +143,8 @@ def main() -> int:
             break
         oref = obj(final[(n, "REF")])
         for c in cells:
-            if c != "REF" and obj(final[(n, c)]) < oref - REL_EQ * abs(oref):
+            if c != "REF" and ok_(final[(n, c)]) and \
+                    obj(final[(n, c)]) < oref - REL_EQ * abs(oref):
                 refc.append([n, c])
     out["reference_closure"] = {"violations": refc}
     if refc:
@@ -150,6 +164,8 @@ def main() -> int:
         changed = []
         for c in cells:
             i_, f_ = init[(n, c)], final[(n, c)]
+            if not ok_(f_):
+                continue
             if i_["outcome"]["plan_digest"] != f_["outcome"]["plan_digest"]:
                 changed.append({"cell": c, "initial": repr(obj(i_)),
                                 "final": repr(obj(f_)),
@@ -175,6 +191,10 @@ def main() -> int:
         for c in cells:
             if c == "REF":
                 continue
+            if not ok_(final[(n, c)]):
+                fw["policy"].append({"network": n, "cell": c, "admitted": None,
+                                     "note": "empty feasible set; no receipt"})
+                continue
             res = compare(K.receipt_for(ref, K.EXP6_POLICY),
                           K.receipt_for(final[(n, c)], K.EXP6_POLICY), K.EXP6_POLICY)
             ok = res.__class__.__name__ == "ComparisonResult"
@@ -189,6 +209,12 @@ def main() -> int:
     for c in cells:
         if not final:
             break
+        if not (ok_(final[("N0", c)]) and ok_(final[("N3", c)])):
+            fw["structure"].append({"cell": c, "admitted": None,
+                                    "note": "empty feasible set on "
+                                    + ",".join(n for n in G.NETWORKS
+                                               if not ok_(final[(n, c)]))})
+            continue
         res = compare(K.receipt_for(final[("N0", c)], K.EXP6_STRUCTURE),
                       K.receipt_for(final[("N3", c)], K.EXP6_STRUCTURE),
                       K.EXP6_STRUCTURE)
@@ -227,12 +253,19 @@ def main() -> int:
         i_ref, f_ref = obj(init[(n, "REF")]), obj(final[(n, "REF")])
         for c in cells:
             i_, f_ = init[(n, c)], final[(n, c)]
+            if not ok_(f_):
+                rows.append({"network": n, "cell": c,
+                             "spec": specs[c].payload(), "status": f_["status"],
+                             "usage_vs_caps_of_minimum_service_plan":
+                                 f_.get("proof", {}).get("usage_vs_caps")})
+                continue
             fx = f_["outcome"]["fitness_EXACT"]
             res_ = f_["resource"]
             greedy_cost = obj(i_) - i_ref
             closed_cost = obj(f_) - f_ref
             rows.append({
                 "network": n, "cell": c, "spec": specs[c].payload(),
+                "status": "CERTIFIED",
                 "initial_objective": obj(i_), "final_objective": obj(f_),
                 "initial_plan_digest": i_["outcome"]["plan_digest"],
                 "final_plan_digest": f_["outcome"]["plan_digest"],
