@@ -1,0 +1,280 @@
+{
+ "schema": "exp7_stage1_cell/v1",
+ "variant": "N4",
+ "level": {
+  "name": "A7_RM01",
+  "dimension": "A7",
+  "lam": 2.0,
+  "waiting_model": "same_route",
+  "overrides": [],
+  "od": [],
+  "rationale": "A7 as issued: remove the rank-1 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+  "network": [
+   [
+    "remove_route",
+    {
+     "rank": 1,
+     "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+    }
+   ]
+  ],
+  "provenance": "as_issued_0923"
+ },
+ "level_digest": "cd7f24a0b5cc7c93",
+ "identity": {
+  "state_key": "exp4|exp4-pool-v1|65lines#35e351133d6f+A7_RM01",
+  "state_digest": "988cad550e040932",
+  "cardinality": 65,
+  "members": [
+   "syn-01d29fe11c8fe229",
+   "syn-04bd49ffa8580649",
+   "syn-094178ee2413e586",
+   "syn-0a7beee015fab797",
+   "syn-0c6624b92a8cbd34",
+   "syn-0fbaa754316fb93d",
+   "syn-12557f3c13a49bb1",
+   "syn-164801751d27883c",
+   "syn-1ab0a3f1e1e2e4af",
+   "syn-1b142225b6ccfee4",
+   "syn-21b8f7c683c0a6b5",
+   "syn-2663c6d04f289b58",
+   "syn-2ef225deeb13eb25",
+   "syn-34fe03afb1a36d9e",
+   "syn-395b0ad4136a5c7f",
+   "syn-3bdb1a36e7453efa",
+   "syn-413bfa6c3aaf9a09",
+   "syn-45a851f0143bdc4a",
+   "syn-472d844241f993ba",
+   "syn-509dd9ce50e6d7c6",
+   "syn-54b5bb2a49655b7a",
+   "syn-58cacec9b74813f4",
+   "syn-5edca9ed1333b027",
+   "syn-5fca782a91909f67",
+   "syn-6074458b6e308733",
+   "syn-60f95ff936eeeacd",
+   "syn-646ea6f969eead36",
+   "syn-68c087d0a44bd42f",
+   "syn-6a84800b83ba038c",
+   "syn-70dd7f74b6f50e4c",
+   "syn-780f6e430a947340",
+   "syn-7dfd9c5d0191803e",
+   "syn-887ed87f33827f87",
+   "syn-917daae60f61e621",
+   "syn-9425660884704b5f",
+   "syn-96fcbfdc5e84b719",
+   "syn-9cf593e6ead67626",
+   "syn-a034dfb8e0dadc56",
+   "syn-a31805b4a037eca2",
+   "syn-a450dfa427a890a1",
+   "syn-aa289ecd245b53c1",
+   "syn-ad09868780a1c274",
+   "syn-b2d10c8b13fdcc0e",
+   "syn-b9984496652d77dc",
+   "syn-ba87dbc2d02635a9",
+   "syn-bdb7854bdccd2308",
+   "syn-c127242fc4d7151e",
+   "syn-c6b558018dd069d1",
+   "syn-c740ecc6af42b396",
+   "syn-cc10538c6cdfdd3d",
+   "syn-cef59d1aab2fea7d",
+   "syn-d4f64c06a8e457e2",
+   "syn-d80599902f3f708d",
+   "syn-da184fb6f19e9b54",
+   "syn-de7619fa68e82ae5",
+   "syn-e003e8db1d7a8a65",
+   "syn-e5789aa3f90838d5",
+   "syn-e8ce379fa4507794",
+   "syn-e9cfc2efd1c697b0",
+   "syn-eb4f9dad6622d3a1",
+   "syn-ed87e3676263fd95",
+   "syn-f198aa054f95da21",
+   "syn-f465f442330eb4a6",
+   "syn-f959c7f534d6905c",
+   "syn-ffa50cfd92f8acde"
+  ],
+  "construction": "exp4_assemble.assemble(Exp4Selection)",
+  "network_label": "N4 EXP4N normalized leader",
+  "untransformed_state_digest": "35e351133d6fcafc",
+  "network_transform": [
+   {
+    "removed_route": "syn-413bfa6c3aaf9a09",
+    "rank": 1
+   }
+  ]
+ },
+ "lam": 2.0,
+ "waiting_model": "same_route",
+ "w_unserved": 60.0,
+ "build_solution": "F4_N4_EXP4N",
+ "internal_consistency_build_plan_equals_solve": true,
+ "evaluator_checks": {
+  "gtfs_scheduled_revenue_veh_hours": 914.7891666666666,
+  "model_baseline_revenue_veh_hours": 914.7891666666666,
+  "vh_relative_error": 0.0,
+  "n_route_periods": 384,
+  "periods_modelled": [
+   "early",
+   "am_peak",
+   "midday",
+   "pm_peak",
+   "evening",
+   "owl"
+  ],
+  "od_pairs": 20000,
+  "od_total_trips": 30949.0,
+  "od_source": "LEHD LODES8 2022 OD (JT00 main)",
+  "baseline_generalized_cost": 917210.905137521,
+  "baseline_unserved_demand": 25644.340616877056,
+  "baseline_served_demand": 5304.659383122945,
+  "baseline_gc_per_served_trip": 172.90665411160538,
+  "total_paths": 81939,
+  "locked_route_periods": 0,
+  "locked_routes": [],
+  "with_crowding": false,
+  "common_lines": "same_route",
+  "common_lines_source": "explicit",
+  "allow_off": true
+ },
+ "pathset_total_paths": 81939,
+ "rows": {
+  "F4_N4_EXP4N": {
+   "objective": 3243428.6167164124,
+   "generalized_cost": 807576.4870554294,
+   "unserved_demand": 20298.767747174858,
+   "served_demand": 10650.23225282514,
+   "gc_per_served_trip": 75.82712450624794,
+   "revenue_veh_hours": 2438.0809953703706,
+   "peak_vehicles": 171.55995486111112,
+   "peak_by_period": {
+    "early": 80.87087499999998,
+    "am_peak": 155.335025462963,
+    "midday": 154.52619212962958,
+    "pm_peak": 171.55995486111112,
+    "evening": 133.95290509259257,
+    "owl": 33.06628009259259
+   },
+   "n_off": 223,
+   "plan_restricted_routes": [
+    "syn-413bfa6c3aaf9a09"
+   ]
+  },
+  "F5_N4_J090": {
+   "objective": 3294626.8160767783,
+   "generalized_cost": 746757.1948789678,
+   "unserved_demand": 21232.246843315086,
+   "served_demand": 9716.753156684914,
+   "gc_per_served_trip": 76.85254352326685,
+   "revenue_veh_hours": 2196.632847222222,
+   "peak_vehicles": 154.3085439814815,
+   "peak_by_period": {
+    "early": 72.53539814814816,
+    "am_peak": 141.26022337962965,
+    "midday": 138.708474537037,
+    "pm_peak": 154.3085439814815,
+    "evening": 121.9938634259259,
+    "owl": 29.020729166666666
+   },
+   "n_off": 231,
+   "plan_restricted_routes": [
+    "syn-413bfa6c3aaf9a09"
+   ]
+  },
+  "F5_N4_J110": {
+   "objective": 3212631.1461173636,
+   "generalized_cost": 899052.1351249682,
+   "unserved_demand": 19279.825091603292,
+   "served_demand": 11669.17490839671,
+   "gc_per_served_trip": 77.04504750186265,
+   "revenue_veh_hours": 2681.9527777777776,
+   "peak_vehicles": 189.5105763888889,
+   "peak_by_period": {
+    "early": 89.31533564814816,
+    "am_peak": 172.14525694444447,
+    "midday": 168.95528472222222,
+    "pm_peak": 189.5105763888889,
+    "evening": 148.05765509259257,
+    "owl": 35.780865740740744
+   },
+   "n_off": 206,
+   "plan_restricted_routes": [
+    "syn-413bfa6c3aaf9a09"
+   ]
+  },
+  "F5_N4_P090": {
+   "objective": 3332528.7165121734,
+   "generalized_cost": 711065.3061561881,
+   "unserved_demand": 21845.52841963321,
+   "served_demand": 9103.471580366793,
+   "gc_per_served_trip": 78.10924655268032,
+   "revenue_veh_hours": 2215.7619675925926,
+   "peak_vehicles": 154.16434143518518,
+   "peak_by_period": {
+    "early": 69.20252777777777,
+    "am_peak": 145.64201620370372,
+    "midday": 138.70666435185188,
+    "pm_peak": 154.16434143518518,
+    "evening": 121.60749537037037,
+    "owl": 31.938694444444447
+   },
+   "n_off": 242,
+   "plan_restricted_routes": [
+    "syn-413bfa6c3aaf9a09"
+   ]
+  },
+  "F5_N4_P110": {
+   "objective": 3211705.3435002863,
+   "generalized_cost": 829254.6134155255,
+   "unserved_demand": 19853.756084039676,
+   "served_demand": 11095.243915960325,
+   "gc_per_served_trip": 74.7396469781666,
+   "revenue_veh_hours": 2441.2122453703705,
+   "peak_vehicles": 189.60651620370368,
+   "peak_by_period": {
+    "early": 88.13820949074072,
+    "am_peak": 173.6574270833333,
+    "midday": 168.9047592592592,
+    "pm_peak": 189.60651620370368,
+    "evening": 108.38781944444443,
+    "owl": 15.724333333333334
+   },
+   "n_off": 221,
+   "plan_restricted_routes": [
+    "syn-413bfa6c3aaf9a09"
+   ]
+  },
+  "F5_N4_J100": {
+   "objective": 3243428.6167164124,
+   "generalized_cost": 807576.4870554294,
+   "unserved_demand": 20298.767747174858,
+   "served_demand": 10650.23225282514,
+   "gc_per_served_trip": 75.82712450624794,
+   "revenue_veh_hours": 2438.0809953703706,
+   "peak_vehicles": 171.55995486111112,
+   "peak_by_period": {
+    "early": 80.87087499999998,
+    "am_peak": 155.335025462963,
+    "midday": 154.52619212962958,
+    "pm_peak": 171.55995486111112,
+    "evening": 133.95290509259257,
+    "owl": 33.06628009259259
+   },
+   "n_off": 223,
+   "plan_restricted_routes": [
+    "syn-413bfa6c3aaf9a09"
+   ]
+  }
+ },
+ "n_rows": 6,
+ "n_errors": 0,
+ "registry_sha256": "28c607a27aedf7c544ec83bf2eb1cb8ac95ab518a57ebb16945b6717fc940746",
+ "provenance": {
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "runner_sha256": {
+   "exp7_stage1.py": "3024e849a5f8015d",
+   "exp7_levels.py": "27a45f94661e9b3e"
+  },
+  "levels_file_sha256": "112690806d22647eaebeda2c3b21fe59a7ada69117c9f5a15f529fd23d381333"
+ },
+ "seconds": 343.0,
+ "written_utc": "2026-09-29T16:25:36Z"
+}

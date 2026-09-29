@@ -1,0 +1,185 @@
+{
+ "schema": "exp7_stage1_smoke/v1",
+ "rows": {
+  "N0/BASE": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 323.6,
+   "certified_F4F5F6_bit_exact": {
+    "F4_N0_J100": true,
+    "F5_N0_J090": true,
+    "F5_N0_J110": true,
+    "F5_N0_P090": true,
+    "F5_N0_P110": true,
+    "F6_N0_REF": true,
+    "F6_N0_R1_H60": true,
+    "F6_N0_R1_H30": true,
+    "F6_N0_R1_H20": true,
+    "F6_N0_R2_S25": true,
+    "F6_N0_R2_S10": true,
+    "F6_N0_R2_S05": true,
+    "F6_N0_R3_SPAN": true,
+    "F6_N0_R4_C05": true,
+    "F6_N0_R4_C01": true,
+    "F6_N0_R4_C00": true,
+    "F6_N0_R6_ADA": true,
+    "F6_N0_B1": true,
+    "F6_N0_B2": true
+   },
+   "F3_stage1_vs_certified": {
+    "F3_CONTROL_20260825": [
+     2956120.5839554886,
+     2956120.5839554886
+    ],
+    "F3_CONTROL_20260826": [
+     2956120.5839554886,
+     2956120.5839554886
+    ],
+    "F3_CONTROL_20260827": [
+     2956008.528225456,
+     2956008.528225456
+    ],
+    "F3_CONTROL_20260828": [
+     2956055.462380302,
+     2956055.462380302
+    ],
+    "F3_CONTROL_20260829": [
+     2955959.8781162445,
+     2955959.8781162445
+    ]
+   }
+  },
+  "N0S/BASE": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 332.4,
+   "certified_F4F5F6_bit_exact": {},
+   "F3_stage1_vs_certified": {}
+  },
+  "N3/BASE": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 444.4,
+   "certified_F4F5F6_bit_exact": {
+    "F4_N3_EXP4A": true,
+    "F6_N3_REF": true,
+    "F6_N3_R1_H60": true,
+    "F6_N3_R1_H30": true,
+    "F6_N3_R2_S25": true,
+    "F6_N3_R2_S10": true,
+    "F6_N3_R2_S05": true,
+    "F6_N3_R3_SPAN": true,
+    "F6_N3_R4_C05": true,
+    "F6_N3_R4_C01": true,
+    "F6_N3_R4_C00": true,
+    "F6_N3_R6_ADA": true,
+    "F6_N3_B1": true,
+    "F6_N3_B2": true
+   },
+   "F3_stage1_vs_certified": {
+    "F3_ADDSTOP_20260825": [
+     2950538.0418019183,
+     2950538.0418019183
+    ],
+    "F3_ADDSTOP_20260826": [
+     2950538.0418019183,
+     2950538.0418019183
+    ],
+    "F3_ADDSTOP_20260827": [
+     2950538.0418019183,
+     2950538.0418019183
+    ],
+    "F3_ADDSTOP_20260828": [
+     2950538.0418019183,
+     2950538.0418019183
+    ],
+    "F3_ADDSTOP_20260829": [
+     2950538.0418019183,
+     2950538.0418019183
+    ]
+   }
+  },
+  "N4/BASE": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 561.8,
+   "certified_F4F5F6_bit_exact": {
+    "F4_N4_EXP4N": true,
+    "F5_N4_J090": true,
+    "F5_N4_J110": true,
+    "F5_N4_P090": true,
+    "F5_N4_P110": true,
+    "F5_N4_J100": true
+   },
+   "F3_stage1_vs_certified": {}
+  },
+  "N0/A1_NC025": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 313.9,
+   "reaches": true
+  },
+  "N0/A2_BOOT01": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 295.3,
+   "reaches": true
+  },
+  "N0/A3_RT110": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 290.2,
+   "reaches": true
+  },
+  "N0/A3_RTNOISE": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 287.4,
+   "reaches": true
+  },
+  "N0/A5_TP200": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 283.9,
+   "reaches": true
+  },
+  "N0/A6_WALKSPD85": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 288.8,
+   "reaches": true
+  },
+  "N0/A6_MAXWALK75": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 212.7,
+   "reaches": true
+  },
+  "N0/A7_RM01": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 257.5,
+   "reaches": true
+  },
+  "N4/A7_RM01": {
+   "present": true,
+   "n_errors": 0,
+   "consistent": true,
+   "seconds": 343.0,
+   "reaches": true
+  }
+ },
+ "passed": true
+}

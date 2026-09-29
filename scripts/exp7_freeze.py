@@ -45,7 +45,8 @@ import exp7_levels as L  # noqa: E402
 OUT = ROOT / "outputs" / "exp7"
 PRE = OUT / "preflight"
 EXP6_SRC = "b63ae2dba134245e"
-RUNNERS = ("exp7_cell.py", "exp7_levels.py", "exp7_closure.py",
+RUNNERS = ("exp7_stage1.py", "exp7_stage1_analyze.py", "exp7_stage2_select.py",
+           "exp7_busiest_routes.py", "exp7_cell.py", "exp7_levels.py", "exp7_closure.py",
            "exp7_classify.py", "exp7_run.py", "exp7_contracts.py",
            "exp7_infeasible_cell.py", "exp7_preflight.py", "exp7_analyze.py",
            "exp6_grid.py", "exp45_certify_cell.py", "exp45_contracts.py",
@@ -110,6 +111,26 @@ def estimate(n_levels: int, n_policies: int = 14, lanes: int = 2,
             "assumptions": estimate.__doc__}
 
 
+def stage1_estimate(n_levels: int, lanes: int = 2) -> dict:
+    """Stage 1 wall time from the measured smoke cells (seconds per cell per
+    variant), times n_levels cells per variant, on `lanes` lanes."""
+    sv = PRE / "stage1" / "SMOKE_VERDICT.json"
+    if not sv.exists():
+        return {"note": "smoke not run"}
+    rows = json.loads(sv.read_text())["rows"]
+    per = {}
+    for k, r in rows.items():
+        v = k.split("/")[0]
+        if r.get("seconds"):
+            per.setdefault(v, []).append(float(r["seconds"]))
+    mean = {v: sum(x) / len(x) for v, x in per.items()}
+    cpu = sum(mean.get(v, max(mean.values())) for v in ("N0", "N3", "N4", "N0S")) * n_levels
+    return {"cells": 4 * n_levels, "seconds_per_cell_by_variant": mean,
+            "cpu_hours": round(cpu / 3600, 1),
+            "wall_hours_2_lanes": round(cpu / 3600 / lanes, 1),
+            "plus": "13 N3 R1_H20 emptiness proofs at A3/A7 levels (~5 min each)"}
+
+
 def gates(levels, lvfile) -> dict:
     g = {}
     # Governing text (0929): as-issued Sept 23 section, the same-day Sept 23
@@ -124,24 +145,18 @@ def gates(levels, lvfile) -> dict:
         lv.provenance and lv.dimension.split("_")[0] in proto for lv in nb)
     br = PRE / "base_repro" / "BASE_REPRO_VERDICT.json"
     g["G3_base_reproduction"] = br.exists() and json.loads(br.read_text())["passed"]
-    ok = True
-    names = {lv.name for lv in levels if not lv.is_base}
-    for part in (("N0",), ("N3",), ("N4a", "N4b")):
-        seen: dict = {}
-        for f in part:
-            p = PRE / "reach_matrix" / f"{f}.json"
-            if not p.exists():
-                ok = False
-                continue
-            d = json.loads(p.read_text())
-            ok &= bool(d.get("verdict", {}).get("BASE_reproduces_record"))
-            seen.update({k: v for k, v in d.get("verdict", {}).items()
-                         if k != "BASE_reproduces_record"})
-        ok &= all(seen.get(n) == "REACHES" for n in names)
+    # Two-stage design (amendment §14): G4 = the pre-launch smoke of every
+    # new level kind through the Stage 1 evaluator, with BASE reproducing the
+    # certified F4/F5/F6 objectives bit-exactly on every variant. Per-level
+    # reach is re-derived inside Stage 1 validation (inert -> untested).
+    sv = PRE / "stage1" / "SMOKE_VERDICT.json"
+    ok = sv.exists() and json.loads(sv.read_text())["passed"]
     g["G4_level_reach"] = ok
     r = subprocess.run([sys.executable, "-m", "pytest", "-q",
                         "tests/test_exp7_closure.py",
-                        "tests/test_exp7_levels.py"], cwd=ROOT,
+                        "tests/test_exp7_levels.py",
+                        "tests/test_exp7_stage1.py",
+                        "tests/test_exp6_policy.py"], cwd=ROOT,
                        capture_output=True, text=True)
     g["G5_unit_tests"] = r.returncode == 0
     g["G6_src_digest_matches_exp6"] = CC.src_content_digest() == EXP6_SRC
@@ -170,7 +185,25 @@ def main() -> int:
     h = G.hasse(sp)
     g = gates(levels, a.levels)
     con = {
-        "artifact": "EXP7_CONTRACT", "version": "7.0",
+        "artifact": "EXP7_CONTRACT", "version": "7.1-two-stage",
+        "design": "two_stage",
+        "stage1": {"runner": "scripts/exp7_stage1.py",
+                   "analysis": "scripts/exp7_stage1_analyze.py",
+                   "registry": "outputs/exp7/stage1/EXP7_STAGE1_SOLUTIONS.json",
+                   "registry_sha256": CC.sha256_file(
+                       OUT / "stage1" / "EXP7_STAGE1_SOLUTIONS.json"),
+                   "levels_sha256": CC.sha256_file(ROOT / a.levels),
+                   "a7_ranking_sha256": CC.sha256_file(
+                       OUT / "A7_ROUTE_RANKING.json"),
+                   "variants": ["N0", "N3", "N4", "N0S"],
+                   "cells": (len(levels)) * 4,
+                   "classification_levels": "Class A implemented (A1-A3, A5-A8)",
+                   "a4": "UNIMPLEMENTED"},
+        "stage2": {"selection_metric": "exp7_stage1_analyze.select_stage2",
+                   "k": 2, "eligible": ["A1", "A2", "A3", "A5", "A6", "A7", "A8"],
+                   "bootstrap_reopt_subset": [1, 5, 10, 15, 20],
+                   "selection_artifact": "outputs/exp7/EXP7_STAGE2_SELECTION.json",
+                   "full_closure_all_levels": "REJECTED"},
         "frozen": not a.draft,
         "protocol": ["docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md", "docs/EXPERIMENT7_SEPT23_FINALIZATION.md", "docs/EXPERIMENT7_AMENDMENT.md", "docs/EXPERIMENT7_PROTOCOL.md"],
         "amendment": "docs/EXPERIMENT7_AMENDMENT.md",
@@ -206,8 +239,7 @@ def main() -> int:
                                    for n in RUNNERS
                                    if (ROOT / "scripts" / n).exists()}},
         "gates": g,
-        "estimate": estimate(len(levels), len(sp),
-                             base_reuse=bool(g["G3_base_reproduction"]))}
+        "estimate": stage1_estimate(len(levels))}
     if not a.draft and not all(g.values()):
         print(json.dumps(g, indent=1))
         raise SystemExit("REFUSED: readiness gates not all passed")

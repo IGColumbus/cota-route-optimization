@@ -1,0 +1,187 @@
+{
+ "schema": "exp7_a7_ranking/v1",
+ "definition": "\"Busiest\" = modelled boardings per route summed over the six periods, under\nthe network's reference service, through the production path-level evaluator\nat BASE (same_route waiting, lambda 2):\n  N0, N3  the current (baseline) headways from the Exp 6 REF record;\n  N4      the EXP4N incumbent plan (N4 has no current service).\nThe judge is built by the one-rung exact admission of a known admissible plan\n(Exp 6 closed REF on N0/N3; the EXP4N incumbent on N4); boardings do not\ndepend on the plan used to build the judge, only on the path sets.",
+ "rankings": {
+  "N0": {
+   "service": "baseline",
+   "source_record": "outputs/exp6/closure/N0_REF__from_R2_S25__aed848588abad24d.json",
+   "routes": [
+    "001",
+    "102",
+    "002",
+    "005",
+    "010",
+    "008",
+    "003",
+    "031",
+    "034",
+    "007"
+   ],
+   "boardings_top10": [
+    [
+     "001",
+     2764.5383407095633
+    ],
+    [
+     "102",
+     2574.6367306747647
+    ],
+    [
+     "002",
+     2026.8081322770079
+    ],
+    [
+     "005",
+     1897.182840558147
+    ],
+    [
+     "010",
+     1850.3375303791297
+    ],
+    [
+     "008",
+     1772.4053278814074
+    ],
+    [
+     "003",
+     1737.1454544991896
+    ],
+    [
+     "031",
+     1623.6295344878313
+    ],
+    [
+     "034",
+     1439.00302076719
+    ],
+    [
+     "007",
+     1432.051893154858
+    ]
+   ],
+   "n_routes": 39,
+   "total_boardings": 31045.380303648242
+  },
+  "N3": {
+   "service": "baseline",
+   "source_record": "outputs/exp6/closure/N3_REF__from_R2_S25__fdec5c5475c73736.json",
+   "routes": [
+    "001",
+    "102",
+    "002",
+    "010",
+    "005",
+    "008",
+    "003",
+    "031",
+    "034",
+    "007"
+   ],
+   "boardings_top10": [
+    [
+     "001",
+     2764.309755866095
+    ],
+    [
+     "102",
+     2575.729229618828
+    ],
+    [
+     "002",
+     2006.0480999070041
+    ],
+    [
+     "010",
+     1988.384034205501
+    ],
+    [
+     "005",
+     1881.709706988597
+    ],
+    [
+     "008",
+     1779.9773421625328
+    ],
+    [
+     "003",
+     1740.8438654498002
+    ],
+    [
+     "031",
+     1621.8760629316916
+    ],
+    [
+     "034",
+     1438.0929336957383
+    ],
+    [
+     "007",
+     1395.8792538500898
+    ]
+   ],
+   "n_routes": 39,
+   "total_boardings": 31036.150694346867
+  },
+  "N4": {
+   "service": "plan",
+   "source_record": "outputs/exp7/preflight/n4/N4_REF_BASE_F4_greedy.json",
+   "routes": [
+    "syn-413bfa6c3aaf9a09",
+    "syn-0a7beee015fab797",
+    "syn-646ea6f969eead36",
+    "syn-1ab0a3f1e1e2e4af",
+    "syn-96fcbfdc5e84b719",
+    "syn-21b8f7c683c0a6b5",
+    "syn-01d29fe11c8fe229",
+    "syn-472d844241f993ba",
+    "syn-12557f3c13a49bb1",
+    "syn-5fca782a91909f67"
+   ],
+   "boardings_top10": [
+    [
+     "syn-413bfa6c3aaf9a09",
+     956.021611673475
+    ],
+    [
+     "syn-0a7beee015fab797",
+     879.471961830927
+    ],
+    [
+     "syn-646ea6f969eead36",
+     852.3818521844756
+    ],
+    [
+     "syn-1ab0a3f1e1e2e4af",
+     785.9089899420389
+    ],
+    [
+     "syn-96fcbfdc5e84b719",
+     765.1787109822799
+    ],
+    [
+     "syn-21b8f7c683c0a6b5",
+     679.5276365982044
+    ],
+    [
+     "syn-01d29fe11c8fe229",
+     634.0028064958766
+    ],
+    [
+     "syn-472d844241f993ba",
+     622.7935552307686
+    ],
+    [
+     "syn-12557f3c13a49bb1",
+     596.5053584424132
+    ],
+    [
+     "syn-5fca782a91909f67",
+     542.2835369566359
+    ]
+   ],
+   "n_routes": 65,
+   "total_boardings": 13916.068026714793
+  }
+ },
+ "written_utc": "2026-09-29T15:46:31Z"
+}

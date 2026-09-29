@@ -1,0 +1,3396 @@
+{
+ "artifact": "EXP7_CONTRACT",
+ "version": "7.1-two-stage",
+ "design": "two_stage",
+ "stage1": {
+  "runner": "scripts/exp7_stage1.py",
+  "analysis": "scripts/exp7_stage1_analyze.py",
+  "registry": "outputs/exp7/stage1/EXP7_STAGE1_SOLUTIONS.json",
+  "registry_sha256": "28c607a27aedf7c544ec83bf2eb1cb8ac95ab518a57ebb16945b6717fc940746",
+  "levels_sha256": "112690806d22647eaebeda2c3b21fe59a7ada69117c9f5a15f529fd23d381333",
+  "a7_ranking_sha256": "9d6c3b3b054144bdff9e2e2940043a5858680edd7e634bb7b36aa56885038143",
+  "variants": [
+   "N0",
+   "N3",
+   "N4",
+   "N0S"
+  ],
+  "cells": 192,
+  "classification_levels": "Class A implemented (A1-A3, A5-A8)",
+  "a4": "UNIMPLEMENTED"
+ },
+ "stage2": {
+  "selection_metric": "exp7_stage1_analyze.select_stage2",
+  "k": 2,
+  "eligible": [
+   "A1",
+   "A2",
+   "A3",
+   "A5",
+   "A6",
+   "A7",
+   "A8"
+  ],
+  "bootstrap_reopt_subset": [
+   1,
+   5,
+   10,
+   15,
+   20
+  ],
+  "selection_artifact": "outputs/exp7/EXP7_STAGE2_SELECTION.json",
+  "full_closure_all_levels": "REJECTED"
+ },
+ "frozen": true,
+ "protocol": [
+  "docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md",
+  "docs/EXPERIMENT7_SEPT23_FINALIZATION.md",
+  "docs/EXPERIMENT7_AMENDMENT.md",
+  "docs/EXPERIMENT7_PROTOCOL.md"
+ ],
+ "amendment": "docs/EXPERIMENT7_AMENDMENT.md",
+ "level_file": "outputs/exp7/EXP7_LEVELS.json",
+ "levels": [
+  {
+   "name": "BASE",
+   "dimension": "none",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "Experiment 6 exactly",
+   "digest": "79b97699909ebb59"
+  },
+  {
+   "name": "A1_NC025",
+   "dimension": "A1",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "noncommute_add",
+     {
+      "decay_km": 4.0,
+      "share_of_commute": 0.25,
+      "zone_weight": "workers_plus_jobs"
+     }
+    ]
+   ],
+   "rationale": "A1 as issued: non-commute trips added at 25% of commute volume. Gravity-form operationalization (0929): noncommute_proxy, zone weight workers+jobs, 4 km exponential decay, on the commute OD pair set.",
+   "provenance": "as_issued_0923",
+   "digest": "d583ba3a6db3f3f2"
+  },
+  {
+   "name": "A1_NC050",
+   "dimension": "A1",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "noncommute_add",
+     {
+      "decay_km": 4.0,
+      "share_of_commute": 0.5,
+      "zone_weight": "workers_plus_jobs"
+     }
+    ]
+   ],
+   "rationale": "A1 as issued: non-commute trips added at 50% of commute volume. Gravity-form operationalization (0929): noncommute_proxy, zone weight workers+jobs, 4 km exponential decay, on the commute OD pair set.",
+   "provenance": "as_issued_0923",
+   "digest": "f8539295583fd7b1"
+  },
+  {
+   "name": "A1_NC100",
+   "dimension": "A1",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "noncommute_add",
+     {
+      "decay_km": 4.0,
+      "share_of_commute": 1.0,
+      "zone_weight": "workers_plus_jobs"
+     }
+    ]
+   ],
+   "rationale": "A1 as issued: non-commute trips added at 100% of commute volume. Gravity-form operationalization (0929): noncommute_proxy, zone weight workers+jobs, 4 km exponential decay, on the commute OD pair set.",
+   "provenance": "as_issued_0923",
+   "digest": "ac2933519a06c9d9"
+  },
+  {
+   "name": "A2_BOOT01",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 1,
+      "seed": 20260901
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 1 of 20 of the LODES block pairs (seed 20260901); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "426e7f0e2884c097"
+  },
+  {
+   "name": "A2_BOOT02",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 2,
+      "seed": 20260902
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 2 of 20 of the LODES block pairs (seed 20260902); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "6471788666748379"
+  },
+  {
+   "name": "A2_BOOT03",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 3,
+      "seed": 20260903
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 3 of 20 of the LODES block pairs (seed 20260903); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "1486310920dcef2e"
+  },
+  {
+   "name": "A2_BOOT04",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 4,
+      "seed": 20260904
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 4 of 20 of the LODES block pairs (seed 20260904); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "b95294275c3b6d70"
+  },
+  {
+   "name": "A2_BOOT05",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 5,
+      "seed": 20260905
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 5 of 20 of the LODES block pairs (seed 20260905); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "94bc77fcc6899acd"
+  },
+  {
+   "name": "A2_BOOT06",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 6,
+      "seed": 20260906
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 6 of 20 of the LODES block pairs (seed 20260906); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "d607913f32cb95dd"
+  },
+  {
+   "name": "A2_BOOT07",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 7,
+      "seed": 20260907
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 7 of 20 of the LODES block pairs (seed 20260907); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "4e128e18a2a89dc6"
+  },
+  {
+   "name": "A2_BOOT08",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 8,
+      "seed": 20260908
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 8 of 20 of the LODES block pairs (seed 20260908); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "0adccd665893417c"
+  },
+  {
+   "name": "A2_BOOT09",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 9,
+      "seed": 20260909
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 9 of 20 of the LODES block pairs (seed 20260909); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "8a96aa6de57b4960"
+  },
+  {
+   "name": "A2_BOOT10",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 10,
+      "seed": 20260910
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 10 of 20 of the LODES block pairs (seed 20260910); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "a2619bc2cd21585c"
+  },
+  {
+   "name": "A2_BOOT11",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 11,
+      "seed": 20260911
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 11 of 20 of the LODES block pairs (seed 20260911); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "5810267054988ead"
+  },
+  {
+   "name": "A2_BOOT12",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 12,
+      "seed": 20260912
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 12 of 20 of the LODES block pairs (seed 20260912); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "cde1e6f44164a1e6"
+  },
+  {
+   "name": "A2_BOOT13",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 13,
+      "seed": 20260913
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 13 of 20 of the LODES block pairs (seed 20260913); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "25037fdff8f74e8c"
+  },
+  {
+   "name": "A2_BOOT14",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 14,
+      "seed": 20260914
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 14 of 20 of the LODES block pairs (seed 20260914); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "4b2c1c4fc68c4973"
+  },
+  {
+   "name": "A2_BOOT15",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 15,
+      "seed": 20260915
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 15 of 20 of the LODES block pairs (seed 20260915); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "c663cff53c3a325c"
+  },
+  {
+   "name": "A2_BOOT16",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 16,
+      "seed": 20260916
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 16 of 20 of the LODES block pairs (seed 20260916); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "9b3e6eda1664f20f"
+  },
+  {
+   "name": "A2_BOOT17",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 17,
+      "seed": 20260917
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 17 of 20 of the LODES block pairs (seed 20260917); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "5cf5c66e7681dfd1"
+  },
+  {
+   "name": "A2_BOOT18",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 18,
+      "seed": 20260918
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 18 of 20 of the LODES block pairs (seed 20260918); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "8fd2a0f87f77e614"
+  },
+  {
+   "name": "A2_BOOT19",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 19,
+      "seed": 20260919
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 19 of 20 of the LODES block pairs (seed 20260919); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "b0e6305f25c79227"
+  },
+  {
+   "name": "A2_BOOT20",
+   "dimension": "A2",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "bootstrap_lodes",
+     {
+      "draw": 20,
+      "seed": 20260920
+     }
+    ]
+   ],
+   "rationale": "A2 as issued: bootstrap draw 20 of 20 of the LODES block pairs (seed 20260920); harness pipeline unchanged.",
+   "provenance": "as_issued_0923",
+   "digest": "29ad151ef25feb3a"
+  },
+  {
+   "name": "A3_RT110",
+   "dimension": "A3",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A3 as issued: +10% uniform runtime (passenger time and vehicle-hours; envelope unchanged).",
+   "network": [
+    [
+     "runtime_scale",
+     {
+      "factor": 1.1
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "c22ea64772d8c76a"
+  },
+  {
+   "name": "A3_RT120",
+   "dimension": "A3",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A3 as issued: +20% uniform runtime.",
+   "network": [
+    [
+     "runtime_scale",
+     {
+      "factor": 1.2
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "e0724580ad2652d4"
+  },
+  {
+   "name": "A3_RTNOISE",
+   "dimension": "A3",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A3 as issued: per-link lognormal noise, median |error| 20.5% (outputs/runtime_validation.json median_ape_pct 20.5035), one seeded draw, same multiplier for a link on every pattern.",
+   "network": [
+    [
+     "runtime_noise",
+     {
+      "median_abs_error": 0.205,
+      "seed": 20260929
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "80af4cebac40e759"
+  },
+  {
+   "name": "A5_LAM1",
+   "dimension": "A5",
+   "lam": 1.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: lambda = 1 (below the certified lambda>=2 frontier; labelled as such).",
+   "provenance": "as_issued_0923",
+   "digest": "e4bf68165c4065c7"
+  },
+  {
+   "name": "A5_LAM4",
+   "dimension": "A5",
+   "lam": 4.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: lambda = 4.",
+   "provenance": "as_issued_0923",
+   "digest": "eddeedeb25a12b6a"
+  },
+  {
+   "name": "A5_TP050",
+   "dimension": "A5",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: transfer penalty x0.5 (10 -> 5 min).",
+   "weights": [
+    [
+     "transfer_penalty",
+     0.5
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "356dda148b71bc47"
+  },
+  {
+   "name": "A5_TP200",
+   "dimension": "A5",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A5 as issued: transfer penalty x2 (10 -> 20 min).",
+   "weights": [
+    [
+     "transfer_penalty",
+     2.0
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "3f90012c78bfa802"
+  },
+  {
+   "name": "A6_WALKSPD85",
+   "dimension": "A6",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.walk_speed_m_per_min",
+     68.0
+    ]
+   ],
+   "od": [],
+   "rationale": "A6 as issued: walk speed -15% (80 -> 68 m/min).",
+   "provenance": "as_issued_0923",
+   "digest": "b68d8b690b8e5f60"
+  },
+  {
+   "name": "A6_MAXWALK75",
+   "dimension": "A6",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.access_radius_m",
+     450.0
+    ],
+    [
+     "path_assignment.walk_radius_m",
+     300.0
+    ]
+   ],
+   "od": [],
+   "rationale": "A6 as issued: maximum walking distance -25%; operationalized (0929) on both walking caps: access 600 -> 450 m and transfer walk 400 -> 300 m.",
+   "provenance": "as_issued_0923",
+   "digest": "0b1ebe43952cc303"
+  },
+  {
+   "name": "A7_RM01",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-1 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 1,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "cd7f24a0b5cc7c93"
+  },
+  {
+   "name": "A7_RM02",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-2 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 2,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "3c4b5c3393c61b8b"
+  },
+  {
+   "name": "A7_RM03",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-3 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 3,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "4fa9eb817673f375"
+  },
+  {
+   "name": "A7_RM04",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-4 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 4,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "9c99d762c8fe90a8"
+  },
+  {
+   "name": "A7_RM05",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-5 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 5,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "f3b6028be988257d"
+  },
+  {
+   "name": "A7_RM06",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-6 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 6,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "a75f70f0c048e5c3"
+  },
+  {
+   "name": "A7_RM07",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-7 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 7,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "c918a0c8da898571"
+  },
+  {
+   "name": "A7_RM08",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-8 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 8,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "0087297a09ec21d6"
+  },
+  {
+   "name": "A7_RM09",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-9 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 9,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "f18f20da86f66965"
+  },
+  {
+   "name": "A7_RM10",
+   "dimension": "A7",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "A7 as issued: remove the rank-10 busiest route of the network (frozen ranking by modelled boardings, outputs/exp7/A7_ROUTE_RANKING.json); its resources stay in the envelope.",
+   "network": [
+    [
+     "remove_route",
+     {
+      "rank": 10,
+      "ranking_file": "outputs/exp7/A7_ROUTE_RANKING.json"
+     }
+    ]
+   ],
+   "provenance": "as_issued_0923",
+   "digest": "e83a3a75aeae1665"
+  },
+  {
+   "name": "A8_ZERO150",
+   "dimension": "A8",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.cost_retention_zero_min",
+     150
+    ]
+   ],
+   "od": [],
+   "rationale": "A8 (0929 amendment, not as issued): retention zero breakpoint 210 -> 150 min; full_min 60 and floor 0.10 fixed.",
+   "provenance": "amendment_0929",
+   "digest": "be7ffc3c50841b31"
+  },
+  {
+   "name": "A8_FLOOR0",
+   "dimension": "A8",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.cost_retention_floor",
+     0.0
+    ]
+   ],
+   "od": [],
+   "rationale": "A8 (0929 amendment, not as issued): retention floor 0.10 -> 0.00; full_min 60 and zero_min 210 fixed.",
+   "provenance": "amendment_0929",
+   "digest": "cb0bbb7717058a44"
+  },
+  {
+   "name": "B1_COMMONLINES",
+   "dimension": "B_assignment",
+   "lam": 2.0,
+   "waiting_model": "pattern",
+   "overrides": [],
+   "od": [],
+   "rationale": "Class B as issued: common-lines assignment (cross-route waiting). Reported as MODEL DISAGREEMENT, not a Class A result.",
+   "provenance": "class_b_0923",
+   "digest": "26a6edca001055a1"
+  },
+  {
+   "name": "X_TOPK40K",
+   "dimension": "X_od_coverage",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "wider_top_k",
+     {
+      "top_k": 40000
+     }
+    ]
+   ],
+   "rationale": "Additional post-Exp-6 sensitivity (not a Sept 23 row): top 40,000 OD pairs; discharges the Exp 4A wider-OD deferral.",
+   "provenance": "additional_post_exp6",
+   "digest": "f21878ff10846bd4"
+  },
+  {
+   "name": "X_ROUNDS4",
+   "dimension": "X_path_enumeration",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.max_rounds",
+     4
+    ]
+   ],
+   "od": [],
+   "rationale": "Additional post-Exp-6 sensitivity (not a Sept 23 row): one more boarding in path enumeration; the only path-model knob that reaches the evaluator.",
+   "provenance": "additional_post_exp6",
+   "digest": "dba1919c8a396a8e"
+  }
+ ],
+ "level_order": [
+  "BASE",
+  "A1_NC025",
+  "A1_NC050",
+  "A1_NC100",
+  "A2_BOOT01",
+  "A2_BOOT02",
+  "A2_BOOT03",
+  "A2_BOOT04",
+  "A2_BOOT05",
+  "A2_BOOT06",
+  "A2_BOOT07",
+  "A2_BOOT08",
+  "A2_BOOT09",
+  "A2_BOOT10",
+  "A2_BOOT11",
+  "A2_BOOT12",
+  "A2_BOOT13",
+  "A2_BOOT14",
+  "A2_BOOT15",
+  "A2_BOOT16",
+  "A2_BOOT17",
+  "A2_BOOT18",
+  "A2_BOOT19",
+  "A2_BOOT20",
+  "A3_RT110",
+  "A3_RT120",
+  "A3_RTNOISE",
+  "A5_LAM1",
+  "A5_LAM4",
+  "A5_TP050",
+  "A5_TP200",
+  "A6_WALKSPD85",
+  "A6_MAXWALK75",
+  "A7_RM01",
+  "A7_RM02",
+  "A7_RM03",
+  "A7_RM04",
+  "A7_RM05",
+  "A7_RM06",
+  "A7_RM07",
+  "A7_RM08",
+  "A7_RM09",
+  "A7_RM10",
+  "A8_ZERO150",
+  "A8_FLOOR0",
+  "B1_COMMONLINES",
+  "X_TOPK40K",
+  "X_ROUNDS4"
+ ],
+ "tracks": {
+  "F6": {
+   "networks": [
+    "N0",
+    "N3"
+   ],
+   "policies": [
+    "REF",
+    "R1_H60",
+    "R1_H30",
+    "R1_H20",
+    "R2_S25",
+    "R2_S10",
+    "R2_S05",
+    "R3_SPAN",
+    "R4_C05",
+    "R4_C01",
+    "R4_C00",
+    "R6_ADA",
+    "B1",
+    "B2"
+   ],
+   "within_level_closure": true,
+   "adjacent_edges": [
+    [
+     "B1",
+     "R2_S10"
+    ],
+    [
+     "B1",
+     "R3_SPAN"
+    ],
+    [
+     "B1",
+     "R6_ADA"
+    ],
+    [
+     "B2",
+     "R3_SPAN"
+    ],
+    [
+     "B2",
+     "R4_C01"
+    ],
+    [
+     "R1_H20",
+     "R1_H30"
+    ],
+    [
+     "R1_H30",
+     "R1_H60"
+    ],
+    [
+     "R1_H60",
+     "B1"
+    ],
+    [
+     "R1_H60",
+     "B2"
+    ],
+    [
+     "R1_H60",
+     "R2_S05"
+    ],
+    [
+     "R1_H60",
+     "R4_C00"
+    ],
+    [
+     "R2_S05",
+     "R2_S10"
+    ],
+    [
+     "R2_S10",
+     "R2_S25"
+    ],
+    [
+     "R2_S25",
+     "REF"
+    ],
+    [
+     "R3_SPAN",
+     "REF"
+    ],
+    [
+     "R4_C00",
+     "R4_C01"
+    ],
+    [
+     "R4_C00",
+     "R6_ADA"
+    ],
+    [
+     "R4_C01",
+     "R4_C05"
+    ],
+    [
+     "R4_C05",
+     "REF"
+    ],
+    [
+     "R6_ADA",
+     "REF"
+    ]
+   ],
+   "strict_pairs": [
+    [
+     "B1",
+     "R2_S10"
+    ],
+    [
+     "B1",
+     "R2_S25"
+    ],
+    [
+     "B1",
+     "R3_SPAN"
+    ],
+    [
+     "B1",
+     "R6_ADA"
+    ],
+    [
+     "B1",
+     "REF"
+    ],
+    [
+     "B2",
+     "R3_SPAN"
+    ],
+    [
+     "B2",
+     "R4_C01"
+    ],
+    [
+     "B2",
+     "R4_C05"
+    ],
+    [
+     "B2",
+     "REF"
+    ],
+    [
+     "R1_H20",
+     "B1"
+    ],
+    [
+     "R1_H20",
+     "B2"
+    ],
+    [
+     "R1_H20",
+     "R1_H30"
+    ],
+    [
+     "R1_H20",
+     "R1_H60"
+    ],
+    [
+     "R1_H20",
+     "R2_S05"
+    ],
+    [
+     "R1_H20",
+     "R2_S10"
+    ],
+    [
+     "R1_H20",
+     "R2_S25"
+    ],
+    [
+     "R1_H20",
+     "R3_SPAN"
+    ],
+    [
+     "R1_H20",
+     "R4_C00"
+    ],
+    [
+     "R1_H20",
+     "R4_C01"
+    ],
+    [
+     "R1_H20",
+     "R4_C05"
+    ],
+    [
+     "R1_H20",
+     "R6_ADA"
+    ],
+    [
+     "R1_H20",
+     "REF"
+    ],
+    [
+     "R1_H30",
+     "B1"
+    ],
+    [
+     "R1_H30",
+     "B2"
+    ],
+    [
+     "R1_H30",
+     "R1_H60"
+    ],
+    [
+     "R1_H30",
+     "R2_S05"
+    ],
+    [
+     "R1_H30",
+     "R2_S10"
+    ],
+    [
+     "R1_H30",
+     "R2_S25"
+    ],
+    [
+     "R1_H30",
+     "R3_SPAN"
+    ],
+    [
+     "R1_H30",
+     "R4_C00"
+    ],
+    [
+     "R1_H30",
+     "R4_C01"
+    ],
+    [
+     "R1_H30",
+     "R4_C05"
+    ],
+    [
+     "R1_H30",
+     "R6_ADA"
+    ],
+    [
+     "R1_H30",
+     "REF"
+    ],
+    [
+     "R1_H60",
+     "B1"
+    ],
+    [
+     "R1_H60",
+     "B2"
+    ],
+    [
+     "R1_H60",
+     "R2_S05"
+    ],
+    [
+     "R1_H60",
+     "R2_S10"
+    ],
+    [
+     "R1_H60",
+     "R2_S25"
+    ],
+    [
+     "R1_H60",
+     "R3_SPAN"
+    ],
+    [
+     "R1_H60",
+     "R4_C00"
+    ],
+    [
+     "R1_H60",
+     "R4_C01"
+    ],
+    [
+     "R1_H60",
+     "R4_C05"
+    ],
+    [
+     "R1_H60",
+     "R6_ADA"
+    ],
+    [
+     "R1_H60",
+     "REF"
+    ],
+    [
+     "R2_S05",
+     "R2_S10"
+    ],
+    [
+     "R2_S05",
+     "R2_S25"
+    ],
+    [
+     "R2_S05",
+     "REF"
+    ],
+    [
+     "R2_S10",
+     "R2_S25"
+    ],
+    [
+     "R2_S10",
+     "REF"
+    ],
+    [
+     "R2_S25",
+     "REF"
+    ],
+    [
+     "R3_SPAN",
+     "REF"
+    ],
+    [
+     "R4_C00",
+     "R4_C01"
+    ],
+    [
+     "R4_C00",
+     "R4_C05"
+    ],
+    [
+     "R4_C00",
+     "R6_ADA"
+    ],
+    [
+     "R4_C00",
+     "REF"
+    ],
+    [
+     "R4_C01",
+     "R4_C05"
+    ],
+    [
+     "R4_C01",
+     "REF"
+    ],
+    [
+     "R4_C05",
+     "REF"
+    ],
+    [
+     "R6_ADA",
+     "REF"
+    ]
+   ]
+  },
+  "F4": {
+   "networks": [
+    "N0",
+    "N3",
+    "N4"
+   ],
+   "policies": [
+    "REF"
+   ],
+   "within_level_closure": false,
+   "adjacent_edges": [],
+   "strict_pairs": []
+  }
+ },
+ "closure": {
+  "pass_ceiling": 8,
+  "improvement_eps": 1e-09,
+  "engine": "scripts/exp7_closure.py (docstring)",
+  "no_cross_network_sharing": true
+ },
+ "catalog": {
+  "digest": "e22f2c94c8f53475",
+  "path": "outputs/exp6/EXP6_CONSTRAINT_CATALOG.json"
+ },
+ "base_reuse_exp6_initial": true,
+ "base_reuse_justification": "BASE changes nothing; src/cota_opt digest equals Exp 6's and the BASE canaries through exp7_cell.py reproduced Exp 6 initial records bit-exactly (outputs/exp7/preflight/base_repro)",
+ "sentinels": [
+  [
+   "F6",
+   "X_ROUNDS4",
+   "N3",
+   "REF"
+  ],
+  [
+   "F6",
+   "X_ROUNDS4",
+   "N0",
+   "R2_S10"
+  ],
+  [
+   "F4",
+   "X_ROUNDS4",
+   "N4",
+   "REF"
+  ],
+  [
+   "F6",
+   "A1_NC025",
+   "N0",
+   "REF"
+  ]
+ ],
+ "firewall": {
+  "BASE/EXP7_POLICY": {
+   "digest": "bb631710301be82b",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-BASE-79b97699909ebb59-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "BASE/EXP7_STRUCTURE": {
+   "digest": "3f1b3dae1f65ea70",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-BASE-79b97699909ebb59-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "BASE/EXP7_F4": {
+   "digest": "9571d0d865cab3bf",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-BASE-79b97699909ebb59-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A1_NC025/EXP7_POLICY": {
+   "digest": "9df7aa1153c5eab6",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A1_NC025-d583ba3a6db3f3f2-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A1_NC025/EXP7_STRUCTURE": {
+   "digest": "7b8c2865d7937da5",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A1_NC025-d583ba3a6db3f3f2-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A1_NC025/EXP7_F4": {
+   "digest": "b1fb95a128d441f6",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A1_NC025-d583ba3a6db3f3f2-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A1_NC050/EXP7_POLICY": {
+   "digest": "9021077196414f27",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A1_NC050-f8539295583fd7b1-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A1_NC050/EXP7_STRUCTURE": {
+   "digest": "0070f57e126a5b9d",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A1_NC050-f8539295583fd7b1-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A1_NC050/EXP7_F4": {
+   "digest": "4f97c6d344560af4",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A1_NC050-f8539295583fd7b1-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A1_NC100/EXP7_POLICY": {
+   "digest": "92abaa5228f47a80",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A1_NC100-ac2933519a06c9d9-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A1_NC100/EXP7_STRUCTURE": {
+   "digest": "7352308b48b7b03b",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A1_NC100-ac2933519a06c9d9-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A1_NC100/EXP7_F4": {
+   "digest": "a44066110e46b0ac",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A1_NC100-ac2933519a06c9d9-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT01/EXP7_POLICY": {
+   "digest": "19b94a1495cf8733",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT01-426e7f0e2884c097-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT01/EXP7_STRUCTURE": {
+   "digest": "312d26f672a01664",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT01-426e7f0e2884c097-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT01/EXP7_F4": {
+   "digest": "1a3e366d37c026b0",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT01-426e7f0e2884c097-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT02/EXP7_POLICY": {
+   "digest": "b373720ef8e26ec9",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT02-6471788666748379-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT02/EXP7_STRUCTURE": {
+   "digest": "b1bf3a608cd8c289",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT02-6471788666748379-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT02/EXP7_F4": {
+   "digest": "4ee6c517b9d826a5",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT02-6471788666748379-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT03/EXP7_POLICY": {
+   "digest": "aa8013ac98eca775",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT03-1486310920dcef2e-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT03/EXP7_STRUCTURE": {
+   "digest": "ed1c2e628582aeb3",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT03-1486310920dcef2e-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT03/EXP7_F4": {
+   "digest": "7fb700e0e95ccf77",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT03-1486310920dcef2e-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT04/EXP7_POLICY": {
+   "digest": "2ce4e99cf48d5f72",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT04-b95294275c3b6d70-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT04/EXP7_STRUCTURE": {
+   "digest": "431380f06f869390",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT04-b95294275c3b6d70-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT04/EXP7_F4": {
+   "digest": "e797dc0240ed14da",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT04-b95294275c3b6d70-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT05/EXP7_POLICY": {
+   "digest": "c01086cf71985728",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT05-94bc77fcc6899acd-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT05/EXP7_STRUCTURE": {
+   "digest": "f8c0b629ff174a7e",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT05-94bc77fcc6899acd-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT05/EXP7_F4": {
+   "digest": "243b64288fba7c01",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT05-94bc77fcc6899acd-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT06/EXP7_POLICY": {
+   "digest": "7f500f54c70e6b23",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT06-d607913f32cb95dd-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT06/EXP7_STRUCTURE": {
+   "digest": "5afd376b20967646",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT06-d607913f32cb95dd-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT06/EXP7_F4": {
+   "digest": "4c79ec2a6d3378ee",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT06-d607913f32cb95dd-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT07/EXP7_POLICY": {
+   "digest": "cde42468e87a144d",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT07-4e128e18a2a89dc6-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT07/EXP7_STRUCTURE": {
+   "digest": "00c76a6feb3bfe0a",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT07-4e128e18a2a89dc6-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT07/EXP7_F4": {
+   "digest": "ee0bc5d5325fc9b8",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT07-4e128e18a2a89dc6-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT08/EXP7_POLICY": {
+   "digest": "45cf757b24e22366",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT08-0adccd665893417c-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT08/EXP7_STRUCTURE": {
+   "digest": "b61fbf1164fe4dc4",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT08-0adccd665893417c-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT08/EXP7_F4": {
+   "digest": "0e7071b6a810dab8",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT08-0adccd665893417c-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT09/EXP7_POLICY": {
+   "digest": "44b930d7622870b7",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT09-8a96aa6de57b4960-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT09/EXP7_STRUCTURE": {
+   "digest": "27de98f35b5b8d9f",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT09-8a96aa6de57b4960-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT09/EXP7_F4": {
+   "digest": "c624bb1d58ba1a36",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT09-8a96aa6de57b4960-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT10/EXP7_POLICY": {
+   "digest": "fd19a4bc72f58c2c",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT10-a2619bc2cd21585c-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT10/EXP7_STRUCTURE": {
+   "digest": "a54ed24efb3b55d3",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT10-a2619bc2cd21585c-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT10/EXP7_F4": {
+   "digest": "90895f7eb424abe1",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT10-a2619bc2cd21585c-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT11/EXP7_POLICY": {
+   "digest": "8a79456039bbb94f",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT11-5810267054988ead-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT11/EXP7_STRUCTURE": {
+   "digest": "2d8e3d6e75b8e006",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT11-5810267054988ead-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT11/EXP7_F4": {
+   "digest": "b07cab8fc77f3ebb",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT11-5810267054988ead-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT12/EXP7_POLICY": {
+   "digest": "44798f059da24d2d",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT12-cde1e6f44164a1e6-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT12/EXP7_STRUCTURE": {
+   "digest": "ba52cde1efa2395b",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT12-cde1e6f44164a1e6-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT12/EXP7_F4": {
+   "digest": "343f2a3c6eb76653",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT12-cde1e6f44164a1e6-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT13/EXP7_POLICY": {
+   "digest": "38f295daa70fbeb6",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT13-25037fdff8f74e8c-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT13/EXP7_STRUCTURE": {
+   "digest": "85272288c952bc18",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT13-25037fdff8f74e8c-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT13/EXP7_F4": {
+   "digest": "e6ff16dd7596dc30",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT13-25037fdff8f74e8c-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT14/EXP7_POLICY": {
+   "digest": "82bec5977f528432",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT14-4b2c1c4fc68c4973-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT14/EXP7_STRUCTURE": {
+   "digest": "c058ae00397b560d",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT14-4b2c1c4fc68c4973-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT14/EXP7_F4": {
+   "digest": "13c3efcb867a92c9",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT14-4b2c1c4fc68c4973-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT15/EXP7_POLICY": {
+   "digest": "d9f5a08d2453148d",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT15-c663cff53c3a325c-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT15/EXP7_STRUCTURE": {
+   "digest": "9217c931a19a726f",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT15-c663cff53c3a325c-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT15/EXP7_F4": {
+   "digest": "968b7c4ea8105891",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT15-c663cff53c3a325c-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT16/EXP7_POLICY": {
+   "digest": "c9ffe5e029eebcae",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT16-9b3e6eda1664f20f-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT16/EXP7_STRUCTURE": {
+   "digest": "d2a62e8deeacda8b",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT16-9b3e6eda1664f20f-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT16/EXP7_F4": {
+   "digest": "c3d8cc8416185f8f",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT16-9b3e6eda1664f20f-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT17/EXP7_POLICY": {
+   "digest": "322f8889691385c7",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT17-5cf5c66e7681dfd1-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT17/EXP7_STRUCTURE": {
+   "digest": "dda2cc757cab94ac",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT17-5cf5c66e7681dfd1-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT17/EXP7_F4": {
+   "digest": "afa54f4575591ff0",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT17-5cf5c66e7681dfd1-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT18/EXP7_POLICY": {
+   "digest": "fc54f04d10ffce8b",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT18-8fd2a0f87f77e614-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT18/EXP7_STRUCTURE": {
+   "digest": "4795f7ea837dc69a",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT18-8fd2a0f87f77e614-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT18/EXP7_F4": {
+   "digest": "5b60a4ce8e563794",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT18-8fd2a0f87f77e614-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT19/EXP7_POLICY": {
+   "digest": "9bc8ebc9c692cd23",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT19-b0e6305f25c79227-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT19/EXP7_STRUCTURE": {
+   "digest": "d6d52d46d1fcaed8",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT19-b0e6305f25c79227-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT19/EXP7_F4": {
+   "digest": "b63f397234a11c27",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT19-b0e6305f25c79227-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT20/EXP7_POLICY": {
+   "digest": "42a6c04f0d1af4f5",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT20-29ad151ef25feb3a-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A2_BOOT20/EXP7_STRUCTURE": {
+   "digest": "ff96464c46fc8008",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A2_BOOT20-29ad151ef25feb3a-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A2_BOOT20/EXP7_F4": {
+   "digest": "00d5075a64cfd1fd",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A2_BOOT20-29ad151ef25feb3a-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A3_RT110/EXP7_POLICY": {
+   "digest": "f21b5e2f36557653",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A3_RT110-c22ea64772d8c76a-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A3_RT110/EXP7_STRUCTURE": {
+   "digest": "6a514f97f0dcae12",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A3_RT110-c22ea64772d8c76a-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A3_RT110/EXP7_F4": {
+   "digest": "ccad9cf0baffe780",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A3_RT110-c22ea64772d8c76a-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A3_RT120/EXP7_POLICY": {
+   "digest": "fa3a5da6a68515fc",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A3_RT120-e0724580ad2652d4-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A3_RT120/EXP7_STRUCTURE": {
+   "digest": "642b9df3c59375df",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A3_RT120-e0724580ad2652d4-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A3_RT120/EXP7_F4": {
+   "digest": "dcc7324c2b800793",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A3_RT120-e0724580ad2652d4-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A3_RTNOISE/EXP7_POLICY": {
+   "digest": "16b16c48536b681d",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A3_RTNOISE-80af4cebac40e759-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A3_RTNOISE/EXP7_STRUCTURE": {
+   "digest": "1c1c810436d7eec3",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A3_RTNOISE-80af4cebac40e759-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A3_RTNOISE/EXP7_F4": {
+   "digest": "4f489e7a19d48339",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A3_RTNOISE-80af4cebac40e759-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A5_LAM1/EXP7_POLICY": {
+   "digest": "e0bf8254491a9c3a",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=1.0",
+   "pool_version": "exp7-F6-level-A5_LAM1-e4bf68165c4065c7-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A5_LAM1/EXP7_STRUCTURE": {
+   "digest": "3bb5de6398917e5c",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=1.0",
+   "pool_version": "exp7-F6-level-A5_LAM1-e4bf68165c4065c7-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A5_LAM1/EXP7_F4": {
+   "digest": "54825fb53548f9d8",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=1.0",
+   "pool_version": "exp7-F4-level-A5_LAM1-e4bf68165c4065c7-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A5_LAM4/EXP7_POLICY": {
+   "digest": "245024592eb0d95e",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=4.0",
+   "pool_version": "exp7-F6-level-A5_LAM4-eddeedeb25a12b6a-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A5_LAM4/EXP7_STRUCTURE": {
+   "digest": "0df72b762a4b8c8b",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=4.0",
+   "pool_version": "exp7-F6-level-A5_LAM4-eddeedeb25a12b6a-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A5_LAM4/EXP7_F4": {
+   "digest": "d4d8a9e9d2955bff",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=4.0",
+   "pool_version": "exp7-F4-level-A5_LAM4-eddeedeb25a12b6a-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A5_TP050/EXP7_POLICY": {
+   "digest": "0b335b6df22eb3fc",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A5_TP050-356dda148b71bc47-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A5_TP050/EXP7_STRUCTURE": {
+   "digest": "52b7b5439d83e50d",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A5_TP050-356dda148b71bc47-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A5_TP050/EXP7_F4": {
+   "digest": "bea5626bc55772e7",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A5_TP050-356dda148b71bc47-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A5_TP200/EXP7_POLICY": {
+   "digest": "6ffa615cc86ea617",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A5_TP200-3f90012c78bfa802-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A5_TP200/EXP7_STRUCTURE": {
+   "digest": "3bd34333298db732",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A5_TP200-3f90012c78bfa802-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A5_TP200/EXP7_F4": {
+   "digest": "b9abfb35966c53e1",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A5_TP200-3f90012c78bfa802-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A6_WALKSPD85/EXP7_POLICY": {
+   "digest": "f9cb05a4fe2610bc",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A6_WALKSPD85-b68d8b690b8e5f60-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A6_WALKSPD85/EXP7_STRUCTURE": {
+   "digest": "9bfc5a0a7a55068f",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A6_WALKSPD85-b68d8b690b8e5f60-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A6_WALKSPD85/EXP7_F4": {
+   "digest": "5981d8167b9e2a18",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A6_WALKSPD85-b68d8b690b8e5f60-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A6_MAXWALK75/EXP7_POLICY": {
+   "digest": "d2cd3b53c26fa8b6",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A6_MAXWALK75-0b1ebe43952cc303-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A6_MAXWALK75/EXP7_STRUCTURE": {
+   "digest": "a630d7dce54282eb",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A6_MAXWALK75-0b1ebe43952cc303-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A6_MAXWALK75/EXP7_F4": {
+   "digest": "956cfc76d371d0a8",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A6_MAXWALK75-0b1ebe43952cc303-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM01/EXP7_POLICY": {
+   "digest": "3e92200da884e428",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM01-cd7f24a0b5cc7c93-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A7_RM01/EXP7_STRUCTURE": {
+   "digest": "bb5791d096c60189",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM01-cd7f24a0b5cc7c93-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM01/EXP7_F4": {
+   "digest": "e624f6c27cc1d1dc",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A7_RM01-cd7f24a0b5cc7c93-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM02/EXP7_POLICY": {
+   "digest": "764e526e9444e4ea",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM02-3c4b5c3393c61b8b-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A7_RM02/EXP7_STRUCTURE": {
+   "digest": "2797083c889ac2e1",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM02-3c4b5c3393c61b8b-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM02/EXP7_F4": {
+   "digest": "dfb92605ef4abee3",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A7_RM02-3c4b5c3393c61b8b-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM03/EXP7_POLICY": {
+   "digest": "412121b28632f57a",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM03-4fa9eb817673f375-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A7_RM03/EXP7_STRUCTURE": {
+   "digest": "34dfcc222f57308a",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM03-4fa9eb817673f375-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM03/EXP7_F4": {
+   "digest": "616d116bee03ef23",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A7_RM03-4fa9eb817673f375-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM04/EXP7_POLICY": {
+   "digest": "bc6427d301274441",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM04-9c99d762c8fe90a8-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A7_RM04/EXP7_STRUCTURE": {
+   "digest": "2d99e5533add90b2",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM04-9c99d762c8fe90a8-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM04/EXP7_F4": {
+   "digest": "330fc336a340a468",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A7_RM04-9c99d762c8fe90a8-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM05/EXP7_POLICY": {
+   "digest": "149b026b9957b25a",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM05-f3b6028be988257d-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A7_RM05/EXP7_STRUCTURE": {
+   "digest": "9d8815b385a20ee7",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM05-f3b6028be988257d-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM05/EXP7_F4": {
+   "digest": "ccbaf1c0fe42baf6",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A7_RM05-f3b6028be988257d-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM06/EXP7_POLICY": {
+   "digest": "5140f551bf2cca6d",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM06-a75f70f0c048e5c3-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A7_RM06/EXP7_STRUCTURE": {
+   "digest": "c0dc0c977774b588",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM06-a75f70f0c048e5c3-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM06/EXP7_F4": {
+   "digest": "d6d7428de1775e5c",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A7_RM06-a75f70f0c048e5c3-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM07/EXP7_POLICY": {
+   "digest": "ff8951caefda5b4f",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM07-c918a0c8da898571-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A7_RM07/EXP7_STRUCTURE": {
+   "digest": "ae4fb876301f738b",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM07-c918a0c8da898571-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM07/EXP7_F4": {
+   "digest": "969e9c0ea974ef44",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A7_RM07-c918a0c8da898571-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM08/EXP7_POLICY": {
+   "digest": "e184f039c843f548",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM08-0087297a09ec21d6-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A7_RM08/EXP7_STRUCTURE": {
+   "digest": "40b0bf6c83d2e5fc",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM08-0087297a09ec21d6-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM08/EXP7_F4": {
+   "digest": "fa21a1cabd64eb52",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A7_RM08-0087297a09ec21d6-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM09/EXP7_POLICY": {
+   "digest": "017f77347af3e253",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM09-f18f20da86f66965-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A7_RM09/EXP7_STRUCTURE": {
+   "digest": "4ec5ebf01f8812e1",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM09-f18f20da86f66965-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM09/EXP7_F4": {
+   "digest": "1173d639eea9068a",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A7_RM09-f18f20da86f66965-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM10/EXP7_POLICY": {
+   "digest": "989ede81e66ca5c5",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM10-e83a3a75aeae1665-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A7_RM10/EXP7_STRUCTURE": {
+   "digest": "1f784c1affbc632b",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A7_RM10-e83a3a75aeae1665-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A7_RM10/EXP7_F4": {
+   "digest": "c3e0775a567b84ae",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A7_RM10-e83a3a75aeae1665-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A8_ZERO150/EXP7_POLICY": {
+   "digest": "62da4f42ce6146d8",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A8_ZERO150-be7ffc3c50841b31-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A8_ZERO150/EXP7_STRUCTURE": {
+   "digest": "67fbe67deb9a0096",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A8_ZERO150-be7ffc3c50841b31-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A8_ZERO150/EXP7_F4": {
+   "digest": "d9b9f1bddce44de9",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A8_ZERO150-be7ffc3c50841b31-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A8_FLOOR0/EXP7_POLICY": {
+   "digest": "e27f068ce28220a4",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A8_FLOOR0-cb0bbb7717058a44-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "A8_FLOOR0/EXP7_STRUCTURE": {
+   "digest": "bed9fba51760680e",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-A8_FLOOR0-cb0bbb7717058a44-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "A8_FLOOR0/EXP7_F4": {
+   "digest": "3f4ca5869ae256fc",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-A8_FLOOR0-cb0bbb7717058a44-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "B1_COMMONLINES/EXP7_POLICY": {
+   "digest": "7ce8bef77e096e37",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "pattern",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-B1_COMMONLINES-26a6edca001055a1-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "B1_COMMONLINES/EXP7_STRUCTURE": {
+   "digest": "afdc0f355b0e8641",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "pattern",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-B1_COMMONLINES-26a6edca001055a1-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "B1_COMMONLINES/EXP7_F4": {
+   "digest": "7570aa90fef11d52",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "pattern",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-B1_COMMONLINES-26a6edca001055a1-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "X_TOPK40K/EXP7_POLICY": {
+   "digest": "6783834d715a4e26",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-X_TOPK40K-f21878ff10846bd4-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "X_TOPK40K/EXP7_STRUCTURE": {
+   "digest": "b749da92598761b0",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-X_TOPK40K-f21878ff10846bd4-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "X_TOPK40K/EXP7_F4": {
+   "digest": "a46501ccb18bce08",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-X_TOPK40K-f21878ff10846bd4-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "X_ROUNDS4/EXP7_POLICY": {
+   "digest": "426e4003c7821af1",
+   "version": "7.0-policy-within-network-within-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-X_ROUNDS4-dba1919c8a396a8e-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "config_digest"
+   ]
+  },
+  "X_ROUNDS4/EXP7_STRUCTURE": {
+   "digest": "1c9b93a115b343ae",
+   "version": "7.0-structure-at-matched-policy-and-level",
+   "solver": "exp7_combined_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=W=hasse_adjacent_both_directions+X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F6-level-X_ROUNDS4-dba1919c8a396a8e-networks-N0-N3",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  },
+  "X_ROUNDS4/EXP7_F4": {
+   "digest": "8151f3dfa53d4976",
+   "version": "7.0-f4-reference-cells-matched-procedure",
+   "solver": "exp7_cross_level_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=X=cross_level_all_pairs|explicit_anchor|pass_ceiling=8|eps=1e-09|allow_off=True|tol=0.0",
+   "evaluator": "same_route",
+   "objective_version": "lambda=2.0",
+   "pool_version": "exp7-F4-level-X_ROUNDS4-dba1919c8a396a8e-networks-N0-N3-N4",
+   "allowed_treatment_differences": [
+    "cardinality",
+    "members",
+    "pathset_digest",
+    "state_digest",
+    "state_key"
+   ]
+  }
+ },
+ "code": {
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "runner_sha256": {
+   "exp7_stage1.py": "3024e849a5f8015d",
+   "exp7_stage1_analyze.py": "f8bac67c8ced0354",
+   "exp7_stage2_select.py": "556455ef64e327f1",
+   "exp7_busiest_routes.py": "808c998f1a6b03f1",
+   "exp7_cell.py": "facea56e48be7cf6",
+   "exp7_levels.py": "27a45f94661e9b3e",
+   "exp7_closure.py": "c0723fdb7f7d4fb3",
+   "exp7_classify.py": "c07fd74cbf150f56",
+   "exp7_run.py": "23f2202ac0d0510c",
+   "exp7_contracts.py": "7071dc2e6c55f1ee",
+   "exp7_infeasible_cell.py": "2de86638e9b5b505",
+   "exp7_preflight.py": "74f3327b2d045add",
+   "exp7_analyze.py": "edc04b308433358a",
+   "exp6_grid.py": "945b4500b2c755c2",
+   "exp45_certify_cell.py": "7135b1554c8620b3",
+   "exp45_contracts.py": "bf1d2b60a2ce7432",
+   "exp5_model_resource.py": "5c85226d321fdbc5"
+  }
+ },
+ "gates": {
+  "G1_governing_text": true,
+  "G2_levels_declared_with_provenance": true,
+  "G3_base_reproduction": true,
+  "G4_level_reach": true,
+  "G5_unit_tests": true,
+  "G6_src_digest_matches_exp6": true,
+  "G8_stage_design_decided": true,
+  "G7_transfer_refusal_emptiness_firewall": true
+ },
+ "estimate": {
+  "cells": 192,
+  "seconds_per_cell_by_variant": {
+   "N0": 283.70000000000005,
+   "N0S": 332.4,
+   "N3": 444.4,
+   "N4": 452.4
+  },
+  "cpu_hours": 20.2,
+  "wall_hours_2_lanes": 10.1,
+  "plus": "13 N3 R1_H20 emptiness proofs at A3/A7 levels (~5 min each)"
+ }
+}

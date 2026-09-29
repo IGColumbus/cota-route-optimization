@@ -120,52 +120,31 @@ Sept 23 finalization, implemented in `scripts/exp7_classify.py`:
     the basin-vs-sensitivity split (amendment §7);
   * D33-B, which stays veto-only.
 
-## 6. The decision needed before production
+## 6. Execution design: DECIDED 2026-09-29 (amendment §14)
 
-**Closing every one of the 47 levels is not feasible.** Re-optimizing and
-closing every F6 and F4 cell at every level costs about **2,300 h** wall on
-two cores (about 26,000 certifications; A2's 20 draws alone account for about
-1,400 h).
+Two stages.
 
-The as-issued rule already answers this. The 29 Sep amendment supersedes it
-only where D39 makes it necessary.
+**Stage 1: complete fixed-plan evaluation.**
+* Every frozen solution is evaluated at BASE and all 47 levels, all 20
+  bootstrap draws included.
+* No search.
+* It is authoritative for every finding.
 
-**Recommended two-stage design:**
+**Stage 2: D39-safe adaptive re-optimization.**
+* It runs only in the two Class A dimensions that move F1 and F4 most.
+* The selection is preregistered and frozen from the Stage 1 results before
+  any Stage 2 optimization.
+* If A2 is selected, only bootstrap draws 1, 5, 10, 15 and 20 are
+  re-optimized.
+* Full closure across all levels is rejected.
 
-1. **Stage 1: fixed-solution evaluation.**
-   * Every solution under test is evaluated, unchanged, at all 47 levels.
-     This is the as-issued design.
-   * No search runs in Stage 1, so D39 basin effects cannot contaminate it.
-   * One path-set build per (network variant, level), about 190 builds. Any
-     number of plans are then evaluated on each build. Wall time is about
-     10–12 h.
-   * Every finding gets a sign and magnitude label from Stage 1.
-   * Stage 1 takes F6 prices from the frozen Exp 6 closed plans.
-2. **Stage 2: re-optimization, with the combined closure on the F4 and F6
-   tracks.**
-   * Stage 2 runs in the two Class A dimensions that moved F1 and F4 most in
-     Stage 1. This is the as-issued rule, with the D39-safe closure replacing
-     plain re-optimization.
-   * Where Stage 2 runs, its labels supersede Stage 1's.
-   * If A2 is selected, the protocol needs a stated subset of draws. Twenty
-     draws under full closure cost about 800 h.
-   * Cost depends on which dimensions are selected. For two 3-level
-     dimensions it is about 100–120 h.
+## 7. Readiness gates
 
-**Alternative:** full closure at every level, about 2,300 h.
+The current state lives in `outputs/exp7/preflight/freeze_check/FREEZE_ATTEMPT.txt`
+and `docs/EXPERIMENT7_READINESS.md`. The gate definitions are in
+`scripts/exp7_freeze.py`:
 
-This is a scientific choice, and it is Ian's.
-
-## 7. Readiness gates (from executed checks)
-
-| gate | requirement | state |
-|---|---|---|
-| G1 | governing text committed and consistent | PASS once this commit lands. As-issued text, Sept 23 finalization and 29 Sep amendment are all present. |
-| G2 | levels declared and named in the amendment | declared; freeze pending G4 |
-| G3 | BASE reproduction | PASS (3/3 bit-exact) |
-| G4 | every production level reaches the evaluator on N0, N3, N4 | **RUNNING**: `preflight/reach_matrix/` |
-| G5 | unit tests | PASS (21) |
-| G6 | src unchanged | PASS (`b63ae2dba134245e`) |
-| G7 | transfer/refusal/emptiness + firewall preflights | PASS (7/7, 8/8) |
-| — | Stage 1 evaluator for F1/F2/F3/F5 | **NOT BUILT**: depends on §6 |
-| — | stage design (§6) | **OPEN**: Ian |
+* **G4 (two-stage).** A pre-launch smoke test must evaluate one level of
+  every implemented level kind through the Stage 1 evaluator. Full per-level
+  reach is then derived inside Stage 1 validation.
+* **G8.** The execution design is decided: amendment §14.

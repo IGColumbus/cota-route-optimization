@@ -638,3 +638,205 @@ dimensions (implemented and tested; see `docs/EXPERIMENT7_PROTOCOL.md` §4).
 
 **13.7 Open.** Which levels get re-optimization versus fixed-solution
 evaluation (`docs/EXPERIMENT7_PROTOCOL.md` §6).
+
+---
+
+## 14. Final production contract (Ian, 2026-09-29): two-stage design
+
+This section governs execution. It supersedes §3's "every cell at every
+level" scope, protocol §6's open question, and any text implying full F4/F6
+closure across all levels. **Full F4/F6 closure across all 47 levels (about
+2,300 h) is explicitly rejected.**
+
+### 14.1 Stage 1: complete fixed-plan robustness evaluation (authoritative)
+
+**What it does.** Every frozen solution under test
+(`outputs/exp7/stage1/EXP7_STAGE1_SOLUTIONS.json`, 60 entries, 59
+evaluable) is evaluated **unchanged** at BASE and at every level of
+`EXP7_LEVELS.json`, all 20 bootstrap draws included, through the production
+evaluator (`scripts/exp7_stage1.py`).
+
+* No search, warm start, closure or plan sharing.
+* One evaluation cell = one (network variant, level):
+  * the variants are N0, N3, N4 and N0S (N0 plus the Exp 2B splice);
+  * the path-level model is built once under the level;
+  * every plan of that variant is scored with `evaluate_array`.
+* Stage 1 is the authoritative, complete Class A sensitivity matrix.
+
+**The solutions under test:**
+
+| finding | solutions |
+|---|---|
+| F1 | the 3 Exp 1 seed plans, and the N0 current plan |
+| F2 | the 3 Exp 2B control/splice plan pairs |
+| F3 | the 5 Exp 3 Stage B control/add_stop anchor pairs |
+| F4 | Exp 4A N3, the EXP4N N4 incumbent, and Exp 5 N0 J100 |
+| F5 | Exp 5 N0 and N4 at J090, J100, J110, P090, P110 |
+| F6 / AF1 | the 14 Exp 6 closed plans per network (N3 R1_H20 has no plan: infeasible) |
+
+**The quantities, per finding and level,** are in the
+`exp7_stage1_analyze.py` docstring. For each finding and level it records:
+
+* the certified value;
+* the Stage 1 BASE value, from the same evaluator;
+* the level value;
+* sign and sign events;
+* the magnitude band (Sept 23 finalization);
+* the movement from the certified value;
+* the F2 null test against the Exp 2B floor (0.287%);
+* F5 fixed-plan resource-order monotonicity;
+* F6 tie-aware ranks.
+
+**Classification.** Labels use only the implemented Class A levels: A1–A3
+and A5–A8. Class B (`B1_COMMONLINES`) is reported as model disagreement. The
+additional levels (`X_TOPK40K`, `X_ROUNDS4`) are reported but never
+labelled.
+
+**Validation, all required for `EXP7_STAGE1_EVALUATION_COMPLETE`:**
+
+* every cell is present, with 0 row errors;
+* the build-plan internal consistency check holds;
+* the registry is unchanged;
+* BASE reproduces every certified F4/F5/F6 objective bit-exactly (same
+  evaluator). F1, F2 and F3 were certified under other model instances (see
+  below); their BASE re-evaluation is recorded next to the certified value,
+  and the difference is reported, not hidden;
+* N3 R1_H20 feasibility is re-established on the production path at every
+  network-transforming level (A3, A7);
+* **reach is derived per level** from the N0 rows: a level that changes no
+  evaluation is `EXP7_LEVEL_INERT`, marked untested, and excluded from labels.
+
+**Why F1, F2 and F3 need the Stage 1 BASE value.** Their certified numbers
+came from other model instances:
+
+* Exp 1: crowding on, and a 243k-path widened set;
+* Exp 2B: Gen1 re-optimization;
+* Exp 3: Gen1 anchors under the pinned envelope.
+
+The Stage 1 BASE value is therefore the reference for their sign and
+magnitude. The certified value is always shown alongside.
+
+**Preserved implementation decisions:**
+
+* **A1.** The repository's existing non-commute generator adds demand only
+  to OD pairs already present in commute demand. **It does not represent
+  non-commute trips between places with no observed commuting
+  relationship.** The commute gravity model is not substituted.
+* **A3.** The resource envelope is held fixed while runtimes increase. This
+  is the experimental choice.
+* **A4. UNIMPLEMENTED.** No reliability-robustness claim is made, and no
+  proxy is invented.
+* **A6.** Access-walking and transfer-walking caps are both reduced. **This
+  is a bundled walking-friction perturbation.**
+* **A7.** The ten busiest routes are frozen per network by modelled
+  boardings (`outputs/exp7/A7_ROUTE_RANKING.json`, committed before Stage 1).
+  * Every route-removal level is a topology-changing network.
+  * In Stage 1 the frozen plan is evaluated with the removed route's
+    route-periods deleted.
+  * F2 is NOT_APPLICABLE where the removed route belongs to the splice
+    treatment (011, 034).
+  * Wherever optimization is required, A7 levels get only their own initial
+    solves, with no plan sharing with BASE or between A7 levels.
+
+**Correction recorded (audit trail).** Earlier on 2026-09-29 this project
+stated that `path_assignment.walk_radius_m` and `access_radius_m` could not
+reach the model through a harness view ("consumed at harness construction").
+**That claim was wrong.** `exp3_score.solve_on_network` rebuilds the RAPTOR
+footpaths and the zone access system from `H.assumptions` on every call
+(`exp3_score.py:252-265`), so the perturbation is active.
+
+* The refusal was removed from `exp7_levels.py`.
+* The superseded statement remains in `docs/EXPERIMENT7_PROTOCOL.md`'s git
+  history and in the reach preflight record of the `R_*` instrument levels.
+
+### 14.2 Stage 2: limited adaptive re-optimization
+
+**Selection.** After Stage 1 is complete, the two Class A dimensions that
+move F1 and F4 most are selected by the metric preregistered in
+`exp7_stage1_analyze.select_stage2`:
+
+* **score(d)** = max(movement_F1(d), movement_F4(d)), where movement = the
+  largest |value − BASE| / |BASE| over the dimension's levels, and F4 = the
+  larger of F4_43 and F4_40;
+* the highest two eligible Class A dimensions are selected;
+* ties are broken by id order;
+* inert levels are excluded.
+
+**The selection artifact.** `scripts/exp7_stage2_select.py` writes
+`outputs/exp7/EXP7_STAGE2_SELECTION.json`, containing:
+
+* the metric and its values for F1 and F4;
+* the two dimensions;
+* every included level;
+* network/finding applicability;
+* the source commit;
+* the Exp 7 contract digest;
+* the bootstrap subset, if A2 is selected.
+
+It is committed before any Stage 2 optimization. The driver refuses to run
+Stage 2 without it, or against another contract digest. No dimension or
+level may be substituted afterwards.
+
+**Bootstrap rule.** If A2 is selected, only
+**BOOTSTRAP_REOPT_SUBSET = draws 1, 5, 10, 15, 20** are re-optimized. The
+subset is fixed in the frozen draw ordering and does not depend on any
+result.
+
+* The complete bootstrap robustness statement comes from Stage 1.
+* Stage 2 supports only the claim that adaptive re-optimization was tested
+  on this preregistered subset.
+
+**What Stage 2 runs.** The D39-safe procedure (§§3–6 and §13.6), within the
+selected dimensions only:
+
+* **F4 track:** N0, N3 and N4 REF, X stage.
+* **F6 track:** the N0 and N3 full 14-cell policy graph, W + X stages.
+
+Rules that carry over:
+
+* sharing only within a selected dimension, through its single BASE, where
+  the network is compatible;
+* no sharing across dimensions, and none across or into topology-changing
+  A7 levels;
+* an imported plan is only a starting proposal; every promoted result is
+  certified under the destination level's own model and constraints.
+
+**What Stage 2 feeds:**
+
+* F4, F6 and AF1 from their tracks;
+* F1 from the F6-track N0 REF result versus the N0 current plan, evaluated at
+  the same level.
+
+F2, F3 and F5 are not re-optimized. Stage 2 does not replace or redefine
+Stage 1.
+
+### 14.3 Completion states
+
+* **`EXP7_STAGE1_EVALUATION_COMPLETE`**: every required level and every
+  required solution/finding comparison has been evaluated and validated
+  (§14.1). A4 being UNIMPLEMENTED does not block it.
+* **`EXP7_STAGE2_REOPT_COMPLETE`**: both selected dimensions have finished
+  their preregistered searches and certification, as follows:
+  * closure at its fixed point, or `EXP7_CLOSURE_CEILING_FAILURE` recorded
+    as blocking;
+  * sentinels bit-exact;
+  * every reported comparison firewall-admitted.
+
+### 14.4 Closeout
+
+One finding table for F1–F6 (and AF1), each row showing:
+
+* the certified base result;
+* the complete Stage 1 sensitivity result;
+* the worst sign and magnitude movement;
+* any sign, ranking or monotonicity change;
+* the Stage 2 adaptive result where applicable;
+* the exact supporting cells.
+
+**Limits on labels:**
+
+* No label is assigned that the implemented matrix does not support.
+* Nothing is implied beyond what A1, A4 and the five-draw Stage 2 bootstrap
+  subset actually cover.
+* Objective-ordering results are kept apart from served demand, GC, OFF
+  count, accessibility and other basin-dependent outputs.

@@ -1,0 +1,8 @@
+{
+ "decision": "two_stage",
+ "source": "Ian, 2026-09-29 final production contract",
+ "recorded_in": "docs/EXPERIMENT7_AMENDMENT.md \u00a714",
+ "stage1": "fixed-plan evaluation of every frozen solution at BASE and every level of EXP7_LEVELS.json (all 20 bootstrap draws)",
+ "stage2": "D39-safe adaptive re-optimization in the two Class A dimensions that move F1 and F4 most (preregistered metric exp7_stage1_analyze.select_stage2); A2 subset draws 1,5,10,15,20",
+ "rejected": "full F4/F6 closure across all 47 levels (~2,300 h)"
+}

@@ -1,11 +1,1 @@
-{
- "G1_governing_text": true,
- "G2_levels_declared_with_provenance": true,
- "G3_base_reproduction": true,
- "G4_level_reach": false,
- "G5_unit_tests": true,
- "G6_src_digest_matches_exp6": true,
- "G8_stage_design_decided": false,
- "G7_transfer_refusal_emptiness_firewall": true
-}
-REFUSED: readiness gates not all passed
+outputs/exp7/EXP7_CONTRACT.json {"G1_governing_text": true, "G2_levels_declared_with_provenance": true, "G3_base_reproduction": true, "G4_level_reach": true, "G5_unit_tests": true, "G6_src_digest_matches_exp6": true, "G8_stage_design_decided": true, "G7_transfer_refusal_emptiness_firewall": true} {"cells": 192, "seconds_per_cell_by_variant": {"N0": 283.70000000000005, "N0S": 332.4, "N3": 444.4, "N4": 452.4}, "cpu_hours": 20.2, "wall_hours_2_lanes": 10.1, "plus": "13 N3 R1_H20 emptiness proofs at A3/A7 levels (~5 min each)"}

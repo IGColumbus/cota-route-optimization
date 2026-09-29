@@ -61,9 +61,35 @@ EMPTY_SET_MSG = "minimum-service plan already exceeds the budget"
 
 
 def contract() -> dict:
+    """The frozen contract. Under the two-stage design (0929 final production
+    contract) this driver runs STAGE 2 ONLY, and only over BASE plus the
+    levels frozen in EXP7_STAGE2_SELECTION.json, whose contract digest must
+    match this contract byte-for-byte."""
     if not CONTRACT.exists():
         raise SystemExit("EXP7_CONTRACT.json is not frozen; no production run")
-    return json.loads(CONTRACT.read_text())
+    con = json.loads(CONTRACT.read_text())
+    if con.get("design") != "two_stage":
+        return con                      # smoke / legacy contracts
+    import hashlib
+    sel_p = OUT / "EXP7_STAGE2_SELECTION.json"
+    if not sel_p.exists():
+        raise SystemExit("Stage 2 selection not frozen; Stage 2 refuses")
+    sel = json.loads(sel_p.read_text())
+    if sel["exp7_contract_sha256_16"] != hashlib.sha256(
+            CONTRACT.read_bytes()).hexdigest()[:16]:
+        raise SystemExit("Stage 2 selection was made against another contract")
+    keep = ["BASE"] + list(sel["included_levels"])
+    con = dict(con)
+    con["levels"] = [p for p in con["levels"] if p["name"] in keep]
+    con["level_order"] = [n for n in con["level_order"] if n in keep]
+    if con["level_order"] != keep:
+        raise SystemExit("selection names levels outside the contract order")
+    con["stage2_selection"] = sel
+    first, last = keep[1], keep[-1]
+    # sentinels: reversed-order reruns inside the selected levels only
+    con["sentinels"] = [["F6", last, "N3", "REF"], ["F6", last, "N0", "R2_S10"],
+                        ["F4", last, "N4", "REF"], ["F6", first, "N0", "REF"]]
+    return con
 
 
 def levels(con) -> dict[str, L.SensitivityLevel]:
