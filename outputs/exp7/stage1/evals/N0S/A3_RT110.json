@@ -1,0 +1,160 @@
+{
+ "schema": "exp7_stage1_cell/v1",
+ "variant": "N0S",
+ "level": {
+  "name": "A3_RT110",
+  "dimension": "A3",
+  "lam": 2.0,
+  "waiting_model": "same_route",
+  "overrides": [],
+  "od": [],
+  "rationale": "A3 as issued: +10% uniform runtime (passenger time and vehicle-hours; envelope unchanged).",
+  "network": [
+   [
+    "runtime_scale",
+    {
+     "factor": 1.1
+    }
+   ]
+  ],
+  "provenance": "as_issued_0923"
+ },
+ "level_digest": "c22ea64772d8c76a",
+ "identity": {
+  "state_key": "exp2b|splice-011-034-WESHIGW#2c53c24a4f24+A3_RT110",
+  "state_digest": "0b7ebdfb5f8aecfc",
+  "cardinality": 1,
+  "members": [
+   "splice-011-034-WESHIGW#2c53c24a4f24"
+  ],
+  "construction": "geometry.apply_edits(H.baseline, [edit_from_record(pool[splice-011-034])])",
+  "network_label": "N0 + Exp 2B splice 011+034 at WESHIGW",
+  "untransformed_state_digest": "159a0c775b9fcc66",
+  "network_transform": [
+   {
+    "runtime_scale": 1.1
+   }
+  ]
+ },
+ "lam": 2.0,
+ "waiting_model": "same_route",
+ "w_unserved": 60.0,
+ "build_solution": "F2_SPLICE_20260825",
+ "internal_consistency_build_plan_equals_solve": true,
+ "evaluator_checks": {
+  "gtfs_scheduled_revenue_veh_hours": 2767.856666666667,
+  "model_baseline_revenue_veh_hours": 2767.8566666666666,
+  "vh_relative_error": 1.6429584536041633e-16,
+  "n_route_periods": 167,
+  "periods_modelled": [
+   "early",
+   "am_peak",
+   "midday",
+   "pm_peak",
+   "evening",
+   "owl"
+  ],
+  "od_pairs": 20000,
+  "od_total_trips": 30949.0,
+  "od_source": "LEHD LODES8 2022 OD (JT00 main)",
+  "baseline_generalized_cost": 1762632.4288153274,
+  "baseline_unserved_demand": 10971.883365721766,
+  "baseline_served_demand": 19977.116634278234,
+  "baseline_gc_per_served_trip": 88.2325743541423,
+  "total_paths": 149349,
+  "locked_route_periods": 28,
+  "locked_routes": [
+   "041",
+   "042",
+   "043",
+   "044",
+   "045",
+   "046",
+   "051",
+   "052",
+   "061",
+   "071",
+   "072",
+   "073",
+   "074",
+   "075"
+  ],
+  "with_crowding": false,
+  "common_lines": "same_route",
+  "common_lines_source": "explicit",
+  "allow_off": true
+ },
+ "pathset_total_paths": 149349,
+ "rows": {
+  "F2_SPLICE_20260825": {
+   "objective": 3016260.2602978935,
+   "generalized_cost": 1783622.5378950231,
+   "unserved_demand": 10271.98102002392,
+   "served_demand": 20677.01897997608,
+   "gc_per_served_trip": 86.26110657548405,
+   "revenue_veh_hours": 2765.820503625917,
+   "peak_vehicles": 193.92215995361076,
+   "peak_by_period": {
+    "early": 93.66286805555555,
+    "am_peak": 178.08844513296813,
+    "midday": 175.07018477559,
+    "pm_peak": 193.92215995361076,
+    "evening": 154.08496416141338,
+    "owl": 38.84867708329373
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_SPLICE_20260826": {
+   "objective": 3016260.2602978935,
+   "generalized_cost": 1783622.5378950231,
+   "unserved_demand": 10271.98102002392,
+   "served_demand": 20677.01897997608,
+   "gc_per_served_trip": 86.26110657548405,
+   "revenue_veh_hours": 2765.820503625917,
+   "peak_vehicles": 193.92215995361076,
+   "peak_by_period": {
+    "early": 93.66286805555555,
+    "am_peak": 178.08844513296813,
+    "midday": 175.07018477559,
+    "pm_peak": 193.92215995361076,
+    "evening": 154.08496416141338,
+    "owl": 38.84867708329373
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_SPLICE_20260827": {
+   "objective": 3016260.2602978935,
+   "generalized_cost": 1783622.5378950231,
+   "unserved_demand": 10271.98102002392,
+   "served_demand": 20677.01897997608,
+   "gc_per_served_trip": 86.26110657548405,
+   "revenue_veh_hours": 2765.820503625917,
+   "peak_vehicles": 193.92215995361076,
+   "peak_by_period": {
+    "early": 93.66286805555555,
+    "am_peak": 178.08844513296813,
+    "midday": 175.07018477559,
+    "pm_peak": 193.92215995361076,
+    "evening": 154.08496416141338,
+    "owl": 38.84867708329373
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  }
+ },
+ "n_rows": 3,
+ "n_errors": 0,
+ "registry_sha256": "28c607a27aedf7c544ec83bf2eb1cb8ac95ab518a57ebb16945b6717fc940746",
+ "provenance": {
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "runner_sha256": {
+   "exp7_stage1.py": "3024e849a5f8015d",
+   "exp7_levels.py": "27a45f94661e9b3e"
+  },
+  "levels_file_sha256": "112690806d22647eaebeda2c3b21fe59a7ada69117c9f5a15f529fd23d381333"
+ },
+ "seconds": 281.4,
+ "written_utc": "2026-09-29T20:51:27Z"
+}
