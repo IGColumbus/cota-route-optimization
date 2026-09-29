@@ -1,0 +1,160 @@
+{
+ "schema": "exp7_stage1_cell/v1",
+ "variant": "N0S",
+ "level": {
+  "name": "A3_RT120",
+  "dimension": "A3",
+  "lam": 2.0,
+  "waiting_model": "same_route",
+  "overrides": [],
+  "od": [],
+  "rationale": "A3 as issued: +20% uniform runtime.",
+  "network": [
+   [
+    "runtime_scale",
+    {
+     "factor": 1.2
+    }
+   ]
+  ],
+  "provenance": "as_issued_0923"
+ },
+ "level_digest": "e0724580ad2652d4",
+ "identity": {
+  "state_key": "exp2b|splice-011-034-WESHIGW#2c53c24a4f24+A3_RT120",
+  "state_digest": "9fcf4c0cfbef42bb",
+  "cardinality": 1,
+  "members": [
+   "splice-011-034-WESHIGW#2c53c24a4f24"
+  ],
+  "construction": "geometry.apply_edits(H.baseline, [edit_from_record(pool[splice-011-034])])",
+  "network_label": "N0 + Exp 2B splice 011+034 at WESHIGW",
+  "untransformed_state_digest": "159a0c775b9fcc66",
+  "network_transform": [
+   {
+    "runtime_scale": 1.2
+   }
+  ]
+ },
+ "lam": 2.0,
+ "waiting_model": "same_route",
+ "w_unserved": 60.0,
+ "build_solution": "F2_SPLICE_20260825",
+ "internal_consistency_build_plan_equals_solve": true,
+ "evaluator_checks": {
+  "gtfs_scheduled_revenue_veh_hours": 3019.48,
+  "model_baseline_revenue_veh_hours": 3019.4799999999996,
+  "vh_relative_error": 1.5060452491371498e-16,
+  "n_route_periods": 167,
+  "periods_modelled": [
+   "early",
+   "am_peak",
+   "midday",
+   "pm_peak",
+   "evening",
+   "owl"
+  ],
+  "od_pairs": 20000,
+  "od_total_trips": 30949.0,
+  "od_source": "LEHD LODES8 2022 OD (JT00 main)",
+  "baseline_generalized_cost": 1752448.010108797,
+  "baseline_unserved_demand": 11473.299117133538,
+  "baseline_served_demand": 19475.700882866462,
+  "baseline_gc_per_served_trip": 89.9812551367789,
+  "total_paths": 149018,
+  "locked_route_periods": 28,
+  "locked_routes": [
+   "041",
+   "042",
+   "043",
+   "044",
+   "045",
+   "046",
+   "051",
+   "052",
+   "061",
+   "071",
+   "072",
+   "073",
+   "074",
+   "075"
+  ],
+  "with_crowding": false,
+  "common_lines": "same_route",
+  "common_lines_source": "explicit",
+  "allow_off": true
+ },
+ "pathset_total_paths": 149018,
+ "rows": {
+  "F2_SPLICE_20260825": {
+   "objective": 3069906.6175267613,
+   "generalized_cost": 1776166.530745627,
+   "unserved_demand": 10781.167389842789,
+   "served_demand": 20167.832610157217,
+   "gc_per_served_trip": 88.06928166644383,
+   "revenue_veh_hours": 3017.2587312282726,
+   "peak_vehicles": 211.5514472221209,
+   "peak_by_period": {
+    "early": 102.17767424242422,
+    "am_peak": 194.27830378141982,
+    "midday": 190.9856561188255,
+    "pm_peak": 211.5514472221209,
+    "evening": 168.0926881760873,
+    "owl": 42.38037499995679
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_SPLICE_20260826": {
+   "objective": 3069906.6175267613,
+   "generalized_cost": 1776166.530745627,
+   "unserved_demand": 10781.167389842789,
+   "served_demand": 20167.832610157217,
+   "gc_per_served_trip": 88.06928166644383,
+   "revenue_veh_hours": 3017.2587312282726,
+   "peak_vehicles": 211.5514472221209,
+   "peak_by_period": {
+    "early": 102.17767424242422,
+    "am_peak": 194.27830378141982,
+    "midday": 190.9856561188255,
+    "pm_peak": 211.5514472221209,
+    "evening": 168.0926881760873,
+    "owl": 42.38037499995679
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_SPLICE_20260827": {
+   "objective": 3069906.6175267613,
+   "generalized_cost": 1776166.530745627,
+   "unserved_demand": 10781.167389842789,
+   "served_demand": 20167.832610157217,
+   "gc_per_served_trip": 88.06928166644383,
+   "revenue_veh_hours": 3017.2587312282726,
+   "peak_vehicles": 211.5514472221209,
+   "peak_by_period": {
+    "early": 102.17767424242422,
+    "am_peak": 194.27830378141982,
+    "midday": 190.9856561188255,
+    "pm_peak": 211.5514472221209,
+    "evening": 168.0926881760873,
+    "owl": 42.38037499995679
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  }
+ },
+ "n_rows": 3,
+ "n_errors": 0,
+ "registry_sha256": "28c607a27aedf7c544ec83bf2eb1cb8ac95ab518a57ebb16945b6717fc940746",
+ "provenance": {
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "runner_sha256": {
+   "exp7_stage1.py": "3024e849a5f8015d",
+   "exp7_levels.py": "27a45f94661e9b3e"
+  },
+  "levels_file_sha256": "112690806d22647eaebeda2c3b21fe59a7ada69117c9f5a15f529fd23d381333"
+ },
+ "seconds": 279.7,
+ "written_utc": "2026-09-29T21:00:43Z"
+}
