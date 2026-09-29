@@ -1,0 +1,266 @@
+{
+ "schema": "exp7_stage1_cell/v1",
+ "variant": "N4",
+ "level": {
+  "name": "A3_RT120",
+  "dimension": "A3",
+  "lam": 2.0,
+  "waiting_model": "same_route",
+  "overrides": [],
+  "od": [],
+  "rationale": "A3 as issued: +20% uniform runtime.",
+  "network": [
+   [
+    "runtime_scale",
+    {
+     "factor": 1.2
+    }
+   ]
+  ],
+  "provenance": "as_issued_0923"
+ },
+ "level_digest": "e0724580ad2652d4",
+ "identity": {
+  "state_key": "exp4|exp4-pool-v1|65lines#35e351133d6f+A3_RT120",
+  "state_digest": "313382a6a166ead7",
+  "cardinality": 65,
+  "members": [
+   "syn-01d29fe11c8fe229",
+   "syn-04bd49ffa8580649",
+   "syn-094178ee2413e586",
+   "syn-0a7beee015fab797",
+   "syn-0c6624b92a8cbd34",
+   "syn-0fbaa754316fb93d",
+   "syn-12557f3c13a49bb1",
+   "syn-164801751d27883c",
+   "syn-1ab0a3f1e1e2e4af",
+   "syn-1b142225b6ccfee4",
+   "syn-21b8f7c683c0a6b5",
+   "syn-2663c6d04f289b58",
+   "syn-2ef225deeb13eb25",
+   "syn-34fe03afb1a36d9e",
+   "syn-395b0ad4136a5c7f",
+   "syn-3bdb1a36e7453efa",
+   "syn-413bfa6c3aaf9a09",
+   "syn-45a851f0143bdc4a",
+   "syn-472d844241f993ba",
+   "syn-509dd9ce50e6d7c6",
+   "syn-54b5bb2a49655b7a",
+   "syn-58cacec9b74813f4",
+   "syn-5edca9ed1333b027",
+   "syn-5fca782a91909f67",
+   "syn-6074458b6e308733",
+   "syn-60f95ff936eeeacd",
+   "syn-646ea6f969eead36",
+   "syn-68c087d0a44bd42f",
+   "syn-6a84800b83ba038c",
+   "syn-70dd7f74b6f50e4c",
+   "syn-780f6e430a947340",
+   "syn-7dfd9c5d0191803e",
+   "syn-887ed87f33827f87",
+   "syn-917daae60f61e621",
+   "syn-9425660884704b5f",
+   "syn-96fcbfdc5e84b719",
+   "syn-9cf593e6ead67626",
+   "syn-a034dfb8e0dadc56",
+   "syn-a31805b4a037eca2",
+   "syn-a450dfa427a890a1",
+   "syn-aa289ecd245b53c1",
+   "syn-ad09868780a1c274",
+   "syn-b2d10c8b13fdcc0e",
+   "syn-b9984496652d77dc",
+   "syn-ba87dbc2d02635a9",
+   "syn-bdb7854bdccd2308",
+   "syn-c127242fc4d7151e",
+   "syn-c6b558018dd069d1",
+   "syn-c740ecc6af42b396",
+   "syn-cc10538c6cdfdd3d",
+   "syn-cef59d1aab2fea7d",
+   "syn-d4f64c06a8e457e2",
+   "syn-d80599902f3f708d",
+   "syn-da184fb6f19e9b54",
+   "syn-de7619fa68e82ae5",
+   "syn-e003e8db1d7a8a65",
+   "syn-e5789aa3f90838d5",
+   "syn-e8ce379fa4507794",
+   "syn-e9cfc2efd1c697b0",
+   "syn-eb4f9dad6622d3a1",
+   "syn-ed87e3676263fd95",
+   "syn-f198aa054f95da21",
+   "syn-f465f442330eb4a6",
+   "syn-f959c7f534d6905c",
+   "syn-ffa50cfd92f8acde"
+  ],
+  "construction": "exp4_assemble.assemble(Exp4Selection)",
+  "network_label": "N4 EXP4N normalized leader",
+  "untransformed_state_digest": "35e351133d6fcafc",
+  "network_transform": [
+   {
+    "runtime_scale": 1.2
+   }
+  ]
+ },
+ "lam": 2.0,
+ "waiting_model": "same_route",
+ "w_unserved": 60.0,
+ "build_solution": "F4_N4_EXP4N",
+ "internal_consistency_build_plan_equals_solve": true,
+ "evaluator_checks": {
+  "gtfs_scheduled_revenue_veh_hours": 1116.587,
+  "model_baseline_revenue_veh_hours": 1116.587,
+  "vh_relative_error": 0.0,
+  "n_route_periods": 390,
+  "periods_modelled": [
+   "early",
+   "am_peak",
+   "midday",
+   "pm_peak",
+   "evening",
+   "owl"
+  ],
+  "od_pairs": 20000,
+  "od_total_trips": 30949.0,
+  "od_source": "LEHD LODES8 2022 OD (JT00 main)",
+  "baseline_generalized_cost": 948711.6085726845,
+  "baseline_unserved_demand": 25648.414590491535,
+  "baseline_served_demand": 5300.585409508469,
+  "baseline_gc_per_served_trip": 178.9824208606913,
+  "total_paths": 87477,
+  "locked_route_periods": 0,
+  "locked_routes": [],
+  "with_crowding": false,
+  "common_lines": "same_route",
+  "common_lines_source": "explicit",
+  "allow_off": true
+ },
+ "pathset_total_paths": 87477,
+ "rows": {
+  "F4_N4_EXP4N": {
+   "objective": 3279701.4786986886,
+   "generalized_cost": 863368.196051019,
+   "unserved_demand": 20136.110688730576,
+   "served_demand": 10812.889311269428,
+   "gc_per_served_trip": 79.84620679980493,
+   "revenue_veh_hours": 3020.4205277777774,
+   "peak_vehicles": 211.28844583333324,
+   "peak_by_period": {
+    "early": 101.85971666666666,
+    "am_peak": 193.6240305555555,
+    "midday": 190.84793055555554,
+    "pm_peak": 211.28844583333324,
+    "evening": 167.96548611111112,
+    "owl": 39.67953611111111
+   },
+   "n_off": 224,
+   "plan_restricted_routes": []
+  },
+  "F5_N4_J090": {
+   "objective": 3326030.5038761366,
+   "generalized_cost": 799413.1669913187,
+   "unserved_demand": 21055.14447404015,
+   "served_demand": 9893.85552595985,
+   "gc_per_served_trip": 80.79895293536377,
+   "revenue_veh_hours": 2717.599416666667,
+   "peak_vehicles": 190.58675277777778,
+   "peak_by_period": {
+    "early": 91.85714444444444,
+    "am_peak": 174.92876805555557,
+    "midday": 171.8666694444444,
+    "pm_peak": 190.58675277777778,
+    "evening": 151.20730277777773,
+    "owl": 34.824875
+   },
+   "n_off": 232,
+   "plan_restricted_routes": []
+  },
+  "F5_N4_J110": {
+   "objective": 3254524.880008335,
+   "generalized_cost": 949145.4072308744,
+   "unserved_demand": 19211.49560647884,
+   "served_demand": 11737.504393521165,
+   "gc_per_served_trip": 80.86432817480188,
+   "revenue_veh_hours": 3322.4866666666667,
+   "peak_vehicles": 232.8291916666666,
+   "peak_by_period": {
+    "early": 111.99306944444444,
+    "am_peak": 213.79630833333331,
+    "midday": 209.9683416666666,
+    "pm_peak": 232.8291916666666,
+    "evening": 184.89118611111107,
+    "owl": 42.937038888888885
+   },
+   "n_off": 207,
+   "plan_restricted_routes": []
+  },
+  "F5_N4_P090": {
+   "objective": 3364065.902670198,
+   "generalized_cost": 742740.8205930183,
+   "unserved_demand": 21844.375683976497,
+   "served_demand": 9104.624316023504,
+   "gc_per_served_trip": 81.57841496939596,
+   "revenue_veh_hours": 2735.8443611111106,
+   "peak_vehicles": 190.4137097222222,
+   "peak_by_period": {
+    "early": 92.0705333333333,
+    "am_peak": 174.77041944444443,
+    "midday": 171.86449722222218,
+    "pm_peak": 190.4137097222222,
+    "evening": 151.34549444444445,
+    "owl": 38.32643333333333
+   },
+   "n_off": 244,
+   "plan_restricted_routes": []
+  },
+  "F5_N4_P110": {
+   "objective": 3252207.3740875213,
+   "generalized_cost": 885414.6424557512,
+   "unserved_demand": 19723.272763598085,
+   "served_demand": 11225.727236401919,
+   "gc_per_served_trip": 78.87370001157673,
+   "revenue_veh_hours": 3020.5146944444446,
+   "peak_vehicles": 232.94431944444437,
+   "peak_by_period": {
+    "early": 110.58051805555554,
+    "am_peak": 213.80541249999996,
+    "midday": 209.90771111111107,
+    "pm_peak": 232.94431944444437,
+    "evening": 134.88004999999998,
+    "owl": 18.869199999999996
+   },
+   "n_off": 222,
+   "plan_restricted_routes": []
+  },
+  "F5_N4_J100": {
+   "objective": 3279701.4786986886,
+   "generalized_cost": 863368.196051019,
+   "unserved_demand": 20136.110688730576,
+   "served_demand": 10812.889311269428,
+   "gc_per_served_trip": 79.84620679980493,
+   "revenue_veh_hours": 3020.4205277777774,
+   "peak_vehicles": 211.28844583333324,
+   "peak_by_period": {
+    "early": 101.85971666666666,
+    "am_peak": 193.6240305555555,
+    "midday": 190.84793055555554,
+    "pm_peak": 211.28844583333324,
+    "evening": 167.96548611111112,
+    "owl": 39.67953611111111
+   },
+   "n_off": 224,
+   "plan_restricted_routes": []
+  }
+ },
+ "n_rows": 6,
+ "n_errors": 0,
+ "registry_sha256": "28c607a27aedf7c544ec83bf2eb1cb8ac95ab518a57ebb16945b6717fc940746",
+ "provenance": {
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "runner_sha256": {
+   "exp7_stage1.py": "3024e849a5f8015d",
+   "exp7_levels.py": "27a45f94661e9b3e"
+  },
+  "levels_file_sha256": "112690806d22647eaebeda2c3b21fe59a7ada69117c9f5a15f529fd23d381333"
+ },
+ "seconds": 346.0,
+ "written_utc": "2026-09-29T21:33:58Z"
+}
