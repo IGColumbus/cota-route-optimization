@@ -1,0 +1,163 @@
+{
+ "schema": "exp7_stage1_cell/v1",
+ "variant": "N0S",
+ "level": {
+  "name": "A3_RTNOISE",
+  "dimension": "A3",
+  "lam": 2.0,
+  "waiting_model": "same_route",
+  "overrides": [],
+  "od": [],
+  "rationale": "A3 as issued: per-link lognormal noise, median |error| 20.5% (outputs/runtime_validation.json median_ape_pct 20.5035), one seeded draw, same multiplier for a link on every pattern.",
+  "network": [
+   [
+    "runtime_noise",
+    {
+     "median_abs_error": 0.205,
+     "seed": 20260929
+    }
+   ]
+  ],
+  "provenance": "as_issued_0923"
+ },
+ "level_digest": "80af4cebac40e759",
+ "identity": {
+  "state_key": "exp2b|splice-011-034-WESHIGW#2c53c24a4f24+A3_RTNOISE",
+  "state_digest": "dee2bee58944b96a",
+  "cardinality": 1,
+  "members": [
+   "splice-011-034-WESHIGW#2c53c24a4f24"
+  ],
+  "construction": "geometry.apply_edits(H.baseline, [edit_from_record(pool[splice-011-034])])",
+  "network_label": "N0 + Exp 2B splice 011+034 at WESHIGW",
+  "untransformed_state_digest": "159a0c775b9fcc66",
+  "network_transform": [
+   {
+    "runtime_noise_sigma": 0.3067187381094155,
+    "n_links": 3349,
+    "seed": 20260929
+   }
+  ]
+ },
+ "lam": 2.0,
+ "waiting_model": "same_route",
+ "w_unserved": 60.0,
+ "build_solution": "F2_SPLICE_20260825",
+ "internal_consistency_build_plan_equals_solve": true,
+ "evaluator_checks": {
+  "gtfs_scheduled_revenue_veh_hours": 2642.424208479944,
+  "model_baseline_revenue_veh_hours": 2642.4242084799444,
+  "vh_relative_error": 1.7209475655994607e-16,
+  "n_route_periods": 167,
+  "periods_modelled": [
+   "early",
+   "am_peak",
+   "midday",
+   "pm_peak",
+   "evening",
+   "owl"
+  ],
+  "od_pairs": 20000,
+  "od_total_trips": 30949.0,
+  "od_source": "LEHD LODES8 2022 OD (JT00 main)",
+  "baseline_generalized_cost": 1768653.382010762,
+  "baseline_unserved_demand": 10672.629592447805,
+  "baseline_served_demand": 20276.370407552196,
+  "baseline_gc_per_served_trip": 87.22731664795413,
+  "total_paths": 149749,
+  "locked_route_periods": 28,
+  "locked_routes": [
+   "041",
+   "042",
+   "043",
+   "044",
+   "045",
+   "046",
+   "051",
+   "052",
+   "061",
+   "071",
+   "072",
+   "073",
+   "074",
+   "075"
+  ],
+  "with_crowding": false,
+  "common_lines": "same_route",
+  "common_lines_source": "explicit",
+  "allow_off": true
+ },
+ "pathset_total_paths": 149749,
+ "rows": {
+  "F2_SPLICE_20260825": {
+   "objective": 2982650.984465477,
+   "generalized_cost": 1787670.4483313358,
+   "unserved_demand": 9958.171134451175,
+   "served_demand": 20990.82886554883,
+   "gc_per_served_trip": 85.16435724295516,
+   "revenue_veh_hours": 2646.2822892421013,
+   "peak_vehicles": 185.9469018269106,
+   "peak_by_period": {
+    "early": 89.47889473336937,
+    "am_peak": 170.03961772472485,
+    "midday": 167.52050693688292,
+    "pm_peak": 185.9469018269106,
+    "evening": 147.54920386086295,
+    "owl": 37.130593926586094
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_SPLICE_20260826": {
+   "objective": 2982650.984465477,
+   "generalized_cost": 1787670.4483313358,
+   "unserved_demand": 9958.171134451175,
+   "served_demand": 20990.82886554883,
+   "gc_per_served_trip": 85.16435724295516,
+   "revenue_veh_hours": 2646.2822892421013,
+   "peak_vehicles": 185.9469018269106,
+   "peak_by_period": {
+    "early": 89.47889473336937,
+    "am_peak": 170.03961772472485,
+    "midday": 167.52050693688292,
+    "pm_peak": 185.9469018269106,
+    "evening": 147.54920386086295,
+    "owl": 37.130593926586094
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  },
+  "F2_SPLICE_20260827": {
+   "objective": 2982650.984465477,
+   "generalized_cost": 1787670.4483313358,
+   "unserved_demand": 9958.171134451175,
+   "served_demand": 20990.82886554883,
+   "gc_per_served_trip": 85.16435724295516,
+   "revenue_veh_hours": 2646.2822892421013,
+   "peak_vehicles": 185.9469018269106,
+   "peak_by_period": {
+    "early": 89.47889473336937,
+    "am_peak": 170.03961772472485,
+    "midday": 167.52050693688292,
+    "pm_peak": 185.9469018269106,
+    "evening": 147.54920386086295,
+    "owl": 37.130593926586094
+   },
+   "n_off": 0,
+   "plan_restricted_routes": []
+  }
+ },
+ "n_rows": 3,
+ "n_errors": 0,
+ "registry_sha256": "28c607a27aedf7c544ec83bf2eb1cb8ac95ab518a57ebb16945b6717fc940746",
+ "provenance": {
+  "src_cota_opt_content_digest": "b63ae2dba134245e",
+  "runner_sha256": {
+   "exp7_stage1.py": "3024e849a5f8015d",
+   "exp7_levels.py": "27a45f94661e9b3e"
+  },
+  "levels_file_sha256": "112690806d22647eaebeda2c3b21fe59a7ada69117c9f5a15f529fd23d381333"
+ },
+ "seconds": 287.4,
+ "written_utc": "2026-09-29T21:10:09Z"
+}
