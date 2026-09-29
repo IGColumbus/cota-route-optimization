@@ -1,7 +1,7 @@
 {
   "version": 4,
   "generated_by": "scripts/canonical_results_v4.py",
-  "generated_commit": "6dca8b32a6ea1137bb68b5b2d00c1a109c151c9f",
+  "generated_commit": "57b8b453aec93121d7cd0662291b12dd114fbcf6",
   "predecessor": {
     "path": "outputs/CANONICAL_RESULTS_v3.json",
     "sha256": "026c5327335c45e47e5b78c27f8c5210894d7cb6510191091a14c524240c95a4",
@@ -315,7 +315,7 @@
         "file": "outputs/exp6/EXP6_ANALYSIS.json",
         "file_sha256": "b96aca0d719964724227607a7f43e3367cddab0895a13392e0c64f4353ac4391"
       },
-      "closeout_sha256": "2ac8405ba2bee3995e56a249851ed81b74a49d59801149a7cfc78ea28275f34c",
+      "closeout_sha256": "37c4669a8b1965ae12f01a7689d13b6780473db8c0cb26d041df0380688557fe",
       "constraint_catalog": {
         "digest": "e22f2c94c8f53475",
         "file_sha256": "e22f2c94c8f53475f4b0f574aea5c32bd47d7a418c720c80d2fb3dc9c1aa6c2e"
@@ -612,7 +612,7 @@
           "EXPERIMENT6_CONSTRAINT_CATALOG.md": "91e764bf1694fa25bd342b1d0c94e9d838cf6b2a07084220359e7b81756e4a43",
           "EXPERIMENT6_D39_PREFLIGHT.md": "ce682e99511b97b984a9bba32b5784d174ffa3d2458a39525c4f98abff2f5436",
           "EXPERIMENT6_AMENDMENT_1.md": "a1dde23cfaf68fe630404c2d3fc547f7179acd6018b9d12d06ffa8cf6a196a78",
-          "EXPERIMENT6_AMENDMENT_2.md": "bfa5f381fa1c601ddd4b013b057daa11e0b6ca24c47d538a974b93a2a5290447"
+          "EXPERIMENT6_AMENDMENT_2.md": "c77364b8893c4494debeb79622c63decb2d051e1deefcbc5b944794985153161"
         },
         "why": "D39 (Exp 5): single greedy starts land in cap-dependent local basins; residual >= 1.70% on N4"
       },
