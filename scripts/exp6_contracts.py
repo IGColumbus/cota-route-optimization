@@ -98,9 +98,14 @@ def receipt_for(rec: dict, contract: ExperimentContract) -> ExecutionReceipt:
         events.append(ExecutionEvent(EventType.START_REJECTED,
                                      str(audit["initial_rejection"]), "frequency"))
     st = rec["search"]["start"]
-    starts = tuple(audit.get("start_names") or ()) + (
-        ("anchor:" + st.get("anchor_plan_digest", ""),)
-        if st.get("source") == "anchor" else ())
+    # OPPORTUNITY is the procedure every cell received: its own independent
+    # greedy start plus the frozen nesting closure (Amendment 2). WHICH basin
+    # won -- greedy, or a named transferred anchor -- is an OUTCOME, carried
+    # in winning_start, with the full anchor provenance in the record and the
+    # closure ledger.
+    starts = tuple(audit.get("start_names") or ()) + ("exp6_nesting_closure",)
+    won = ("anchor:" + st.get("anchor_plan_digest", "")
+           if st.get("source") == "anchor" else str(st.get("source", "")))
     o = rec["outcome"]
     conv = bool(o["converged"])
     fx = o["fitness_EXACT"]
@@ -112,7 +117,7 @@ def receipt_for(rec: dict, contract: ExperimentContract) -> ExecutionReceipt:
         code_version=spec.code_version,
         start_policy_requested=StartPolicy.GREEDY_ONLY,
         starts_attempted=starts,
-        winning_start=str(st.get("source", "")),
+        winning_start=won,
         fallback_occurred=bool(audit.get("forced_greedy_fallback")),
         restarts_requested=START_RESTARTS,
         restarts_completed=int(audit.get("restarts_completed") or 0),

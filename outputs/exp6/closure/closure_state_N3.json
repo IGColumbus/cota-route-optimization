@@ -7,7 +7,7 @@
   "R2_S25": "outputs/exp6/closure/N3_R2_S25__from_R2_S10__fdec5c5475c73736.json",
   "R2_S10": "outputs/exp6/closure/N3_R2_S10__from_R2_S05__561444f68239da95.json",
   "R2_S05": "outputs/exp6/initial/N3_R2_S05.json",
-  "R3_SPAN": "outputs/exp6/closure/N3_R3_SPAN__from_B2__706aeff762c4e540.json",
+  "R3_SPAN": "outputs/exp6/closure/N3_R3_SPAN__from_B1__591eebe7630410f2.json",
   "R4_C05": "outputs/exp6/closure/N3_R4_C05__from_R4_C01__a31340754c802f19.json",
   "R4_C01": "outputs/exp6/closure/N3_R4_C01__from_R4_C00__591eebe7630410f2.json",
   "R4_C00": "outputs/exp6/initial/N3_R4_C00.json",
@@ -23,7 +23,7 @@
   "R2_S25": 1,
   "R2_S10": 1,
   "R2_S05": 0,
-  "R3_SPAN": 1,
+  "R3_SPAN": 2,
   "R4_C05": 1,
   "R4_C01": 1,
   "R4_C00": 0,
@@ -66,6 +66,10 @@
   ],
   [
    "R3_SPAN",
+   "591eebe7630410f2"
+  ],
+  [
+   "R3_SPAN",
    "706aeff762c4e540"
   ],
   [
@@ -102,6 +106,10 @@
   ],
   [
    "REF",
+   "591eebe7630410f2"
+  ],
+  [
+   "REF",
    "706aeff762c4e540"
   ],
   [
@@ -109,6 +117,6 @@
    "fdec5c5475c73736"
   ]
  ],
- "passes_completed": 1,
- "fixed_point": false
+ "passes_completed": 3,
+ "fixed_point": true
 }

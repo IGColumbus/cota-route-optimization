@@ -1,0 +1,18 @@
+{
+ "artifact": "EXP6_CONTRACT_AMENDMENT_2",
+ "amends": "outputs/exp6/EXP6_CONTRACT.json",
+ "prose": "EXPERIMENT6_AMENDMENT_2.md",
+ "written_utc": "2026-09-29T07:34:30Z",
+ "change": "exp6_contracts.receipt_for: starts_attempted = start_names + ['exp6_nesting_closure'] (opportunity, identical for all cells); winning_start = 'greedy' | 'anchor:<digest>' (outcome)",
+ "runner_sha256": {
+  "exp6_contracts.py": "80085413ac3d72b5",
+  "exp6_analyze.py": "da6792a144c041e2"
+ },
+ "superseded_analysis": "outputs/exp6/SUPERSEDED.EXP6_ANALYSIS.first_run_receipt_start_encoding.json",
+ "unchanged": [
+  "all cell records",
+  "closure ledgers",
+  "contract digests",
+  "src/cota_opt"
+ ]
+}

@@ -1,0 +1,2640 @@
+{
+ "artifact": "EXP6_ANALYSIS",
+ "written_utc": "2026-09-29T07:33:07Z",
+ "contract_file": "outputs/exp6/EXP6_CONTRACT.json",
+ "record_checks": {
+  "code": {
+   "n": 54,
+   "all_pass": true
+  },
+  "runner": {
+   "n": 54,
+   "all_pass": true
+  },
+  "envelope": {
+   "n": 54,
+   "all_pass": true
+  },
+  "policy": {
+   "n": 54,
+   "all_pass": true
+  },
+  "feasible": {
+   "n": 54,
+   "all_pass": true
+  },
+  "convergence": {
+   "n": 54,
+   "all_pass": true
+  },
+  "base_config": {
+   "n": 1,
+   "all_pass": true
+  }
+ },
+ "empty_feasible_sets": [
+  {
+   "record": "initial:N3_R1_H20",
+   "status": "INFEASIBLE_UNDER_ENVELOPE"
+  },
+  {
+   "record": "final:N3_R1_H20",
+   "status": "INFEASIBLE_UNDER_ENVELOPE"
+  }
+ ],
+ "monotonicity_initial": {
+  "n_pairs": 120,
+  "n_violations": 22,
+  "violations": [
+   {
+    "network": "N0",
+    "tighter": "B1",
+    "looser": "R3_SPAN",
+    "obj_tighter": "2959465.8168958137",
+    "obj_looser": "2961387.5034942282",
+    "regression_pct": 0.0649335629235351,
+    "violation": true
+   },
+   {
+    "network": "N0",
+    "tighter": "B2",
+    "looser": "R3_SPAN",
+    "obj_tighter": "2956692.06409274",
+    "obj_looser": "2961387.5034942282",
+    "regression_pct": 0.15880718382923922,
+    "violation": true
+   },
+   {
+    "network": "N0",
+    "tighter": "R1_H30",
+    "looser": "B1",
+    "obj_tighter": "2958795.1254437594",
+    "obj_looser": "2959465.8168958137",
+    "regression_pct": 0.022667721948261516,
+    "violation": true
+   },
+   {
+    "network": "N0",
+    "tighter": "R1_H30",
+    "looser": "R3_SPAN",
+    "obj_tighter": "2958795.1254437594",
+    "obj_looser": "2961387.5034942282",
+    "regression_pct": 0.08761600383129121,
+    "violation": true
+   },
+   {
+    "network": "N0",
+    "tighter": "R1_H60",
+    "looser": "B1",
+    "obj_tighter": "2956071.2947759135",
+    "obj_looser": "2959465.8168958137",
+    "regression_pct": 0.1148322141586756,
+    "violation": true
+   },
+   {
+    "network": "N0",
+    "tighter": "R1_H60",
+    "looser": "B2",
+    "obj_tighter": "2956071.2947759135",
+    "obj_looser": "2956692.06409274",
+    "regression_pct": 0.0209998086962087,
+    "violation": true
+   },
+   {
+    "network": "N0",
+    "tighter": "R1_H60",
+    "looser": "R3_SPAN",
+    "obj_tighter": "2956071.2947759135",
+    "obj_looser": "2961387.5034942282",
+    "regression_pct": 0.1798403417302479,
+    "violation": true
+   },
+   {
+    "network": "N0",
+    "tighter": "R1_H60",
+    "looser": "R4_C00",
+    "obj_tighter": "2956071.2947759135",
+    "obj_looser": "2956115.3930336195",
+    "regression_pct": 0.0014917859993420024,
+    "violation": true
+   },
+   {
+    "network": "N0",
+    "tighter": "R2_S05",
+    "looser": "R2_S10",
+    "obj_tighter": "2948128.7679281253",
+    "obj_looser": "2949292.57104456",
+    "regression_pct": 0.039475993351966526,
+    "violation": true
+   },
+   {
+    "network": "N0",
+    "tighter": "R2_S25",
+    "looser": "REF",
+    "obj_tighter": "2942231.967139845",
+    "obj_looser": "2945632.2349138106",
+    "regression_pct": 0.11556763069470871,
+    "violation": true
+   },
+   {
+    "network": "N0",
+    "tighter": "R4_C01",
+    "looser": "R4_C05",
+    "obj_tighter": "2954482.0004912065",
+    "obj_looser": "2954931.6584397713",
+    "regression_pct": 0.015219518971175955,
+    "violation": true
+   },
+   {
+    "network": "N3",
+    "tighter": "B1",
+    "looser": "R3_SPAN",
+    "obj_tighter": "2954543.2167176595",
+    "obj_looser": "2956630.557945732",
+    "regression_pct": 0.07064852584527286,
+    "violation": true
+   },
+   {
+    "network": "N3",
+    "tighter": "B2",
+    "looser": "R3_SPAN",
+    "obj_tighter": "2951774.4228982246",
+    "obj_looser": "2956630.557945732",
+    "regression_pct": 0.1645157912419146,
+    "violation": true
+   },
+   {
+    "network": "N3",
+    "tighter": "R1_H30",
+    "looser": "B1",
+    "obj_tighter": "2953789.4868896715",
+    "obj_looser": "2954543.2167176595",
+    "regression_pct": 0.02551738474706388,
+    "violation": true
+   },
+   {
+    "network": "N3",
+    "tighter": "R1_H30",
+    "looser": "R3_SPAN",
+    "obj_tighter": "2953789.4868896715",
+    "obj_looser": "2956630.557945732",
+    "regression_pct": 0.09618393824849479,
+    "violation": true
+   },
+   {
+    "network": "N3",
+    "tighter": "R1_H60",
+    "looser": "B1",
+    "obj_tighter": "2950532.5669298135",
+    "obj_looser": "2954543.2167176595",
+    "regression_pct": 0.13592969055140158,
+    "violation": true
+   },
+   {
+    "network": "N3",
+    "tighter": "R1_H60",
+    "looser": "B2",
+    "obj_tighter": "2950532.5669298135",
+    "obj_looser": "2951774.4228982246",
+    "regression_pct": 0.0420892140737595,
+    "violation": true
+   },
+   {
+    "network": "N3",
+    "tighter": "R1_H60",
+    "looser": "R3_SPAN",
+    "obj_tighter": "2950532.5669298135",
+    "obj_looser": "2956630.557945732",
+    "regression_pct": 0.20667424871923504,
+    "violation": true
+   },
+   {
+    "network": "N3",
+    "tighter": "R1_H60",
+    "looser": "R4_C01",
+    "obj_tighter": "2950532.5669298135",
+    "obj_looser": "2951441.288567108",
+    "regression_pct": 0.030798563197700985,
+    "violation": true
+   },
+   {
+    "network": "N3",
+    "tighter": "R2_S05",
+    "looser": "R2_S10",
+    "obj_tighter": "2942494.1602012054",
+    "obj_looser": "2943352.3652995555",
+    "regression_pct": 0.029165906595763076,
+    "violation": true
+   },
+   {
+    "network": "N3",
+    "tighter": "R2_S25",
+    "looser": "REF",
+    "obj_tighter": "2937538.0276397127",
+    "obj_looser": "2939912.5807124916",
+    "regression_pct": 0.08083480283272818,
+    "violation": true
+   },
+   {
+    "network": "N3",
+    "tighter": "R4_C00",
+    "looser": "R4_C01",
+    "obj_tighter": "2950532.5669298135",
+    "obj_looser": "2951441.288567108",
+    "regression_pct": 0.030798563197700985,
+    "violation": true
+   }
+  ]
+ },
+ "monotonicity_post_closure": {
+  "n_pairs": 120,
+  "n_violations": 0,
+  "violations": []
+ },
+ "reference_closure": {
+  "violations": []
+ },
+ "closure": {
+  "N0": {
+   "passes_completed": 3,
+   "fixed_point": true,
+   "pass_ceiling": 8,
+   "attempts_by_action": {
+    "RAN": 24,
+    "REFUSED_INFEASIBLE_UNDER_TARGET": 40,
+    "SKIPPED_IDENTICAL_PLAN": 32,
+    "SKIPPED_ALREADY_ATTEMPTED": 24
+   },
+   "n_receipts": 120,
+   "cells_changed_basin": [
+    {
+     "cell": "REF",
+     "initial": "2945632.2349138106",
+     "final": "2941892.371426373",
+     "improvement_pct": 0.12696301470055246,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R2_S25"
+    },
+    {
+     "cell": "R2_S25",
+     "initial": "2942231.967139845",
+     "final": "2941892.371426373",
+     "improvement_pct": 0.01154211215379174,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R2_S10"
+    },
+    {
+     "cell": "R2_S10",
+     "initial": "2949292.57104456",
+     "final": "2941892.371426373",
+     "improvement_pct": 0.25091439522957587,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R2_S25"
+    },
+    {
+     "cell": "R3_SPAN",
+     "initial": "2961387.5034942282",
+     "final": "2956071.2947759135",
+     "improvement_pct": 0.1795174968504465,
+     "found_in_pass": 2,
+     "winning_basin": "anchor",
+     "anchor_source": "B1"
+    },
+    {
+     "cell": "R4_C05",
+     "initial": "2954931.6584397713",
+     "final": "2949074.5026453477",
+     "improvement_pct": 0.198216286244541,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R4_C01"
+    },
+    {
+     "cell": "R4_C00",
+     "initial": "2956115.3930336195",
+     "final": "2956071.2947759135",
+     "improvement_pct": 0.001491763745419305,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R1_H60"
+    },
+    {
+     "cell": "R6_ADA",
+     "initial": "2954998.1050359528",
+     "final": "2954847.7300574416",
+     "improvement_pct": 0.005088835023442392,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R4_C00"
+    },
+    {
+     "cell": "B1",
+     "initial": "2959465.8168958137",
+     "final": "2956071.2947759135",
+     "improvement_pct": 0.11470050103368752,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R1_H60"
+    },
+    {
+     "cell": "B2",
+     "initial": "2956692.06409274",
+     "final": "2956071.2947759135",
+     "improvement_pct": 0.020995399702436184,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R1_H60"
+    }
+   ]
+  },
+  "N3": {
+   "passes_completed": 3,
+   "fixed_point": true,
+   "pass_ceiling": 8,
+   "attempts_by_action": {
+    "RAN": 21,
+    "REFUSED_INFEASIBLE_UNDER_TARGET": 37,
+    "SKIPPED_IDENTICAL_PLAN": 34,
+    "SKIPPED_EMPTY_FEASIBLE_SET": 6,
+    "SKIPPED_ALREADY_ATTEMPTED": 22
+   },
+   "n_receipts": 120,
+   "cells_changed_basin": [
+    {
+     "cell": "REF",
+     "initial": "2939912.5807124916",
+     "final": "2935166.0254381876",
+     "improvement_pct": 0.16145225900403026,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R2_S25"
+    },
+    {
+     "cell": "R2_S25",
+     "initial": "2937538.0276397127",
+     "final": "2935166.0254381876",
+     "improvement_pct": 0.080747965786537,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R2_S10"
+    },
+    {
+     "cell": "R2_S10",
+     "initial": "2943352.3652995555",
+     "final": "2935166.0254381876",
+     "improvement_pct": 0.2781297936964702,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R2_S05"
+    },
+    {
+     "cell": "R3_SPAN",
+     "initial": "2956630.557945732",
+     "final": "2950532.5669298135",
+     "improvement_pct": 0.20624798724110593,
+     "found_in_pass": 2,
+     "winning_basin": "anchor",
+     "anchor_source": "B1"
+    },
+    {
+     "cell": "R4_C05",
+     "initial": "2949618.181180831",
+     "final": "2944578.3549554152",
+     "improvement_pct": 0.170863681868078,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R4_C01"
+    },
+    {
+     "cell": "R4_C01",
+     "initial": "2951441.288567108",
+     "final": "2949169.0785097736",
+     "improvement_pct": 0.07698645628277571,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R4_C00"
+    },
+    {
+     "cell": "B1",
+     "initial": "2954543.2167176595",
+     "final": "2950532.5669298135",
+     "improvement_pct": 0.1357451725584045,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R1_H60"
+    },
+    {
+     "cell": "B2",
+     "initial": "2951774.4228982246",
+     "final": "2950532.5669298135",
+     "improvement_pct": 0.04207150650732158,
+     "found_in_pass": 1,
+     "winning_basin": "anchor",
+     "anchor_source": "R1_H60"
+    }
+   ]
+  }
+ },
+ "firewall": {
+  "policy": [
+   {
+    "network": "N0",
+    "cell": "R1_H60",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N0",
+    "cell": "R1_H30",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N0",
+    "cell": "R1_H20",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N0",
+    "cell": "R2_S25",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N0",
+    "cell": "R2_S10",
+    "admitted": true,
+    "effect": 0.0,
+    "effect_pct": 0.0,
+    "declared": [
+     "spec.config_digest"
+    ]
+   },
+   {
+    "network": "N0",
+    "cell": "R2_S05",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N0",
+    "cell": "R3_SPAN",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N0",
+    "cell": "R4_C05",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N0",
+    "cell": "R4_C01",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N0",
+    "cell": "R4_C00",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N0",
+    "cell": "R6_ADA",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N0",
+    "cell": "B1",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N0",
+    "cell": "B2",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N3",
+    "cell": "R1_H60",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N3",
+    "cell": "R1_H30",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N3",
+    "cell": "R1_H20",
+    "admitted": null,
+    "note": "empty feasible set; no receipt"
+   },
+   {
+    "network": "N3",
+    "cell": "R2_S25",
+    "admitted": true,
+    "effect": 0.0,
+    "effect_pct": 0.0,
+    "declared": [
+     "spec.config_digest"
+    ]
+   },
+   {
+    "network": "N3",
+    "cell": "R2_S10",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N3",
+    "cell": "R2_S05",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N3",
+    "cell": "R3_SPAN",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N3",
+    "cell": "R4_C05",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N3",
+    "cell": "R4_C01",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N3",
+    "cell": "R4_C00",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N3",
+    "cell": "R6_ADA",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N3",
+    "cell": "B1",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   },
+   {
+    "network": "N3",
+    "cell": "B2",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-policy-within-network', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|pass_ce"
+   }
+  ],
+  "structure": [
+   {
+    "cell": "REF",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-structure-at-matched-policy', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|p"
+   },
+   {
+    "cell": "R1_H60",
+    "admitted": true,
+    "effect_N3_minus_N0": -5538.727846099995,
+    "effect_pct_of_N0": -0.1873678708591452,
+    "declared": [
+     "pathset_digest",
+     "spec.cardinality",
+     "spec.members",
+     "spec.state_digest",
+     "spec.state_key"
+    ]
+   },
+   {
+    "cell": "R1_H30",
+    "admitted": true,
+    "effect_N3_minus_N0": -5005.63855408784,
+    "effect_pct_of_N0": -0.16917827500263627,
+    "declared": [
+     "pathset_digest",
+     "spec.cardinality",
+     "spec.members",
+     "spec.state_digest",
+     "spec.state_key"
+    ]
+   },
+   {
+    "cell": "R1_H20",
+    "admitted": null,
+    "note": "empty feasible set on N3"
+   },
+   {
+    "cell": "R2_S25",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-structure-at-matched-policy', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|p"
+   },
+   {
+    "cell": "R2_S10",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-structure-at-matched-policy', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|p"
+   },
+   {
+    "cell": "R2_S05",
+    "admitted": true,
+    "effect_N3_minus_N0": -5634.60772691993,
+    "effect_pct_of_N0": -0.19112488532445612,
+    "declared": [
+     "pathset_digest",
+     "spec.cardinality",
+     "spec.members",
+     "spec.state_digest",
+     "spec.state_key"
+    ]
+   },
+   {
+    "cell": "R3_SPAN",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-structure-at-matched-policy', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|p"
+   },
+   {
+    "cell": "R4_C05",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-structure-at-matched-policy', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|p"
+   },
+   {
+    "cell": "R4_C01",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-structure-at-matched-policy', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|p"
+   },
+   {
+    "cell": "R4_C00",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-structure-at-matched-policy', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|p"
+   },
+   {
+    "cell": "R6_ADA",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-structure-at-matched-policy', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|p"
+   },
+   {
+    "cell": "B1",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-structure-at-matched-policy', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|p"
+   },
+   {
+    "cell": "B2",
+    "admitted": false,
+    "refusal": "InadmissibleComparison(contract=ExperimentContract(experiment='exp6', version='6.0-structure-at-matched-policy', stage='certification', objective='lambda_scalarized_path_level', objective_version='lambda=2.0', evaluator='same_route', envelope='exp4n_common_reference_envelope_exact_0b46d1abc9a80c80', pathset_policy='rebuilt_per_network_per_certify_call', pool_version='exp6-networks-N0-N3-v1', methodology_generation='gen2', solver=SolverPolicy(name='exp6_basin_closure|certify n_keys=8 k_rungs=3 max_rounds=120|initial=gen1_greedy_20000x1_w0|closure=hasse_adjacent_both_directions_explicit_anchor|p"
+   }
+  ]
+ },
+ "sentinels": [
+  {
+   "network": "N3",
+   "cell": "R4_C01",
+   "status": "PASS"
+  },
+  {
+   "network": "N0",
+   "cell": "R2_S10",
+   "status": "PASS"
+  },
+  {
+   "network": "N3",
+   "cell": "REF",
+   "status": "PASS"
+  },
+  {
+   "network": "N0",
+   "cell": "REF",
+   "status": "PASS"
+  }
+ ],
+ "frontier": [
+  {
+   "network": "N0",
+   "cell": "REF",
+   "spec": {
+    "cell": "REF",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2945632.2349138106,
+   "final_objective": 2941892.371426373,
+   "initial_plan_digest": "c4591ff0f6e2d8ad",
+   "final_plan_digest": "aed848588abad24d",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 0.0,
+   "policy_cost_closed_pct": 0.0,
+   "policy_cost_greedy_only": 0.0,
+   "policy_cost_greedy_only_pct": 0.0,
+   "basin_contamination": 0.0,
+   "served_demand": 21143.69720673002,
+   "unserved_demand": 9805.302793269986,
+   "generalized_cost": 1765256.0362339746,
+   "gc_per_served_trip": 83.48852232295945,
+   "hours_used": 2515.678063539719,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.5052697936143886,
+   "peak_used": {
+    "early": "85.27348737380629",
+    "am_peak": "161.7023563258637",
+    "midday": "159.0223702613524",
+    "pm_peak": "176.12717824074073",
+    "evening": "140.15894402141083",
+    "owl": "35.510838383804455"
+   },
+   "peak_slack": {
+    "early": "0.008595959527028185",
+    "am_peak": "0.3070881185807366",
+    "midday": "0.15040751642536065",
+    "pm_peak": "0.36587731481481",
+    "evening": "0.03563931192252312",
+    "owl": "0.04652272730665885"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": null,
+   "n_off": 15,
+   "n_baseline_on_now_off": 15,
+   "rounds_initial": 1,
+   "rounds_final": 1
+  },
+  {
+   "network": "N0",
+   "cell": "R1_H60",
+   "spec": {
+    "cell": "R1_H60",
+    "max_headway": 60.0,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2956071.2947759135,
+   "final_objective": 2956071.2947759135,
+   "initial_plan_digest": "859272a34d3d7e7d",
+   "final_plan_digest": "859272a34d3d7e7d",
+   "winning_basin": "greedy",
+   "policy_cost_closed": 14178.92334954068,
+   "policy_cost_closed_pct": 0.48196608031129456,
+   "policy_cost_greedy_only": 10439.059862102848,
+   "policy_cost_greedy_only_pct": 0.35439114694534485,
+   "basin_contamination": -3739.863487437833,
+   "served_demand": 21208.4610965757,
+   "unserved_demand": 9740.538903424305,
+   "generalized_cost": 1787206.6263649971,
+   "gc_per_served_trip": 84.26856706984545,
+   "hours_used": 2515.768259086433,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.4150742469005309,
+   "peak_used": {
+    "early": "85.21035353535353",
+    "am_peak": "161.92071029411767",
+    "midday": "159.04623542338942",
+    "pm_peak": "176.40083564814813",
+    "evening": "140.15349952185173",
+    "owl": "35.55445707069159"
+   },
+   "peak_slack": {
+    "early": "0.07172979797978485",
+    "am_peak": "0.0887341503267578",
+    "midday": "0.1265423543883344",
+    "pm_peak": "0.09221990740741148",
+    "evening": "0.04108381148162721",
+    "owl": "0.0029040404195228575"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 0,
+    "r1_over_cap": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 2,
+   "rounds_final": 2
+  },
+  {
+   "network": "N0",
+   "cell": "R1_H30",
+   "spec": {
+    "cell": "R1_H30",
+    "max_headway": 30.0,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2958795.1254437594,
+   "final_objective": 2958795.1254437594,
+   "initial_plan_digest": "60f0b38cfeeea459",
+   "final_plan_digest": "60f0b38cfeeea459",
+   "winning_basin": "greedy",
+   "policy_cost_closed": 16902.754017386585,
+   "policy_cost_closed_pct": 0.5745537865884368,
+   "policy_cost_greedy_only": 13162.890529948752,
+   "policy_cost_greedy_only_pct": 0.4468613010793555,
+   "basin_contamination": -3739.863487437833,
+   "served_demand": 21183.61113640647,
+   "unserved_demand": 9765.388863593533,
+   "generalized_cost": 1786948.4618125358,
+   "gc_per_served_trip": 84.3552334068982,
+   "hours_used": 2515.0202919839494,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 2.1630413493840024,
+   "peak_used": {
+    "early": "85.13038594276092",
+    "am_peak": "161.91115380485527",
+    "midday": "158.91998831690796",
+    "pm_peak": "176.3909050925926",
+    "evening": "140.17807265896622",
+    "owl": "35.55736111106057"
+   },
+   "peak_slack": {
+    "early": "0.1516973905723944",
+    "am_peak": "0.09829063958915185",
+    "midday": "0.25278946086979204",
+    "pm_peak": "0.10215046296295327",
+    "evening": "0.016510674367140155",
+    "owl": "5.0540904794615926e-11"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": true
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 0,
+    "r1_over_cap": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 1,
+   "rounds_final": 1
+  },
+  {
+   "network": "N0",
+   "cell": "R1_H20",
+   "spec": {
+    "cell": "R1_H20",
+    "max_headway": 20.0,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2968717.0781066534,
+   "final_objective": 2968717.0781066534,
+   "initial_plan_digest": "f631e3af54d09026",
+   "final_plan_digest": "f631e3af54d09026",
+   "winning_basin": "greedy",
+   "policy_cost_closed": 26824.706680280622,
+   "policy_cost_closed_pct": 0.9118180848769357,
+   "policy_cost_greedy_only": 23084.84319284279,
+   "policy_cost_greedy_only_pct": 0.7836973984472387,
+   "basin_contamination": -3739.863487437833,
+   "served_demand": 21094.413757389328,
+   "unserved_demand": 9854.586242610676,
+   "generalized_cost": 1786166.7289933723,
+   "gc_per_served_trip": 84.67486935339372,
+   "hours_used": 2512.913832760206,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 4.269500573127516,
+   "peak_used": {
+    "early": "85.28208333337065",
+    "am_peak": "161.7715861111894",
+    "midday": "158.72288783504854",
+    "pm_peak": "176.24971296296295",
+    "evening": "140.00283752709583",
+    "owl": "35.55736111106057"
+   },
+   "peak_slack": {
+    "early": "-3.7331915336835664e-11",
+    "am_peak": "0.23785833325501926",
+    "midday": "0.44988994272921445",
+    "pm_peak": "0.24334259259259738",
+    "evening": "0.19174580623752036",
+    "owl": "5.0540904794615926e-11"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": true,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": true
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 0,
+    "r1_over_cap": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 1,
+   "rounds_final": 1
+  },
+  {
+   "network": "N0",
+   "cell": "R2_S25",
+   "spec": {
+    "cell": "R2_S25",
+    "max_headway": null,
+    "max_off_share": 0.25,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2942231.967139845,
+   "final_objective": 2941892.371426373,
+   "initial_plan_digest": "8f61179b6e4d5831",
+   "final_plan_digest": "aed848588abad24d",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 0.0,
+   "policy_cost_closed_pct": 0.0,
+   "policy_cost_greedy_only": -3400.2677739658393,
+   "policy_cost_greedy_only_pct": -0.11543422609460041,
+   "basin_contamination": -3400.2677739658393,
+   "served_demand": 21143.69720673002,
+   "unserved_demand": 9805.302793269986,
+   "generalized_cost": 1765256.0362339746,
+   "gc_per_served_trip": 83.48852232295945,
+   "hours_used": 2515.678063539719,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.5052697936143886,
+   "peak_used": {
+    "early": "85.27348737380629",
+    "am_peak": "161.7023563258637",
+    "midday": "159.0223702613524",
+    "pm_peak": "176.12717824074073",
+    "evening": "140.15894402141083",
+    "owl": "35.510838383804455"
+   },
+   "peak_slack": {
+    "early": "0.008595959527028185",
+    "am_peak": "0.3070881185807366",
+    "midday": "0.15040751642536065",
+    "pm_peak": "0.36587731481481",
+    "evening": "0.03563931192252312",
+    "owl": "0.04652272730665885"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 15,
+    "n_baseline_stop_periods": 0
+   },
+   "n_off": 15,
+   "n_baseline_on_now_off": 15,
+   "rounds_initial": 1,
+   "rounds_final": 2
+  },
+  {
+   "network": "N0",
+   "cell": "R2_S10",
+   "spec": {
+    "cell": "R2_S10",
+    "max_headway": null,
+    "max_off_share": 0.1,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2949292.57104456,
+   "final_objective": 2941892.371426373,
+   "initial_plan_digest": "a928acb38df54e14",
+   "final_plan_digest": "aed848588abad24d",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 0.0,
+   "policy_cost_closed_pct": 0.0,
+   "policy_cost_greedy_only": 3660.3361307494342,
+   "policy_cost_greedy_only_pct": 0.12426317472237114,
+   "basin_contamination": 3660.3361307494342,
+   "served_demand": 21143.69720673002,
+   "unserved_demand": 9805.302793269986,
+   "generalized_cost": 1765256.0362339746,
+   "gc_per_served_trip": 83.48852232295945,
+   "hours_used": 2515.678063539719,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.5052697936143886,
+   "peak_used": {
+    "early": "85.27348737380629",
+    "am_peak": "161.7023563258637",
+    "midday": "159.0223702613524",
+    "pm_peak": "176.12717824074073",
+    "evening": "140.15894402141083",
+    "owl": "35.510838383804455"
+   },
+   "peak_slack": {
+    "early": "0.008595959527028185",
+    "am_peak": "0.3070881185807366",
+    "midday": "0.15040751642536065",
+    "pm_peak": "0.36587731481481",
+    "evening": "0.03563931192252312",
+    "owl": "0.04652272730665885"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 15,
+    "n_baseline_stop_periods": 0
+   },
+   "n_off": 15,
+   "n_baseline_on_now_off": 15,
+   "rounds_initial": 1,
+   "rounds_final": 1
+  },
+  {
+   "network": "N0",
+   "cell": "R2_S05",
+   "spec": {
+    "cell": "R2_S05",
+    "max_headway": null,
+    "max_off_share": 0.05,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2948128.7679281253,
+   "final_objective": 2948128.7679281253,
+   "initial_plan_digest": "2f72d1b9840d45d4",
+   "final_plan_digest": "2f72d1b9840d45d4",
+   "winning_basin": "greedy",
+   "policy_cost_closed": 6236.396501752548,
+   "policy_cost_closed_pct": 0.21198588236349514,
+   "policy_cost_greedy_only": 2496.533014314715,
+   "policy_cost_greedy_only_pct": 0.08475372399595442,
+   "basin_contamination": -3739.863487437833,
+   "served_demand": 21140.082563244952,
+   "unserved_demand": 9808.917436755053,
+   "generalized_cost": 1771058.6755175192,
+   "gc_per_served_trip": 83.77728280951737,
+   "hours_used": 2515.309477681211,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.8738556521225291,
+   "peak_used": {
+    "early": "85.21035353535353",
+    "am_peak": "161.7023563258637",
+    "midday": "159.0223702613524",
+    "pm_peak": "176.12717824074073",
+    "evening": "140.15894402141083",
+    "owl": "35.46123737374128"
+   },
+   "peak_slack": {
+    "early": "0.07172979797978485",
+    "am_peak": "0.3070881185807366",
+    "midday": "0.15040751642536065",
+    "pm_peak": "0.36587731481481",
+    "evening": "0.03563931192252312",
+    "owl": "0.0961237373698367"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 8,
+    "n_baseline_stop_periods": 0
+   },
+   "n_off": 8,
+   "n_baseline_on_now_off": 8,
+   "rounds_initial": 2,
+   "rounds_final": 2
+  },
+  {
+   "network": "N0",
+   "cell": "R3_SPAN",
+   "spec": {
+    "cell": "R3_SPAN",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": true,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2961387.5034942282,
+   "final_objective": 2956071.2947759135,
+   "initial_plan_digest": "300ca438da01200d",
+   "final_plan_digest": "859272a34d3d7e7d",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 14178.92334954068,
+   "policy_cost_closed_pct": 0.48196608031129456,
+   "policy_cost_greedy_only": 15755.268580417614,
+   "policy_cost_greedy_only_pct": 0.534868826925321,
+   "basin_contamination": 1576.3452308769338,
+   "served_demand": 21208.4610965757,
+   "unserved_demand": 9740.538903424305,
+   "generalized_cost": 1787206.6263649971,
+   "gc_per_served_trip": 84.26856706984545,
+   "hours_used": 2515.768259086433,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.4150742469005309,
+   "peak_used": {
+    "early": "85.21035353535353",
+    "am_peak": "161.92071029411767",
+    "midday": "159.04623542338942",
+    "pm_peak": "176.40083564814813",
+    "evening": "140.15349952185173",
+    "owl": "35.55445707069159"
+   },
+   "peak_slack": {
+    "early": "0.07172979797978485",
+    "am_peak": "0.0887341503267578",
+    "midday": "0.1265423543883344",
+    "pm_peak": "0.09221990740741148",
+    "evening": "0.04108381148162721",
+    "owl": "0.0029040404195228575"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 0,
+    "r3_span_off": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 5,
+   "rounds_final": 1
+  },
+  {
+   "network": "N0",
+   "cell": "R4_C05",
+   "spec": {
+    "cell": "R4_C05",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": 0.05,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2954931.6584397713,
+   "final_objective": 2949074.5026453477,
+   "initial_plan_digest": "28590b3beb79c844",
+   "final_plan_digest": "a9a538d8a83ab52f",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 7182.131218974944,
+   "policy_cost_closed_pct": 0.24413303792934807,
+   "policy_cost_greedy_only": 9299.42352596065,
+   "policy_cost_greedy_only_pct": 0.3157021238339603,
+   "basin_contamination": 2117.292306985706,
+   "served_demand": 20501.154923858896,
+   "unserved_demand": 10447.84507614111,
+   "generalized_cost": 1695333.0935084147,
+   "gc_per_served_trip": 82.6945164701631,
+   "hours_used": 2516.583058218321,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 0.6002751150122094,
+   "peak_used": {
+    "early": "85.21035353535353",
+    "am_peak": "161.94256029411764",
+    "midday": "159.1327782474635",
+    "pm_peak": "176.23419212962963",
+    "evening": "139.97958631140628",
+    "owl": "35.54089520200788"
+   },
+   "peak_slack": {
+    "early": "0.07172979797978485",
+    "am_peak": "0.06688415032678563",
+    "midday": "0.03999953031424752",
+    "pm_peak": "0.2588634259259095",
+    "evening": "0.2149970219270756",
+    "owl": "0.01646590910323198"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 14,
+    "n_baseline_stop_periods": 16855,
+    "r4_lost_stop_periods": 838
+   },
+   "n_off": 14,
+   "n_baseline_on_now_off": 14,
+   "rounds_initial": 2,
+   "rounds_final": 3
+  },
+  {
+   "network": "N0",
+   "cell": "R4_C01",
+   "spec": {
+    "cell": "R4_C01",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": 0.01,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2954482.0004912065,
+   "final_objective": 2954482.0004912065,
+   "initial_plan_digest": "b1de91e0d533ea1d",
+   "final_plan_digest": "b1de91e0d533ea1d",
+   "winning_basin": "greedy",
+   "policy_cost_closed": 12589.629064833745,
+   "policy_cost_closed_pct": 0.4279432241339842,
+   "policy_cost_greedy_only": 8849.765577395912,
+   "policy_cost_greedy_only_pct": 0.3004368798148645,
+   "basin_contamination": -3739.863487437833,
+   "served_demand": 20545.771658981565,
+   "unserved_demand": 10403.22834101844,
+   "generalized_cost": 1706094.5995689938,
+   "gc_per_served_trip": 83.03872095371878,
+   "hours_used": 2516.5947248850725,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 0.5886084482608567,
+   "peak_used": {
+    "early": "85.21035353535353",
+    "am_peak": "161.94256029411764",
+    "midday": "159.1327782474635",
+    "pm_peak": "176.23419212962963",
+    "evening": "139.97958631140628",
+    "owl": "35.54313131313521"
+   },
+   "peak_slack": {
+    "early": "0.07172979797978485",
+    "am_peak": "0.06688415032678563",
+    "midday": "0.03999953031424752",
+    "pm_peak": "0.2588634259259095",
+    "evening": "0.2149970219270756",
+    "owl": "0.014229797975900738"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 9,
+    "n_baseline_stop_periods": 16855,
+    "r4_lost_stop_periods": 151
+   },
+   "n_off": 9,
+   "n_baseline_on_now_off": 9,
+   "rounds_initial": 2,
+   "rounds_final": 2
+  },
+  {
+   "network": "N0",
+   "cell": "R4_C00",
+   "spec": {
+    "cell": "R4_C00",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": 0.0,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2956115.3930336195,
+   "final_objective": 2956071.2947759135,
+   "initial_plan_digest": "bf0dbf0cf28fde1c",
+   "final_plan_digest": "859272a34d3d7e7d",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 14178.92334954068,
+   "policy_cost_closed_pct": 0.48196608031129456,
+   "policy_cost_greedy_only": 10483.158119808882,
+   "policy_cost_greedy_only_pct": 0.35588821970219986,
+   "basin_contamination": -3695.765229731798,
+   "served_demand": 21208.4610965757,
+   "unserved_demand": 9740.538903424305,
+   "generalized_cost": 1787206.6263649971,
+   "gc_per_served_trip": 84.26856706984545,
+   "hours_used": 2515.768259086433,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.4150742469005309,
+   "peak_used": {
+    "early": "85.21035353535353",
+    "am_peak": "161.92071029411767",
+    "midday": "159.04623542338942",
+    "pm_peak": "176.40083564814813",
+    "evening": "140.15349952185173",
+    "owl": "35.55445707069159"
+   },
+   "peak_slack": {
+    "early": "0.07172979797978485",
+    "am_peak": "0.0887341503267578",
+    "midday": "0.1265423543883344",
+    "pm_peak": "0.09221990740741148",
+    "evening": "0.04108381148162721",
+    "owl": "0.0029040404195228575"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 16855,
+    "r4_lost_stop_periods": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 2,
+   "rounds_final": 1
+  },
+  {
+   "network": "N0",
+   "cell": "R6_ADA",
+   "spec": {
+    "cell": "R6_ADA",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": 1207.008,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2954998.1050359528,
+   "final_objective": 2954847.7300574416,
+   "initial_plan_digest": "7a9923f6d7438021",
+   "final_plan_digest": "b517f6731e99c4d3",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 12955.35863106884,
+   "policy_cost_closed_pct": 0.44037500341276764,
+   "policy_cost_greedy_only": 9365.870122142136,
+   "policy_cost_greedy_only_pct": 0.31795789070783925,
+   "basin_contamination": -3589.4885089267045,
+   "served_demand": 21197.935497905575,
+   "unserved_demand": 9751.06450209443,
+   "generalized_cost": 1784719.9898061103,
+   "gc_per_served_trip": 84.19310408706765,
+   "hours_used": 2514.8349257530235,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 2.3484075803098676,
+   "peak_used": {
+    "early": "85.21035353535353",
+    "am_peak": "161.92071029411767",
+    "midday": "159.04623542338942",
+    "pm_peak": "176.40083564814813",
+    "evening": "140.15349952185173",
+    "owl": "35.37556818178816"
+   },
+   "peak_slack": {
+    "early": "0.07172979797978485",
+    "am_peak": "0.0887341503267578",
+    "midday": "0.1265423543883344",
+    "pm_peak": "0.09221990740741148",
+    "evening": "0.04108381148162721",
+    "owl": "0.18179292932295255"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 2,
+    "n_baseline_stop_periods": 16855,
+    "r6_uncovered_stop_periods": 0
+   },
+   "n_off": 2,
+   "n_baseline_on_now_off": 2,
+   "rounds_initial": 2,
+   "rounds_final": 4
+  },
+  {
+   "network": "N0",
+   "cell": "B1",
+   "spec": {
+    "cell": "B1",
+    "max_headway": null,
+    "max_off_share": 0.1,
+    "span": true,
+    "max_lost_share": null,
+    "area_radius_m": 1207.008,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2959465.8168958137,
+   "final_objective": 2956071.2947759135,
+   "initial_plan_digest": "79878cacd593ab06",
+   "final_plan_digest": "859272a34d3d7e7d",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 14178.92334954068,
+   "policy_cost_closed_pct": 0.48196608031129456,
+   "policy_cost_greedy_only": 13833.58198200306,
+   "policy_cost_greedy_only_pct": 0.4696303163048401,
+   "basin_contamination": -345.3413675376214,
+   "served_demand": 21208.4610965757,
+   "unserved_demand": 9740.538903424305,
+   "generalized_cost": 1787206.6263649971,
+   "gc_per_served_trip": 84.26856706984545,
+   "hours_used": 2515.768259086433,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.4150742469005309,
+   "peak_used": {
+    "early": "85.21035353535353",
+    "am_peak": "161.92071029411767",
+    "midday": "159.04623542338942",
+    "pm_peak": "176.40083564814813",
+    "evening": "140.15349952185173",
+    "owl": "35.55445707069159"
+   },
+   "peak_slack": {
+    "early": "0.07172979797978485",
+    "am_peak": "0.0887341503267578",
+    "midday": "0.1265423543883344",
+    "pm_peak": "0.09221990740741148",
+    "evening": "0.04108381148162721",
+    "owl": "0.0029040404195228575"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 16855,
+    "r3_span_off": 0,
+    "r6_uncovered_stop_periods": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 2,
+   "rounds_final": 1
+  },
+  {
+   "network": "N0",
+   "cell": "B2",
+   "spec": {
+    "cell": "B2",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": true,
+    "max_lost_share": 0.01,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2956692.06409274,
+   "final_objective": 2956071.2947759135,
+   "initial_plan_digest": "5deb5a8bd7d8763f",
+   "final_plan_digest": "859272a34d3d7e7d",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 14178.92334954068,
+   "policy_cost_closed_pct": 0.48196608031129456,
+   "policy_cost_greedy_only": 11059.829178929329,
+   "policy_cost_greedy_only_pct": 0.37546537710444833,
+   "basin_contamination": -3119.0941706113517,
+   "served_demand": 21208.4610965757,
+   "unserved_demand": 9740.538903424305,
+   "generalized_cost": 1787206.6263649971,
+   "gc_per_served_trip": 84.26856706984545,
+   "hours_used": 2515.768259086433,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.4150742469005309,
+   "peak_used": {
+    "early": "85.21035353535353",
+    "am_peak": "161.92071029411767",
+    "midday": "159.04623542338942",
+    "pm_peak": "176.40083564814813",
+    "evening": "140.15349952185173",
+    "owl": "35.55445707069159"
+   },
+   "peak_slack": {
+    "early": "0.07172979797978485",
+    "am_peak": "0.0887341503267578",
+    "midday": "0.1265423543883344",
+    "pm_peak": "0.09221990740741148",
+    "evening": "0.04108381148162721",
+    "owl": "0.0029040404195228575"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 16855,
+    "r3_span_off": 0,
+    "r4_lost_stop_periods": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 2,
+   "rounds_final": 1
+  },
+  {
+   "network": "N3",
+   "cell": "REF",
+   "spec": {
+    "cell": "REF",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2939912.5807124916,
+   "final_objective": 2935166.0254381876,
+   "initial_plan_digest": "28135d0fa655e6e1",
+   "final_plan_digest": "fdec5c5475c73736",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 0.0,
+   "policy_cost_closed_pct": 0.0,
+   "policy_cost_greedy_only": 0.0,
+   "policy_cost_greedy_only_pct": 0.0,
+   "basin_contamination": 0.0,
+   "served_demand": 21104.059416040294,
+   "unserved_demand": 9844.94058395971,
+   "generalized_cost": 1753773.1553630226,
+   "gc_per_served_trip": 83.10122336132424,
+   "hours_used": 2516.373410297668,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 0.8099230356651788,
+   "peak_used": {
+    "early": "85.2105471585071",
+    "am_peak": "161.96943864462204",
+    "midday": "159.160642406323",
+    "pm_peak": "176.43927770204067",
+    "evening": "139.82839817282394",
+    "owl": "35.45759411490257"
+   },
+   "peak_slack": {
+    "early": "0.0715361748262211",
+    "am_peak": "0.040005799822381505",
+    "midday": "0.012135371454746746",
+    "pm_peak": "0.053777853514873186",
+    "evening": "0.3661851605094171",
+    "owl": "0.0997669962085439"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": null,
+   "n_off": 17,
+   "n_baseline_on_now_off": 17,
+   "rounds_initial": 1,
+   "rounds_final": 1
+  },
+  {
+   "network": "N3",
+   "cell": "R1_H60",
+   "spec": {
+    "cell": "R1_H60",
+    "max_headway": 60.0,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2950532.5669298135,
+   "final_objective": 2950532.5669298135,
+   "initial_plan_digest": "591eebe7630410f2",
+   "final_plan_digest": "591eebe7630410f2",
+   "winning_basin": "greedy",
+   "policy_cost_closed": 15366.54149162583,
+   "policy_cost_closed_pct": 0.5235322758047998,
+   "policy_cost_greedy_only": 10619.986217321828,
+   "policy_cost_greedy_only_pct": 0.3612347621148674,
+   "basin_contamination": -4746.5552743040025,
+   "served_demand": 21234.46531750442,
+   "unserved_demand": 9714.534682495585,
+   "generalized_cost": 1784788.4050303434,
+   "gc_per_served_trip": 84.05148791568917,
+   "hours_used": 2515.761224521931,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.4221088114022677,
+   "peak_used": {
+    "early": "85.22244984801779",
+    "am_peak": "161.90669975573314",
+    "midday": "159.09930907298966",
+    "pm_peak": "176.36325546467106",
+    "evening": "140.14444469689752",
+    "owl": "35.52783493624065"
+   },
+   "peak_slack": {
+    "early": "0.05963348531552981",
+    "am_peak": "0.10274468871128306",
+    "midday": "0.0734687047880982",
+    "pm_peak": "0.12980009088448696",
+    "evening": "0.050138636435832495",
+    "owl": "0.02952617487046183"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 0,
+    "r1_over_cap": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 2,
+   "rounds_final": 2
+  },
+  {
+   "network": "N3",
+   "cell": "R1_H30",
+   "spec": {
+    "cell": "R1_H30",
+    "max_headway": 30.0,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2953789.4868896715,
+   "final_objective": 2953789.4868896715,
+   "initial_plan_digest": "d5f131ff9dd2bf24",
+   "final_plan_digest": "d5f131ff9dd2bf24",
+   "winning_basin": "greedy",
+   "policy_cost_closed": 18623.46145148389,
+   "policy_cost_closed_pct": 0.6344943110570249,
+   "policy_cost_greedy_only": 13876.906177179888,
+   "policy_cost_greedy_only_pct": 0.47201764665454105,
+   "basin_contamination": -4746.5552743040025,
+   "served_demand": 21216.300057533957,
+   "unserved_demand": 9732.69994246605,
+   "generalized_cost": 1785865.4937937455,
+   "gc_per_served_trip": 84.17421930076732,
+   "hours_used": 2514.5083621730246,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 2.6749711603088144,
+   "peak_used": {
+    "early": "85.25558494902792",
+    "am_peak": "161.93021945694696",
+    "midday": "159.05888604058228",
+    "pm_peak": "176.27334805726363",
+    "evening": "139.87374848878466",
+    "owl": "35.53073897660963"
+   },
+   "peak_slack": {
+    "early": "0.026498384305398304",
+    "am_peak": "0.07922498749746865",
+    "midday": "0.1138917371954733",
+    "pm_peak": "0.2197074982919105",
+    "evening": "0.32083484454869904",
+    "owl": "0.026622134501479877"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 0,
+    "r1_over_cap": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 1,
+   "rounds_final": 1
+  },
+  {
+   "network": "N3",
+   "cell": "R1_H20",
+   "spec": {
+    "cell": "R1_H20",
+    "max_headway": 20.0,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "INFEASIBLE_UNDER_ENVELOPE",
+   "usage_vs_caps_of_minimum_service_plan": {
+    "hours": [
+     "2214.5191387827317",
+     "2517.1833333333334",
+     false
+    ],
+    "early": [
+     "85.29871576328418",
+     "85.28208333333332",
+     true
+    ],
+    "am_peak": [
+     "139.56445573158038",
+     "162.00944444444443",
+     false
+    ],
+    "midday": [
+     "135.2086240558552",
+     "159.17277777777775",
+     false
+    ],
+    "pm_peak": [
+     "150.80303324244883",
+     "176.49305555555554",
+     false
+    ],
+    "evening": [
+     "125.25773323917416",
+     "140.19458333333336",
+     false
+    ],
+    "owl": [
+     "35.53073897660963",
+     "35.55736111111111",
+     false
+    ]
+   }
+  },
+  {
+   "network": "N3",
+   "cell": "R2_S25",
+   "spec": {
+    "cell": "R2_S25",
+    "max_headway": null,
+    "max_off_share": 0.25,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2937538.0276397127,
+   "final_objective": 2935166.0254381876,
+   "initial_plan_digest": "b2302ca64a98d7e3",
+   "final_plan_digest": "fdec5c5475c73736",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 0.0,
+   "policy_cost_closed_pct": 0.0,
+   "policy_cost_greedy_only": -2374.5530727789737,
+   "policy_cost_greedy_only_pct": -0.0807695129561811,
+   "basin_contamination": -2374.5530727789737,
+   "served_demand": 21104.059416040294,
+   "unserved_demand": 9844.94058395971,
+   "generalized_cost": 1753773.1553630226,
+   "gc_per_served_trip": 83.10122336132424,
+   "hours_used": 2516.373410297668,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 0.8099230356651788,
+   "peak_used": {
+    "early": "85.2105471585071",
+    "am_peak": "161.96943864462204",
+    "midday": "159.160642406323",
+    "pm_peak": "176.43927770204067",
+    "evening": "139.82839817282394",
+    "owl": "35.45759411490257"
+   },
+   "peak_slack": {
+    "early": "0.0715361748262211",
+    "am_peak": "0.040005799822381505",
+    "midday": "0.012135371454746746",
+    "pm_peak": "0.053777853514873186",
+    "evening": "0.3661851605094171",
+    "owl": "0.0997669962085439"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 17,
+    "n_baseline_stop_periods": 0
+   },
+   "n_off": 17,
+   "n_baseline_on_now_off": 17,
+   "rounds_initial": 1,
+   "rounds_final": 1
+  },
+  {
+   "network": "N3",
+   "cell": "R2_S10",
+   "spec": {
+    "cell": "R2_S10",
+    "max_headway": null,
+    "max_off_share": 0.1,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2943352.3652995555,
+   "final_objective": 2935166.0254381876,
+   "initial_plan_digest": "446b6ff3c3331d59",
+   "final_plan_digest": "fdec5c5475c73736",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 0.0,
+   "policy_cost_closed_pct": 0.0,
+   "policy_cost_greedy_only": 3439.7845870638266,
+   "policy_cost_greedy_only_pct": 0.11700295476915815,
+   "basin_contamination": 3439.7845870638266,
+   "served_demand": 21104.059416040294,
+   "unserved_demand": 9844.94058395971,
+   "generalized_cost": 1753773.1553630226,
+   "gc_per_served_trip": 83.10122336132424,
+   "hours_used": 2516.373410297668,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 0.8099230356651788,
+   "peak_used": {
+    "early": "85.2105471585071",
+    "am_peak": "161.96943864462204",
+    "midday": "159.160642406323",
+    "pm_peak": "176.43927770204067",
+    "evening": "139.82839817282394",
+    "owl": "35.45759411490257"
+   },
+   "peak_slack": {
+    "early": "0.0715361748262211",
+    "am_peak": "0.040005799822381505",
+    "midday": "0.012135371454746746",
+    "pm_peak": "0.053777853514873186",
+    "evening": "0.3661851605094171",
+    "owl": "0.0997669962085439"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 17,
+    "n_baseline_stop_periods": 0
+   },
+   "n_off": 17,
+   "n_baseline_on_now_off": 17,
+   "rounds_initial": 1,
+   "rounds_final": 4
+  },
+  {
+   "network": "N3",
+   "cell": "R2_S05",
+   "spec": {
+    "cell": "R2_S05",
+    "max_headway": null,
+    "max_off_share": 0.05,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2942494.1602012054,
+   "final_objective": 2942494.1602012054,
+   "initial_plan_digest": "561444f68239da95",
+   "final_plan_digest": "561444f68239da95",
+   "winning_basin": "greedy",
+   "policy_cost_closed": 7328.134763017762,
+   "policy_cost_closed_pct": 0.24966678884625457,
+   "policy_cost_greedy_only": 2581.57948871376,
+   "policy_cost_greedy_only_pct": 0.08781143717164919,
+   "basin_contamination": -4746.5552743040025,
+   "served_demand": 21168.516706130864,
+   "unserved_demand": 9780.48329386914,
+   "generalized_cost": 1768836.1649369085,
+   "gc_per_served_trip": 83.55975950004164,
+   "hours_used": 2516.6623303410797,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 0.5210029922536705,
+   "peak_used": {
+    "early": "85.22244984801779",
+    "am_peak": "161.96943864462204",
+    "midday": "159.160642406323",
+    "pm_peak": "176.1947137980044",
+    "evening": "140.123402581995",
+    "owl": "35.43461523929034"
+   },
+   "peak_slack": {
+    "early": "0.05963348531552981",
+    "am_peak": "0.040005799822381505",
+    "midday": "0.012135371454746746",
+    "pm_peak": "0.29834175755115666",
+    "evening": "0.07118075133834623",
+    "owl": "0.12274587182077568"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 8,
+    "n_baseline_stop_periods": 0
+   },
+   "n_off": 8,
+   "n_baseline_on_now_off": 8,
+   "rounds_initial": 2,
+   "rounds_final": 2
+  },
+  {
+   "network": "N3",
+   "cell": "R3_SPAN",
+   "spec": {
+    "cell": "R3_SPAN",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": true,
+    "max_lost_share": null,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2956630.557945732,
+   "final_objective": 2950532.5669298135,
+   "initial_plan_digest": "566fcf2afb99a31a",
+   "final_plan_digest": "591eebe7630410f2",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 15366.54149162583,
+   "policy_cost_closed_pct": 0.5235322758047998,
+   "policy_cost_greedy_only": 16717.97723324038,
+   "policy_cost_greedy_only_pct": 0.568655590064816,
+   "basin_contamination": 1351.4357416145504,
+   "served_demand": 21234.46531750442,
+   "unserved_demand": 9714.534682495585,
+   "generalized_cost": 1784788.4050303434,
+   "gc_per_served_trip": 84.05148791568917,
+   "hours_used": 2515.761224521931,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.4221088114022677,
+   "peak_used": {
+    "early": "85.22244984801779",
+    "am_peak": "161.90669975573314",
+    "midday": "159.09930907298966",
+    "pm_peak": "176.36325546467106",
+    "evening": "140.14444469689752",
+    "owl": "35.52783493624065"
+   },
+   "peak_slack": {
+    "early": "0.05963348531552981",
+    "am_peak": "0.10274468871128306",
+    "midday": "0.0734687047880982",
+    "pm_peak": "0.12980009088448696",
+    "evening": "0.050138636435832495",
+    "owl": "0.02952617487046183"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 0,
+    "r3_span_off": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 4,
+   "rounds_final": 1
+  },
+  {
+   "network": "N3",
+   "cell": "R4_C05",
+   "spec": {
+    "cell": "R4_C05",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": 0.05,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2949618.181180831,
+   "final_objective": 2944578.3549554152,
+   "initial_plan_digest": "47447e8c1fc65e1a",
+   "final_plan_digest": "4e49377ae82b3c69",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 9412.329517227598,
+   "policy_cost_closed_pct": 0.32067451843111466,
+   "policy_cost_greedy_only": 9705.600468339399,
+   "policy_cost_greedy_only_pct": 0.33013228121181865,
+   "basin_contamination": 293.27095111180097,
+   "served_demand": 21167.303428536125,
+   "unserved_demand": 9781.696571463877,
+   "generalized_cost": 1770774.7663797496,
+   "gc_per_served_trip": 83.6561337327705,
+   "hours_used": 2515.779408479202,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.403924854131219,
+   "peak_used": {
+    "early": "85.2105471585071",
+    "am_peak": "161.90669975573314",
+    "midday": "159.09930907298966",
+    "pm_peak": "176.36325546467106",
+    "evening": "140.14444469689752",
+    "owl": "35.53528775788784"
+   },
+   "peak_slack": {
+    "early": "0.0715361748262211",
+    "am_peak": "0.10274468871128306",
+    "midday": "0.0734687047880982",
+    "pm_peak": "0.12980009088448696",
+    "evening": "0.050138636435832495",
+    "owl": "0.022073353223269976"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 6,
+    "n_baseline_stop_periods": 16859,
+    "r4_lost_stop_periods": 832
+   },
+   "n_off": 6,
+   "n_baseline_on_now_off": 6,
+   "rounds_initial": 1,
+   "rounds_final": 2
+  },
+  {
+   "network": "N3",
+   "cell": "R4_C01",
+   "spec": {
+    "cell": "R4_C01",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": 0.01,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2951441.288567108,
+   "final_objective": 2949169.0785097736,
+   "initial_plan_digest": "7fb143000d8dc34b",
+   "final_plan_digest": "a31340754c802f19",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 14003.05307158595,
+   "policy_cost_closed_pct": 0.47707873933623396,
+   "policy_cost_greedy_only": 11528.707854616456,
+   "policy_cost_greedy_only_pct": 0.3921445804290704,
+   "basin_contamination": -2474.345216969494,
+   "served_demand": 21210.10626566318,
+   "unserved_demand": 9738.893734336822,
+   "generalized_cost": 1780501.830389355,
+   "gc_per_served_trip": 83.94591748329856,
+   "hours_used": 2515.611224521931,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.5721088114023587,
+   "peak_used": {
+    "early": "85.22244984801779",
+    "am_peak": "161.90669975573314",
+    "midday": "159.09930907298966",
+    "pm_peak": "176.36325546467106",
+    "evening": "140.14444469689752",
+    "owl": "35.49908493624065"
+   },
+   "peak_slack": {
+    "early": "0.05963348531552981",
+    "am_peak": "0.10274468871128306",
+    "midday": "0.0734687047880982",
+    "pm_peak": "0.12980009088448696",
+    "evening": "0.050138636435832495",
+    "owl": "0.058276174870464104"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 1,
+    "n_baseline_stop_periods": 16859,
+    "r4_lost_stop_periods": 137
+   },
+   "n_off": 1,
+   "n_baseline_on_now_off": 1,
+   "rounds_initial": 3,
+   "rounds_final": 2
+  },
+  {
+   "network": "N3",
+   "cell": "R4_C00",
+   "spec": {
+    "cell": "R4_C00",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": 0.0,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2950532.5669298135,
+   "final_objective": 2950532.5669298135,
+   "initial_plan_digest": "591eebe7630410f2",
+   "final_plan_digest": "591eebe7630410f2",
+   "winning_basin": "greedy",
+   "policy_cost_closed": 15366.54149162583,
+   "policy_cost_closed_pct": 0.5235322758047998,
+   "policy_cost_greedy_only": 10619.986217321828,
+   "policy_cost_greedy_only_pct": 0.3612347621148674,
+   "basin_contamination": -4746.5552743040025,
+   "served_demand": 21234.46531750442,
+   "unserved_demand": 9714.534682495585,
+   "generalized_cost": 1784788.4050303434,
+   "gc_per_served_trip": 84.05148791568917,
+   "hours_used": 2515.761224521931,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.4221088114022677,
+   "peak_used": {
+    "early": "85.22244984801779",
+    "am_peak": "161.90669975573314",
+    "midday": "159.09930907298966",
+    "pm_peak": "176.36325546467106",
+    "evening": "140.14444469689752",
+    "owl": "35.52783493624065"
+   },
+   "peak_slack": {
+    "early": "0.05963348531552981",
+    "am_peak": "0.10274468871128306",
+    "midday": "0.0734687047880982",
+    "pm_peak": "0.12980009088448696",
+    "evening": "0.050138636435832495",
+    "owl": "0.02952617487046183"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 16859,
+    "r4_lost_stop_periods": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 2,
+   "rounds_final": 2
+  },
+  {
+   "network": "N3",
+   "cell": "R6_ADA",
+   "spec": {
+    "cell": "R6_ADA",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": false,
+    "max_lost_share": null,
+    "area_radius_m": 1207.008,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2949413.8828011495,
+   "final_objective": 2949413.8828011495,
+   "initial_plan_digest": "0afda9bbeb993aa2",
+   "final_plan_digest": "0afda9bbeb993aa2",
+   "winning_basin": "greedy",
+   "policy_cost_closed": 14247.857362961862,
+   "policy_cost_closed_pct": 0.4854191292581078,
+   "policy_cost_greedy_only": 9501.30208865786,
+   "policy_cost_greedy_only_pct": 0.32318315010425264,
+   "basin_contamination": -4746.5552743040025,
+   "served_demand": 19986.980605199984,
+   "unserved_demand": 10962.019394800016,
+   "generalized_cost": 1633971.5554251475,
+   "gc_per_served_trip": 81.75179571645951,
+   "hours_used": 2514.195714706256,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 2.987618627077609,
+   "peak_used": {
+    "early": "85.11468090869278",
+    "am_peak": "161.8524119172644",
+    "midday": "159.08065987372666",
+    "pm_peak": "176.28565129800438",
+    "evening": "139.95340178618835",
+    "owl": "35.475659010314715"
+   },
+   "peak_slack": {
+    "early": "0.16740242464054234",
+    "am_peak": "0.15703252718003569",
+    "midday": "0.09211790405109355",
+    "pm_peak": "0.2074042575511612",
+    "evening": "0.24118154714500406",
+    "owl": "0.08170210079639872"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 18,
+    "n_baseline_stop_periods": 16859,
+    "r6_uncovered_stop_periods": 0
+   },
+   "n_off": 18,
+   "n_baseline_on_now_off": 18,
+   "rounds_initial": 1,
+   "rounds_final": 1
+  },
+  {
+   "network": "N3",
+   "cell": "B1",
+   "spec": {
+    "cell": "B1",
+    "max_headway": null,
+    "max_off_share": 0.1,
+    "span": true,
+    "max_lost_share": null,
+    "area_radius_m": 1207.008,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2954543.2167176595,
+   "final_objective": 2950532.5669298135,
+   "initial_plan_digest": "d28d446a443a986b",
+   "final_plan_digest": "591eebe7630410f2",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 15366.54149162583,
+   "policy_cost_closed_pct": 0.5235322758047998,
+   "policy_cost_greedy_only": 14630.63600516785,
+   "policy_cost_greedy_only_pct": 0.4976554779605758,
+   "basin_contamination": -735.9054864579812,
+   "served_demand": 21234.46531750442,
+   "unserved_demand": 9714.534682495585,
+   "generalized_cost": 1784788.4050303434,
+   "gc_per_served_trip": 84.05148791568917,
+   "hours_used": 2515.761224521931,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.4221088114022677,
+   "peak_used": {
+    "early": "85.22244984801779",
+    "am_peak": "161.90669975573314",
+    "midday": "159.09930907298966",
+    "pm_peak": "176.36325546467106",
+    "evening": "140.14444469689752",
+    "owl": "35.52783493624065"
+   },
+   "peak_slack": {
+    "early": "0.05963348531552981",
+    "am_peak": "0.10274468871128306",
+    "midday": "0.0734687047880982",
+    "pm_peak": "0.12980009088448696",
+    "evening": "0.050138636435832495",
+    "owl": "0.02952617487046183"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 16859,
+    "r3_span_off": 0,
+    "r6_uncovered_stop_periods": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 2,
+   "rounds_final": 1
+  },
+  {
+   "network": "N3",
+   "cell": "B2",
+   "spec": {
+    "cell": "B2",
+    "max_headway": null,
+    "max_off_share": null,
+    "span": true,
+    "max_lost_share": 0.01,
+    "area_radius_m": null,
+    "catalog_digest": "e22f2c94c8f53475"
+   },
+   "status": "CERTIFIED",
+   "initial_objective": 2951774.4228982246,
+   "final_objective": 2950532.5669298135,
+   "initial_plan_digest": "706aeff762c4e540",
+   "final_plan_digest": "591eebe7630410f2",
+   "winning_basin": "anchor",
+   "policy_cost_closed": 15366.54149162583,
+   "policy_cost_closed_pct": 0.5235322758047998,
+   "policy_cost_greedy_only": 11861.842185732909,
+   "policy_cost_greedy_only_pct": 0.40347601706096226,
+   "basin_contamination": -3504.699305892922,
+   "served_demand": 21234.46531750442,
+   "unserved_demand": 9714.534682495585,
+   "generalized_cost": 1784788.4050303434,
+   "gc_per_served_trip": 84.05148791568917,
+   "hours_used": 2515.761224521931,
+   "hours_cap": 2517.1833333333334,
+   "hours_slack": 1.4221088114022677,
+   "peak_used": {
+    "early": "85.22244984801779",
+    "am_peak": "161.90669975573314",
+    "midday": "159.09930907298966",
+    "pm_peak": "176.36325546467106",
+    "evening": "140.14444469689752",
+    "owl": "35.52783493624065"
+   },
+   "peak_slack": {
+    "early": "0.05963348531552981",
+    "am_peak": "0.10274468871128306",
+    "midday": "0.0734687047880982",
+    "pm_peak": "0.12980009088448696",
+    "evening": "0.050138636435832495",
+    "owl": "0.02952617487046183"
+   },
+   "binding_resource": {
+    "hours": false,
+    "peak_proxy_by_period": {
+     "early": false,
+     "am_peak": false,
+     "midday": false,
+     "pm_peak": false,
+     "evening": false,
+     "owl": false
+    }
+   },
+   "policy_measure": {
+    "n_baseline_served_rp": 173,
+    "n_off_baseline_served": 0,
+    "n_baseline_stop_periods": 16859,
+    "r3_span_off": 0,
+    "r4_lost_stop_periods": 0
+   },
+   "n_off": 0,
+   "n_baseline_on_now_off": 0,
+   "rounds_initial": 3,
+   "rounds_final": 1
+  }
+ ],
+ "failures": [
+  "firewall policy N0 R1_H60",
+  "firewall policy N0 R1_H30",
+  "firewall policy N0 R1_H20",
+  "firewall policy N0 R2_S25",
+  "firewall policy N0 R2_S05",
+  "firewall policy N0 R3_SPAN",
+  "firewall policy N0 R4_C05",
+  "firewall policy N0 R4_C01",
+  "firewall policy N0 R4_C00",
+  "firewall policy N0 R6_ADA",
+  "firewall policy N0 B1",
+  "firewall policy N0 B2",
+  "firewall policy N3 R1_H60",
+  "firewall policy N3 R1_H30",
+  "firewall policy N3 R2_S10",
+  "firewall policy N3 R2_S05",
+  "firewall policy N3 R3_SPAN",
+  "firewall policy N3 R4_C05",
+  "firewall policy N3 R4_C01",
+  "firewall policy N3 R4_C00",
+  "firewall policy N3 R6_ADA",
+  "firewall policy N3 B1",
+  "firewall policy N3 B2",
+  "firewall structure REF",
+  "firewall structure R2_S25",
+  "firewall structure R2_S10",
+  "firewall structure R3_SPAN",
+  "firewall structure R4_C05",
+  "firewall structure R4_C01",
+  "firewall structure R4_C00",
+  "firewall structure R6_ADA",
+  "firewall structure B1",
+  "firewall structure B2"
+ ],
+ "status": "FAILED: firewall policy N0 R1_H60; firewall policy N0 R1_H30; firewall policy N0 R1_H20; firewall policy N0 R2_S25; firewall policy N0 R2_S05; firewall policy N0 R3_SPAN; firewall policy N0 R4_C05; firewall policy N0 R4_C01; firewall policy N0 R4_C00; firewall policy N0 R6_ADA; firewall policy N0 B1; firewall policy N0 B2; firewall policy N3 R1_H60; firewall policy N3 R1_H30; firewall policy N3 R2_S10; firewall policy N3 R2_S05; firewall policy N3 R3_SPAN; firewall policy N3 R4_C05; firewall policy N3 R4_C01; firewall policy N3 R4_C00; firewall policy N3 R6_ADA; firewall policy N3 B1; firewall policy N3 B2; firewall structure REF; firewall structure R2_S25; firewall structure R2_S10; firewall structure R3_SPAN; firewall structure R4_C05; firewall structure R4_C01; firewall structure R4_C00; firewall structure R6_ADA; firewall structure B1; firewall structure B2"
+}
