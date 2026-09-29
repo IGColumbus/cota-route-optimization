@@ -1,0 +1,131 @@
+{
+ "note": "PREFLIGHT INSTRUMENTATION ONLY -- one level per knob to prove it reaches the evaluator. NOT the Exp 7 matrix; the matrix levels come from the as-issued protocol.",
+ "levels": [
+  {
+   "name": "R_LAM1",
+   "dimension": "lambda",
+   "lam": 1.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [],
+   "rationale": "reach: lambda"
+  },
+  {
+   "name": "R_WAIT_PATTERN",
+   "dimension": "waiting_model",
+   "lam": 2.0,
+   "waiting_model": "pattern",
+   "overrides": [],
+   "od": [],
+   "rationale": "reach: pattern waiting model"
+  },
+  {
+   "name": "R_WAITCOEF",
+   "dimension": "waiting",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "waiting.schedule_coefficient",
+     0.5
+    ]
+   ],
+   "od": [],
+   "rationale": "reach: schedule-wait coefficient"
+  },
+  {
+   "name": "R_RET_ZERO300",
+   "dimension": "retention",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.cost_retention_zero_min",
+     300
+    ]
+   ],
+   "od": [],
+   "rationale": "reach: retention zero point"
+  },
+  {
+   "name": "R_RET_FLOOR0",
+   "dimension": "retention",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.cost_retention_floor",
+     0.0
+    ]
+   ],
+   "od": [],
+   "rationale": "reach: retention floor"
+  },
+  {
+   "name": "R_PATHS2",
+   "dimension": "path_model",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [
+    [
+     "path_assignment.max_paths_per_od",
+     2
+    ]
+   ],
+   "od": [],
+   "rationale": "reach: path-set width"
+  },
+  {
+   "name": "R_SCALE15",
+   "dimension": "demand_scale",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "scale",
+     {
+      "factor": 1.5
+     }
+    ]
+   ],
+   "rationale": "reach: OD scale"
+  },
+  {
+   "name": "R_TILT_PEAK",
+   "dimension": "period_mix",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "periods_tilt",
+     {
+      "strength": 0.5,
+      "toward": [
+       "am_peak",
+       "pm_peak"
+      ]
+     }
+    ]
+   ],
+   "rationale": "reach: period tilt"
+  },
+  {
+   "name": "R_TOPK40K",
+   "dimension": "wider_od",
+   "lam": 2.0,
+   "waiting_model": "same_route",
+   "overrides": [],
+   "od": [
+    [
+     "wider_top_k",
+     {
+      "top_k": 40000
+     }
+    ]
+   ],
+   "rationale": "reach: wider OD"
+  }
+ ]
+}

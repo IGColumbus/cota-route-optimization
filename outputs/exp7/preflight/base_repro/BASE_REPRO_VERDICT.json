@@ -1,0 +1,38 @@
+{
+ "schema": "exp7_base_repro/v1",
+ "rows": {
+  "N0_R2_S10": {
+   "equal": {
+    "objective_EXACT": true,
+    "plan_digest": true,
+    "rounds": true,
+    "fitness_EXACT": true,
+    "converged": true,
+    "config_digest": true,
+    "pathset_digest": true
+   },
+   "objective": "2949292.57104456",
+   "exp6_objective": "2949292.57104456",
+   "plan_digest": "a928acb38df54e14",
+   "seconds": 477.6
+  },
+  "N3_REF": {
+   "equal": {
+    "objective_EXACT": true,
+    "plan_digest": true,
+    "rounds": true,
+    "fitness_EXACT": true,
+    "converged": true,
+    "config_digest": true,
+    "pathset_digest": true
+   },
+   "objective": "2939912.5807124916",
+   "exp6_objective": "2939912.5807124916",
+   "plan_digest": "28135d0fa655e6e1",
+   "seconds": 498.2
+  }
+ },
+ "passed": true,
+ "src_cota_opt_content_digest": "b63ae2dba134245e",
+ "written_utc": "2026-09-29T12:18:35Z"
+}
