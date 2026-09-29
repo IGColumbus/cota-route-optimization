@@ -40,3 +40,4 @@ outputs/exp5/preflight/*.hb.json
 outputs/exp6/run/
 outputs/exp6/**/*.log
 outputs/exp6/**/*.pid
+.claude/
