@@ -41,3 +41,5 @@ outputs/exp6/run/
 outputs/exp6/**/*.log
 outputs/exp6/**/*.pid
 .claude/
+outputs/exp7/run/
+outputs/exp7/smoke/run/
