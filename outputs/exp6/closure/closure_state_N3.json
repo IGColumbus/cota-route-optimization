@@ -1,0 +1,62 @@
+{
+ "best": {
+  "REF": "outputs/exp6/initial/N3_REF.json",
+  "R1_H60": "outputs/exp6/initial/N3_R1_H60.json",
+  "R1_H30": "outputs/exp6/initial/N3_R1_H30.json",
+  "R1_H20": "outputs/exp6/initial/N3_R1_H20.json",
+  "R2_S25": "outputs/exp6/initial/N3_R2_S25.json",
+  "R2_S10": "outputs/exp6/initial/N3_R2_S10.json",
+  "R2_S05": "outputs/exp6/initial/N3_R2_S05.json",
+  "R3_SPAN": "outputs/exp6/closure/N3_R3_SPAN__from_B2__706aeff762c4e540.json",
+  "R4_C05": "outputs/exp6/initial/N3_R4_C05.json",
+  "R4_C01": "outputs/exp6/initial/N3_R4_C01.json",
+  "R4_C00": "outputs/exp6/initial/N3_R4_C00.json",
+  "R6_ADA": "outputs/exp6/initial/N3_R6_ADA.json",
+  "B1": "outputs/exp6/initial/N3_B1.json",
+  "B2": "outputs/exp6/initial/N3_B2.json"
+ },
+ "found_in_pass": {
+  "REF": 0,
+  "R1_H60": 0,
+  "R1_H30": 0,
+  "R1_H20": 0,
+  "R2_S25": 0,
+  "R2_S10": 0,
+  "R2_S05": 0,
+  "R3_SPAN": 1,
+  "R4_C05": 0,
+  "R4_C01": 0,
+  "R4_C00": 0,
+  "R6_ADA": 0,
+  "B1": 0,
+  "B2": 0
+ },
+ "tried": [
+  [
+   "R1_H60",
+   "d5f131ff9dd2bf24"
+  ],
+  [
+   "R2_S10",
+   "d28d446a443a986b"
+  ],
+  [
+   "R3_SPAN",
+   "706aeff762c4e540"
+  ],
+  [
+   "R3_SPAN",
+   "d28d446a443a986b"
+  ],
+  [
+   "R4_C01",
+   "706aeff762c4e540"
+  ],
+  [
+   "R6_ADA",
+   "d28d446a443a986b"
+  ]
+ ],
+ "passes_completed": 0,
+ "fixed_point": false
+}
