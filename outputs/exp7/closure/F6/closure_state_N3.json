@@ -3,6 +3,14 @@
  "status": null,
  "tried": [
   [
+   "A5_LAM1|R2_S10",
+   "d1d0c7a674203b3b"
+  ],
+  [
+   "A5_LAM1|R3_SPAN",
+   "d1d0c7a674203b3b"
+  ],
+  [
    "BASE|B1",
    "591eebe7630410f2"
   ],
@@ -303,7 +311,7 @@
    "after": "2944578.3549554152"
   }
  ],
- "cursor": 40,
+ "cursor": 44,
  "pass_improved": true,
  "blocking": [],
  "best": {
