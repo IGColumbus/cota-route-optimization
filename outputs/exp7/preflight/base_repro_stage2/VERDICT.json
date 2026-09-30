@@ -1,0 +1,14 @@
+{
+ "schema": "exp7_base_repro_stage2/v1",
+ "cell": "N3 REF BASE via exp7_cell.py at the frozen contract",
+ "equal": {
+  "objective_EXACT": true,
+  "plan_digest": true,
+  "rounds": true,
+  "fitness_EXACT": true,
+  "converged": true,
+  "config_digest": true,
+  "pathset_digest": true
+ },
+ "passed": true
+}
