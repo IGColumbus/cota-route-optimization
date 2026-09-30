@@ -83,6 +83,10 @@
    "2e8347da8f2bc62d"
   ],
   [
+   "A5_LAM4|R3_SPAN",
+   "2e8347da8f2bc62d"
+  ],
+  [
    "BASE|B1",
    "859272a34d3d7e7d"
   ],
@@ -451,7 +455,7 @@
    "after": "2321104.3530756636"
   }
  ],
- "cursor": 82,
+ "cursor": 84,
  "pass_improved": true,
  "blocking": [],
  "best": {
