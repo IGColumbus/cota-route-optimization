@@ -1,0 +1,79 @@
+{
+ "applicability": {
+  "A7": "topology-changing: own initial solves only; no plan sharing with BASE or other A7 levels",
+  "F4 track (REF only, X-stage within dimension, no W)": [
+   "N0",
+   "N3",
+   "N4"
+  ],
+  "F6 track (14 policy cells, W + X within dimension)": [
+   "N0",
+   "N3"
+  ],
+  "findings": {
+   "AF1": "F6 track",
+   "F1": "F6-track N0 REF (adaptive plan) vs the N0 current plan evaluated at the same level",
+   "F2": "not re-optimized (Stage 1 only)",
+   "F3": "not re-optimized (Stage 1 only)",
+   "F4": "F4 track",
+   "F5": "not re-optimized (Stage 1 only)",
+   "F6": "F6 track"
+  }
+ },
+ "artifact": "EXP7_STAGE2_SELECTION",
+ "bootstrap_note": null,
+ "bootstrap_reopt_subset": null,
+ "exp7_contract_frozen": true,
+ "exp7_contract_sha256_16": "1263bedaebe6a45d",
+ "included_levels": [
+  "A5_LAM1",
+  "A5_LAM4",
+  "A5_TP050",
+  "A5_TP200",
+  "A6_WALKSPD85",
+  "A6_MAXWALK75"
+ ],
+ "metric": "PREREGISTERED (before any Stage 1 result is seen):\n    score(d) = max(movement_F1(d), movement_F4(d)), movement = the largest\n    relative movement from the Stage 1 BASE value over the dimension's levels\n    (F4 = the larger of F4_43 and F4_40). The k highest-scoring eligible\n    Class A dimensions are selected; ties broken by dimension id order.",
+ "movement_F1": {
+  "A1": 0.05083443558763357,
+  "A2": 0.09373077871620611,
+  "A3": 0.10429215730384349,
+  "A5": 0.1348653300571846,
+  "A6": 0.6850160395136041,
+  "A7": 0.413749147607802,
+  "A8": 0.12439403470372958
+ },
+ "movement_F4": {
+  "A1": 0.4149587007421267,
+  "A2": 0.06460062583161517,
+  "A3": 0.15214830488449646,
+  "A5": 1.1956103553049808,
+  "A6": 0.18056660462427926,
+  "A7": 0.2045381562389866,
+  "A8": 0.04582013364469012
+ },
+ "ranking": [
+  "A5",
+  "A6",
+  "A1",
+  "A7",
+  "A3",
+  "A8",
+  "A2"
+ ],
+ "scores": {
+  "A1": 0.4149587007421267,
+  "A2": 0.09373077871620611,
+  "A3": 0.15214830488449646,
+  "A5": 1.1956103553049808,
+  "A6": 0.6850160395136041,
+  "A7": 0.413749147607802,
+  "A8": 0.12439403470372958
+ },
+ "selected_dimensions": [
+  "A5",
+  "A6"
+ ],
+ "source_commit": "77fe9b51f027c2c5d95a070f2addfdcdfa92ea5e",
+ "stage1_analysis_sha256": "182b662d68f018e810c042a4eff654d9107b89e520076635b345dd4755ee9ff0"
+}
