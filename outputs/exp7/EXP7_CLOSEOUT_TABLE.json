@@ -1,0 +1,10604 @@
+{
+ "artifact": "EXP7_CLOSEOUT_TABLE",
+ "stage1_status": "EXP7_STAGE1_EVALUATION_COMPLETE",
+ "rows": [
+  {
+   "finding": "F1",
+   "quantity": "F1",
+   "certified": -6.651987701966629,
+   "stage1_base": -6.023959397797955,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Stable magnitude",
+    "A6": "Highly sensitive magnitude",
+    "A7": "Moderately sensitive magnitude",
+    "A8": "Stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A6_MAXWALK75",
+    "relative_change": 0.6850160395136041,
+    "value": -1.8974505889276443
+   },
+   "class_a_range": [
+    -6.9982932481996905,
+    -1.8974505889276443
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -5.98602581635247,
+    "X_TOPK40K": -5.489485977737684,
+    "X_ROUNDS4": -6.0298136874282315
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": "unserved % vs the N0 current plan, mean of 3 Exp 1 plans; Exp 1 certified under crowding + widened paths (different model instance): Stage 1 BASE is the classification reference"
+  },
+  {
+   "finding": "F2 (unserved)",
+   "quantity": "F2_unserved",
+   "certified": 0.0065,
+   "stage1_base": 0.0064842416005683745,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A1_NC050",
+     "SIGN_FLIP"
+    ],
+    [
+     "A1_NC100",
+     "SIGN_FLIP"
+    ],
+    [
+     "A2_BOOT03",
+     "SIGN_FLIP"
+    ],
+    [
+     "A2_BOOT07",
+     "SIGN_FLIP"
+    ],
+    [
+     "A2_BOOT08",
+     "SIGN_FLIP"
+    ],
+    [
+     "A2_BOOT11",
+     "SIGN_FLIP"
+    ],
+    [
+     "A2_BOOT12",
+     "SIGN_FLIP"
+    ],
+    [
+     "A2_BOOT14",
+     "SIGN_FLIP"
+    ],
+    [
+     "A2_BOOT15",
+     "SIGN_FLIP"
+    ],
+    [
+     "A2_BOOT17",
+     "SIGN_FLIP"
+    ],
+    [
+     "A2_BOOT19",
+     "SIGN_FLIP"
+    ],
+    [
+     "A2_BOOT20",
+     "SIGN_FLIP"
+    ],
+    [
+     "A3_RTNOISE",
+     "SIGN_FLIP"
+    ],
+    [
+     "A5_TP200",
+     "SIGN_FLIP"
+    ],
+    [
+     "A7_RM01",
+     "SIGN_FLIP"
+    ],
+    [
+     "A7_RM08",
+     "SIGN_FLIP"
+    ],
+    [
+     "A7_RM10",
+     "SIGN_FLIP"
+    ],
+    [
+     "A8_ZERO150",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Highly sensitive magnitude",
+    "A3": "Highly sensitive magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Highly sensitive magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly sensitive magnitude",
+    "X_od_coverage": "Highly sensitive magnitude",
+    "X_path_enumeration": "Stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A3_RTNOISE",
+    "relative_change": 35.87165082480129,
+    "value": -0.22611620895867102
+   },
+   "class_a_range": [
+    -0.22611620895867102,
+    0.16585750042117375
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.12961256223680273,
+    "X_TOPK40K": 0.010202678209791927,
+    "X_ROUNDS4": 0.008062592864654938
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": "a certified NULL: read with the null test against the Exp 2B floor (F2_null_holds), not as a signed effect"
+  },
+  {
+   "finding": "F3",
+   "quantity": "F3",
+   "certified": -0.18656513176548822,
+   "stage1_base": -0.18656513176548822,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Stable magnitude",
+    "A6": "Highly stable magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Moderately sensitive magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM05",
+    "relative_change": 2.729595423286942,
+    "value": 0.3226821980465137
+   },
+   "class_a_range": [
+    -0.4050228884733983,
+    0.3226821980465137
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.12871332386405848,
+    "X_TOPK40K": -0.15633966764797105,
+    "X_ROUNDS4": -0.18661826252147282
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F4 (N4 - N3, Exp 4A)",
+   "quantity": "F4_43",
+   "certified": 9.659,
+   "stage1_base": 9.659245267241864,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Moderately sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Stable magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM1",
+    "relative_change": 1.1355986396202258,
+    "value": -1.3097805179961017
+   },
+   "class_a_range": [
+    -1.3097805179961017,
+    19.354296240685425
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 7.859526340972184,
+    "X_TOPK40K": 8.824346657402353,
+    "X_ROUNDS4": 9.66606348798533
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F4 (N4 - N0 J100)",
+   "quantity": "F4_40",
+   "certified": null,
+   "stage1_base": 9.44631543999729,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Moderately sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Stable magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM1",
+    "relative_change": 1.1956103553049808,
+    "value": -1.8477971195407963
+   },
+   "class_a_range": [
+    -1.8477971195407963,
+    19.495269770023455
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 7.6528783060707966,
+    "X_TOPK40K": 8.647752865262587,
+    "X_ROUNDS4": 9.45308505792627
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F5 N0 peak_lower",
+   "quantity": "F5_N0_peak_lower",
+   "certified": null,
+   "stage1_base": -1931.5879986769141,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Highly stable magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 3.0207137138804434,
+    "value": -7766.362355847148
+   },
+   "class_a_range": [
+    -7766.362355847148,
+    985.7991799081896
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -1886.8930536655464,
+    "X_TOPK40K": -1842.6542178597651,
+    "X_ROUNDS4": -1930.1562704363814
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": "fixed Exp 5 plans; Exp 5's own EXP5_MONOTONICITY_FAILURE is preserved"
+  },
+  {
+   "finding": "F5 N0 peak_upper",
+   "quantity": "F5_N0_peak_upper",
+   "certified": null,
+   "stage1_base": -1242.5218620218152,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Highly sensitive magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 3.3892770165237147,
+    "value": -5453.772651500603
+   },
+   "class_a_range": [
+    -5453.772651500603,
+    863.1035327175789
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -1215.6797897821245,
+    "X_TOPK40K": -1204.4826213753022,
+    "X_ROUNDS4": -1235.2192208305862
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": "fixed Exp 5 plans; Exp 5's own EXP5_MONOTONICITY_FAILURE is preserved"
+  },
+  {
+   "finding": "F5 N0 joint_lower",
+   "quantity": "F5_N0_joint_lower",
+   "certified": null,
+   "stage1_base": -3409.1186796092893,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Highly stable magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 3.020713713880443,
+    "value": -13707.090227351058
+   },
+   "class_a_range": [
+    -13707.090227351058,
+    1739.8670942615718
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -3330.235205479851,
+    "X_TOPK40K": -3252.1567324240227,
+    "X_ROUNDS4": -3406.5917786903215
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": "fixed Exp 5 plans; Exp 5's own EXP5_MONOTONICITY_FAILURE is preserved"
+  },
+  {
+   "finding": "F5 N0 joint_upper",
+   "quantity": "F5_N0_joint_upper",
+   "certified": null,
+   "stage1_base": -3279.150721202558,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Moderately sensitive magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 1.9969520726042318,
+    "value": -9827.457550289668
+   },
+   "class_a_range": [
+    -9827.457550289668,
+    -4.997306658956222
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -3524.325715449173,
+    "X_TOPK40K": -3158.1496646081564,
+    "X_ROUNDS4": -3269.074650857644
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": "fixed Exp 5 plans; Exp 5's own EXP5_MONOTONICITY_FAILURE is preserved"
+  },
+  {
+   "finding": "F5 N4 peak_lower",
+   "quantity": "F5_N4_peak_lower",
+   "certified": null,
+   "stage1_base": -5408.327735658676,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Stable magnitude",
+    "A7": "Highly stable magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 2.2068693455912194,
+    "value": -17343.80042639458
+   },
+   "class_a_range": [
+    -17343.80042639458,
+    559.4086097092633
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -5412.61664337126,
+    "X_TOPK40K": -4995.388974414065,
+    "X_ROUNDS4": -5406.773617689075
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": "fixed Exp 5 plans; Exp 5's own EXP5_MONOTONICITY_FAILURE is preserved"
+  },
+  {
+   "finding": "F5 N4 peak_upper",
+   "quantity": "F5_N4_peak_upper",
+   "certified": null,
+   "stage1_base": -1643.9285386895194,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Stable magnitude",
+    "A7": "Moderately sensitive magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A1_NC100",
+    "relative_change": 1.7553141223326152,
+    "value": -4529.539518756852
+   },
+   "class_a_range": [
+    -4529.539518756852,
+    -221.8468240701599
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -1649.2679740934805,
+    "X_TOPK40K": -1587.1682243218884,
+    "X_ROUNDS4": -1641.750882513764
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": "fixed Exp 5 plans; Exp 5's own EXP5_MONOTONICITY_FAILURE is preserved"
+  },
+  {
+   "finding": "F5 N4 joint_lower",
+   "quantity": "F5_N4_joint_lower",
+   "certified": null,
+   "stage1_base": -5242.092835009983,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Stable magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 2.1587930510703495,
+    "value": -16558.686420295202
+   },
+   "class_a_range": [
+    -16558.686420295202,
+    416.20395763260314
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -5248.643570286362,
+    "X_TOPK40K": -4878.211398419878,
+    "X_ROUNDS4": -5239.966750148684
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": "fixed Exp 5 plans; Exp 5's own EXP5_MONOTONICITY_FAILURE is preserved"
+  },
+  {
+   "finding": "F5 N4 joint_upper",
+   "quantity": "F5_N4_joint_upper",
+   "certified": null,
+   "stage1_base": -3046.293427773379,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 3.872327729828253,
+    "value": -14842.539941333793
+   },
+   "class_a_range": [
+    -14842.539941333793,
+    2851.8298290068283
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -3048.525558202574,
+    "X_TOPK40K": -2713.307497861143,
+    "X_ROUNDS4": -3042.8947291316463
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": "fixed Exp 5 plans; Exp 5's own EXP5_MONOTONICITY_FAILURE is preserved"
+  },
+  {
+   "finding": "F6 N0 R1_H60",
+   "quantity": "F6_N0_R1_H60",
+   "certified": null,
+   "stage1_base": 0.48196608031129456,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 0.6772148526305077,
+    "value": 0.15557149226037778
+   },
+   "class_a_range": [
+    0.15557149226037778,
+    0.7675456635649512
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.4818321549061862,
+    "X_TOPK40K": 0.45772155645097456,
+    "X_ROUNDS4": 0.48164663156102433
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 R1_H30",
+   "quantity": "F6_N0_R1_H30",
+   "certified": null,
+   "stage1_base": 0.5745537865884368,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Moderately sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Moderately sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Moderately sensitive magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 0.4881038243813005,
+    "value": 0.2941118860418632
+   },
+   "class_a_range": [
+    0.2941118860418632,
+    0.8199269760252076
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.5939962382535384,
+    "X_TOPK40K": 0.5157671983068273,
+    "X_ROUNDS4": 0.5744858377267235
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 R1_H20",
+   "quantity": "F6_N0_R1_H20",
+   "certified": null,
+   "stage1_base": 0.9118180848769357,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Moderately sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Stable magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Stable magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM02",
+    "relative_change": 0.5125565307363952,
+    "value": 0.4444597706297096
+   },
+   "class_a_range": [
+    0.4444597706297096,
+    1.1819358659295418
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 1.1130439824300646,
+    "X_TOPK40K": 0.8008457671168489,
+    "X_ROUNDS4": 0.9112848728443411
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 R2_S25",
+   "quantity": "F6_N0_R2_S25",
+   "certified": null,
+   "stage1_base": 0.0,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A2": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A3": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A5": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A6": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A7": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A8": "MAGNITUDE_RATIO_UNINFORMATIVE"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "X_od_coverage": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "X_path_enumeration": "MAGNITUDE_RATIO_UNINFORMATIVE"
+   },
+   "worst_movement": null,
+   "class_a_range": [
+    0.0,
+    0.0
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.0,
+    "X_TOPK40K": 0.0,
+    "X_ROUNDS4": 0.0
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 R2_S10",
+   "quantity": "F6_N0_R2_S10",
+   "certified": null,
+   "stage1_base": 0.0,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A2": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A3": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A5": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A6": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A7": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A8": "MAGNITUDE_RATIO_UNINFORMATIVE"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "X_od_coverage": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "X_path_enumeration": "MAGNITUDE_RATIO_UNINFORMATIVE"
+   },
+   "worst_movement": null,
+   "class_a_range": [
+    0.0,
+    0.0
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.0,
+    "X_TOPK40K": 0.0,
+    "X_ROUNDS4": 0.0
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 R2_S05",
+   "quantity": "F6_N0_R2_S05",
+   "certified": null,
+   "stage1_base": 0.21198588236349514,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Stable magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A6_MAXWALK75",
+    "relative_change": 0.34310932633096863,
+    "value": 0.13925154907408036
+   },
+   "class_a_range": [
+    0.13925154907408036,
+    0.25576070144093405
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.21217563536666284,
+    "X_TOPK40K": 0.1990381077620646,
+    "X_ROUNDS4": 0.2119358275113504
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 R3_SPAN",
+   "quantity": "F6_N0_R3_SPAN",
+   "certified": null,
+   "stage1_base": 0.48196608031129456,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 0.6772148526305077,
+    "value": 0.15557149226037778
+   },
+   "class_a_range": [
+    0.15557149226037778,
+    0.7675456635649512
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.4818321549061862,
+    "X_TOPK40K": 0.45772155645097456,
+    "X_ROUNDS4": 0.48164663156102433
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 R4_C05",
+   "quantity": "F6_N0_R4_C05",
+   "certified": null,
+   "stage1_base": 0.24413303792934807,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ],
+    [
+     "A7_RM09",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Moderately sensitive magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 7.382875201044135,
+    "value": 2.046536789413499
+   },
+   "class_a_range": [
+    -1.3328836499924603,
+    2.046536789413499
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.15250573537133208,
+    "X_TOPK40K": 0.22042156343816868,
+    "X_ROUNDS4": 0.23579577996143944
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 R4_C01",
+   "quantity": "F6_N0_R4_C01",
+   "certified": null,
+   "stage1_base": 0.4279432241339842,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 3.785297277166427,
+    "value": 2.0478355452301766
+   },
+   "class_a_range": [
+    -0.9893847307715385,
+    2.0478355452301766
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.3409232531054384,
+    "X_TOPK40K": 0.4009472681755714,
+    "X_ROUNDS4": 0.41958386898724187
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 R4_C00",
+   "quantity": "F6_N0_R4_C00",
+   "certified": null,
+   "stage1_base": 0.48196608031129456,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 0.6772148526305077,
+    "value": 0.15557149226037778
+   },
+   "class_a_range": [
+    0.15557149226037778,
+    0.7675456635649512
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.4818321549061862,
+    "X_TOPK40K": 0.45772155645097456,
+    "X_ROUNDS4": 0.48164663156102433
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 R6_ADA",
+   "quantity": "F6_N0_R6_ADA",
+   "certified": null,
+   "stage1_base": 0.44037500341276764,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Moderately sensitive magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 0.644551247611542,
+    "value": 0.1565307455461312
+   },
+   "class_a_range": [
+    0.1565307455461312,
+    0.6887250920418497
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.44201676469184364,
+    "X_TOPK40K": 0.4167972213664797,
+    "X_ROUNDS4": 0.4400792012377359
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 B1",
+   "quantity": "F6_N0_B1",
+   "certified": null,
+   "stage1_base": 0.48196608031129456,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 0.6772148526305077,
+    "value": 0.15557149226037778
+   },
+   "class_a_range": [
+    0.15557149226037778,
+    0.7675456635649512
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.4818321549061862,
+    "X_TOPK40K": 0.45772155645097456,
+    "X_ROUNDS4": 0.48164663156102433
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N0 B2",
+   "quantity": "F6_N0_B2",
+   "certified": null,
+   "stage1_base": 0.48196608031129456,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 0.6772148526305077,
+    "value": 0.15557149226037778
+   },
+   "class_a_range": [
+    0.15557149226037778,
+    0.7675456635649512
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.4818321549061862,
+    "X_TOPK40K": 0.45772155645097456,
+    "X_ROUNDS4": 0.48164663156102433
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 R1_H60",
+   "quantity": "F6_N3_R1_H60",
+   "certified": null,
+   "stage1_base": 0.5235322758047998,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM4",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 1.0130926615136322,
+    "value": -0.006854430878573693
+   },
+   "class_a_range": [
+    -0.006854430878573693,
+    0.9891745098519661
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.5271891875241183,
+    "X_TOPK40K": 0.4973817068641872,
+    "X_ROUNDS4": 0.5237908371286047
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 R1_H30",
+   "quantity": "F6_N3_R1_H30",
+   "certified": null,
+   "stage1_base": 0.6344943110570249,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 0.8026525153252521,
+    "value": 0.12521585632754093
+   },
+   "class_a_range": [
+    0.12521585632754093,
+    1.0816049841265192
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.7001378368857052,
+    "X_TOPK40K": 0.582081099270338,
+    "X_ROUNDS4": 0.6347006366711084
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 R1_H20",
+   "quantity": "F6_N3_R1_H20",
+   "certified": null,
+   "stage1_base": null,
+   "sign_label": null,
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": null,
+    "A2": null,
+    "A3": null,
+    "A5": null,
+    "A6": null,
+    "A7": null,
+    "A8": null
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": null,
+    "X_od_coverage": null,
+    "X_path_enumeration": null
+   },
+   "worst_movement": null,
+   "class_a_range": null,
+   "range_includes_zero": null,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": null,
+    "X_TOPK40K": null,
+    "X_ROUNDS4": null
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 R2_S25",
+   "quantity": "F6_N3_R2_S25",
+   "certified": null,
+   "stage1_base": 0.0,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A2": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A3": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A5": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A6": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A7": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A8": "MAGNITUDE_RATIO_UNINFORMATIVE"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "X_od_coverage": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "X_path_enumeration": "MAGNITUDE_RATIO_UNINFORMATIVE"
+   },
+   "worst_movement": null,
+   "class_a_range": [
+    0.0,
+    0.0
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.0,
+    "X_TOPK40K": 0.0,
+    "X_ROUNDS4": 0.0
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 R2_S10",
+   "quantity": "F6_N3_R2_S10",
+   "certified": null,
+   "stage1_base": 0.0,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A2": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A3": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A5": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A6": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A7": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "A8": "MAGNITUDE_RATIO_UNINFORMATIVE"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "X_od_coverage": "MAGNITUDE_RATIO_UNINFORMATIVE",
+    "X_path_enumeration": "MAGNITUDE_RATIO_UNINFORMATIVE"
+   },
+   "worst_movement": null,
+   "class_a_range": [
+    0.0,
+    0.0
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.0,
+    "X_TOPK40K": 0.0,
+    "X_ROUNDS4": 0.0
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 R2_S05",
+   "quantity": "F6_N3_R2_S05",
+   "certified": null,
+   "stage1_base": 0.24966678884625457,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM4",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 1.0395750822955359,
+    "value": -0.00988058371505271
+   },
+   "class_a_range": [
+    -0.00988058371505271,
+    0.47753113174477924
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.2682955895821995,
+    "X_TOPK40K": 0.24439556767619194,
+    "X_ROUNDS4": 0.2501981608488631
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 R3_SPAN",
+   "quantity": "F6_N3_R3_SPAN",
+   "certified": null,
+   "stage1_base": 0.5235322758047998,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM4",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 1.0130926615136322,
+    "value": -0.006854430878573693
+   },
+   "class_a_range": [
+    -0.006854430878573693,
+    0.9891745098519661
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.5271891875241183,
+    "X_TOPK40K": 0.4973817068641872,
+    "X_ROUNDS4": 0.5237908371286047
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 R4_C05",
+   "quantity": "F6_N3_R4_C05",
+   "certified": null,
+   "stage1_base": 0.32067451843111466,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 0.8618982050241517,
+    "value": 0.0442857265983527
+   },
+   "class_a_range": [
+    0.0442857265983527,
+    0.5633244432366734
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.31419975495555136,
+    "X_TOPK40K": 0.29551320089110095,
+    "X_ROUNDS4": 0.321058624873805
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 R4_C01",
+   "quantity": "F6_N3_R4_C01",
+   "certified": null,
+   "stage1_base": 0.47707873933623396,
+   "sign_label": "SIGN_ROBUST",
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 0.9349551233127666,
+    "value": 0.031031527770226112
+   },
+   "class_a_range": [
+    0.031031527770226112,
+    0.8686768270463794
+   ],
+   "range_includes_zero": false,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.4816484603747805,
+    "X_TOPK40K": 0.45103076308757173,
+    "X_ROUNDS4": 0.47737232931749024
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 R4_C00",
+   "quantity": "F6_N3_R4_C00",
+   "certified": null,
+   "stage1_base": 0.5235322758047998,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM4",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 1.0130926615136322,
+    "value": -0.006854430878573693
+   },
+   "class_a_range": [
+    -0.006854430878573693,
+    0.9891745098519661
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.5271891875241183,
+    "X_TOPK40K": 0.4973817068641872,
+    "X_ROUNDS4": 0.5237908371286047
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 R6_ADA",
+   "quantity": "F6_N3_R6_ADA",
+   "certified": null,
+   "stage1_base": 0.4854191292581078,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 6.421335525112321,
+    "value": 3.6024582285322855
+   },
+   "class_a_range": [
+    -2.251122023657306,
+    3.6024582285322855
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.5414816483089685,
+    "X_TOPK40K": 0.463845308911253,
+    "X_ROUNDS4": 0.4803236629557312
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 B1",
+   "quantity": "F6_N3_B1",
+   "certified": null,
+   "stage1_base": 0.5235322758047998,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM4",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 1.0130926615136322,
+    "value": -0.006854430878573693
+   },
+   "class_a_range": [
+    -0.006854430878573693,
+    0.9891745098519661
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.5271891875241183,
+    "X_TOPK40K": 0.4973817068641872,
+    "X_ROUNDS4": 0.5237908371286047
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "F6 N3 B2",
+   "quantity": "F6_N3_B2",
+   "certified": null,
+   "stage1_base": 0.5235322758047998,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM4",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly stable magnitude",
+    "A2": "Highly stable magnitude",
+    "A3": "Highly stable magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Moderately sensitive magnitude",
+    "A7": "Stable magnitude",
+    "A8": "Moderately sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly stable magnitude",
+    "X_od_coverage": "Highly stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 1.0130926615136322,
+    "value": -0.006854430878573693
+   },
+   "class_a_range": [
+    -0.006854430878573693,
+    0.9891745098519661
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": 0.5271891875241183,
+    "X_TOPK40K": 0.4973817068641872,
+    "X_ROUNDS4": 0.5237908371286047
+   },
+   "cross_network_a7_mismatch": null,
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 REF",
+   "quantity": "AF1_REF",
+   "certified": null,
+   "stage1_base": -0.2286401111582435,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Moderately sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Stable magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Stable magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM05",
+    "relative_change": 2.3069159493720934,
+    "value": 0.2988134079389168
+   },
+   "class_a_range": [
+    -0.4797069079915634,
+    0.2988134079389168
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.17647256017704094,
+    "X_TOPK40K": -0.19479041596519728,
+    "X_ROUNDS4": -0.2292059195287963
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 R1_H60",
+   "quantity": "AF1_R1_H60",
+   "certified": null,
+   "stage1_base": -0.1873678708591452,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Stable magnitude",
+    "A6": "Highly stable magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Moderately sensitive magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM05",
+    "relative_change": 2.7530454451217246,
+    "value": 0.3284643925717799
+   },
+   "class_a_range": [
+    -0.40265543418534944,
+    0.3284643925717799
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.13141268325177716,
+    "X_TOPK40K": -0.15538787365389548,
+    "X_ROUNDS4": -0.18735986110594985
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 R1_H30",
+   "quantity": "AF1_R1_H30",
+   "certified": null,
+   "stage1_base": -0.16917827500263627,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Moderately sensitive magnitude",
+    "A6": "Stable magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly sensitive magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM05",
+    "relative_change": 2.8182583778483017,
+    "value": 0.3076098158734673
+   },
+   "class_a_range": [
+    -0.35503041887679576,
+    0.3076098158734673
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.07114392049888497,
+    "X_TOPK40K": -0.12894529565744908,
+    "X_ROUNDS4": -0.16947229766598734
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 R1_H20",
+   "quantity": "AF1_R1_H20",
+   "certified": null,
+   "stage1_base": null,
+   "sign_label": null,
+   "sign_events_class_a": [],
+   "worst_magnitude_band_by_dimension": {
+    "A1": null,
+    "A2": null,
+    "A3": null,
+    "A5": null,
+    "A6": null,
+    "A7": null,
+    "A8": null
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": null,
+    "X_od_coverage": null,
+    "X_path_enumeration": null
+   },
+   "worst_movement": null,
+   "class_a_range": null,
+   "range_includes_zero": null,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": null,
+    "X_TOPK40K": null,
+    "X_ROUNDS4": null
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": null
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 R2_S25",
+   "quantity": "AF1_R2_S25",
+   "certified": null,
+   "stage1_base": -0.2286401111582435,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Moderately sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Stable magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Stable magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM05",
+    "relative_change": 2.3069159493720934,
+    "value": 0.2988134079389168
+   },
+   "class_a_range": [
+    -0.4797069079915634,
+    0.2988134079389168
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.17647256017704094,
+    "X_TOPK40K": -0.19479041596519728,
+    "X_ROUNDS4": -0.2292059195287963
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 R2_S10",
+   "quantity": "AF1_R2_S10",
+   "certified": null,
+   "stage1_base": -0.2286401111582435,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Moderately sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Stable magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Stable magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM05",
+    "relative_change": 2.3069159493720934,
+    "value": 0.2988134079389168
+   },
+   "class_a_range": [
+    -0.4797069079915634,
+    0.2988134079389168
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.17647256017704094,
+    "X_TOPK40K": -0.19479041596519728,
+    "X_ROUNDS4": -0.2292059195287963
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 R2_S05",
+   "quantity": "AF1_R2_S05",
+   "certified": null,
+   "stage1_base": -0.19112488532445612,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Stable magnitude",
+    "A6": "Stable magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Moderately sensitive magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM05",
+    "relative_change": 2.8781085979260936,
+    "value": 0.3589532904054997
+   },
+   "class_a_range": [
+    -0.44396960107355715,
+    0.3589532904054997
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.12057025335616045,
+    "X_TOPK40K": -0.1496112318291147,
+    "X_ROUNDS4": -0.19111202034471014
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 R3_SPAN",
+   "quantity": "AF1_R3_SPAN",
+   "certified": null,
+   "stage1_base": -0.1873678708591452,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Stable magnitude",
+    "A6": "Highly stable magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Moderately sensitive magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM05",
+    "relative_change": 2.7530454451217246,
+    "value": 0.3284643925717799
+   },
+   "class_a_range": [
+    -0.40265543418534944,
+    0.3284643925717799
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.13141268325177716,
+    "X_TOPK40K": -0.15538787365389548,
+    "X_ROUNDS4": -0.18735986110594985
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 R4_C05",
+   "quantity": "AF1_R4_C05",
+   "certified": null,
+   "stage1_base": -0.15245961693742918,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ],
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ],
+    [
+     "A7_RM09",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Moderately sensitive magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Highly sensitive magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly sensitive magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 12.177165750002274,
+    "value": -2.0089856425663584
+   },
+   "class_a_range": [
+    -2.0089856425663584,
+    1.5275473504985988
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.015309668821442642,
+    "X_TOPK40K": -0.12000988224678417,
+    "X_ROUNDS4": -0.1443386156253
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_SENSITIVE"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 R4_C01",
+   "quantity": "AF1_R4_C01",
+   "certified": null,
+   "stage1_base": -0.17982583683195988,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM1",
+     "SIGN_FLIP"
+    ],
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ],
+    [
+     "A7_RM09",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Moderately sensitive magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Highly sensitive magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly sensitive magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 10.2509682287265,
+    "value": -2.023214776900536
+   },
+   "class_a_range": [
+    -2.023214776900536,
+    1.4825270512244264
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.036472985388484494,
+    "X_TOPK40K": -0.1450040957919258,
+    "X_ROUNDS4": -0.17179081827365864
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_SENSITIVE"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 R4_C00",
+   "quantity": "AF1_R4_C00",
+   "certified": null,
+   "stage1_base": -0.1873678708591452,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Stable magnitude",
+    "A6": "Highly stable magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Moderately sensitive magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM05",
+    "relative_change": 2.7530454451217246,
+    "value": 0.3284643925717799
+   },
+   "class_a_range": [
+    -0.40265543418534944,
+    0.3284643925717799
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.13141268325177716,
+    "X_TOPK40K": -0.15538787365389548,
+    "X_ROUNDS4": -0.18735986110594985
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 R6_ADA",
+   "quantity": "AF1_R6_ADA",
+   "certified": null,
+   "stage1_base": -0.1838960160626108,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A5_LAM4",
+     "SIGN_FLIP"
+    ],
+    [
+     "A7_RM01",
+     "SIGN_FLIP"
+    ],
+    [
+     "A7_RM03",
+     "SIGN_FLIP"
+    ],
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ],
+    [
+     "A8_ZERO150",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Highly sensitive magnitude",
+    "A3": "Highly sensitive magnitude",
+    "A5": "Highly sensitive magnitude",
+    "A6": "Highly sensitive magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly sensitive magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Highly sensitive magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A5_LAM4",
+    "relative_change": 19.44014066829197,
+    "value": 3.391068404533023
+   },
+   "class_a_range": [
+    -3.295285369226699,
+    3.391068404533023
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.07762014901614563,
+    "X_TOPK40K": -0.14802887439180215,
+    "X_ROUNDS4": -0.18922962784447003
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_SENSITIVE"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 B1",
+   "quantity": "AF1_B1",
+   "certified": null,
+   "stage1_base": -0.1873678708591452,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Stable magnitude",
+    "A6": "Highly stable magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Moderately sensitive magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM05",
+    "relative_change": 2.7530454451217246,
+    "value": 0.3284643925717799
+   },
+   "class_a_range": [
+    -0.40265543418534944,
+    0.3284643925717799
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.13141268325177716,
+    "X_TOPK40K": -0.15538787365389548,
+    "X_ROUNDS4": -0.18735986110594985
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  },
+  {
+   "finding": "AF1 B2",
+   "quantity": "AF1_B2",
+   "certified": null,
+   "stage1_base": -0.1873678708591452,
+   "sign_label": "SIGN_SENSITIVE",
+   "sign_events_class_a": [
+    [
+     "A7_RM05",
+     "SIGN_FLIP"
+    ]
+   ],
+   "worst_magnitude_band_by_dimension": {
+    "A1": "Highly sensitive magnitude",
+    "A2": "Stable magnitude",
+    "A3": "Moderately sensitive magnitude",
+    "A5": "Stable magnitude",
+    "A6": "Highly stable magnitude",
+    "A7": "Highly sensitive magnitude",
+    "A8": "Highly stable magnitude"
+   },
+   "bands_not_used_for_labels": {
+    "B_assignment": "Moderately sensitive magnitude",
+    "X_od_coverage": "Stable magnitude",
+    "X_path_enumeration": "Highly stable magnitude"
+   },
+   "worst_movement": {
+    "level": "A7_RM05",
+    "relative_change": 2.7530454451217246,
+    "value": 0.3284643925717799
+   },
+   "class_a_range": [
+    -0.40265543418534944,
+    0.3284643925717799
+   ],
+   "range_includes_zero": true,
+   "class_b_and_additional": {
+    "B1_COMMONLINES": -0.13141268325177716,
+    "X_TOPK40K": -0.15538787365389548,
+    "X_ROUNDS4": -0.18735986110594985
+   },
+   "cross_network_a7_mismatch": {
+    "levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+   },
+   "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json for every level in per_level",
+   "note": ""
+  }
+ ],
+ "F2_null_holds_by_level": {
+  "BASE": true,
+  "A1_NC025": true,
+  "A1_NC050": true,
+  "A1_NC100": true,
+  "A2_BOOT01": true,
+  "A2_BOOT02": true,
+  "A2_BOOT03": true,
+  "A2_BOOT04": true,
+  "A2_BOOT05": true,
+  "A2_BOOT06": true,
+  "A2_BOOT07": true,
+  "A2_BOOT08": true,
+  "A2_BOOT09": true,
+  "A2_BOOT10": true,
+  "A2_BOOT11": true,
+  "A2_BOOT12": true,
+  "A2_BOOT13": true,
+  "A2_BOOT14": true,
+  "A2_BOOT15": true,
+  "A2_BOOT16": true,
+  "A2_BOOT17": true,
+  "A2_BOOT18": true,
+  "A2_BOOT19": true,
+  "A2_BOOT20": true,
+  "A3_RT110": true,
+  "A3_RT120": true,
+  "A3_RTNOISE": true,
+  "A5_LAM1": true,
+  "A5_LAM4": true,
+  "A5_TP050": true,
+  "A5_TP200": true,
+  "A6_WALKSPD85": true,
+  "A6_MAXWALK75": true,
+  "A7_RM01": true,
+  "A7_RM02": true,
+  "A7_RM03": true,
+  "A7_RM04": true,
+  "A7_RM05": true,
+  "A7_RM06": true,
+  "A7_RM07": true,
+  "A7_RM08": true,
+  "A7_RM10": true,
+  "A8_ZERO150": true,
+  "A8_FLOOR0": true,
+  "B1_COMMONLINES": true,
+  "X_TOPK40K": true,
+  "X_ROUNDS4": true
+ },
+ "F2_null_breaks_at": [],
+ "F2_not_applicable_at": [
+  "A7_RM09"
+ ],
+ "a7_cross_network_mismatch_levels": [
+  "A7_RM04",
+  "A7_RM05"
+ ],
+ "F5_monotonicity_changes": {
+  "F5_N0_monotone_joint": [
+   "A5_LAM1"
+  ],
+  "F5_N0_monotone_peak": [
+   "A5_LAM1"
+  ],
+  "F5_N4_monotone_joint": [
+   "A5_LAM1"
+  ],
+  "F5_N4_monotone_peak": [
+   "A5_LAM1"
+  ]
+ },
+ "F6_ranks": {
+  "F6_N0_ranks": {
+   "BASE": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A1_NC025": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R4_C01": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A1_NC050": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R4_C01": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A1_NC100": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R4_C01": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT01": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT02": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT03": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT04": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT05": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT06": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT07": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT08": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT09": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT10": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT11": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT12": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT13": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT14": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT15": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R4_C05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R2_S05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT16": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT17": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT18": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT19": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT20": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A3_RT110": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A3_RT120": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A3_RTNOISE": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A5_LAM1": {
+    "R4_C05": {
+     "rank": 1,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 2,
+     "tied_with": []
+    },
+    "R2_S10": {
+     "rank": 3,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 3,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A5_LAM4": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "B1": {
+     "rank": 3,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 3,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 3,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 3,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 3,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 8,
+     "tied_with": []
+    },
+    "R2_S05": {
+     "rank": 9,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 10,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A5_TP050": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R4_C01": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A5_TP200": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R4_C05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R2_S05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A6_WALKSPD85": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R4_C05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R2_S05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A6_MAXWALK75": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A7_RM01": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R4_C01": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A7_RM02": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R4_C05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R2_S05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 7,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 8,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 8,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 8,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 8,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 8,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A7_RM03": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R4_C05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R2_S05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A7_RM04": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A7_RM05": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R4_C01": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A7_RM06": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A7_RM07": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A7_RM08": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A7_RM09": {
+    "R4_C05": {
+     "rank": 1,
+     "tied_with": []
+    },
+    "R2_S10": {
+     "rank": 2,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 2,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R4_C01": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R2_S05": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A7_RM10": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A8_ZERO150": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R4_C01": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "A8_FLOOR0": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "B1_COMMONLINES": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R4_C05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R2_S05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "X_TOPK40K": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   },
+   "X_ROUNDS4": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": 13,
+     "tied_with": []
+    }
+   }
+  },
+  "F6_N3_ranks": {
+   "BASE": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A1_NC025": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A1_NC050": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A1_NC100": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT01": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT02": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT03": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT04": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT05": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT06": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT07": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT08": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT09": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT10": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT11": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT12": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT13": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT14": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT15": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT16": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT17": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT18": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT19": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A2_BOOT20": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A3_RT110": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A3_RT120": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A3_RTNOISE": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A5_LAM1": {
+    "R6_ADA": {
+     "rank": 1,
+     "tied_with": []
+    },
+    "R2_S10": {
+     "rank": 2,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 2,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A5_LAM4": {
+    "R2_S05": {
+     "rank": 1,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 2,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 2,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 2,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 2,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 2,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R2_S10": {
+     "rank": 7,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 7,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R4_C01": {
+     "rank": 9,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 10,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A5_TP050": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A5_TP200": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A6_WALKSPD85": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A6_MAXWALK75": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A7_RM01": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A7_RM02": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A7_RM03": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A7_RM04": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A7_RM05": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A7_RM06": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A7_RM07": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A7_RM08": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A7_RM09": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R2_S05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A7_RM10": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A8_ZERO150": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "A8_FLOOR0": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "B1_COMMONLINES": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 6,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 6,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R6_ADA": {
+     "rank": 11,
+     "tied_with": []
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "X_TOPK40K": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   },
+   "X_ROUNDS4": {
+    "R2_S10": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S25"
+     ]
+    },
+    "R2_S25": {
+     "rank": 1,
+     "tied_with": [
+      "R2_S10"
+     ]
+    },
+    "R2_S05": {
+     "rank": 3,
+     "tied_with": []
+    },
+    "R4_C05": {
+     "rank": 4,
+     "tied_with": []
+    },
+    "R4_C01": {
+     "rank": 5,
+     "tied_with": []
+    },
+    "R6_ADA": {
+     "rank": 6,
+     "tied_with": []
+    },
+    "B1": {
+     "rank": 7,
+     "tied_with": [
+      "B2",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "B2": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "R1_H60",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R1_H60": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R3_SPAN",
+      "R4_C00"
+     ]
+    },
+    "R3_SPAN": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R4_C00"
+     ]
+    },
+    "R4_C00": {
+     "rank": 7,
+     "tied_with": [
+      "B1",
+      "B2",
+      "R1_H60",
+      "R3_SPAN"
+     ]
+    },
+    "R1_H30": {
+     "rank": 12,
+     "tied_with": []
+    },
+    "R1_H20": {
+     "rank": null,
+     "tied_with": []
+    }
+   }
+  }
+ },
+ "n3_r1_h20_feasibility": {
+  "BASE": "INFEASIBLE_UNDER_ENVELOPE",
+  "A3_RT110": "INFEASIBLE_UNDER_ENVELOPE",
+  "A3_RT120": "INFEASIBLE_UNDER_ENVELOPE",
+  "A3_RTNOISE": "INFEASIBLE_UNDER_ENVELOPE",
+  "A7_RM01": "INFEASIBILITY_NOT_PROVEN",
+  "A7_RM02": "INFEASIBILITY_NOT_PROVEN",
+  "A7_RM03": "INFEASIBILITY_NOT_PROVEN",
+  "A7_RM04": "INFEASIBILITY_NOT_PROVEN",
+  "A7_RM05": "INFEASIBILITY_NOT_PROVEN",
+  "A7_RM06": "INFEASIBILITY_NOT_PROVEN",
+  "A7_RM07": "INFEASIBILITY_NOT_PROVEN",
+  "A7_RM08": "INFEASIBILITY_NOT_PROVEN",
+  "A7_RM09": "INFEASIBILITY_NOT_PROVEN",
+  "A7_RM10": "INFEASIBILITY_NOT_PROVEN"
+ },
+ "inert_levels": [],
+ "stage2": {
+  "selection": {
+   "applicability": {
+    "A7": "topology-changing: own initial solves only; no plan sharing with BASE or other A7 levels",
+    "F4 track (REF only, X-stage within dimension, no W)": [
+     "N0",
+     "N3",
+     "N4"
+    ],
+    "F6 track (14 policy cells, W + X within dimension)": [
+     "N0",
+     "N3"
+    ],
+    "findings": {
+     "AF1": "F6 track",
+     "F1": "F6-track N0 REF (adaptive plan) vs the N0 current plan evaluated at the same level",
+     "F2": "not re-optimized (Stage 1 only)",
+     "F3": "not re-optimized (Stage 1 only)",
+     "F4": "F4 track",
+     "F5": "not re-optimized (Stage 1 only)",
+     "F6": "F6 track"
+    }
+   },
+   "artifact": "EXP7_STAGE2_SELECTION",
+   "bootstrap_note": null,
+   "bootstrap_reopt_subset": null,
+   "exp7_contract_frozen": true,
+   "exp7_contract_sha256_16": "1263bedaebe6a45d",
+   "included_levels": [
+    "A5_LAM1",
+    "A5_LAM4",
+    "A5_TP050",
+    "A5_TP200",
+    "A6_WALKSPD85",
+    "A6_MAXWALK75"
+   ],
+   "metric": "PREREGISTERED (before any Stage 1 result is seen):\n    score(d) = max(movement_F1(d), movement_F4(d)), movement = the largest\n    relative movement from the Stage 1 BASE value over the dimension's levels\n    (F4 = the larger of F4_43 and F4_40). The k highest-scoring eligible\n    Class A dimensions are selected; ties broken by dimension id order.",
+   "movement_F1": {
+    "A1": 0.05083443558763357,
+    "A2": 0.09373077871620611,
+    "A3": 0.10429215730384349,
+    "A5": 0.1348653300571846,
+    "A6": 0.6850160395136041,
+    "A7": 0.413749147607802,
+    "A8": 0.12439403470372958
+   },
+   "movement_F4": {
+    "A1": 0.4149587007421267,
+    "A2": 0.06460062583161517,
+    "A3": 0.15214830488449646,
+    "A5": 1.1956103553049808,
+    "A6": 0.18056660462427926,
+    "A7": 0.2045381562389866,
+    "A8": 0.04582013364469012
+   },
+   "ranking": [
+    "A5",
+    "A6",
+    "A1",
+    "A7",
+    "A3",
+    "A8",
+    "A2"
+   ],
+   "scores": {
+    "A1": 0.4149587007421267,
+    "A2": 0.09373077871620611,
+    "A3": 0.15214830488449646,
+    "A5": 1.1956103553049808,
+    "A6": 0.6850160395136041,
+    "A7": 0.413749147607802,
+    "A8": 0.12439403470372958
+   },
+   "selected_dimensions": [
+    "A5",
+    "A6"
+   ],
+   "source_commit": "77fe9b51f027c2c5d95a070f2addfdcdfa92ea5e",
+   "stage1_analysis_sha256": "182b662d68f018e810c042a4eff654d9107b89e520076635b345dd4755ee9ff0"
+  },
+  "analysis_status": "not run"
+ },
+ "not_covered": [
+  "A4 reliability: UNIMPLEMENTED -- reliability robustness NOT tested",
+  "A1: non-commute demand only on OD pairs with observed commuting",
+  "A6: bundled walking friction (access and transfer caps together)",
+  "A3: resource envelope held fixed as runtimes increase",
+  "A8: cost_retention_full_min not varied",
+  "Stage 2 bootstrap (if selected): draws 1, 5, 10, 15, 20 only",
+  "Class B jobs-accessibility objective: untested",
+  "Objective-ordering results do not transfer to served demand, GC, OFF count or accessibility"
+ ]
+}

@@ -52,6 +52,23 @@ def _other(cq: dict, dim_of: dict):
             if dim_of.get(lv) not in CLASS_A}
 
 
+def mismatched_a7() -> list[str]:
+    """A7 levels at which N0 and N3 remove DIFFERENT routes (their frozen
+    per-network rankings differ at that rank). N3-vs-N0 quantities (F3, AF1)
+    at those levels compare two different disruptions."""
+    rk = json.loads((ROOT / "outputs/exp7/A7_ROUTE_RANKING.json").read_text())["rankings"]
+    return [f"A7_RM{i + 1:02d}" for i, (a, b) in enumerate(
+        zip(rk["N0"]["routes"], rk["N3"]["routes"])) if a != b]
+
+
+def relabel_excluding(cq: dict, dim_of: dict, exclude: list[str]):
+    """The Sept 23 sign label recomputed without the excluded levels."""
+    import exp7_classify as C
+    ca = {lv: r["value"] for lv, r in cq["per_level"].items()
+          if dim_of.get(lv) in CLASS_A and lv not in exclude}
+    return C.sign_robustness(cq["base"], ca)["label"] if cq["base"] is not None else None
+
+
 def row(name, key, an, dim_of, *, certified=None, note=""):
     cq = an["classification"].get(key)
     if cq is None:
@@ -60,11 +77,21 @@ def row(name, key, an, dim_of, *, certified=None, note=""):
             "stage1_base": cq["base"],
             "sign_label": (cq["sign"] or {}).get("label"),
             "sign_events_class_a": _events(cq, dim_of),
-            "worst_magnitude_band_by_dimension": cq["worst_band_by_dimension"],
+            "worst_magnitude_band_by_dimension": {
+                d: b for d, b in cq["worst_band_by_dimension"].items()
+                if d in CLASS_A},
+            "bands_not_used_for_labels": {
+                d: b for d, b in cq["worst_band_by_dimension"].items()
+                if d not in CLASS_A},
             "worst_movement": _worst(cq),
             "class_a_range": cq["class_a_range"],
             "range_includes_zero": cq["range_includes_zero"],
             "class_b_and_additional": _other(cq, dim_of),
+            "cross_network_a7_mismatch": (
+                {"levels": mismatched_a7(),
+                 "sign_label_excluding_mismatched_A7": relabel_excluding(
+                     cq, dim_of, mismatched_a7())}
+                if key.startswith(("F3", "AF1")) else None),
             "supporting_cells": "outputs/exp7/stage1/evals/<variant>/<level>.json "
                                 "for every level in per_level",
             "note": note}
@@ -96,7 +123,11 @@ def main() -> int:
             rows.append(row(f"F6 {net} {c}", f"F6_{net}_{c}", an, dim_of))
     for c in A.CELLS:
         rows.append(row(f"AF1 {c}", f"AF1_{c}", an, dim_of))
-    null = an["classification"].get("F2_null_holds", {})
+    vals = an["values"]
+    null = {lv: ok for lv, ok in an["classification"].get("F2_null_holds", {}).items()
+            if vals.get(lv, {}).get("F2_unserved") is not None}
+    f2_na = sorted(lv for lv in an["classification"].get("F2_null_holds", {})
+                   if vals.get(lv, {}).get("F2_unserved") is None)
     mono = {k: an["classification"][k].get("changes")
             for k in an["classification"] if k.endswith(("monotone_joint",
                                                           "monotone_peak"))}
@@ -110,6 +141,8 @@ def main() -> int:
     out = {"artifact": "EXP7_CLOSEOUT_TABLE", "stage1_status": an["status"],
            "rows": rows, "F2_null_holds_by_level": null,
            "F2_null_breaks_at": sorted(k for k, v in null.items() if not v),
+           "F2_not_applicable_at": f2_na,
+           "a7_cross_network_mismatch_levels": mismatched_a7(),
            "F5_monotonicity_changes": mono,
            "F6_ranks": {k: v for k, v in an["classification"].items()
                         if k.endswith("_ranks")},
