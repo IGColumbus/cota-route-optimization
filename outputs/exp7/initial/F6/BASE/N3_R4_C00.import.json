@@ -1,0 +1,6 @@
+{
+ "imported_from": "experiment 6 initial stage",
+ "path": "outputs/exp6/initial/N3_R4_C00.json",
+ "sha256": "f32efb49ecf89033c48ea7e44026f88b88f0eacd0a447aedb1f74fd61dab3dd2",
+ "justification": "BASE changes nothing; src/cota_opt digest equals Exp 6's and the BASE canaries through exp7_cell.py reproduced Exp 6 initial records bit-exactly (outputs/exp7/preflight/base_repro)"
+}
