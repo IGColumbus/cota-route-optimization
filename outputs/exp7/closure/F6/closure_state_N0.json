@@ -7,6 +7,10 @@
    "451cd63fa7adf6e7"
   ],
   [
+   "A5_LAM1|R3_SPAN",
+   "451cd63fa7adf6e7"
+  ],
+  [
    "BASE|B1",
    "859272a34d3d7e7d"
   ],
@@ -361,7 +365,7 @@
    "after": "2949074.5026453477"
   }
  ],
- "cursor": 42,
+ "cursor": 44,
  "pass_improved": true,
  "blocking": [],
  "best": {
