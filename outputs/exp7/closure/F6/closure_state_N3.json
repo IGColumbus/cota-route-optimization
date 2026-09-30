@@ -1,0 +1,899 @@
+{
+ "passes_completed": 0,
+ "status": null,
+ "tried": [
+  [
+   "BASE|B1",
+   "591eebe7630410f2"
+  ],
+  [
+   "BASE|B2",
+   "591eebe7630410f2"
+  ],
+  [
+   "BASE|R1_H60",
+   "d5f131ff9dd2bf24"
+  ],
+  [
+   "BASE|R2_S05",
+   "591eebe7630410f2"
+  ],
+  [
+   "BASE|R2_S10",
+   "561444f68239da95"
+  ],
+  [
+   "BASE|R2_S10",
+   "d28d446a443a986b"
+  ],
+  [
+   "BASE|R2_S25",
+   "fdec5c5475c73736"
+  ],
+  [
+   "BASE|R3_SPAN",
+   "706aeff762c4e540"
+  ],
+  [
+   "BASE|R3_SPAN",
+   "d28d446a443a986b"
+  ],
+  [
+   "BASE|R4_C01",
+   "591eebe7630410f2"
+  ],
+  [
+   "BASE|R4_C01",
+   "706aeff762c4e540"
+  ],
+  [
+   "BASE|R4_C05",
+   "a31340754c802f19"
+  ],
+  [
+   "BASE|R6_ADA",
+   "591eebe7630410f2"
+  ],
+  [
+   "BASE|R6_ADA",
+   "d28d446a443a986b"
+  ],
+  [
+   "BASE|REF",
+   "0afda9bbeb993aa2"
+  ],
+  [
+   "BASE|REF",
+   "4e49377ae82b3c69"
+  ],
+  [
+   "BASE|REF",
+   "706aeff762c4e540"
+  ],
+  [
+   "BASE|REF",
+   "fdec5c5475c73736"
+  ]
+ ],
+ "found_in_pass": {
+  "BASE|REF": 1,
+  "BASE|R1_H60": 0,
+  "BASE|R1_H30": 0,
+  "BASE|R1_H20": 0,
+  "BASE|R2_S25": 1,
+  "BASE|R2_S10": 1,
+  "BASE|R2_S05": 0,
+  "BASE|R3_SPAN": 1,
+  "BASE|R4_C05": 1,
+  "BASE|R4_C01": 1,
+  "BASE|R4_C00": 0,
+  "BASE|R6_ADA": 0,
+  "BASE|B1": 1,
+  "BASE|B2": 1,
+  "A5_LAM1|REF": 0,
+  "A5_LAM1|R1_H60": 0,
+  "A5_LAM1|R1_H30": 0,
+  "A5_LAM1|R1_H20": 0,
+  "A5_LAM1|R2_S25": 0,
+  "A5_LAM1|R2_S10": 0,
+  "A5_LAM1|R2_S05": 0,
+  "A5_LAM1|R3_SPAN": 0,
+  "A5_LAM1|R4_C05": 0,
+  "A5_LAM1|R4_C01": 0,
+  "A5_LAM1|R4_C00": 0,
+  "A5_LAM1|R6_ADA": 0,
+  "A5_LAM1|B1": 0,
+  "A5_LAM1|B2": 0,
+  "A5_LAM4|REF": 0,
+  "A5_LAM4|R1_H60": 0,
+  "A5_LAM4|R1_H30": 0,
+  "A5_LAM4|R1_H20": 0,
+  "A5_LAM4|R2_S25": 0,
+  "A5_LAM4|R2_S10": 0,
+  "A5_LAM4|R2_S05": 0,
+  "A5_LAM4|R3_SPAN": 0,
+  "A5_LAM4|R4_C05": 0,
+  "A5_LAM4|R4_C01": 0,
+  "A5_LAM4|R4_C00": 0,
+  "A5_LAM4|R6_ADA": 0,
+  "A5_LAM4|B1": 0,
+  "A5_LAM4|B2": 0,
+  "A5_TP050|REF": 0,
+  "A5_TP050|R1_H60": 0,
+  "A5_TP050|R1_H30": 0,
+  "A5_TP050|R1_H20": 0,
+  "A5_TP050|R2_S25": 0,
+  "A5_TP050|R2_S10": 0,
+  "A5_TP050|R2_S05": 0,
+  "A5_TP050|R3_SPAN": 0,
+  "A5_TP050|R4_C05": 0,
+  "A5_TP050|R4_C01": 0,
+  "A5_TP050|R4_C00": 0,
+  "A5_TP050|R6_ADA": 0,
+  "A5_TP050|B1": 0,
+  "A5_TP050|B2": 0,
+  "A5_TP200|REF": 0,
+  "A5_TP200|R1_H60": 0,
+  "A5_TP200|R1_H30": 0,
+  "A5_TP200|R1_H20": 0,
+  "A5_TP200|R2_S25": 0,
+  "A5_TP200|R2_S10": 0,
+  "A5_TP200|R2_S05": 0,
+  "A5_TP200|R3_SPAN": 0,
+  "A5_TP200|R4_C05": 0,
+  "A5_TP200|R4_C01": 0,
+  "A5_TP200|R4_C00": 0,
+  "A5_TP200|R6_ADA": 0,
+  "A5_TP200|B1": 0,
+  "A5_TP200|B2": 0,
+  "A6_WALKSPD85|REF": 0,
+  "A6_WALKSPD85|R1_H60": 0,
+  "A6_WALKSPD85|R1_H30": 0,
+  "A6_WALKSPD85|R1_H20": 0,
+  "A6_WALKSPD85|R2_S25": 0,
+  "A6_WALKSPD85|R2_S10": 0,
+  "A6_WALKSPD85|R2_S05": 0,
+  "A6_WALKSPD85|R3_SPAN": 0,
+  "A6_WALKSPD85|R4_C05": 0,
+  "A6_WALKSPD85|R4_C01": 0,
+  "A6_WALKSPD85|R4_C00": 0,
+  "A6_WALKSPD85|R6_ADA": 0,
+  "A6_WALKSPD85|B1": 0,
+  "A6_WALKSPD85|B2": 0,
+  "A6_MAXWALK75|REF": 0,
+  "A6_MAXWALK75|R1_H60": 0,
+  "A6_MAXWALK75|R1_H30": 0,
+  "A6_MAXWALK75|R1_H20": 0,
+  "A6_MAXWALK75|R2_S25": 0,
+  "A6_MAXWALK75|R2_S10": 0,
+  "A6_MAXWALK75|R2_S05": 0,
+  "A6_MAXWALK75|R3_SPAN": 0,
+  "A6_MAXWALK75|R4_C05": 0,
+  "A6_MAXWALK75|R4_C01": 0,
+  "A6_MAXWALK75|R4_C00": 0,
+  "A6_MAXWALK75|R6_ADA": 0,
+  "A6_MAXWALK75|B1": 0,
+  "A6_MAXWALK75|B2": 0
+ },
+ "improvements": [
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "BASE",
+    "R3_SPAN"
+   ],
+   "from": [
+    "BASE",
+    "B1"
+   ],
+   "before": "2956630.557945732",
+   "after": "2954293.7579573886"
+  },
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "BASE",
+    "R3_SPAN"
+   ],
+   "from": [
+    "BASE",
+    "B2"
+   ],
+   "before": "2954293.7579573886",
+   "after": "2951774.4228982246"
+  },
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "BASE",
+    "B1"
+   ],
+   "from": [
+    "BASE",
+    "R1_H60"
+   ],
+   "before": "2954543.2167176595",
+   "after": "2950532.5669298135"
+  },
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "BASE",
+    "B2"
+   ],
+   "from": [
+    "BASE",
+    "R1_H60"
+   ],
+   "before": "2951774.4228982246",
+   "after": "2950532.5669298135"
+  },
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "BASE",
+    "R2_S10"
+   ],
+   "from": [
+    "BASE",
+    "R2_S05"
+   ],
+   "before": "2943352.3652995555",
+   "after": "2935166.0254381876"
+  },
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "BASE",
+    "R2_S25"
+   ],
+   "from": [
+    "BASE",
+    "R2_S10"
+   ],
+   "before": "2937538.0276397127",
+   "after": "2935166.0254381876"
+  },
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "BASE",
+    "REF"
+   ],
+   "from": [
+    "BASE",
+    "R2_S25"
+   ],
+   "before": "2939912.5807124916",
+   "after": "2935166.0254381876"
+  },
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "BASE",
+    "R4_C01"
+   ],
+   "from": [
+    "BASE",
+    "R4_C00"
+   ],
+   "before": "2951441.288567108",
+   "after": "2949169.0785097736"
+  },
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "BASE",
+    "R4_C05"
+   ],
+   "from": [
+    "BASE",
+    "R4_C01"
+   ],
+   "before": "2949618.181180831",
+   "after": "2944578.3549554152"
+  }
+ ],
+ "cursor": 40,
+ "pass_improved": true,
+ "blocking": [],
+ "best": {
+  "BASE|REF": {
+   "status": "CERTIFIED",
+   "objective": 2935166.0254381876,
+   "plan_digest": "fdec5c5475c73736",
+   "ref": "outputs/exp6/closure/N3_REF__from_R2_S25__fdec5c5475c73736.json"
+  },
+  "BASE|R1_H60": {
+   "status": "CERTIFIED",
+   "objective": 2950532.5669298135,
+   "plan_digest": "591eebe7630410f2",
+   "ref": "outputs/exp6/initial/N3_R1_H60.json"
+  },
+  "BASE|R1_H30": {
+   "status": "CERTIFIED",
+   "objective": 2953789.4868896715,
+   "plan_digest": "d5f131ff9dd2bf24",
+   "ref": "outputs/exp6/initial/N3_R1_H30.json"
+  },
+  "BASE|R1_H20": {
+   "status": "INFEASIBLE_UNDER_ENVELOPE",
+   "objective": null,
+   "plan_digest": null,
+   "ref": "outputs/exp6/initial/N3_R1_H20.json"
+  },
+  "BASE|R2_S25": {
+   "status": "CERTIFIED",
+   "objective": 2935166.0254381876,
+   "plan_digest": "fdec5c5475c73736",
+   "ref": "outputs/exp6/closure/N3_R2_S25__from_R2_S10__fdec5c5475c73736.json"
+  },
+  "BASE|R2_S10": {
+   "status": "CERTIFIED",
+   "objective": 2935166.0254381876,
+   "plan_digest": "fdec5c5475c73736",
+   "ref": "outputs/exp6/closure/N3_R2_S10__from_R2_S05__561444f68239da95.json"
+  },
+  "BASE|R2_S05": {
+   "status": "CERTIFIED",
+   "objective": 2942494.1602012054,
+   "plan_digest": "561444f68239da95",
+   "ref": "outputs/exp6/initial/N3_R2_S05.json"
+  },
+  "BASE|R3_SPAN": {
+   "status": "CERTIFIED",
+   "objective": 2951774.4228982246,
+   "plan_digest": "706aeff762c4e540",
+   "ref": "outputs/exp6/closure/N3_R3_SPAN__from_B2__706aeff762c4e540.json"
+  },
+  "BASE|R4_C05": {
+   "status": "CERTIFIED",
+   "objective": 2944578.3549554152,
+   "plan_digest": "4e49377ae82b3c69",
+   "ref": "outputs/exp6/closure/N3_R4_C05__from_R4_C01__a31340754c802f19.json"
+  },
+  "BASE|R4_C01": {
+   "status": "CERTIFIED",
+   "objective": 2949169.0785097736,
+   "plan_digest": "a31340754c802f19",
+   "ref": "outputs/exp6/closure/N3_R4_C01__from_R4_C00__591eebe7630410f2.json"
+  },
+  "BASE|R4_C00": {
+   "status": "CERTIFIED",
+   "objective": 2950532.5669298135,
+   "plan_digest": "591eebe7630410f2",
+   "ref": "outputs/exp6/initial/N3_R4_C00.json"
+  },
+  "BASE|R6_ADA": {
+   "status": "CERTIFIED",
+   "objective": 2949413.8828011495,
+   "plan_digest": "0afda9bbeb993aa2",
+   "ref": "outputs/exp6/initial/N3_R6_ADA.json"
+  },
+  "BASE|B1": {
+   "status": "CERTIFIED",
+   "objective": 2950532.5669298135,
+   "plan_digest": "591eebe7630410f2",
+   "ref": "outputs/exp6/closure/N3_B1__from_R1_H60__591eebe7630410f2.json"
+  },
+  "BASE|B2": {
+   "status": "CERTIFIED",
+   "objective": 2950532.5669298135,
+   "plan_digest": "591eebe7630410f2",
+   "ref": "outputs/exp6/closure/N3_B2__from_R1_H60__591eebe7630410f2.json"
+  },
+  "A5_LAM1|REF": {
+   "status": "CERTIFIED",
+   "objective": 1831282.582709406,
+   "plan_digest": "76430e1f43635d31",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_REF.json"
+  },
+  "A5_LAM1|R1_H60": {
+   "status": "CERTIFIED",
+   "objective": 2359915.299989091,
+   "plan_digest": "4bd6ae0a6dd4b9d3",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_R1_H60.json"
+  },
+  "A5_LAM1|R1_H30": {
+   "status": "CERTIFIED",
+   "objective": 2365407.504609905,
+   "plan_digest": "2204bd783c860c7d",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_R1_H30.json"
+  },
+  "A5_LAM1|R1_H20": {
+   "status": "INFEASIBLE_UNDER_ENVELOPE",
+   "objective": null,
+   "plan_digest": null,
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_R1_H20.json"
+  },
+  "A5_LAM1|R2_S25": {
+   "status": "CERTIFIED",
+   "objective": 2037204.1293328325,
+   "plan_digest": "b10172a87621102f",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_R2_S25.json"
+  },
+  "A5_LAM1|R2_S10": {
+   "status": "CERTIFIED",
+   "objective": 2164615.9462825134,
+   "plan_digest": "ef9d1e2b4b90ab07",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_R2_S10.json"
+  },
+  "A5_LAM1|R2_S05": {
+   "status": "CERTIFIED",
+   "objective": 2239069.0065086,
+   "plan_digest": "a0f0c77f92f1f724",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_R2_S05.json"
+  },
+  "A5_LAM1|R3_SPAN": {
+   "status": "CERTIFIED",
+   "objective": 1892780.1802534156,
+   "plan_digest": "6f9518c0fa5d6ff7",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_R3_SPAN.json"
+  },
+  "A5_LAM1|R4_C05": {
+   "status": "CERTIFIED",
+   "objective": 2236263.4800201505,
+   "plan_digest": "91dc3d9fb2dac18a",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_R4_C05.json"
+  },
+  "A5_LAM1|R4_C01": {
+   "status": "CERTIFIED",
+   "objective": 2319704.1866375133,
+   "plan_digest": "c9d4948edba7988b",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_R4_C01.json"
+  },
+  "A5_LAM1|R4_C00": {
+   "status": "CERTIFIED",
+   "objective": 2359915.299989091,
+   "plan_digest": "4bd6ae0a6dd4b9d3",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_R4_C00.json"
+  },
+  "A5_LAM1|R6_ADA": {
+   "status": "CERTIFIED",
+   "objective": 2240123.514475449,
+   "plan_digest": "4f3ee08125af7aed",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_R6_ADA.json"
+  },
+  "A5_LAM1|B1": {
+   "status": "CERTIFIED",
+   "objective": 2255533.115860287,
+   "plan_digest": "d1d0c7a674203b3b",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_B1.json"
+  },
+  "A5_LAM1|B2": {
+   "status": "CERTIFIED",
+   "objective": 2317708.155117238,
+   "plan_digest": "b79eba0bfa1cca3a",
+   "ref": "outputs/exp7/initial/F6/A5_LAM1/N3_B2.json"
+  },
+  "A5_LAM4|REF": {
+   "status": "CERTIFIED",
+   "objective": 4104008.321072513,
+   "plan_digest": "1a62cf4a59887720",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_REF.json"
+  },
+  "A5_LAM4|R1_H60": {
+   "status": "CERTIFIED",
+   "objective": 4114498.3409468723,
+   "plan_digest": "d4b687f63461f183",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_R1_H60.json"
+  },
+  "A5_LAM4|R1_H30": {
+   "status": "CERTIFIED",
+   "objective": 4119753.9736876953,
+   "plan_digest": "4085761b57041ad9",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_R1_H30.json"
+  },
+  "A5_LAM4|R1_H20": {
+   "status": "INFEASIBLE_UNDER_ENVELOPE",
+   "objective": null,
+   "plan_digest": null,
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_R1_H20.json"
+  },
+  "A5_LAM4|R2_S25": {
+   "status": "CERTIFIED",
+   "objective": 4104350.904366353,
+   "plan_digest": "caf6ed44d7f7a443",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_R2_S25.json"
+  },
+  "A5_LAM4|R2_S10": {
+   "status": "CERTIFIED",
+   "objective": 4104332.2664455976,
+   "plan_digest": "881d4567eb5020cf",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_R2_S10.json"
+  },
+  "A5_LAM4|R2_S05": {
+   "status": "CERTIFIED",
+   "objective": 4106142.175200994,
+   "plan_digest": "ba17a6bcb9f1cb2c",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_R2_S05.json"
+  },
+  "A5_LAM4|R3_SPAN": {
+   "status": "CERTIFIED",
+   "objective": 4113704.9378949627,
+   "plan_digest": "b201e8fa5e376346",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_R3_SPAN.json"
+  },
+  "A5_LAM4|R4_C05": {
+   "status": "CERTIFIED",
+   "objective": 4104647.919620027,
+   "plan_digest": "1a3a96879e6fba73",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_R4_C05.json"
+  },
+  "A5_LAM4|R4_C01": {
+   "status": "CERTIFIED",
+   "objective": 4108678.2893426437,
+   "plan_digest": "7bbf26f33bd29cd5",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_R4_C01.json"
+  },
+  "A5_LAM4|R4_C00": {
+   "status": "CERTIFIED",
+   "objective": 4114498.3409468723,
+   "plan_digest": "d4b687f63461f183",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_R4_C00.json"
+  },
+  "A5_LAM4|R6_ADA": {
+   "status": "CERTIFIED",
+   "objective": 4111353.247110794,
+   "plan_digest": "ca6fd40faa68e861",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_R6_ADA.json"
+  },
+  "A5_LAM4|B1": {
+   "status": "CERTIFIED",
+   "objective": 4114498.3409468723,
+   "plan_digest": "d4b687f63461f183",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_B1.json"
+  },
+  "A5_LAM4|B2": {
+   "status": "CERTIFIED",
+   "objective": 4113704.9378949627,
+   "plan_digest": "b201e8fa5e376346",
+   "ref": "outputs/exp7/initial/F6/A5_LAM4/N3_B2.json"
+  },
+  "A5_TP050|REF": {
+   "status": "CERTIFIED",
+   "objective": 2884269.010883089,
+   "plan_digest": "f120368219c86c2c",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_REF.json"
+  },
+  "A5_TP050|R1_H60": {
+   "status": "CERTIFIED",
+   "objective": 2890670.702266047,
+   "plan_digest": "9838c9e937d69196",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_R1_H60.json"
+  },
+  "A5_TP050|R1_H30": {
+   "status": "CERTIFIED",
+   "objective": 2893842.1534437304,
+   "plan_digest": "7b666c6f68711ff5",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_R1_H30.json"
+  },
+  "A5_TP050|R1_H20": {
+   "status": "INFEASIBLE_UNDER_ENVELOPE",
+   "objective": null,
+   "plan_digest": null,
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_R1_H20.json"
+  },
+  "A5_TP050|R2_S25": {
+   "status": "CERTIFIED",
+   "objective": 2877855.381514822,
+   "plan_digest": "32d3b30a4dea7135",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_R2_S25.json"
+  },
+  "A5_TP050|R2_S10": {
+   "status": "CERTIFIED",
+   "objective": 2886110.6052327924,
+   "plan_digest": "126a9d8cc25e852b",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_R2_S10.json"
+  },
+  "A5_TP050|R2_S05": {
+   "status": "CERTIFIED",
+   "objective": 2882454.0497849872,
+   "plan_digest": "ffb26ed49e5d74c8",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_R2_S05.json"
+  },
+  "A5_TP050|R3_SPAN": {
+   "status": "CERTIFIED",
+   "objective": 2900677.2186376946,
+   "plan_digest": "f6454d4db4cb24c8",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_R3_SPAN.json"
+  },
+  "A5_TP050|R4_C05": {
+   "status": "CERTIFIED",
+   "objective": 2893026.9837058177,
+   "plan_digest": "00c7bcb754625930",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_R4_C05.json"
+  },
+  "A5_TP050|R4_C01": {
+   "status": "CERTIFIED",
+   "objective": 2894743.5565805836,
+   "plan_digest": "709ba9d0679ce60d",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_R4_C01.json"
+  },
+  "A5_TP050|R4_C00": {
+   "status": "CERTIFIED",
+   "objective": 2890670.702266047,
+   "plan_digest": "9838c9e937d69196",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_R4_C00.json"
+  },
+  "A5_TP050|R6_ADA": {
+   "status": "CERTIFIED",
+   "objective": 2893314.512581801,
+   "plan_digest": "6f67b1c57e886620",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_R6_ADA.json"
+  },
+  "A5_TP050|B1": {
+   "status": "CERTIFIED",
+   "objective": 2898108.273582359,
+   "plan_digest": "d7b026ee1569931e",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_B1.json"
+  },
+  "A5_TP050|B2": {
+   "status": "CERTIFIED",
+   "objective": 2895087.8562295814,
+   "plan_digest": "812c9bf7fa645998",
+   "ref": "outputs/exp7/initial/F6/A5_TP050/N3_B2.json"
+  },
+  "A5_TP200|REF": {
+   "status": "CERTIFIED",
+   "objective": 3018017.7423431072,
+   "plan_digest": "6515c70e0b99e1aa",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_REF.json"
+  },
+  "A5_TP200|R1_H60": {
+   "status": "CERTIFIED",
+   "objective": 3050342.894723877,
+   "plan_digest": "29c9a3c60cab8fb9",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_R1_H60.json"
+  },
+  "A5_TP200|R1_H30": {
+   "status": "CERTIFIED",
+   "objective": 3053348.7601367133,
+   "plan_digest": "feebac7c814a9b6c",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_R1_H30.json"
+  },
+  "A5_TP200|R1_H20": {
+   "status": "INFEASIBLE_UNDER_ENVELOPE",
+   "objective": null,
+   "plan_digest": null,
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_R1_H20.json"
+  },
+  "A5_TP200|R2_S25": {
+   "status": "CERTIFIED",
+   "objective": 3032001.382007392,
+   "plan_digest": "56d0be6e0fb69a73",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_R2_S25.json"
+  },
+  "A5_TP200|R2_S10": {
+   "status": "CERTIFIED",
+   "objective": 3072082.0369994733,
+   "plan_digest": "7344860838307450",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_R2_S10.json"
+  },
+  "A5_TP200|R2_S05": {
+   "status": "CERTIFIED",
+   "objective": 3067407.2328122025,
+   "plan_digest": "2cf55b19a0a2c913",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_R2_S05.json"
+  },
+  "A5_TP200|R3_SPAN": {
+   "status": "CERTIFIED",
+   "objective": 3035446.885074853,
+   "plan_digest": "90efee68b9dbb1f9",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_R3_SPAN.json"
+  },
+  "A5_TP200|R4_C05": {
+   "status": "CERTIFIED",
+   "objective": 3041098.3928406658,
+   "plan_digest": "36bf78a49fcaa5a4",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_R4_C05.json"
+  },
+  "A5_TP200|R4_C01": {
+   "status": "CERTIFIED",
+   "objective": 3047057.058638855,
+   "plan_digest": "9df9584e2139977e",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_R4_C01.json"
+  },
+  "A5_TP200|R4_C00": {
+   "status": "CERTIFIED",
+   "objective": 3050342.894723877,
+   "plan_digest": "29c9a3c60cab8fb9",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_R4_C00.json"
+  },
+  "A5_TP200|R6_ADA": {
+   "status": "CERTIFIED",
+   "objective": 3044320.900772357,
+   "plan_digest": "2321abfcaaab9ea8",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_R6_ADA.json"
+  },
+  "A5_TP200|B1": {
+   "status": "CERTIFIED",
+   "objective": 3049742.9560771035,
+   "plan_digest": "2e47def58e24b51f",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_B1.json"
+  },
+  "A5_TP200|B2": {
+   "status": "CERTIFIED",
+   "objective": 3047296.8226914117,
+   "plan_digest": "5701ad7888da5fc6",
+   "ref": "outputs/exp7/initial/F6/A5_TP200/N3_B2.json"
+  },
+  "A6_WALKSPD85|REF": {
+   "status": "CERTIFIED",
+   "objective": 3000308.3724815054,
+   "plan_digest": "c7229ceb9bcf5aeb",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_REF.json"
+  },
+  "A6_WALKSPD85|R1_H60": {
+   "status": "CERTIFIED",
+   "objective": 3014553.095125489,
+   "plan_digest": "2bf3410c023933ff",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_R1_H60.json"
+  },
+  "A6_WALKSPD85|R1_H30": {
+   "status": "CERTIFIED",
+   "objective": 3017347.928017115,
+   "plan_digest": "3929be2719fc5bd8",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_R1_H30.json"
+  },
+  "A6_WALKSPD85|R1_H20": {
+   "status": "INFEASIBLE_UNDER_ENVELOPE",
+   "objective": null,
+   "plan_digest": null,
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_R1_H20.json"
+  },
+  "A6_WALKSPD85|R2_S25": {
+   "status": "CERTIFIED",
+   "objective": 2992249.0438581053,
+   "plan_digest": "8f732266c817a0b9",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_R2_S25.json"
+  },
+  "A6_WALKSPD85|R2_S10": {
+   "status": "CERTIFIED",
+   "objective": 3035928.171068549,
+   "plan_digest": "e92a2db116d517d8",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_R2_S10.json"
+  },
+  "A6_WALKSPD85|R2_S05": {
+   "status": "CERTIFIED",
+   "objective": 3029110.272904474,
+   "plan_digest": "0633edfbfafb6844",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_R2_S05.json"
+  },
+  "A6_WALKSPD85|R3_SPAN": {
+   "status": "CERTIFIED",
+   "objective": 3017361.3174291477,
+   "plan_digest": "b32aa92cf53e1efc",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_R3_SPAN.json"
+  },
+  "A6_WALKSPD85|R4_C05": {
+   "status": "CERTIFIED",
+   "objective": 3007880.928451769,
+   "plan_digest": "a5a1d5c4625c38b0",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_R4_C05.json"
+  },
+  "A6_WALKSPD85|R4_C01": {
+   "status": "CERTIFIED",
+   "objective": 3012242.817817694,
+   "plan_digest": "d8e442ae7616dae8",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_R4_C01.json"
+  },
+  "A6_WALKSPD85|R4_C00": {
+   "status": "CERTIFIED",
+   "objective": 3014553.095125489,
+   "plan_digest": "2bf3410c023933ff",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_R4_C00.json"
+  },
+  "A6_WALKSPD85|R6_ADA": {
+   "status": "CERTIFIED",
+   "objective": 3008953.7109642946,
+   "plan_digest": "77abab0e51209b3c",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_R6_ADA.json"
+  },
+  "A6_WALKSPD85|B1": {
+   "status": "CERTIFIED",
+   "objective": 3014220.3265263033,
+   "plan_digest": "07612f5bf35aede6",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_B1.json"
+  },
+  "A6_WALKSPD85|B2": {
+   "status": "CERTIFIED",
+   "objective": 3012865.522852335,
+   "plan_digest": "7070fe3d670b679a",
+   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N3_B2.json"
+  },
+  "A6_MAXWALK75|REF": {
+   "status": "CERTIFIED",
+   "objective": 3075964.203976446,
+   "plan_digest": "0028781869d382e4",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_REF.json"
+  },
+  "A6_MAXWALK75|R1_H60": {
+   "status": "CERTIFIED",
+   "objective": 3089428.533520099,
+   "plan_digest": "d7b891da9bd7d12f",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_R1_H60.json"
+  },
+  "A6_MAXWALK75|R1_H30": {
+   "status": "CERTIFIED",
+   "objective": 3091042.0534277456,
+   "plan_digest": "6dbfc6b964d6fa8f",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_R1_H30.json"
+  },
+  "A6_MAXWALK75|R1_H20": {
+   "status": "INFEASIBLE_UNDER_ENVELOPE",
+   "objective": null,
+   "plan_digest": null,
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_R1_H20.json"
+  },
+  "A6_MAXWALK75|R2_S25": {
+   "status": "CERTIFIED",
+   "objective": 3074651.4288933827,
+   "plan_digest": "5391c647dbe5fd07",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_R2_S25.json"
+  },
+  "A6_MAXWALK75|R2_S10": {
+   "status": "CERTIFIED",
+   "objective": 3081896.072076397,
+   "plan_digest": "7ae5a701a9e69129",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_R2_S10.json"
+  },
+  "A6_MAXWALK75|R2_S05": {
+   "status": "CERTIFIED",
+   "objective": 3084389.5346722812,
+   "plan_digest": "bf5caf247021ca23",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_R2_S05.json"
+  },
+  "A6_MAXWALK75|R3_SPAN": {
+   "status": "CERTIFIED",
+   "objective": 3089943.2105327668,
+   "plan_digest": "e14e97f1e4ae2d28",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_R3_SPAN.json"
+  },
+  "A6_MAXWALK75|R4_C05": {
+   "status": "CERTIFIED",
+   "objective": 3084506.7945857015,
+   "plan_digest": "bca861c0f2ed0a02",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_R4_C05.json"
+  },
+  "A6_MAXWALK75|R4_C01": {
+   "status": "CERTIFIED",
+   "objective": 3088416.115928761,
+   "plan_digest": "d0f988d4f7f59995",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_R4_C01.json"
+  },
+  "A6_MAXWALK75|R4_C00": {
+   "status": "CERTIFIED",
+   "objective": 3089428.533520099,
+   "plan_digest": "d7b891da9bd7d12f",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_R4_C00.json"
+  },
+  "A6_MAXWALK75|R6_ADA": {
+   "status": "CERTIFIED",
+   "objective": 3087684.094820971,
+   "plan_digest": "1b25dfe5cd8b63b7",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_R6_ADA.json"
+  },
+  "A6_MAXWALK75|B1": {
+   "status": "CERTIFIED",
+   "objective": 3090568.1160972286,
+   "plan_digest": "5e95c9171fec490e",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_B1.json"
+  },
+  "A6_MAXWALK75|B2": {
+   "status": "CERTIFIED",
+   "objective": 3089635.7544871075,
+   "plan_digest": "3d309550b6c69547",
+   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N3_B2.json"
+  }
+ }
+}
