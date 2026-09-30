@@ -163,12 +163,20 @@
    "4879092c634d4c36"
   ],
   [
+   "A5_TP050|R1_H60",
+   "9f93440c516b3c51"
+  ],
+  [
    "A5_TP050|R2_S05",
    "a3f2d255be674be1"
   ],
   [
    "A5_TP050|R2_S10",
    "c72c171b0d9884de"
+  ],
+  [
+   "A5_TP050|R2_S10",
+   "ec4222fedcc2b505"
   ],
   [
    "A5_TP050|R3_SPAN",
@@ -319,11 +327,11 @@
   "A5_LAM4|B1": 0,
   "A5_LAM4|B2": 0,
   "A5_TP050|REF": 0,
-  "A5_TP050|R1_H60": 0,
+  "A5_TP050|R1_H60": 1,
   "A5_TP050|R1_H30": 0,
   "A5_TP050|R1_H20": 0,
   "A5_TP050|R2_S25": 0,
-  "A5_TP050|R2_S10": 0,
+  "A5_TP050|R2_S10": 1,
   "A5_TP050|R2_S05": 0,
   "A5_TP050|R3_SPAN": 1,
   "A5_TP050|R4_C05": 0,
@@ -655,9 +663,37 @@
    ],
    "before": "2899905.972977889",
    "after": "2895743.2907265387"
+  },
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "A5_TP050",
+    "R1_H60"
+   ],
+   "from": [
+    "A5_TP050",
+    "R4_C00"
+   ],
+   "before": "2895743.2907265387",
+   "after": "2895696.4231453817"
+  },
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "A5_TP050",
+    "R2_S10"
+   ],
+   "from": [
+    "A5_TP050",
+    "R2_S05"
+   ],
+   "before": "2891783.7083764235",
+   "after": "2881290.722327511"
   }
  ],
- "cursor": 141,
+ "cursor": 144,
  "pass_improved": true,
  "blocking": [],
  "best": {
@@ -921,9 +957,9 @@
   },
   "A5_TP050|R1_H60": {
    "status": "CERTIFIED",
-   "objective": 2895743.2907265387,
-   "plan_digest": "a3f2d255be674be1",
-   "ref": "outputs/exp7/initial/F6/A5_TP050/N0_R1_H60.json"
+   "objective": 2895696.4231453817,
+   "plan_digest": "9f93440c516b3c51",
+   "ref": "outputs/exp7/closure/F6/A5_TP050/N0_R1_H60__anchor_9f93440c516b3c51.json"
   },
   "A5_TP050|R1_H30": {
    "status": "CERTIFIED",
@@ -945,9 +981,9 @@
   },
   "A5_TP050|R2_S10": {
    "status": "CERTIFIED",
-   "objective": 2891783.7083764235,
-   "plan_digest": "4351434c7af2115a",
-   "ref": "outputs/exp7/initial/F6/A5_TP050/N0_R2_S10.json"
+   "objective": 2881290.722327511,
+   "plan_digest": "ad4c55e806fdbbf3",
+   "ref": "outputs/exp7/closure/F6/A5_TP050/N0_R2_S10__anchor_ec4222fedcc2b505.json"
   },
   "A5_TP050|R2_S05": {
    "status": "CERTIFIED",
