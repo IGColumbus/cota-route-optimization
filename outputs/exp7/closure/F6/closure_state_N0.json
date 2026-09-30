@@ -7,12 +7,20 @@
    "b34377ffe91a8892"
   ],
   [
+   "A5_LAM1|B2",
+   "b34377ffe91a8892"
+  ],
+  [
    "A5_LAM1|R1_H30",
    "7ea673e28e0ec3b0"
   ],
   [
    "A5_LAM1|R1_H60",
    "95f7816b53338d26"
+  ],
+  [
+   "A5_LAM1|R2_S05",
+   "b34377ffe91a8892"
   ],
   [
    "A5_LAM1|R2_S10",
@@ -403,7 +411,7 @@
    "after": "2321104.3530756636"
   }
  ],
- "cursor": 56,
+ "cursor": 62,
  "pass_improved": true,
  "blocking": [],
  "best": {
