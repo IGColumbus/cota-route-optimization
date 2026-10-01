@@ -451,6 +451,10 @@
    "56aa2ee4a53d8177"
   ],
   [
+   "A6_MAXWALK75|R1_H60",
+   "ec07d70b4e90bc58"
+  ],
+  [
    "A6_MAXWALK75|R2_S05",
    "bc166375895cd91d"
   ],
@@ -533,6 +537,10 @@
   [
    "A6_WALKSPD85|R1_H60",
    "222c9c9571d352f6"
+  ],
+  [
+   "A6_WALKSPD85|R1_H60",
+   "bc166375895cd91d"
   ],
   [
    "A6_WALKSPD85|R1_H60",
@@ -1513,7 +1521,7 @@
    "after": "2955800.6445186306"
   }
  ],
- "cursor": 329,
+ "cursor": 331,
  "pass_improved": true,
  "blocking": [],
  "best": {
