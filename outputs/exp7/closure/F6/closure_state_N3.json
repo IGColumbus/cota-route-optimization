@@ -287,6 +287,10 @@
    "2bf3410c023933ff"
   ],
   [
+   "A6_WALKSPD85|B2",
+   "2bf3410c023933ff"
+  ],
+  [
    "A6_WALKSPD85|R1_H60",
    "3929be2719fc5bd8"
   ],
@@ -877,7 +881,7 @@
    "after": "3012865.522852335"
   }
  ],
- "cursor": 216,
+ "cursor": 218,
  "pass_improved": true,
  "blocking": [],
  "best": {
