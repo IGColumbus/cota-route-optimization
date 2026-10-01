@@ -331,6 +331,10 @@
    "5e95c9171fec490e"
   ],
   [
+   "A6_MAXWALK75|R6_ADA",
+   "d7b891da9bd7d12f"
+  ],
+  [
    "A6_MAXWALK75|REF",
    "3d309550b6c69547"
   ],
@@ -1131,7 +1135,7 @@
    "after": "3088355.535475564"
   }
  ],
- "cursor": 272,
+ "cursor": 274,
  "pass_improved": true,
  "blocking": [],
  "best": {
