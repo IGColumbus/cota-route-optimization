@@ -560,6 +560,10 @@
   ],
   [
    "BASE|R1_H60",
+   "9f93440c516b3c51"
+  ],
+  [
+   "BASE|R1_H60",
    "b34377ffe91a8892"
   ],
   [
@@ -657,7 +661,7 @@
  ],
  "found_in_pass": {
   "BASE|REF": 1,
-  "BASE|R1_H60": 0,
+  "BASE|R1_H60": 1,
   "BASE|R1_H30": 0,
   "BASE|R1_H20": 0,
   "BASE|R2_S25": 1,
@@ -1413,9 +1417,23 @@
    ],
    "before": "2998234.8189617135",
    "after": "2997413.5075085503"
+  },
+  {
+   "pass": 1,
+   "stage": "X",
+   "cell": [
+    "BASE",
+    "R1_H60"
+   ],
+   "from": [
+    "A5_TP050",
+    "R1_H60"
+   ],
+   "before": "2956071.2947759135",
+   "after": "2955800.6445186306"
   }
  ],
- "cursor": 308,
+ "cursor": 309,
  "pass_improved": true,
  "blocking": [],
  "best": {
@@ -1427,9 +1445,9 @@
   },
   "BASE|R1_H60": {
    "status": "CERTIFIED",
-   "objective": 2956071.2947759135,
-   "plan_digest": "859272a34d3d7e7d",
-   "ref": "outputs/exp6/initial/N0_R1_H60.json"
+   "objective": 2955800.6445186306,
+   "plan_digest": "ec07d70b4e90bc58",
+   "ref": "outputs/exp7/closure/F6/BASE/N0_R1_H60__anchor_9f93440c516b3c51.json"
   },
   "BASE|R1_H30": {
    "status": "CERTIFIED",
