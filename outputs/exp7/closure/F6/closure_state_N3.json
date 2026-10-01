@@ -295,6 +295,10 @@
    "7070fe3d670b679a"
   ],
   [
+   "A6_WALKSPD85|R4_C01",
+   "7070fe3d670b679a"
+  ],
+  [
    "A6_WALKSPD85|R6_ADA",
    "07612f5bf35aede6"
   ],
@@ -865,7 +869,7 @@
    "after": "3012865.522852335"
   }
  ],
- "cursor": 208,
+ "cursor": 212,
  "pass_improved": true,
  "blocking": [],
  "best": {
