@@ -319,6 +319,10 @@
    "ddbd508529129518"
   ],
   [
+   "A6_MAXWALK75|R4_C01",
+   "ddbd508529129518"
+  ],
+  [
    "A6_MAXWALK75|R6_ADA",
    "717caeb6bae1a64c"
   ],
@@ -577,7 +581,7 @@
   "A6_MAXWALK75|R2_S05": 0,
   "A6_MAXWALK75|R3_SPAN": 1,
   "A6_MAXWALK75|R4_C05": 0,
-  "A6_MAXWALK75|R4_C01": 0,
+  "A6_MAXWALK75|R4_C01": 1,
   "A6_MAXWALK75|R4_C00": 0,
   "A6_MAXWALK75|R6_ADA": 0,
   "A6_MAXWALK75|B1": 0,
@@ -1157,9 +1161,23 @@
    ],
    "before": "3094644.2097082925",
    "after": "3094445.9073648527"
+  },
+  {
+   "pass": 1,
+   "stage": "W",
+   "cell": [
+    "A6_MAXWALK75",
+    "R4_C01"
+   ],
+   "from": [
+    "A6_MAXWALK75",
+    "B2"
+   ],
+   "before": "3093370.1440835316",
+   "after": "3093263.6467342186"
   }
  ],
- "cursor": 248,
+ "cursor": 250,
  "pass_improved": true,
  "blocking": [],
  "best": {
@@ -1723,9 +1741,9 @@
   },
   "A6_MAXWALK75|R4_C01": {
    "status": "CERTIFIED",
-   "objective": 3093370.1440835316,
-   "plan_digest": "49401c603bda7f4f",
-   "ref": "outputs/exp7/initial/F6/A6_MAXWALK75/N0_R4_C01.json"
+   "objective": 3093263.6467342186,
+   "plan_digest": "329936e148e15e9e",
+   "ref": "outputs/exp7/closure/F6/A6_MAXWALK75/N0_R4_C01__anchor_ddbd508529129518.json"
   },
   "A6_MAXWALK75|R4_C00": {
    "status": "CERTIFIED",
