@@ -603,6 +603,10 @@
    "d5f131ff9dd2bf24"
   ],
   [
+   "BASE|R1_H60",
+   "d7b891da9bd7d12f"
+  ],
+  [
    "BASE|R2_S05",
    "591eebe7630410f2"
   ],
@@ -1377,7 +1381,7 @@
    "after": "2890592.151867936"
   }
  ],
- "cursor": 327,
+ "cursor": 328,
  "pass_improved": true,
  "blocking": [],
  "best": {
