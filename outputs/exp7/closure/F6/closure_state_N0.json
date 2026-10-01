@@ -315,6 +315,10 @@
    "6689136bc4400722"
   ],
   [
+   "A6_WALKSPD85|R6_ADA",
+   "6689136bc4400722"
+  ],
+  [
    "BASE|B1",
    "859272a34d3d7e7d"
   ],
@@ -963,7 +967,7 @@
    "after": "3019918.3634460717"
   }
  ],
- "cursor": 204,
+ "cursor": 206,
  "pass_improved": true,
  "blocking": [],
  "best": {
