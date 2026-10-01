@@ -544,6 +544,10 @@
   ],
   [
    "BASE|REF",
+   "ab367a96fafa0d53"
+  ],
+  [
+   "BASE|REF",
    "aed848588abad24d"
   ],
   [
@@ -1281,17 +1285,31 @@
    ],
    "before": "3082079.286673381",
    "after": "3079475.4819007516"
+  },
+  {
+   "pass": 1,
+   "stage": "X",
+   "cell": [
+    "BASE",
+    "REF"
+   ],
+   "from": [
+    "A5_TP050",
+    "REF"
+   ],
+   "before": "2941892.371426373",
+   "after": "2941520.1513093724"
   }
  ],
- "cursor": 282,
+ "cursor": 283,
  "pass_improved": true,
  "blocking": [],
  "best": {
   "BASE|REF": {
    "status": "CERTIFIED",
-   "objective": 2941892.371426373,
-   "plan_digest": "aed848588abad24d",
-   "ref": "outputs/exp6/closure/N0_REF__from_R2_S25__aed848588abad24d.json"
+   "objective": 2941520.1513093724,
+   "plan_digest": "1bad50e63260b7db",
+   "ref": "outputs/exp7/closure/F6/BASE/N0_REF__anchor_ab367a96fafa0d53.json"
   },
   "BASE|R1_H60": {
    "status": "CERTIFIED",
