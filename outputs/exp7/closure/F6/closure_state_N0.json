@@ -19,6 +19,10 @@
    "95f7816b53338d26"
   ],
   [
+   "A5_LAM1|R1_H60",
+   "ec07d70b4e90bc58"
+  ],
+  [
    "A5_LAM1|R2_S05",
    "b34377ffe91a8892"
   ],
@@ -1437,7 +1441,7 @@
    "after": "2955800.6445186306"
   }
  ],
- "cursor": 310,
+ "cursor": 311,
  "pass_improved": true,
  "blocking": [],
  "best": {
