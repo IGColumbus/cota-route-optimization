@@ -868,7 +868,15 @@
   ],
   [
    "BASE|R2_S25",
+   "061919b6be9e8bbc"
+  ],
+  [
+   "BASE|R2_S25",
    "2d28790ca3efef6e"
+  ],
+  [
+   "BASE|R2_S25",
+   "44304ae5e26ebc06"
   ],
   [
    "BASE|R3_SPAN",
@@ -1745,7 +1753,7 @@
    "after": "4150301.3618252045"
   }
  ],
- "cursor": 384,
+ "cursor": 386,
  "pass_improved": true,
  "blocking": [],
  "best": {
