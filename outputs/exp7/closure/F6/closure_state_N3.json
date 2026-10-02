@@ -883,6 +883,10 @@
    "7070fe3d670b679a"
   ],
   [
+   "A6_WALKSPD85|R3_SPAN",
+   "b201e8fa5e376346"
+  ],
+  [
    "A6_WALKSPD85|R4_C01",
    "2bf3410c023933ff"
   ],
@@ -1997,7 +2001,7 @@
    "after": "2890680.0513839433"
   }
  ],
- "cursor": 484,
+ "cursor": 485,
  "pass_improved": true,
  "blocking": [],
  "best": {
