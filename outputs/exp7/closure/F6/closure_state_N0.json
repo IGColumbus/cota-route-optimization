@@ -879,6 +879,10 @@
    "44304ae5e26ebc06"
   ],
   [
+   "BASE|R2_S25",
+   "ad4c55e806fdbbf3"
+  ],
+  [
    "BASE|R3_SPAN",
    "5deb5a8bd7d8763f"
   ],
@@ -1751,9 +1755,23 @@
    ],
    "before": "4150364.786794408",
    "after": "4150301.3618252045"
+  },
+  {
+   "pass": 1,
+   "stage": "X",
+   "cell": [
+    "BASE",
+    "R2_S25"
+   ],
+   "from": [
+    "A5_TP050",
+    "R2_S25"
+   ],
+   "before": "2941892.371426373",
+   "after": "2941495.8502019383"
   }
  ],
- "cursor": 386,
+ "cursor": 387,
  "pass_improved": true,
  "blocking": [],
  "best": {
@@ -1783,9 +1801,9 @@
   },
   "BASE|R2_S25": {
    "status": "CERTIFIED",
-   "objective": 2941892.371426373,
-   "plan_digest": "aed848588abad24d",
-   "ref": "outputs/exp6/closure/N0_R2_S25__from_R2_S10__2d28790ca3efef6e.json"
+   "objective": 2941495.8502019383,
+   "plan_digest": "6d7c355fce6884db",
+   "ref": "outputs/exp7/closure/F6/BASE/N0_R2_S25__anchor_ad4c55e806fdbbf3.json"
   },
   "BASE|R2_S10": {
    "status": "CERTIFIED",
