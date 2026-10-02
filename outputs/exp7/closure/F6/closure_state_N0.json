@@ -243,6 +243,10 @@
    "6d7c355fce6884db"
   ],
   [
+   "A5_LAM4|R2_S10",
+   "d664d624204ce007"
+  ],
+  [
    "A5_LAM4|R2_S25",
    "061919b6be9e8bbc"
   ],
@@ -1941,7 +1945,7 @@
    "after": "2941495.8502019383"
   }
  ],
- "cursor": 419,
+ "cursor": 420,
  "pass_improved": true,
  "blocking": [],
  "best": {
