@@ -147,6 +147,14 @@
    "0e4530d80c16d5dd"
   ],
   [
+   "A5_LAM4|R1_H20",
+   "7ea673e28e0ec3b0"
+  ],
+  [
+   "A5_LAM4|R1_H20",
+   "7ea7a7d4e4d9f755"
+  ],
+  [
    "A5_LAM4|R1_H30",
    "4879092c634d4c36"
   ],
@@ -1689,7 +1697,7 @@
    "after": "4150301.3618252045"
   }
  ],
- "cursor": 367,
+ "cursor": 371,
  "pass_improved": true,
  "blocking": [],
  "best": {
