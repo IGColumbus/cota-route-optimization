@@ -1007,6 +1007,10 @@
    "94770e012d233dd1"
   ],
   [
+   "A6_WALKSPD85|R3_SPAN",
+   "ddbd508529129518"
+  ],
+  [
    "A6_WALKSPD85|R4_C01",
    "94770e012d233dd1"
   ],
@@ -2283,7 +2287,7 @@
    "after": "2895481.676544147"
   }
  ],
- "cursor": 485,
+ "cursor": 486,
  "pass_improved": true,
  "blocking": [],
  "best": {
