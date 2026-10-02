@@ -11,6 +11,10 @@
    "b34377ffe91a8892"
   ],
   [
+   "A5_LAM1|R1_H20",
+   "0e4530d80c16d5dd"
+  ],
+  [
    "A5_LAM1|R1_H30",
    "4085761b57041ad9"
   ],
@@ -713,6 +717,10 @@
   [
    "BASE|R1_H20",
    "7ea673e28e0ec3b0"
+  ],
+  [
+   "BASE|R1_H20",
+   "7ea7a7d4e4d9f755"
   ],
   [
    "BASE|R1_H20",
@@ -1655,7 +1663,7 @@
    "after": "2968609.0295357835"
   }
  ],
- "cursor": 361,
+ "cursor": 363,
  "pass_improved": true,
  "blocking": [],
  "best": {
