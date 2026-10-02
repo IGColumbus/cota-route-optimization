@@ -923,6 +923,10 @@
    "b201e8fa5e376346"
   ],
   [
+   "A6_MAXWALK75|R4_C00",
+   "591eebe7630410f2"
+  ],
+  [
    "A6_MAXWALK75|R4_C01",
    "3d309550b6c69547"
   ],
@@ -2367,7 +2371,7 @@
    "after": "2890592.151867936"
   }
  ],
- "cursor": 564,
+ "cursor": 565,
  "pass_improved": true,
  "blocking": [],
  "best": {
