@@ -996,6 +996,10 @@
   ],
   [
    "A6_WALKSPD85|R3_SPAN",
+   "3bcfea61f6647790"
+  ],
+  [
+   "A6_WALKSPD85|R3_SPAN",
    "6689136bc4400722"
   ],
   [
@@ -2279,7 +2283,7 @@
    "after": "2895481.676544147"
   }
  ],
- "cursor": 484,
+ "cursor": 485,
  "pass_improved": true,
  "blocking": [],
  "best": {
