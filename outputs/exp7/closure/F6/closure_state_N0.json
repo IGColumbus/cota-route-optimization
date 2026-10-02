@@ -1292,6 +1292,10 @@
   ],
   [
    "BASE|R4_C05",
+   "295786e755e1b4d2"
+  ],
+  [
+   "BASE|R4_C05",
    "4daf34f2f6265e63"
   ],
   [
@@ -2321,7 +2325,7 @@
    "after": "2944485.984713206"
   }
  ],
- "cursor": 491,
+ "cursor": 492,
  "pass_improved": true,
  "blocking": [],
  "best": {
