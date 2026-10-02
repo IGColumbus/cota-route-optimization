@@ -664,6 +664,10 @@
   ],
   [
    "A6_MAXWALK75|R2_S25",
+   "6d7c355fce6884db"
+  ],
+  [
+   "A6_MAXWALK75|R2_S25",
    "bc67f4b4da44ed62"
   ],
   [
@@ -773,6 +777,10 @@
   [
    "A6_WALKSPD85|R2_S25",
    "6d7c355fce6884db"
+  ],
+  [
+   "A6_WALKSPD85|R2_S25",
+   "7fa733293e534439"
   ],
   [
    "A6_WALKSPD85|R2_S25",
@@ -1110,7 +1118,7 @@
   "A6_WALKSPD85|R1_H60": 0,
   "A6_WALKSPD85|R1_H30": 0,
   "A6_WALKSPD85|R1_H20": 0,
-  "A6_WALKSPD85|R2_S25": 0,
+  "A6_WALKSPD85|R2_S25": 1,
   "A6_WALKSPD85|R2_S10": 1,
   "A6_WALKSPD85|R2_S05": 1,
   "A6_WALKSPD85|R3_SPAN": 1,
@@ -1863,9 +1871,23 @@
    ],
    "before": "2881290.722327511",
    "after": "2881027.4008362014"
+  },
+  {
+   "pass": 1,
+   "stage": "X",
+   "cell": [
+    "A6_WALKSPD85",
+    "R2_S25"
+   ],
+   "from": [
+    "A6_MAXWALK75",
+    "R2_S25"
+   ],
+   "before": "2998234.8189617135",
+   "after": "2997413.5075085503"
   }
  ],
- "cursor": 407,
+ "cursor": 409,
  "pass_improved": true,
  "blocking": [],
  "best": {
@@ -2315,9 +2337,9 @@
   },
   "A6_WALKSPD85|R2_S25": {
    "status": "CERTIFIED",
-   "objective": 2998234.8189617135,
-   "plan_digest": "e8125be179e2066a",
-   "ref": "outputs/exp7/initial/F6/A6_WALKSPD85/N0_R2_S25.json"
+   "objective": 2997413.5075085503,
+   "plan_digest": "d16a8e5d8ddbf3b2",
+   "ref": "outputs/exp7/closure/F6/A6_WALKSPD85/N0_R2_S25__anchor_7fa733293e534439.json"
   },
   "A6_WALKSPD85|R2_S10": {
    "status": "CERTIFIED",

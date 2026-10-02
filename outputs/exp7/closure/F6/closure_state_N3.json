@@ -864,6 +864,10 @@
   ],
   [
    "BASE|R2_S05",
+   "1e305eeadd5be5ce"
+  ],
+  [
+   "BASE|R2_S05",
    "591eebe7630410f2"
   ],
   [
@@ -873,6 +877,10 @@
   [
    "BASE|R2_S05",
    "ba17a6bcb9f1cb2c"
+  ],
+  [
+   "BASE|R2_S05",
+   "ffb26ed49e5d74c8"
   ],
   [
    "BASE|R2_S10",
@@ -1777,7 +1785,7 @@
    "after": "2999945.98938841"
   }
  ],
- "cursor": 438,
+ "cursor": 440,
  "pass_improved": true,
  "blocking": [],
  "best": {
