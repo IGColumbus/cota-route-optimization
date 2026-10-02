@@ -660,7 +660,15 @@
   ],
   [
    "A6_WALKSPD85|R2_S25",
+   "5391c647dbe5fd07"
+  ],
+  [
+   "A6_WALKSPD85|R2_S25",
    "a53b8a018a170eb8"
+  ],
+  [
+   "A6_WALKSPD85|R2_S25",
+   "c5a92902e88ad8aa"
   ],
   [
    "A6_WALKSPD85|R3_SPAN",
@@ -1615,7 +1623,7 @@
    "after": "2874284.5563952066"
   }
  ],
- "cursor": 406,
+ "cursor": 408,
  "pass_improved": true,
  "blocking": [],
  "best": {
