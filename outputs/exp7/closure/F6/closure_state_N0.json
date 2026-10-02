@@ -128,6 +128,10 @@
   ],
   [
    "A5_LAM1|R3_SPAN",
+   "3bcfea61f6647790"
+  ],
+  [
+   "A5_LAM1|R3_SPAN",
    "451cd63fa7adf6e7"
   ],
   [
@@ -2213,7 +2217,7 @@
    "after": "2955996.7965200706"
   }
  ],
- "cursor": 466,
+ "cursor": 468,
  "pass_improved": true,
  "blocking": [],
  "best": {
