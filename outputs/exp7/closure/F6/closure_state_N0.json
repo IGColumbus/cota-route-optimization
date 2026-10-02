@@ -1184,6 +1184,10 @@
   ],
   [
    "BASE|R3_SPAN",
+   "3b5c2f159f417190"
+  ],
+  [
+   "BASE|R3_SPAN",
    "5deb5a8bd7d8763f"
   ],
   [
@@ -2183,7 +2187,7 @@
    "after": "3048263.8211787376"
   }
  ],
- "cursor": 462,
+ "cursor": 463,
  "pass_improved": true,
  "blocking": [],
  "best": {
