@@ -44,6 +44,10 @@
   ],
   [
    "A5_LAM1|R2_S05",
+   "1e305eeadd5be5ce"
+  ],
+  [
+   "A5_LAM1|R2_S05",
    "4bd6ae0a6dd4b9d3"
   ],
   [
@@ -197,6 +201,10 @@
   [
    "A5_LAM4|R1_H60",
    "9838c9e937d69196"
+  ],
+  [
+   "A5_LAM4|R2_S05",
+   "561444f68239da95"
   ],
   [
    "A5_LAM4|R2_S05",
@@ -1797,7 +1805,7 @@
    "after": "2999945.98938841"
   }
  ],
- "cursor": 443,
+ "cursor": 445,
  "pass_improved": true,
  "blocking": [],
  "best": {
