@@ -864,7 +864,15 @@
   ],
   [
    "A6_MAXWALK75|R3_SPAN",
+   "3bcfea61f6647790"
+  ],
+  [
+   "A6_MAXWALK75|R3_SPAN",
    "717caeb6bae1a64c"
+  ],
+  [
+   "A6_MAXWALK75|R3_SPAN",
+   "94770e012d233dd1"
   ],
   [
    "A6_MAXWALK75|R3_SPAN",
@@ -2287,7 +2295,7 @@
    "after": "2895481.676544147"
   }
  ],
- "cursor": 486,
+ "cursor": 488,
  "pass_improved": true,
  "blocking": [],
  "best": {
