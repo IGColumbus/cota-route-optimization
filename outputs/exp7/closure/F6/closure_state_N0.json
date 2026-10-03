@@ -1572,6 +1572,10 @@
   ],
   [
    "BASE|R6_ADA",
+   "ad2305c10e226af2"
+  ],
+  [
+   "BASE|R6_ADA",
    "b51bd8ef622d922b"
   ],
   [
@@ -2681,9 +2685,23 @@
    ],
    "before": "2956071.2947759135",
    "after": "2955800.6445186306"
+  },
+  {
+   "pass": 1,
+   "stage": "X",
+   "cell": [
+    "BASE",
+    "R6_ADA"
+   ],
+   "from": [
+    "A5_TP050",
+    "R6_ADA"
+   ],
+   "before": "2954847.7300574416",
+   "after": "2954577.0798001587"
   }
  ],
- "cursor": 568,
+ "cursor": 569,
  "pass_improved": true,
  "blocking": [],
  "best": {
@@ -2755,9 +2773,9 @@
   },
   "BASE|R6_ADA": {
    "status": "CERTIFIED",
-   "objective": 2954847.7300574416,
-   "plan_digest": "b517f6731e99c4d3",
-   "ref": "outputs/exp6/closure/N0_R6_ADA__from_R4_C00__859272a34d3d7e7d.json"
+   "objective": 2954577.0798001587,
+   "plan_digest": "cd2f57826fefe2ec",
+   "ref": "outputs/exp7/closure/F6/BASE/N0_R6_ADA__anchor_ad2305c10e226af2.json"
   },
   "BASE|B1": {
    "status": "CERTIFIED",
