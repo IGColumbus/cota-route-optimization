@@ -1468,6 +1468,10 @@
   ],
   [
    "BASE|R1_H60",
+   "7b666c6f68711ff5"
+  ],
+  [
+   "BASE|R1_H60",
    "9838c9e937d69196"
   ],
   [
@@ -1680,6 +1684,10 @@
   ],
   [
    "BASE|R4_C05",
+   "7bbf26f33bd29cd5"
+  ],
+  [
+   "BASE|R4_C05",
    "91dc3d9fb2dac18a"
   ],
   [
@@ -1741,6 +1749,10 @@
   [
    "BASE|REF",
    "5391c647dbe5fd07"
+  ],
+  [
+   "BASE|REF",
+   "591eebe7630410f2"
   ],
   [
    "BASE|REF",
@@ -2751,7 +2763,7 @@
    "after": "2950532.5669298135"
   }
  ],
- "cursor": 12,
+ "cursor": 36,
  "pass_improved": true,
  "blocking": [],
  "best": {
