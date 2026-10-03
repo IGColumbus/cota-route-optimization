@@ -1,5 +1,5 @@
 {
- "passes_completed": 0,
+ "passes_completed": 1,
  "status": null,
  "tried": [
   [
@@ -1052,6 +1052,10 @@
   ],
   [
    "A6_MAXWALK75|B2",
+   "7070fe3d670b679a"
+  ],
+  [
+   "A6_MAXWALK75|B2",
    "d7b891da9bd7d12f"
   ],
   [
@@ -1516,6 +1520,10 @@
   ],
   [
    "BASE|R2_S10",
+   "591eebe7630410f2"
+  ],
+  [
+   "BASE|R2_S10",
    "881d4567eb5020cf"
   ],
   [
@@ -1569,6 +1577,10 @@
   [
    "BASE|R3_SPAN",
    "3d309550b6c69547"
+  ],
+  [
+   "BASE|R3_SPAN",
+   "591eebe7630410f2"
   ],
   [
    "BASE|R3_SPAN",
@@ -1763,7 +1775,7 @@
   "BASE|R2_S25": 1,
   "BASE|R2_S10": 1,
   "BASE|R2_S05": 0,
-  "BASE|R3_SPAN": 1,
+  "BASE|R3_SPAN": 2,
   "BASE|R4_C05": 1,
   "BASE|R4_C01": 1,
   "BASE|R4_C00": 0,
@@ -2723,9 +2735,23 @@
    ],
    "before": "2890670.702266047",
    "after": "2890592.151867936"
+  },
+  {
+   "pass": 2,
+   "stage": "W",
+   "cell": [
+    "BASE",
+    "R3_SPAN"
+   ],
+   "from": [
+    "BASE",
+    "B1"
+   ],
+   "before": "2950973.667584002",
+   "after": "2950532.5669298135"
   }
  ],
- "cursor": 643,
+ "cursor": 12,
  "pass_improved": true,
  "blocking": [],
  "best": {
@@ -2773,9 +2799,9 @@
   },
   "BASE|R3_SPAN": {
    "status": "CERTIFIED",
-   "objective": 2950973.667584002,
-   "plan_digest": "b201e8fa5e376346",
-   "ref": "outputs/exp7/closure/F6/BASE/N3_R3_SPAN__anchor_b201e8fa5e376346.json"
+   "objective": 2950532.5669298135,
+   "plan_digest": "591eebe7630410f2",
+   "ref": "outputs/exp6/closure/N3_R3_SPAN__from_B1__591eebe7630410f2.json"
   },
   "BASE|R4_C05": {
    "status": "CERTIFIED",
