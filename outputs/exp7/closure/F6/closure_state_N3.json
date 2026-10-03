@@ -1396,6 +1396,10 @@
   ],
   [
    "BASE|B2",
+   "7070fe3d670b679a"
+  ],
+  [
+   "BASE|B2",
    "9838c9e937d69196"
   ],
   [
@@ -2705,7 +2709,7 @@
    "after": "2890592.151867936"
   }
  ],
- "cursor": 638,
+ "cursor": 639,
  "pass_improved": true,
  "blocking": [],
  "best": {
