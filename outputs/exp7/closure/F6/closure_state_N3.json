@@ -1628,6 +1628,10 @@
   ],
   [
    "BASE|R2_S10",
+   "1a62cf4a59887720"
+  ],
+  [
+   "BASE|R2_S10",
    "46d2591535920e22"
   ],
   [
@@ -1657,6 +1661,10 @@
   [
    "BASE|R2_S10",
    "d28d446a443a986b"
+  ],
+  [
+   "BASE|R2_S10",
+   "df39049f3ead4cd0"
   ],
   [
    "BASE|R2_S10",
@@ -1909,7 +1917,7 @@
   "BASE|R1_H30": 1,
   "BASE|R1_H20": 0,
   "BASE|R2_S25": 1,
-  "BASE|R2_S10": 1,
+  "BASE|R2_S10": 2,
   "BASE|R2_S05": 0,
   "BASE|R3_SPAN": 2,
   "BASE|R4_C05": 1,
@@ -2955,9 +2963,23 @@
    ],
    "before": "3089635.7544871075",
    "after": "3089428.533520099"
+  },
+  {
+   "pass": 2,
+   "stage": "X",
+   "cell": [
+    "BASE",
+    "R2_S10"
+   ],
+   "from": [
+    "A5_TP050",
+    "R2_S10"
+   ],
+   "before": "2935166.0254381876",
+   "after": "2934680.3185290713"
   }
  ],
- "cursor": 411,
+ "cursor": 413,
  "pass_improved": true,
  "blocking": [],
  "best": {
@@ -2993,9 +3015,9 @@
   },
   "BASE|R2_S10": {
    "status": "CERTIFIED",
-   "objective": 2935166.0254381876,
-   "plan_digest": "fdec5c5475c73736",
-   "ref": "outputs/exp6/closure/N3_R2_S10__from_R2_S05__561444f68239da95.json"
+   "objective": 2934680.3185290713,
+   "plan_digest": "df39049f3ead4cd0",
+   "ref": "outputs/exp7/closure/F6/BASE/N3_R2_S10__anchor_df39049f3ead4cd0.json"
   },
   "BASE|R2_S05": {
    "status": "CERTIFIED",
