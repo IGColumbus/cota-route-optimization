@@ -1343,6 +1343,10 @@
    "c5a92902e88ad8aa"
   ],
   [
+   "A6_WALKSPD85|R2_S25",
+   "fdec5c5475c73736"
+  ],
+  [
    "A6_WALKSPD85|R3_SPAN",
    "07612f5bf35aede6"
   ],
@@ -2883,7 +2887,7 @@
    "after": "3034639.8467088426"
   }
  ],
- "cursor": 224,
+ "cursor": 234,
  "pass_improved": true,
  "blocking": [],
  "best": {
