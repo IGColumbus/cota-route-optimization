@@ -1280,6 +1280,10 @@
   ],
   [
    "A6_MAXWALK75|R3_SPAN",
+   "591eebe7630410f2"
+  ],
+  [
+   "A6_MAXWALK75|R3_SPAN",
    "5e95c9171fec490e"
   ],
   [
@@ -1477,6 +1481,10 @@
   [
    "A6_WALKSPD85|R3_SPAN",
    "b201e8fa5e376346"
+  ],
+  [
+   "A6_WALKSPD85|R3_SPAN",
+   "d7b891da9bd7d12f"
   ],
   [
    "A6_WALKSPD85|R4_C00",
@@ -3121,7 +3129,7 @@
    "after": "2998772.744400035"
   }
  ],
- "cursor": 485,
+ "cursor": 542,
  "pass_improved": true,
  "blocking": [],
  "best": {
