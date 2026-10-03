@@ -1292,6 +1292,10 @@
   ],
   [
    "A6_MAXWALK75|R3_SPAN",
+   "bc166375895cd91d"
+  ],
+  [
+   "A6_MAXWALK75|R3_SPAN",
    "ddbd508529129518"
   ],
   [
@@ -3329,7 +3333,7 @@
    "after": "3085549.3311243095"
   }
  ],
- "cursor": 242,
+ "cursor": 264,
  "pass_improved": true,
  "blocking": [],
  "best": {
