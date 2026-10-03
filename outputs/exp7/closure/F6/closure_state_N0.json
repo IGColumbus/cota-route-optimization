@@ -1,5 +1,5 @@
 {
- "passes_completed": 0,
+ "passes_completed": 1,
  "status": null,
  "tried": [
   [
@@ -1133,6 +1133,14 @@
   [
    "A6_MAXWALK75|B1",
    "bc166375895cd91d"
+  ],
+  [
+   "A6_MAXWALK75|B2",
+   "4db74862436df2ab"
+  ],
+  [
+   "A6_MAXWALK75|B2",
+   "94770e012d233dd1"
   ],
   [
    "A6_MAXWALK75|B2",
@@ -3045,8 +3053,8 @@
    "after": "2895481.676544147"
   }
  ],
- "cursor": 642,
- "pass_improved": true,
+ "cursor": 0,
+ "pass_improved": false,
  "blocking": [],
  "best": {
   "BASE|REF": {
