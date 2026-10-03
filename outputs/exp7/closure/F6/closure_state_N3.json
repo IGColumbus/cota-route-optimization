@@ -27,6 +27,10 @@
    "4bd6ae0a6dd4b9d3"
   ],
   [
+   "A5_LAM1|B2",
+   "591eebe7630410f2"
+  ],
+  [
    "A5_LAM1|R1_H30",
    "4085761b57041ad9"
   ],
@@ -1321,6 +1325,10 @@
   [
    "BASE|B1",
    "d7b891da9bd7d12f"
+  ],
+  [
+   "BASE|B2",
+   "5701ad7888da5fc6"
   ],
   [
    "BASE|B2",
@@ -2623,7 +2631,7 @@
    "after": "2890592.151867936"
   }
  ],
- "cursor": 621,
+ "cursor": 623,
  "pass_improved": true,
  "blocking": [],
  "best": {
