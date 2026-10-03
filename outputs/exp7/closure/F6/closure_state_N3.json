@@ -1024,6 +1024,10 @@
   ],
   [
    "A6_MAXWALK75|R6_ADA",
+   "77abab0e51209b3c"
+  ],
+  [
+   "A6_MAXWALK75|R6_ADA",
    "d7b891da9bd7d12f"
   ],
   [
@@ -2489,7 +2493,7 @@
    "after": "2889342.132702318"
   }
  ],
- "cursor": 591,
+ "cursor": 592,
  "pass_improved": true,
  "blocking": [],
  "best": {

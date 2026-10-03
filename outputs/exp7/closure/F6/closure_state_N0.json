@@ -1579,6 +1579,10 @@
    "b51bd8ef622d922b"
   ],
   [
+   "BASE|R6_ADA",
+   "c04fbe7f254d5d8c"
+  ],
+  [
    "BASE|REF",
    "061919b6be9e8bbc"
   ],
@@ -2701,7 +2705,7 @@
    "after": "2954577.0798001587"
   }
  ],
- "cursor": 569,
+ "cursor": 570,
  "pass_improved": true,
  "blocking": [],
  "best": {
