@@ -1,6 +1,6 @@
 {
- "passes_completed": 2,
- "status": null,
+ "passes_completed": 4,
+ "status": "FIXED_POINT",
  "tried": [
   [
    "A5_LAM1|B1",
@@ -1325,6 +1325,10 @@
   [
    "A6_MAXWALK75|R2_S25",
    "46d2591535920e22"
+  ],
+  [
+   "A6_MAXWALK75|R2_S25",
+   "890e2f292f7456df"
   ],
   [
    "A6_MAXWALK75|R2_S25",
@@ -3281,8 +3285,8 @@
    "after": "2873840.759869012"
   }
  ],
- "cursor": 408,
- "pass_improved": true,
+ "cursor": 0,
+ "pass_improved": false,
  "blocking": [],
  "best": {
   "BASE|REF": {
