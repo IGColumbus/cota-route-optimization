@@ -355,6 +355,10 @@
    "b41552c5849b8376"
   ],
   [
+   "A5_LAM4|R1_H30",
+   "d29dfa298ddd6f74"
+  ],
+  [
    "A5_LAM4|R1_H60",
    "0fb649dbdb8303e3"
   ],
@@ -1964,6 +1968,10 @@
   ],
   [
    "BASE|REF",
+   "cd2f57826fefe2ec"
+  ],
+  [
+   "BASE|REF",
    "d50f88367d19cc35"
   ],
   [
@@ -3165,7 +3173,7 @@
    "after": "2941495.8502019383"
   }
  ],
- "cursor": 38,
+ "cursor": 120,
  "pass_improved": true,
  "blocking": [],
  "best": {
