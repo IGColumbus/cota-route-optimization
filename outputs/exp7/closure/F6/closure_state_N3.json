@@ -1464,6 +1464,10 @@
   ],
   [
    "BASE|R6_ADA",
+   "1b25dfe5cd8b63b7"
+  ],
+  [
+   "BASE|R6_ADA",
    "2321abfcaaab9ea8"
   ],
   [
@@ -2473,7 +2477,7 @@
    "after": "2889342.132702318"
   }
  ],
- "cursor": 587,
+ "cursor": 588,
  "pass_improved": true,
  "blocking": [],
  "best": {
