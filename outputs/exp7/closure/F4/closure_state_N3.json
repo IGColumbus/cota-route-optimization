@@ -4,11 +4,19 @@
  "tried": [
   [
    "BASE|REF",
+   "1a62cf4a59887720"
+  ],
+  [
+   "BASE|REF",
    "76430e1f43635d31"
+  ],
+  [
+   "BASE|REF",
+   "f120368219c86c2c"
   ]
  ],
  "found_in_pass": {
-  "BASE|REF": 0,
+  "BASE|REF": 1,
   "A5_LAM1|REF": 0,
   "A5_LAM4|REF": 0,
   "A5_TP050|REF": 0,
@@ -16,16 +24,45 @@
   "A6_WALKSPD85|REF": 0,
   "A6_MAXWALK75|REF": 0
  },
- "improvements": [],
- "cursor": 1,
- "pass_improved": false,
+ "improvements": [
+  {
+   "pass": 1,
+   "stage": "X",
+   "cell": [
+    "BASE",
+    "REF"
+   ],
+   "from": [
+    "A5_LAM4",
+    "REF"
+   ],
+   "before": "2939912.5807124916",
+   "after": "2936261.4467200763"
+  },
+  {
+   "pass": 1,
+   "stage": "X",
+   "cell": [
+    "BASE",
+    "REF"
+   ],
+   "from": [
+    "A5_TP050",
+    "REF"
+   ],
+   "before": "2936261.4467200763",
+   "after": "2930568.24423808"
+  }
+ ],
+ "cursor": 3,
+ "pass_improved": true,
  "blocking": [],
  "best": {
   "BASE|REF": {
    "status": "CERTIFIED",
-   "objective": 2939912.5807124916,
-   "plan_digest": "28135d0fa655e6e1",
-   "ref": "outputs/exp6/initial/N3_REF.json"
+   "objective": 2930568.24423808,
+   "plan_digest": "f120368219c86c2c",
+   "ref": "outputs/exp7/closure/F4/BASE/N3_REF__anchor_f120368219c86c2c.json"
   },
   "A5_LAM1|REF": {
    "status": "CERTIFIED",
