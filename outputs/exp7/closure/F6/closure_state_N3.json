@@ -1219,6 +1219,10 @@
    "591eebe7630410f2"
   ],
   [
+   "BASE|B1",
+   "d1d0c7a674203b3b"
+  ],
+  [
    "BASE|B2",
    "591eebe7630410f2"
   ],
@@ -2493,7 +2497,7 @@
    "after": "2889342.132702318"
   }
  ],
- "cursor": 592,
+ "cursor": 593,
  "pass_improved": true,
  "blocking": [],
  "best": {
