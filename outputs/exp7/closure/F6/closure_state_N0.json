@@ -1468,11 +1468,19 @@
   ],
   [
    "BASE|R4_C00",
+   "9b7dcae3da0ee053"
+  ],
+  [
+   "BASE|R4_C00",
    "9f93440c516b3c51"
   ],
   [
    "BASE|R4_C00",
    "b34377ffe91a8892"
+  ],
+  [
+   "BASE|R4_C00",
+   "bc166375895cd91d"
   ],
   [
    "BASE|R4_C01",
@@ -2651,7 +2659,7 @@
    "after": "2955800.6445186306"
   }
  ],
- "cursor": 560,
+ "cursor": 562,
  "pass_improved": true,
  "blocking": [],
  "best": {
