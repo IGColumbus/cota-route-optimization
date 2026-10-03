@@ -1831,6 +1831,10 @@
    "d28d446a443a986b"
   ],
   [
+   "BASE|R3_SPAN",
+   "d7b891da9bd7d12f"
+  ],
+  [
    "BASE|R4_C00",
    "29c9a3c60cab8fb9"
   ],
@@ -3113,7 +3117,7 @@
    "after": "2998772.744400035"
   }
  ],
- "cursor": 483,
+ "cursor": 484,
  "pass_improved": true,
  "blocking": [],
  "best": {
