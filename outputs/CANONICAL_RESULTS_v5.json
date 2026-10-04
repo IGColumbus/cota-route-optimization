@@ -1,0 +1,4539 @@
+{
+ "version": 5,
+ "generated_by": "scripts/canonical_results_v5.py",
+ "generated_commit": "4ca92fbe6d9e4983a79ba59f0ba90dea85a74133",
+ "predecessor": {
+  "path": "outputs/CANONICAL_RESULTS_v4.json",
+  "sha256": "174b251a0e2f27b703902503d9b5ee5c5c6884dd46cf1aa3095737d6ffbf7e72",
+  "status": "unchanged; every v4 entry copied verbatim; exp7 added"
+ },
+ "why_this_exists": "The Experiment 2 evaluator scored every plan under Model A for three days while reporting Model B, so an artifact can look entirely legitimate and contain the wrong model. Nothing here is deleted — superseded outputs are the record of what was run — but a reader must be able to tell which files are load-bearing without reconstructing the history.",
+ "how_to_check_an_artifact": "Open its experiment.json and read `evaluator`. `common_lines: same_route` with `source: explicit` is Model B, declared. `null` means the run predates provenance recording and the model must be established another way — for Experiment 2 that means checking whether the cell key carries |same_route|.",
+ "note_on_experiment_2_effort_figures": "Two effort-shift figures for splice|011|034|WESHIGW both circulate and both are real, from different measurements: D23/D26 re-solved it at 400000/20 and got -0.585% -> +0.060%, a 0.645-point move; Experiment 2B's stage C got -0.585% -> +0.0065%, a 0.591-point move. EXPERIMENT3_ROBUSTNESS.md quotes the D23 figure and says so.",
+ "reporting_corrections": {
+  "exp1.headline.fleet_wording": {
+   "verbatim_in": [
+    "outputs/CANONICAL_RESULTS.json (v1)",
+    "outputs/CANONICAL_RESULTS_v2.json",
+    "outputs/CANONICAL_RESULTS_v3.json",
+    "outputs/canonical/exp1_final.json (resources, gates.fleet)",
+    "this file, experiments.exp1.headline"
+   ],
+   "status": "WITHDRAWN AS A FLEET CLAIM; objective result unaffected",
+   "what_the_number_is": "blocks.fleet_estimate: routewise cycle-over-headway peak (baseline 150.73) x baseline interlining factor 197/150.73 = 1.307; baseline reads 197.0 by construction, plan 196.999 (outputs/fleet_check_modelB.json candidate_fleet)",
+   "replacement": "at 2,516.5 of 2,517.2 vehicle-hours and within the baseline's per-period solver peak-concurrency proxy (enforced as a cap); physical fleet requirement not verified",
+   "physical_fleet_status": "NOT MEASURED for the Exp 1 plan (no valid blocking of a modified plan exists)",
+   "sources": [
+    "FLEET_AND_BLOCKING.md",
+    "docs/RELEASE_AND_REPORTING_GUIDELINES.md",
+    "README.md (Exp 1 fleet-wording correction note)",
+    "HANDOFF.md (provenance resolved 2026-09-29)"
+   ]
+  }
+ },
+ "experiments": {
+  "exp1": {
+   "title": "Frequency redistribution inside the existing geometry and envelope",
+   "status": "CLOSED, certified λ≥2",
+   "canonical": [
+    "outputs/canonical/exp1_final.json",
+    "outputs/exp1_baseline_modelB.json",
+    "outputs/seedcheck_modelB.json",
+    "outputs/certify_frontier_modelB.csv"
+   ],
+   "evaluator": "same_route (Model B), via harness.setup()",
+   "certified": true,
+   "headline": "−6.65% ± 0.06 unserved demand, +3.30% ± 0.03 trips served, +0.88% ± 0.04 generalized cost, −2.34% ± 0.01 cost per trip served, at 2,516.5 of 2,517.2 vehicle-hours and 197.0 of 197.0 peak vehicles",
+   "superseded": [
+    "outputs/model_A/*",
+    "outputs/fixpoint_frontier.csv",
+    "outputs/certify_frontier.csv",
+    "outputs/seedcheck.json"
+   ],
+   "superseded_why": "Model A — kept as the control and as the record of the pre-correction result",
+   "limitations": [
+    "λ≤1 uncertified on both models",
+    "no individual route headway is identified",
+    "commute-only LODES demand"
+   ]
+  },
+  "exp2": {
+   "title": "Route geometry — twelve splice candidates, evaluated individually",
+   "status": "CLOSED — no candidate promoted",
+   "canonical": [
+    "outputs/exp2_promotion.json",
+    "outputs/exp2_candidate_classes.json",
+    "outputs/exp2_ladder_measured.csv",
+    "outputs/exp2_treatments.jsonl",
+    "outputs/exp2_modelA_vs_modelB_singles.csv",
+    "outputs/exp2_summary.json"
+   ],
+   "evaluator": "same_route (Model B) — cells carrying |same_route| in the key only",
+   "certified": false,
+   "headline": "NO supportable geometry claim. At the effort Experiment 1 is certified at, six of twelve candidates do measurable harm and none does measurable good; the two leaders land inside the 0.287-point floor at +0.060% and +0.160%. The −0.5% through-routing claim was withdrawn 2026-08-30 (D24): the unedited network was the under-optimized one at ranking effort.",
+   "superseded": [
+    "every exp2_eval cell whose key has NO pricing segment",
+    "outputs/exp2_eval_modelB.log",
+    "outputs/exp2_recheck.log",
+    "outputs/exp2_ladder.csv"
+   ],
+   "superseded_why": "produced by the mislabelled evaluator — Model A numbers under a Model B label",
+   "limitations": [
+    "every 60,000/2/32 number is discovery-stage under gate 12 and orders candidates rather than concluding anything",
+    "only splices were ever evaluated",
+    "the representation-stability observation is exploratory and uncontaminated confirmation is still owed"
+   ],
+   "closeout": "EXPERIMENT2_CLOSEOUT.md"
+  },
+  "exp2b": {
+   "title": "Joint search over geometry edit subsets — all 240 structurally feasible combinations",
+   "status": "CLOSED — certified NULL",
+   "canonical": [
+    "outputs/exp2b_certification.json",
+    "outputs/exp2b_stageA.csv",
+    "outputs/exp2b_stageB.csv",
+    "outputs/exp2b_stageA_gaps.json",
+    "outputs/exp2b_subsets.shard*.jsonl"
+   ],
+   "evaluator": "same_route (Model B), passed explicitly — verified by reading the call site in exp2b_subsets.py and by the `evaluator` block in each stage's experiment.json, and this is one of the two pipelines whose disagreement exposed the defect",
+   "certified": true,
+   "headline": "NULL. All 240 structurally feasible subsets solved at 60,000/2/32; the leader `splice|011|034|WESHIGW` re-solved at 400000/20/0 under 3 seeds scores +0.0065% unserved against a 0.287-point floor — 0.02 floors. Not one of the 227 multi-edit sets beats the best single, and at λ≥2 all 227 substitute. Best-set identity and cardinality monotonicity hold at λ ∈ {1, 2, 4}. Gate 12 fired on its own: the effect moved 0.591 points between discovery and certification effort.",
+   "superseded": [],
+   "limitations": [
+    "every 60,000/2/32 number is discovery-stage under gate 12 — it orders sets, it does not size effects",
+    "λ=1 and λ=4 ran one seed each, so no noise floor exists at those weights and no headline may be drawn from them",
+    "the universal-substitution claim is λ≥2; at λ=1 the sign inverts (D25)",
+    "only splices were ever in the candidate space",
+    "interaction terms at λ≠2 exist only for sets all of whose members were promoted"
+   ],
+   "closeout": "EXPERIMENT2_CLOSEOUT.md"
+  },
+  "exp3": {
+   "title": "Route mutation — search over network states under a committed treatment contract",
+   "status": "CLOSED, frozen at tag exp3-final-v1 — section 8 outcome (1), a certified leader",
+   "canonical": [
+    "EXPERIMENT3_CLOSURE.md",
+    "outputs/exp3/escalation_report.json",
+    "outputs/exp3/stageB_report.json",
+    "outputs/exp3/d33_stageb/d33_stageb_report.json",
+    "outputs/exp3/escalation_manifest.json",
+    "outputs/exp3/stageA_census.json"
+   ],
+   "evaluator": "same_route (Model B), required by gate 3-1 and asserted by the state validator rather than requested and hoped for",
+   "certified": true,
+   "headline": "CERTIFIED LEADER add_stop-010#22c4c35ac5b2 at -0.18657% on the lambda=2 objective, |mean delta|/SD = 78.6, distinguishable from all 28 other certified candidates. 84 census states -> 39 promoted -> 30 certified at Stage B (20 restarts) -> 29 after the literal section 6 escalation (40 restarts). One verdict changed and it was the one named in advance: straighten-021#110f4a755fe7 lost certification (ratio 3.28 -> 1.97). D33 re-measured at Stage B effort PASSED with 0 of 30 vetoed; the leader's margin is 98x the largest measured differential.",
+   "superseded": [],
+   "contract": "EXPERIMENT3_CONTRACT.md",
+   "limitations": [
+    "the stop-service penalty is not measurable from this feed, so no mutation may claim a runtime benefit from serving fewer stops on the same alignment; see outputs/exp3_stopprice_diagnosis.json",
+    "stop consolidation is a DEFERRED question, not this experiment — its gates are marked conditional in ACCEPTANCE.md",
+    "the search is heuristic and must recover the known optimum on the exhaustively enumerated 2B space before it is trusted on the mutation space",
+    "certified means distinguishable from solver variance at the effort stated in each row, and nothing more; it is not a claim that -0.19% of a scalarized objective is operationally meaningful",
+    "D33 bounds a neighbourhood of at most 10 of 173 route-periods, so it is a LOWER bound on differential solver error; the full-problem figure can only be larger",
+    "two analysis-code fixes were made after results were visible; both are display-only with the machine-readable payload byte-identical across the fix (outputs/exp3/classifier_audit/, outputs/exp3/phase5_audit/)"
+   ],
+   "regime_caveat": "The certified set is NOT uniform in solver effort. 23 of the 29 carry 40-restart verdicts; 6 -- every state section 6 never triggered on, the leader among them -- carry 20-restart verdicts, because section 6 escalates what is unresolved or failing and that is by construction the smaller margins. All 28 of the leader's pairwise comparisons are at 20 restarts and the best margin confirmed at 40 restarts is 2.33x smaller. Phase 5b would have closed this and was abandoned with zero cells completed. Quote this with the headline.",
+   "closeout": "EXPERIMENT3_CLOSURE.md",
+   "freeze_tag": "exp3-final-v1"
+  },
+  "exp4": {
+   "title": "Route geometry at scale -- 200 promoted candidate networks certified by exact optimization, then re-certified under one common resource envelope",
+   "status": "CLOSED -- EXP4_FULL_NORMALIZED_CERTIFIED. The legacy ORDERING is superseded; its objective values are not withdrawn",
+   "canonical": [
+    "EXPERIMENT4_NORMALIZED_CLOSEOUT.md",
+    "outputs/exp4_normalized/EXP4N_FINAL_STATUS.json",
+    "outputs/exp4_normalized/EXP4N_RANKING.json",
+    "outputs/exp4_normalized/EXP4N_INTEGRITY_GATE.json",
+    "outputs/exp4_normalized/EXP4N_PRODUCTION_CONTRACT.json",
+    "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json",
+    "outputs/exp4_normalized/production_mr120/*.json"
+   ],
+   "evaluator": "same_route (Model B) -- exp4_certify.certify defaults waiting_model='same_route' (exp4_certify.py:191) and exp4n_launch.py:208 does not override it; the legacy launcher passes it explicitly and requires it (exp4_launch.py:182)",
+   "certified": true,
+   "headline": "EXP4_FULL_NORMALIZED_CERTIFIED: 200/200 candidates re-certified under ONE common peak-vehicle envelope; integrity gate PASS. Leader 35e351133d6f at 3,223,885.9475 (21 rounds, 65 lines; legacy rank 154), ahead of d451584c40c6 by 0.387006%. The legacy leader ecb2ffc4bcce ranks 185 of 200. Spearman +0.3566; 7,296 of 19,900 pairwise orderings inverted (36.7%).",
+   "digests": {
+    "contract_digest": "2125984c82b60a83",
+    "canonical_envelope_digest": "3fd5241db44ca9da",
+    "candidate_set_digest": "38e52f0b14b1d554",
+    "src_cota_opt_content_digest": "add5d0002d29aa49",
+    "tie_break_digest": "0297e180cf30369d"
+   },
+   "superseded": [
+    "EXPERIMENT4_CLOSEOUT.md",
+    "outputs/exp4/run/certified/*.json",
+    "outputs/exp4/run/discovery_vs_certified.json"
+   ],
+   "superseded_why": "ORDERING ONLY. The legacy run resolved each candidate's peak-vehicle cap against that candidate's own baseline plan (exp2.py:324), so all 200 were optimized inside boxes they defined for themselves: it ranks candidate-specific optimization problems, not geometries. The legacy leader ecb2ffc4bcce (3,511,184.5658) ranks 185 of 200 under the common envelope. Every legacy objective value remains exactly reproducible and none is withdrawn.",
+   "noise_band": {
+    "percent": 0.001897,
+    "source": "D33-B (2026-09-02, 375 cells, Stage B effort), per protocol amendment #1",
+    "margin_to_band_ratio": 204.0,
+    "rule": "ASYMMETRIC: at or below the band a difference is noise; above it, a real difference is NOT established, only NOT excluded"
+   },
+   "resource_use": {
+    "hours_cap": 2517.1833333333334,
+    "legacy_endogenous_cap": {
+     "n": 200,
+     "hours_share_of_cap_pct": [
+      36.16,
+      37.33
+     ],
+     "revenue_veh_hours": [
+      910.15,
+      939.65
+     ],
+     "off_route_period_share_pct": {
+      "min": 78.5,
+      "median": 82.6,
+      "max": 86.9
+     }
+    },
+    "normalized_common_envelope": {
+     "n": 200,
+     "hours_share_of_cap_pct": [
+      99.92,
+      100.0
+     ],
+     "revenue_veh_hours": [
+      2515.13,
+      2517.18
+     ],
+     "off_route_period_share_pct": {
+      "min": 56.2,
+      "median": 60.0,
+      "max": 67.4
+     }
+    },
+    "reading": "DESCRIPTIVE, not preregistered. Under the endogenous cap every certified plan left roughly two thirds of the hours budget unspent; under the common envelope every certified plan spends essentially all of it. The Experiment 5 premise audit's finding that the hours axis never binds was measured on the legacy plans and does not hold for the normalized ones."
+   },
+   "out_of_band_audit": {
+    "closeout": "EXPERIMENT4_AUDIT_CLOSEOUT.md",
+    "finding": "the top-200 promotion cap is INVALID: eca7a2a1fb46 (discovery rank 237, excluded by the cap) certifies at 3,510,666.7802, better than the legacy leader's 3,511,184.5658. Both figures are under the LEGACY endogenous cap; the out-of-band candidate was never certified under the common envelope"
+   },
+   "limitations": [
+    "the first-to-second margin is not established, only not excluded: the (N,K)-block-local residual is unmeasured for every candidate, the leader included",
+    "no fleet or deployability claim: the fleet instrument returns UNDECIDABLE for every candidate; deadhead times and terminal identity are unavailable from public data",
+    "nothing about the 1,800 proposals the promotion cap excluded",
+    "the top-of-table reshuffle (normalized top five from legacy ranks 154 and 191-194) is CONSISTENT with the endogenous-cap mechanism and has not been tested"
+   ],
+   "closeout": "EXPERIMENT4_NORMALIZED_CLOSEOUT.md"
+  },
+  "exp5": {
+   "title": "Modeled operating-resource frontier -- revenue vehicle-hours and the six-period solver peak-concurrency proxy",
+   "status": "FAILED: EXP5_MONOTONICITY_FAILURE on 12 pairs",
+   "certified": false,
+   "contract": "395ee3c960f51935",
+   "contract_file_sha256": "f88f04d0fb6c1d361e11e5cbad7e586c52e384731424a87619f0208662fa2983",
+   "canonical": [
+    "EXPERIMENT5_CLOSEOUT.md",
+    "outputs/exp5/EXP5_CONTRACT.json",
+    "outputs/exp5/EXP5_ANALYSIS.json",
+    "outputs/exp5/cells/",
+    "EXPERIMENT5_PREMISE_RETIREMENT.md"
+   ],
+   "evaluator": "same_route (Model B), EXP4N block certifier (8,3), lambda 2",
+   "headline": "N4: J075 3,351,486.9 / J100 3,223,885.9 / J150 3,093,943.0; N0: J075 3,034,452.2 / J100 2,945,632.2 / J150 2,803,555.0",
+   "axes": {
+    "hours": "scheduled_weekday_revenue_vehicle_hours",
+    "peak": "solver_peak_concurrency_proxy -- NOT fleet"
+   },
+   "not_claimed": [
+    "per-bus value",
+    "fleet feasibility",
+    "a knee",
+    "deployability"
+   ],
+   "v2_entry_superseded": {
+    "title": "Resource frontier -- how the objective moves as the resource envelope is varied",
+    "status": "BUILT AND TESTED, NOT RUN -- EXP5_REFRAME_REQUIRED",
+    "canonical": [],
+    "evaluator": "n/a -- nothing run",
+    "certified": false,
+    "headline": "n/a -- nothing scored. Unblocked by EXP4N certifying; needs its own preregistration first (docs/EXPERIMENTS_5_7_PROTOCOL_INTAKE.md).",
+    "superseded": [],
+    "premise_audit": [
+     "EXPERIMENT5_PREMISE_AUDIT.md",
+     "EXPERIMENT5_OFFON_DIAGNOSTIC.md"
+    ],
+    "premise_status": "Both premise documents were measured on the LEGACY Exp 4 plans. Their 'no cell binds / hours never bind' finding does not hold on the EXP4N plans (see exp4.resource_use). The fleet-axis and proxy-instrument findings were not re-measured. Re-audit against EXP4N before reframing or running."
+   }
+  },
+  "exp4a": {
+   "title": "Experiment 4 original question -- N3 (Exp 3 constrained redesign) vs N4 (EXP4N normalized leader) under one contract",
+   "status": "COMPLETE -- firewall-admitted comparison; N4 does NOT beat N3",
+   "certified": true,
+   "contract": "0f62aeabfa341a98",
+   "canonical": [
+    "EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md",
+    "outputs/exp4_addendum/DELTA43.json",
+    "outputs/exp4_addendum/N3.json",
+    "outputs/exp4_addendum/N4_canary.json",
+    "outputs/exp4_addendum/EXP4A_CONTRACT.json"
+   ],
+   "evaluator": "same_route (Model B), EXP4N block certifier (8,3), lambda 2.0, EXP4N common envelope 0b46d1abc9a80c80",
+   "headline": "obj(N4) - obj(N3) = +283,973.3668 (+9.659% of N3); N4 worse. N3 2,939,912.5807, N4 3,223,885.9475.",
+   "equivalence_canary": "N4 re-certified through the addendum runner equals EXP4N production_mr120 bit-exactly",
+   "caveats": [
+    "conditional on the frozen path model, which fits N4 markedly worse (8.7-34.8% of flow improvable vs 1.0-3.7%); omission-corrected Delta43 +7.87%, not certified",
+    "same-route waiting model: N4 cross-route omission 12.47% of GC (potentially_frontier_changing) -- model-dependent",
+    "fixed-plan lambda sign flip at 1.087; preregistered lambda 2",
+    "D33-B band is veto-only and a local lower bound",
+    "no global optimality, fleet, deployment or implementation claim"
+   ],
+   "gates_not_discharged": [
+    "4-12 deferred to Exp 7",
+    "4-13 UNRESOLVED",
+    "fleet/deadhead UNRESOLVED",
+    "physical inspection UNRESOLVED",
+    "wider OD deferred to Exp 7"
+   ]
+  },
+  "exp6": {
+   "title": "Modeled price of policy constraints (study safeguards) on N0 and N3 under the Experiment 6 basin-closure procedure",
+   "status": "EXP6_POLICY_FRONTIER_CERTIFIED",
+   "status_verbatim": "EXP6_POLICY_FRONTIER_CERTIFIED",
+   "certified": true,
+   "failures": [],
+   "contract": {
+    "file": "outputs/exp6/EXP6_CONTRACT.json",
+    "file_sha256": "5bf1cb82ad8829a89fb25f5bf2e05cd37ff5bf2246d75b51692966552aa55002",
+    "firewall_EXP6_POLICY": "393f45ac10d28cb9",
+    "firewall_EXP6_STRUCTURE": "fad14449dc3db7c6",
+    "amendment_1": {
+     "file": "outputs/exp6/EXP6_CONTRACT_AMENDMENT_1.json",
+     "file_sha256": "02d546487d8ff0c82dec10394028cfc0cc8436da8f1daa0d5b023eb80f8365f3",
+     "new_status": "INFEASIBLE_UNDER_ENVELOPE (pure R1 cells only, proven on the production path)"
+    },
+    "amendment_2": {
+     "file": "outputs/exp6/EXP6_CONTRACT_AMENDMENT_2.json",
+     "file_sha256": "35462172b30c6363c307ee3dc566765d56022a39a8ca1625b97e4e8939d2aa09",
+     "change": "exp6_contracts.receipt_for: starts_attempted = start_names + ['exp6_nesting_closure'] (opportunity, identical for all cells); winning_start = 'greedy' | 'anchor:<digest>' (outcome)",
+     "superseded_analysis": "outputs/exp6/SUPERSEDED.EXP6_ANALYSIS.first_run_receipt_start_encoding.json"
+    }
+   },
+   "analysis": {
+    "file": "outputs/exp6/EXP6_ANALYSIS.json",
+    "file_sha256": "b96aca0d719964724227607a7f43e3367cddab0895a13392e0c64f4353ac4391"
+   },
+   "closeout_sha256": "37c4669a8b1965ae12f01a7689d13b6780473db8c0cb26d041df0380688557fe",
+   "constraint_catalog": {
+    "digest": "e22f2c94c8f53475",
+    "file_sha256": "e22f2c94c8f53475f4b0f574aea5c32bd47d7a418c720c80d2fb3dc9c1aa6c2e"
+   },
+   "canonical": [
+    "EXPERIMENT6_CLOSEOUT.md",
+    "outputs/exp6/EXP6_CONTRACT.json",
+    "outputs/exp6/EXP6_CONTRACT_AMENDMENT_1.json",
+    "outputs/exp6/EXP6_CONTRACT_AMENDMENT_2.json",
+    "outputs/exp6/EXP6_CONSTRAINT_CATALOG.json",
+    "outputs/exp6/EXP6_ANALYSIS.json",
+    "outputs/exp6/initial/",
+    "outputs/exp6/closure/",
+    "outputs/exp6/sentinels/",
+    "outputs/exp6/d35/",
+    "outputs/exp6/preflight/",
+    "EXPERIMENT6_PROTOCOL.md",
+    "EXPERIMENT6_D39_AMENDMENT.md",
+    "EXPERIMENT6_CONSTRAINT_CATALOG.md",
+    "EXPERIMENT6_D39_PREFLIGHT.md",
+    "EXPERIMENT6_AMENDMENT_1.md",
+    "EXPERIMENT6_AMENDMENT_2.md"
+   ],
+   "superseded": [
+    "outputs/exp6/SUPERSEDED.EXP6_ANALYSIS.first_run_receipt_start_encoding.json",
+    "outputs/exp6/d35/SUPERSEDED.N0.first_run.json",
+    "outputs/exp6/d35/SUPERSEDED.N3.first_run_test_plan_bug.json"
+   ],
+   "superseded_why": "receipt start encoding (Amendment 2); D35 first runs (test-plan bug) -- kept, not used",
+   "evaluator": "same_route (Model B), EXP4N block certifier (8,3), max_rounds 120, lambda 2, EXP4N common envelope 0b46d1abc9a80c80 (rounded 3fd5241db44ca9da)",
+   "networks": {
+    "N0": {
+     "state_key": "cota_existing_local_geometry|N0",
+     "state_digest": "f0f24936ab06b4ec",
+     "construction": "H.baseline.network / H.baseline.tstats",
+     "network_label": "N0 COTA existing local geometry"
+    },
+    "N3": {
+     "state_key": "exp3|add_stop-010#22c4c35ac5b2",
+     "state_digest": "430aca035c70715b",
+     "construction": "geometry.apply_edits(H.baseline, [edit_from_record(pool[N3])])",
+     "network_label": "N3 final Exp 3 constrained redesign"
+    }
+   },
+   "source": {
+    "code_version": "src-17659e64846b",
+    "src_cota_opt_content_digest": "b63ae2dba134245e"
+   },
+   "preflight": {
+    "default_equivalence": {
+     "N4": {
+      "objective_EXACT": "3223885.947526011",
+      "plan_digest": "898b95fd93c33414",
+      "rounds": 21,
+      "converged": true
+     },
+     "N3": {
+      "objective_EXACT": "2939912.5807124916",
+      "plan_digest": "28135d0fa655e6e1",
+      "rounds": 1,
+      "converged": true
+     },
+     "N0": {
+      "objective_EXACT": "2945632.2349138106",
+      "plan_digest": "c4591ff0f6e2d8ad",
+      "rounds": 1,
+      "converged": true
+     }
+    },
+    "d39": {
+     "J100": {
+      "status": "CERTIFIED",
+      "objective": "3207566.4176655654",
+      "anchor_objective": 3219614.742641489,
+      "rounds": 6
+     },
+     "H110": {
+      "status": "CERTIFIED",
+      "objective": "3207230.8312193276",
+      "anchor_objective": 3219614.742641489,
+      "rounds": 5
+     }
+    },
+    "d35": {
+     "N0": {
+      "R1": "PASS",
+      "R2": "PASS",
+      "R3": "PASS",
+      "R4": "PASS",
+      "R6": "PASS"
+     },
+     "N3": {
+      "R1": "PASS",
+      "R2": "PASS",
+      "R3": "PASS",
+      "R4": "PASS",
+      "R6": "PASS"
+     }
+    }
+   },
+   "search_procedure": {
+    "stage_1_initial": "independent Gen1 greedy start per cell under the cell's own constraints, unchanged EXP4N certifier",
+    "stage_2_closure": "explicit-anchor transfers over the frozen Hasse edges, both directions, deterministic passes to a fixed point (scripts/exp6_run.py closure)",
+    "pass_ceiling_frozen": 8,
+    "per_network": {
+     "N0": {
+      "passes_completed": 3,
+      "fixed_point": true,
+      "pass_ceiling": 8,
+      "attempts_by_action": {
+       "RAN": 24,
+       "REFUSED_INFEASIBLE_UNDER_TARGET": 40,
+       "SKIPPED_IDENTICAL_PLAN": 32,
+       "SKIPPED_ALREADY_ATTEMPTED": 24
+      },
+      "n_receipts": 120,
+      "cells_changed_basin": [
+       {
+        "cell": "REF",
+        "initial": "2945632.2349138106",
+        "final": "2941892.371426373",
+        "improvement_pct": 0.12696301470055246,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R2_S25"
+       },
+       {
+        "cell": "R2_S25",
+        "initial": "2942231.967139845",
+        "final": "2941892.371426373",
+        "improvement_pct": 0.01154211215379174,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R2_S10"
+       },
+       {
+        "cell": "R2_S10",
+        "initial": "2949292.57104456",
+        "final": "2941892.371426373",
+        "improvement_pct": 0.25091439522957587,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R2_S25"
+       },
+       {
+        "cell": "R3_SPAN",
+        "initial": "2961387.5034942282",
+        "final": "2956071.2947759135",
+        "improvement_pct": 0.1795174968504465,
+        "found_in_pass": 2,
+        "winning_basin": "anchor",
+        "anchor_source": "B1"
+       },
+       {
+        "cell": "R4_C05",
+        "initial": "2954931.6584397713",
+        "final": "2949074.5026453477",
+        "improvement_pct": 0.198216286244541,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R4_C01"
+       },
+       {
+        "cell": "R4_C00",
+        "initial": "2956115.3930336195",
+        "final": "2956071.2947759135",
+        "improvement_pct": 0.001491763745419305,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R1_H60"
+       },
+       {
+        "cell": "R6_ADA",
+        "initial": "2954998.1050359528",
+        "final": "2954847.7300574416",
+        "improvement_pct": 0.005088835023442392,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R4_C00"
+       },
+       {
+        "cell": "B1",
+        "initial": "2959465.8168958137",
+        "final": "2956071.2947759135",
+        "improvement_pct": 0.11470050103368752,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R1_H60"
+       },
+       {
+        "cell": "B2",
+        "initial": "2956692.06409274",
+        "final": "2956071.2947759135",
+        "improvement_pct": 0.020995399702436184,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R1_H60"
+       }
+      ]
+     },
+     "N3": {
+      "passes_completed": 3,
+      "fixed_point": true,
+      "pass_ceiling": 8,
+      "attempts_by_action": {
+       "RAN": 21,
+       "REFUSED_INFEASIBLE_UNDER_TARGET": 37,
+       "SKIPPED_IDENTICAL_PLAN": 34,
+       "SKIPPED_EMPTY_FEASIBLE_SET": 6,
+       "SKIPPED_ALREADY_ATTEMPTED": 22
+      },
+      "n_receipts": 120,
+      "cells_changed_basin": [
+       {
+        "cell": "REF",
+        "initial": "2939912.5807124916",
+        "final": "2935166.0254381876",
+        "improvement_pct": 0.16145225900403026,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R2_S25"
+       },
+       {
+        "cell": "R2_S25",
+        "initial": "2937538.0276397127",
+        "final": "2935166.0254381876",
+        "improvement_pct": 0.080747965786537,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R2_S10"
+       },
+       {
+        "cell": "R2_S10",
+        "initial": "2943352.3652995555",
+        "final": "2935166.0254381876",
+        "improvement_pct": 0.2781297936964702,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R2_S05"
+       },
+       {
+        "cell": "R3_SPAN",
+        "initial": "2956630.557945732",
+        "final": "2950532.5669298135",
+        "improvement_pct": 0.20624798724110593,
+        "found_in_pass": 2,
+        "winning_basin": "anchor",
+        "anchor_source": "B1"
+       },
+       {
+        "cell": "R4_C05",
+        "initial": "2949618.181180831",
+        "final": "2944578.3549554152",
+        "improvement_pct": 0.170863681868078,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R4_C01"
+       },
+       {
+        "cell": "R4_C01",
+        "initial": "2951441.288567108",
+        "final": "2949169.0785097736",
+        "improvement_pct": 0.07698645628277571,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R4_C00"
+       },
+       {
+        "cell": "B1",
+        "initial": "2954543.2167176595",
+        "final": "2950532.5669298135",
+        "improvement_pct": 0.1357451725584045,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R1_H60"
+       },
+       {
+        "cell": "B2",
+        "initial": "2951774.4228982246",
+        "final": "2950532.5669298135",
+        "improvement_pct": 0.04207150650732158,
+        "found_in_pass": 1,
+        "winning_basin": "anchor",
+        "anchor_source": "R1_H60"
+       }
+      ]
+     }
+    },
+    "reference_participates_in_closure": true,
+    "empty_cells": "transfers receipted SKIPPED_EMPTY_FEASIBLE_SET (Amendment 1)",
+    "defined_in": {
+     "EXPERIMENT6_PROTOCOL.md": "ba45afd5b26cdf1005324601bc02c7d71606b1acf377bf170847cd298af9f29d",
+     "EXPERIMENT6_D39_AMENDMENT.md": "b537dea7dbc6d6c34c526fa9477dd0d47755342b9183b7aa9278d0b28285643b",
+     "EXPERIMENT6_CONSTRAINT_CATALOG.md": "91e764bf1694fa25bd342b1d0c94e9d838cf6b2a07084220359e7b81756e4a43",
+     "EXPERIMENT6_D39_PREFLIGHT.md": "ce682e99511b97b984a9bba32b5784d174ffa3d2458a39525c4f98abff2f5436",
+     "EXPERIMENT6_AMENDMENT_1.md": "a1dde23cfaf68fe630404c2d3fc547f7179acd6018b9d12d06ffa8cf6a196a78",
+     "EXPERIMENT6_AMENDMENT_2.md": "c77364b8893c4494debeb79622c63decb2d051e1deefcbc5b944794985153161"
+    },
+    "why": "D39 (Exp 5): single greedy starts land in cap-dependent local basins; residual >= 1.70% on N4"
+   },
+   "record_checks": {
+    "code": {
+     "n": 54,
+     "all_pass": true
+    },
+    "runner": {
+     "n": 54,
+     "all_pass": true
+    },
+    "envelope": {
+     "n": 54,
+     "all_pass": true
+    },
+    "policy": {
+     "n": 54,
+     "all_pass": true
+    },
+    "feasible": {
+     "n": 54,
+     "all_pass": true
+    },
+    "convergence": {
+     "n": 54,
+     "all_pass": true
+    },
+    "base_config": {
+     "n": 1,
+     "all_pass": true
+    }
+   },
+   "monotonicity": {
+    "initial_greedy": {
+     "n_pairs": 120,
+     "n_violations": 22,
+     "violations": [
+      {
+       "network": "N0",
+       "tighter": "B1",
+       "looser": "R3_SPAN",
+       "obj_tighter": "2959465.8168958137",
+       "obj_looser": "2961387.5034942282",
+       "regression_pct": 0.0649335629235351,
+       "violation": true
+      },
+      {
+       "network": "N0",
+       "tighter": "B2",
+       "looser": "R3_SPAN",
+       "obj_tighter": "2956692.06409274",
+       "obj_looser": "2961387.5034942282",
+       "regression_pct": 0.15880718382923922,
+       "violation": true
+      },
+      {
+       "network": "N0",
+       "tighter": "R1_H30",
+       "looser": "B1",
+       "obj_tighter": "2958795.1254437594",
+       "obj_looser": "2959465.8168958137",
+       "regression_pct": 0.022667721948261516,
+       "violation": true
+      },
+      {
+       "network": "N0",
+       "tighter": "R1_H30",
+       "looser": "R3_SPAN",
+       "obj_tighter": "2958795.1254437594",
+       "obj_looser": "2961387.5034942282",
+       "regression_pct": 0.08761600383129121,
+       "violation": true
+      },
+      {
+       "network": "N0",
+       "tighter": "R1_H60",
+       "looser": "B1",
+       "obj_tighter": "2956071.2947759135",
+       "obj_looser": "2959465.8168958137",
+       "regression_pct": 0.1148322141586756,
+       "violation": true
+      },
+      {
+       "network": "N0",
+       "tighter": "R1_H60",
+       "looser": "B2",
+       "obj_tighter": "2956071.2947759135",
+       "obj_looser": "2956692.06409274",
+       "regression_pct": 0.0209998086962087,
+       "violation": true
+      },
+      {
+       "network": "N0",
+       "tighter": "R1_H60",
+       "looser": "R3_SPAN",
+       "obj_tighter": "2956071.2947759135",
+       "obj_looser": "2961387.5034942282",
+       "regression_pct": 0.1798403417302479,
+       "violation": true
+      },
+      {
+       "network": "N0",
+       "tighter": "R1_H60",
+       "looser": "R4_C00",
+       "obj_tighter": "2956071.2947759135",
+       "obj_looser": "2956115.3930336195",
+       "regression_pct": 0.0014917859993420024,
+       "violation": true
+      },
+      {
+       "network": "N0",
+       "tighter": "R2_S05",
+       "looser": "R2_S10",
+       "obj_tighter": "2948128.7679281253",
+       "obj_looser": "2949292.57104456",
+       "regression_pct": 0.039475993351966526,
+       "violation": true
+      },
+      {
+       "network": "N0",
+       "tighter": "R2_S25",
+       "looser": "REF",
+       "obj_tighter": "2942231.967139845",
+       "obj_looser": "2945632.2349138106",
+       "regression_pct": 0.11556763069470871,
+       "violation": true
+      },
+      {
+       "network": "N0",
+       "tighter": "R4_C01",
+       "looser": "R4_C05",
+       "obj_tighter": "2954482.0004912065",
+       "obj_looser": "2954931.6584397713",
+       "regression_pct": 0.015219518971175955,
+       "violation": true
+      },
+      {
+       "network": "N3",
+       "tighter": "B1",
+       "looser": "R3_SPAN",
+       "obj_tighter": "2954543.2167176595",
+       "obj_looser": "2956630.557945732",
+       "regression_pct": 0.07064852584527286,
+       "violation": true
+      },
+      {
+       "network": "N3",
+       "tighter": "B2",
+       "looser": "R3_SPAN",
+       "obj_tighter": "2951774.4228982246",
+       "obj_looser": "2956630.557945732",
+       "regression_pct": 0.1645157912419146,
+       "violation": true
+      },
+      {
+       "network": "N3",
+       "tighter": "R1_H30",
+       "looser": "B1",
+       "obj_tighter": "2953789.4868896715",
+       "obj_looser": "2954543.2167176595",
+       "regression_pct": 0.02551738474706388,
+       "violation": true
+      },
+      {
+       "network": "N3",
+       "tighter": "R1_H30",
+       "looser": "R3_SPAN",
+       "obj_tighter": "2953789.4868896715",
+       "obj_looser": "2956630.557945732",
+       "regression_pct": 0.09618393824849479,
+       "violation": true
+      },
+      {
+       "network": "N3",
+       "tighter": "R1_H60",
+       "looser": "B1",
+       "obj_tighter": "2950532.5669298135",
+       "obj_looser": "2954543.2167176595",
+       "regression_pct": 0.13592969055140158,
+       "violation": true
+      },
+      {
+       "network": "N3",
+       "tighter": "R1_H60",
+       "looser": "B2",
+       "obj_tighter": "2950532.5669298135",
+       "obj_looser": "2951774.4228982246",
+       "regression_pct": 0.0420892140737595,
+       "violation": true
+      },
+      {
+       "network": "N3",
+       "tighter": "R1_H60",
+       "looser": "R3_SPAN",
+       "obj_tighter": "2950532.5669298135",
+       "obj_looser": "2956630.557945732",
+       "regression_pct": 0.20667424871923504,
+       "violation": true
+      },
+      {
+       "network": "N3",
+       "tighter": "R1_H60",
+       "looser": "R4_C01",
+       "obj_tighter": "2950532.5669298135",
+       "obj_looser": "2951441.288567108",
+       "regression_pct": 0.030798563197700985,
+       "violation": true
+      },
+      {
+       "network": "N3",
+       "tighter": "R2_S05",
+       "looser": "R2_S10",
+       "obj_tighter": "2942494.1602012054",
+       "obj_looser": "2943352.3652995555",
+       "regression_pct": 0.029165906595763076,
+       "violation": true
+      },
+      {
+       "network": "N3",
+       "tighter": "R2_S25",
+       "looser": "REF",
+       "obj_tighter": "2937538.0276397127",
+       "obj_looser": "2939912.5807124916",
+       "regression_pct": 0.08083480283272818,
+       "violation": true
+      },
+      {
+       "network": "N3",
+       "tighter": "R4_C00",
+       "looser": "R4_C01",
+       "obj_tighter": "2950532.5669298135",
+       "obj_looser": "2951441.288567108",
+       "regression_pct": 0.030798563197700985,
+       "violation": true
+      }
+     ]
+    },
+    "post_closure": {
+     "n_pairs": 120,
+     "n_violations": 0,
+     "violations": []
+    }
+   },
+   "reference_closure": {
+    "violations": []
+   },
+   "firewall": {
+    "policy": [
+     {
+      "network": "N0",
+      "cell": "R1_H60",
+      "admitted": true,
+      "effect": 14178.92334954068,
+      "effect_pct": 0.48196608031129456,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "R1_H30",
+      "admitted": true,
+      "effect": 16902.754017386585,
+      "effect_pct": 0.5745537865884368,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "R1_H20",
+      "admitted": true,
+      "effect": 26824.706680280622,
+      "effect_pct": 0.9118180848769357,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "R2_S25",
+      "admitted": true,
+      "effect": 0.0,
+      "effect_pct": 0.0,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "R2_S10",
+      "admitted": true,
+      "effect": 0.0,
+      "effect_pct": 0.0,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "R2_S05",
+      "admitted": true,
+      "effect": 6236.396501752548,
+      "effect_pct": 0.21198588236349514,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "R3_SPAN",
+      "admitted": true,
+      "effect": 14178.92334954068,
+      "effect_pct": 0.48196608031129456,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "R4_C05",
+      "admitted": true,
+      "effect": 7182.131218974944,
+      "effect_pct": 0.24413303792934807,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "R4_C01",
+      "admitted": true,
+      "effect": 12589.629064833745,
+      "effect_pct": 0.4279432241339842,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "R4_C00",
+      "admitted": true,
+      "effect": 14178.92334954068,
+      "effect_pct": 0.48196608031129456,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "R6_ADA",
+      "admitted": true,
+      "effect": 12955.35863106884,
+      "effect_pct": 0.44037500341276764,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "B1",
+      "admitted": true,
+      "effect": 14178.92334954068,
+      "effect_pct": 0.48196608031129456,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N0",
+      "cell": "B2",
+      "admitted": true,
+      "effect": 14178.92334954068,
+      "effect_pct": 0.48196608031129456,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "R1_H60",
+      "admitted": true,
+      "effect": 15366.54149162583,
+      "effect_pct": 0.5235322758047998,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "R1_H30",
+      "admitted": true,
+      "effect": 18623.46145148389,
+      "effect_pct": 0.6344943110570249,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "R1_H20",
+      "admitted": null,
+      "note": "empty feasible set; no receipt"
+     },
+     {
+      "network": "N3",
+      "cell": "R2_S25",
+      "admitted": true,
+      "effect": 0.0,
+      "effect_pct": 0.0,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "R2_S10",
+      "admitted": true,
+      "effect": 0.0,
+      "effect_pct": 0.0,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "R2_S05",
+      "admitted": true,
+      "effect": 7328.134763017762,
+      "effect_pct": 0.24966678884625457,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "R3_SPAN",
+      "admitted": true,
+      "effect": 15366.54149162583,
+      "effect_pct": 0.5235322758047998,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "R4_C05",
+      "admitted": true,
+      "effect": 9412.329517227598,
+      "effect_pct": 0.32067451843111466,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "R4_C01",
+      "admitted": true,
+      "effect": 14003.05307158595,
+      "effect_pct": 0.47707873933623396,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "R4_C00",
+      "admitted": true,
+      "effect": 15366.54149162583,
+      "effect_pct": 0.5235322758047998,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "R6_ADA",
+      "admitted": true,
+      "effect": 14247.857362961862,
+      "effect_pct": 0.4854191292581078,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "B1",
+      "admitted": true,
+      "effect": 15366.54149162583,
+      "effect_pct": 0.5235322758047998,
+      "declared": [
+       "spec.config_digest"
+      ]
+     },
+     {
+      "network": "N3",
+      "cell": "B2",
+      "admitted": true,
+      "effect": 15366.54149162583,
+      "effect_pct": 0.5235322758047998,
+      "declared": [
+       "spec.config_digest"
+      ]
+     }
+    ],
+    "structure": [
+     {
+      "cell": "REF",
+      "admitted": true,
+      "effect_N3_minus_N0": -6726.345988185145,
+      "effect_pct_of_N0": -0.2286401111582435,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "R1_H60",
+      "admitted": true,
+      "effect_N3_minus_N0": -5538.727846099995,
+      "effect_pct_of_N0": -0.1873678708591452,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "R1_H30",
+      "admitted": true,
+      "effect_N3_minus_N0": -5005.63855408784,
+      "effect_pct_of_N0": -0.16917827500263627,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "R1_H20",
+      "admitted": null,
+      "note": "empty feasible set on N3"
+     },
+     {
+      "cell": "R2_S25",
+      "admitted": true,
+      "effect_N3_minus_N0": -6726.345988185145,
+      "effect_pct_of_N0": -0.2286401111582435,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "R2_S10",
+      "admitted": true,
+      "effect_N3_minus_N0": -6726.345988185145,
+      "effect_pct_of_N0": -0.2286401111582435,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "R2_S05",
+      "admitted": true,
+      "effect_N3_minus_N0": -5634.60772691993,
+      "effect_pct_of_N0": -0.19112488532445612,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "R3_SPAN",
+      "admitted": true,
+      "effect_N3_minus_N0": -5538.727846099995,
+      "effect_pct_of_N0": -0.1873678708591452,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "R4_C05",
+      "admitted": true,
+      "effect_N3_minus_N0": -4496.147689932492,
+      "effect_pct_of_N0": -0.15245961693742918,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "R4_C01",
+      "admitted": true,
+      "effect_N3_minus_N0": -5312.921981432941,
+      "effect_pct_of_N0": -0.17982583683195988,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "R4_C00",
+      "admitted": true,
+      "effect_N3_minus_N0": -5538.727846099995,
+      "effect_pct_of_N0": -0.1873678708591452,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "R6_ADA",
+      "admitted": true,
+      "effect_N3_minus_N0": -5433.847256292123,
+      "effect_pct_of_N0": -0.1838960160626108,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "B1",
+      "admitted": true,
+      "effect_N3_minus_N0": -5538.727846099995,
+      "effect_pct_of_N0": -0.1873678708591452,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     },
+     {
+      "cell": "B2",
+      "admitted": true,
+      "effect_N3_minus_N0": -5538.727846099995,
+      "effect_pct_of_N0": -0.1873678708591452,
+      "declared": [
+       "pathset_digest",
+       "spec.cardinality",
+       "spec.members",
+       "spec.state_digest",
+       "spec.state_key"
+      ]
+     }
+    ]
+   },
+   "sentinels": [
+    {
+     "network": "N3",
+     "cell": "R4_C01",
+     "status": "PASS"
+    },
+    {
+     "network": "N0",
+     "cell": "R2_S10",
+     "status": "PASS"
+    },
+    {
+     "network": "N3",
+     "cell": "REF",
+     "status": "PASS"
+    },
+    {
+     "network": "N0",
+     "cell": "REF",
+     "status": "PASS"
+    }
+   ],
+   "cells": [
+    {
+     "network": "N0",
+     "cell": "REF",
+     "status": "CERTIFIED",
+     "initial_objective": 2945632.2349138106,
+     "final_objective": 2941892.371426373,
+     "initial_plan_digest": "c4591ff0f6e2d8ad",
+     "final_plan_digest": "aed848588abad24d",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 0.0,
+     "policy_cost_closed_pct": 0.0,
+     "policy_cost_greedy_only": 0.0,
+     "policy_cost_greedy_only_pct": 0.0,
+     "basin_contamination": 0.0,
+     "served_demand": 21143.69720673002,
+     "unserved_demand": 9805.302793269986,
+     "generalized_cost": 1765256.0362339746,
+     "gc_per_served_trip": 83.48852232295945,
+     "hours_used": 2515.678063539719,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.5052697936143886,
+     "peak_used": {
+      "early": "85.27348737380629",
+      "am_peak": "161.7023563258637",
+      "midday": "159.0223702613524",
+      "pm_peak": "176.12717824074073",
+      "evening": "140.15894402141083",
+      "owl": "35.510838383804455"
+     },
+     "peak_slack": {
+      "early": "0.008595959527028185",
+      "am_peak": "0.3070881185807366",
+      "midday": "0.15040751642536065",
+      "pm_peak": "0.36587731481481",
+      "evening": "0.03563931192252312",
+      "owl": "0.04652272730665885"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": null,
+     "n_off": 15,
+     "n_baseline_on_now_off": 15,
+     "rounds_initial": 1,
+     "rounds_final": 1
+    },
+    {
+     "network": "N0",
+     "cell": "R1_H60",
+     "status": "CERTIFIED",
+     "initial_objective": 2956071.2947759135,
+     "final_objective": 2956071.2947759135,
+     "initial_plan_digest": "859272a34d3d7e7d",
+     "final_plan_digest": "859272a34d3d7e7d",
+     "winning_basin": "greedy",
+     "policy_cost_closed": 14178.92334954068,
+     "policy_cost_closed_pct": 0.48196608031129456,
+     "policy_cost_greedy_only": 10439.059862102848,
+     "policy_cost_greedy_only_pct": 0.35439114694534485,
+     "basin_contamination": -3739.863487437833,
+     "served_demand": 21208.4610965757,
+     "unserved_demand": 9740.538903424305,
+     "generalized_cost": 1787206.6263649971,
+     "gc_per_served_trip": 84.26856706984545,
+     "hours_used": 2515.768259086433,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.4150742469005309,
+     "peak_used": {
+      "early": "85.21035353535353",
+      "am_peak": "161.92071029411767",
+      "midday": "159.04623542338942",
+      "pm_peak": "176.40083564814813",
+      "evening": "140.15349952185173",
+      "owl": "35.55445707069159"
+     },
+     "peak_slack": {
+      "early": "0.07172979797978485",
+      "am_peak": "0.0887341503267578",
+      "midday": "0.1265423543883344",
+      "pm_peak": "0.09221990740741148",
+      "evening": "0.04108381148162721",
+      "owl": "0.0029040404195228575"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 0,
+      "r1_over_cap": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 2,
+     "rounds_final": 2
+    },
+    {
+     "network": "N0",
+     "cell": "R1_H30",
+     "status": "CERTIFIED",
+     "initial_objective": 2958795.1254437594,
+     "final_objective": 2958795.1254437594,
+     "initial_plan_digest": "60f0b38cfeeea459",
+     "final_plan_digest": "60f0b38cfeeea459",
+     "winning_basin": "greedy",
+     "policy_cost_closed": 16902.754017386585,
+     "policy_cost_closed_pct": 0.5745537865884368,
+     "policy_cost_greedy_only": 13162.890529948752,
+     "policy_cost_greedy_only_pct": 0.4468613010793555,
+     "basin_contamination": -3739.863487437833,
+     "served_demand": 21183.61113640647,
+     "unserved_demand": 9765.388863593533,
+     "generalized_cost": 1786948.4618125358,
+     "gc_per_served_trip": 84.3552334068982,
+     "hours_used": 2515.0202919839494,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 2.1630413493840024,
+     "peak_used": {
+      "early": "85.13038594276092",
+      "am_peak": "161.91115380485527",
+      "midday": "158.91998831690796",
+      "pm_peak": "176.3909050925926",
+      "evening": "140.17807265896622",
+      "owl": "35.55736111106057"
+     },
+     "peak_slack": {
+      "early": "0.1516973905723944",
+      "am_peak": "0.09829063958915185",
+      "midday": "0.25278946086979204",
+      "pm_peak": "0.10215046296295327",
+      "evening": "0.016510674367140155",
+      "owl": "5.0540904794615926e-11"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": true
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 0,
+      "r1_over_cap": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 1,
+     "rounds_final": 1
+    },
+    {
+     "network": "N0",
+     "cell": "R1_H20",
+     "status": "CERTIFIED",
+     "initial_objective": 2968717.0781066534,
+     "final_objective": 2968717.0781066534,
+     "initial_plan_digest": "f631e3af54d09026",
+     "final_plan_digest": "f631e3af54d09026",
+     "winning_basin": "greedy",
+     "policy_cost_closed": 26824.706680280622,
+     "policy_cost_closed_pct": 0.9118180848769357,
+     "policy_cost_greedy_only": 23084.84319284279,
+     "policy_cost_greedy_only_pct": 0.7836973984472387,
+     "basin_contamination": -3739.863487437833,
+     "served_demand": 21094.413757389328,
+     "unserved_demand": 9854.586242610676,
+     "generalized_cost": 1786166.7289933723,
+     "gc_per_served_trip": 84.67486935339372,
+     "hours_used": 2512.913832760206,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 4.269500573127516,
+     "peak_used": {
+      "early": "85.28208333337065",
+      "am_peak": "161.7715861111894",
+      "midday": "158.72288783504854",
+      "pm_peak": "176.24971296296295",
+      "evening": "140.00283752709583",
+      "owl": "35.55736111106057"
+     },
+     "peak_slack": {
+      "early": "-3.7331915336835664e-11",
+      "am_peak": "0.23785833325501926",
+      "midday": "0.44988994272921445",
+      "pm_peak": "0.24334259259259738",
+      "evening": "0.19174580623752036",
+      "owl": "5.0540904794615926e-11"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": true,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": true
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 0,
+      "r1_over_cap": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 1,
+     "rounds_final": 1
+    },
+    {
+     "network": "N0",
+     "cell": "R2_S25",
+     "status": "CERTIFIED",
+     "initial_objective": 2942231.967139845,
+     "final_objective": 2941892.371426373,
+     "initial_plan_digest": "8f61179b6e4d5831",
+     "final_plan_digest": "aed848588abad24d",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 0.0,
+     "policy_cost_closed_pct": 0.0,
+     "policy_cost_greedy_only": -3400.2677739658393,
+     "policy_cost_greedy_only_pct": -0.11543422609460041,
+     "basin_contamination": -3400.2677739658393,
+     "served_demand": 21143.69720673002,
+     "unserved_demand": 9805.302793269986,
+     "generalized_cost": 1765256.0362339746,
+     "gc_per_served_trip": 83.48852232295945,
+     "hours_used": 2515.678063539719,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.5052697936143886,
+     "peak_used": {
+      "early": "85.27348737380629",
+      "am_peak": "161.7023563258637",
+      "midday": "159.0223702613524",
+      "pm_peak": "176.12717824074073",
+      "evening": "140.15894402141083",
+      "owl": "35.510838383804455"
+     },
+     "peak_slack": {
+      "early": "0.008595959527028185",
+      "am_peak": "0.3070881185807366",
+      "midday": "0.15040751642536065",
+      "pm_peak": "0.36587731481481",
+      "evening": "0.03563931192252312",
+      "owl": "0.04652272730665885"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 15,
+      "n_baseline_stop_periods": 0
+     },
+     "n_off": 15,
+     "n_baseline_on_now_off": 15,
+     "rounds_initial": 1,
+     "rounds_final": 2
+    },
+    {
+     "network": "N0",
+     "cell": "R2_S10",
+     "status": "CERTIFIED",
+     "initial_objective": 2949292.57104456,
+     "final_objective": 2941892.371426373,
+     "initial_plan_digest": "a928acb38df54e14",
+     "final_plan_digest": "aed848588abad24d",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 0.0,
+     "policy_cost_closed_pct": 0.0,
+     "policy_cost_greedy_only": 3660.3361307494342,
+     "policy_cost_greedy_only_pct": 0.12426317472237114,
+     "basin_contamination": 3660.3361307494342,
+     "served_demand": 21143.69720673002,
+     "unserved_demand": 9805.302793269986,
+     "generalized_cost": 1765256.0362339746,
+     "gc_per_served_trip": 83.48852232295945,
+     "hours_used": 2515.678063539719,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.5052697936143886,
+     "peak_used": {
+      "early": "85.27348737380629",
+      "am_peak": "161.7023563258637",
+      "midday": "159.0223702613524",
+      "pm_peak": "176.12717824074073",
+      "evening": "140.15894402141083",
+      "owl": "35.510838383804455"
+     },
+     "peak_slack": {
+      "early": "0.008595959527028185",
+      "am_peak": "0.3070881185807366",
+      "midday": "0.15040751642536065",
+      "pm_peak": "0.36587731481481",
+      "evening": "0.03563931192252312",
+      "owl": "0.04652272730665885"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 15,
+      "n_baseline_stop_periods": 0
+     },
+     "n_off": 15,
+     "n_baseline_on_now_off": 15,
+     "rounds_initial": 1,
+     "rounds_final": 1
+    },
+    {
+     "network": "N0",
+     "cell": "R2_S05",
+     "status": "CERTIFIED",
+     "initial_objective": 2948128.7679281253,
+     "final_objective": 2948128.7679281253,
+     "initial_plan_digest": "2f72d1b9840d45d4",
+     "final_plan_digest": "2f72d1b9840d45d4",
+     "winning_basin": "greedy",
+     "policy_cost_closed": 6236.396501752548,
+     "policy_cost_closed_pct": 0.21198588236349514,
+     "policy_cost_greedy_only": 2496.533014314715,
+     "policy_cost_greedy_only_pct": 0.08475372399595442,
+     "basin_contamination": -3739.863487437833,
+     "served_demand": 21140.082563244952,
+     "unserved_demand": 9808.917436755053,
+     "generalized_cost": 1771058.6755175192,
+     "gc_per_served_trip": 83.77728280951737,
+     "hours_used": 2515.309477681211,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.8738556521225291,
+     "peak_used": {
+      "early": "85.21035353535353",
+      "am_peak": "161.7023563258637",
+      "midday": "159.0223702613524",
+      "pm_peak": "176.12717824074073",
+      "evening": "140.15894402141083",
+      "owl": "35.46123737374128"
+     },
+     "peak_slack": {
+      "early": "0.07172979797978485",
+      "am_peak": "0.3070881185807366",
+      "midday": "0.15040751642536065",
+      "pm_peak": "0.36587731481481",
+      "evening": "0.03563931192252312",
+      "owl": "0.0961237373698367"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 8,
+      "n_baseline_stop_periods": 0
+     },
+     "n_off": 8,
+     "n_baseline_on_now_off": 8,
+     "rounds_initial": 2,
+     "rounds_final": 2
+    },
+    {
+     "network": "N0",
+     "cell": "R3_SPAN",
+     "status": "CERTIFIED",
+     "initial_objective": 2961387.5034942282,
+     "final_objective": 2956071.2947759135,
+     "initial_plan_digest": "300ca438da01200d",
+     "final_plan_digest": "859272a34d3d7e7d",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 14178.92334954068,
+     "policy_cost_closed_pct": 0.48196608031129456,
+     "policy_cost_greedy_only": 15755.268580417614,
+     "policy_cost_greedy_only_pct": 0.534868826925321,
+     "basin_contamination": 1576.3452308769338,
+     "served_demand": 21208.4610965757,
+     "unserved_demand": 9740.538903424305,
+     "generalized_cost": 1787206.6263649971,
+     "gc_per_served_trip": 84.26856706984545,
+     "hours_used": 2515.768259086433,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.4150742469005309,
+     "peak_used": {
+      "early": "85.21035353535353",
+      "am_peak": "161.92071029411767",
+      "midday": "159.04623542338942",
+      "pm_peak": "176.40083564814813",
+      "evening": "140.15349952185173",
+      "owl": "35.55445707069159"
+     },
+     "peak_slack": {
+      "early": "0.07172979797978485",
+      "am_peak": "0.0887341503267578",
+      "midday": "0.1265423543883344",
+      "pm_peak": "0.09221990740741148",
+      "evening": "0.04108381148162721",
+      "owl": "0.0029040404195228575"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 0,
+      "r3_span_off": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 5,
+     "rounds_final": 1
+    },
+    {
+     "network": "N0",
+     "cell": "R4_C05",
+     "status": "CERTIFIED",
+     "initial_objective": 2954931.6584397713,
+     "final_objective": 2949074.5026453477,
+     "initial_plan_digest": "28590b3beb79c844",
+     "final_plan_digest": "a9a538d8a83ab52f",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 7182.131218974944,
+     "policy_cost_closed_pct": 0.24413303792934807,
+     "policy_cost_greedy_only": 9299.42352596065,
+     "policy_cost_greedy_only_pct": 0.3157021238339603,
+     "basin_contamination": 2117.292306985706,
+     "served_demand": 20501.154923858896,
+     "unserved_demand": 10447.84507614111,
+     "generalized_cost": 1695333.0935084147,
+     "gc_per_served_trip": 82.6945164701631,
+     "hours_used": 2516.583058218321,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 0.6002751150122094,
+     "peak_used": {
+      "early": "85.21035353535353",
+      "am_peak": "161.94256029411764",
+      "midday": "159.1327782474635",
+      "pm_peak": "176.23419212962963",
+      "evening": "139.97958631140628",
+      "owl": "35.54089520200788"
+     },
+     "peak_slack": {
+      "early": "0.07172979797978485",
+      "am_peak": "0.06688415032678563",
+      "midday": "0.03999953031424752",
+      "pm_peak": "0.2588634259259095",
+      "evening": "0.2149970219270756",
+      "owl": "0.01646590910323198"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 14,
+      "n_baseline_stop_periods": 16855,
+      "r4_lost_stop_periods": 838
+     },
+     "n_off": 14,
+     "n_baseline_on_now_off": 14,
+     "rounds_initial": 2,
+     "rounds_final": 3
+    },
+    {
+     "network": "N0",
+     "cell": "R4_C01",
+     "status": "CERTIFIED",
+     "initial_objective": 2954482.0004912065,
+     "final_objective": 2954482.0004912065,
+     "initial_plan_digest": "b1de91e0d533ea1d",
+     "final_plan_digest": "b1de91e0d533ea1d",
+     "winning_basin": "greedy",
+     "policy_cost_closed": 12589.629064833745,
+     "policy_cost_closed_pct": 0.4279432241339842,
+     "policy_cost_greedy_only": 8849.765577395912,
+     "policy_cost_greedy_only_pct": 0.3004368798148645,
+     "basin_contamination": -3739.863487437833,
+     "served_demand": 20545.771658981565,
+     "unserved_demand": 10403.22834101844,
+     "generalized_cost": 1706094.5995689938,
+     "gc_per_served_trip": 83.03872095371878,
+     "hours_used": 2516.5947248850725,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 0.5886084482608567,
+     "peak_used": {
+      "early": "85.21035353535353",
+      "am_peak": "161.94256029411764",
+      "midday": "159.1327782474635",
+      "pm_peak": "176.23419212962963",
+      "evening": "139.97958631140628",
+      "owl": "35.54313131313521"
+     },
+     "peak_slack": {
+      "early": "0.07172979797978485",
+      "am_peak": "0.06688415032678563",
+      "midday": "0.03999953031424752",
+      "pm_peak": "0.2588634259259095",
+      "evening": "0.2149970219270756",
+      "owl": "0.014229797975900738"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 9,
+      "n_baseline_stop_periods": 16855,
+      "r4_lost_stop_periods": 151
+     },
+     "n_off": 9,
+     "n_baseline_on_now_off": 9,
+     "rounds_initial": 2,
+     "rounds_final": 2
+    },
+    {
+     "network": "N0",
+     "cell": "R4_C00",
+     "status": "CERTIFIED",
+     "initial_objective": 2956115.3930336195,
+     "final_objective": 2956071.2947759135,
+     "initial_plan_digest": "bf0dbf0cf28fde1c",
+     "final_plan_digest": "859272a34d3d7e7d",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 14178.92334954068,
+     "policy_cost_closed_pct": 0.48196608031129456,
+     "policy_cost_greedy_only": 10483.158119808882,
+     "policy_cost_greedy_only_pct": 0.35588821970219986,
+     "basin_contamination": -3695.765229731798,
+     "served_demand": 21208.4610965757,
+     "unserved_demand": 9740.538903424305,
+     "generalized_cost": 1787206.6263649971,
+     "gc_per_served_trip": 84.26856706984545,
+     "hours_used": 2515.768259086433,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.4150742469005309,
+     "peak_used": {
+      "early": "85.21035353535353",
+      "am_peak": "161.92071029411767",
+      "midday": "159.04623542338942",
+      "pm_peak": "176.40083564814813",
+      "evening": "140.15349952185173",
+      "owl": "35.55445707069159"
+     },
+     "peak_slack": {
+      "early": "0.07172979797978485",
+      "am_peak": "0.0887341503267578",
+      "midday": "0.1265423543883344",
+      "pm_peak": "0.09221990740741148",
+      "evening": "0.04108381148162721",
+      "owl": "0.0029040404195228575"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 16855,
+      "r4_lost_stop_periods": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 2,
+     "rounds_final": 1
+    },
+    {
+     "network": "N0",
+     "cell": "R6_ADA",
+     "status": "CERTIFIED",
+     "initial_objective": 2954998.1050359528,
+     "final_objective": 2954847.7300574416,
+     "initial_plan_digest": "7a9923f6d7438021",
+     "final_plan_digest": "b517f6731e99c4d3",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 12955.35863106884,
+     "policy_cost_closed_pct": 0.44037500341276764,
+     "policy_cost_greedy_only": 9365.870122142136,
+     "policy_cost_greedy_only_pct": 0.31795789070783925,
+     "basin_contamination": -3589.4885089267045,
+     "served_demand": 21197.935497905575,
+     "unserved_demand": 9751.06450209443,
+     "generalized_cost": 1784719.9898061103,
+     "gc_per_served_trip": 84.19310408706765,
+     "hours_used": 2514.8349257530235,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 2.3484075803098676,
+     "peak_used": {
+      "early": "85.21035353535353",
+      "am_peak": "161.92071029411767",
+      "midday": "159.04623542338942",
+      "pm_peak": "176.40083564814813",
+      "evening": "140.15349952185173",
+      "owl": "35.37556818178816"
+     },
+     "peak_slack": {
+      "early": "0.07172979797978485",
+      "am_peak": "0.0887341503267578",
+      "midday": "0.1265423543883344",
+      "pm_peak": "0.09221990740741148",
+      "evening": "0.04108381148162721",
+      "owl": "0.18179292932295255"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 2,
+      "n_baseline_stop_periods": 16855,
+      "r6_uncovered_stop_periods": 0
+     },
+     "n_off": 2,
+     "n_baseline_on_now_off": 2,
+     "rounds_initial": 2,
+     "rounds_final": 4
+    },
+    {
+     "network": "N0",
+     "cell": "B1",
+     "status": "CERTIFIED",
+     "initial_objective": 2959465.8168958137,
+     "final_objective": 2956071.2947759135,
+     "initial_plan_digest": "79878cacd593ab06",
+     "final_plan_digest": "859272a34d3d7e7d",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 14178.92334954068,
+     "policy_cost_closed_pct": 0.48196608031129456,
+     "policy_cost_greedy_only": 13833.58198200306,
+     "policy_cost_greedy_only_pct": 0.4696303163048401,
+     "basin_contamination": -345.3413675376214,
+     "served_demand": 21208.4610965757,
+     "unserved_demand": 9740.538903424305,
+     "generalized_cost": 1787206.6263649971,
+     "gc_per_served_trip": 84.26856706984545,
+     "hours_used": 2515.768259086433,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.4150742469005309,
+     "peak_used": {
+      "early": "85.21035353535353",
+      "am_peak": "161.92071029411767",
+      "midday": "159.04623542338942",
+      "pm_peak": "176.40083564814813",
+      "evening": "140.15349952185173",
+      "owl": "35.55445707069159"
+     },
+     "peak_slack": {
+      "early": "0.07172979797978485",
+      "am_peak": "0.0887341503267578",
+      "midday": "0.1265423543883344",
+      "pm_peak": "0.09221990740741148",
+      "evening": "0.04108381148162721",
+      "owl": "0.0029040404195228575"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 16855,
+      "r3_span_off": 0,
+      "r6_uncovered_stop_periods": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 2,
+     "rounds_final": 1
+    },
+    {
+     "network": "N0",
+     "cell": "B2",
+     "status": "CERTIFIED",
+     "initial_objective": 2956692.06409274,
+     "final_objective": 2956071.2947759135,
+     "initial_plan_digest": "5deb5a8bd7d8763f",
+     "final_plan_digest": "859272a34d3d7e7d",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 14178.92334954068,
+     "policy_cost_closed_pct": 0.48196608031129456,
+     "policy_cost_greedy_only": 11059.829178929329,
+     "policy_cost_greedy_only_pct": 0.37546537710444833,
+     "basin_contamination": -3119.0941706113517,
+     "served_demand": 21208.4610965757,
+     "unserved_demand": 9740.538903424305,
+     "generalized_cost": 1787206.6263649971,
+     "gc_per_served_trip": 84.26856706984545,
+     "hours_used": 2515.768259086433,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.4150742469005309,
+     "peak_used": {
+      "early": "85.21035353535353",
+      "am_peak": "161.92071029411767",
+      "midday": "159.04623542338942",
+      "pm_peak": "176.40083564814813",
+      "evening": "140.15349952185173",
+      "owl": "35.55445707069159"
+     },
+     "peak_slack": {
+      "early": "0.07172979797978485",
+      "am_peak": "0.0887341503267578",
+      "midday": "0.1265423543883344",
+      "pm_peak": "0.09221990740741148",
+      "evening": "0.04108381148162721",
+      "owl": "0.0029040404195228575"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 16855,
+      "r3_span_off": 0,
+      "r4_lost_stop_periods": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 2,
+     "rounds_final": 1
+    },
+    {
+     "network": "N3",
+     "cell": "REF",
+     "status": "CERTIFIED",
+     "initial_objective": 2939912.5807124916,
+     "final_objective": 2935166.0254381876,
+     "initial_plan_digest": "28135d0fa655e6e1",
+     "final_plan_digest": "fdec5c5475c73736",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 0.0,
+     "policy_cost_closed_pct": 0.0,
+     "policy_cost_greedy_only": 0.0,
+     "policy_cost_greedy_only_pct": 0.0,
+     "basin_contamination": 0.0,
+     "served_demand": 21104.059416040294,
+     "unserved_demand": 9844.94058395971,
+     "generalized_cost": 1753773.1553630226,
+     "gc_per_served_trip": 83.10122336132424,
+     "hours_used": 2516.373410297668,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 0.8099230356651788,
+     "peak_used": {
+      "early": "85.2105471585071",
+      "am_peak": "161.96943864462204",
+      "midday": "159.160642406323",
+      "pm_peak": "176.43927770204067",
+      "evening": "139.82839817282394",
+      "owl": "35.45759411490257"
+     },
+     "peak_slack": {
+      "early": "0.0715361748262211",
+      "am_peak": "0.040005799822381505",
+      "midday": "0.012135371454746746",
+      "pm_peak": "0.053777853514873186",
+      "evening": "0.3661851605094171",
+      "owl": "0.0997669962085439"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": null,
+     "n_off": 17,
+     "n_baseline_on_now_off": 17,
+     "rounds_initial": 1,
+     "rounds_final": 1
+    },
+    {
+     "network": "N3",
+     "cell": "R1_H60",
+     "status": "CERTIFIED",
+     "initial_objective": 2950532.5669298135,
+     "final_objective": 2950532.5669298135,
+     "initial_plan_digest": "591eebe7630410f2",
+     "final_plan_digest": "591eebe7630410f2",
+     "winning_basin": "greedy",
+     "policy_cost_closed": 15366.54149162583,
+     "policy_cost_closed_pct": 0.5235322758047998,
+     "policy_cost_greedy_only": 10619.986217321828,
+     "policy_cost_greedy_only_pct": 0.3612347621148674,
+     "basin_contamination": -4746.5552743040025,
+     "served_demand": 21234.46531750442,
+     "unserved_demand": 9714.534682495585,
+     "generalized_cost": 1784788.4050303434,
+     "gc_per_served_trip": 84.05148791568917,
+     "hours_used": 2515.761224521931,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.4221088114022677,
+     "peak_used": {
+      "early": "85.22244984801779",
+      "am_peak": "161.90669975573314",
+      "midday": "159.09930907298966",
+      "pm_peak": "176.36325546467106",
+      "evening": "140.14444469689752",
+      "owl": "35.52783493624065"
+     },
+     "peak_slack": {
+      "early": "0.05963348531552981",
+      "am_peak": "0.10274468871128306",
+      "midday": "0.0734687047880982",
+      "pm_peak": "0.12980009088448696",
+      "evening": "0.050138636435832495",
+      "owl": "0.02952617487046183"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 0,
+      "r1_over_cap": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 2,
+     "rounds_final": 2
+    },
+    {
+     "network": "N3",
+     "cell": "R1_H30",
+     "status": "CERTIFIED",
+     "initial_objective": 2953789.4868896715,
+     "final_objective": 2953789.4868896715,
+     "initial_plan_digest": "d5f131ff9dd2bf24",
+     "final_plan_digest": "d5f131ff9dd2bf24",
+     "winning_basin": "greedy",
+     "policy_cost_closed": 18623.46145148389,
+     "policy_cost_closed_pct": 0.6344943110570249,
+     "policy_cost_greedy_only": 13876.906177179888,
+     "policy_cost_greedy_only_pct": 0.47201764665454105,
+     "basin_contamination": -4746.5552743040025,
+     "served_demand": 21216.300057533957,
+     "unserved_demand": 9732.69994246605,
+     "generalized_cost": 1785865.4937937455,
+     "gc_per_served_trip": 84.17421930076732,
+     "hours_used": 2514.5083621730246,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 2.6749711603088144,
+     "peak_used": {
+      "early": "85.25558494902792",
+      "am_peak": "161.93021945694696",
+      "midday": "159.05888604058228",
+      "pm_peak": "176.27334805726363",
+      "evening": "139.87374848878466",
+      "owl": "35.53073897660963"
+     },
+     "peak_slack": {
+      "early": "0.026498384305398304",
+      "am_peak": "0.07922498749746865",
+      "midday": "0.1138917371954733",
+      "pm_peak": "0.2197074982919105",
+      "evening": "0.32083484454869904",
+      "owl": "0.026622134501479877"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 0,
+      "r1_over_cap": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 1,
+     "rounds_final": 1
+    },
+    {
+     "network": "N3",
+     "cell": "R2_S25",
+     "status": "CERTIFIED",
+     "initial_objective": 2937538.0276397127,
+     "final_objective": 2935166.0254381876,
+     "initial_plan_digest": "b2302ca64a98d7e3",
+     "final_plan_digest": "fdec5c5475c73736",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 0.0,
+     "policy_cost_closed_pct": 0.0,
+     "policy_cost_greedy_only": -2374.5530727789737,
+     "policy_cost_greedy_only_pct": -0.0807695129561811,
+     "basin_contamination": -2374.5530727789737,
+     "served_demand": 21104.059416040294,
+     "unserved_demand": 9844.94058395971,
+     "generalized_cost": 1753773.1553630226,
+     "gc_per_served_trip": 83.10122336132424,
+     "hours_used": 2516.373410297668,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 0.8099230356651788,
+     "peak_used": {
+      "early": "85.2105471585071",
+      "am_peak": "161.96943864462204",
+      "midday": "159.160642406323",
+      "pm_peak": "176.43927770204067",
+      "evening": "139.82839817282394",
+      "owl": "35.45759411490257"
+     },
+     "peak_slack": {
+      "early": "0.0715361748262211",
+      "am_peak": "0.040005799822381505",
+      "midday": "0.012135371454746746",
+      "pm_peak": "0.053777853514873186",
+      "evening": "0.3661851605094171",
+      "owl": "0.0997669962085439"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 17,
+      "n_baseline_stop_periods": 0
+     },
+     "n_off": 17,
+     "n_baseline_on_now_off": 17,
+     "rounds_initial": 1,
+     "rounds_final": 1
+    },
+    {
+     "network": "N3",
+     "cell": "R2_S10",
+     "status": "CERTIFIED",
+     "initial_objective": 2943352.3652995555,
+     "final_objective": 2935166.0254381876,
+     "initial_plan_digest": "446b6ff3c3331d59",
+     "final_plan_digest": "fdec5c5475c73736",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 0.0,
+     "policy_cost_closed_pct": 0.0,
+     "policy_cost_greedy_only": 3439.7845870638266,
+     "policy_cost_greedy_only_pct": 0.11700295476915815,
+     "basin_contamination": 3439.7845870638266,
+     "served_demand": 21104.059416040294,
+     "unserved_demand": 9844.94058395971,
+     "generalized_cost": 1753773.1553630226,
+     "gc_per_served_trip": 83.10122336132424,
+     "hours_used": 2516.373410297668,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 0.8099230356651788,
+     "peak_used": {
+      "early": "85.2105471585071",
+      "am_peak": "161.96943864462204",
+      "midday": "159.160642406323",
+      "pm_peak": "176.43927770204067",
+      "evening": "139.82839817282394",
+      "owl": "35.45759411490257"
+     },
+     "peak_slack": {
+      "early": "0.0715361748262211",
+      "am_peak": "0.040005799822381505",
+      "midday": "0.012135371454746746",
+      "pm_peak": "0.053777853514873186",
+      "evening": "0.3661851605094171",
+      "owl": "0.0997669962085439"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 17,
+      "n_baseline_stop_periods": 0
+     },
+     "n_off": 17,
+     "n_baseline_on_now_off": 17,
+     "rounds_initial": 1,
+     "rounds_final": 4
+    },
+    {
+     "network": "N3",
+     "cell": "R2_S05",
+     "status": "CERTIFIED",
+     "initial_objective": 2942494.1602012054,
+     "final_objective": 2942494.1602012054,
+     "initial_plan_digest": "561444f68239da95",
+     "final_plan_digest": "561444f68239da95",
+     "winning_basin": "greedy",
+     "policy_cost_closed": 7328.134763017762,
+     "policy_cost_closed_pct": 0.24966678884625457,
+     "policy_cost_greedy_only": 2581.57948871376,
+     "policy_cost_greedy_only_pct": 0.08781143717164919,
+     "basin_contamination": -4746.5552743040025,
+     "served_demand": 21168.516706130864,
+     "unserved_demand": 9780.48329386914,
+     "generalized_cost": 1768836.1649369085,
+     "gc_per_served_trip": 83.55975950004164,
+     "hours_used": 2516.6623303410797,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 0.5210029922536705,
+     "peak_used": {
+      "early": "85.22244984801779",
+      "am_peak": "161.96943864462204",
+      "midday": "159.160642406323",
+      "pm_peak": "176.1947137980044",
+      "evening": "140.123402581995",
+      "owl": "35.43461523929034"
+     },
+     "peak_slack": {
+      "early": "0.05963348531552981",
+      "am_peak": "0.040005799822381505",
+      "midday": "0.012135371454746746",
+      "pm_peak": "0.29834175755115666",
+      "evening": "0.07118075133834623",
+      "owl": "0.12274587182077568"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 8,
+      "n_baseline_stop_periods": 0
+     },
+     "n_off": 8,
+     "n_baseline_on_now_off": 8,
+     "rounds_initial": 2,
+     "rounds_final": 2
+    },
+    {
+     "network": "N3",
+     "cell": "R3_SPAN",
+     "status": "CERTIFIED",
+     "initial_objective": 2956630.557945732,
+     "final_objective": 2950532.5669298135,
+     "initial_plan_digest": "566fcf2afb99a31a",
+     "final_plan_digest": "591eebe7630410f2",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 15366.54149162583,
+     "policy_cost_closed_pct": 0.5235322758047998,
+     "policy_cost_greedy_only": 16717.97723324038,
+     "policy_cost_greedy_only_pct": 0.568655590064816,
+     "basin_contamination": 1351.4357416145504,
+     "served_demand": 21234.46531750442,
+     "unserved_demand": 9714.534682495585,
+     "generalized_cost": 1784788.4050303434,
+     "gc_per_served_trip": 84.05148791568917,
+     "hours_used": 2515.761224521931,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.4221088114022677,
+     "peak_used": {
+      "early": "85.22244984801779",
+      "am_peak": "161.90669975573314",
+      "midday": "159.09930907298966",
+      "pm_peak": "176.36325546467106",
+      "evening": "140.14444469689752",
+      "owl": "35.52783493624065"
+     },
+     "peak_slack": {
+      "early": "0.05963348531552981",
+      "am_peak": "0.10274468871128306",
+      "midday": "0.0734687047880982",
+      "pm_peak": "0.12980009088448696",
+      "evening": "0.050138636435832495",
+      "owl": "0.02952617487046183"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 0,
+      "r3_span_off": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 4,
+     "rounds_final": 1
+    },
+    {
+     "network": "N3",
+     "cell": "R4_C05",
+     "status": "CERTIFIED",
+     "initial_objective": 2949618.181180831,
+     "final_objective": 2944578.3549554152,
+     "initial_plan_digest": "47447e8c1fc65e1a",
+     "final_plan_digest": "4e49377ae82b3c69",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 9412.329517227598,
+     "policy_cost_closed_pct": 0.32067451843111466,
+     "policy_cost_greedy_only": 9705.600468339399,
+     "policy_cost_greedy_only_pct": 0.33013228121181865,
+     "basin_contamination": 293.27095111180097,
+     "served_demand": 21167.303428536125,
+     "unserved_demand": 9781.696571463877,
+     "generalized_cost": 1770774.7663797496,
+     "gc_per_served_trip": 83.6561337327705,
+     "hours_used": 2515.779408479202,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.403924854131219,
+     "peak_used": {
+      "early": "85.2105471585071",
+      "am_peak": "161.90669975573314",
+      "midday": "159.09930907298966",
+      "pm_peak": "176.36325546467106",
+      "evening": "140.14444469689752",
+      "owl": "35.53528775788784"
+     },
+     "peak_slack": {
+      "early": "0.0715361748262211",
+      "am_peak": "0.10274468871128306",
+      "midday": "0.0734687047880982",
+      "pm_peak": "0.12980009088448696",
+      "evening": "0.050138636435832495",
+      "owl": "0.022073353223269976"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 6,
+      "n_baseline_stop_periods": 16859,
+      "r4_lost_stop_periods": 832
+     },
+     "n_off": 6,
+     "n_baseline_on_now_off": 6,
+     "rounds_initial": 1,
+     "rounds_final": 2
+    },
+    {
+     "network": "N3",
+     "cell": "R4_C01",
+     "status": "CERTIFIED",
+     "initial_objective": 2951441.288567108,
+     "final_objective": 2949169.0785097736,
+     "initial_plan_digest": "7fb143000d8dc34b",
+     "final_plan_digest": "a31340754c802f19",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 14003.05307158595,
+     "policy_cost_closed_pct": 0.47707873933623396,
+     "policy_cost_greedy_only": 11528.707854616456,
+     "policy_cost_greedy_only_pct": 0.3921445804290704,
+     "basin_contamination": -2474.345216969494,
+     "served_demand": 21210.10626566318,
+     "unserved_demand": 9738.893734336822,
+     "generalized_cost": 1780501.830389355,
+     "gc_per_served_trip": 83.94591748329856,
+     "hours_used": 2515.611224521931,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.5721088114023587,
+     "peak_used": {
+      "early": "85.22244984801779",
+      "am_peak": "161.90669975573314",
+      "midday": "159.09930907298966",
+      "pm_peak": "176.36325546467106",
+      "evening": "140.14444469689752",
+      "owl": "35.49908493624065"
+     },
+     "peak_slack": {
+      "early": "0.05963348531552981",
+      "am_peak": "0.10274468871128306",
+      "midday": "0.0734687047880982",
+      "pm_peak": "0.12980009088448696",
+      "evening": "0.050138636435832495",
+      "owl": "0.058276174870464104"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 1,
+      "n_baseline_stop_periods": 16859,
+      "r4_lost_stop_periods": 137
+     },
+     "n_off": 1,
+     "n_baseline_on_now_off": 1,
+     "rounds_initial": 3,
+     "rounds_final": 2
+    },
+    {
+     "network": "N3",
+     "cell": "R4_C00",
+     "status": "CERTIFIED",
+     "initial_objective": 2950532.5669298135,
+     "final_objective": 2950532.5669298135,
+     "initial_plan_digest": "591eebe7630410f2",
+     "final_plan_digest": "591eebe7630410f2",
+     "winning_basin": "greedy",
+     "policy_cost_closed": 15366.54149162583,
+     "policy_cost_closed_pct": 0.5235322758047998,
+     "policy_cost_greedy_only": 10619.986217321828,
+     "policy_cost_greedy_only_pct": 0.3612347621148674,
+     "basin_contamination": -4746.5552743040025,
+     "served_demand": 21234.46531750442,
+     "unserved_demand": 9714.534682495585,
+     "generalized_cost": 1784788.4050303434,
+     "gc_per_served_trip": 84.05148791568917,
+     "hours_used": 2515.761224521931,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.4221088114022677,
+     "peak_used": {
+      "early": "85.22244984801779",
+      "am_peak": "161.90669975573314",
+      "midday": "159.09930907298966",
+      "pm_peak": "176.36325546467106",
+      "evening": "140.14444469689752",
+      "owl": "35.52783493624065"
+     },
+     "peak_slack": {
+      "early": "0.05963348531552981",
+      "am_peak": "0.10274468871128306",
+      "midday": "0.0734687047880982",
+      "pm_peak": "0.12980009088448696",
+      "evening": "0.050138636435832495",
+      "owl": "0.02952617487046183"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 16859,
+      "r4_lost_stop_periods": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 2,
+     "rounds_final": 2
+    },
+    {
+     "network": "N3",
+     "cell": "R6_ADA",
+     "status": "CERTIFIED",
+     "initial_objective": 2949413.8828011495,
+     "final_objective": 2949413.8828011495,
+     "initial_plan_digest": "0afda9bbeb993aa2",
+     "final_plan_digest": "0afda9bbeb993aa2",
+     "winning_basin": "greedy",
+     "policy_cost_closed": 14247.857362961862,
+     "policy_cost_closed_pct": 0.4854191292581078,
+     "policy_cost_greedy_only": 9501.30208865786,
+     "policy_cost_greedy_only_pct": 0.32318315010425264,
+     "basin_contamination": -4746.5552743040025,
+     "served_demand": 19986.980605199984,
+     "unserved_demand": 10962.019394800016,
+     "generalized_cost": 1633971.5554251475,
+     "gc_per_served_trip": 81.75179571645951,
+     "hours_used": 2514.195714706256,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 2.987618627077609,
+     "peak_used": {
+      "early": "85.11468090869278",
+      "am_peak": "161.8524119172644",
+      "midday": "159.08065987372666",
+      "pm_peak": "176.28565129800438",
+      "evening": "139.95340178618835",
+      "owl": "35.475659010314715"
+     },
+     "peak_slack": {
+      "early": "0.16740242464054234",
+      "am_peak": "0.15703252718003569",
+      "midday": "0.09211790405109355",
+      "pm_peak": "0.2074042575511612",
+      "evening": "0.24118154714500406",
+      "owl": "0.08170210079639872"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 18,
+      "n_baseline_stop_periods": 16859,
+      "r6_uncovered_stop_periods": 0
+     },
+     "n_off": 18,
+     "n_baseline_on_now_off": 18,
+     "rounds_initial": 1,
+     "rounds_final": 1
+    },
+    {
+     "network": "N3",
+     "cell": "B1",
+     "status": "CERTIFIED",
+     "initial_objective": 2954543.2167176595,
+     "final_objective": 2950532.5669298135,
+     "initial_plan_digest": "d28d446a443a986b",
+     "final_plan_digest": "591eebe7630410f2",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 15366.54149162583,
+     "policy_cost_closed_pct": 0.5235322758047998,
+     "policy_cost_greedy_only": 14630.63600516785,
+     "policy_cost_greedy_only_pct": 0.4976554779605758,
+     "basin_contamination": -735.9054864579812,
+     "served_demand": 21234.46531750442,
+     "unserved_demand": 9714.534682495585,
+     "generalized_cost": 1784788.4050303434,
+     "gc_per_served_trip": 84.05148791568917,
+     "hours_used": 2515.761224521931,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.4221088114022677,
+     "peak_used": {
+      "early": "85.22244984801779",
+      "am_peak": "161.90669975573314",
+      "midday": "159.09930907298966",
+      "pm_peak": "176.36325546467106",
+      "evening": "140.14444469689752",
+      "owl": "35.52783493624065"
+     },
+     "peak_slack": {
+      "early": "0.05963348531552981",
+      "am_peak": "0.10274468871128306",
+      "midday": "0.0734687047880982",
+      "pm_peak": "0.12980009088448696",
+      "evening": "0.050138636435832495",
+      "owl": "0.02952617487046183"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 16859,
+      "r3_span_off": 0,
+      "r6_uncovered_stop_periods": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 2,
+     "rounds_final": 1
+    },
+    {
+     "network": "N3",
+     "cell": "B2",
+     "status": "CERTIFIED",
+     "initial_objective": 2951774.4228982246,
+     "final_objective": 2950532.5669298135,
+     "initial_plan_digest": "706aeff762c4e540",
+     "final_plan_digest": "591eebe7630410f2",
+     "winning_basin": "anchor",
+     "policy_cost_closed": 15366.54149162583,
+     "policy_cost_closed_pct": 0.5235322758047998,
+     "policy_cost_greedy_only": 11861.842185732909,
+     "policy_cost_greedy_only_pct": 0.40347601706096226,
+     "basin_contamination": -3504.699305892922,
+     "served_demand": 21234.46531750442,
+     "unserved_demand": 9714.534682495585,
+     "generalized_cost": 1784788.4050303434,
+     "gc_per_served_trip": 84.05148791568917,
+     "hours_used": 2515.761224521931,
+     "hours_cap": 2517.1833333333334,
+     "hours_slack": 1.4221088114022677,
+     "peak_used": {
+      "early": "85.22244984801779",
+      "am_peak": "161.90669975573314",
+      "midday": "159.09930907298966",
+      "pm_peak": "176.36325546467106",
+      "evening": "140.14444469689752",
+      "owl": "35.52783493624065"
+     },
+     "peak_slack": {
+      "early": "0.05963348531552981",
+      "am_peak": "0.10274468871128306",
+      "midday": "0.0734687047880982",
+      "pm_peak": "0.12980009088448696",
+      "evening": "0.050138636435832495",
+      "owl": "0.02952617487046183"
+     },
+     "binding_resource": {
+      "hours": false,
+      "peak_proxy_by_period": {
+       "early": false,
+       "am_peak": false,
+       "midday": false,
+       "pm_peak": false,
+       "evening": false,
+       "owl": false
+      }
+     },
+     "policy_measure": {
+      "n_baseline_served_rp": 173,
+      "n_off_baseline_served": 0,
+      "n_baseline_stop_periods": 16859,
+      "r3_span_off": 0,
+      "r4_lost_stop_periods": 0
+     },
+     "n_off": 0,
+     "n_baseline_on_now_off": 0,
+     "rounds_initial": 3,
+     "rounds_final": 1
+    }
+   ],
+   "empty_feasible_sets": [
+    {
+     "network": "N3",
+     "cell": "R1_H20",
+     "status": "INFEASIBLE_UNDER_ENVELOPE",
+     "reading": "policy infeasible under the modeled envelope -- a result; no plan, no receipt, no finite policy cost",
+     "minimum_service_plan_usage_vs_caps": {
+      "hours": [
+       "2214.5191387827317",
+       "2517.1833333333334",
+       false
+      ],
+      "early": [
+       "85.29871576328418",
+       "85.28208333333332",
+       true
+      ],
+      "am_peak": [
+       "139.56445573158038",
+       "162.00944444444443",
+       false
+      ],
+      "midday": [
+       "135.2086240558552",
+       "159.17277777777775",
+       false
+      ],
+      "pm_peak": [
+       "150.80303324244883",
+       "176.49305555555554",
+       false
+      ],
+      "evening": [
+       "125.25773323917416",
+       "140.19458333333336",
+       false
+      ],
+      "owl": [
+       "35.53073897660963",
+       "35.55736111111111",
+       false
+      ]
+     }
+    }
+   ],
+   "policy_cost_definition": "policy_cost_closed = closed policy-cell objective minus closed REF objective, same network; MODELED, objective units and percent",
+   "greedy_only_cost_definition": "policy_cost_greedy_only = initial cell minus initial REF; basin_contamination = greedy_only minus closed; never quoted alone",
+   "regimes": {
+    "included": [
+     "R1",
+     "R2",
+     "R3",
+     "R4",
+     "R6",
+     "B1",
+     "B2"
+    ],
+    "classification": "ALL study safeguards; no documented COTA numeric anchor (FTA C 4702.1B prescribes none)",
+    "R5": "UNIMPLEMENTABLE_WITH_CURRENT_DATA (Title VI form); generic form EXCLUDED -- not implemented before freeze",
+    "R7": "EXCLUDED -- no authoritative COTA frequent-network definition",
+    "cota_compliant_combined": "NOT RUN -- no defensible anchor"
+   },
+   "headline": "EXP6_POLICY_FRONTIER_CERTIFIED. N0: REF 2,945,632.23 -> 2,941,892.37 under closure; closed policy costs +0.000% to +0.912%; N3: REF 2,939,912.58 -> 2,935,166.03 under closure; closed policy costs +0.000% to +0.634%. N3 - N0 at matched policy (13 admitted): REF -6,726.35 (-0.2286%), range -0.2286% to -0.1525%. Empty feasible sets: N3 R1_H20. Monotonicity initial 22/120 violations, post-closure 0/120.",
+   "basin_note": "Closure moved both REF cells to a different basin at a near-equal objective; the Exp 4A N3 record and the Exp 5 N0 J100 record (bit-identical to the Exp 6 initial REFs) are therefore not the best-known plans under the EXP4N envelope. They remain exact records of their own contracts and are NOT reopened; exp4a and exp5 entries are copied verbatim. Served demand / GC are basin-dependent at near-equal objective.",
+   "physical_fleet": "UNDECIDABLE for every cell; no blocking run -- no valid instrument (Exp 5 materializer off by 17.8-47.0% on vehicle-hours; deadhead OPEN)",
+   "not_claimed": [
+    "global optimum",
+    "buses, fleet or vehicles",
+    "operating dollars",
+    "deployability",
+    "COTA policy or Title VI compliance",
+    "that N4 is worth implementing",
+    "per-route headway recommendations",
+    "a finite policy cost for an empty feasible set"
+   ]
+  },
+  "exp7": {
+   "title": "Robustness of findings F1-F6 (and AF1) to model assumptions: Stage 1 fixed-plan evaluation of every certified plan at every implemented level; Stage 2 adaptive re-optimization in the two preregistered-selected dimensions",
+   "status": "STAGE1 EXP7_STAGE1_EVALUATION_COMPLETE; STAGE2 EXP7_STAGE2_REOPT_COMPLETE",
+   "certified": true,
+   "contract": {
+    "file": "outputs/exp7/EXP7_CONTRACT.json",
+    "sha256_16": "1263bedaebe6a45d",
+    "version": "7.1-two-stage",
+    "design": "two_stage",
+    "gates": {
+     "G1_governing_text": true,
+     "G2_levels_declared_with_provenance": true,
+     "G3_base_reproduction": true,
+     "G4_level_reach": true,
+     "G5_unit_tests": true,
+     "G6_src_digest_matches_exp6": true,
+     "G8_stage_design_decided": true,
+     "G7_transfer_refusal_emptiness_firewall": true
+    },
+    "src_cota_opt_content_digest": "b63ae2dba134245e"
+   },
+   "evaluator": "same_route (Model B), EXP4N block certifier (8,3), max 120 rounds, EXP4N common envelope 0b46d1abc9a80c80, lambda 2 at BASE",
+   "stage2_selection": {
+    "selected_levels": [
+     "A5_LAM1",
+     "A5_LAM4",
+     "A5_TP050",
+     "A5_TP200",
+     "A6_WALKSPD85",
+     "A6_MAXWALK75"
+    ],
+    "movement_F1": {
+     "A1": 0.05083443558763357,
+     "A2": 0.09373077871620611,
+     "A3": 0.10429215730384349,
+     "A5": 0.1348653300571846,
+     "A6": 0.6850160395136041,
+     "A7": 0.413749147607802,
+     "A8": 0.12439403470372958
+    },
+    "movement_F4": {
+     "A1": 0.4149587007421267,
+     "A2": 0.06460062583161517,
+     "A3": 0.15214830488449646,
+     "A5": 1.1956103553049808,
+     "A6": 0.18056660462427926,
+     "A7": 0.2045381562389866,
+     "A8": 0.04582013364469012
+    }
+   },
+   "stage1": {
+    "cells": "192/192",
+    "failures": [],
+    "n3_r1_h20_feasibility": {
+     "BASE": "INFEASIBLE_UNDER_ENVELOPE",
+     "A3_RT110": "INFEASIBLE_UNDER_ENVELOPE",
+     "A3_RT120": "INFEASIBLE_UNDER_ENVELOPE",
+     "A3_RTNOISE": "INFEASIBLE_UNDER_ENVELOPE",
+     "A7_RM01": "INFEASIBILITY_NOT_PROVEN",
+     "A7_RM02": "INFEASIBILITY_NOT_PROVEN",
+     "A7_RM03": "INFEASIBILITY_NOT_PROVEN",
+     "A7_RM04": "INFEASIBILITY_NOT_PROVEN",
+     "A7_RM05": "INFEASIBILITY_NOT_PROVEN",
+     "A7_RM06": "INFEASIBILITY_NOT_PROVEN",
+     "A7_RM07": "INFEASIBILITY_NOT_PROVEN",
+     "A7_RM08": "INFEASIBILITY_NOT_PROVEN",
+     "A7_RM09": "INFEASIBILITY_NOT_PROVEN",
+     "A7_RM10": "INFEASIBILITY_NOT_PROVEN"
+    },
+    "a4": "UNIMPLEMENTED: reliability robustness not tested",
+    "findings": {
+     "F1": {
+      "certified": -6.651987701966629,
+      "stage1_base": -6.023959397797955,
+      "sign_label": "SIGN_ROBUST",
+      "sign_events_class_a": [],
+      "worst_movement": {
+       "level": "A6_MAXWALK75",
+       "relative_change": 0.6850160395136041,
+       "value": -1.8974505889276443
+      },
+      "class_a_range": [
+       -6.9982932481996905,
+       -1.8974505889276443
+      ],
+      "worst_magnitude_band_by_dimension": {
+       "A1": "Highly stable magnitude",
+       "A2": "Highly stable magnitude",
+       "A3": "Stable magnitude",
+       "A5": "Stable magnitude",
+       "A6": "Highly sensitive magnitude",
+       "A7": "Moderately sensitive magnitude",
+       "A8": "Stable magnitude"
+      },
+      "cross_network_a7_mismatch": null
+     },
+     "F2_unserved": {
+      "certified": 0.0065,
+      "stage1_base": 0.0064842416005683745,
+      "sign_label": "SIGN_SENSITIVE",
+      "sign_events_class_a": [
+       [
+        "A1_NC050",
+        "SIGN_FLIP"
+       ],
+       [
+        "A1_NC100",
+        "SIGN_FLIP"
+       ],
+       [
+        "A2_BOOT03",
+        "SIGN_FLIP"
+       ],
+       [
+        "A2_BOOT07",
+        "SIGN_FLIP"
+       ],
+       [
+        "A2_BOOT08",
+        "SIGN_FLIP"
+       ],
+       [
+        "A2_BOOT11",
+        "SIGN_FLIP"
+       ],
+       [
+        "A2_BOOT12",
+        "SIGN_FLIP"
+       ],
+       [
+        "A2_BOOT14",
+        "SIGN_FLIP"
+       ],
+       [
+        "A2_BOOT15",
+        "SIGN_FLIP"
+       ],
+       [
+        "A2_BOOT17",
+        "SIGN_FLIP"
+       ],
+       [
+        "A2_BOOT19",
+        "SIGN_FLIP"
+       ],
+       [
+        "A2_BOOT20",
+        "SIGN_FLIP"
+       ],
+       [
+        "A3_RTNOISE",
+        "SIGN_FLIP"
+       ],
+       [
+        "A5_TP200",
+        "SIGN_FLIP"
+       ],
+       [
+        "A7_RM01",
+        "SIGN_FLIP"
+       ],
+       [
+        "A7_RM08",
+        "SIGN_FLIP"
+       ],
+       [
+        "A7_RM10",
+        "SIGN_FLIP"
+       ],
+       [
+        "A8_ZERO150",
+        "SIGN_FLIP"
+       ]
+      ],
+      "worst_movement": {
+       "level": "A3_RTNOISE",
+       "relative_change": 35.87165082480129,
+       "value": -0.22611620895867102
+      },
+      "class_a_range": [
+       -0.22611620895867102,
+       0.16585750042117375
+      ],
+      "worst_magnitude_band_by_dimension": {
+       "A1": "Highly sensitive magnitude",
+       "A2": "Highly sensitive magnitude",
+       "A3": "Highly sensitive magnitude",
+       "A5": "Highly sensitive magnitude",
+       "A6": "Highly sensitive magnitude",
+       "A7": "Highly sensitive magnitude",
+       "A8": "Highly sensitive magnitude"
+      },
+      "cross_network_a7_mismatch": null
+     },
+     "F3": {
+      "certified": -0.18656513176548822,
+      "stage1_base": -0.18656513176548822,
+      "sign_label": "SIGN_SENSITIVE",
+      "sign_events_class_a": [
+       [
+        "A7_RM05",
+        "SIGN_FLIP"
+       ]
+      ],
+      "worst_movement": {
+       "level": "A7_RM05",
+       "relative_change": 2.729595423286942,
+       "value": 0.3226821980465137
+      },
+      "class_a_range": [
+       -0.4050228884733983,
+       0.3226821980465137
+      ],
+      "worst_magnitude_band_by_dimension": {
+       "A1": "Highly sensitive magnitude",
+       "A2": "Stable magnitude",
+       "A3": "Moderately sensitive magnitude",
+       "A5": "Stable magnitude",
+       "A6": "Highly stable magnitude",
+       "A7": "Highly sensitive magnitude",
+       "A8": "Highly stable magnitude"
+      },
+      "cross_network_a7_mismatch": {
+       "levels": [
+        "A7_RM04",
+        "A7_RM05"
+       ],
+       "sign_label_excluding_mismatched_A7": "SIGN_ROBUST"
+      }
+     },
+     "F4_43": {
+      "certified": 9.659,
+      "stage1_base": 9.659245267241864,
+      "sign_label": "SIGN_SENSITIVE",
+      "sign_events_class_a": [
+       [
+        "A5_LAM1",
+        "SIGN_FLIP"
+       ]
+      ],
+      "worst_movement": {
+       "level": "A5_LAM1",
+       "relative_change": 1.1355986396202258,
+       "value": -1.3097805179961017
+      },
+      "class_a_range": [
+       -1.3097805179961017,
+       19.354296240685425
+      ],
+      "worst_magnitude_band_by_dimension": {
+       "A1": "Moderately sensitive magnitude",
+       "A2": "Highly stable magnitude",
+       "A3": "Stable magnitude",
+       "A5": "Highly sensitive magnitude",
+       "A6": "Stable magnitude",
+       "A7": "Stable magnitude",
+       "A8": "Highly stable magnitude"
+      },
+      "cross_network_a7_mismatch": null
+     },
+     "F4_40": {
+      "certified": null,
+      "stage1_base": 9.44631543999729,
+      "sign_label": "SIGN_SENSITIVE",
+      "sign_events_class_a": [
+       [
+        "A5_LAM1",
+        "SIGN_FLIP"
+       ]
+      ],
+      "worst_movement": {
+       "level": "A5_LAM1",
+       "relative_change": 1.1956103553049808,
+       "value": -1.8477971195407963
+      },
+      "class_a_range": [
+       -1.8477971195407963,
+       19.495269770023455
+      ],
+      "worst_magnitude_band_by_dimension": {
+       "A1": "Moderately sensitive magnitude",
+       "A2": "Highly stable magnitude",
+       "A3": "Stable magnitude",
+       "A5": "Highly sensitive magnitude",
+       "A6": "Stable magnitude",
+       "A7": "Stable magnitude",
+       "A8": "Highly stable magnitude"
+      },
+      "cross_network_a7_mismatch": null
+     }
+    },
+    "F2_null_breaks_at": [],
+    "F2_not_applicable_at": [
+     "A7_RM09"
+    ],
+    "a7_cross_network_mismatch_levels": [
+     "A7_RM04",
+     "A7_RM05"
+    ],
+    "F5_monotonicity_changes": {
+     "F5_N0_monotone_joint": [
+      "A5_LAM1"
+     ],
+     "F5_N0_monotone_peak": [
+      "A5_LAM1"
+     ],
+     "F5_N4_monotone_joint": [
+      "A5_LAM1"
+     ],
+     "F5_N4_monotone_peak": [
+      "A5_LAM1"
+     ]
+    }
+   },
+   "stage2": {
+    "closure": {
+     "F6/N0": {
+      "status": "FIXED_POINT",
+      "passes": 4,
+      "n_improvements": 92,
+      "improvements_by_stage": {
+       "W": 61,
+       "X": 31
+      }
+     },
+     "F6/N3": {
+      "status": "FIXED_POINT",
+      "passes": 4,
+      "n_improvements": 76,
+      "improvements_by_stage": {
+       "W": 49,
+       "X": 27
+      }
+     },
+     "F4/N0": {
+      "status": "FIXED_POINT",
+      "passes": 2,
+      "n_improvements": 6,
+      "improvements_by_stage": {
+       "W": 0,
+       "X": 6
+      }
+     },
+     "F4/N3": {
+      "status": "FIXED_POINT",
+      "passes": 2,
+      "n_improvements": 5,
+      "improvements_by_stage": {
+       "W": 0,
+       "X": 5
+      }
+     },
+     "F4/N4": {
+      "status": "FIXED_POINT",
+      "passes": 4,
+      "n_improvements": 23,
+      "improvements_by_stage": {
+       "W": 0,
+       "X": 23
+      }
+     }
+    },
+    "sentinels": [
+     {
+      "cell": [
+       "F6",
+       "A6_MAXWALK75",
+       "N3",
+       "REF"
+      ],
+      "ok": true
+     },
+     {
+      "cell": [
+       "F6",
+       "A6_MAXWALK75",
+       "N0",
+       "R2_S10"
+      ],
+      "ok": true
+     },
+     {
+      "cell": [
+       "F4",
+       "A6_MAXWALK75",
+       "N4",
+       "REF"
+      ],
+      "ok": true
+     },
+     {
+      "cell": [
+       "F6",
+       "A5_LAM1",
+       "N0",
+       "REF"
+      ],
+      "ok": true
+     }
+    ],
+    "record_checks": {
+     "convergence": {
+      "n": 210,
+      "all_pass": true
+     },
+     "feasible": {
+      "n": 210,
+      "all_pass": true
+     },
+     "policy": {
+      "n": 210,
+      "all_pass": true
+     },
+     "level": {
+      "n": 210,
+      "all_pass": true
+     }
+    },
+    "monotonicity": {
+     "n_pairs": 840,
+     "n_violations": 0
+    },
+    "F1_adaptive": [
+     {
+      "level": "BASE",
+      "ref_unserved": 9857.85771788099,
+      "current_plan_unserved": 10423.684219641913,
+      "f1_pct": -5.428277467334485,
+      "ref_plan": "2523154d9bee93e3"
+     },
+     {
+      "level": "A5_LAM1",
+      "ref_unserved": 29366.112577613334,
+      "current_plan_unserved": 10423.684219641913,
+      "f1_pct": 181.72488689054083,
+      "ref_plan": "76430e1f43635d31"
+     },
+     {
+      "level": "A5_LAM4",
+      "ref_unserved": 9719.074362925847,
+      "current_plan_unserved": 10423.684219641913,
+      "f1_pct": -6.7597007149193145,
+      "ref_plan": "061919b6be9e8bbc"
+     },
+     {
+      "level": "A5_TP050",
+      "ref_unserved": 9290.796113745868,
+      "current_plan_unserved": 9856.11338171718,
+      "f1_pct": -5.7357017525788585,
+      "ref_plan": "3709fb1285408d18"
+     },
+     {
+      "level": "A5_TP200",
+      "ref_unserved": 16685.925436119156,
+      "current_plan_unserved": 11499.178956843783,
+      "f1_pct": 45.105363598054616,
+      "ref_plan": "d50f88367d19cc35"
+     },
+     {
+      "level": "A6_WALKSPD85",
+      "ref_unserved": 12625.031553390943,
+      "current_plan_unserved": 10830.597483505228,
+      "f1_pct": 16.56819092961954,
+      "ref_plan": "d16a8e5d8ddbf3b2"
+     },
+     {
+      "level": "A6_MAXWALK75",
+      "ref_unserved": 17411.51636681902,
+      "current_plan_unserved": 16648.33941163715,
+      "f1_pct": 4.584102572106463,
+      "ref_plan": "7fa733293e534439"
+     }
+    ],
+    "F4": [
+     {
+      "level": "BASE",
+      "control": "N3",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 250486.51777129853,
+      "delta_pct": 8.547370233189115,
+      "sign": 1,
+      "descriptors": {
+       "N3": {
+        "served_demand": "17389.43404059569",
+        "generalized_cost": "1303420.3291095623",
+        "n_off": 49,
+        "plan": "f120368219c86c2c"
+       },
+       "N4": {
+        "served_demand": "12700.482127017422",
+        "generalized_cost": "991232.6172514688",
+        "n_off": 210,
+        "plan": "5cc640cb8d3671fc"
+       }
+      }
+     },
+     {
+      "level": "BASE",
+      "control": "N0",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 245608.30075816717,
+      "delta_pct": 8.366982808246433,
+      "sign": 1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "17348.50804586933",
+        "generalized_cost": "1303387.4267555305",
+        "n_off": 48,
+        "plan": "2a236b2b72fb6d5d"
+       },
+       "N4": {
+        "served_demand": "12700.482127017422",
+        "generalized_cost": "991232.6172514688",
+        "n_off": 210,
+        "plan": "5cc640cb8d3671fc"
+       }
+      }
+     },
+     {
+      "level": "BASE",
+      "control": "N0",
+      "treatment": "N3",
+      "admitted": true,
+      "delta": -4878.217013131361,
+      "delta_pct": -0.16618313696145762,
+      "sign": -1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "17348.50804586933",
+        "generalized_cost": "1303387.4267555305",
+        "n_off": 48,
+        "plan": "2a236b2b72fb6d5d"
+       },
+       "N3": {
+        "served_demand": "17389.43404059569",
+        "generalized_cost": "1303420.3291095623",
+        "n_off": 49,
+        "plan": "f120368219c86c2c"
+       }
+      }
+     },
+     {
+      "level": "A5_LAM1",
+      "control": "N3",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": -17969.649337795563,
+      "delta_pct": -0.9812603203602382,
+      "sign": -1,
+      "descriptors": {
+       "N3": {
+        "served_demand": "1582.5009668360728",
+        "generalized_cost": "69292.64071957035",
+        "n_off": 139,
+        "plan": "76430e1f43635d31"
+       },
+       "N4": {
+        "served_demand": "1121.5004495019261",
+        "generalized_cost": "23662.9603417257",
+        "n_off": 375,
+        "plan": "96ccb1c21a639371"
+       }
+      },
+      "vs_base": "SIGN_FLIP"
+     },
+     {
+      "level": "A5_LAM1",
+      "control": "N0",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": -17958.854982833844,
+      "delta_pct": -0.9806766585407524,
+      "sign": -1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "1582.8874223866674",
+        "generalized_cost": "69305.0336976442",
+        "n_off": 139,
+        "plan": "76430e1f43635d31"
+       },
+       "N4": {
+        "served_demand": "1121.5004495019261",
+        "generalized_cost": "23662.9603417257",
+        "n_off": 375,
+        "plan": "96ccb1c21a639371"
+       }
+      },
+      "vs_base": "SIGN_FLIP"
+     },
+     {
+      "level": "A5_LAM1",
+      "control": "N0",
+      "treatment": "N3",
+      "admitted": true,
+      "delta": 10.794354961719364,
+      "delta_pct": 0.0005894458174020703,
+      "sign": 1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "1582.8874223866674",
+        "generalized_cost": "69305.0336976442",
+        "n_off": 139,
+        "plan": "76430e1f43635d31"
+       },
+       "N3": {
+        "served_demand": "1582.5009668360728",
+        "generalized_cost": "69292.64071957035",
+        "n_off": 139,
+        "plan": "76430e1f43635d31"
+       }
+      },
+      "vs_base": "SIGN_FLIP"
+     },
+     {
+      "level": "A5_LAM4",
+      "control": "N3",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 1263617.5242581856,
+      "delta_pct": 30.789838260560852,
+      "sign": 1,
+      "descriptors": {
+       "N3": {
+        "served_demand": "21248.574055331806",
+        "generalized_cost": "1775906.0943521457",
+        "n_off": 12,
+        "plan": "1a62cf4a59887720"
+       },
+       "N4": {
+        "served_demand": "12759.858397535709",
+        "generalized_cost": "1002231.8607392682",
+        "n_off": 204,
+        "plan": "949cd7d2ee5d8208"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A5_LAM4",
+      "control": "N0",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 1256578.9128541597,
+      "delta_pct": 30.565910180382765,
+      "sign": 1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "21230.87549781283",
+        "generalized_cost": "1778697.051951618",
+        "n_off": 12,
+        "plan": "64690725e330bc59"
+       },
+       "N4": {
+        "served_demand": "12759.858397535709",
+        "generalized_cost": "1002231.8607392682",
+        "n_off": 204,
+        "plan": "949cd7d2ee5d8208"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A5_LAM4",
+      "control": "N0",
+      "treatment": "N3",
+      "admitted": true,
+      "delta": -7038.611404025927,
+      "delta_pct": -0.17121213938041308,
+      "sign": -1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "21230.87549781283",
+        "generalized_cost": "1778697.051951618",
+        "n_off": 12,
+        "plan": "64690725e330bc59"
+       },
+       "N3": {
+        "served_demand": "21248.574055331806",
+        "generalized_cost": "1775906.0943521457",
+        "n_off": 12,
+        "plan": "1a62cf4a59887720"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A5_TP050",
+      "control": "N3",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 284106.7202235423,
+      "delta_pct": 9.87761903174627,
+      "sign": 1,
+      "descriptors": {
+       "N3": {
+        "served_demand": "21758.653098713712",
+        "generalized_cost": "1773425.6110501",
+        "n_off": 15,
+        "plan": "96572de67f7c96f7"
+       },
+       "N4": {
+        "served_demand": "13001.505873204856",
+        "generalized_cost": "1006674.6642125796",
+        "n_off": 210,
+        "plan": "5cc640cb8d3671fc"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A5_TP050",
+      "control": "N0",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 279475.8147910563,
+      "delta_pct": 9.700996035258187,
+      "sign": 1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "21743.061220227864",
+        "generalized_cost": "1776185.4910642842",
+        "n_off": 15,
+        "plan": "3ce54c6fe9f9fdc2"
+       },
+       "N4": {
+        "served_demand": "13001.505873204856",
+        "generalized_cost": "1006674.6642125796",
+        "n_off": 210,
+        "plan": "5cc640cb8d3671fc"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A5_TP050",
+      "control": "N0",
+      "treatment": "N3",
+      "admitted": true,
+      "delta": -4630.905432485975,
+      "delta_pct": -0.1607451981982367,
+      "sign": -1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "21743.061220227864",
+        "generalized_cost": "1776185.4910642842",
+        "n_off": 15,
+        "plan": "3ce54c6fe9f9fdc2"
+       },
+       "N3": {
+        "served_demand": "21758.653098713712",
+        "generalized_cost": "1773425.6110501",
+        "n_off": 15,
+        "plan": "96572de67f7c96f7"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A5_TP200",
+      "control": "N3",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 203734.03816116368,
+      "delta_pct": 6.76786206693406,
+      "sign": 1,
+      "descriptors": {
+       "N3": {
+        "served_demand": "16667.794029326524",
+        "generalized_cost": "1296571.335268419",
+        "n_off": 49,
+        "plan": "f120368219c86c2c"
+       },
+       "N4": {
+        "served_demand": "12236.426441846093",
+        "generalized_cost": "968541.2629319316",
+        "n_off": 210,
+        "plan": "5cc640cb8d3671fc"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A5_TP200",
+      "control": "N0",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 198801.80434232717,
+      "delta_pct": 6.59321506934786,
+      "sign": 1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "16626.290754215886",
+        "generalized_cost": "1296523.1760739796",
+        "n_off": 48,
+        "plan": "2a236b2b72fb6d5d"
+       },
+       "N4": {
+        "served_demand": "12236.426441846093",
+        "generalized_cost": "968541.2629319316",
+        "n_off": 210,
+        "plan": "5cc640cb8d3671fc"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A5_TP200",
+      "control": "N0",
+      "treatment": "N3",
+      "admitted": true,
+      "delta": -4932.23381883651,
+      "delta_pct": -0.1635763742058567,
+      "sign": -1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "16626.290754215886",
+        "generalized_cost": "1296523.1760739796",
+        "n_off": 48,
+        "plan": "2a236b2b72fb6d5d"
+       },
+       "N3": {
+        "served_demand": "16667.794029326524",
+        "generalized_cost": "1296571.335268419",
+        "n_off": 49,
+        "plan": "f120368219c86c2c"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A6_WALKSPD85",
+      "control": "N3",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 230253.8936554985,
+      "delta_pct": 7.7162348040092255,
+      "sign": 1,
+      "descriptors": {
+       "N3": {
+        "served_demand": "17091.63971759252",
+        "generalized_cost": "1321135.5201264988",
+        "n_off": 49,
+        "plan": "f120368219c86c2c"
+       },
+       "N4": {
+        "served_demand": "12408.285058171188",
+        "generalized_cost": "989386.8546514375",
+        "n_off": 211,
+        "plan": "bb4f20999e1bc6a5"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A6_WALKSPD85",
+      "control": "N0",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 225358.92017748486,
+      "delta_pct": 7.539826864339686,
+      "sign": 1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "17053.261751769234",
+        "generalized_cost": "1321425.1377057193",
+        "n_off": 48,
+        "plan": "2a236b2b72fb6d5d"
+       },
+       "N4": {
+        "served_demand": "12408.285058171188",
+        "generalized_cost": "989386.8546514375",
+        "n_off": 211,
+        "plan": "bb4f20999e1bc6a5"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A6_WALKSPD85",
+      "control": "N0",
+      "treatment": "N3",
+      "admitted": true,
+      "delta": -4894.97347801365,
+      "delta_pct": -0.16377098585975966,
+      "sign": -1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "17053.261751769234",
+        "generalized_cost": "1321425.1377057193",
+        "n_off": 48,
+        "plan": "2a236b2b72fb6d5d"
+       },
+       "N3": {
+        "served_demand": "17091.63971759252",
+        "generalized_cost": "1321135.5201264988",
+        "n_off": 49,
+        "plan": "f120368219c86c2c"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A6_MAXWALK75",
+      "control": "N3",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 208124.6703559477,
+      "delta_pct": 6.7661603502048235,
+      "sign": 1,
+      "descriptors": {
+       "N3": {
+        "served_demand": "11995.045206690873",
+        "generalized_cost": "801489.6287793504",
+        "n_off": 54,
+        "plan": "0028781869d382e4"
+       },
+       "N4": {
+        "served_demand": "8856.233375325115",
+        "generalized_cost": "632956.8793714071",
+        "n_off": 210,
+        "plan": "5cc640cb8d3671fc"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A6_MAXWALK75",
+      "control": "N0",
+      "treatment": "N4",
+      "admitted": true,
+      "delta": 202440.53729497595,
+      "delta_pct": 6.569229034406788,
+      "sign": 1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "12598.343786751626",
+        "generalized_cost": "879569.5914476123",
+        "n_off": 48,
+        "plan": "2a236b2b72fb6d5d"
+       },
+       "N4": {
+        "served_demand": "8856.233375325115",
+        "generalized_cost": "632956.8793714071",
+        "n_off": 210,
+        "plan": "5cc640cb8d3671fc"
+       }
+      },
+      "vs_base": null
+     },
+     {
+      "level": "A6_MAXWALK75",
+      "control": "N0",
+      "treatment": "N3",
+      "admitted": true,
+      "delta": -5684.133060971741,
+      "delta_pct": -0.18445106122771476,
+      "sign": -1,
+      "descriptors": {
+       "N0": {
+        "served_demand": "12598.343786751626",
+        "generalized_cost": "879569.5914476123",
+        "n_off": 48,
+        "plan": "2a236b2b72fb6d5d"
+       },
+       "N3": {
+        "served_demand": "11995.045206690873",
+        "generalized_cost": "801489.6287793504",
+        "n_off": 54,
+        "plan": "0028781869d382e4"
+       }
+      },
+      "vs_base": null
+     }
+    ],
+    "AF1": {
+     "REF": {
+      "base": -0.20756426350492763,
+      "per_level": {
+       "A5_LAM1": 0.0005894458174020703,
+       "A5_LAM4": -0.1646061227578036,
+       "A5_TP050": -0.2066302929529356,
+       "A5_TP200": -0.3098725573119751,
+       "A6_WALKSPD85": -0.17229733693759489,
+       "A6_MAXWALK75": -0.1566517751390366
+      },
+      "sign": {
+       "label": "SIGN_SENSITIVE",
+       "events": {
+        "A5_LAM1": "SIGN_FLIP"
+       },
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Highly sensitive magnitude",
+       "A5_LAM4": "Stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Moderately sensitive magnitude",
+       "A6_WALKSPD85": "Stable magnitude",
+       "A6_MAXWALK75": "Stable magnitude"
+      },
+      "worst_band": "Highly sensitive magnitude",
+      "worst_movement": {
+       "level": "A5_LAM1",
+       "relative_change": 1.0028398232308813
+      }
+     },
+     "R1_H60": {
+      "base": -0.1782284471243507,
+      "per_level": {
+       "A5_LAM1": -0.1619001786349537,
+       "A5_LAM4": -0.19703365516835702,
+       "A5_TP050": -0.17627093906140343,
+       "A5_TP200": -0.18178527519239523,
+       "A6_WALKSPD85": -0.1774485409233822,
+       "A6_MAXWALK75": -0.16386473203792248
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Highly stable magnitude",
+       "A5_LAM4": "Stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Highly stable magnitude",
+       "A6_WALKSPD85": "Highly stable magnitude",
+       "A6_MAXWALK75": "Highly stable magnitude"
+      },
+      "worst_band": "Stable magnitude",
+      "worst_movement": {
+       "level": "A5_LAM4",
+       "relative_change": 0.10551182119028309
+      }
+     },
+     "R1_H30": {
+      "base": -0.16984256847074114,
+      "per_level": {
+       "A5_LAM1": -0.1514356168115102,
+       "A5_LAM4": -0.17438885429635773,
+       "A5_TP050": -0.17362356490122635,
+       "A5_TP200": -0.15888267803064896,
+       "A6_WALKSPD85": -0.17763619014615403,
+       "A6_MAXWALK75": -0.14806885743325768
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Stable magnitude",
+       "A5_LAM4": "Highly stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Highly stable magnitude",
+       "A6_WALKSPD85": "Highly stable magnitude",
+       "A6_MAXWALK75": "Stable magnitude"
+      },
+      "worst_band": "Stable magnitude",
+      "worst_movement": {
+       "level": "A6_MAXWALK75",
+       "relative_change": 0.1281993744768081
+      }
+     },
+     "R1_H20": {
+      "base": null,
+      "per_level": {
+       "BASE": null,
+       "A5_LAM1": null,
+       "A5_LAM4": null,
+       "A5_TP050": null,
+       "A5_TP200": null,
+       "A6_WALKSPD85": null,
+       "A6_MAXWALK75": null
+      },
+      "sign": null
+     },
+     "R2_S25": {
+      "base": -0.20756426350492763,
+      "per_level": {
+       "A5_LAM1": -0.1587461151044368,
+       "A5_LAM4": -0.1646061227578036,
+       "A5_TP050": -0.2066302929529356,
+       "A5_TP200": -0.1605940135775405,
+       "A6_WALKSPD85": -0.17229733693759489,
+       "A6_MAXWALK75": -0.1566517751390366
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Stable magnitude",
+       "A5_LAM4": "Stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Stable magnitude",
+       "A6_WALKSPD85": "Stable magnitude",
+       "A6_MAXWALK75": "Stable magnitude"
+      },
+      "worst_band": "Stable magnitude",
+      "worst_movement": {
+       "level": "A6_MAXWALK75",
+       "relative_change": 0.2452854239269485
+      }
+     },
+     "R2_S10": {
+      "base": -0.20756426350492763,
+      "per_level": {
+       "A5_LAM1": -0.1781567603906474,
+       "A5_LAM4": -0.1646061227578036,
+       "A5_TP050": -0.2066302929529356,
+       "A5_TP200": -0.2029200697374158,
+       "A6_WALKSPD85": -0.1992669184522786,
+       "A6_MAXWALK75": -0.20123452498390274
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Stable magnitude",
+       "A5_LAM4": "Stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Highly stable magnitude",
+       "A6_WALKSPD85": "Highly stable magnitude",
+       "A6_MAXWALK75": "Highly stable magnitude"
+      },
+      "worst_band": "Stable magnitude",
+      "worst_movement": {
+       "level": "A5_LAM4",
+       "relative_change": 0.20696308710243946
+      }
+     },
+     "R2_S05": {
+      "base": -0.18121960753712493,
+      "per_level": {
+       "A5_LAM1": -0.1717181833794865,
+       "A5_LAM4": -0.16897759112207242,
+       "A5_TP050": -0.17879555848170364,
+       "A5_TP200": -0.17968789571666755,
+       "A6_WALKSPD85": -0.1826868339347526,
+       "A6_MAXWALK75": -0.16580920199752083
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Highly stable magnitude",
+       "A5_LAM4": "Highly stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Highly stable magnitude",
+       "A6_WALKSPD85": "Highly stable magnitude",
+       "A6_MAXWALK75": "Highly stable magnitude"
+      },
+      "worst_band": "Highly stable magnitude",
+      "worst_movement": {
+       "level": "A6_MAXWALK75",
+       "relative_change": 0.08503718636763463
+      }
+     },
+     "R3_SPAN": {
+      "base": -0.147649792633323,
+      "per_level": {
+       "A5_LAM1": -0.012985010819087204,
+       "A5_LAM4": -0.17446704454086584,
+       "A5_TP050": -0.14534044034184243,
+       "A5_TP200": -0.3389774318457394,
+       "A6_WALKSPD85": -0.1761825684295623,
+       "A6_MAXWALK75": -0.16214126841941187
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Highly sensitive magnitude",
+       "A5_LAM4": "Stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Highly sensitive magnitude",
+       "A6_WALKSPD85": "Stable magnitude",
+       "A6_MAXWALK75": "Highly stable magnitude"
+      },
+      "worst_band": "Highly sensitive magnitude",
+      "worst_movement": {
+       "level": "A5_TP200",
+       "relative_change": 1.2958205751603322
+      }
+     },
+     "R4_C05": {
+      "base": -0.12861213018018725,
+      "per_level": {
+       "A5_LAM1": -0.11427985111503655,
+       "A5_LAM4": -0.14904704784401512,
+       "A5_TP050": -0.12184413570878083,
+       "A5_TP200": -0.15595767112009384,
+       "A6_WALKSPD85": -0.1367461377024824,
+       "A6_MAXWALK75": -0.1563868475020003
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Stable magnitude",
+       "A5_LAM4": "Stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Stable magnitude",
+       "A6_WALKSPD85": "Highly stable magnitude",
+       "A6_MAXWALK75": "Stable magnitude"
+      },
+      "worst_band": "Stable magnitude",
+      "worst_movement": {
+       "level": "A6_MAXWALK75",
+       "relative_change": 0.21595721401162019
+      }
+     },
+     "R4_C01": {
+      "base": -0.1609203310147354,
+      "per_level": {
+       "A5_LAM1": -0.1463181934894639,
+       "A5_LAM4": -0.1564483680362428,
+       "A5_TP050": -0.15496588107908227,
+       "A5_TP200": -0.1861974816462066,
+       "A6_WALKSPD85": -0.12583476183945586,
+       "A6_MAXWALK75": -0.15867096436594522
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Highly stable magnitude",
+       "A5_LAM4": "Highly stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Stable magnitude",
+       "A6_WALKSPD85": "Stable magnitude",
+       "A6_MAXWALK75": "Highly stable magnitude"
+      },
+      "worst_band": "Stable magnitude",
+      "worst_movement": {
+       "level": "A6_WALKSPD85",
+       "relative_change": 0.21803067986522337
+      }
+     },
+     "R4_C00": {
+      "base": -0.1782284471243507,
+      "per_level": {
+       "A5_LAM1": -0.1619001786349537,
+       "A5_LAM4": -0.19703365516835702,
+       "A5_TP050": -0.17627093906140343,
+       "A5_TP200": -0.18178527519239523,
+       "A6_WALKSPD85": -0.1774485409233822,
+       "A6_MAXWALK75": -0.16386473203792248
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Highly stable magnitude",
+       "A5_LAM4": "Stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Highly stable magnitude",
+       "A6_WALKSPD85": "Highly stable magnitude",
+       "A6_MAXWALK75": "Highly stable magnitude"
+      },
+      "worst_band": "Stable magnitude",
+      "worst_movement": {
+       "level": "A5_LAM4",
+       "relative_change": 0.10551182119028309
+      }
+     },
+     "R6_ADA": {
+      "base": -0.17475248942763952,
+      "per_level": {
+       "A5_LAM1": -0.1156537389398893,
+       "A5_LAM4": -0.19719048698630504,
+       "A5_TP050": -0.17597036690100956,
+       "A5_TP200": -0.19605656066016341,
+       "A6_WALKSPD85": -0.2112085841931488,
+       "A6_MAXWALK75": -0.17660106984503696
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Moderately sensitive magnitude",
+       "A5_LAM4": "Stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Stable magnitude",
+       "A6_WALKSPD85": "Stable magnitude",
+       "A6_MAXWALK75": "Highly stable magnitude"
+      },
+      "worst_band": "Moderately sensitive magnitude",
+      "worst_movement": {
+       "level": "A5_LAM1",
+       "relative_change": 0.3381854569357736
+      }
+     },
+     "B1": {
+      "base": -0.1782284471243507,
+      "per_level": {
+       "A5_LAM1": -0.11381414880392786,
+       "A5_LAM4": -0.19703365516835702,
+       "A5_TP050": -0.17627093906140343,
+       "A5_TP200": -0.18665789252416684,
+       "A6_WALKSPD85": -0.18846769021947024,
+       "A6_MAXWALK75": -0.16386473203792248
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Moderately sensitive magnitude",
+       "A5_LAM4": "Stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Highly stable magnitude",
+       "A6_WALKSPD85": "Highly stable magnitude",
+       "A6_MAXWALK75": "Highly stable magnitude"
+      },
+      "worst_band": "Moderately sensitive magnitude",
+      "worst_movement": {
+       "level": "A5_LAM1",
+       "relative_change": 0.3614142375121561
+      }
+     },
+     "B2": {
+      "base": -0.147649792633323,
+      "per_level": {
+       "A5_LAM1": -0.1463181934894639,
+       "A5_LAM4": -0.17446704454086584,
+       "A5_TP050": -0.14534044034184243,
+       "A5_TP200": -0.19127968293249126,
+       "A6_WALKSPD85": -0.1761825684295623,
+       "A6_MAXWALK75": -0.16214126841941187
+      },
+      "sign": {
+       "label": "SIGN_ROBUST",
+       "events": {},
+       "unsupported_levels": []
+      },
+      "bands": {
+       "A5_LAM1": "Highly stable magnitude",
+       "A5_LAM4": "Stable magnitude",
+       "A5_TP050": "Highly stable magnitude",
+       "A5_TP200": "Moderately sensitive magnitude",
+       "A6_WALKSPD85": "Stable magnitude",
+       "A6_MAXWALK75": "Highly stable magnitude"
+      },
+      "worst_band": "Moderately sensitive magnitude",
+      "worst_movement": {
+       "level": "A5_TP200",
+       "relative_change": 0.2954957776846985
+      }
+     }
+    },
+    "F6_rank_and_sign_changes": {
+     "N0": {
+      "A5_LAM1": {
+       "rank_changes_vs_base": [
+        "B1",
+        "B2",
+        "R1_H60",
+        "R2_S05",
+        "R2_S10",
+        "R2_S25",
+        "R3_SPAN",
+        "R4_C00",
+        "R4_C01",
+        "R4_C05",
+        "R6_ADA"
+       ],
+       "sign_events": [
+        "R2_S10:FROM_TIE",
+        "R2_S25:FROM_TIE"
+       ]
+      },
+      "A5_LAM4": {
+       "rank_changes_vs_base": [
+        "R4_C05"
+       ],
+       "sign_events": [
+        "R4_C05:TO_TIE"
+       ]
+      },
+      "A5_TP050": {
+       "rank_changes_vs_base": [],
+       "sign_events": []
+      },
+      "A5_TP200": {
+       "rank_changes_vs_base": [
+        "B2",
+        "R1_H60",
+        "R2_S05",
+        "R2_S10",
+        "R3_SPAN",
+        "R4_C00",
+        "R4_C01",
+        "R4_C05"
+       ],
+       "sign_events": [
+        "R2_S10:FROM_TIE",
+        "R2_S25:FROM_TIE"
+       ]
+      },
+      "A6_WALKSPD85": {
+       "rank_changes_vs_base": [
+        "R2_S10",
+        "R4_C01",
+        "R6_ADA"
+       ],
+       "sign_events": [
+        "R2_S10:FROM_TIE"
+       ]
+      },
+      "A6_MAXWALK75": {
+       "rank_changes_vs_base": [
+        "R2_S10",
+        "R4_C01",
+        "R6_ADA"
+       ],
+       "sign_events": [
+        "R2_S10:FROM_TIE"
+       ]
+      }
+     },
+     "N3": {
+      "A5_LAM1": {
+       "rank_changes_vs_base": [
+        "B2",
+        "R1_H60",
+        "R2_S05",
+        "R2_S10",
+        "R2_S25",
+        "R3_SPAN",
+        "R4_C00",
+        "R4_C01",
+        "R4_C05"
+       ],
+       "sign_events": [
+        "R2_S10:FROM_TIE",
+        "R2_S25:FROM_TIE"
+       ]
+      },
+      "A5_LAM4": {
+       "rank_changes_vs_base": [
+        "B1",
+        "R1_H60",
+        "R4_C00"
+       ],
+       "sign_events": []
+      },
+      "A5_TP050": {
+       "rank_changes_vs_base": [],
+       "sign_events": []
+      },
+      "A5_TP200": {
+       "rank_changes_vs_base": [
+        "B1",
+        "B2",
+        "R1_H60",
+        "R2_S05",
+        "R2_S10",
+        "R3_SPAN",
+        "R4_C00",
+        "R4_C01",
+        "R4_C05"
+       ],
+       "sign_events": [
+        "R2_S10:FROM_TIE",
+        "R2_S25:FROM_TIE"
+       ]
+      },
+      "A6_WALKSPD85": {
+       "rank_changes_vs_base": [
+        "B1",
+        "R1_H60",
+        "R2_S10",
+        "R4_C00",
+        "R4_C01",
+        "R6_ADA"
+       ],
+       "sign_events": [
+        "R2_S10:FROM_TIE"
+       ]
+      },
+      "A6_MAXWALK75": {
+       "rank_changes_vs_base": [
+        "R2_S05",
+        "R2_S10",
+        "R4_C01",
+        "R4_C05",
+        "R6_ADA"
+       ],
+       "sign_events": [
+        "R2_S10:FROM_TIE"
+       ]
+      }
+     }
+    },
+    "labels": {
+     "F1": "SIGN_SENSITIVE",
+     "F4_43": "SIGN_SENSITIVE",
+     "F4_40": "SIGN_SENSITIVE"
+    }
+   },
+   "regime_boundary": "Objective = GC + lambda*60*unserved with no operating-cost term. At A5_LAM1 re-optimization collapses service (N0 REF 557 of 2,516 revenue vehicle-hours, 1,583 served); F1/F4/F5/F6 sign changes at lambda=1 are this collapse, not reversals inside the certified lambda>=2 regime. At A5_TP200 and both A6 levels the re-optimized plan keeps full hours but serves fewer, cheaper trips.",
+   "post_freeze_code_changes": [
+    "scripts/exp7_analyze.py: completion label + F1 adaptive (reporting only)",
+    "scripts/exp7_run.py: closure exclusive lock (no numeric effect)",
+    "scripts/exp7_closeout.py: Stage 2 section (reporting only)"
+   ],
+   "not_claimed": [
+    "A4 reliability: UNIMPLEMENTED -- reliability robustness NOT tested",
+    "A1: non-commute demand only on OD pairs with observed commuting",
+    "A6: bundled walking friction (access and transfer caps together)",
+    "A3: resource envelope held fixed as runtimes increase",
+    "A8: cost_retention_full_min not varied",
+    "Stage 2 bootstrap (if selected): draws 1, 5, 10, 15, 20 only",
+    "Class B jobs-accessibility objective: untested",
+    "Objective-ordering results do not transfer to served demand, GC, OFF count or accessibility",
+    "lambda=1 results as evidence against F1/F4 inside lambda>=2",
+    "served-trip or GC figures as findings (basin-dependent)",
+    "fleet, buses or deployability",
+    "per-route headways",
+    "global optimality of any closed cell"
+   ],
+   "closeout": "EXPERIMENT7_CLOSEOUT.md",
+   "closeout_sha256": "27bfc7390c777051ecce6e313366e5214ba8372b404f1570dca5151639734be7",
+   "canonical": [
+    "outputs/exp7/EXP7_CONTRACT.json",
+    "outputs/exp7/EXP7_STAGE2_SELECTION.json",
+    "outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json",
+    "outputs/exp7/EXP7_ANALYSIS.json",
+    "outputs/exp7/EXP7_CLOSEOUT_TABLE.json"
+   ],
+   "artifact_sha256": {
+    "outputs/exp7/EXP7_CONTRACT.json": "1263bedaebe6a45d3f2bf77607e7b0604c5bfcf2cae152ad19f75e35f712e2a6",
+    "outputs/exp7/EXP7_STAGE2_SELECTION.json": "18f1112aca665bd68415d9610750b4d8aa4eb089808b8fc3e83007570927f95e",
+    "outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json": "182b662d68f018e810c042a4eff654d9107b89e520076635b345dd4755ee9ff0",
+    "outputs/exp7/EXP7_ANALYSIS.json": "b7dfa4e0d09c823dce974824d1d37547904b54d6b56ee79677dd412bf3fef8e8",
+    "outputs/exp7/EXP7_CLOSEOUT_TABLE.json": "b5a877f2253adc9437001c842a2df3dbb6b5e4e49fe1003590e110c9eddf1782"
+   }
+  }
+ }
+}
