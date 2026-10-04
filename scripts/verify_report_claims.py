@@ -88,7 +88,7 @@ def obj_change_lam2():
 # (written string, decimals, extractor, documents)
 CLAIMS = [
     ("−6.65%", 2, lambda: exp1()["headline"]["unserved_demand"]["mean_pct"], [REPORT]),
-    ("±0.06", 2, lambda: exp1()["headline"]["unserved_demand"]["sd_pct"], [REPORT]),
+    ("SD 0.06", 2, lambda: exp1()["headline"]["unserved_demand"]["sd_pct"], [REPORT]),
     ("+3.30%", 2, lambda: exp1()["headline"]["trips_served"]["mean_pct"], [REPORT]),
     ("+0.88%", 2, lambda: exp1()["headline"]["generalized_cost"]["mean_pct"], [REPORT]),
     ("−2.34%", 2, lambda: exp1()["headline"]["cost_per_trip_served"]["mean_pct"], [REPORT]),
@@ -97,6 +97,10 @@ CLAIMS = [
     ("10,262", 0, lambda: J("outputs/exp1_baseline_modelB.json")["baseline_unserved"], [REPORT]),
     ("9,583", 0, lambda: next(r["unserved"] for r in exp1()["frontier"] if r["lambda"] == 2.0), [REPORT]),
     ("−1.42%", 2, lambda: next(r["unserved_change_pct"] for r in exp1()["frontier"] if r["lambda"] == 1.0), [REPORT]),
+    ("107,248", 0, lambda: J("outputs/exp4_addendum/diag_N4.json")["common_lines_bound"]["total_bound_min"], [REPORT]),
+    ("93,301", 0, lambda: J("outputs/exp4_addendum/diag_N4.json")["common_lines_bound"]["total_bound_min"]
+        - J("outputs/exp4_addendum/diag_N3.json")["common_lines_bound"]["total_bound_min"], [REPORT]),
+    ("283,973", 0, lambda: J("outputs/exp4_addendum/DELTA43.json")["comparison"]["effect"], [REPORT]),
     ("+9.66%", 2, lambda: float(__import__("re").search(r"\(\+([0-9.]+)% of N3\)", d43()).group(1)), [REPORT]),
     ("−5.43%", 2, lambda: f1a("BASE"), [CLOSE7, ADD7]),
     ("+181.72%", 2, lambda: f1a("A5_LAM1"), [CLOSE7, ADD7]),
@@ -147,7 +151,7 @@ CLAIMS = [
 
 def norm(s: str) -> float:
     return float(s.replace("−", "-").replace("±", "").replace("%", "")
-                 .replace(",", "").replace("+", ""))
+                 .replace(",", "").replace("+", "").replace("SD ", ""))
 
 
 def main() -> int:

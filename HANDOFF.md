@@ -30,7 +30,7 @@ are no runs in flight.
 * **Frequency is the lever.** About −6% unserved demand at current resources.
   For the certified plans it keeps its sign at every Stage 1 level
   (SIGN_ROBUST; −1.9% to −7.0%; magnitude Highly sensitive to walking
-  friction, A6). Re-optimized under Exp 1's service rules it holds at every
+  friction, A6). Re-optimized in the closest cell to Exp 1's rules (R1_H60) it holds at every
   λ ≥ 2 level re-optimized (A5, A6; one closure per cell; post hoc).
 * **Geometry adds nothing.** Recombining routes is null, editing them gives
   ~0.2%, and the greenfield design is worse.
@@ -161,7 +161,8 @@ In order (detail in `docs/FUTURE_EXPERIMENTS.md`):
 The useful question is not "why doesn't COTA implement the optimum". It is
 "what does each service rule cost, and what does the current budget make
 possible". Exp 6 prices the study's safeguard rules. Exp 7 shows that the
-re-optimized frequency result holds under Experiment 1's service rules (study
+re-optimized frequency result holds in the closest cell to Experiment 1's
+service rules (R1_H60; study
 safeguards in `config/constraints.yaml`; no documented COTA numeric standard)
 (post hoc, A5 and A6 levels), while without them the λ = 2 objective does not
 identify unserved demand.

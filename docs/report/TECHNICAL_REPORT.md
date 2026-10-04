@@ -6,7 +6,10 @@
 
 * Written from the frozen research record before the `research-final` tag
   (`docs/RELEASE_AND_REPORTING_GUIDELINES.md`, "Release gate").
-* Every number is transcribed from a named canonical artifact (Appendix A).
+* Every number is transcribed from a named artifact, cited inline or in
+  Appendix A. Numbers not indexed by registry v5 are labelled (run log,
+  historical ablation, diagnostic files, closeout orientation figure, post hoc
+  addendum).
 * The automated claims check (`scripts/verify_report_claims.py`) covers the
   headline numbers. It does not yet cover every number, and the release rule
   "every number generated, never typed" is **not yet met**.
@@ -39,14 +42,14 @@
 
 ## Abstract
 
-We estimate how far changes to service frequency, stop placement, route geometry and whole-network design could reduce a λ-weighted sum of passenger generalized cost and modeled unserved demand on the Central Ohio Transit Authority's (COTA) weekday bus network, holding revenue vehicle-hours and a peak-concurrency proxy fixed. The model assigns LEHD LODES commute flows, scaled to an NTD-derived weekday total, to enumerated paths on the GTFS schedule, with an uncalibrated retention curve; at the current timetable it serves 67% of that total. At λ = 2, reallocating frequencies reduces modeled unserved demand by 6.65% (solver seed SD 0.06 points) and the objective by 2.21%, while total generalized cost rises 0.88%. Through-routing splices give no gain: the best of 12 is slightly worse than no edit under matched solver starts. Route mutation yields 29 seed-distinguishable improvements of 0.01–0.19% of the objective; the leader, an added stop, lies within its own sensitivity range. The best of 200 generated greenfield networks is 8.5–9.7% worse than the mutated existing network, conditional on a path model that fits it less well. Study safeguards cost 0–0.91%. Across 44 preregistered perturbations the certified frequency plans keep their sign (−1.9% to −7.0%); when re-optimization may switch service off, the objective no longer identifies unserved demand. Two methodological lessons are likely to transfer: compare at matched convergence, not matched nominal effort; and a resource cap drawn from each candidate's own baseline ranks budgets, not designs (36.7% of pairwise orderings inverted).
+We estimate how far changes to service frequency, stop placement, route geometry and whole-network design could reduce a λ-weighted sum of passenger generalized cost and modeled unserved demand on the Central Ohio Transit Authority's (COTA) weekday bus network, holding revenue vehicle-hours and a peak-concurrency proxy fixed. The model assigns LEHD LODES commute flows, scaled to an NTD-derived weekday total, to enumerated paths on the GTFS schedule, with an uncalibrated retention curve; at the current timetable it serves 67% of that total. At λ = 2, reallocating frequencies reduces modeled unserved demand by 6.65% (solver seed SD 0.06 points) and the objective by 2.21%, while total generalized cost rises 0.88%. Through-routing splices give no gain: the best of 12 is slightly worse than no edit under matched solver starts. Route mutation yields 29 seed-distinguishable improvements of 0.01–0.19% of the objective; the leader, an added stop certified at 20 restarts, lies within its own sensitivity range. The best of 200 certified greenfield networks (of 2,000 generated) is 8.5–9.7% worse than the mutated existing network, conditional on path and waiting models that both fit it less well. Study safeguards cost 0–0.91%. Across 44 preregistered perturbations the certified frequency plans keep their sign (−1.9% to −7.0%); when re-optimization may switch service off, the objective no longer identifies unserved demand. Two methodological lessons are likely to transfer: compare at matched convergence, not matched nominal effort; and a resource cap drawn from each candidate's own baseline ranks budgets, not designs (36.7% of pairwise orderings inverted).
 
 **Highlights**
 
 * Frequency reallocation cut modeled unserved demand 6.65% at fixed resources
-* Through-routing, added stops and greenfield redesigns gave little or no gain
-* The best greenfield network was 8.5–9.7% worse on the study objective
-* Matching solver convergence, not nominal effort, erased a 0.5% routing gain
+* Through-routing and added stops gave little or no gain; greenfield was worse
+* The best of 200 certified greenfield networks was 8.5–9.7% worse
+* Unmatched convergence and solver starts produced a spurious 0.5% gain
 * Self-drawn resource caps inverted 36.7% of pairwise network rankings
 
 **Keywords:** transit network design; frequency setting; transit assignment; robustness analysis; computational experiments; Columbus, Ohio
@@ -123,7 +126,7 @@ and Florian, 1989). This study does neither. It assigns all-or-nothing to the
 cheapest of at most four RAPTOR-enumerated paths, and combines frequency only
 across patterns of the same route (Model B; §3). Its known consequences are no
 route-choice dispersion, no cross-route strategy, and dependence on the
-enumerated path set (§3.0, §8).
+enumerated path set (§3.0, §8.1).
 
 **Computational experiments with heuristics.** Comparing heuristics at matched
 effort, normalizing resource budgets and reporting controlled experiments rather
@@ -182,8 +185,10 @@ as an identity, asserted at run time to 1e-9.
 * Experiment 1: h_k ∈ L ∪ {h_k^0}, with h_k ≤ max(60, h_k^0). Baseline headways
   above 60 min are kept off-ladder (e.g. 65.45, 72, …, 240), and the 14
   peak-only express routes are locked as a class.
-* Experiments 4–7: h_k ∈ L ∪ {OFF}, subject to the active policy constraints
-  R1–R6 (`EXPERIMENT6_CONSTRAINT_CATALOG.md`).
+* Experiments 2–3: the Experiment 1 set on the edited network (no OFF).
+* Experiments 4–7: the Experiment 1 set plus OFF (`frequency.build_ladders`
+  with `allow_off=True`), subject to the active policy constraints R1–R6
+  (`EXPERIMENT6_CONSTRAINT_CATALOG.md`).
 
 **Waiting.** Expected wait for effective headway H (`config/assumptions.yaml →
 waiting`):
@@ -203,7 +208,10 @@ H_ℓ = h_k · m_ℓ.
 
 (3) c_π(h) = 2·walk + 1·IVT + 2·w(H_first) + Σ_transfers [2·w(H_ℓ) + 10].
 
-c_od(h) = min over π ∈ Π_od of c_π(h); c_od = ∞ if Π_od is empty.
+c_od(h) = min{min over π ∈ Π_od of c_π(h), c_od^walk}, where c_od^walk = 0 for
+intrazonal pairs (origin zone = destination zone) and ∞ otherwise
+(`pathset.py:246–250, 533`); c_od = ∞ only if Π_od is empty and the pair is
+not intrazonal.
 
 **Retention** (a discouragement proxy, not a mode-choice model):
 
@@ -218,18 +226,18 @@ where U(h) = Σ_{c_od < ∞} f_od·(1 − r(c_od)) + Σ_{c_od = ∞} f_od is uns
 demand (discouraged + structural). Experiment 1 adds a crowding cost on
 in-vehicle time; Experiments 2–7 do not.
 
-**Resources.** With T_k the period length (min), N_k the number of directions,
+**Resources.** With T_k the period length (min), d_k the number of directions,
 ρ_k the mean one-way runtime (min) and layover ratio 0.15 (assumed;
 `assumptions.yaml`):
 
-(6) RVH(h) = Σ_k N_k·T_k·ρ_k / (60·h_k) ≤ 2,517.18
+(6) RVH(h) = Σ_k d_k·T_k·ρ_k / (60·h_k) ≤ 2,517.18
 
-(7) Σ_{k ∈ p} C_k / h_k ≤ K_p for each period p, with C_k = 2·ρ_k·(1 + 0.15),
+(7) Σ_{k ∈ p} C_k / h_k ≤ V_p for each period p, with C_k = 2·ρ_k·(1 + 0.15),
 
-K = (85.28, 162.01, 159.17, 176.49, 140.19, 35.56) from early through owl
-(EXP4N; Experiments 4N–7). In Experiment 1, K_p is the baseline plan's own
+V = (85.28, 162.01, 159.17, 176.49, 140.19, 35.56) from early through owl
+(EXP4N; Experiments 4N–7). In Experiment 1, V_p is the baseline plan's own
 proxy value. OFF route-periods contribute zero to (6) and (7). ((6) is
-`exp2.evaluate_array`: trips = N_k·T_k/h_k, vehicle-hours = Σ trips·ρ_k/60;
+`exp2.evaluate_array`: trips = d_k·T_k/h_k, vehicle-hours = Σ trips·ρ_k/60;
 (7) is the frequency model's cycle/headway proxy, `frequency.py`.)
 
 **Assignment, positioned.** Demand is assigned all-or-nothing to the cheapest
@@ -239,7 +247,7 @@ and Robillard, 1975), nor schedule-based assignment. Frequencies combine only
 across patterns of one route (Model B). Path diversity is limited by the number
 of pricing scenarios, at one path per scenario, so the four-path cap does not
 bind (Exp 4A, gate 4-9). The known consequences are no route-choice dispersion,
-no cross-route strategy (§3, §8), and results conditional on the enumerated
+no cross-route strategy (§3.1, §8.1), and results conditional on the enumerated
 path set (gate 4, D15).
 
 ### 3.1 Model components
@@ -248,9 +256,11 @@ path set (gate 4, D15).
 
 * The decision unit is the route-period. N0, the existing geometry, has 39
   routes × 6 periods = 234 route-periods, of which 173 have baseline service.
-  The other 61 cannot be opened (`allow_new_service_in_empty_periods: false`),
-  so OFF means switching off a baseline-served route-period. Each served
-  route-period takes one headway from a discrete ladder (5–60 min).
+  The other 61 are not decision variables: the model builds a route-period
+  only where the feed has trips (`exp1.py:71–78`; the config flag
+  `allow_new_service_in_empty_periods: false` states the same rule but is not
+  read by code), so OFF means switching off a baseline-served route-period.
+  Each served route-period takes one headway from a discrete ladder (5–60 min).
 * **Experiment 1 rules:**
   * a route-period with baseline service keeps service;
   * no headway may exceed max(60 min, baseline);
@@ -319,8 +329,8 @@ surplus. Two consequences follow, both independent of experiment:
 2. *Marginally worsening* an OD's service lowers the objective whenever c lies
    between (1/s + 60 + λ·60)/2 and 210 min, where s = 0.006 per minute is the
    retention slope. At λ = 2 that is c ∈ (173.3, 210) min; at λ = 1,
-   c ∈ (143.3, 210); for λ ≥ 3.22 the interval is empty. Experiment 1 forbids
-   OFF, so only this second channel is open to it.
+   c ∈ (143.3, 210); for λ ≥ 29/9 ≈ 3.222 the interval is empty. Experiment 1
+   forbids OFF, so only this second channel is open to it.
 
 Lower objective therefore does not always mean better service. The share of
 baseline flow in the exposed cost band is not recorded in any artifact and is
@@ -416,9 +426,11 @@ D35 is a constraint that was hashed into identity but never reached scoring.
 * **Block-local certified:** a converged (8, 3)-block-local optimum (Exp 4–7).
   It is a local-optimality certificate, not a statement about solver variance.
 
-None is real-world significance (reporting rule 3). "Certified" survives
-unqualified only inside artifact status strings (e.g.
-`EXP6_POLICY_FRONTIER_CERTIFIED`).
+None is real-world significance (reporting rule 3). In prose, "certified"
+always carries one of these meanings: §5's preamble states which applies in
+each subsection, and in §6.1 the "certified" column means the value in each
+experiment's own closeout. Artifact status strings (e.g.
+`EXP6_POLICY_FRONTIER_CERTIFIED`) keep their recorded names.
 
 **Reproducibility.** Order sentinels re-run cells in reversed order and must be
 bit-exact. Runs checkpoint per cell and resume. Generations of methodology are
@@ -455,7 +467,7 @@ instance):**
 
 | lever | effect, % of objective | instance / status |
 |---|---|---|
-| Frequency reallocation (Exp 1) | −2.21% | Exp 1 instance (crowding on, frozen 243,257-path set); 3-seed mean, computed |
+| Frequency reallocation (Exp 1) | −2.21% | Exp 1 instance (crowding on, frozen 243,257-path set); computed (linear) from 3-seed component means; no seed SD |
 | Through-routing leader (Exp 2B) | +0.054% | Exp 2B instance (crowding off); matched starts, 3 seeds (2 identical) |
 | add_stop leader (Exp 3) | −0.187% | Exp 3 instance; 20 restarts; seed-distinguishable |
 | Greenfield N4 vs N3 (Exp 4A / 6 / 7) | +8.55% to +9.66% | Exp 4A–7 instance; single basin to closed |
@@ -519,11 +531,17 @@ three-seed mean. Below λ = 2 the path set fails its adequacy test (D15).
   headways, interlining, runcutting) can be met at little cost was not tested.
   The safeguards that were priced (Exp 6) cost up to 0.91% of the objective.
 
-**Where service moves.** Pre-Model-B analyses found frequency moving from the
-most frequent routes toward the 30–120-minute tier (D1), with returns plateauing
-quickly in search effort (D2). Neither is re-verified on the certified Model B
-plans or checked for seed agreement, and neither is a finding of this report
-(R16).
+**Where service moves.** A pre-Model-B analysis found frequency moving from the
+most frequent routes toward the 30–120-minute tier (D1). It is not re-verified
+on the certified Model B plans or checked for seed agreement, and is not a
+finding of this report (R16).
+
+**Returns in λ plateau.** Past λ = 4, the last 0.15 points of unserved-demand
+reduction (−7.12% → −7.28%) cost 0.25 points of total generalized cost
+(+1.24% → +1.49%; `exp1_final.json → frontier[λ].gc_change_pct`; single runs). D2
+records this plateau. It holds on the path-set-adequate Model B frontier,
+though the λ = 8 → 16 step (0.03 points) is within the 0.06-point seed SD
+measured at λ = 2.
 
 ### 5.2 Experiments 2 and 2B: through-routing geometry
 
@@ -635,17 +653,21 @@ ranking, 200 were promoted and certified by the exact certifier.
     Its omission-corrected Δ43 is +7.87% and is **not certified**. The waiting
     model omits cross-route common lines: the served-leg wait-saving bound is
     12.47% of GC on N4 vs 1.16% on N3. Both biases run against N4. Crediting N4
-    with its whole common-lines bound and N3 with none (93,300 min) still leaves
-    Δ43 positive, but retained-rider effects are not measured
+    with its whole common-lines bound and N3 with none (107,248 min; 93,301 min
+    net of both bounds) still leaves Δ43 (283,973 min) positive, but
+    retained-rider effects are not measured
     (`EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` §5; registry `exp4a.caveats`).
+    The addendum attaches its rounded 93,300 to the N4-only case; that figure
+    is the net of both bounds.
   * **Resources.** Both networks share the EXP4N proxy envelope, not a common
     fleet. The proxy reads 176.49 against 197 physical vehicles on N0, and the
     corresponding ratio for N4 is unknown, so equal proxy budgets may be unequal
     fleets in either direction.
   * **The leader is not identified.** EXP4N's first-to-second margin (0.387%)
     is smaller than the N4 start-basin residual measured in Exp 5 (≥ 1.70%).
-    Nothing is known about the 1,800 proposals the promotion cap excluded
-    (registry `exp4.limitations`).
+    Apart from the one audited proposal (discovery rank 237, below), nothing
+    is known about the 1,800 proposals the promotion cap excluded (registry
+    `exp4.limitations`).
   * N4 stays worse at every fixed-plan λ above 1.087.
   * In this instance N3 serves 53.1% and N4 36.3% of the 30,949 modeled trips
     (`diag_N3/N4.json → totals`).
@@ -957,10 +979,13 @@ Ordered by how much each would mislead a study that skipped it.
 * A treatment-dependent start policy in Exp 2/2B and Exp 3 Phase A (D27).
 * Seed spread bounds solver variance, not solver error. D33's local
   differential-error check (≤ 0.0018 points) is a lower bound (D32–D33).
+* Neither Gen1 nor the block certifier was benchmarked on a standard
+  transit-network instance (e.g. Mandl's), so solver quality is established
+  only internally (seeds, sentinels, closures).
 
 **Construct validity (does the objective measure what the question asks?).**
 
-* The objective is not a welfare measure and can reward worse service (§3).
+* The objective is not a welfare measure and can reward worse service (§3.1).
 * "Unserved demand" is a model construct: 33% of the NTD-anchored total is
   unserved at the current plan.
 * The proxy resource is not a vehicle count.
@@ -987,18 +1012,18 @@ Ordered by how much each would mislead a study that skipped it.
 
 | limitation | size | direction / consequence |
 |---|---|---|
-| Commute-only demand | transit-accessible pairs carry 24.7% of regional commute jobs (78,210 of 317,706 block-group pairs; run log `outputs/verify.log`); top 20,000 pairs are 64.9% of that; non-work travel absent | Unknown. The largest unquantified error. Exp 7 A1 tested added non-commute demand on commute pairs only. A1 changes demand volume as well as pattern (as issued). At +100%, demand reaches the scale at which D5's no-crowding premise is stated to fail, and crowding is off in that instance |
+| Commute-only demand | transit-accessible pairs carry 24.7% of regional commute jobs (78,210 of 317,706 block-group pairs; run log `outputs/verify.log`); top 20,000 pairs are 64.9% of that; non-work travel absent | Unknown. The largest unquantified error. Exp 7 A1 tested added non-commute demand on commute pairs only; A1 also changes volume (see Operationalization bounds) |
 | Baseline reproduction of the NTD total | 66.8% served at the current plan (Exp 1 instance; 66.3% in the Exp 6/7 instance) | Unserved-demand changes are changes in a model construct. In OFF-permitting instances most unserved demand is structural (Exp 4A: N3 35.5%, N4 54.7% of all demand has no path) |
-| Uncalibrated parameters | cost weights, unserved penalty, retention curve all assumed | Exp 7 A5/A8 bound some. λ and the unserved penalty determine whether the objective is well posed (§6.2). λ is a value judgement (calibration register). It interacts with the retention curve: λ·60 sets the cost band in which the objective rewards worse service (§3) |
+| Uncalibrated parameters | cost weights, unserved penalty, retention curve all assumed | Exp 7 A5/A8 bound some. λ and the unserved penalty determine whether the objective is well posed (§6.2). λ is a value judgement (calibration register). It interacts with the retention curve: λ·60 sets the cost band in which the objective rewards worse service (§3.1) |
 | Scheduled ≠ observed | not quantified; reliability (A4) unimplemented | No reliability claim |
 | Physical fleet | Not measured for any modified plan. The Exp 1 plan is NOT MEASURED, and all 32 Exp 5 diagnostic cells are UNDECIDABLE. The blocking materializer misses the plans' own vehicle-hours by 17.8–22.7% (N0) and 45.6–47.0% (N4); deadhead and terminal identity not public | No bus, fleet or deployability claim, including for Exp 1 |
 | Per-route identification | 19.1% route-period disagreement across seeds | Only aggregates are reported |
-| Cross-route common lines | upper bound on served-leg wait saving: 0.516% of GC (N0), 1.16% (N3), 12.47% (N4); retention effect unmeasured | Overstates waiting where parallel routes overlap. Biases F4 against N4 (Exp 4A: crediting all of N4's bound and none of N3's, 93,300 min, still leaves Δ43 positive). Not tested by any Exp 7 level, including B1 (R13) |
+| Cross-route common lines | upper bound on served-leg wait saving: 0.516% of GC (N0; am_peak and midday only), 1.16% (N3), 12.47% (N4) (Exp 4A instance, all six periods); not on a common basis; retention effect unmeasured | Overstates waiting where parallel routes overlap. Biases F4 against N4 (Exp 4A: crediting all of N4's bound and none of N3's, 107,248 min, or 93,301 net of both, still leaves Δ43 positive). Not tested by any Exp 7 level, including B1 (R13) |
 | Stop cost | unmeasurable from this feed (−157 s/stop, inverted) | Stop removal and consolidation are credited zero runtime saving, so no consolidation claim. Added stops are timed by observed link times or by the novel-link estimator, whose intercept absorbs dwell and acceleration but is not validated as a stop cost. The bias on add_stop effects, F3 included, has unknown direction |
 | Novel-link runtimes | MAE 17.2 s, aggregate bias +0.41%, median APE 20.5% | Unbiased in aggregate; Exp 7 A3 bounds it |
 | Local, not global, optimality | (8, 3)-block-local; closure fixed points | Better plans may exist in any cell (Exp 6 flat objective) |
 | λ ≤ 1 | uncertified (D15); degenerate under OFF-permitting re-optimization | Quote from λ = 2 upward |
-| Unserved penalty vs retention curve | λ · 60 = 120 min at λ = 2, while the retention curve still keeps 64% of riders at 120 min and 10% beyond its 210-min floor point (`cost_retention_zero_min`) | the objective prefers losing trips the model's own demand curve treats as mostly still made; drives the shedding in §6.2 (post hoc analysis) |
+| Unserved penalty vs retention curve | λ · 60 = 120 min at λ = 2, while the retention curve still keeps 64% of riders at 120 min and 10% beyond its 210-min floor point (`cost_retention_zero_min`) | the objective prefers losing trips the model's own demand curve treats as mostly still made; drives the shedding in §6.2 (post hoc analysis). The share of baseline flow in the exposed band (173.3–210 min at λ = 2) is not recorded, so the size of this construct-validity threat is unquantified |
 | Period demand shares | six shares assumed (LODES has no time dimension); period tilt NOT INCLUDED in Exp 7 | unknown; bears directly on where frequency moves by period |
 | Single closure per cell | the only cell closed twice (N0 REF) differs by up to 0.40% in objective and 36 points in F1 across tracks | re-optimized F1, served-trip and GC figures in OFF-permitting cells are basin-dependent; R1 cells not independently re-closed (FUTURE E21) |
 | Stage 2 scope | A5 and A6 only | no re-optimized claim for demand, runtime, route-removal or retention perturbations. A1 (demand) ranked third under the preregistered metric (0.415, vs A6 0.685), so no demand perturbation was re-optimized |
@@ -1100,10 +1125,10 @@ mislabel and the superseded 2B magnitude) were found by audits outside it.
   * FTA NTD 2024 agency profile, agency 50016.
 
   Raw data are not committed.
-* **Artifacts:** every number traces to a file under `outputs/` indexed by
-  `outputs/CANONICAL_RESULTS_v5.json` (Appendix A). Superseded artifacts are
-  indexed in `outputs/SUPERSEDED.md`; the entry for
-  `outputs/exp2b_certification.superseded.json` is pending (Appendix A).
+* **Artifacts:** every number traces to a named file, cited inline or in
+  Appendix A. Most are indexed by `outputs/CANONICAL_RESULTS_v5.json`; those
+  that are not are labelled. Superseded artifacts are indexed in
+  `outputs/SUPERSEDED.md`.
 * **Reproduction:** `docs/REPRODUCE.md`. Runs were made in a two-core
   container. Per-experiment runtimes are in the closeouts. The one-command
   reproduction and the pinned environment are pending release work.
@@ -1112,7 +1137,7 @@ mislabel and the superseded 2B magnitude) were found by audits outside it.
 
 * Barr, R.S., Golden, B.L., Kelly, J.P., Resende, M.G.C., Stewart, W.R. (1995).
   Designing and reporting on computational experiments with heuristic methods.
-  *Journal of Heuristics* 1, 9–32.
+  *Journal of Heuristics* 1(1), 9–32. doi:10.1007/BF02430363
 * Cambridge Systematics, Inc. (2010). *Travel Model Validation and
   Reasonableness Checking Manual*, 2nd ed. Prepared for the Federal Highway
   Administration, Travel Model Improvement Program. September 24, 2010.
@@ -1132,7 +1157,7 @@ mislabel and the superseded 2B magnitude) were found by audits outside it.
   global review. *Transportation Research Part A: Policy and Practice* 42(10),
   1251–1273.
 * Hooker, J.N. (1995). Testing heuristics: We have it all wrong. *Journal of
-  Heuristics* 1(1), 33–42. doi:10.1007/BF02430363
+  Heuristics* 1(1), 33–42. doi:10.1007/BF02430364
 * Ibarra-Rojas, O.J., Delgado, F., Giesen, R., Muñoz, J.C. (2015). Planning,
   operation, and control of bus transport systems: A literature review.
   *Transportation Research Part B: Methodological* 77, 38–75.
@@ -1157,7 +1182,7 @@ mislabel and the superseded 2B magnitude) were found by audits outside it.
 
 | number | artifact | key | contract / commit |
 |---|---|---|---|
-| −6.65% ±0.06, +3.30%, +0.88%, −2.34% | `outputs/canonical/exp1_final.json` | `headline` | commit `f1a05645` (`exp1_final.json → commit`) |
+| −6.65% (solver seed SD 0.06 points), +3.30%, +0.88%, −2.34% | `outputs/canonical/exp1_final.json` | `headline` | commit `f1a05645` (`exp1_final.json → commit`) |
 | −2.21% of the objective (−2.213% at the λ = 2 frontier run) | `outputs/exp1_baseline_modelB.json`, `outputs/canonical/exp1_final.json` | `baseline_gc`, `baseline_unserved`; `frontier[λ=2].gc`, `.unserved`; `headline` means | commit `f1a05645` |
 | 10,262 → 9,583 unserved; 20,687 → 21,366 served; frontier by λ (incl. λ = 0.25 +15.31%); 2,516.65 revenue vehicle-hours | `outputs/canonical/exp1_final.json`, `outputs/exp1_baseline_modelB.json` | `frontier[λ]`, `frontier[λ=2].revenue_veh_hours`, `baseline_unserved` | commit `f1a05645` |
 | 66.8% served at the current plan (20,687 of 30,949) | `outputs/exp1_baseline_modelB.json` | `baseline_served` | not recorded in artifact |
@@ -1170,24 +1195,25 @@ mislabel and the superseded 2B magnitude) were found by audits outside it.
 | +9.66% (+9.659%) | `outputs/exp4_addendum/DELTA43.json`; indexed in `outputs/CANONICAL_RESULTS_v5.json` | `experiments.exp4a.headline` (registry) | contract `0f62aeabfa341a98` (`DELTA43.json → contract.digest`) |
 | +9.28% | `EXPERIMENT6_CLOSEOUT.md` §9 (orientation only) | — | not recorded in artifact |
 | +8.55% (F4 Stage 2 BASE) | `outputs/exp7/EXP7_ANALYSIS.json` | `f4[level=BASE, control=N3]` | contract `1263bedaebe6a45d` |
-| Common-lines bounds 0.516% (N0), 1.16% (N3), 12.47% (N4) | `outputs/model_diagnostics_modelB.json`; `outputs/exp4_addendum/diag_N3.json`, `diag_N4.json` | `hyperpath.bound_share_of_generalized_cost_pct`; `common_lines_bound.bound_share_of_generalized_cost_pct` | not recorded in artifact |
-| Exp 4A served / structural shares (N3 53.1% / 35.5%; N4 36.3% / 54.7%) | `outputs/exp4_addendum/diag_N3.json`, `diag_N4.json` | `totals` | not recorded in artifact |
+| Common-lines bounds 0.516% (N0), 1.16% (N3), 12.47% (N4) | `outputs/model_diagnostics_modelB.json`; `outputs/exp4_addendum/diag_N3.json`, `diag_N4.json` | `hyperpath.bound_share_of_generalized_cost_pct`; `common_lines_bound.bound_share_of_generalized_cost_pct` | not recorded in artifact; diagnostic files, not in registry v5 |
+| Common-lines bound minutes 107,248 (N4), 13,947 (N3), net 93,301; Δ43 283,973 min | `outputs/exp4_addendum/diag_N4.json`, `diag_N3.json`, `DELTA43.json` | `common_lines_bound.total_bound_min`; `comparison.effect` | not recorded in artifact; `diag_*` are diagnostic files, not in registry v5 (`DELTA43.json` is indexed) |
+| Exp 4A served / structural shares (N3 53.1% / 35.5%; N4 36.3% / 54.7%) | `outputs/exp4_addendum/diag_N3.json`, `diag_N4.json` | `totals` | not recorded in artifact; diagnostic files, not in registry v5 |
 | Exp 5 cells | `outputs/exp5/EXP5_ANALYSIS.json` | `EXPERIMENT5_CLOSEOUT.md` §3 | contract `395ee3c960f51935` (registry `experiments.exp5.contract`) |
 | Exp 6 prices | `outputs/exp6/EXP6_ANALYSIS.json` | `EXPERIMENT6_CLOSEOUT.md` §10 | `outputs/exp6/EXP6_CONTRACT.json` (registry `experiments.exp6.contract`) |
 | Exp 7 Stage 1 | `outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json`, `outputs/exp7/EXP7_CLOSEOUT_TABLE.json` | `rows` | contract `1263bedaebe6a45d`, analysis `b0f6f416` |
 | Exp 7 Stage 2 | `outputs/exp7/EXP7_ANALYSIS.json` | `f1_adaptive`, `f4`, `af1_n3_minus_n0`, `f6_ranks` | contract `1263bedaebe6a45d`, analysis `b0f6f416` |
 | Exp 7 post hoc F1; two REF fixed points | `outputs/exp7/EXP7_F1_DECISION_SPACE.json` | `rows[].cells.R1_H60`, `rows[].ref_f4_track` | `5dc3f408`; sha256 `0d5e3da76ebdc6ad67493e4ce93061c1536e313ac558e605e9d631a764015280`; not in registry v5 |
 
-The registry `outputs/CANONICAL_RESULTS_v5.json` indexes every experiment's
-canonical and superseded artifacts. `outputs/SUPERSEDED.md` indexes retired
-ones.
+The registry `outputs/CANONICAL_RESULTS_v5.json` indexes most canonical and
+superseded artifacts; exceptions are labelled in the table above and in the
+next paragraph. `outputs/SUPERSEDED.md` indexes retired ones.
 
 Registry v5 `experiments.exp2b.headline` and `EXPERIMENT2_CLOSEOUT.md` still
 quote the superseded +0.0065%. Both are immutable; the canonical value is
 `exp2b_certification.json → _confirmation`, and a future registry v6 should
 correct the headline and list `exp2b_certification.superseded.json` under
-`superseded`. `outputs/SUPERSEDED.md` does not yet index that file either; its
-entry is pending.
+`superseded`. `outputs/SUPERSEDED.md` indexes it (block
+`exp2b-magnitude-superseded`).
 
 ## Appendix B. Glossary
 
@@ -1195,11 +1221,12 @@ entry is pending.
   midday, PM peak, evening, owl). The unit a headway is set on.
 * **Generalized cost (GC):** passenger travel time in in-vehicle-minute
   equivalents, with walking, waiting and transfers weighted.
-* **Unserved demand:** modeled trips with no enumerated path (*structural*) or
+* **Unserved demand:** modeled trips with no enumerated path and no intrazonal
+  walk-only option (*structural*) or
   dropped by the retention curve (*discouraged*). At the current plan, 33% of
   the NTD-anchored total. A model quantity, not observed riders.
 * **Objective (λ-weighted):** GC of served trips + λ·60·unserved trips; not a
-  welfare measure (§3).
+  welfare measure (§3.1).
 * **λ:** weight on unserved demand relative to GC in the objective.
 * **Peak-concurrency proxy:** Σ over routes of cycle time ÷ headway in a
   period. A solver resource cap, **not** a bus count.

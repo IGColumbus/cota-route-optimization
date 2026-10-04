@@ -292,8 +292,8 @@ Results:
 * **Frequency (F1), fixed plans:** keeps its sign at every level, from −1.9% to
   −7.0% unserved.
 * **Frequency, re-optimized:**
-  * Re-optimized under Experiment 1's service rules (no route-period switched
-    off, 60-minute maximum headway; study safeguards in
+  * Re-optimized in the closest cell to Experiment 1's service rules (R1_H60:
+    no route-period switched off, 60-minute maximum headway; study safeguards in
     `config/constraints.yaml`, not COTA policy; no documented COTA numeric
     standard), F1 is −2.1% to −7.0% at every λ ≥ 2 level re-optimized in Exp 7
     (A5 and A6 only), with one closure per cell. Post hoc

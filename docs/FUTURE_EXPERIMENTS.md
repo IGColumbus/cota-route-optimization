@@ -3,7 +3,9 @@
 *Proposed 2026-10-04, after Experiment 7 closed. **None of these is
 preregistered**: each needs its own contract, acceptance gates and freeze
 before it runs, as Experiments 1–7 had. They are ordered by how much they could
-change the study's answer, not by cost.*
+change the study's answer, not by cost. Item numbers (E8–E21) are independent
+of the row numbers in `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`; "errata E16"
+always means the errata row.*
 
 The study's current answer:
 
@@ -11,8 +13,8 @@ The study's current answer:
   materially reduces modeled unserved demand, by about 6% (Experiment 1).
 * It keeps its sign at every implemented Stage 1 level for the certified
   plans (SIGN_ROBUST; magnitude Highly sensitive to walking friction).
-  Re-optimized under Experiment 1's service rules (no route-period switched
-  off, 60-minute maximum headway; study safeguards, not COTA policy), F1 is
+  Re-optimized in the closest cell to Experiment 1's service rules (R1_H60: no
+  route-period switched off, 60-minute maximum headway; study safeguards, not COTA policy), F1 is
   −2.1% to −7.0% at every λ ≥ 2 level re-optimized in Exp 7 (A5 and A6 only),
   with one closure per cell. Post hoc (`docs/EXPERIMENT7_F1_ADDENDUM.md`). At
   λ = 1 it is +0.12%.
@@ -82,7 +84,7 @@ is not divided by core count.
     * APC-expanded OD.
   * Keep LODES as a comparison arm.
   * Re-run Exp 1 (3 seeds) and Exp 7 Stage 1 on the new demand.
-  * Re-optimize under Exp 1's rules (R1_H60), with basin closure.
+  * Re-optimize in the closest cell to Exp 1's rules (R1_H60), with basin closure.
 * **What would change the answer:** a sign change or a large shrinkage of F1.
   Also a different pattern of where frequency moves, though that remains
   aggregate-only (reporting rule 8).

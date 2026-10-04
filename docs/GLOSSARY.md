@@ -34,7 +34,9 @@ the entry says so.*
 |---|---|
 | **Model A / Model B** | Two ways to price waiting. Model A uses the chosen pattern's headway. Model B (`same_route`) uses the combined frequency of every same-route pattern serving the movement. **Model B is the only authoritative evaluator.** |
 | **λ (lambda)** | Weight on unserved demand in the scalarized objective. The certified frontier begins at λ = 2; headline comparisons use λ = 2. Exp 1 also certified λ = 4, 8, 16, and Exp 7 ran converged Stage 2 cells at λ = 1 and 4 as sensitivity levels (λ = 1 lies below the certified frontier). |
-| **objective** | The λ-scalarized path-level generalized cost including unserved demand. Lower is better. Unit: equivalent in-vehicle minutes. |
+| **objective** | The λ-scalarized path-level generalized cost including unserved demand: GC of served trips + λ·60·unserved trips. Lower is better. Unit: equivalent in-vehicle minutes. Not a welfare measure: it can reward worse service where a served trip's GC exceeds λ·60 (`docs/report/TECHNICAL_REPORT.md` §3.1). |
+| **unserved demand** | Modeled trips with no enumerated path and no intrazonal walk-only option (*structural*), or dropped by the retention curve (*discouraged*). A model quantity, not observed riders; the current plan leaves about 33% of the NTD-anchored total unserved. |
+| **`B1_COMMONLINES`** | The Exp 7 Class B level. Despite its name it ran Model A waiting, not cross-route common lines (errata E16). Unrelated to the Exp 6 safeguard bundle B1. |
 | **route-period** | One route in one of six service periods (early, am_peak, midday, pm_peak, evening, owl). The decision variable is its headway. |
 | **OFF** | A route-period with infinite headway: no trips, no hours, no peak proxy. |
 | **LODES demand** | LEHD commute OD flows, top 20,000 pairs, scaled to an NTD-anchored total. Commute-only: this is the largest unquantified limitation. |
@@ -57,7 +59,7 @@ the entry says so.*
 | term | meaning |
 |---|---|
 | **Gen1 / Gen2** | Methodology generations. Gen1 is the exchange search of Exps 1–3, frozen at `gen1-frozen-v1`. Gen2 is the Exp 4+ exact block certifier. |
-| **(8, 3) block certifier** | `exp4_certify.certify`: from a Gen1 greedy start, repeatedly solves every block of 8 route-periods exactly within ±3 ladder rungs, until a full round improves nothing (max 120 rounds). Guarantee: *no block of 8 route-periods moved within 3 rungs improves the objective*. That is a local, not global, guarantee. |
+| **(8, 3) block certifier** | `exp4_certify.certify`: from a Gen1 greedy start, repeatedly solves every block of 8 route-periods exactly within a 3-rung window (the current rung and one either side), until a full round improves nothing (max 120 rounds). Guarantee: *no block of 8 route-periods moved within that 3-rung window improves the objective*. That is a local, not global, guarantee. |
 | **certified** | Used in three senses; the report (`docs/report/TECHNICAL_REPORT.md` §4) keeps them apart: **path-set adequate** (Exp 1, gate 4), **seed-distinguishable** (\|mean Δ\| / SD > 3 at stated effort, or effect against the seed spread or preregistered floor), and **block-local certified** (a converged (8, 3)-block-local optimum, Exp 4–7). **Not** "real-world significant" and **not** "globally optimal". |
 | **D17** | The Exp 1 optimum is flat: seeds disagree on ~19% of route-periods at equal score. There are no per-route recommendations. |
 | **D27** | The optimizer was chosen by the treatment: a snapped incumbent was rejected on some networks and the solver silently fell back to greedy. This led to the firewall's execution-receipt rule. |
@@ -83,5 +85,5 @@ the entry says so.*
 | **experiment contract** | An `ExperimentContract`: evaluator, objective, envelope label, path-set policy, solver policy and the whitelist of allowed treatment differences. |
 | **contract digest** | A 16-hex content hash of a contract (e.g. `EXP4A_MATCHED` = `0f62aeabfa341a98`, `EXP5_FRONTIER` = `395ee3c960f51935`). A receipt built under one digest is refused under another. Frozen contract files also carry a file sha256. |
 | **code_version / src digest** | The content hash of `src/cota_opt` (e.g. `src-51dd455d9e1a` / `add5d0002d29aa49`). Scripts sit outside it by design. |
-| **canonical registry** | `outputs/CANONICAL_RESULTS_v{1,2,3}.json`: which artifacts are current, which are superseded and why. Each version is additive and copies its predecessor verbatim. |
+| **canonical registry** | `outputs/CANONICAL_RESULTS*.json` (v5 current): which artifacts are current, which are superseded and why. Each version is additive and copies its predecessor verbatim. |
 | **superseded** | Kept, readable and never deleted, but not to be used for quantitative interpretation. "A superseded artifact looks entirely legitimate from the inside." |
