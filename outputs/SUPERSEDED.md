@@ -114,3 +114,16 @@ vehicle-hours, and `splice|011|034|WESHIGW` at **−0.5846%, against 2B's
 **Current instead:** `outputs/exp7/EXP7_LEVELS.json`, `outputs/exp7/EXP7_CONTRACT.json`, `docs/EXPERIMENT7_AMENDMENT.md`, `EXPERIMENT7_CLOSEOUT.md` (read with `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`)
 
 <!-- exp7-superseded:end -->
+
+<!-- exp2b-magnitude-superseded:begin -->
+## exp2b — leader certification magnitude (superseded for quantitative interpretation 2026-08-31)
+
+*Added by hand 2026-10-04 (academic review round 1, adjudication M2).*
+
+- `outputs/exp2b_certification.superseded.json` — effect_pct +0.0065 (0.02 floors), certified from `starts='incumbent'`, whose acceptance depended on the treatment (D27)
+
+**Current instead:** `outputs/exp2b_certification.json → _confirmation` and `outputs/exp2b_confirmation.json`: matched starts, +0.0902% unserved, +0.0540% objective, 0.31 floors; still a null (D31).
+
+The registry v5 `experiments.exp2b.headline` and `EXPERIMENT2_CLOSEOUT.md` still quote the superseded value; both are immutable, and a future registry v6 should correct the headline.
+
+<!-- exp2b-magnitude-superseded:end -->
