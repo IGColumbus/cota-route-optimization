@@ -1,6 +1,6 @@
 {
- "passes_completed": 3,
- "status": null,
+ "passes_completed": 4,
+ "status": "FIXED_POINT",
  "tried": [
   [
    "A5_LAM1|REF",
@@ -29,6 +29,10 @@
   [
    "A5_LAM1|REF",
    "7a9379813c696ede"
+  ],
+  [
+   "A5_LAM1|REF",
+   "949cd7d2ee5d8208"
   ],
   [
    "A5_LAM1|REF",
@@ -580,7 +584,7 @@
    "after": "3284088.8743323935"
   }
  ],
- "cursor": 5,
+ "cursor": 0,
  "pass_improved": false,
  "blocking": [],
  "best": {
