@@ -2,6 +2,8 @@
 
 *Updated 2026-09-29 for Ian's final production contract (amendment §14).*
 
+*Final status (2026-10-04): Stage 1 `EXP7_STAGE1_EVALUATION_COMPLETE`, Stage 2 `EXP7_STAGE2_REOPT_COMPLETE`. Results: `docs/EXPERIMENT7_RESULTS.md`.*
+
 *The machine-readable state is in:*
 
 * *`outputs/exp7/preflight/freeze_check/FREEZE_ATTEMPT.txt`;*
