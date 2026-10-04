@@ -100,3 +100,17 @@ vehicle-hours, and `splice|011|034|WESHIGW` at **−0.5846%, against 2B's
 **Current instead:** `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`, `outputs/exp4_normalized/EXP4N_FINAL_STATUS.json`, `outputs/exp4_normalized/EXP4N_RANKING.json`, `outputs/exp4_normalized/EXP4N_INTEGRITY_GATE.json`, `outputs/exp4_normalized/EXP4N_PRODUCTION_CONTRACT.json`, `outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json`, `outputs/exp4_normalized/production_mr120/*.json`
 
 <!-- exp4-superseded:end -->
+
+<!-- exp7-superseded:begin -->
+## exp7 — Robustness of findings F1–F6 (Stage 1 fixed plans; Stage 2 adaptive in A5/A6)
+
+*Added by hand 2026-10-04 at the Exp 7 closeout; the registry entry is `outputs/CANONICAL_RESULTS_v5.json → experiments.exp7`.*
+
+*Pre-freeze drafts, superseded by the frozen two-stage contract (amendment §14). Kept, never deleted.*
+
+- `outputs/exp7/SUPERSEDED.EXP7_LEVELS.PROPOSED.json` — proposed level set before the governing 0929 decisions
+- `docs/EXPERIMENT7_AMENDMENT_DRAFT.md` — amendment draft before the as-issued text was recovered
+
+**Current instead:** `outputs/exp7/EXP7_LEVELS.json`, `outputs/exp7/EXP7_CONTRACT.json`, `docs/EXPERIMENT7_AMENDMENT.md`, `EXPERIMENT7_CLOSEOUT.md` (read with `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`)
+
+<!-- exp7-superseded:end -->

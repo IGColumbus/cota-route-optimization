@@ -107,7 +107,7 @@ figures as findings in their own right.
      closure; in Exp 7, R1_H60 at BASE did change basin (a cross-level import,
      0.009% in objective), with F1 moving from −6.55% (Exp 6 plan) to −6.57%
      (post hoc). Exp 1's seeds, searching the same no-OFF space with a different
-     solver, agreed on the aggregate to 0.064 points.
+     solver, agreed on the aggregate within an SD of 0.064 points (range 0.12).
 3. **The objective, not the network, is what breaks.** Because a lost trip
    costs λ × 60 while a served trip costs its full generalized cost, the
    λ-weighted objective rewards shedding hard-to-serve riders whose generalized
