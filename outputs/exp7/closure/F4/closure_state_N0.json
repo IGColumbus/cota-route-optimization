@@ -4,11 +4,19 @@
  "tried": [
   [
    "BASE|REF",
+   "2a236b2b72fb6d5d"
+  ],
+  [
+   "BASE|REF",
    "64690725e330bc59"
   ],
   [
    "BASE|REF",
    "76430e1f43635d31"
+  ],
+  [
+   "BASE|REF",
+   "d50f88367d19cc35"
   ]
  ],
  "found_in_pass": {
@@ -34,17 +42,31 @@
    ],
    "before": "2945632.2349138106",
    "after": "2941810.360122096"
+  },
+  {
+   "pass": 1,
+   "stage": "X",
+   "cell": [
+    "BASE",
+    "REF"
+   ],
+   "from": [
+    "A5_TP050",
+    "REF"
+   ],
+   "before": "2941810.360122096",
+   "after": "2935446.4612512114"
   }
  ],
- "cursor": 2,
+ "cursor": 4,
  "pass_improved": true,
  "blocking": [],
  "best": {
   "BASE|REF": {
    "status": "CERTIFIED",
-   "objective": 2941810.360122096,
-   "plan_digest": "3ce54c6fe9f9fdc2",
-   "ref": "outputs/exp7/closure/F4/BASE/N0_REF__anchor_64690725e330bc59.json"
+   "objective": 2935446.4612512114,
+   "plan_digest": "2a236b2b72fb6d5d",
+   "ref": "outputs/exp7/closure/F4/BASE/N0_REF__anchor_2a236b2b72fb6d5d.json"
   },
   "A5_LAM1|REF": {
    "status": "CERTIFIED",
