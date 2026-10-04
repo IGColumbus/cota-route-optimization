@@ -1,0 +1,67 @@
+{
+ "passes_completed": 0,
+ "status": null,
+ "tried": [
+  [
+   "BASE|REF",
+   "96ccb1c21a639371"
+  ]
+ ],
+ "found_in_pass": {
+  "BASE|REF": 0,
+  "A5_LAM1|REF": 0,
+  "A5_LAM4|REF": 0,
+  "A5_TP050|REF": 0,
+  "A5_TP200|REF": 0,
+  "A6_WALKSPD85|REF": 0,
+  "A6_MAXWALK75|REF": 0
+ },
+ "improvements": [],
+ "cursor": 1,
+ "pass_improved": false,
+ "blocking": [],
+ "best": {
+  "BASE|REF": {
+   "status": "CERTIFIED",
+   "objective": 3223885.947526011,
+   "plan_digest": "898b95fd93c33414",
+   "ref": "outputs/exp7/initial/F4/BASE/N4_REF.json"
+  },
+  "A5_LAM1|REF": {
+   "status": "CERTIFIED",
+   "objective": 1813312.9333716105,
+   "plan_digest": "96ccb1c21a639371",
+   "ref": "outputs/exp7/initial/F4/A5_LAM1/N4_REF.json"
+  },
+  "A5_LAM4|REF": {
+   "status": "CERTIFIED",
+   "objective": 5378806.731570497,
+   "plan_digest": "69004b259af94317",
+   "ref": "outputs/exp7/initial/F4/A5_LAM4/N4_REF.json"
+  },
+  "A5_TP050|REF": {
+   "status": "CERTIFIED",
+   "objective": 3212504.935025133,
+   "plan_digest": "9c0cc8471ac952d1",
+   "ref": "outputs/exp7/initial/F4/A5_TP050/N4_REF.json"
+  },
+  "A5_TP200|REF": {
+   "status": "CERTIFIED",
+   "objective": 3253136.544701053,
+   "plan_digest": "3e2208f11802ed22",
+   "ref": "outputs/exp7/initial/F4/A5_TP200/N4_REF.json"
+  },
+  "A6_WALKSPD85|REF": {
+   "status": "CERTIFIED",
+   "objective": 3231077.4289530884,
+   "plan_digest": "3de7683cb208ef88",
+   "ref": "outputs/exp7/initial/F4/A6_WALKSPD85/N4_REF.json"
+  },
+  "A6_MAXWALK75|REF": {
+   "status": "CERTIFIED",
+   "objective": 3355321.2567228326,
+   "plan_digest": "25fe100f078b5f1d",
+   "ref": "outputs/exp7/initial/F4/A6_MAXWALK75/N4_REF.json"
+  }
+ }
+}
