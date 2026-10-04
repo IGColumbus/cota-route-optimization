@@ -10589,7 +10589,805 @@
    "source_commit": "77fe9b51f027c2c5d95a070f2addfdcdfa92ea5e",
    "stage1_analysis_sha256": "182b662d68f018e810c042a4eff654d9107b89e520076635b345dd4755ee9ff0"
   },
-  "analysis_status": "not run"
+  "analysis_status": "EXP7_STAGE2_REOPT_COMPLETE",
+  "results": {
+   "status": "EXP7_STAGE2_REOPT_COMPLETE",
+   "closure": {
+    "F6/N0": {
+     "status": "FIXED_POINT",
+     "passes": 4,
+     "n_improvements": 92,
+     "improvements_by_stage": {
+      "W": 61,
+      "X": 31
+     }
+    },
+    "F6/N3": {
+     "status": "FIXED_POINT",
+     "passes": 4,
+     "n_improvements": 76,
+     "improvements_by_stage": {
+      "W": 49,
+      "X": 27
+     }
+    },
+    "F4/N0": {
+     "status": "FIXED_POINT",
+     "passes": 2,
+     "n_improvements": 6,
+     "improvements_by_stage": {
+      "W": 0,
+      "X": 6
+     }
+    },
+    "F4/N3": {
+     "status": "FIXED_POINT",
+     "passes": 2,
+     "n_improvements": 5,
+     "improvements_by_stage": {
+      "W": 0,
+      "X": 5
+     }
+    },
+    "F4/N4": {
+     "status": "FIXED_POINT",
+     "passes": 4,
+     "n_improvements": 23,
+     "improvements_by_stage": {
+      "W": 0,
+      "X": 23
+     }
+    }
+   },
+   "sentinels": [
+    {
+     "cell": [
+      "F6",
+      "A6_MAXWALK75",
+      "N3",
+      "REF"
+     ],
+     "ok": true
+    },
+    {
+     "cell": [
+      "F6",
+      "A6_MAXWALK75",
+      "N0",
+      "R2_S10"
+     ],
+     "ok": true
+    },
+    {
+     "cell": [
+      "F4",
+      "A6_MAXWALK75",
+      "N4",
+      "REF"
+     ],
+     "ok": true
+    },
+    {
+     "cell": [
+      "F6",
+      "A5_LAM1",
+      "N0",
+      "REF"
+     ],
+     "ok": true
+    }
+   ],
+   "record_checks": {
+    "convergence": {
+     "n": 210,
+     "all_pass": true
+    },
+    "feasible": {
+     "n": 210,
+     "all_pass": true
+    },
+    "policy": {
+     "n": 210,
+     "all_pass": true
+    },
+    "level": {
+     "n": 210,
+     "all_pass": true
+    }
+   },
+   "monotonicity": {
+    "n_pairs": 840,
+    "n_violations": 0
+   },
+   "failures": [],
+   "F1": {
+    "base": -5.428277467334485,
+    "per_level": {
+     "A5_LAM1": 181.72488689054083,
+     "A5_LAM4": -6.7597007149193145,
+     "A5_TP050": -5.7357017525788585,
+     "A5_TP200": 45.105363598054616,
+     "A6_WALKSPD85": 16.56819092961954,
+     "A6_MAXWALK75": 4.584102572106463
+    },
+    "sign": {
+     "label": "SIGN_SENSITIVE",
+     "events": {
+      "A5_LAM1": "SIGN_FLIP",
+      "A5_TP200": "SIGN_FLIP",
+      "A6_WALKSPD85": "SIGN_FLIP",
+      "A6_MAXWALK75": "SIGN_FLIP"
+     },
+     "unsupported_levels": []
+    },
+    "bands": {
+     "A5_LAM1": "Highly sensitive magnitude",
+     "A5_LAM4": "Stable magnitude",
+     "A5_TP050": "Highly stable magnitude",
+     "A5_TP200": "Highly sensitive magnitude",
+     "A6_WALKSPD85": "Highly sensitive magnitude",
+     "A6_MAXWALK75": "Highly sensitive magnitude"
+    },
+    "worst_band": "Highly sensitive magnitude",
+    "worst_movement": {
+     "level": "A5_LAM1",
+     "relative_change": 34.47744988794308
+    },
+    "rows": [
+     {
+      "level": "BASE",
+      "ref_unserved": 9857.85771788099,
+      "current_plan_unserved": 10423.684219641913,
+      "f1_pct": -5.428277467334485,
+      "ref_plan": "2523154d9bee93e3"
+     },
+     {
+      "level": "A5_LAM1",
+      "ref_unserved": 29366.112577613334,
+      "current_plan_unserved": 10423.684219641913,
+      "f1_pct": 181.72488689054083,
+      "ref_plan": "76430e1f43635d31"
+     },
+     {
+      "level": "A5_LAM4",
+      "ref_unserved": 9719.074362925847,
+      "current_plan_unserved": 10423.684219641913,
+      "f1_pct": -6.7597007149193145,
+      "ref_plan": "061919b6be9e8bbc"
+     },
+     {
+      "level": "A5_TP050",
+      "ref_unserved": 9290.796113745868,
+      "current_plan_unserved": 9856.11338171718,
+      "f1_pct": -5.7357017525788585,
+      "ref_plan": "3709fb1285408d18"
+     },
+     {
+      "level": "A5_TP200",
+      "ref_unserved": 16685.925436119156,
+      "current_plan_unserved": 11499.178956843783,
+      "f1_pct": 45.105363598054616,
+      "ref_plan": "d50f88367d19cc35"
+     },
+     {
+      "level": "A6_WALKSPD85",
+      "ref_unserved": 12625.031553390943,
+      "current_plan_unserved": 10830.597483505228,
+      "f1_pct": 16.56819092961954,
+      "ref_plan": "d16a8e5d8ddbf3b2"
+     },
+     {
+      "level": "A6_MAXWALK75",
+      "ref_unserved": 17411.51636681902,
+      "current_plan_unserved": 16648.33941163715,
+      "f1_pct": 4.584102572106463,
+      "ref_plan": "7fa733293e534439"
+     }
+    ]
+   },
+   "F4_43": {
+    "base": 8.547370233189115,
+    "per_level": {
+     "A5_LAM1": -0.9812603203602382,
+     "A5_LAM4": 30.789838260560852,
+     "A5_TP050": 9.87761903174627,
+     "A5_TP200": 6.76786206693406,
+     "A6_WALKSPD85": 7.7162348040092255,
+     "A6_MAXWALK75": 6.7661603502048235
+    },
+    "sign": {
+     "label": "SIGN_SENSITIVE",
+     "events": {
+      "A5_LAM1": "SIGN_FLIP"
+     },
+     "unsupported_levels": []
+    },
+    "bands": {
+     "A5_LAM1": "Highly sensitive magnitude",
+     "A5_LAM4": "Highly sensitive magnitude",
+     "A5_TP050": "Stable magnitude",
+     "A5_TP200": "Stable magnitude",
+     "A6_WALKSPD85": "Highly stable magnitude",
+     "A6_MAXWALK75": "Stable magnitude"
+    },
+    "worst_band": "Highly sensitive magnitude",
+    "worst_movement": {
+     "level": "A5_LAM4",
+     "relative_change": 2.6022586386869113
+    },
+    "all_admitted": true
+   },
+   "F4_40": {
+    "base": 8.366982808246433,
+    "per_level": {
+     "A5_LAM1": -0.9806766585407524,
+     "A5_LAM4": 30.565910180382765,
+     "A5_TP050": 9.700996035258187,
+     "A5_TP200": 6.59321506934786,
+     "A6_WALKSPD85": 7.539826864339686,
+     "A6_MAXWALK75": 6.569229034406788
+    },
+    "sign": {
+     "label": "SIGN_SENSITIVE",
+     "events": {
+      "A5_LAM1": "SIGN_FLIP"
+     },
+     "unsupported_levels": []
+    },
+    "bands": {
+     "A5_LAM1": "Highly sensitive magnitude",
+     "A5_LAM4": "Highly sensitive magnitude",
+     "A5_TP050": "Stable magnitude",
+     "A5_TP200": "Stable magnitude",
+     "A6_WALKSPD85": "Highly stable magnitude",
+     "A6_MAXWALK75": "Stable magnitude"
+    },
+    "worst_band": "Highly sensitive magnitude",
+    "worst_movement": {
+     "level": "A5_LAM4",
+     "relative_change": 2.6531579998296686
+    },
+    "all_admitted": true
+   },
+   "AF1": {
+    "REF": {
+     "base": -0.20756426350492763,
+     "per_level": {
+      "A5_LAM1": 0.0005894458174020703,
+      "A5_LAM4": -0.1646061227578036,
+      "A5_TP050": -0.2066302929529356,
+      "A5_TP200": -0.3098725573119751,
+      "A6_WALKSPD85": -0.17229733693759489,
+      "A6_MAXWALK75": -0.1566517751390366
+     },
+     "sign": {
+      "label": "SIGN_SENSITIVE",
+      "events": {
+       "A5_LAM1": "SIGN_FLIP"
+      },
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Highly sensitive magnitude",
+      "A5_LAM4": "Stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Moderately sensitive magnitude",
+      "A6_WALKSPD85": "Stable magnitude",
+      "A6_MAXWALK75": "Stable magnitude"
+     },
+     "worst_band": "Highly sensitive magnitude",
+     "worst_movement": {
+      "level": "A5_LAM1",
+      "relative_change": 1.0028398232308813
+     }
+    },
+    "R1_H60": {
+     "base": -0.1782284471243507,
+     "per_level": {
+      "A5_LAM1": -0.1619001786349537,
+      "A5_LAM4": -0.19703365516835702,
+      "A5_TP050": -0.17627093906140343,
+      "A5_TP200": -0.18178527519239523,
+      "A6_WALKSPD85": -0.1774485409233822,
+      "A6_MAXWALK75": -0.16386473203792248
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Highly stable magnitude",
+      "A5_LAM4": "Stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Highly stable magnitude",
+      "A6_WALKSPD85": "Highly stable magnitude",
+      "A6_MAXWALK75": "Highly stable magnitude"
+     },
+     "worst_band": "Stable magnitude",
+     "worst_movement": {
+      "level": "A5_LAM4",
+      "relative_change": 0.10551182119028309
+     }
+    },
+    "R1_H30": {
+     "base": -0.16984256847074114,
+     "per_level": {
+      "A5_LAM1": -0.1514356168115102,
+      "A5_LAM4": -0.17438885429635773,
+      "A5_TP050": -0.17362356490122635,
+      "A5_TP200": -0.15888267803064896,
+      "A6_WALKSPD85": -0.17763619014615403,
+      "A6_MAXWALK75": -0.14806885743325768
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Stable magnitude",
+      "A5_LAM4": "Highly stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Highly stable magnitude",
+      "A6_WALKSPD85": "Highly stable magnitude",
+      "A6_MAXWALK75": "Stable magnitude"
+     },
+     "worst_band": "Stable magnitude",
+     "worst_movement": {
+      "level": "A6_MAXWALK75",
+      "relative_change": 0.1281993744768081
+     }
+    },
+    "R1_H20": {
+     "base": null,
+     "per_level": {
+      "BASE": null,
+      "A5_LAM1": null,
+      "A5_LAM4": null,
+      "A5_TP050": null,
+      "A5_TP200": null,
+      "A6_WALKSPD85": null,
+      "A6_MAXWALK75": null
+     },
+     "sign": null
+    },
+    "R2_S25": {
+     "base": -0.20756426350492763,
+     "per_level": {
+      "A5_LAM1": -0.1587461151044368,
+      "A5_LAM4": -0.1646061227578036,
+      "A5_TP050": -0.2066302929529356,
+      "A5_TP200": -0.1605940135775405,
+      "A6_WALKSPD85": -0.17229733693759489,
+      "A6_MAXWALK75": -0.1566517751390366
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Stable magnitude",
+      "A5_LAM4": "Stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Stable magnitude",
+      "A6_WALKSPD85": "Stable magnitude",
+      "A6_MAXWALK75": "Stable magnitude"
+     },
+     "worst_band": "Stable magnitude",
+     "worst_movement": {
+      "level": "A6_MAXWALK75",
+      "relative_change": 0.2452854239269485
+     }
+    },
+    "R2_S10": {
+     "base": -0.20756426350492763,
+     "per_level": {
+      "A5_LAM1": -0.1781567603906474,
+      "A5_LAM4": -0.1646061227578036,
+      "A5_TP050": -0.2066302929529356,
+      "A5_TP200": -0.2029200697374158,
+      "A6_WALKSPD85": -0.1992669184522786,
+      "A6_MAXWALK75": -0.20123452498390274
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Stable magnitude",
+      "A5_LAM4": "Stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Highly stable magnitude",
+      "A6_WALKSPD85": "Highly stable magnitude",
+      "A6_MAXWALK75": "Highly stable magnitude"
+     },
+     "worst_band": "Stable magnitude",
+     "worst_movement": {
+      "level": "A5_LAM4",
+      "relative_change": 0.20696308710243946
+     }
+    },
+    "R2_S05": {
+     "base": -0.18121960753712493,
+     "per_level": {
+      "A5_LAM1": -0.1717181833794865,
+      "A5_LAM4": -0.16897759112207242,
+      "A5_TP050": -0.17879555848170364,
+      "A5_TP200": -0.17968789571666755,
+      "A6_WALKSPD85": -0.1826868339347526,
+      "A6_MAXWALK75": -0.16580920199752083
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Highly stable magnitude",
+      "A5_LAM4": "Highly stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Highly stable magnitude",
+      "A6_WALKSPD85": "Highly stable magnitude",
+      "A6_MAXWALK75": "Highly stable magnitude"
+     },
+     "worst_band": "Highly stable magnitude",
+     "worst_movement": {
+      "level": "A6_MAXWALK75",
+      "relative_change": 0.08503718636763463
+     }
+    },
+    "R3_SPAN": {
+     "base": -0.147649792633323,
+     "per_level": {
+      "A5_LAM1": -0.012985010819087204,
+      "A5_LAM4": -0.17446704454086584,
+      "A5_TP050": -0.14534044034184243,
+      "A5_TP200": -0.3389774318457394,
+      "A6_WALKSPD85": -0.1761825684295623,
+      "A6_MAXWALK75": -0.16214126841941187
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Highly sensitive magnitude",
+      "A5_LAM4": "Stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Highly sensitive magnitude",
+      "A6_WALKSPD85": "Stable magnitude",
+      "A6_MAXWALK75": "Highly stable magnitude"
+     },
+     "worst_band": "Highly sensitive magnitude",
+     "worst_movement": {
+      "level": "A5_TP200",
+      "relative_change": 1.2958205751603322
+     }
+    },
+    "R4_C05": {
+     "base": -0.12861213018018725,
+     "per_level": {
+      "A5_LAM1": -0.11427985111503655,
+      "A5_LAM4": -0.14904704784401512,
+      "A5_TP050": -0.12184413570878083,
+      "A5_TP200": -0.15595767112009384,
+      "A6_WALKSPD85": -0.1367461377024824,
+      "A6_MAXWALK75": -0.1563868475020003
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Stable magnitude",
+      "A5_LAM4": "Stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Stable magnitude",
+      "A6_WALKSPD85": "Highly stable magnitude",
+      "A6_MAXWALK75": "Stable magnitude"
+     },
+     "worst_band": "Stable magnitude",
+     "worst_movement": {
+      "level": "A6_MAXWALK75",
+      "relative_change": 0.21595721401162019
+     }
+    },
+    "R4_C01": {
+     "base": -0.1609203310147354,
+     "per_level": {
+      "A5_LAM1": -0.1463181934894639,
+      "A5_LAM4": -0.1564483680362428,
+      "A5_TP050": -0.15496588107908227,
+      "A5_TP200": -0.1861974816462066,
+      "A6_WALKSPD85": -0.12583476183945586,
+      "A6_MAXWALK75": -0.15867096436594522
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Highly stable magnitude",
+      "A5_LAM4": "Highly stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Stable magnitude",
+      "A6_WALKSPD85": "Stable magnitude",
+      "A6_MAXWALK75": "Highly stable magnitude"
+     },
+     "worst_band": "Stable magnitude",
+     "worst_movement": {
+      "level": "A6_WALKSPD85",
+      "relative_change": 0.21803067986522337
+     }
+    },
+    "R4_C00": {
+     "base": -0.1782284471243507,
+     "per_level": {
+      "A5_LAM1": -0.1619001786349537,
+      "A5_LAM4": -0.19703365516835702,
+      "A5_TP050": -0.17627093906140343,
+      "A5_TP200": -0.18178527519239523,
+      "A6_WALKSPD85": -0.1774485409233822,
+      "A6_MAXWALK75": -0.16386473203792248
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Highly stable magnitude",
+      "A5_LAM4": "Stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Highly stable magnitude",
+      "A6_WALKSPD85": "Highly stable magnitude",
+      "A6_MAXWALK75": "Highly stable magnitude"
+     },
+     "worst_band": "Stable magnitude",
+     "worst_movement": {
+      "level": "A5_LAM4",
+      "relative_change": 0.10551182119028309
+     }
+    },
+    "R6_ADA": {
+     "base": -0.17475248942763952,
+     "per_level": {
+      "A5_LAM1": -0.1156537389398893,
+      "A5_LAM4": -0.19719048698630504,
+      "A5_TP050": -0.17597036690100956,
+      "A5_TP200": -0.19605656066016341,
+      "A6_WALKSPD85": -0.2112085841931488,
+      "A6_MAXWALK75": -0.17660106984503696
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Moderately sensitive magnitude",
+      "A5_LAM4": "Stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Stable magnitude",
+      "A6_WALKSPD85": "Stable magnitude",
+      "A6_MAXWALK75": "Highly stable magnitude"
+     },
+     "worst_band": "Moderately sensitive magnitude",
+     "worst_movement": {
+      "level": "A5_LAM1",
+      "relative_change": 0.3381854569357736
+     }
+    },
+    "B1": {
+     "base": -0.1782284471243507,
+     "per_level": {
+      "A5_LAM1": -0.11381414880392786,
+      "A5_LAM4": -0.19703365516835702,
+      "A5_TP050": -0.17627093906140343,
+      "A5_TP200": -0.18665789252416684,
+      "A6_WALKSPD85": -0.18846769021947024,
+      "A6_MAXWALK75": -0.16386473203792248
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Moderately sensitive magnitude",
+      "A5_LAM4": "Stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Highly stable magnitude",
+      "A6_WALKSPD85": "Highly stable magnitude",
+      "A6_MAXWALK75": "Highly stable magnitude"
+     },
+     "worst_band": "Moderately sensitive magnitude",
+     "worst_movement": {
+      "level": "A5_LAM1",
+      "relative_change": 0.3614142375121561
+     }
+    },
+    "B2": {
+     "base": -0.147649792633323,
+     "per_level": {
+      "A5_LAM1": -0.1463181934894639,
+      "A5_LAM4": -0.17446704454086584,
+      "A5_TP050": -0.14534044034184243,
+      "A5_TP200": -0.19127968293249126,
+      "A6_WALKSPD85": -0.1761825684295623,
+      "A6_MAXWALK75": -0.16214126841941187
+     },
+     "sign": {
+      "label": "SIGN_ROBUST",
+      "events": {},
+      "unsupported_levels": []
+     },
+     "bands": {
+      "A5_LAM1": "Highly stable magnitude",
+      "A5_LAM4": "Stable magnitude",
+      "A5_TP050": "Highly stable magnitude",
+      "A5_TP200": "Moderately sensitive magnitude",
+      "A6_WALKSPD85": "Stable magnitude",
+      "A6_MAXWALK75": "Highly stable magnitude"
+     },
+     "worst_band": "Moderately sensitive magnitude",
+     "worst_movement": {
+      "level": "A5_TP200",
+      "relative_change": 0.2954957776846985
+     }
+    }
+   },
+   "F6": {
+    "N0": {
+     "A5_LAM1": {
+      "rank_changes_vs_base": [
+       "B1",
+       "B2",
+       "R1_H60",
+       "R2_S05",
+       "R2_S10",
+       "R2_S25",
+       "R3_SPAN",
+       "R4_C00",
+       "R4_C01",
+       "R4_C05",
+       "R6_ADA"
+      ],
+      "sign_events": [
+       "R2_S10:FROM_TIE",
+       "R2_S25:FROM_TIE"
+      ]
+     },
+     "A5_LAM4": {
+      "rank_changes_vs_base": [
+       "R4_C05"
+      ],
+      "sign_events": [
+       "R4_C05:TO_TIE"
+      ]
+     },
+     "A5_TP050": {
+      "rank_changes_vs_base": [],
+      "sign_events": []
+     },
+     "A5_TP200": {
+      "rank_changes_vs_base": [
+       "B2",
+       "R1_H60",
+       "R2_S05",
+       "R2_S10",
+       "R3_SPAN",
+       "R4_C00",
+       "R4_C01",
+       "R4_C05"
+      ],
+      "sign_events": [
+       "R2_S10:FROM_TIE",
+       "R2_S25:FROM_TIE"
+      ]
+     },
+     "A6_WALKSPD85": {
+      "rank_changes_vs_base": [
+       "R2_S10",
+       "R4_C01",
+       "R6_ADA"
+      ],
+      "sign_events": [
+       "R2_S10:FROM_TIE"
+      ]
+     },
+     "A6_MAXWALK75": {
+      "rank_changes_vs_base": [
+       "R2_S10",
+       "R4_C01",
+       "R6_ADA"
+      ],
+      "sign_events": [
+       "R2_S10:FROM_TIE"
+      ]
+     }
+    },
+    "N3": {
+     "A5_LAM1": {
+      "rank_changes_vs_base": [
+       "B2",
+       "R1_H60",
+       "R2_S05",
+       "R2_S10",
+       "R2_S25",
+       "R3_SPAN",
+       "R4_C00",
+       "R4_C01",
+       "R4_C05"
+      ],
+      "sign_events": [
+       "R2_S10:FROM_TIE",
+       "R2_S25:FROM_TIE"
+      ]
+     },
+     "A5_LAM4": {
+      "rank_changes_vs_base": [
+       "B1",
+       "R1_H60",
+       "R4_C00"
+      ],
+      "sign_events": []
+     },
+     "A5_TP050": {
+      "rank_changes_vs_base": [],
+      "sign_events": []
+     },
+     "A5_TP200": {
+      "rank_changes_vs_base": [
+       "B1",
+       "B2",
+       "R1_H60",
+       "R2_S05",
+       "R2_S10",
+       "R3_SPAN",
+       "R4_C00",
+       "R4_C01",
+       "R4_C05"
+      ],
+      "sign_events": [
+       "R2_S10:FROM_TIE",
+       "R2_S25:FROM_TIE"
+      ]
+     },
+     "A6_WALKSPD85": {
+      "rank_changes_vs_base": [
+       "B1",
+       "R1_H60",
+       "R2_S10",
+       "R4_C00",
+       "R4_C01",
+       "R6_ADA"
+      ],
+      "sign_events": [
+       "R2_S10:FROM_TIE"
+      ]
+     },
+     "A6_MAXWALK75": {
+      "rank_changes_vs_base": [
+       "R2_S05",
+       "R2_S10",
+       "R4_C01",
+       "R4_C05",
+       "R6_ADA"
+      ],
+      "sign_events": [
+       "R2_S10:FROM_TIE"
+      ]
+     }
+    }
+   }
+  }
  },
  "not_covered": [
   "A4 reliability: UNIMPLEMENTED -- reliability robustness NOT tested",

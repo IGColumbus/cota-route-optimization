@@ -1,6 +1,6 @@
 # Experiment 7 closeout table
 
-Stage 1: `EXP7_STAGE1_EVALUATION_COMPLETE`. Stage 2: `not run`.
+Stage 1: `EXP7_STAGE1_EVALUATION_COMPLETE`. Stage 2: `EXP7_STAGE2_REOPT_COMPLETE`.
 
 | finding | certified | Stage 1 BASE | sign (Class A) | worst movement (level, rel.) | Class A range | worst band by dimension |
 |---|---|---|---|---|---|---|
@@ -57,6 +57,32 @@ Stage 1: `EXP7_STAGE1_EVALUATION_COMPLETE`. Stage 2: `not run`.
 | AF1 R6_ADA | — | -0.1839 | SIGN_SENSITIVE (A5_LAM4:SIGN_FLIP, A7_RM01:SIGN_FLIP, A7_RM03:SIGN_FLIP, A7_RM05:SIGN_FLIP) | A5_LAM4, 1944.0% | [-3.295, 3.391] | A1: Highly sensitive magnitude; A2: Highly sensitive magnitude; A3: Highly sensitive magnitude; A5: Highly sensitive magnitude; A6: Highly sensitive magnitude; A7: Highly sensitive magnitude; A8: Highly sensitive magnitude |
 | AF1 B1 | — | -0.1874 | SIGN_SENSITIVE (A7_RM05:SIGN_FLIP) | A7_RM05, 275.3% | [-0.4027, 0.3285] | A1: Highly sensitive magnitude; A2: Stable magnitude; A3: Moderately sensitive magnitude; A5: Stable magnitude; A6: Highly stable magnitude; A7: Highly sensitive magnitude; A8: Highly stable magnitude |
 | AF1 B2 | — | -0.1874 | SIGN_SENSITIVE (A7_RM05:SIGN_FLIP) | A7_RM05, 275.3% | [-0.4027, 0.3285] | A1: Highly sensitive magnitude; A2: Stable magnitude; A3: Moderately sensitive magnitude; A5: Stable magnitude; A6: Highly stable magnitude; A7: Highly sensitive magnitude; A8: Highly stable magnitude |
+
+## Stage 2 adaptive results (selected A5, A6)
+
+Closure: F6/N0 FIXED_POINT (4 passes, 92 improvements); F6/N3 FIXED_POINT (4 passes, 76 improvements); F4/N0 FIXED_POINT (2 passes, 6 improvements); F4/N3 FIXED_POINT (2 passes, 5 improvements); F4/N4 FIXED_POINT (4 passes, 23 improvements)
+Sentinels bit-exact: True; monotonicity violations: 0 of 840 pairs.
+
+| quantity | BASE | A5_LAM1 | A5_LAM4 | A5_TP050 | A5_TP200 | A6_MAXWALK75 | A6_WALKSPD85 | sign | worst band |
+|---|---|---|---|---|---|---|---|---|---|
+| F1 (unserved vs current plan) | -5.43% | +181.72% | -6.76% | -5.74% | +45.11% | +4.58% | +16.57% | SIGN_SENSITIVE | Highly sensitive magnitude |
+| F4 N4−N3 (% of N3) | +8.55% | -0.98% | +30.79% | +9.88% | +6.77% | +6.77% | +7.72% | SIGN_SENSITIVE | Highly sensitive magnitude |
+| F4 N4−N0 (% of N0) | +8.37% | -0.98% | +30.57% | +9.70% | +6.59% | +6.57% | +7.54% | SIGN_SENSITIVE | Highly sensitive magnitude |
+| AF1 REF (N3−N0, % of N0) | -0.21% | +0.00% | -0.16% | -0.21% | -0.31% | -0.16% | -0.17% | SIGN_SENSITIVE | Highly sensitive magnitude |
+
+F6 rank changes vs BASE (cells whose rank moved):
+* N0 A5_LAM1: 11 moved; sign events: R2_S10:FROM_TIE, R2_S25:FROM_TIE
+* N0 A5_LAM4: 1 moved; sign events: R4_C05:TO_TIE
+* N0 A5_TP050: 0 moved; sign events: none
+* N0 A5_TP200: 8 moved; sign events: R2_S10:FROM_TIE, R2_S25:FROM_TIE
+* N0 A6_MAXWALK75: 3 moved; sign events: R2_S10:FROM_TIE
+* N0 A6_WALKSPD85: 3 moved; sign events: R2_S10:FROM_TIE
+* N3 A5_LAM1: 9 moved; sign events: R2_S10:FROM_TIE, R2_S25:FROM_TIE
+* N3 A5_LAM4: 3 moved; sign events: none
+* N3 A5_TP050: 0 moved; sign events: none
+* N3 A5_TP200: 9 moved; sign events: R2_S10:FROM_TIE, R2_S25:FROM_TIE
+* N3 A6_MAXWALK75: 5 moved; sign events: R2_S10:FROM_TIE
+* N3 A6_WALKSPD85: 6 moved; sign events: R2_S10:FROM_TIE
 
 F2 null breaks at: none
 

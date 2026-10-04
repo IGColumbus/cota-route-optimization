@@ -97,6 +97,63 @@ def row(name, key, an, dim_of, *, certified=None, note=""):
             "note": note}
 
 
+def _s2_series(base, per_level: dict) -> dict:
+    """Stage 2 summary of one quantity: BASE value, per-level values, the
+    Sept 23 sign label over the Stage 2 levels, per-level magnitude band, and
+    the worst movement."""
+    import exp7_classify as C
+    if base is None:
+        return {"base": None, "per_level": per_level, "sign": None}
+    lv = {k: v for k, v in per_level.items() if k != "BASE"}
+    bands = {k: C.magnitude_band(base, v) for k, v in lv.items()}
+    worst = max(((k, b["relative_change"]) for k, b in bands.items()
+                 if b["relative_change"] is not None),
+                key=lambda kv: kv[1], default=None)
+    return {"base": base, "per_level": lv,
+            "sign": C.sign_robustness(base, lv),
+            "bands": {k: b["label"] for k, b in bands.items()},
+            "worst_band": C.worst_magnitude(list(bands.values())),
+            "worst_movement": None if worst is None else
+            {"level": worst[0], "relative_change": worst[1]}}
+
+
+def stage2_block(s2a: dict) -> dict:
+    """F1 / F4 / F6 / AF1 adaptive results from EXP7_ANALYSIS.json."""
+    out = {"status": s2a["status"], "closure": s2a["closure"],
+           "sentinels": s2a["sentinels"], "record_checks": s2a["record_checks"],
+           "monotonicity": {k: s2a["monotonicity"][k]
+                            for k in ("n_pairs", "n_violations")},
+           "failures": s2a["failures"]}
+    f1 = {r["level"]: r["f1_pct"] for r in s2a.get("f1_adaptive", [])}
+    out["F1"] = _s2_series(f1.get("BASE"), f1)
+    out["F1"]["rows"] = s2a.get("f1_adaptive", [])
+    for key, (x, y) in (("F4_43", ("N3", "N4")), ("F4_40", ("N0", "N4"))):
+        rows = {r["level"]: r.get("delta_pct") for r in s2a["f4"]
+                if r["control"] == x and r["treatment"] == y}
+        out[key] = _s2_series(rows.get("BASE"), rows)
+        out[key]["all_admitted"] = all(r["admitted"] for r in s2a["f4"]
+                                       if r["control"] == x and r["treatment"] == y)
+    af1 = {}
+    for r in s2a["af1_n3_minus_n0"]:
+        af1.setdefault(r["cell"], {})[r["level"]] = r.get("delta_pct_of_N0")
+    out["AF1"] = {c: _s2_series(v.get("BASE"), v) for c, v in af1.items()}
+    ranks = s2a["f6_ranks"]
+    f6 = {}
+    for key, rk in ranks.items():
+        lv, n = key.split("/")
+        if lv == "BASE":
+            continue
+        b = ranks.get(f"BASE/{n}", {})
+        moved = sorted(c for c in rk if c in b and rk[c]["rank"] != b[c]["rank"])
+        f6.setdefault(n, {})[lv] = {
+            "rank_changes_vs_base": moved,
+            "sign_events": sorted(f"{x['cell']}:{x['flip']}"
+                                  for x in s2a["f6_sign_changes"]
+                                  if x["level"] == lv and x["network"] == n)}
+    out["F6"] = f6
+    return out
+
+
 def main() -> int:
     an = json.loads((ROOT / "outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json").read_text())
     lv = json.loads((ROOT / "outputs/exp7/EXP7_LEVELS.json").read_text())["levels"]
@@ -138,6 +195,8 @@ def main() -> int:
         s2_p = ROOT / "outputs/exp7/EXP7_ANALYSIS.json"
         s2["analysis_status"] = (json.loads(s2_p.read_text())["status"]
                                  if s2_p.exists() else "not run")
+        if s2_p.exists():
+            s2["results"] = stage2_block(json.loads(s2_p.read_text()))
     out = {"artifact": "EXP7_CLOSEOUT_TABLE", "stage1_status": an["status"],
            "rows": rows, "F2_null_holds_by_level": null,
            "F2_null_breaks_at": sorted(k for k, v in null.items() if not v),
@@ -182,6 +241,37 @@ def main() -> int:
             "—" if rng is None else f"[{rng[0]:.4g}, {rng[1]:.4g}]",
             "; ".join(f"{d}: {b}" for d, b in sorted(
                 r["worst_magnitude_band_by_dimension"].items()) if b)))
+    res = s2.get("results")
+    if res:
+        def fmt(v):
+            return "—" if v is None else f"{v:+.2f}%"
+        md += ["", "## Stage 2 adaptive results (selected A5, A6)", "",
+               f"Closure: " + "; ".join(
+                   f"{k} {v['status']} ({v['passes']} passes, "
+                   f"{v['n_improvements']} improvements)"
+                   for k, v in res["closure"].items() if v),
+               f"Sentinels bit-exact: {all(s['ok'] for s in res['sentinels'])}; "
+               f"monotonicity violations: {res['monotonicity']['n_violations']} "
+               f"of {res['monotonicity']['n_pairs']} pairs.", "",
+               "| quantity | BASE | " + " | ".join(
+                   sorted(res["F1"]["per_level"])) + " | sign | worst band |",
+               "|---|---|" + "---|" * len(res["F1"]["per_level"]) + "---|---|"]
+        lvls = sorted(res["F1"]["per_level"])
+        for name, q in (("F1 (unserved vs current plan)", res["F1"]),
+                        ("F4 N4−N3 (% of N3)", res["F4_43"]),
+                        ("F4 N4−N0 (% of N0)", res["F4_40"]),
+                        ("AF1 REF (N3−N0, % of N0)", res["AF1"].get("REF", {}))):
+            if not q or q.get("base") is None:
+                continue
+            md.append("| {} | {} | {} | {} | {} |".format(
+                name, fmt(q["base"]),
+                " | ".join(fmt(q["per_level"].get(l)) for l in lvls),
+                (q["sign"] or {}).get("label"), q.get("worst_band")))
+        md += ["", "F6 rank changes vs BASE (cells whose rank moved):"]
+        for n, d in sorted(res["F6"].items()):
+            for lv, x in sorted(d.items()):
+                md.append(f"* {n} {lv}: {len(x['rank_changes_vs_base'])} moved; "
+                          f"sign events: {', '.join(x['sign_events']) or 'none'}")
     md += ["", "F2 null breaks at: " + (", ".join(out["F2_null_breaks_at"]) or "none"),
            "", "Not covered: " + "; ".join(out["not_covered"])]
     (ROOT / "outputs/exp7/EXP7_CLOSEOUT_TABLE.md").write_text("\n".join(md) + "\n")
