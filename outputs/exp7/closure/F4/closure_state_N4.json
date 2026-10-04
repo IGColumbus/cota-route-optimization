@@ -1,5 +1,5 @@
 {
- "passes_completed": 1,
+ "passes_completed": 2,
  "status": null,
  "tried": [
   [
@@ -113,6 +113,10 @@
   [
    "A6_MAXWALK75|REF",
    "7449a2905e4a38f4"
+  ],
+  [
+   "A6_MAXWALK75|REF",
+   "bb4f20999e1bc6a5"
   ],
   [
    "A6_WALKSPD85|REF",
@@ -422,10 +426,24 @@
    ],
    "before": "3286313.719988837",
    "after": "3284838.7615686087"
+  },
+  {
+   "pass": 2,
+   "stage": "X",
+   "cell": [
+    "A6_MAXWALK75",
+    "REF"
+   ],
+   "from": [
+    "A6_WALKSPD85",
+    "REF"
+   ],
+   "before": "3284838.7615686087",
+   "after": "3284536.07827305"
   }
  ],
- "cursor": 25,
- "pass_improved": true,
+ "cursor": 1,
+ "pass_improved": false,
  "blocking": [],
  "best": {
   "BASE|REF": {
@@ -466,9 +484,9 @@
   },
   "A6_MAXWALK75|REF": {
    "status": "CERTIFIED",
-   "objective": 3284838.7615686087,
-   "plan_digest": "3963380780cef12f",
-   "ref": "outputs/exp7/closure/F4/A6_MAXWALK75/N4_REF__anchor_3963380780cef12f.json"
+   "objective": 3284536.07827305,
+   "plan_digest": "860bb218e8e9e10f",
+   "ref": "outputs/exp7/closure/F4/A6_MAXWALK75/N4_REF__anchor_bb4f20999e1bc6a5.json"
   }
  }
 }
