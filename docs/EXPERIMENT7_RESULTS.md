@@ -57,6 +57,10 @@ The same mechanism appears in milder form at A5_TP200, A6_WALKSPD85 and A6_MAXWA
   - The sign holds where the unserved penalty dominates (LAM4, TP050).
   - It reverses where trips become costlier than the penalty.
   - F1 is robust for the fixed plans Exp 1 produced. It is **not** a property of re-optimization under every objective calibration.
+- **Post hoc, not preregistered (`docs/EXPERIMENT7_F1_ADDENDUM.md`).** REF may switch route-periods OFF; Exp 1's plans could not (span preserved, 60-minute maximum headway).
+  - Re-optimized under Exp 1's own rules (the R1_H60 cell), F1 holds at every λ ≥ 2 level: −2.1% to −7.0%.
+  - At λ = 1 it is +0.12%, a near-tie.
+  - Every preregistered reversal coincides with the optimizer switching 38–139 route-periods off.
 
 **F2: the splice null.** It holds at every applicable Stage 1 level. F2 is not re-optimized (§14.2).
 

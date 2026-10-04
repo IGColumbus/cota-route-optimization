@@ -1,0 +1,334 @@
+{
+ "artifact": "EXP7_F1_DECISION_SPACE",
+ "preregistered": false,
+ "purpose": "F1 adaptive with the decision space matched to Experiment 1's service rules (no route-period switched OFF, 60-minute maximum headway), against the preregistered REF version",
+ "closest_cell_to_exp1_rules": "R1_H60",
+ "inputs_sha256": {
+  "outputs/exp7/EXP7_ANALYSIS.json": "b7dfa4e0d09c823d",
+  "outputs/exp7/closure/F6/closure_state_N0.json": "cb2d13b7be2ef6b9"
+ },
+ "rows": [
+  {
+   "level": "BASE",
+   "current_plan_unserved": 10423.684219641913,
+   "cells": {
+    "REF": {
+     "record": "outputs/exp7/closure/F6/BASE/N0_REF__anchor_2523154d9bee93e3.json",
+     "f1_pct": -5.428277467334485,
+     "unserved": 9857.85771788099,
+     "served": 21091.142282119014,
+     "generalized_cost": 1757243.360030382,
+     "revenue_veh_hours": 2515.535126725227,
+     "n_off": 17,
+     "plan": "2523154d9bee93e3"
+    },
+    "R1_H60": {
+     "record": "outputs/exp7/closure/F6/BASE/N0_R1_H60__anchor_9f93440c516b3c51.json",
+     "f1_pct": -6.571377463201189,
+     "unserved": 9738.704583997105,
+     "served": 21210.295416002897,
+     "generalized_cost": 1787156.0944389782,
+     "revenue_veh_hours": 2515.8338743689037,
+     "n_off": 0,
+     "plan": "ec07d70b4e90bc58"
+    },
+    "R1_H30": {
+     "record": "outputs/exp6/initial/N0_R1_H30.json",
+     "f1_pct": -6.315380840182383,
+     "unserved": 9765.388863593533,
+     "served": 21183.61113640647,
+     "generalized_cost": 1786948.4618125358,
+     "revenue_veh_hours": 2515.0202919839494,
+     "n_off": 0,
+     "plan": "60f0b38cfeeea459"
+    },
+    "R3_SPAN": {
+     "record": "outputs/exp7/closure/F6/BASE/N0_R3_SPAN__anchor_ec07d70b4e90bc58.json",
+     "f1_pct": -6.152274008119973,
+     "unserved": 9782.39060470838,
+     "served": 21166.609395291624,
+     "generalized_cost": 1781008.5913898686,
+     "revenue_veh_hours": 2515.8245748519957,
+     "n_off": 1,
+     "plan": "c7c4d12fa144e28f"
+    }
+   }
+  },
+  {
+   "level": "A5_LAM1",
+   "current_plan_unserved": 10423.684219641913,
+   "cells": {
+    "REF": {
+     "record": "outputs/exp7/initial/F6/A5_LAM1/N0_REF.json",
+     "f1_pct": 181.72488689054083,
+     "unserved": 29366.112577613334,
+     "served": 1582.8874223866674,
+     "generalized_cost": 69305.0336976442,
+     "revenue_veh_hours": 556.5897959183674,
+     "n_off": 139,
+     "plan": "76430e1f43635d31"
+    },
+    "R1_H60": {
+     "record": "outputs/exp7/initial/F6/A5_LAM1/N0_R1_H60.json",
+     "f1_pct": 0.11786025739894956,
+     "unserved": 10435.969600693636,
+     "served": 20513.030399306364,
+     "generalized_cost": 1737584.0267963377,
+     "revenue_veh_hours": 2514.930187254882,
+     "n_off": 0,
+     "plan": "b34377ffe91a8892"
+    },
+    "R1_H30": {
+     "record": "outputs/exp7/initial/F6/A5_LAM1/N0_R1_H30.json",
+     "f1_pct": -4.562821135358375,
+     "unserved": 9948.070152985076,
+     "served": 21000.92984701493,
+     "generalized_cost": 1772110.7976315983,
+     "revenue_veh_hours": 2515.3271646164176,
+     "n_off": 0,
+     "plan": "95f7816b53338d26"
+    },
+    "R3_SPAN": {
+     "record": "outputs/exp7/initial/F6/A5_LAM1/N0_R3_SPAN.json",
+     "f1_pct": 167.37154095940508,
+     "unserved": 27869.96512279892,
+     "served": 3079.0348772010802,
+     "generalized_cost": 220828.08251507484,
+     "revenue_veh_hours": 1193.8149330035246,
+     "n_off": 86,
+     "plan": "3b5c2f159f417190"
+    }
+   }
+  },
+  {
+   "level": "A5_LAM4",
+   "current_plan_unserved": 10423.684219641913,
+   "cells": {
+    "REF": {
+     "record": "outputs/exp7/closure/F6/A5_LAM4/N0_REF__anchor_061919b6be9e8bbc.json",
+     "f1_pct": -6.7597007149193145,
+     "unserved": 9719.074362925847,
+     "served": 21229.925637074153,
+     "generalized_cost": 1778197.0611621041,
+     "revenue_veh_hours": 2516.3914512200754,
+     "n_off": 12,
+     "plan": "061919b6be9e8bbc"
+    },
+    "R1_H60": {
+     "record": "outputs/exp7/initial/F6/A5_LAM4/N0_R1_H60.json",
+     "f1_pct": -6.830871518450355,
+     "unserved": 9711.65574310919,
+     "served": 21237.344256890818,
+     "generalized_cost": 1791823.9140217681,
+     "revenue_veh_hours": 2513.376788521646,
+     "n_off": 0,
+     "plan": "2e8347da8f2bc62d"
+    },
+    "R1_H30": {
+     "record": "outputs/exp7/initial/F6/A5_LAM4/N0_R1_H30.json",
+     "f1_pct": -6.653280563562014,
+     "unserved": 9730.167263449397,
+     "served": 21218.832736550612,
+     "generalized_cost": 1791710.7728798133,
+     "revenue_veh_hours": 2514.729423366941,
+     "n_off": 0,
+     "plan": "4085761b57041ad9"
+    },
+    "R3_SPAN": {
+     "record": "outputs/exp7/initial/F6/A5_LAM4/N0_R3_SPAN.json",
+     "f1_pct": -6.87092012903594,
+     "unserved": 9707.481202407394,
+     "served": 21241.51879759261,
+     "generalized_cost": 1791099.0522311833,
+     "revenue_veh_hours": 2514.4108162994235,
+     "n_off": 2,
+     "plan": "3bcfea61f6647790"
+    }
+   }
+  },
+  {
+   "level": "A5_TP050",
+   "current_plan_unserved": 9856.11338171718,
+   "cells": {
+    "REF": {
+     "record": "outputs/exp7/closure/F6/A5_TP050/N0_REF__anchor_3709fb1285408d18.json",
+     "f1_pct": -5.7357017525788585,
+     "unserved": 9290.796113745868,
+     "served": 21658.20388625413,
+     "generalized_cost": 1764895.747379932,
+     "revenue_veh_hours": 2516.214293391894,
+     "n_off": 17,
+     "plan": "3709fb1285408d18"
+    },
+    "R1_H60": {
+     "record": "outputs/exp7/closure/F6/A5_TP050/N0_R1_H60__anchor_9f93440c516b3c51.json",
+     "f1_pct": -6.998974989318885,
+     "unserved": 9166.286471211883,
+     "served": 21782.713528788117,
+     "generalized_cost": 1795742.046599956,
+     "revenue_veh_hours": 2516.4213743689043,
+     "n_off": 0,
+     "plan": "9f93440c516b3c51"
+    },
+    "R1_H30": {
+     "record": "outputs/exp7/initial/F6/A5_TP050/N0_R1_H30.json",
+     "f1_pct": -6.834240703345884,
+     "unserved": 9182.522869215944,
+     "served": 21766.477130784064,
+     "generalized_cost": 1796972.539748032,
+     "revenue_veh_hours": 2514.3439082154437,
+     "n_off": 0,
+     "plan": "4879092c634d4c36"
+    },
+    "R3_SPAN": {
+     "record": "outputs/exp7/closure/F6/A5_TP050/N0_R3_SPAN__anchor_9f93440c516b3c51.json",
+     "f1_pct": -6.543000354872442,
+     "unserved": 9211.227848174794,
+     "served": 21737.772151825207,
+     "generalized_cost": 1789452.1243780896,
+     "revenue_veh_hours": 2516.4120748519954,
+     "n_off": 1,
+     "plan": "f8598372229ae70b"
+    }
+   }
+  },
+  {
+   "level": "A5_TP200",
+   "current_plan_unserved": 11499.178956843783,
+   "cells": {
+    "REF": {
+     "record": "outputs/exp7/initial/F6/A5_TP200/N0_REF.json",
+     "f1_pct": 45.105363598054616,
+     "unserved": 16685.925436119156,
+     "served": 14263.074563880848,
+     "generalized_cost": 1025087.7681538878,
+     "revenue_veh_hours": 2517.136502856714,
+     "n_off": 60,
+     "plan": "d50f88367d19cc35"
+    },
+    "R1_H60": {
+     "record": "outputs/exp7/initial/F6/A5_TP200/N0_R1_H60.json",
+     "f1_pct": -5.533827787048063,
+     "unserved": 10862.834196447579,
+     "served": 20086.165803552423,
+     "generalized_cost": 1752357.9638616536,
+     "revenue_veh_hours": 2515.0006551449505,
+     "n_off": 0,
+     "plan": "0fb649dbdb8303e3"
+    },
+    "R1_H30": {
+     "record": "outputs/exp7/initial/F6/A5_TP200/N0_R1_H30.json",
+     "f1_pct": -5.33928885339503,
+     "unserved": 10885.204576569076,
+     "served": 20063.79542343093,
+     "generalized_cost": 1751983.1732776181,
+     "revenue_veh_hours": 2516.3137686857376,
+     "n_off": 0,
+     "plan": "a28a373a5f5842e9"
+    },
+    "R3_SPAN": {
+     "record": "outputs/exp7/initial/F6/A5_TP200/N0_R3_SPAN.json",
+     "f1_pct": 41.1542370991272,
+     "unserved": 16231.578329196216,
+     "served": 14717.421670803786,
+     "generalized_cost": 1097981.9631162086,
+     "revenue_veh_hours": 2515.593003869237,
+     "n_off": 34,
+     "plan": "4b83cddc630d9adf"
+    }
+   }
+  },
+  {
+   "level": "A6_WALKSPD85",
+   "current_plan_unserved": 10830.597483505228,
+   "cells": {
+    "REF": {
+     "record": "outputs/exp7/closure/F6/A6_WALKSPD85/N0_REF__anchor_7fa733293e534439.json",
+     "f1_pct": 16.56819092961954,
+     "unserved": 12625.031553390943,
+     "served": 18323.96844660906,
+     "generalized_cost": 1482409.721101637,
+     "revenue_veh_hours": 2515.131226716815,
+     "n_off": 38,
+     "plan": "d16a8e5d8ddbf3b2"
+    },
+    "R1_H60": {
+     "record": "outputs/exp7/initial/F6/A6_WALKSPD85/N0_R1_H60.json",
+     "f1_pct": -6.056603152859985,
+     "unserved": 10174.631174845676,
+     "served": 20774.368825154328,
+     "generalized_cost": 1798956.1437205835,
+     "revenue_veh_hours": 2516.0737781092926,
+     "n_off": 0,
+     "plan": "9b7dcae3da0ee053"
+    },
+    "R1_H30": {
+     "record": "outputs/exp7/initial/F6/A6_WALKSPD85/N0_R1_H30.json",
+     "f1_pct": -5.893491793123484,
+     "unserved": 10192.297109668609,
+     "served": 20756.7028903314,
+     "generalized_cost": 1799641.7148282633,
+     "revenue_veh_hours": 2513.8919832160354,
+     "n_off": 0,
+     "plan": "222c9c9571d352f6"
+    },
+    "R3_SPAN": {
+     "record": "outputs/exp7/closure/F6/A6_WALKSPD85/N0_R3_SPAN__anchor_94770e012d233dd1.json",
+     "f1_pct": 0.02151632635114531,
+     "unserved": 10832.927830205557,
+     "served": 20116.072169794446,
+     "generalized_cost": 1718231.695619066,
+     "revenue_veh_hours": 2514.407343067885,
+     "n_off": 6,
+     "plan": "94770e012d233dd1"
+    }
+   }
+  },
+  {
+   "level": "A6_MAXWALK75",
+   "current_plan_unserved": 16648.33941163715,
+   "cells": {
+    "REF": {
+     "record": "outputs/exp7/closure/F6/A6_MAXWALK75/N0_REF__anchor_7fa733293e534439.json",
+     "f1_pct": 4.584102572106463,
+     "unserved": 17411.51636681902,
+     "served": 13537.483633180982,
+     "generalized_cost": 990093.5178824689,
+     "revenue_veh_hours": 2515.4870523340987,
+     "n_off": 38,
+     "plan": "7fa733293e534439"
+    },
+    "R1_H60": {
+     "record": "outputs/exp7/initial/F6/A6_MAXWALK75/N0_R1_H60.json",
+     "f1_pct": -2.140672279395872,
+     "unserved": 16291.953024872495,
+     "served": 14657.046975127507,
+     "generalized_cost": 1139464.963564765,
+     "revenue_veh_hours": 2515.1056422694273,
+     "n_off": 0,
+     "plan": "bc166375895cd91d"
+    },
+    "R1_H30": {
+     "record": "outputs/exp7/initial/F6/A6_MAXWALK75/N0_R1_H30.json",
+     "f1_pct": -2.1107902924102695,
+     "unserved": 16296.9278794888,
+     "served": 14652.0721205112,
+     "generalized_cost": 1139994.3655098493,
+     "revenue_veh_hours": 2516.060794372419,
+     "n_off": 0,
+     "plan": "56aa2ee4a53d8177"
+    },
+    "R3_SPAN": {
+     "record": "outputs/exp7/closure/F6/A6_MAXWALK75/N0_R3_SPAN__anchor_ddbd508529129518.json",
+     "f1_pct": -0.05881677287016274,
+     "unserved": 16638.547395658752,
+     "served": 14310.45260434125,
+     "generalized_cost": 1097820.2198858024,
+     "revenue_veh_hours": 2515.567030591423,
+     "n_off": 6,
+     "plan": "ddbd508529129518"
+    }
+   }
+  }
+ ]
+}
