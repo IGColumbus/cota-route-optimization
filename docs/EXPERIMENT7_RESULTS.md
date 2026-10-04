@@ -61,7 +61,7 @@ The same mechanism appears in milder form at A5_TP200, A6_WALKSPD85 and A6_MAXWA
   - Every preregistered reversal coincides with the optimizer switching 38–139 route-periods off.
   - When service may be switched off, F1 is not identified. Two certified fixed points of the same BASE cell, 0.16% apart in objective, give −5.4% and +30.5% (errata E3).
 
-**F2: the splice null.** It holds at every applicable Stage 1 level. F2 is not re-optimized (§14.2). Its preregistered sign label is SIGN_SENSITIVE (18 Class A flips, 10 of them bootstrap draws; range −0.226% to +0.166%), as expected for a 0.0065% effect.
+**F2: the splice null.** It holds at every applicable Stage 1 level. F2 is not re-optimized (§14.2). Its preregistered sign label is SIGN_SENSITIVE (18 Class A flips, 10 of them bootstrap draws; range −0.226% to +0.166%), as expected for an effect that small (recorded +0.0065% on the incumbent-start plans Exp 7 evaluates; +0.090% under matched starts, errata E17).
 
 **F3: N3 add_stop vs control.**
 
@@ -118,5 +118,6 @@ The same mechanism appears in milder form at A5_TP200, A6_WALKSPD85 and A6_MAXWA
 - **A8:** cost_retention_full_min is not varied.
 - **Stage 2 scope:** only A5 and A6 are re-optimized. A2 was not selected, so no bootstrap re-optimization ran.
 - **Untested:** the Class B jobs-accessibility objective.
+- **Untested:** cross-route common-lines / optimal-strategy assignment. The level named `B1_COMMONLINES` ran Model A (errata E16).
 - **Objective-ordering results** do not transfer to served demand, GC, OFF count or accessibility.
 - **Proxy demand:** all results use proxy demand (AGENTS.md rule 7).

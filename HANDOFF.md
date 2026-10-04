@@ -18,7 +18,7 @@ are no runs in flight.
 | exp | question | status | read |
 |---|---|---|---|
 | 1 | frequency redistribution, geometry fixed | **CLOSED, certified λ ≥ 2**: −6.65% unserved demand | `outputs/canonical/exp1_final.json` |
-| 2 / 2B | through-routing geometry | **CLOSED**: no supportable claim / certified null | `EXPERIMENT2_CLOSEOUT.md` |
+| 2 / 2B | through-routing geometry | **CLOSED**: no supportable gain; the leader is +0.090% unserved under matched starts, worse than no edit (errata E17); the 240-set sweep is discovery-stage | `EXPERIMENT2_CLOSEOUT.md`, `outputs/exp2b_certification.json → _confirmation` |
 | 3 | route mutation, eight edit kinds | **CLOSED**: certified leader −0.187% (`exp3-final-v1`) | `EXPERIMENT3_CLOSURE.md` |
 | 4 / 4N / 4A | greenfield design; normalized rerun; vs Exp 3 | **CLOSED**: legacy ordering superseded; greenfield worse by +9.66% | `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`, `EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` |
 | 5 | modeled resource frontier | **FAILED** monotonicity gate (on N4 only); N0 half informative | `EXPERIMENT5_CLOSEOUT.md` |

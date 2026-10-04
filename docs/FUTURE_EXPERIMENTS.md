@@ -7,8 +7,8 @@ change the study's answer, not by cost.*
 
 The study's current answer:
 
-* At current resources, re-timing frequencies is the one lever that materially
-  reduces unserved demand, by about 6% (Experiment 1).
+* At current resources, reallocating frequencies is the one lever that
+  materially reduces modeled unserved demand, by about 6% (Experiment 1).
 * It keeps its sign at every implemented Stage 1 level for the certified
   plans (SIGN_ROBUST; magnitude Highly sensitive to walking friction).
   Re-optimized under Experiment 1's service rules (no route-period switched
@@ -102,7 +102,8 @@ is not divided by core count.
   1. **ε-constraint:** minimize GC subject to unserved ≤ ε, swept over ε.
   2. **Unserved penalty consistent with the retention curve:** set
      λ · w_unserved at or above the generalized cost at which the retention
-     curve treats a trip as lost (for example, its 210-min zero point), and
+     curve treats a trip as lost (for example, its 210-min floor point,
+     `cost_retention_zero_min`, where retention reaches its 0.10 floor), and
      report whether shedding persists. An operating-cost term is not a remedy
      for shedding (it rewards removing service); it matters only if the fixed
      envelope is replaced by a priced budget.
@@ -250,10 +251,13 @@ Runnable now; needs no external data.
 
 * **Question:** do the findings change under hyperpath / optimal-strategy
   assignment?
-* **Why:** the omission is 0.516% of GC on N0 but 12.47% on N4. It
-  disadvantages networks with parallel routes.
-* **Design:** add a Class C evaluator. Re-run F1, F4 and Exp 7 Class B level
-  B1.
+* **Why:** the upper bound on the omitted served-leg wait saving is 0.516% of
+  GC on N0, 1.16% on N3 and 12.47% on N4 (retained-rider effects unmeasured).
+  It disadvantages networks with parallel routes.
+* **Design:** add a Class C evaluator. Re-run F1 and F4 under it. Exp 7's
+  `B1_COMMONLINES` level ran Model A (`pattern`), not common lines (errata
+  E16), so this item is the first actual test of the as-issued Class B
+  common-lines question.
 
 ### E19. Elastic demand / mode choice
 

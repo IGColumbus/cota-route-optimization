@@ -276,7 +276,9 @@ The design:
 
 * **Stage 1** re-evaluated the frozen plans, unchanged. 47 levels plus BASE
   were run (44 Class A in seven dimensions: demand, runtimes, cost weights,
-  walking, route removal and the retention curve; 1 Class B; 2 additional) on
+  walking, route removal and the retention curve; 1 Class B (Model A waiting;
+  the as-issued common-lines/hyperpath item was not implemented, errata E16);
+  2 additional) on
   four network variants (N0, N3, N4, N0S): 4 × 48 = 192 evaluation cells.
   Declared but not run: A4 reliability (2 levels, UNIMPLEMENTED), the B2
   jobs-accessibility objective (UNTESTED), path-width/scenario count (DROPPED
@@ -303,7 +305,9 @@ Results:
     vehicle-hours): at λ = 1 a lost trip costs 60 min while the average served
     trip costs 83–86 min of generalized cost.
 * **Splice null (F2):** the null test holds at every applicable level; the
-  sign label is SIGN_SENSITIVE, as expected for a 0.0065% effect.
+  sign label is SIGN_SENSITIVE, as expected for an effect that small (recorded
+  +0.0065% on the incumbent-start plans Exp 7 evaluates; +0.090% under matched
+  starts, errata E17).
 * **Greenfield (F4):** worse than N3 at every Class A level except λ = 1 at
   fixed plans (+7.7% to +19.4%), and at every λ ≥ 2 level re-optimized (+6.8%
   to +30.8%); at λ = 1, −1.31% (fixed plans) and −0.98% (re-optimized).
@@ -352,7 +356,7 @@ entirely legitimate from the inside.
 | commute-only LODES demand | 24.7% of regional flow is transit-accessible; the top 20k pairs are 64.9% of that | unknown; the largest unquantified error |
 | frontier below λ = 2 | uncertified on both models | quoted from λ = 2 upward |
 | per-route headways | about 19% of route-periods under Model B (worst pair 19.7%, mean 19.1%) | aggregate unaffected; no route-level recommendation |
-| cross-route common lines | 0.516% of generalized cost under Model B | overstates waiting on trunk routes; deferred |
+| cross-route common lines | upper bound on served-leg wait saving: 0.516% of GC on N0, 1.16% on N3, 12.47% on N4; untested by Exp 7 | overstates waiting on trunk routes; deferred |
 | stop-service penalty | unmeasurable from this feed (−157 s/stop, inverted) | blocks any consolidation claim resting on runtime savings |
 | novel-link running time | MAE 17.2 s, aggregate bias +0.41% | unbiased, but 20.5% median APE on a single link |
 | scheduled ≠ actual | unquantified | no reliability penalty anywhere |
