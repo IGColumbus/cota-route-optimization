@@ -1,6 +1,6 @@
 {
- "passes_completed": 1,
- "status": null,
+ "passes_completed": 2,
+ "status": "FIXED_POINT",
  "tried": [
   [
    "A5_LAM1|REF",
@@ -28,6 +28,10 @@
   ],
   [
    "A5_LAM4|REF",
+   "96572de67f7c96f7"
+  ],
+  [
+   "A5_LAM4|REF",
    "f120368219c86c2c"
   ],
   [
@@ -41,6 +45,10 @@
   [
    "A5_TP050|REF",
    "76430e1f43635d31"
+  ],
+  [
+   "A5_TP050|REF",
+   "f120368219c86c2c"
   ],
   [
    "A5_TP200|REF",
@@ -180,7 +188,7 @@
    "after": "2984018.7540153973"
   }
  ],
- "cursor": 10,
+ "cursor": 0,
  "pass_improved": false,
  "blocking": [],
  "best": {
