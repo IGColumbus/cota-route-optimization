@@ -254,6 +254,26 @@ def main() -> int:
             r["vs_base"] = C.sign_flip(b["delta"], r["delta"])
     out["f4"] = f4
 
+    # ---- F1 adaptive (amendment 14.2): F6-track N0 REF vs the N0 current plan,
+    # evaluated at the same level. The current-plan unserved demand at each level
+    # is the Stage 1 fixed-plan row F1_BASELINE (same evaluator, same level).
+    f1 = []
+    for lv in order:
+        r = final.get(("F6", lv, "N0", "REF"))
+        ev = ROOT / "outputs/exp7/stage1/evals/N0" / f"{lv}.json"
+        if not r or r["status"] != "CERTIFIED" or not ev.exists():
+            continue
+        e = json.loads(ev.read_text())
+        if e.get("level_digest") not in (None, lvs[lv].digest):
+            fails.append(f"F1 adaptive: stage1 eval level digest mismatch {lv}")
+            continue
+        ub = (e["rows"].get("F1_BASELINE") or {}).get("unserved_demand")
+        u = float(r["outcome"]["fitness_EXACT"]["unserved_demand"])
+        f1.append({"level": lv, "ref_unserved": u, "current_plan_unserved": ub,
+                   "f1_pct": None if not ub else 100 * (u / ub - 1),
+                   "ref_plan": r["outcome"]["plan_digest"]})
+    out["f1_adaptive"] = f1
+
     # ---- sentinels -------------------------------------------------------------
     sent = []
     for track, lv, n, c in con["sentinels"]:
@@ -273,7 +293,9 @@ def main() -> int:
     out["sentinels"] = sent
 
     out["failures"] = fails
-    out["status"] = ("EXP7_SENSITIVITY_CERTIFIED" if not fails and not a.partial
+    done = ("EXP7_STAGE2_REOPT_COMPLETE" if con.get("design") == "two_stage"
+            else "EXP7_SENSITIVITY_CERTIFIED")      # amendment 14.3
+    out["status"] = (done if not fails and not a.partial
                      else "EXP7_PARTIAL" if a.partial and not fails
                      else "EXP7_BLOCKED")
     if not con.get("frozen"):
