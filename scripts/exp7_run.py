@@ -323,6 +323,13 @@ def closure(track: str, net: str) -> int:
     log = logger(f"closure_{track}_{net}")
     d = CLOS / track
     d.mkdir(parents=True, exist_ok=True)
+    # One writer per closure state: a second process for the same (track,
+    # network) blocks here until the first finishes, then resumes from its
+    # saved state (a FIXED_POINT state returns immediately). Locking only;
+    # no effect on any computed number.
+    import fcntl
+    _lock = open(d / f".lock_{net}", "w")
+    fcntl.flock(_lock, fcntl.LOCK_EX)
     order = con["level_order"]
     group = E.Group(levels=order, policies=list(t["policies"]),
                     edges=[tuple(e) for e in t.get("adjacent_edges", [])],
