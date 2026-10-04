@@ -61,6 +61,7 @@ The same mechanism appears in milder form at A5_TP200, A6_WALKSPD85 and A6_MAXWA
   - Re-optimized under Exp 1's own rules (the R1_H60 cell), F1 holds at every λ ≥ 2 level: −2.1% to −7.0%.
   - At λ = 1 it is +0.12%, a near-tie.
   - Every preregistered reversal coincides with the optimizer switching 38–139 route-periods off.
+  - When service may be switched off, F1 is not identified. Two certified fixed points of the same BASE cell, 0.16% apart in objective, give −5.4% and +30.5% (errata E3).
 
 **F2: the splice null.** It holds at every applicable Stage 1 level. F2 is not re-optimized (§14.2).
 

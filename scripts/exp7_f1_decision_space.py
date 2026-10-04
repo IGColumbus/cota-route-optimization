@@ -30,8 +30,9 @@ def main() -> int:
     if an["status"] != "EXP7_STAGE2_REOPT_COMPLETE":
         raise SystemExit("refusing: Stage 2 not complete")
     st = json.loads((E7 / "closure/F6/closure_state_N0.json").read_text())
-    if st["status"] != "FIXED_POINT":
-        raise SystemExit("refusing: F6 N0 closure not at fixed point")
+    s4 = json.loads((E7 / "closure/F4/closure_state_N0.json").read_text())
+    if st["status"] != "FIXED_POINT" or s4["status"] != "FIXED_POINT":
+        raise SystemExit("refusing: N0 closure not at fixed point")
     levels = [r["level"] for r in an["f1_adaptive"]]
     rows = []
     for lv in levels:
@@ -50,6 +51,17 @@ def main() -> int:
                 "generalized_cost": float(f["generalized_cost"]),
                 "revenue_veh_hours": float(f["revenue_veh_hours"]),
                 "n_off": o["n_off"], "plan": o["plan_digest"]}
+        # The same cell (N0, REF, this level) closed independently on the F4
+        # track: a second fixed point of the same mathematical problem.
+        r4 = json.loads((ROOT / s4["best"][f"{lv}|REF"]["ref"]).read_text())
+        u4 = float(r4["outcome"]["fitness_EXACT"]["unserved_demand"])
+        row["ref_f4_track"] = {
+            "record": s4["best"][f"{lv}|REF"]["ref"],
+            "objective": float(r4["outcome"]["objective_EXACT"]),
+            "f6_track_objective": float(json.loads((ROOT / row["cells"]["REF"]["record"])
+                                                   .read_text())["outcome"]["objective_EXACT"]),
+            "f1_pct": 100 * (u4 / cur - 1), "n_off": r4["outcome"]["n_off"],
+            "served": float(r4["outcome"]["fitness_EXACT"]["served_demand"])}
         rows.append(row)
     out = {"artifact": "EXP7_F1_DECISION_SPACE",
            "preregistered": False,
@@ -61,7 +73,8 @@ def main() -> int:
            "inputs_sha256": {
                p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest()[:16]
                for p in ("outputs/exp7/EXP7_ANALYSIS.json",
-                         "outputs/exp7/closure/F6/closure_state_N0.json")},
+                         "outputs/exp7/closure/F6/closure_state_N0.json",
+                         "outputs/exp7/closure/F4/closure_state_N0.json")},
            "rows": rows}
     p = E7 / "EXP7_F1_DECISION_SPACE.json"
     p.write_text(json.dumps(out, indent=1) + "\n")

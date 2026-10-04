@@ -261,10 +261,44 @@ Scope notes:
   optimum**. The flat objective above is direct evidence that better plans may
   exist.
 
-Experiment 7 needs its amendment first (draft: `docs/EXPERIMENT7_AMENDMENT_DRAFT.md`).
-F4 becomes the robustness of the negative N4 result, and F6 becomes the N0/N3
-policy price. Exp 7 must carry closure, or an equivalent, at every sensitivity
-level, because basin corrections here are the same size as the prices.
+**Experiment 7: robustness of findings F1–F6.** Stage 1
+`EXP7_STAGE1_EVALUATION_COMPLETE` and Stage 2 `EXP7_STAGE2_REOPT_COMPLETE`
+(`EXPERIMENT7_CLOSEOUT.md`).
+
+The design:
+
+* **Stage 1** re-evaluated every certified plan, unchanged, at 47 assumption
+  levels: demand, runtimes, cost weights, walking, route removal and the
+  retention curve. That is 192 cells.
+* **Stage 2** re-optimized, with basin closure, in the two dimensions a
+  preregistered metric selected: objective weights (A5) and walking friction
+  (A6).
+
+Results:
+
+* **Frequency (F1), fixed plans:** keeps its sign at every level, from −1.9% to
+  −7.0% unserved.
+* **Frequency, re-optimized:**
+  * Under Exp 1's own rules (no route-period switched off, 60-min maximum
+    headway), it holds at every λ ≥ 2 level, from −2.1% to −7.0%. This
+    comparison is post hoc (`docs/EXPERIMENT7_F1_ADDENDUM.md`).
+  * When the optimizer may switch service off, unserved demand is not
+    identified by the objective. Two certified plans 0.16% apart give −5.4%
+    and +30.5% at base assumptions.
+  * At λ = 1 the optimizer nearly empties the network (557 of 2,516
+    vehicle-hours), because the objective has no operating-cost term.
+* **Greenfield (F4):** worse than N3 at every λ ≥ 2 level in both stages, by
+  +6.8% to +30.8%.
+* **Safeguard prices (F6):** non-negative at every level.
+
+Not tested:
+
+* reliability (A4, unimplemented);
+* bootstrap re-optimization (A2 not selected);
+* the jobs-accessibility objective.
+
+The full write-up is `docs/report/TECHNICAL_REPORT.md` (draft). Next steps are
+in `docs/FUTURE_EXPERIMENTS.md`.
 
 ## The Model A → Model B correction
 

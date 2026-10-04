@@ -47,6 +47,39 @@ level (%). OFF = route-periods switched off. Negative values are improvements.
 
 Every R1_H60 and R1_H30 plan uses 2,513–2,516 revenue vehicle-hours.
 
+## The same REF cell has two fixed points
+
+The N0 REF cell at each level was closed twice:
+
+* on the F6 track (W + X transfers from the policy cells);
+* independently on the F4 track (X transfers only).
+
+Each run reached a certified fixed point. On five of the seven levels the two
+fixed points differ in objective by more than 0.03%.
+
+| level | F6-track REF F1 (OFF) | F4-track REF F1 (OFF) | F4 objective vs F6 |
+|---|---|---|---|
+| BASE | −5.43% (17) | **+30.48%** (48) | **−0.161%** (better) |
+| A5_LAM1 | +181.72% (139) | +181.72% (139) | same plan |
+| A5_LAM4 | −6.76% (12) | −6.77% (12) | +0.007% |
+| A5_TP050 | −5.74% (17) | −6.60% (15) | +0.038% |
+| A5_TP200 | +45.11% (60) | +24.55% (48) | −0.401% |
+| A6_WALKSPD85 | +16.57% (38) | +28.30% (48) | −0.284% |
+| A6_MAXWALK75 | +4.58% (38) | +10.23% (48) | +0.071% |
+
+At BASE (λ = 2) the best-known plan **in the decision space that allows service
+to be switched off** has an F1 of **+30.5%**. That plan comes from the F4 track
+and is 0.16% better in objective. It switches 48 route-periods off and serves
+about 17,350 modeled trips, against 21,091 for the F6-track plan.
+
+This is Experiment 6's flat-objective finding (§7 of its closeout) appearing
+directly in F1. Once route-periods may be switched off, plans within a fraction
+of a percent of each other in objective differ by tens of percent in unserved
+demand. **Unserved demand is not identified by the λ = 2 objective in that
+decision space.** The preregistered F1 adaptive value (F6-track REF) is a
+basin-dependent figure, and Experiment 7 closeout §9 prohibits treating such
+figures as findings in their own right.
+
 ## Reading
 
 1. **Under Experiment 1's own rules, F1 survives re-optimization at every λ ≥ 2
@@ -56,12 +89,16 @@ Every R1_H60 and R1_H30 plan uses 2,513–2,516 revenue vehicle-hours.
    * R1_H30 holds even at λ = 1 (−4.56%).
    * This matches the Stage 1 fixed-plan result (−1.9% to −7.0%) and
      Experiment 1's own frontier (−1.42% at λ = 1, uncertified).
-2. **The reversals in the preregistered F1 adaptive come from switching service
-   off.** Where REF reverses, it switches 38–139 route-periods OFF; the
-   span-preserving cells switch off none. Those reversals are at LAM1, TP200 and
-   both walking levels. Where REF holds, it switches 12–17 OFF.
+2. **When service may be switched off, F1 is not identified.** The two
+   independent closures of the same REF cell reach F1 values from −5.4% to
+   +30.5% at BASE. Every positive value coincides with 38–139 route-periods
+   switched OFF. The span-preserving cells switch off none.
    * R3_SPAN preserves span only at period granularity, so some route-periods
      still go OFF (1–86). It sits in between.
+   * Whether R1_H60's result is itself basin-stable was not tested by a second
+     independent closure. Exp 6 found that R1 cells did not change basin under
+     closure. Exp 1's seeds, searching the same no-OFF space with a different
+     solver, agreed on the aggregate to 0.064 points.
 3. **The objective, not the network, is what breaks.** With no operating-cost
    term, the λ-weighted objective rewards shedding hard-to-serve riders when
    their generalized cost exceeds λ × 60. Service-preservation rules stop that
@@ -74,8 +111,8 @@ Every R1_H60 and R1_H30 plan uses 2,513–2,516 revenue vehicle-hours.
 | statement | standing |
 |---|---|
 | "F1 is SIGN_SENSITIVE under re-optimization" (preregistered, REF) | **Stands** as the preregistered result |
-| "F1 survives re-optimization" | Permitted **only** with the qualifier "under Experiment 1's service rules (no route-period switched off, 60-minute maximum headway), at every λ ≥ 2 level tested; post hoc" |
-| "F1 reverses when the optimizer may cut service" | Permitted, with the levels named |
+| "F1 survives re-optimization" | Permitted **only** with the qualifier "under Experiment 1's service rules (no route-period switched off, 60-minute maximum headway), at every λ ≥ 2 level re-optimized in Exp 7 (A5 and A6), with one closure per cell; post hoc". At λ = 1 it is +0.12%, a sign change |
+| "F1 reverses when the optimizer may cut service" | Replace with: "when the optimizer may cut service, unserved demand is not identified by the λ = 2 objective. Certified plans within 0.16% in objective give −5.4% and +30.5% at BASE" |
 
 **Prohibited:**
 

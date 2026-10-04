@@ -1,0 +1,248 @@
+# Future experiments
+
+*Proposed 2026-10-04, after Experiment 7 closed. **None of these is
+preregistered**: each needs its own contract, acceptance gates and freeze
+before it runs, as Experiments 1–7 had. They are ordered by how much they could
+change the study's answer, not by cost.*
+
+The study's current answer:
+
+* At current resources, re-timing frequencies is the one lever that materially
+  reduces unserved demand, by about 6% (Experiment 1).
+* It survives every assumption perturbation tested for the certified plans.
+  Under service-preservation rules it also survives re-optimization at every
+  λ ≥ 2 level tested (Experiment 7 and its post hoc F1 addendum).
+* Geometry and stop edits add little: Exp 3's 29 certified improvements are
+  each at most 0.19%, within model uncertainty. Route recombination is null.
+  The greenfield design is worse.
+
+Everything below either:
+
+* tests whether that answer survives **real data**;
+* reaches parts of the original question that were **never tested**;
+* fixes a **known defect** in the instruments.
+
+Compute estimates assume the 2-core container used so far. Certification
+cells are independent, so a cluster job array (`docs/RELEASE_AND_REPORTING_GUIDELINES.md`,
+"Scaling") divides wall time by the core count.
+
+---
+
+## Tier 1: would most change the answer
+
+### E8. Validation and calibration against COTA data
+
+* **Question:** does the baseline model reproduce what COTA actually observes?
+  And do the findings survive once the uncertain parameters are calibrated?
+* **Why first:** every output is currently "uncalibrated", with all four
+  validation dimensions `unavailable`. No result can leave the "modeled"
+  qualifier until this runs.
+* **Design:**
+  * Implement `cota-opt validate` with four independent statuses: route
+    volume, stop pattern, transfer behaviour and trip length.
+  * Thresholds are set in config before any comparison.
+  * Then calibrate, in this order:
+    * the retention curve (60/210/0.10);
+    * the unserved-trip penalty (60 min);
+    * the transfer penalty (10 min);
+    * walking weights.
+  * Data is held out: fit on some periods or routes, validate on others.
+* **Data:** APC stop-level boardings and alightings, farebox route totals,
+  fare-card transfer chains, and the COTA on-board survey.
+* **What would change the answer:**
+  * a failed route-volume or trip-length validation;
+  * a calibrated λ·w_unserved below the typical served-trip GC. That would put
+    the real system in the regime where the objective sheds riders (technical
+    report §6.2; Exp 7 closeout §5.2).
+* **Effort:** mostly data work. Re-running the Exp 1 headline at calibrated
+  values is about 3 seeds × 1 h.
+
+### E9. All-purpose demand
+
+* **Question:** does a 6% reduction in unserved trips hold when demand
+  includes non-work travel?
+* **Why:** commute-only LODES is the largest unquantified error. Midday and
+  evening service are judged on demand that is mostly absent. Exp 7 A1 added
+  non-commute demand only on commute OD pairs.
+* **Design:**
+  * Add a new `odmatrix` constructor, one of:
+    * MORPC regional travel-model transit trips;
+    * location-based-services OD;
+    * APC-expanded OD.
+  * Keep LODES as a comparison arm.
+  * Re-run Exp 1 (3 seeds) and Exp 7 Stage 1 on the new demand.
+  * Re-optimize under Exp 1's rules (R1_H60), with basin closure.
+* **What would change the answer:** a sign change or a large shrinkage of F1.
+  Also a different pattern of where frequency moves, though that remains
+  aggregate-only (reporting rule 8).
+* **Effort:** about 10–20 h of compute after the data is in hand.
+
+### E10. A well-posed objective (Class C reformulation)
+
+* **Question:** what is the frontier between unserved demand and generalized
+  cost when service can be cut but cutting service has a price?
+* **Why:** Exp 7 showed the λ-scalarized objective, with no operating-cost
+  term, collapses service at λ = 1. It sheds hard trips under higher transfer
+  or walking costs. Today the answer depends on whether a service-preservation
+  rule is imposed.
+* **Design:** three formulations, each versioned separately from Gen1
+  (`METHODOLOGY.md`, Class C):
+  1. **ε-constraint:** minimize GC subject to unserved ≤ ε, swept over ε.
+  2. **Operating-cost term:** add an operating-cost term in revenue-hour
+     dollars (NTD $209.68 per revenue hour) to the objective.
+  3. **Coverage floor:** add an explicit floor (the R4 or R6 forms) as a
+     standing rule.
+  * Report where each formulation's optimum switches route-periods off.
+* **What would change the answer:** if the well-posed formulations reproduce
+  the R1_H60 result, F1 stands without the service-preservation qualifier.
+* **Effort:** about 20–40 h.
+
+### E11. Physical fleet for the frequency plan
+
+* **Question:** does the Exp 1 plan fit within the 197-vehicle peak requirement
+  that COTA's published blocking implies (NTD VOMS 198) when actually blocked?
+* **Why:** no modified plan has a vehicle count. The blocking materializer
+  misses the certified plans' own vehicle-hours by 17.8–47%. Deadhead times and
+  terminal identity are not public.
+* **Design:**
+  * Repair the materializer so it reproduces each plan's vehicle-hours exactly.
+    That is an instrument fix, tested on the baseline first.
+  * Load a COTA deadhead matrix and terminal table into `TableDeadheadOracle`.
+  * Block the three Exp 1 seed plans plus the Exp 7 R1_H60 BASE plan.
+  * Report FEASIBLE, INFEASIBLE or UNDECIDABLE per plan.
+* **Data:** COTA deadhead and terminal tables, and runcut and blocking rules.
+* **What would change the answer:** an INFEASIBLE verdict for all seed plans.
+  Then Exp 1 would need a physical-fleet constraint rather than the proxy.
+* **Effort:** small compute (minutes per plan). The work is in the data and the
+  instrument.
+
+---
+
+## Tier 2: parts of the original question never tested
+
+### E12. Transfer timing (timed transfers / pulses)
+
+* **Question:** how much does coordinating departures at major transfer points
+  save, beyond frequency?
+* **Why:** the mission names transfer timing, but every experiment so far is
+  frequency-based. Waiting is the expected value under random arrival, and
+  schedules have no offsets.
+* **Design:**
+  * Add schedule offsets as decision variables at the top transfer stops, by
+    modeled transfer volume.
+  * Evaluate with a timetabled (not frequency-based) assignment. The RAPTOR
+    timetable router exists.
+  * Hold Exp 1's frequencies fixed. Then do a joint search with matched
+    convergence.
+* **Effort:** a new evaluator path, followed by about 20 h.
+
+### E13. Stop consolidation with measured stop cost
+
+* **Question:** does removing closely spaced stops save enough runtime to fund
+  frequency?
+* **Why:** blocked so far, because stop cost is unmeasurable from the GTFS
+  feed. 11 natural experiments gave an inverted −157 s per stop.
+* **Design:**
+  * Measure dwell and acceleration loss per stop from AVL or GTFS-Realtime.
+    A collector exists in `cota_opt.realtime`.
+  * Promote the existing stop-removal edit (`src/cota_opt/stopedits.py`) to an
+    Exp 3 edit kind. It is not among Exp 3's eight `EDIT_KINDS`.
+  * Run it through Exp 3's mutation harness with the measured runtime saving
+    recycled into frequency.
+* **Data:** a few months of GTFS-Realtime vehicle positions, or AVL.
+
+### E14. Reliability (Exp 7 A4)
+
+* **Question:** do the findings hold when waiting reflects observed headway
+  irregularity?
+* **Design:**
+  * Implement the schedule-coefficient waiting model with route-period headway
+    variance from AVL. This requires a reviewed change to `src/cota_opt`, so it
+    is a Class C generation.
+  * Re-run Exp 7 Stage 1 at its preregistered A4 levels (schedule coefficient
+    0.375 / 0.50) and the Exp 1 headline.
+
+### E15. Equity and incidence
+
+* **Question:** who gains and who loses under the frequency plan?
+* **Design:**
+  * Compute the change in GC and served status by origin block group.
+  * Cross-tabulate with ACS demographics, and with the Title VI form of R5,
+    which needs COTA's minority and low-income route definitions.
+  * Report as an incidence table. It is not a compliance determination.
+
+---
+
+## Tier 3: instrument and method
+
+### E16. Optimality gap of the certifier
+
+* **Question:** how far is the (8, 3)-block-local optimum from the global
+  optimum on N0?
+* **Why:**
+  * D39 and Exp 6 show basin effects of 0.13–1.70%, the same order as policy
+    prices and as Exp 3's effect.
+  * The residual is unmeasured for every certified plan.
+* **Design:**
+  * Run MILP or CP-SAT on a linearized frequency subproblem, or large-neighbourhood
+    search with many starts, as a Class B solver.
+  * Bridge-test against Gen1 and the block certifier on N0 and N3.
+  * Reopen a result only if the measured gap threatens it (`METHODOLOGY.md`).
+* **Effort:** high; research-grade.
+
+### E17. Certified resource frontier (Exp 5 redone with closure)
+
+* **Question:** what does each extra revenue-hour, or each extra unit of peak
+  capacity, buy on N0?
+* **Why:** Exp 5 failed its monotonicity gate through start-basin dependence.
+  Its N0 half suggests the peak proxy, not hours, binds above today's levels.
+  A funding scenario (LinkUS and similar) needs a certified version.
+* **Design:**
+  * Exp 5's 16-cell grid on N0 (and N3), with Exp 6/7 basin closure across
+    the nesting.
+  * Under R1_H60 rules.
+  * With the E11 fleet instrument once it exists, so the peak axis can become
+    physical.
+* **Effort:** about 15–25 h.
+
+### E18. Cross-route common lines (optimal-strategy assignment)
+
+* **Question:** do the findings change under hyperpath / optimal-strategy
+  assignment?
+* **Why:** the omission is 0.516% of GC on N0 but 12.47% on N4. It
+  disadvantages networks with parallel routes.
+* **Design:** add a Class C evaluator. Re-run F1, F4 and Exp 7 Class B level
+  B1.
+
+### E19. Elastic demand / mode choice
+
+* **Question:** does replacing the retention curve with a calibrated mode-choice
+  model change the frontier?
+* **Design:** a logit mode choice against auto travel times; requires E8
+  calibration data.
+
+### E20. Exp 7 coverage not run
+
+These extend Experiment 7 itself:
+
+* **Bootstrap re-optimization:** the A2 subset, draws 1, 5, 10, 15 and 20.
+* **Class B accessibility:** the jobs-accessibility objective (B2).
+* **Retention curve:** A8 with `full_min` varied.
+* **Commute pairs:** A1 with new OD pairs, not only commute pairs.
+
+Each is cheap relative to Tier 1, but only worth running if Tier 1 does not
+supersede the demand and calibration it depends on.
+
+---
+
+## Not experiments, but required before any of them is quoted
+
+The release work in `docs/RELEASE_AND_REPORTING_GUIDELINES.md`:
+
+* push to GitHub and merge to `master`;
+* the `research-final` tag and a pinned environment;
+* license and citation;
+* data interfaces and the envelope-units sidecar;
+* the calibration register;
+* `cota-opt reproduce exp1`;
+* the three reports with script-generated figures.

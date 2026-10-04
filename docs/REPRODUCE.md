@@ -179,6 +179,40 @@ sentinel makes.
 (the Exp 5 analogue is `scripts/exp5_blocking.py`), and a mechanical closeout
 checker (the Exp 3 analogue is `scripts/exp3_verify_closure.py`).
 
+## Experiment 7 — robustness of F1–F6 (closed 2026-10-04)
+
+Verified against the argparse blocks on local `master` at the Exp 7 closeout.
+The contract is `outputs/exp7/EXP7_CONTRACT.json` (sha256[:16]
+`1263bedaebe6a45d`). Freeze and selection steps **refuse to overwrite**. Read
+`EXPERIMENT7_CLOSEOUT.md` §1.1 for the three post-freeze script changes; none
+affects a number.
+
+```bash
+# Stage 1 -- fixed-plan evaluation (192 cells + 13 emptiness proofs)
+python scripts/exp7_stage1.py registry          # 60-entry frozen registry
+python scripts/exp7_stage1.py run --k 0 --of 2  # shard 0 (run k=1 in parallel)
+python scripts/exp7_stage1.py run --k 1 --of 2
+python scripts/exp7_stage1.py proofs            # N3 R1_H20 at A3/A7 levels
+python scripts/exp7_stage1_analyze.py           # -> stage1/EXP7_STAGE1_ANALYSIS.json
+python scripts/exp7_stage2_select.py            # freezes EXP7_STAGE2_SELECTION.json
+
+# Stage 2 -- adaptive re-optimization in the selected dimensions (A5, A6)
+python scripts/exp7_run.py initial --k 0 --of 2 # and --k 1 in parallel
+python scripts/exp7_run.py closure --track F6 --network N0
+python scripts/exp7_run.py closure --track F6 --network N3
+python scripts/exp7_run.py closure --track F4 --network N0   # also N3, N4
+python scripts/exp7_run.py sentinels
+python scripts/exp7_analyze.py                  # -> EXP7_ANALYSIS.json (EXP7_STAGE2_REOPT_COMPLETE)
+python scripts/exp7_closeout.py                 # -> EXP7_CLOSEOUT_TABLE.{json,md}
+python scripts/exp7_f1_decision_space.py        # post hoc F1 addendum (reads only)
+python scripts/canonical_results_v5.py          # registry v5 (refuses if it exists)
+```
+
+Closures resume from `closure_state_<net>.json` and hold an exclusive lock per
+(track, network). Production took 192 Stage 1 cells, then about 4 days of
+Stage 2 wall time on 2 cores (2026-09-30 to 2026-10-04), dominated by the F6
+cross-level stage at 10-17 min per transfer.
+
 ## Cross-experiment consistency check (read-only, minutes)
 ```bash
 python prep/n3_vs_n0_crossexp_check.py          # -> prep/n3_vs_n0_crossexp_check.json

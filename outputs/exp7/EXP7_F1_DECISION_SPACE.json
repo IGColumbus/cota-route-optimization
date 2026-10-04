@@ -5,7 +5,8 @@
  "closest_cell_to_exp1_rules": "R1_H60",
  "inputs_sha256": {
   "outputs/exp7/EXP7_ANALYSIS.json": "b7dfa4e0d09c823d",
-  "outputs/exp7/closure/F6/closure_state_N0.json": "cb2d13b7be2ef6b9"
+  "outputs/exp7/closure/F6/closure_state_N0.json": "cb2d13b7be2ef6b9",
+  "outputs/exp7/closure/F4/closure_state_N0.json": "fbf51952228f4061"
  },
  "rows": [
   {
@@ -52,6 +53,14 @@
      "n_off": 1,
      "plan": "c7c4d12fa144e28f"
     }
+   },
+   "ref_f4_track": {
+    "record": "outputs/exp7/closure/F4/BASE/N0_REF__anchor_2a236b2b72fb6d5d.json",
+    "objective": 2935446.4612512114,
+    "f6_track_objective": 2940186.286176101,
+    "f1_pct": 30.47682247033663,
+    "n_off": 48,
+    "served": 17348.50804586933
    }
   },
   {
@@ -98,6 +107,14 @@
      "n_off": 86,
      "plan": "3b5c2f159f417190"
     }
+   },
+   "ref_f4_track": {
+    "record": "outputs/exp7/initial/F4/A5_LAM1/N0_REF.json",
+    "objective": 1831271.7883544443,
+    "f6_track_objective": 1831271.7883544443,
+    "f1_pct": 181.72488689054083,
+    "n_off": 139,
+    "served": 1582.8874223866674
    }
   },
   {
@@ -144,6 +161,14 @@
      "n_off": 2,
      "plan": "3bcfea61f6647790"
     }
+   },
+   "ref_f4_track": {
+    "record": "outputs/exp7/initial/F4/A5_LAM4/N0_REF.json",
+    "objective": 4111046.9324765387,
+    "f6_track_objective": 4110774.9082643073,
+    "f1_pct": -6.768813239039028,
+    "n_off": 12,
+    "served": 21230.87549781283
    }
   },
   {
@@ -190,6 +215,14 @@
      "n_off": 1,
      "plan": "f8598372229ae70b"
     }
+   },
+   "ref_f4_track": {
+    "record": "outputs/exp7/closure/F4/A5_TP050/N0_REF__anchor_64690725e330bc59.json",
+    "objective": 2880898.144636941,
+    "f6_track_objective": 2879791.2810294363,
+    "f1_pct": -6.596663175071571,
+    "n_off": 15,
+    "served": 21743.061220227864
    }
   },
   {
@@ -236,6 +269,14 @@
      "n_off": 34,
      "plan": "4b83cddc630d9adf"
     }
+   },
+   "ref_f4_track": {
+    "record": "outputs/exp7/closure/F4/A5_TP200/N0_REF__anchor_2a236b2b72fb6d5d.json",
+    "objective": 3015248.2855680734,
+    "f6_track_objective": 3027398.8204881866,
+    "f1_pct": 24.554190342953987,
+    "n_off": 48,
+    "served": 16626.290754215886
    }
   },
   {
@@ -282,6 +323,14 @@
      "n_off": 6,
      "plan": "94770e012d233dd1"
     }
+   },
+   "ref_f4_track": {
+    "record": "outputs/exp7/closure/F4/A6_WALKSPD85/N0_REF__anchor_2a236b2b72fb6d5d.json",
+    "objective": 2988913.727493411,
+    "f6_track_objective": 2997413.5075085503,
+    "f1_pct": 28.30075413100417,
+    "n_off": 48,
+    "served": 17053.261751769234
    }
   },
   {
@@ -328,6 +377,14 @@
      "n_off": 6,
      "plan": "ddbd508529129518"
     }
+   },
+   "ref_f4_track": {
+    "record": "outputs/exp7/closure/F4/A6_MAXWALK75/N0_REF__anchor_2a236b2b72fb6d5d.json",
+    "objective": 3081648.3370374176,
+    "f6_track_objective": 3079475.4819007516,
+    "f1_pct": 10.225144739788972,
+    "n_off": 48,
+    "served": 12598.343786751626
    }
   }
  ]
