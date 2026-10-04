@@ -113,7 +113,7 @@ python scripts/exp5_blocking.py                 # diagnostic only; all 32 UNDECI
 `python scripts/exp45_certify_cell.py cell --network N0 --experiment exp5 --hours 1.0 --peak 1.0 --role <role> --contract-digest 395ee3c960f51935 --out <scratch>/N0_J100.json`
 → 2945632.2349138106, plan `c4591ff0f6e2d8ad`.
 
-## Experiment 6 — policy price on N0/N3 (frozen 2026-09-29; production in progress)
+## Experiment 6 — policy price on N0/N3 (closed, `EXP6_POLICY_FRONTIER_CERTIFIED`)
 
 The commands below were verified against the argparse blocks and docstrings on
 local `master` `7c08b128`, and against the shell scripts the run actually used
@@ -181,11 +181,21 @@ checker (the Exp 3 analogue is `scripts/exp3_verify_closure.py`).
 
 ## Experiment 7 — robustness of F1–F6 (closed 2026-10-04)
 
-Verified against the argparse blocks on local `master` at the Exp 7 closeout.
-The contract is `outputs/exp7/EXP7_CONTRACT.json` (sha256[:16]
+Verified against the argparse blocks on local `master` at the Exp 7 closeout,
+at `5dc3f408`. The contract is `outputs/exp7/EXP7_CONTRACT.json` (sha256[:16]
 `1263bedaebe6a45d`). Freeze and selection steps **refuse to overwrite**. Read
-`EXPERIMENT7_CLOSEOUT.md` §1.1 for the three post-freeze script changes; none
-affects a number.
+`EXPERIMENT7_CLOSEOUT.md` §1.1, as corrected by errata E14, for the post-freeze
+script changes; none affects a number.
+
+Freeze steps (done; do not re-run in the canonical checkout):
+
+* `scripts/exp7_levels.py` is the level library (no CLI); the frozen levels
+  are `outputs/exp7/EXP7_LEVELS.json`.
+* `python scripts/exp7_busiest_routes.py --out <path>` wrote the A7 ranking
+  `outputs/exp7/A7_ROUTE_RANKING.json`. It has no exists-guard: never point
+  `--out` at the committed file.
+* `python scripts/exp7_freeze.py --levels outputs/exp7/EXP7_LEVELS.json`
+  froze the contract; it refuses if `EXP7_CONTRACT.json` already exists.
 
 ```bash
 # Stage 1 -- fixed-plan evaluation (192 cells + 13 emptiness proofs)
@@ -209,9 +219,14 @@ python scripts/canonical_results_v5.py          # registry v5 (refuses if it exi
 ```
 
 Closures resume from `closure_state_<net>.json` and hold an exclusive lock per
-(track, network). Production took 192 Stage 1 cells, then about 4 days of
-Stage 2 wall time on 2 cores (2026-09-30 to 2026-10-04), dominated by the F6
-cross-level stage at 10-17 min per transfer.
+(track, network). Production evaluated 192 Stage 1 cells, then ran about 4
+days of Stage 2 wall time on 2 cores (2026-09-30 to 2026-10-04).
+
+**Single-cell spot check.** In a separate clone or `git worktree` (never the
+canonical checkout): `python scripts/exp7_stage1.py cell --variant N0 --level
+BASE`, then compare `rows` with the committed
+`outputs/exp7/stage1/evals/N0/BASE.json` (`F1_BASELINE.unserved_demand`
+10,423.684…). The command overwrites that file.
 
 ## Cross-experiment consistency check (read-only, minutes)
 ```bash

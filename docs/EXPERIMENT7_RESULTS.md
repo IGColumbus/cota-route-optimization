@@ -1,6 +1,6 @@
 # Experiment 7: results (two-stage final production contract)
 
-*Written 2026-10-04. The formal closeout is `EXPERIMENT7_CLOSEOUT.md`. The governing contract is `docs/EXPERIMENT7_AMENDMENT.md` §14. The machine-readable results are in `outputs/exp7/EXP7_CLOSEOUT_TABLE.{json,md}`, `outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json` and `outputs/exp7/EXP7_ANALYSIS.json`.*
+*Written 2026-10-04. The formal closeout is `EXPERIMENT7_CLOSEOUT.md`. The governing contract is `docs/EXPERIMENT7_AMENDMENT.md` §14. The machine-readable results are in `outputs/exp7/EXP7_CLOSEOUT_TABLE.{json,md}`, `outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json` and `outputs/exp7/EXP7_ANALYSIS.json`. Authority order for Exp 7: `HANDOFF.md` §1; where the closeout and `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md` conflict, the errata wins.*
 
 ## Status
 
@@ -24,7 +24,7 @@ The improvements are within-level (W) and cross-level (X, with BASE as the hub).
 
 ## The regime boundary
 
-The objective is GC + λ · w_unserved · unserved (w_unserved = 60). It has no operating-cost term. When λ · 60 is below the generalized cost of the marginal trip, dropping riders lowers the objective.
+The objective is GC + λ · w_unserved · unserved (w_unserved = 60). It has no operating-cost term, but that is not the cause (errata E7). When λ · 60 is below the generalized cost of a served trip, making that trip unservable lowers the objective.
 
 **At A5_LAM1 (λ = 1), re-optimization collapses service.**
 
@@ -33,7 +33,7 @@ The objective is GC + λ · w_unserved · unserved (w_unserved = 60). It has no 
 | N0 | 139 | 557 (BASE 2,516) | 1,583 | 29,366 |
 | N4 | 375 | 1,132 | 1,122 | — |
 
-- F1, F4, F5 and F6 all change sign at A5_LAM1.
+- At A5_LAM1, the re-optimized F1, F4 and AF1 (tie) change sign and R2 prices become positive (Stage 2): that is the collapse. At fixed plans, F4, six F5 arms and a few F6/AF1 cells also change sign (Stage 1), because halving λ re-weights unserved demand; nothing collapses there. Fixed-plan F1 does not change sign.
 - That is a property of the objective below its well-posed range, not a solver fault. The components were checked directly.
 - Results at A5_LAM1 are reported. They are not evidence that a finding fails within the certified λ ≥ 2 regime.
 
@@ -53,17 +53,15 @@ The same mechanism appears in milder form at A5_TP200, A6_WALKSPD85 and A6_MAXWA
 |---|---|---|---|---|---|---|
 | −5.43% | +181.7% | −6.76% | −5.74% | +45.1% | +16.6% | +4.6% |
 
-- **Reading:** F1 is SIGN_SENSITIVE under re-optimization.
-  - The sign holds where the unserved penalty dominates (LAM4, TP050).
-  - It reverses where trips become costlier than the penalty.
-  - F1 is robust for the fixed plans Exp 1 produced. It is **not** a property of re-optimization under every objective calibration.
+- **Reading:** the preregistered F1 adaptive label is SIGN_SENSITIVE. Its values are basin-dependent: a second certified closure of the BASE cell gives +30.5% (errata E3), so the per-level signs are not a finding.
+  - F1 is SIGN_ROBUST for the fixed plans Exp 1 produced (magnitude Highly sensitive, A6). It is **not** a property of re-optimization under every objective calibration.
 - **Post hoc, not preregistered (`docs/EXPERIMENT7_F1_ADDENDUM.md`).** REF may switch route-periods OFF; Exp 1's plans could not (span preserved, 60-minute maximum headway).
-  - Re-optimized under Exp 1's own rules (the R1_H60 cell), F1 holds at every λ ≥ 2 level: −2.1% to −7.0%.
+  - Re-optimized under Exp 1's service rules (the R1_H60 cell: no route-period switched off, 60-minute maximum headway; study safeguards, not COTA policy), F1 is −2.1% to −7.0% at every λ ≥ 2 level re-optimized in Exp 7 (A5 and A6 only), with one closure per cell.
   - At λ = 1 it is +0.12%, a near-tie.
   - Every preregistered reversal coincides with the optimizer switching 38–139 route-periods off.
   - When service may be switched off, F1 is not identified. Two certified fixed points of the same BASE cell, 0.16% apart in objective, give −5.4% and +30.5% (errata E3).
 
-**F2: the splice null.** It holds at every applicable Stage 1 level. F2 is not re-optimized (§14.2).
+**F2: the splice null.** It holds at every applicable Stage 1 level. F2 is not re-optimized (§14.2). Its preregistered sign label is SIGN_SENSITIVE (18 Class A flips, 10 of them bootstrap draws; range −0.226% to +0.166%), as expected for a 0.0065% effect.
 
 **F3: N3 add_stop vs control.**
 
@@ -81,7 +79,7 @@ The same mechanism appears in milder form at A5_TP200, A6_WALKSPD85 and A6_MAXWA
 | +8.55% | −0.98% | +30.8% | +9.88% | +6.77% | +7.72% | +6.77% |
 
 - N4 − N0 is within 0.2 percentage points of N4 − N3 at every level.
-- **Reading:** N4 stays worse at every level in the λ ≥ 2 regime. The magnitude scales with λ, because N4's deficit is coverage: at BASE N4 serves 12,700 trips against N0's 17,349. The only flip is the degenerate λ = 1 level.
+- **Reading:** N4 stays worse at every level in the λ ≥ 2 regime. The magnitude scales with λ, because N4's deficit is coverage (illustrative, F4-track basins: N4 12,700, N3 17,389, N0 17,349 served at BASE; basin-dependent, not a finding). The only flip is the degenerate λ = 1 level.
 
 **F5: the J/P resource prices** (fixed Exp 5 plans)
 
@@ -101,7 +99,7 @@ The same mechanism appears in milder form at A5_TP200, A6_WALKSPD85 and A6_MAXWA
 | N0 | 0 | 1 | 3 | 3 | 8 | 11 |
 | N3 | 0 | 3 | 6 | 5 | 9 | 9 |
 
-- The recurring sign events are R2 frequency floors moving from a zero price (tie with REF) to a positive price. N0 LAM4 also has one TO_TIE event (R4_C05).
+- The recurring sign events are R2 OFF-share caps (25% and 10%) moving from a zero price (tie with REF) to a positive price. They bind because the re-optimized N0 REF switches 38–139 route-periods off, against caps of 43 and 17. N0 LAM4 also has one TO_TIE event (R4_C05).
 - R2_S25 and R2_S10 have a zero price at every Stage 1 level and at Stage 2 BASE.
 - Under re-optimization they become binding (a positive price): R2_S10 at LAM1, TP200 and both walking levels, and R2_S25 at LAM1 and TP200.
 - No closed cell is cheaper than REF at any level. A negative price would have blocked certification.

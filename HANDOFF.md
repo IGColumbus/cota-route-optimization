@@ -1,8 +1,7 @@
 # Handoff
 
 *Rewritten 2026-10-04, after Experiment 7 closed. The previous version
-(2026-08-29, written mid-Experiment 2) is in git history at `5eebe36a` and
-earlier.*
+(2026-09-29, after Experiment 6) is in git history at `5eebe36a`.*
 
 This is for whoever picks up this repository next: a COTA planner, a research
 group, or a future session. Read `AGENTS.md` first. It is the contract the code
@@ -29,8 +28,10 @@ are no runs in flight.
 **The answer, one line each:**
 
 * **Frequency is the lever.** About −6% unserved demand at current resources.
-  It is robust for the certified plans. Under service-preservation rules it is
-  also robust after re-optimization, at λ ≥ 2 (Exp 7, post hoc).
+  For the certified plans it keeps its sign at every Stage 1 level
+  (SIGN_ROBUST; −1.9% to −7.0%; magnitude Highly sensitive to walking
+  friction, A6). Re-optimized under Exp 1's service rules it holds at every
+  λ ≥ 2 level re-optimized (A5, A6; one closure per cell; post hoc).
 * **Geometry adds nothing.** Recombining routes is null, editing them gives
   ~0.2%, and the greenfield design is worse.
 * **Safeguards are cheap.** 0–0.9% of the objective each.
@@ -48,6 +49,18 @@ are no runs in flight.
 | `STATE_OF_PLAY.md` | long-form state as of Exp 6 |
 | `DISCOVERIES.md` | D1–D39 decision log, including the wrong turns |
 | `outputs/CANONICAL_RESULTS_v5.json` | registry of every canonical and superseded artifact |
+| `EXPERIMENT7_CLOSEOUT.md` | Exp 7 closeout (registered by sha256; not edited) |
+| `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md` | corrections to the Exp 7 closeout (E1–E15) |
+| `docs/EXPERIMENT7_F1_ADDENDUM.md` | post hoc F1 analysis (not preregistered) |
+| `docs/EXPERIMENT7_RESULTS.md` | short Exp 7 results note |
+
+> **Authority order for Experiment 7:**
+>
+> 1. the JSON artifacts (`outputs/exp7/…`, registered in `CANONICAL_RESULTS_v5.json`);
+> 2. `EXPERIMENT7_CLOSEOUT.md` **as corrected by** `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`. Where they conflict, the errata wins;
+> 3. `docs/EXPERIMENT7_F1_ADDENDUM.md`: post hoc; never relabels a preregistered result;
+> 4. `docs/EXPERIMENT7_RESULTS.md`: a summary of 2 and 3;
+> 5. `docs/report/TECHNICAL_REPORT.md`: synthesis, draft.
 
 ## 2. What to trust, and how much
 
@@ -56,7 +69,10 @@ are no runs in flight.
 * **The aggregate frequency result.** It is not per-route: seeds disagree on
   19% of route-periods.
 * **The geometry nulls.**
-* **The Exp 6 safeguard prices**, under closure.
+* **The Exp 6 safeguard prices** as a 0–1% order of magnitude. Individual
+  prices moved by up to 0.1 points under further closure in Exp 7, and the
+  zero prices of the 25%/10% OFF-share caps hold only in one basin (errata
+  E8).
 * **The direction of F4.**
 
 **Treat as modeled only.** Everything is:
@@ -78,9 +94,12 @@ All four validation dimensions are `unavailable`.
 ## 3. Git and transport state (as of 2026-10-04)
 
 * The **cloud container** holds the full history on local `master`.
-* **Ian's machine** holds the same commits on branch `exp7-work` in the clone
-  under the connected `cota-route-optimization` folder. They were delivered as
-  bundles into `Downloads` and fetched there.
+* **Ian's machine** holds commits on branch `exp7-work` (as reported; not
+  verifiable from the container) in the clone under the connected
+  `cota-route-optimization` folder. They were delivered as bundles into
+  `Downloads` and fetched there. Commits after the last bundle delivered,
+  including `5dc3f408` and later write-up commits, need a further bundle. Last
+  bundle delivered: `<commit — Ian to fill in>`.
 * **GitHub `master` is behind, at `196295c9`.** It is a direct ancestor of
   `exp7-work`, so merging is a clean fast-forward.
 * **Next git action:** in GitHub Desktop, merge `exp7-work` into `master` and
@@ -125,21 +144,27 @@ during Experiment 7:
 In order (detail in `docs/FUTURE_EXPERIMENTS.md`):
 
 1. **Release:** push, tag and pin, so that every number has a public commit.
-2. **E8:** validation and calibration against COTA APC, farebox, fare-card and
+2. **E21:** preregistered confirmation of the post hoc F1 result across
+   independent closures (runnable now; needs no external data).
+3. **E8:** validation and calibration against COTA APC, farebox, fare-card and
    survey data.
-3. **E9:** all-purpose demand.
-4. **E10:** a well-posed objective (ε-constraint or operating-cost term).
-5. **E11:** physical fleet for the frequency plan, which needs deadhead and
+4. **E9:** all-purpose demand.
+5. **E10:** a well-posed objective (ε-constraint on unserved demand, or an
+   unserved penalty consistent with the retention curve).
+6. **E11:** physical fleet for the frequency plan, which needs deadhead and
    terminal data.
-6. **E12 and E13:** transfer timing and stop consolidation. Both are named in
+7. **E12 and E13:** transfer timing and stop consolidation. Both are named in
    the mission and never tested.
 
 ## 7. A framing worth keeping
 
 The useful question is not "why doesn't COTA implement the optimum". It is
 "what does each service rule cost, and what does the current budget make
-possible". Exp 6 prices the rules. Exp 7 shows that the frequency result
-depends on keeping them.
+possible". Exp 6 prices the study's safeguard rules. Exp 7 shows that the
+re-optimized frequency result holds under Experiment 1's service rules (study
+safeguards in `config/constraints.yaml`; no documented COTA numeric standard)
+(post hoc, A5 and A6 levels), while without them the λ = 2 objective does not
+identify unserved demand.
 
 The model does not say what COTA should do. It says what the current geometry
 and budget make possible under stated assumptions. Its own retractions show how

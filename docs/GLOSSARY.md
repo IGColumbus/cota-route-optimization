@@ -33,7 +33,7 @@ the entry says so.*
 | term | meaning |
 |---|---|
 | **Model A / Model B** | Two ways to price waiting. Model A uses the chosen pattern's headway. Model B (`same_route`) uses the combined frequency of every same-route pattern serving the movement. **Model B is the only authoritative evaluator.** |
-| **λ (lambda)** | Weight on unserved demand in the scalarized objective. The certified frontier begins at λ = 2, and every certified comparison here uses λ = 2. |
+| **λ (lambda)** | Weight on unserved demand in the scalarized objective. The certified frontier begins at λ = 2; headline comparisons use λ = 2. Exp 1 also certified λ = 4, 8, 16, and Exp 7 ran converged Stage 2 cells at λ = 1 and 4 as sensitivity levels (λ = 1 lies below the certified frontier). |
 | **objective** | The λ-scalarized path-level generalized cost including unserved demand. Lower is better. Unit: equivalent in-vehicle minutes. |
 | **route-period** | One route in one of six service periods (early, am_peak, midday, pm_peak, evening, owl). The decision variable is its headway. |
 | **OFF** | A route-period with infinite headway: no trips, no hours, no peak proxy. |

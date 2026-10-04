@@ -6,8 +6,8 @@ A research platform for one question:
 > passenger generalized travel cost be reduced through improved frequency
 > allocation, transfer timing, stop structure, and eventually route topology?
 
-Everything here is built from public data, calibrated where public data allows,
-and explicit about the rest. It has retracted its own headline answer **five
+Everything here is built from public data, uncalibrated, and explicit about
+every assumption. It has retracted its own headline answer **five
 times** — for a modelling error, an under-powered search, an evaluator that was
 silently the wrong model, a benefit that turned out to be the search rather
 than the intervention, and a geometry ranking that turned out to rank each
@@ -27,7 +27,7 @@ output so far, and all five are documented rather than quietly fixed.
 > solver enforced as a cap. That proxy is not a bus count. **The plan's physical
 > fleet requirement has not been verified.**
 
-Total cost rises because the plan serves 3.3% more people; cost per person
+(± = solver seed spread, SD of 3 seeds.) Total cost rises because the plan serves 3.3% more people; cost per person
 served falls. Three seeds at full effort on one shared candidate set.
 
 *Correction (fleet wording).* Earlier versions of this page said "no additional
@@ -47,11 +47,13 @@ Two things travel with that number and may not be dropped:
 
 * **The claim is the aggregate, not any one timetable.** Independent seeds
   produce plans differing on **19% of route-periods** by an average of seven
-  minutes while scoring within 0.064 points of each other. The optimum is flat.
+  minutes while their unserved-demand changes have an SD of 0.064 points
+  (range 0.12: −6.60, −6.72, −6.63%). The optimum is flat.
   No individual route headway is a recommendation. The constructive reading is
   the better one: many concrete schedules realise the same benefit, so
   constraints this model cannot see — operator bidding, layover geography,
-  garage assignment, politics — can be satisfied almost for free.
+  garage assignment, politics — can likely be satisfied at little cost
+  (untested).
 * **The certified frontier begins at λ = 2.** The cost-favouring λ ≤ 1 corner
   fails path-set adequacy on both models and is reported as uncertified.
 
@@ -112,13 +114,14 @@ chosen by the treatment (D27) and was corrected before certification.
 envelope.**
 
 > 200 promoted candidate networks were certified by exact optimization, then
-> **re-certified under one common peak-vehicle envelope**
+> **re-certified under one common resource envelope (revenue vehicle-hours plus
+> the per-period peak-concurrency proxy)**
 > (`EXP4_FULL_NORMALIZED_CERTIFIED`: 200/200, integrity gate passed). The best
 > is `35e351133d6f` at **3,223,885.9475**, ahead of the second by **0.387006%**.
 
 The first run reported a different leader, `ecb2ffc4bcce`. Under the common
 envelope it ranks **185 of 200**. That run resolved each candidate's
-peak-vehicle cap against the candidate's own baseline plan (`exp2.py:324`), so
+peak-concurrency-proxy cap against the candidate's own baseline plan (`exp2.py:324`), so
 every candidate was optimized inside a box it drew for itself: it ranked
 candidate-specific optimization problems, not geometries. Fixing the envelope,
 and nothing else, inverted **36.7%** of pairwise orderings (Spearman
@@ -224,8 +227,9 @@ What that means:
 dollars):
 
 * **N0: 0 to +0.912%.**
-  * R2 OFF caps at 25% and 10%: 0. They do not bind at the best-known
-    unconstrained plan.
+  * R2 OFF caps at 25% and 10%: 0. They do not bind at Exp 6's closed
+    unconstrained plan. They would bind at the best-known one found later
+    (Exp 7, 48 route-periods OFF; errata E8).
   * R2 at 5%: +0.212%.
   * R4 coverage: +0.244% / +0.428% / +0.482% (c = 0.05 / 0.01 / 0).
   * R6 ¾-mile area: +0.440%.
@@ -234,6 +238,8 @@ dollars):
   * R1 H = 30: +0.575%. R1 H = 20: +0.912%.
 * **N3: 0 to +0.634%.** Each binding safeguard costs slightly more than on N0,
   by +0.04 to +0.08 percentage points.
+* Exp 7's re-closure at the same settings moved these prices by −0.10 to +0.06
+  points (errata E8).
 * **R1 at H = 20 is infeasible under the modeled envelope on N3** (Amendment 1).
   Even minimum service exceeds the early-period peak-proxy cap, by 0.0166 proxy
   units. That is a result, and it has no finite cost.
@@ -263,13 +269,18 @@ Scope notes:
 
 **Experiment 7: robustness of findings F1–F6.** Stage 1
 `EXP7_STAGE1_EVALUATION_COMPLETE` and Stage 2 `EXP7_STAGE2_REOPT_COMPLETE`
-(`EXPERIMENT7_CLOSEOUT.md`).
+(`EXPERIMENT7_CLOSEOUT.md`). Not an operating plan; not COTA-endorsed;
+commute-only proxy demand; scheduled service.
 
 The design:
 
-* **Stage 1** re-evaluated every certified plan, unchanged, at 47 assumption
-  levels: demand, runtimes, cost weights, walking, route removal and the
-  retention curve. That is 192 cells.
+* **Stage 1** re-evaluated the frozen plans, unchanged. 47 levels plus BASE
+  were run (44 Class A in seven dimensions: demand, runtimes, cost weights,
+  walking, route removal and the retention curve; 1 Class B; 2 additional) on
+  four network variants (N0, N3, N4, N0S): 4 × 48 = 192 evaluation cells.
+  Declared but not run: A4 reliability (2 levels, UNIMPLEMENTED), the B2
+  jobs-accessibility objective (UNTESTED), path-width/scenario count (DROPPED
+  as inert) and period tilt (NOT INCLUDED).
 * **Stage 2** re-optimized, with basin closure, in the two dimensions a
   preregistered metric selected: objective weights (A5) and walking friction
   (A6).
@@ -279,17 +290,28 @@ Results:
 * **Frequency (F1), fixed plans:** keeps its sign at every level, from −1.9% to
   −7.0% unserved.
 * **Frequency, re-optimized:**
-  * Under Exp 1's own rules (no route-period switched off, 60-min maximum
-    headway), it holds at every λ ≥ 2 level, from −2.1% to −7.0%. This
-    comparison is post hoc (`docs/EXPERIMENT7_F1_ADDENDUM.md`).
+  * Re-optimized under Experiment 1's service rules (no route-period switched
+    off, 60-minute maximum headway; study safeguards in
+    `config/constraints.yaml`, not COTA policy; no documented COTA numeric
+    standard), F1 is −2.1% to −7.0% at every λ ≥ 2 level re-optimized in Exp 7
+    (A5 and A6 only), with one closure per cell. Post hoc
+    (`docs/EXPERIMENT7_F1_ADDENDUM.md`). At λ = 1 it is +0.12%.
   * When the optimizer may switch service off, unserved demand is not
     identified by the objective. Two certified plans 0.16% apart give −5.4%
     and +30.5% at base assumptions.
   * At λ = 1 the optimizer nearly empties the network (557 of 2,516
-    vehicle-hours), because the objective has no operating-cost term.
-* **Greenfield (F4):** worse than N3 at every λ ≥ 2 level in both stages, by
-  +6.8% to +30.8%.
-* **Safeguard prices (F6):** non-negative at every level.
+    vehicle-hours): at λ = 1 a lost trip costs 60 min while the average served
+    trip costs 83–86 min of generalized cost.
+* **Splice null (F2):** the null test holds at every applicable level; the
+  sign label is SIGN_SENSITIVE, as expected for a 0.0065% effect.
+* **Greenfield (F4):** worse than N3 at every Class A level except λ = 1 at
+  fixed plans (+7.7% to +19.4%), and at every λ ≥ 2 level re-optimized (+6.8%
+  to +30.8%); at λ = 1, −1.31% (fixed plans) and −0.98% (re-optimized).
+* **Safeguard prices (F6):** re-optimized prices are non-negative at every
+  level (a negative one would have blocked certification); rankings unchanged
+  at transfer penalty ×0.5 and moved at λ = 1, transfer ×2 and the walking
+  levels, where the R2 OFF-share caps become binding. At fixed plans, prices
+  change sign in 2 of 13 N0 and 7 of 12 N3 cells.
 
 Not tested:
 
@@ -318,7 +340,7 @@ the config default; the run's log reported the *harness's* setting, which was a
 different object. Correcting it changed six of twelve candidates' signs and
 halved the headline geometry claim. Every experiment artifact now records the
 model the evaluator actually used, and a run that cannot state it produces no
-artifact. See `outputs/CANONICAL_RESULTS_v4.json` (v1–v3 are kept unchanged)
+artifact. See `outputs/CANONICAL_RESULTS_v5.json` (v1–v4 are kept unchanged)
 for which artifacts are current
 and which are superseded — nothing was deleted, and a superseded artifact looks
 entirely legitimate from the inside.
@@ -329,7 +351,7 @@ entirely legitimate from the inside.
 |---|---|---|
 | commute-only LODES demand | 24.7% of regional flow is transit-accessible; the top 20k pairs are 64.9% of that | unknown; the largest unquantified error |
 | frontier below λ = 2 | uncertified on both models | quoted from λ = 2 upward |
-| per-route headways | 19–26% seed disagreement | aggregate unaffected; no route-level recommendation |
+| per-route headways | about 19% of route-periods under Model B (worst pair 19.7%, mean 19.1%) | aggregate unaffected; no route-level recommendation |
 | cross-route common lines | 0.516% of generalized cost under Model B | overstates waiting on trunk routes; deferred |
 | stop-service penalty | unmeasurable from this feed (−157 s/stop, inverted) | blocks any consolidation claim resting on runtime savings |
 | novel-link running time | MAE 17.2 s, aggregate bias +0.41% | unbiased, but 20.5% median APE on a single link |

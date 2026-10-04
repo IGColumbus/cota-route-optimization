@@ -11,6 +11,12 @@
   headline numbers. It does not yet cover every number, and the release rule
   "every number generated, never typed" is **not yet met**.
 * The seven required figures are not yet generated.
+* Authority order for Exp 7: `HANDOFF.md` §1; where the closeout and
+  `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md` conflict, the errata wins.
+* Outline: §§1–11 plus Appendices A–C (Appendix C covers only the Exp 7
+  amendment sequence); the guideline appendices (decision log →
+  `DISCOVERIES.md`, preregistration amendments, superseded-artifact index,
+  calibration register) are pending release work.
 
 > **Model status**
 >
@@ -63,10 +69,14 @@ compared runs differ in declared dimensions alone.
   small (−0.01% to −0.19% of the objective). The certified leader adds a stop on
   route 010 (−0.19%). That is within its own Experiment 7 sensitivity range.
 * **Greenfield network design:** the best of 200 candidates is **worse** than
-  the existing geometry with re-optimized frequencies, by 8–10% of the
-  objective.
+  the existing geometry and the Exp 3 redesign with re-optimized frequencies:
+  +9.66% of the redesign's (N3's) objective (Exp 4A, λ = 2), and worse at every
+  λ ≥ 2 level re-optimized in Exp 7 (+6.6% to +30.8% against N0 or N3).
 * **Service-standard safeguards** (headway floors, span, coverage, area
-  preservation) cost 0 to 0.91% of the objective each.
+  preservation; study safeguards, not COTA policy) cost 0 to 0.91% of the
+  objective each on N0 and 0 to 0.63% on N3 (Exp 6). A 20-minute headway floor
+  is infeasible under the modeled envelope on N3. Further closure in Exp 7
+  moved individual prices by up to 0.1 points (§5.6).
 
 A two-stage robustness experiment perturbed demand, runtimes, cost weights,
 walking friction, route availability and the retention curve:
@@ -85,7 +95,8 @@ Two methodological results generalize beyond Columbus:
 
 1. Ranking network changes at a fixed nominal search effort is not enough.
    Convergence has to be matched, or the comparison measures the search rather
-   than the network. That error produced and then withdrew a headline twice.
+   than the network. That error produced, and then forced the withdrawal of,
+   the 0.5% through-routing headline (R4).
 2. A resource cap read from each candidate's own baseline turns a geometry
    ranking into a ranking of self-chosen budgets. Fixing it alone inverted 36.7%
    of 19,900 pairwise orderings.
@@ -106,12 +117,13 @@ The study is a **modeled** answer:
 * It measures how much of that answer survives when the assumptions move.
 
 It does not propose a timetable. Section 5.1 shows that the frequency optimum
-is flat: plans differing on about 19% of route-periods score within 0.06
-points. No individual route's headway is identified, and none is recommended
+is flat: plans differing on about 19% of route-periods score with a solver
+seed spread (SD) of 0.064 points. No individual route's headway is identified, and none is recommended
 here (reporting rule 8).
 
-Seven experiments ran in sequence, each preregistered before its production
-run (`ACCEPTANCE.md`, the per-experiment contracts):
+Seven experiments ran in sequence. Each froze a contract before its
+production run (`ACCEPTANCE.md`, the per-experiment contracts); analyses added
+afterwards are marked post hoc (§6.0).
 
 | # | question | status |
 |---|---|---|
@@ -191,10 +203,13 @@ as an identity, asserted at run time to 1e-9.
 **Objective.** minimize GC + λ · w_unserved · unserved, with w_unserved = 60
 min and λ = 2 unless stated.
 
-* The objective has **no operating-cost term.** Operating resources enter only
-  as constraints.
-* Below some λ it therefore prefers dropping a hard-to-serve rider to serving
-  them (§6.2).
+* The objective has no operating-cost term; operating resources enter only as
+  constraints (the envelope is a cap).
+* A served trip counts its full generalized cost c; a lost trip counts λ · 60.
+  Whenever c > λ · 60, making the trip unservable lowers the objective, and the
+  freed hours are spent elsewhere. Below some λ the optimizer therefore drops
+  hard-to-serve riders (§6.2). An operating-cost term would not prevent this
+  (errata E7).
 * Experiment 1's frontier is certified only from λ = 2 upward. The λ ≤ 1 corner
   fails the path-set adequacy test on both waiting models (D15).
 
@@ -292,6 +307,8 @@ The headline is three seeds at 400,000 iterations × 20 restarts on one frozen
 
 * In modeled trips, at the λ = 2 frontier point, unserved demand falls from
   10,262 to 9,583 and served trips rise from 20,687 to 21,366 (of 30,949).
+  (This is the single λ = 2 frontier run, −6.60%; the three-seed headline mean
+  is −6.65%.)
 * The plan uses 2,516.5 of 2,517.2 revenue vehicle-hours.
 * The plan stays within the baseline's per-period peak-concurrency proxy. Its
   physical fleet requirement is **not** measured
@@ -313,8 +330,8 @@ Below λ = 2 the path set fails its adequacy test (D15).
 **The aggregate is identified; the plan is not.**
 
 * Independent seeds produce plans differing on 19.1% of the 173 route-periods
-  (worst pair 19.7%), by a mean of 6.9 minutes, while scoring within 0.064
-  points of each other (D17).
+  (worst pair 19.7%), by a mean of 6.9 minutes, while their unserved-demand
+  changes have an SD of 0.064 points (range 0.12: −6.60, −6.72, −6.63%) (D17).
 * The optimum is flat. That is a constructive result: many concrete timetables
   realize the same aggregate benefit, so unmodeled operational constraints can
   likely be met at little cost.
@@ -422,15 +439,25 @@ determination.
 
 **Modeled price** (closed cell − closed reference, % of objective):
 
-| safeguard | N0 | N3 |
-|---|---|---|
-| OFF-share cap 25% / 10% | 0 (non-binding) | 0 |
-| OFF-share cap 5% | +0.212% | +0.250% |
-| coverage, c = 0.05 / 0.01 | +0.244% / +0.428% | +0.321% / +0.477% |
-| ¾-mile area preservation | +0.440% | +0.485% |
-| 60-min headway floor (also span, coverage c = 0, both bundles) | +0.482% | +0.524% |
-| 30-min headway floor | +0.575% | +0.634% |
-| 20-min headway floor | +0.912% | **infeasible under the modeled envelope** |
+| safeguard | N0 | N3 | Exp 7 Stage 2 BASE re-closed (N0 / N3) |
+|---|---|---|---|
+| OFF-share cap 25% / 10% | 0 (non-binding) | 0 | 0 / 0 |
+| OFF-share cap 5% | +0.212% | +0.250% | +0.260% / +0.287% |
+| coverage, c = 0.05 / 0.01 | +0.244% / +0.428% | +0.321% / +0.477% | c = 0.05: +0.146% / +0.225%; c = 0.01: +0.389% / +0.436% |
+| ¾-mile area preservation | +0.440% | +0.485% | +0.489% / +0.522% |
+| 60-min headway floor (also span, coverage c = 0, both bundles) | +0.482% | +0.524% | +0.531% / +0.561% (R3_SPAN and B2 +0.500% on N0) |
+| 30-min headway floor | +0.575% | +0.634% | +0.633% / +0.671% |
+| 20-min headway floor | +0.912% | **infeasible under the modeled envelope** | +0.967% / infeasible |
+
+Re-closing the same cells at BASE in Exp 7 (same model; closure now with
+cross-level anchors) moved each price by −0.10 to +0.06 percentage points and
+reversed the order of coverage c = 0.05 and OFF-share 5% on both networks. The
+Exp 7 pricing reference is itself 0.16% worse in objective than the best-known
+REF plan (F4 track, 48 route-periods OFF). Against that plan every price would
+be about 0.16 points higher, and the 25% and 10% OFF-share caps would bind.
+Exp 6 prices are therefore basin-dependent at the 0.1-point scale (post hoc
+comparison; `EXP7_ANALYSIS.json → f6_prices`,
+`EXP7_F1_DECISION_SPACE.json → rows[BASE].ref_f4_track`).
 
 * **Closure mattered.** Greedy-only prices differed from closure-adjusted ones
   by −0.162 to +0.124 percentage points. They included two impossible negative
@@ -443,30 +470,29 @@ determination.
 
 ## 6. Robustness: Experiment 7
 
-Experiment 7 declared 49 assumption levels and ran 47:
-
-* 44 in seven implemented Class A dimensions;
-* one Class B level (cross-route common lines);
-* two additional sensitivities (wider OD coverage, more RAPTOR rounds).
-
-The two A4 reliability levels were declared but not implemented. Only Class A
-levels label findings:
+47 levels plus BASE were run (44 Class A in seven dimensions, 1 Class B,
+2 additional) on four network variants (N0, N3, N4, N0S): 4 × 48 = 192
+evaluation cells. Declared but not run: A4 reliability (2 levels,
+UNIMPLEMENTED), the B2 jobs-accessibility objective (UNTESTED),
+path-width/scenario count (DROPPED as inert) and period tilt (NOT INCLUDED).
+Only Class A levels label findings:
 
 | dimension | what it perturbs |
 |---|---|
-| A1 | added non-commute demand on commute pairs |
+| A1 | +25/50/100% non-commute trips, gravity form, on commute OD pairs only (as issued; operationalized 29 Sep) |
 | A2 | 20 LODES bootstrap draws |
-| A3 | runtimes ×1.1 and ×1.2, lognormal noise |
+| A3 | runtime ×1.1, ×1.2, and per-link lognormal noise (median \|error\| 20.5%), envelope fixed |
 | A4 | reliability: **UNIMPLEMENTED** |
-| A5 | λ = 1 and 4; transfer penalty ×0.5 and ×2 |
-| A6 | walking speed and walking radii |
-| A7 | removing each of the 10 busiest routes |
-| A8 | the retention curve |
+| A5 | λ = 1 and 4; transfer penalty 5 and 20 min |
+| A6 | walk speed 68 m/min; access 450 m with transfer walk 300 m (bundled; operationalized 29 Sep) |
+| A7 | remove each of the 10 busiest routes, resources kept in the envelope |
+| A8 | retention zero point 150 min; floor 0 (amendment 29 Sep; `full_min` not varied) |
 
 It ran in two stages (`EXPERIMENT7_CLOSEOUT.md`):
 
-* **Stage 1:** every certified plan (60-entry registry) evaluated unchanged on
-  four network variants at every level: 192 cells, all complete.
+* **Stage 1:** 60 frozen solutions from Experiments 1–6, including the N0
+  current plan (59 evaluable), evaluated unchanged on four network variants at
+  every level: 192 cells, all complete.
 * **Stage 2:** re-optimization with basin closure in the two dimensions a
   preregistered metric selected from Stage 1, namely A5 (objective weights)
   and A6 (walking).
@@ -475,6 +501,26 @@ It ran in two stages (`EXPERIMENT7_CLOSEOUT.md`):
   * 0 of 840 monotonicity violations.
   * Every reported comparison was firewall-admitted.
 
+**Class B and additional levels** (reported, never label findings;
+`EXP7_CLOSEOUT_TABLE.json → rows[].class_b_and_additional`):
+
+| level | F1 | F4 (N4 − N3) |
+|---|---|---|
+| B1 cross-route common lines (Class B) | −5.99% | +7.86% |
+| X_TOPK40K wider OD coverage (additional) | −5.49% | +8.82% |
+| X_ROUNDS4 more RAPTOR rounds (additional) | −6.03% | +9.67% |
+
+### 6.0 What is preregistered and what is post hoc
+
+| statement | status | where frozen |
+|---|---|---|
+| Stage 1 sign labels and magnitude bands; Stage 2 selection metric; F1/F4/F6/AF1 adaptive definitions | preregistered | contract `1263bedaebe6a45d`; amendment §§13–14 |
+| Level settings | 42 as issued 23 Sep (A1 and A6_MAXWALK75 operationalized 29 Sep); A8 amendment 29 Sep; 2 additional; 1 Class B | `EXP7_LEVELS.json → levels[].provenance` |
+| F3/AF1 labels excluding A7_RM04/RM05 | added at closeout (post hoc flag) | `scripts/exp7_closeout.py` |
+| F2 not-applicable exclusion | corrected at closeout | `scripts/exp7_closeout.py` |
+| F1 under R1_H60/R1_H30/R3_SPAN; second REF fixed point | post hoc | `docs/EXPERIMENT7_F1_ADDENDUM.md`, `EXP7_F1_DECISION_SPACE.json` (preregistered: false) |
+| λ = 1 and shedding mechanism tables (closeout §5.2); errata E7–E8 analyses | post hoc diagnostic | closeout §5.2, errata |
+
 ### 6.1 Findings table
 
 Stability words follow the preregistered bands. Worst bands are against
@@ -482,13 +528,17 @@ BASE.
 
 | finding | certified | Stage 1 (fixed plans): sign / range / worst | Stage 2 (re-optimized) |
 |---|---|---|---|
-| **F1** frequency: unserved vs current plan | −6.65% | **SIGN_ROBUST**; −6.998 to −1.897%; worst A6_MAXWALK75 (68.5%) | Preregistered (may switch service OFF): SIGN_SENSITIVE, −6.8% to +182%; **basin-dependent, not identified** (§6.2). Post hoc, under Exp 1's rules: −2.1% to −7.0% at every λ ≥ 2 level re-optimized, +0.12% at λ = 1 |
-| **F2** splice null | +0.0065% | Preregistered label SIGN_SENSITIVE (range −0.226 to +0.166%; worst A3_RTNOISE). The effect stays within a few tenths of a percent of zero, and the null test against the Exp 2B floor holds at every applicable level | not re-optimized |
-| **F3** add_stop leader | −0.187% | SIGN_SENSITIVE via the rank-mismatched A7_RM05 only; SIGN_ROBUST without it; range −0.41 to +0.32% | not re-optimized |
-| **F4** N4 − N3 | +9.66% | SIGN_SENSITIVE (flip only at λ = 1); −1.31 to +19.35% | +6.8% to +30.8% at every λ ≥ 2 level; −0.98% at λ = 1 |
+| **F1** frequency: unserved vs current plan | −6.65% | Stage 1 BASE −6.02% (Exp 6 model instance, no crowding); **SIGN_ROBUST**; −6.998 to −1.897%; worst A6_MAXWALK75 (68.5%); Highly sensitive (A6) | Preregistered (may switch service OFF): SIGN_SENSITIVE, −6.8% to +182%, worst band Highly sensitive; **basin-dependent, not identified** (§6.2). Post hoc, under Exp 1's rules: −2.1% to −7.0% at every λ ≥ 2 level re-optimized, +0.12% at λ = 1 |
+| **F2** splice null | +0.0065% | Preregistered label SIGN_SENSITIVE (range −0.226 to +0.166%; worst A3_RTNOISE; Highly sensitive (all)). The effect stays within a few tenths of a percent of zero, and the null test against the Exp 2B floor holds at every applicable level | not re-optimized |
+| **F3** add_stop leader | −0.187% | SIGN_SENSITIVE via the rank-mismatched A7_RM05 only; SIGN_ROBUST without it; range −0.41 to +0.32%; Highly sensitive (A1, A7) | not re-optimized |
+| **F4** N4 − N3 | +9.66% | SIGN_SENSITIVE (flip only at λ = 1); −1.31 to +19.35%; Highly sensitive (A5) | +6.8% to +30.8% at every λ ≥ 2 level; −0.98% at λ = 1; worst band Highly sensitive |
 | **F5** resource marginals | — | sign changes only at λ = 1; magnitudes highly sensitive to λ | not re-optimized |
-| **F6** safeguard prices | 0 to +0.91% | N0 11 of 13 SIGN_ROBUST; N3 5 of 12 (most flips at λ = 4) | non-negative everywhere; ranking unchanged at transfer ×0.5; R2 floors become binding at λ = 1, transfer ×2 and walking levels |
-| **AF1** N3 − N0 at matched policy | −0.23% | SIGN_SENSITIVE, chiefly via A7_RM05 | N3 better by 0.16–0.31% at every λ ≥ 2 level; tie at λ = 1 |
+| **F6** safeguard prices | 0 to +0.91% | N0: 11 of 13 cells SIGN_ROBUST (5 of 7 distinct non-zero plans; R2_S25/S10 are zero at every level). N3: 5 of 12 (3 of 6 distinct); the six λ = 4 flips are to −0.01% or less. N0 R4_C05 and R4_C01 and N3 R6_ADA move by more than their own size and change sign: within model uncertainty (rule 3). | non-negative everywhere (enforced: a negative price blocks certification); ranking unchanged at transfer ×0.5; the R2 OFF-share caps (25%, 10%) become binding at λ = 1, transfer ×2 and walking levels. BASE re-closure moved Exp 6 prices by −0.10 to +0.06 points (§5.6). |
+| **AF1** N3 − N0 at matched policy | −0.23% | SIGN_SENSITIVE via A7_RM05 in all 13 cells; excluding the rank-mismatched A7 levels, 10 of 13 SIGN_ROBUST (R4_C05, R4_C01, R6_ADA remain SIGN_SENSITIVE) | N3 better by 0.16–0.31% (F6 track) and 0.16–0.18% (independent F4 track, REF only) at every λ ≥ 2 level; the tracks differ by up to 0.15 points, the same order as the effect (within model uncertainty); tie at λ = 1; worst band Highly sensitive |
+
+Certified values come from each experiment's own model instance; Stage 1 BASE
+is the classification reference (amendment §14.1). F1, F2, F3 and AF1 are on
+N0/N3; F4 is N4 − N3.
 
 ### 6.2 The objective's boundary
 
@@ -519,8 +569,9 @@ is shown for comparison:
 | generalized cost | 1,757,243 | 69,305 |
 | unserved demand | 9,858 | 29,366 |
 
-* At λ = 1 an unserved trip costs 60 while a served trip averages 83–86 GC.
-  With no operating-cost term, removing service lowers the objective.
+* At λ = 1 an unserved trip costs 60 while a served trip averages 83–86 GC,
+  so removing most service lowers the objective. At λ = 2 only trips above
+  120 min of GC are exposed.
 * Doubling the transfer penalty, or adding walking friction, tips the same
   trade more gently. Hours stay fully used, but the re-optimized plan (F6-track
   basin) serves fewer trips than the current plan at the same level:
@@ -534,17 +585,19 @@ is shown for comparison:
   At the shorter radii, most of the drop comes from the level itself rather
   than from shedding.
 
-* Every positive F1 value coincides with 38–139 route-periods switched off.
-  Under Experiment 1's own rules none is switched off. There, F1 holds at every
+* Every positive **REF** F1 value (either track) coincides with 38–139
+  route-periods switched off. Under Experiment 1's service rules (study safeguards in `config/constraints.yaml`; no documented COTA numeric standard) none is switched off. There, F1 holds at every
   λ ≥ 2 level re-optimized and is +0.12% at λ = 1
   (`docs/EXPERIMENT7_F1_ADDENDUM.md`, post hoc, one closure per cell).
 
 **Two readings follow.**
 
-1. The frequency result is robust **as a policy that keeps every route-period
+1. The frequency result holds **as a policy that keeps every route-period
    in service** (post hoc, at the levels re-optimized).
 2. Any future objective that allows service cuts needs one of three things:
-   * an operating-cost term;
+   * an unserved-trip penalty at least as large as the generalized cost of the
+     trips it would replace (for example, tied to the retention curve's 210-min
+     zero point), or an ε-constraint on unserved demand;
    * a coverage term;
    * a service-preservation rule.
 
@@ -588,7 +641,9 @@ Ordered by how much each would mislead a study that skipped it.
      network and 0.13–0.16% on N0/N3, the same order as policy prices.
    * Declared basin closure removes the monotonicity violations this causes
      within a nested grid. It does not remove basin dependence. Independent
-     closures of the same cell in Exp 7 reached fixed points 0.16–0.40% apart
+     closures of the same cell in Exp 7 reached fixed points up to 0.40% apart
+     in objective (more than 0.03% apart at five of seven levels: 0.04–0.40%),
+     with F1 differing by up to 36 percentage points (BASE: −5.4% vs +30.5%)
      (§6.2).
 8. **A constraint can be a label (D35).**
    * A field hashed into identity reached nothing that scores.
@@ -606,7 +661,7 @@ Ordered by how much each would mislead a study that skipped it.
 | limitation | size | direction / consequence |
 |---|---|---|
 | Commute-only demand | 24.7% of regional commute flow is transit-accessible; top 20,000 pairs are 64.9% of that; non-work travel absent | Unknown. The largest unquantified error. Exp 7 A1 tested added non-commute demand on commute pairs only |
-| Uncalibrated parameters | cost weights, unserved penalty, retention curve all assumed | Exp 7 A5/A8 bound some. λ and the unserved penalty determine whether the objective is well posed (§6.2) |
+| Uncalibrated parameters | cost weights, unserved penalty, retention curve all assumed | Exp 7 A5/A8 bound some. λ and the unserved penalty determine whether the objective is well posed (§6.2). λ is a policy choice, not calibratable (guidelines, calibration register) |
 | Scheduled ≠ observed | not quantified; reliability (A4) unimplemented | No reliability claim |
 | Physical fleet | Not measured for any modified plan. The Exp 1 plan is NOT MEASURED, and all 32 Exp 5 diagnostic cells are UNDECIDABLE. The blocking materializer misses the plans' own vehicle-hours by 17.8–22.7% (N0) and 45.6–47.0% (N4); deadhead and terminal identity not public | No bus, fleet or deployability claim, including for Exp 1 |
 | Per-route identification | 19.1% route-period disagreement across seeds | Only aggregates are reported |
@@ -615,6 +670,11 @@ Ordered by how much each would mislead a study that skipped it.
 | Novel-link runtimes | MAE 17.2 s, aggregate bias +0.41%, median APE 20.5% | Unbiased in aggregate; Exp 7 A3 bounds it |
 | Local, not global, optimality | (8, 3)-block-local; closure fixed points | Better plans may exist in any cell (Exp 6 flat objective) |
 | λ ≤ 1 | uncertified (D15); degenerate under OFF-permitting re-optimization | Quote from λ = 2 upward |
+| Unserved penalty vs retention curve | λ · 60 = 120 min at λ = 2, while the retention curve still keeps 64% of riders at 120 min and 10% beyond 210 min | the objective prefers losing trips the model's own demand curve treats as mostly still made; drives the shedding in §6.2 (post hoc analysis) |
+| Period demand shares | six shares assumed (LODES has no time dimension); period tilt NOT INCLUDED in Exp 7 | unknown; bears directly on where frequency moves by period |
+| Single closure per cell | the only cell closed twice (N0 REF) differs by up to 0.40% in objective and 36 points in F1 across tracks | re-optimized F1, served-trip and GC figures in OFF-permitting cells are basin-dependent; R1 cells not independently re-closed (FUTURE E21) |
+| Stage 2 scope | A5 and A6 only | no re-optimized claim for demand, runtime, route-removal or retention perturbations |
+| Operationalization bounds | A1 commute pairs only; A3 envelope fixed; A6 caps bundled; A8 `full_min` fixed | Exp 7 claims are bounded to these forms |
 
 ## 9. Retractions and protocol amendments
 
@@ -631,7 +691,7 @@ Ordered by how much each would mislead a study that skipped it.
 | R9 | Exp 7 walk/access "harness-build key" refusal | the knob does reach the evaluator | corrected in amendment §14 |
 | R10 | Exp 7 mixed-level comparison admitted in development | level not bound into receipts | level digest in `data_digest` |
 | R11 | "F1 is not robust under re-optimization" (stated informally 2026-10-04) | compared a larger decision space than Exp 1 was certified in | preregistered result stands as SIGN_SENSITIVE; post hoc addendum shows F1 holds under Exp 1's rules at λ ≥ 2 |
-| R12 | Exp 7 closeout: F1 re-optimized "holds where the unserved penalty dominates"; 26 priced F6 cells; "exactly three" post-freeze changes | Independent closures of the same REF cell reached F1 −5.4% and +30.5% at BASE; the count of cells and the diff list were off | `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md` E1–E6; closeout left unchanged because it is registered |
+| R12 | Exp 7 closeout: F1 re-optimized "holds where the unserved penalty dominates"; 26 priced F6 cells; "exactly three" post-freeze changes | Independent closures of the same REF cell reached F1 −5.4% and +30.5% at BASE; the count of cells and the diff list were off; later rows: mechanism wording, R2 label, λ = 1 attribution, F2 label, non-negativity scope, BASE price movement | `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md` E1–E15; closeout left unchanged because it is registered |
 
 ## 10. Using this with better data
 
@@ -643,14 +703,17 @@ Each assumption above has a defined entry point (`docs/RELEASE_AND_REPORTING_GUI
   surveys.
 * **Runtimes and reliability.** AVL or GTFS-Realtime (a collector exists in
   `cota_opt.realtime`) would replace scheduled runtimes and populate the
-  reliability term.
+  reliability term (after a reviewed `src/cota_opt` change; FUTURE E14).
 * **Fleet.** A COTA deadhead matrix and terminal table would let the blocking
   instrument reach FEASIBLE for a modified plan.
 * **Calibration.** Fare-card chains and surveys calibrate the retention curve
   and penalties. Validation is a four-dimension, per-dimension status, never a
   single flag.
 
-Certification cells are independent, so the work is trivially parallel. The
+Certification cells are independent, so the work is trivially parallel.
+Qualification: Stage 1 cells and initial solves are independent and
+parallelise per cell; basin closure as implemented runs one process per
+(track, network) (`exp7_run.py closure`) and is not divided by core count. The
 pace of this study was a property of a two-core container, not of the method.
 
 ## 11. Conclusion
@@ -660,9 +723,13 @@ uncalibrated cost model:
 
 * **Re-timing frequencies inside the existing routes is the one lever that
   materially reduced unserved demand**, by about 6%.
-* That result survives every assumption perturbation tested for the certified
-  plans. Under the same service-preservation rules it also survives
-  re-optimization at every λ ≥ 2 level tested (post hoc).
+* That result keeps its sign at every implemented Stage 1 level for the
+  certified plans (SIGN_ROBUST; magnitude Highly sensitive to walking
+  friction). Re-optimized under Experiment 1's service rules (no route-period
+  switched off, 60-minute maximum headway; study safeguards, not COTA policy),
+  it is −2.1% to −7.0% at every λ ≥ 2 level re-optimized in Exp 7 (A5 and A6
+  only), with one closure per cell. Post hoc
+  (`docs/EXPERIMENT7_F1_ADDENDUM.md`). At λ = 1 it is +0.12%.
 * When service may be switched off, the objective no longer identifies unserved
   demand.
 * Recombining routes did nothing, editing them did almost nothing, and the best
@@ -684,20 +751,20 @@ differences is what separated those artifacts from the one result that held.
 
 ## Appendix A. Source of every headline number
 
-| number | artifact | key |
-|---|---|---|
-| −6.65% ±0.06, +3.30%, +0.88%, −2.34% | `outputs/canonical/exp1_final.json` | `headline` |
-| 10,262 → 9,583 unserved; 20,687 → 21,366 served; frontier by λ | `outputs/canonical/exp1_final.json`, `outputs/exp1_baseline_modelB.json` | `frontier[λ=2]`, `baseline_unserved` |
-| 19.1% / 19.7% / 6.9 min | `outputs/canonical/exp1_final.json` | `plan_disagreement` |
-| 2B leader +0.0065%; 240 / 227 | `outputs/CANONICAL_RESULTS_v5.json` | `experiments.exp2b.headline` |
-| −0.18657%, 78.6, 29 certified | `outputs/CANONICAL_RESULTS_v5.json` | `experiments.exp3.headline` |
-| EXP4N leader, margin, Spearman, 36.7% | `outputs/exp4_normalized/EXP4N_RANKING.json` via `experiments.exp4.headline` | — |
-| +9.659% | `outputs/exp4_addendum/DELTA43.json`; indexed in `outputs/CANONICAL_RESULTS_v5.json` | `experiments.exp4a.headline` (registry) |
-| Exp 5 cells | `outputs/exp5/EXP5_ANALYSIS.json` | `EXPERIMENT5_CLOSEOUT.md` §3 |
-| Exp 6 prices | `outputs/exp6/EXP6_ANALYSIS.json` | `EXPERIMENT6_CLOSEOUT.md` §10 |
-| Exp 7 Stage 1 | `outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json`, `outputs/exp7/EXP7_CLOSEOUT_TABLE.json` | `rows` |
-| Exp 7 Stage 2 | `outputs/exp7/EXP7_ANALYSIS.json` | `f1_adaptive`, `f4`, `af1_n3_minus_n0`, `f6_ranks` |
-| Exp 7 post hoc F1; two REF fixed points | `outputs/exp7/EXP7_F1_DECISION_SPACE.json` | `rows[].cells.R1_H60`, `rows[].ref_f4_track` |
+| number | artifact | key | contract / commit (Exp 7 only) |
+|---|---|---|---|
+| −6.65% ±0.06, +3.30%, +0.88%, −2.34% | `outputs/canonical/exp1_final.json` | `headline` | |
+| 10,262 → 9,583 unserved; 20,687 → 21,366 served; frontier by λ | `outputs/canonical/exp1_final.json`, `outputs/exp1_baseline_modelB.json` | `frontier[λ=2]`, `baseline_unserved` | |
+| 19.1% / 19.7% / 6.9 min | `outputs/canonical/exp1_final.json` | `plan_disagreement` | |
+| 2B leader +0.0065%; 240 / 227 | `outputs/CANONICAL_RESULTS_v5.json` | `experiments.exp2b.headline` | |
+| −0.18657%, 78.6, 29 certified | `outputs/CANONICAL_RESULTS_v5.json` | `experiments.exp3.headline` | |
+| EXP4N leader, margin, Spearman, 36.7% | `outputs/exp4_normalized/EXP4N_RANKING.json` via `experiments.exp4.headline` | — | |
+| +9.659% | `outputs/exp4_addendum/DELTA43.json`; indexed in `outputs/CANONICAL_RESULTS_v5.json` | `experiments.exp4a.headline` (registry) | |
+| Exp 5 cells | `outputs/exp5/EXP5_ANALYSIS.json` | `EXPERIMENT5_CLOSEOUT.md` §3 | |
+| Exp 6 prices | `outputs/exp6/EXP6_ANALYSIS.json` | `EXPERIMENT6_CLOSEOUT.md` §10 | |
+| Exp 7 Stage 1 | `outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json`, `outputs/exp7/EXP7_CLOSEOUT_TABLE.json` | `rows` | contract `1263bedaebe6a45d`, analysis `b0f6f416` |
+| Exp 7 Stage 2 | `outputs/exp7/EXP7_ANALYSIS.json` | `f1_adaptive`, `f4`, `af1_n3_minus_n0`, `f6_ranks` | contract `1263bedaebe6a45d`, analysis `b0f6f416` |
+| Exp 7 post hoc F1; two REF fixed points | `outputs/exp7/EXP7_F1_DECISION_SPACE.json` | `rows[].cells.R1_H60`, `rows[].ref_f4_track` | `5dc3f408`; sha256 `0d5e3da76ebdc6ad67493e4ce93061c1536e313ac558e605e9d631a764015280`; not in registry v5 |
 
 The registry `outputs/CANONICAL_RESULTS_v5.json` indexes every experiment's
 canonical and superseded artifacts. `outputs/SUPERSEDED.md` indexes retired
@@ -722,6 +789,42 @@ ones.
   policy.
 * **N0 / N3 / N4:** existing geometry / N0 plus the Exp 3 add_stop edit /
   the EXP4N greenfield leader.
+* **N0S:** N0 with the Exp 2B splice; the fourth Exp 7 network variant.
+* **SIGN_ROBUST / SIGN_SENSITIVE:** a finding is SIGN_ROBUST iff no Class A
+  level shows a sign event against BASE: SIGN_FLIP (sign reverses), TO_TIE
+  (moves into the tie band) or FROM_TIE (leaves it). Otherwise SIGN_SENSITIVE.
+* **Magnitude bands:** |level − base| / |base| ≤ 10% Highly stable, ≤ 25%
+  Stable, ≤ 50% Moderately sensitive, > 50% Highly sensitive.
+* **Stage 1 / Stage 2 (Exp 7):** frozen plans evaluated unchanged at every
+  level / re-optimization with basin closure at the selected levels (A5, A6).
+* **F1–F6, AF1:** F1 Exp 1 frequency result (unserved vs current plan); F2
+  splice null (Exp 2B); F3 add_stop leader (Exp 3); F4 greenfield N4 − N3
+  (Exp 4A); F5 resource marginals (Exp 5); F6 safeguard prices (Exp 6); AF1
+  N3 − N0 at matched policy.
+* **REF:** the unconstrained reference cell against which safeguard prices are
+  measured.
+* **F4 track / F6 track:** the two Exp 7 Stage 2 closure groups: REF only on
+  N0, N3, N4 / the 14 policy cells on N0 and N3.
+* **R1–R6, B1–B2 (study safeguards):** R1 max-headway floor; R2 OFF-share cap;
+  R3 span preservation; R4 coverage preservation; R5 accessibility-loss cap
+  (not implemented); R6 ¾-mile area preservation; B1 bundle R2 s = 0.10 + R3 +
+  R6; B2 bundle R4 c = 0.01 + R3 (`EXPERIMENT6_CONSTRAINT_CATALOG.md`).
+* **Fixed point:** a closure state in which no anchor transfer improves any
+  cell. Not a global optimum.
+* **Not identified:** the objective admits plans a fraction of a percent apart
+  that differ by tens of percent in the quantity, so the optimizer does not
+  determine it.
 
 The full glossary is `docs/GLOSSARY.md`. The decision log is `DISCOVERIES.md`
 (D1–D39).
+
+## Appendix C. Experiment 7 amendment sequence
+
+| step | what | source |
+|---|---|---|
+| As issued, 23 Sep | protocol text committed verbatim | `docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md` |
+| Sept 23 finalization | sign and magnitude classification | `docs/EXPERIMENT7_SEPT23_FINALIZATION.md` |
+| Amendment §§13–14 | two-stage contract (full ~2,300 h closure rejected); firewall level binding; walk/access correction | `docs/EXPERIMENT7_AMENDMENT.md` |
+| 29 Sep operationalizations | A1 gravity form, A6_MAXWALK75 bundling (as-issued rows); A8 and A4 levels (amendment) | `EXP7_LEVELS.json → levels[].provenance` |
+
+Source: closeout §7.

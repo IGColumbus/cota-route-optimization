@@ -9,9 +9,13 @@ The study's current answer:
 
 * At current resources, re-timing frequencies is the one lever that materially
   reduces unserved demand, by about 6% (Experiment 1).
-* It survives every assumption perturbation tested for the certified plans.
-  Under service-preservation rules it also survives re-optimization at every
-  λ ≥ 2 level tested (Experiment 7 and its post hoc F1 addendum).
+* It keeps its sign at every implemented Stage 1 level for the certified
+  plans (SIGN_ROBUST; magnitude Highly sensitive to walking friction).
+  Re-optimized under Experiment 1's service rules (no route-period switched
+  off, 60-minute maximum headway; study safeguards, not COTA policy), F1 is
+  −2.1% to −7.0% at every λ ≥ 2 level re-optimized in Exp 7 (A5 and A6 only),
+  with one closure per cell. Post hoc (`docs/EXPERIMENT7_F1_ADDENDUM.md`). At
+  λ = 1 it is +0.12%.
 * Geometry and stop edits add little: Exp 3's 29 certified improvements are
   each at most 0.19%, within model uncertainty. Route recombination is null.
   The greenfield design is worse.
@@ -22,15 +26,19 @@ Everything below either:
 * reaches parts of the original question that were **never tested**;
 * fixes a **known defect** in the instruments.
 
-Compute estimates assume the 2-core container used so far. Certification
-cells are independent, so a cluster job array (`docs/RELEASE_AND_REPORTING_GUIDELINES.md`,
-"Scaling") divides wall time by the core count.
+Compute estimates assume the 2-core container used so far. Stage 1 cells and
+initial solves are independent and parallelise per cell (a cluster job array,
+`docs/RELEASE_AND_REPORTING_GUIDELINES.md`, "Scaling"); basin closure as
+implemented runs one process per (track, network) (`exp7_run.py closure`) and
+is not divided by core count.
 
 ---
 
 ## Tier 1: would most change the answer
 
 ### E8. Validation and calibration against COTA data
+
+**Blocked on non-public COTA data** (APC, farebox, fare-card, survey).
 
 * **Question:** does the baseline model reproduce what COTA actually observes?
   And do the findings survive once the uncertain parameters are calibrated?
@@ -51,13 +59,16 @@ cells are independent, so a cluster job array (`docs/RELEASE_AND_REPORTING_GUIDE
   fare-card transfer chains, and the COTA on-board survey.
 * **What would change the answer:**
   * a failed route-volume or trip-length validation;
-  * a calibrated λ·w_unserved below the typical served-trip GC. That would put
-    the real system in the regime where the objective sheds riders (technical
-    report §6.2; Exp 7 closeout §5.2).
+  * a calibrated unserved-trip penalty w_unserved (or retention curve) such
+    that, at the policy-chosen λ, λ · w_unserved falls below the generalized
+    cost of a material share of served trips. That would put the real system
+    in the regime where the objective sheds riders (report §6.2; errata E7).
 * **Effort:** mostly data work. Re-running the Exp 1 headline at calibrated
   values is about 3 seeds × 1 h.
 
 ### E9. All-purpose demand
+
+**Needs a new OD source** (MORPC model, LBS or APC; not necessarily COTA's).
 
 * **Question:** does a 6% reduction in unserved trips hold when demand
   includes non-work travel?
@@ -80,16 +91,21 @@ cells are independent, so a cluster job array (`docs/RELEASE_AND_REPORTING_GUIDE
 ### E10. A well-posed objective (Class C reformulation)
 
 * **Question:** what is the frontier between unserved demand and generalized
-  cost when service can be cut but cutting service has a price?
-* **Why:** Exp 7 showed the λ-scalarized objective, with no operating-cost
-  term, collapses service at λ = 1. It sheds hard trips under higher transfer
+  cost when losing a trip is priced at least as high as serving it?
+* **Why:** Exp 7 showed the λ-scalarized objective, whose unserved penalty
+  (λ · 60) is below the generalized cost of many served trips, collapses
+  service at λ = 1. It sheds hard trips under higher transfer
   or walking costs. Today the answer depends on whether a service-preservation
   rule is imposed.
 * **Design:** three formulations, each versioned separately from Gen1
   (`METHODOLOGY.md`, Class C):
   1. **ε-constraint:** minimize GC subject to unserved ≤ ε, swept over ε.
-  2. **Operating-cost term:** add an operating-cost term in revenue-hour
-     dollars (NTD $209.68 per revenue hour) to the objective.
+  2. **Unserved penalty consistent with the retention curve:** set
+     λ · w_unserved at or above the generalized cost at which the retention
+     curve treats a trip as lost (for example, its 210-min zero point), and
+     report whether shedding persists. An operating-cost term is not a remedy
+     for shedding (it rewards removing service); it matters only if the fixed
+     envelope is replaced by a priced budget.
   3. **Coverage floor:** add an explicit floor (the R4 or R6 forms) as a
      standing rule.
   * Report where each formulation's optimum switches route-periods off.
@@ -98,6 +114,8 @@ cells are independent, so a cluster job array (`docs/RELEASE_AND_REPORTING_GUIDE
 * **Effort:** about 20–40 h.
 
 ### E11. Physical fleet for the frequency plan
+
+**Blocked on non-public COTA data** (deadhead matrix, terminal table).
 
 * **Question:** does the Exp 1 plan fit within the 197-vehicle peak requirement
   that COTA's published blocking implies (NTD VOMS 198) when actually blocked?
@@ -115,6 +133,23 @@ cells are independent, so a cluster job array (`docs/RELEASE_AND_REPORTING_GUIDE
   Then Exp 1 would need a physical-fleet constraint rather than the proxy.
 * **Effort:** small compute (minutes per plan). The work is in the data and the
   instrument.
+
+### E21. Preregistered confirmation of the post hoc F1 result
+
+Runnable now; needs no external data.
+
+* **Question:** is the post hoc F1 result (N0 under R1_H60 against the current
+  plan at the same level) sign-stable across independent closures and across
+  the Stage 1 movers that were not re-optimized?
+* **Design:** preregister that definition; at least 3 independent
+  starts/closures per level at the six A5/A6 levels plus A7 (Moderately
+  sensitive for F1), A1, A3 and A8; a period-tilt dimension; at least 3
+  independent N0 REF closures at BASE to put a distribution on the
+  non-identification (−5.4% vs +30.5%).
+* **Acceptance:** SIGN_ROBUST across all closures at every λ ≥ 2 level.
+* **Existing partial evidence:** two closures of R1_H60 at BASE sharing one
+  initial solve (Exp 6, Exp 7) give −6.55% and −6.57%. They are not
+  independent.
 
 ---
 
@@ -134,6 +169,8 @@ cells are independent, so a cluster job array (`docs/RELEASE_AND_REPORTING_GUIDE
     timetable router exists.
   * Hold Exp 1's frequencies fixed. Then do a joint search with matched
     convergence.
+* **Note:** pulse value depends on headway regularity; interpret jointly with
+  E14.
 * **Effort:** a new evaluator path, followed by about 20 h.
 
 ### E13. Stop consolidation with measured stop cost
@@ -159,8 +196,12 @@ cells are independent, so a cluster job array (`docs/RELEASE_AND_REPORTING_GUIDE
   * Implement the schedule-coefficient waiting model with route-period headway
     variance from AVL. This requires a reviewed change to `src/cota_opt`, so it
     is a Class C generation.
-  * Re-run Exp 7 Stage 1 at its preregistered A4 levels (schedule coefficient
-    0.375 / 0.50) and the Exp 1 headline.
+  * Preregister new A4 levels in the new model's terms (for example, headway
+    coefficient of variation by route-period at the observed median and 90th
+    percentile). Do not reuse the 0929 schedule-coefficient levels:
+    `EXP7_LEVELS.json → declared_not_run[A4_*].why` records that they cannot
+    represent headway variance.
+* **Data:** AVL or months of GTFS-Realtime, shared with E13.
 
 ### E15. Equity and incidence
 
@@ -229,6 +270,8 @@ These extend Experiment 7 itself:
 * **Class B accessibility:** the jobs-accessibility objective (B2).
 * **Retention curve:** A8 with `full_min` varied.
 * **Commute pairs:** A1 with new OD pairs, not only commute pairs.
+* **Period tilt:** the period-share assumption (LODES has no time dimension;
+  NOT INCLUDED in Exp 7).
 
 Each is cheap relative to Tier 1, but only worth running if Tier 1 does not
 supersede the demand and calibration it depends on.
@@ -245,4 +288,6 @@ The release work in `docs/RELEASE_AND_REPORTING_GUIDELINES.md`:
 * data interfaces and the envelope-units sidecar;
 * the calibration register;
 * `cota-opt reproduce exp1`;
+* register `EXP7_F1_DECISION_SPACE.json` in the next registry version at the
+  freeze;
 * the three reports with script-generated figures.

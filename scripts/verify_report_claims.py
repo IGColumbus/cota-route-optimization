@@ -20,6 +20,9 @@ ROOT = Path(__file__).resolve().parents[1]
 REPORT = "docs/report/TECHNICAL_REPORT.md"
 CLOSE7 = "EXPERIMENT7_CLOSEOUT.md"
 ADD7 = "docs/EXPERIMENT7_F1_ADDENDUM.md"
+RES7 = "docs/EXPERIMENT7_RESULTS.md"
+ERR7 = "docs/EXPERIMENT7_CLOSEOUT_ERRATA.md"
+README = "README.md"
 
 
 def J(p):
@@ -54,6 +57,16 @@ def e6(net, cell):
 def row7(q):
     return next(r for r in J("outputs/exp7/EXP7_CLOSEOUT_TABLE.json")["rows"]
                 if r.get("quantity") == q)
+
+
+def dspace(level):
+    return next(r for r in J("outputs/exp7/EXP7_F1_DECISION_SPACE.json")["rows"]
+                if r["level"] == level)
+
+
+def ref_gap_pct():
+    t = dspace("BASE")["ref_f4_track"]
+    return (t["f6_track_objective"] - t["objective"]) / t["f6_track_objective"] * 100
 
 
 def d43():
@@ -92,6 +105,20 @@ CLAIMS = [
     ("−6.024", 3, lambda: row7("F1")["stage1_base"], [CLOSE7]),
     ("−1.897", 3, lambda: row7("F1")["class_a_range"][1], [CLOSE7]),
     ("−6.998", 3, lambda: row7("F1")["class_a_range"][0], [CLOSE7]),
+    # second REF fixed point at BASE and the lambda = 1 collapse (post hoc
+    # decision-space artifact; Stage 2 analysis)
+    ("+30.5%", 1, lambda: dspace("BASE")["ref_f4_track"]["f1_pct"],
+     [REPORT, ADD7, RES7, ERR7, README]),
+    ("0.161%", 3, ref_gap_pct, [REPORT, ADD7, ERR7]),
+    ("2,940,186", 0, lambda: dspace("BASE")["ref_f4_track"]["f6_track_objective"], [REPORT, ERR7]),
+    ("2,935,446", 0, lambda: dspace("BASE")["ref_f4_track"]["objective"], [REPORT, ERR7]),
+    ("557", 0, lambda: dspace("A5_LAM1")["cells"]["REF"]["revenue_veh_hours"], [REPORT, RES7, README]),
+    ("1,583", 0, lambda: dspace("A5_LAM1")["cells"]["REF"]["served"], [REPORT, RES7]),
+    ("29,366", 0, lambda: next(r["ref_unserved"] for r in J("outputs/exp7/EXP7_ANALYSIS.json")["f1_adaptive"]
+                               if r["level"] == "A5_LAM1"), [REPORT, RES7]),
+    # F2 preregistered Class A range
+    ("−0.226", 3, lambda: row7("F2_unserved")["class_a_range"][0], [REPORT, RES7, ERR7]),
+    ("+0.166", 3, lambda: row7("F2_unserved")["class_a_range"][1], [REPORT, RES7, ERR7]),
 ]
 
 
