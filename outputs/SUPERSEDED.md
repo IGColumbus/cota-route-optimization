@@ -108,8 +108,8 @@ vehicle-hours, and `splice|011|034|WESHIGW` at **−0.5846%, against 2B's
 
 *Pre-freeze drafts, superseded by the frozen two-stage contract (amendment §14). Kept, never deleted.*
 
-- `outputs/exp7/SUPERSEDED.EXP7_LEVELS.PROPOSED.json` — proposed level set before the governing 0929 decisions
-- `docs/EXPERIMENT7_AMENDMENT_DRAFT.md` — amendment draft before the as-issued text was recovered
+- `outputs/exp7/SUPERSEDED.EXP7_LEVELS.PROPOSED.json` — proposed level set, retired when the 0929 governing stack froze the levels (b18c2f24)
+- `docs/EXPERIMENT7_AMENDMENT_DRAFT.md` — amendment draft written at the Exp 6 closeout (6dca8b32), before the governing 0929 stack
 
 **Current instead:** `outputs/exp7/EXP7_LEVELS.json`, `outputs/exp7/EXP7_CONTRACT.json`, `docs/EXPERIMENT7_AMENDMENT.md`, `EXPERIMENT7_CLOSEOUT.md` (read with `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`)
 
