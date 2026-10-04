@@ -56,6 +56,10 @@
   ],
   [
    "A5_TP200|REF",
+   "7a9379813c696ede"
+  ],
+  [
+   "A5_TP200|REF",
    "96ccb1c21a639371"
   ],
   [
@@ -154,9 +158,23 @@
    ],
    "before": "3253136.544701053",
    "after": "3216393.3753997735"
+  },
+  {
+   "pass": 1,
+   "stage": "X",
+   "cell": [
+    "A5_TP200",
+    "REF"
+   ],
+   "from": [
+    "A5_LAM4",
+    "REF"
+   ],
+   "before": "3216393.3753997735",
+   "after": "3215980.8505293513"
   }
  ],
- "cursor": 18,
+ "cursor": 19,
  "pass_improved": true,
  "blocking": [],
  "best": {
@@ -186,9 +204,9 @@
   },
   "A5_TP200|REF": {
    "status": "CERTIFIED",
-   "objective": 3216393.3753997735,
-   "plan_digest": "0579dbf23969b080",
-   "ref": "outputs/exp7/closure/F4/A5_TP200/N4_REF__anchor_0ac5a9bee2d4f289.json"
+   "objective": 3215980.8505293513,
+   "plan_digest": "7652f4126d4b55c2",
+   "ref": "outputs/exp7/closure/F4/A5_TP200/N4_REF__anchor_7a9379813c696ede.json"
   },
   "A6_WALKSPD85|REF": {
    "status": "CERTIFIED",
