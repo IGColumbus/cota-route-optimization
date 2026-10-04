@@ -1,6 +1,6 @@
 # Experiment 7: results (two-stage final production contract)
 
-*Written 2026-10-04. The governing contract is `docs/EXPERIMENT7_AMENDMENT.md` §14. The machine-readable results are in `outputs/exp7/EXP7_CLOSEOUT_TABLE.{json,md}`, `outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json` and `outputs/exp7/EXP7_ANALYSIS.json`.*
+*Written 2026-10-04. The formal closeout is `EXPERIMENT7_CLOSEOUT.md`. The governing contract is `docs/EXPERIMENT7_AMENDMENT.md` §14. The machine-readable results are in `outputs/exp7/EXP7_CLOSEOUT_TABLE.{json,md}`, `outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json` and `outputs/exp7/EXP7_ANALYSIS.json`.*
 
 ## Status
 
