@@ -1,6 +1,6 @@
 {
- "passes_completed": 2,
- "status": null,
+ "passes_completed": 4,
+ "status": "FIXED_POINT",
  "tried": [
   [
    "A5_LAM1|B1",
@@ -1572,6 +1572,10 @@
   ],
   [
    "A6_MAXWALK75|R3_SPAN",
+   "c7c4d12fa144e28f"
+  ],
+  [
+   "A6_MAXWALK75|R3_SPAN",
    "ddbd508529129518"
   ],
   [
@@ -1797,6 +1801,10 @@
   [
    "A6_WALKSPD85|R3_SPAN",
    "9b7dcae3da0ee053"
+  ],
+  [
+   "A6_WALKSPD85|R3_SPAN",
+   "c7c4d12fa144e28f"
   ],
   [
    "A6_WALKSPD85|R3_SPAN",
@@ -3845,8 +3853,8 @@
    "after": "2879791.2810294363"
   }
  ],
- "cursor": 484,
- "pass_improved": true,
+ "cursor": 0,
+ "pass_improved": false,
  "blocking": [],
  "best": {
   "BASE|REF": {
