@@ -28,7 +28,15 @@
   ],
   [
    "A5_TP050|REF",
+   "64690725e330bc59"
+  ],
+  [
+   "A5_TP050|REF",
    "76430e1f43635d31"
+  ],
+  [
+   "A5_TP050|REF",
+   "d50f88367d19cc35"
   ],
   [
    "BASE|REF",
@@ -51,7 +59,7 @@
   "BASE|REF": 1,
   "A5_LAM1|REF": 0,
   "A5_LAM4|REF": 0,
-  "A5_TP050|REF": 0,
+  "A5_TP050|REF": 1,
   "A5_TP200|REF": 0,
   "A6_WALKSPD85|REF": 0,
   "A6_MAXWALK75|REF": 0
@@ -84,9 +92,23 @@
    ],
    "before": "2941810.360122096",
    "after": "2935446.4612512114"
+  },
+  {
+   "pass": 1,
+   "stage": "X",
+   "cell": [
+    "A5_TP050",
+    "REF"
+   ],
+   "from": [
+    "A5_LAM4",
+    "REF"
+   ],
+   "before": "2889059.946940723",
+   "after": "2880898.144636941"
   }
  ],
- "cursor": 14,
+ "cursor": 16,
  "pass_improved": true,
  "blocking": [],
  "best": {
@@ -110,9 +132,9 @@
   },
   "A5_TP050|REF": {
    "status": "CERTIFIED",
-   "objective": 2889059.946940723,
-   "plan_digest": "2a236b2b72fb6d5d",
-   "ref": "outputs/exp7/initial/F4/A5_TP050/N0_REF.json"
+   "objective": 2880898.144636941,
+   "plan_digest": "3ce54c6fe9f9fdc2",
+   "ref": "outputs/exp7/closure/F4/A5_TP050/N0_REF__anchor_64690725e330bc59.json"
   },
   "A5_TP200|REF": {
    "status": "CERTIFIED",
