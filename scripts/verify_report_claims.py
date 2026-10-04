@@ -73,6 +73,18 @@ def d43():
     return J("outputs/CANONICAL_RESULTS_v5.json")["experiments"]["exp4a"]["headline"]
 
 
+def c2b():
+    return J("outputs/exp2b_certification.json")["_confirmation"]
+
+
+def obj_change_lam2():
+    """Exp 1 objective change, lambda = 2 frontier run vs current plan (%)."""
+    b = J("outputs/exp1_baseline_modelB.json")
+    f = next(r for r in exp1()["frontier"] if r["lambda"] == 2.0)
+    base = b["baseline_gc"] + 120 * b["baseline_unserved"]
+    return 100 * ((f["gc"] + 120 * f["unserved"]) - base) / base
+
+
 # (written string, decimals, extractor, documents)
 CLAIMS = [
     ("−6.65%", 2, lambda: exp1()["headline"]["unserved_demand"]["mean_pct"], [REPORT]),
@@ -91,7 +103,7 @@ CLAIMS = [
     ("+45.11%", 2, lambda: f1a("A5_TP200"), [CLOSE7, ADD7]),
     ("+16.57%", 2, lambda: f1a("A6_WALKSPD85"), [CLOSE7, ADD7]),
     ("+4.58%", 2, lambda: f1a("A6_MAXWALK75"), [CLOSE7, ADD7]),
-    ("+8.55%", 2, lambda: f4("BASE", "N3"), [CLOSE7]),
+    ("+8.55%", 2, lambda: f4("BASE", "N3"), [CLOSE7, REPORT]),
     ("+30.79%", 2, lambda: f4("A5_LAM4", "N3"), [CLOSE7]),
     ("−0.98%", 2, lambda: f4("A5_LAM1", "N3"), [CLOSE7, REPORT]),
     ("−6.57%", 2, lambda: r1h60("BASE"), [ADD7]),
@@ -119,6 +131,17 @@ CLAIMS = [
     # F2 preregistered Class A range
     ("−0.226", 3, lambda: row7("F2_unserved")["class_a_range"][0], [REPORT, RES7, ERR7]),
     ("+0.166", 3, lambda: row7("F2_unserved")["class_a_range"][1], [REPORT, RES7, ERR7]),
+    # first referee review (docs/report/reviews/ROUND1_ADJUDICATION.md §5)
+    ("+0.090%", 3, lambda: c2b()["matched_start_unserved_effect_pct"], [REPORT]),
+    ("+0.054%", 3, lambda: c2b()["matched_start_objective_effect_pct"], [REPORT]),
+    ("0.31", 2, lambda: c2b()["floors"], [REPORT]),
+    ("−2.21%", 2, obj_change_lam2, [REPORT]),
+    ("66.8%", 1, lambda: 100 * J("outputs/exp1_baseline_modelB.json")["baseline_served"] / 30949, [REPORT]),
+    ("1.16%", 2, lambda: J("outputs/exp4_addendum/diag_N3.json")["common_lines_bound"]["bound_share_of_generalized_cost_pct"], [REPORT]),
+    ("12.47%", 2, lambda: J("outputs/exp4_addendum/diag_N4.json")["common_lines_bound"]["bound_share_of_generalized_cost_pct"], [REPORT]),
+    ("0.516%", 3, lambda: J("outputs/model_diagnostics_modelB.json")["hyperpath"]["bound_share_of_generalized_cost_pct"], [REPORT]),
+    ("2,516.65", 2, lambda: next(r["revenue_veh_hours"] for r in exp1()["frontier"] if r["lambda"] == 2.0), [REPORT]),
+    ("+15.31%", 2, lambda: next(r["unserved_change_pct"] for r in exp1()["frontier"] if r["lambda"] == 0.25), [REPORT]),
 ]
 
 
