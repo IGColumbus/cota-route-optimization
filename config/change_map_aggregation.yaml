@@ -1,0 +1,54 @@
+# Change-map aggregation contract (guideline figure G7; report Figure 2) —
+# frozen BEFORE any plan is plotted.
+#
+# docs/RELEASE_AND_REPORTING_GUIDELINES.md §Figures, "Figure 7 aggregation
+# contract": fixed units, >= 3 routes per unit, no dominant route, bands not
+# minutes, seed agreement. This file fixes every free parameter of those rules.
+# The map generator (scripts/make_report_figures.py, fig2_change_map) reads it;
+# its sha256 is recorded in docs/report/figures/FIGURES_MANIFEST.json, and the
+# commit that froze it precedes the commit that adds the map.
+#
+# Frozen 2026-10-05, before scripts/make_report_figures.py drew any map.
+
+units:
+  # Rule 1: fixed units defined before plotting. A regular hexagonal grid in
+  # the project CRS, anchored at a fixed origin, so units cannot be drawn
+  # around results.
+  kind: hex_grid
+  crs: "EPSG:32617"
+  hex_flat_to_flat_m: 4000
+  origin_m: [300000, 4400000]
+  # Only hexes crossed by at least one baseline route shape are units.
+
+min_routes_per_unit: 3          # Rule 2 (count of distinct routes whose shape crosses the unit)
+dominance_share_max: 0.5        # Rule 3: no route may carry > 50% of a unit's absolute change
+merge_rule: >-
+  Units failing rule 2, then units failing rule 3, are merged with the adjacent
+  unit (shared edge) that has the most distinct routes; ties broken by lowest
+  unit id. Repeat until every unit passes both rules or no neighbour remains
+  (then the unit is dropped and counted in the caption). Rule 3 is evaluated on
+  the seed-mean change.
+
+measure: >-
+  Scheduled revenue vehicle-kilometres per weekday inside the unit:
+  sum over route-periods of trips(route, period) x length of the route's
+  representative shape inside the unit. trips = baseline GTFS trips for the
+  current plan and n_directions x period_minutes / headway for a plan. The
+  representative shape is the route's most frequent shape_id on the
+  representative weekday. Change is (plan - current) / current.
+
+bands:                           # Rule 4: direction and coarse band, never minutes
+  - {label: "falls more than 10%", lo: -.inf, hi: -0.10}
+  - {label: "falls 2-10%",          lo: -0.10, hi: -0.02}
+  - {label: "about unchanged (within 2%)", lo: -0.02, hi: 0.02}
+  - {label: "rises 2-10%",          lo: 0.02, hi: 0.10}
+  - {label: "rises more than 10%",  lo: 0.10, hi: .inf}
+
+seed_agreement: >-
+  Rule 5: a unit is coloured only if all three certified seeds
+  (seedcheck_modelB.jsonl, lambda = 2, 400000/20) give the same direction
+  (falls / about unchanged / rises, using the 2% threshold). The colour shows
+  the band of the seed-mean change. Otherwise the unit is drawn as
+  "no stable pattern".
+
+caption_required: "Illustrative pattern, not a route recommendation"
