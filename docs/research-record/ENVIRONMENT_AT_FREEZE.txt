@@ -1,6 +1,7 @@
 # Environment recorded with the research-final tag (2026-10-05)
 #
-# research-final tags master at cd03af9c (pushed 2026-10-05), the merged research record.
+# research-final is an annotated tag on cd03af9c, the merged research record
+# (cd03af9c reached GitHub master on 2026-10-05; the tag itself is not yet public).
 # This file was written after the tag, in the first post-freeze commit.
 #
 # Captured from the cloud development container that ran Experiment 7 Stage 2,

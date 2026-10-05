@@ -1,7 +1,7 @@
 # Future experiments
 
 *Proposed 2026-10-04, after Experiment 7 closed. **None of these is
-preregistered**: each needs its own contract, acceptance gates and freeze
+pre-specified**: each needs its own contract, acceptance gates and freeze
 before it runs, as Experiments 1–7 had. They are ordered by how much they could
 change the study's answer, not by cost. Item numbers (E8–E21) are independent
 of the row numbers in `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`; "errata E16"
@@ -9,8 +9,10 @@ always means the errata row.*
 
 The study's current answer:
 
-* At current resources, reallocating frequencies is the one lever that
-  materially reduces modeled unserved demand, by about 6% (Experiment 1).
+* Frequency reallocation was the only tested lever to produce a large
+  favorable effect under its own study metric: ~680 more modeled weekday
+  trips served, unserved demand −6.65% (Experiment 1). Cross-lever effect
+  sizes are not formally comparable because model instances differ.
 * It keeps its sign at every implemented Stage 1 level for the certified
   plans (SIGN_ROBUST; magnitude Highly sensitive to walking friction).
   Re-optimized in the closest cell to Experiment 1's service rules (R1_H60: no
@@ -20,7 +22,8 @@ The study's current answer:
   λ = 1 it is +0.12%.
 * Geometry and stop edits add little: Exp 3's 29 certified improvements are
   each at most 0.19%, within model uncertainty. Route recombination is null.
-  The greenfield design is worse.
+  N4, the best of the 200 promoted and certified greenfield candidates, is
+  worse than N3.
 
 Everything below either:
 
@@ -137,14 +140,14 @@ is not divided by core count.
 * **Effort:** small compute (minutes per plan). The work is in the data and the
   instrument.
 
-### E21. Preregistered confirmation of the post hoc F1 result
+### E21. Pre-specified confirmation of the post hoc F1 result
 
 Runnable now; needs no external data.
 
 * **Question:** is the post hoc F1 result (N0 under R1_H60 against the current
   plan at the same level) sign-stable across independent closures and across
   the Stage 1 movers that were not re-optimized?
-* **Design:** preregister that definition; at least 3 independent
+* **Design:** pre-specify that definition; at least 3 independent
   starts/closures per level at the six A5/A6 levels plus A7 (Moderately
   sensitive for F1), A1, A3 and A8; a period-tilt dimension; at least 3
   independent N0 REF closures at BASE to put a distribution on the
@@ -199,7 +202,7 @@ Runnable now; needs no external data.
   * Implement the schedule-coefficient waiting model with route-period headway
     variance from AVL. This requires a reviewed change to `src/cota_opt`, so it
     is a Class C generation.
-  * Preregister new A4 levels in the new model's terms (for example, headway
+  * Pre-specify new A4 levels in the new model's terms (for example, headway
     coefficient of variation by route-period at the observed median and 90th
     percentile). Do not reuse the 0929 schedule-coefficient levels:
     `EXP7_LEVELS.json → declared_not_run[A4_*].why` records that they cannot

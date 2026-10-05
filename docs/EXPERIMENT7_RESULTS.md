@@ -53,15 +53,15 @@ The same mechanism appears in milder form at A5_TP200, A6_WALKSPD85 and A6_MAXWA
 |---|---|---|---|---|---|---|
 | −5.43% | +181.7% | −6.76% | −5.74% | +45.1% | +16.6% | +4.6% |
 
-- **Reading:** the preregistered F1 adaptive label is SIGN_SENSITIVE. Its values are basin-dependent: a second certified closure of the BASE cell gives +30.5% (errata E3), so the per-level signs are not a finding.
+- **Reading:** the pre-specified F1 adaptive label is SIGN_SENSITIVE. Its values are basin-dependent: a second certified closure of the BASE cell gives +30.5% (errata E3), so the per-level signs are not a finding.
   - F1 is SIGN_ROBUST for the fixed plans Exp 1 produced (magnitude Highly sensitive, A6). It is **not** a property of re-optimization under every objective calibration.
-- **Post hoc, not preregistered (`docs/EXPERIMENT7_F1_ADDENDUM.md`).** REF may switch route-periods OFF; Exp 1's plans could not (span preserved, 60-minute maximum headway).
+- **Post hoc, not pre-specified (`docs/EXPERIMENT7_F1_ADDENDUM.md`).** REF may switch route-periods OFF; Exp 1's plans could not (span preserved, 60-minute maximum headway).
   - Re-optimized under Exp 1's service rules (the R1_H60 cell: no route-period switched off, 60-minute maximum headway; study safeguards, not COTA policy), F1 is −2.1% to −7.0% at every λ ≥ 2 level re-optimized in Exp 7 (A5 and A6 only), with one closure per cell.
   - At λ = 1 it is +0.12%, a near-tie.
-  - Every preregistered reversal coincides with the optimizer switching 38–139 route-periods off.
-  - When service may be switched off, F1 is not identified. Two certified fixed points of the same BASE cell, 0.16% apart in objective, give −5.4% and +30.5% (errata E3).
+  - Every pre-specified reversal coincides with the optimizer switching 38–139 route-periods off.
+  - At λ = 2 in the OFF-permitting decision space, F1 is not identified. Two certified fixed points of the same BASE cell, 0.16% apart in objective, give −5.4% and +30.5% (errata E3).
 
-**F2: the splice null.** It holds at every applicable Stage 1 level. F2 is not re-optimized (§14.2). Its preregistered sign label is SIGN_SENSITIVE (18 Class A flips, 10 of them bootstrap draws; range −0.226% to +0.166%), as expected for an effect that small (recorded +0.0065% on the incumbent-start plans Exp 7 evaluates; +0.090% under matched starts, errata E17).
+**F2: the splice null.** It holds at every applicable Stage 1 level. F2 is not re-optimized (§14.2). Its pre-specified sign label is SIGN_SENSITIVE (18 Class A flips, 10 of them bootstrap draws; range −0.226% to +0.166%), as expected for an effect that small (recorded +0.0065% on the incumbent-start plans Exp 7 evaluates; +0.090% under matched starts, errata E17).
 
 **F3: N3 add_stop vs control.**
 

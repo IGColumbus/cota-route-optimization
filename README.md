@@ -1,10 +1,26 @@
-# Columbus / COTA Transit Digital Twin and Optimization Harness
+# COTA Transit Network Model and Optimization Harness
+
+*(Formerly titled "Transit Digital Twin". That was a prototype description: the
+model is uncalibrated and is not an operational digital twin.)*
 
 A research platform for one question:
 
-> Holding COTA's approximate current operating resources constant, how much can
-> passenger generalized travel cost be reduced through improved frequency
-> allocation, transfer timing, stop structure, and eventually route topology?
+> Holding modeled operating resources approximately constant, how do frequency
+> allocation and network-design interventions trade off modeled unserved demand
+> and passenger generalized cost, and how much can the study's λ-weighted
+> objective improve under those interventions?
+
+In short: holding modeled operating resources approximately constant, what
+service and network changes improve the modeled coverage–generalized-cost
+trade-off? (An earlier framing as "reducing passenger generalized travel cost"
+was corrected; `docs/REPORTING_CORRECTIONS.md` C1.)
+
+**Author and disclosures.** Human author: Ian Gregory, who is responsible for
+all content. Generative AI (Anthropic's Claude) assisted with code, analysis,
+internal review passes and drafting; AI systems are not authors or referees,
+and no external human peer review has taken place
+(`docs/report/reviews/README.md`). The project is independent of the Central
+Ohio Transit Authority (COTA) and is not affiliated with or endorsed by COTA.
 
 Everything here is built from public data, uncalibrated, and explicit about
 every assumption. It has retracted its own headline answer **five
@@ -18,17 +34,23 @@ output so far, and all five are documented rather than quietly fixed.
 
 **Experiment 1 — frequency redistribution, closed and certified.**
 
-> Redistributing service inside COTA's existing routes and existing
-> 2,517 weekday revenue vehicle-hours reduces unserved demand by
-> **6.65% ± 0.06**, serves **3.30% ± 0.03** more trips, raises total
-> generalized cost by **0.88% ± 0.04** and lowers cost per trip actually served
-> by **2.34% ± 0.01** — using 2,516.5 of 2,517.2 vehicle-hours and without
-> exceeding the baseline's per-period **peak-concurrency proxy**, which the
-> solver enforced as a cap. That proxy is not a bus count. **The plan's physical
-> fleet requirement has not been verified.**
+> Within the model, reallocating frequency within existing routes at fixed
+> modeled resources served **~680 more modeled weekday trips** (+3.3% served;
+> ~2.2% of the 30,949 modeled weekday trips) and reduced modeled unserved
+> demand by **6.65%** (solver-seed SD 0.06 percentage points), while total
+> generalized cost rose 0.88%. The gain stayed positive under all 44
+> pre-specified fixed-plan perturbations (−1.9% to −7.0% unserved).
 
-(± = solver seed spread, SD of 3 seeds.) Total cost rises because the plan serves 3.3% more people; cost per person
-served falls. Three seeds at full effort on one shared candidate set.
+Cost per trip actually served falls 2.34% (solver-seed SD 0.01 percentage
+points); total cost rises because more trips are served. The plan uses 2,516.5
+of 2,517.2 revenue vehicle-hours and stays within the baseline's per-period
+**peak-concurrency proxy**, which the solver enforced as a cap. That proxy is
+not a bus count. **The plan's physical fleet requirement has not been
+verified.** Three seeds at full effort on one shared candidate set.
+
+*Solver-seed SD measures optimization variability with data and assumptions
+fixed. It is not a confidence interval and does not quantify real-world
+uncertainty.*
 
 *Correction (fleet wording).* Earlier versions of this page said "no additional
 buses (197.0 peak vehicles against 197.0)". Both 197.0 figures come from one
@@ -47,7 +69,7 @@ Two things travel with that number and may not be dropped:
 
 * **The claim is the aggregate, not any one timetable.** Independent seeds
   produce plans differing on **19% of route-periods** by an average of seven
-  minutes while their unserved-demand changes have an SD of 0.064 points
+  minutes while their unserved-demand changes have an SD of 0.064 percentage points
   (range 0.12: −6.60, −6.72, −6.63%). The optimum is flat.
   No individual route headway is a recommendation. The constructive reading is
   the better one: many concrete schedules realise the same benefit, so
@@ -59,14 +81,18 @@ Two things travel with that number and may not be dropped:
 
 **Experiment 2 — route geometry, no supportable claim.**
 
-> Twelve splice candidates. **Six do measurable harm. None does measurable
-> good.** The best available geometry intervention in this candidate set is no
+> Twelve splice candidates. None does measurable good. Six single splices
+> exceeded the unserved-demand floor at ranking effort; of the four re-run at
+> certification effort, two exceeded the 0.287-percentage-point floor
+> (`docs/EXPERIMENT2_CLOSEOUT_ERRATA.md` E1). Matched-start confirmation was
+> performed for the leader only, so the harm magnitudes are not re-sized here.
+> The best available geometry intervention in this candidate set is no
 > geometry intervention.
 
 At the ranking effort used to order candidates, the two leaders looked worth
 about half a point each. Re-solved at the effort Experiment 1 is certified at —
 400,000 iterations, 20 restarts, with three zero-edit replicates in the same run
-— both land inside the 0.287-point noise floor. The replicates score 9749.1,
+— both land inside the 0.287-percentage-point noise floor. The replicates score 9749.1,
 9748.8 and 9765.1 unserved; the leading candidate scores 9764.8. Re-running the
 *baseline* with a different seed moves it further than the edit does.
 
@@ -94,7 +120,7 @@ The same leader wins at λ ∈ {1, 2, 4}, so this is a result about the network
 rather than about one point on the cost/coverage trade-off. Full account in
 `EXPERIMENT2_CLOSEOUT.md`.
 
-**Experiment 3 — route mutation, closed and certified** (frozen at `exp3-final-v1`).
+**Experiment 3 — route mutation, closed and certified** (frozen at commit `8c2841c4`; its tag `exp3-final-v1` is not yet public).
 
 > Of 84 census states across eight edit kinds, 39 were promoted and **29 remain
 > certified** against the unedited control. The leader,
@@ -144,17 +170,21 @@ The common envelope also changed how much service the plans run. Under the
 first run's self-drawn caps, certified plans spent **36.16–37.33%** of the 2,517 weekday
 vehicle-hours and switched off **78.5–86.9%** of route-periods; under the common
 envelope they spend **99.92–100.00%** and switch off **56.2–67.4%**. Descriptive, not
-preregistered.
+pre-specified.
 
 **Experiment 4, original question — the greenfield leader does not beat the
-constrained redesign.** Experiment 4 was built to ask whether the best greenfield
-network beats Experiment 3's leader. EXP4N never ran that comparison. Run under
+constrained redesign.** Experiment 4 was built to ask whether its greenfield
+leader beats Experiment 3's leader. N4 is the best of the 200 promoted and
+certified greenfield candidates; the best of all 2,000 generated candidates is
+not identified. EXP4N never ran that comparison. Run under
 the identical EXP4N certification contract (`EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md`):
 
 > obj(N4) − obj(N3) = **+283,973 (+9.66% of N3)**. Lower is better, so the
 > greenfield leader is **worse**. Firewall-admitted; only network fields differ.
-> (No served-trip comparison is quoted: Experiment 7 showed served demand is not
-> identified once service can be switched off.)
+> (No served-trip comparison is quoted: at λ = 2 in the OFF-permitting
+> decision space, Experiment 7 found two fixed points 0.16% apart in objective
+> giving −5.4% and +30.5% in unserved demand, so served demand is not
+> identified there.)
 
 The pipeline first reproduced EXP4N's N4 bit-exactly. The result is conditional
 on the path model, which fits N4 much worse, and on the same-route waiting
@@ -162,8 +192,9 @@ model, whose cross-route omission is 12.47% of generalized cost on N4. It
 survives an omission-corrected costing (+7.87%) and every fixed-plan λ above
 1.087. Gates 4-12 and 4-13, fleet and physical inspection are not discharged.
 
-**Experiment 5 — modeled resource frontier: run, and its preregistered
-acceptance rule FAILED on N4 (`EXP5_MONOTONICITY_FAILURE`).** The original
+**Experiment 5 — modeled resource frontier: run, and its acceptance rule
+(pre-specified at commit `4a9bc6b5`, 2026-09-28, before the first production
+cell) FAILED on N4 (`EXP5_MONOTONICITY_FAILURE`).** The original
 design is retired (`EXPERIMENT5_PREMISE_RETIREMENT.md`): hours were not slack
 once plans were normalized.
 
@@ -285,7 +316,7 @@ The design:
   jobs-accessibility objective (UNTESTED), path-width/scenario count (DROPPED
   as inert) and period tilt (NOT INCLUDED).
 * **Stage 2** re-optimized, with basin closure, in the two dimensions a
-  preregistered metric selected: objective weights (A5) and walking friction
+  metric pre-specified at commit `4a2ba9f6` (2026-09-29) selected: objective weights (A5) and walking friction
   (A6).
 
 Results:
@@ -299,8 +330,8 @@ Results:
     standard), F1 is −2.1% to −7.0% at every λ ≥ 2 level re-optimized in Exp 7
     (A5 and A6 only), with one closure per cell. Post hoc
     (`docs/EXPERIMENT7_F1_ADDENDUM.md`). At λ = 1 it is +0.12%.
-  * When the optimizer may switch service off, unserved demand is not
-    identified by the objective. Two certified plans 0.16% apart give −5.4%
+  * At λ = 2 in the OFF-permitting decision space, unserved demand is not
+    identified by the objective: two certified plans 0.16% apart give −5.4%
     and +30.5% at base assumptions.
   * At λ = 1 the optimizer nearly empties the network (557 of 2,516
     vehicle-hours): at λ = 1 a lost trip costs 60 min while the average served
@@ -383,7 +414,7 @@ entirely legitimate from the inside.
   against the published schedule) and a frequency-based generalized-cost router
   that composes with a `FrequencyPlan`, so passengers re-route when service
   changes.
-- **Real OD demand.** LEHD LODES block-to-block commute flows aggregated to
+- **LODES-based commute OD proxy.** LEHD LODES block-to-block commute flows aggregated to
   block groups, mapped to stop access, scaled to an NTD-anchored weekday
   linked-trip total.
 - **NTD reconciliation.** The FTA agency profile is parsed deterministically and
@@ -473,12 +504,16 @@ current state.
 
 ## License and data terms
 
-Copyright 2026 Ian Gregory. The code is licensed under the Apache License,
-Version 2.0 (`LICENSE`). Documentation, the technical report and its figures are
-licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+Copyright 2026 Ian Gregory.
 
-The licences cover this project's own work, not the source data. Files derived
-from external data keep their sources' terms:
+* **Apache-2.0** (`LICENSE`): project code — `src/`, `scripts/`, `tests/`,
+  `config/` and other code.
+* **CC BY 4.0** (`LICENSES/CC-BY-4.0.txt`): `docs/`, the technical report, the
+  report figures and other project-authored documentation.
+
+The licences cover this project's own work, not the source data. Derived
+artifacts under `outputs/` remain subject to the source-data terms recorded in
+`config/sources.yaml`:
 
 * **COTA GTFS** (cota.com/data). COTA grants a non-exclusive, limited and
   revocable right to use, reproduce and redistribute its data, as is. COTA

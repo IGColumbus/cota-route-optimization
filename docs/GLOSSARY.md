@@ -18,7 +18,7 @@ the entry says so.*
 |---|---|
 | **Exp 1** | Frequency redistribution on fixed geometry. Closed and certified for λ ≥ 2. |
 | **Exp 2 / 2B** | Route-geometry splices, individually (no supportable claim) and in all 240 feasible combinations (discovery-stage sweep). The leader is not distinguishable from zero at certification effort: +0.090% unserved under matched starts, worse than no edit (`outputs/exp2b_certification.json → _confirmation`; the earlier +0.0065% is superseded). |
-| **Exp 3** | Route mutation over 84 census states. 29 certified, leader N3 at −0.18657% on the λ = 2 objective. Frozen at tag `exp3-final-v1`. |
+| **Exp 3** | Route mutation over 84 census states. 29 certified, leader N3 at −0.18657% on the λ = 2 objective. Frozen at commit `8c2841c4` (tag `exp3-final-v1`, not yet public). |
 | **Exp 4 (legacy)** | 200 promoted greenfield candidates, certified exactly. Its **ordering is superseded**, because each candidate was optimized under a peak cap drawn from its own baseline. Its objective values are not withdrawn. |
 | **EXP4N** | The normalized rerun of Exp 4: the same 200 candidates under **one common resource envelope**. Status `EXP4_FULL_NORMALIZED_CERTIFIED`. |
 | **EXP4A** | The Exp 4 original-question addendum: N3 vs N4 under the matched EXP4N contract (`EXP4A_MATCHED`, `0f62aeabfa341a98`). N4 is worse by +9.66%. |
@@ -58,9 +58,9 @@ the entry says so.*
 
 | term | meaning |
 |---|---|
-| **Gen1 / Gen2** | Methodology generations. Gen1 is the exchange search of Exps 1–3, frozen at `gen1-frozen-v1`. Gen2 is the Exp 4+ exact block certifier. |
+| **Gen1 / Gen2** | Methodology generations. Gen1 is the exchange search of Exps 1–3, frozen at commit `4b62c728` (tag `gen1-frozen-v1`, not yet public). Gen2 is the Exp 4+ exact block certifier. |
 | **(8, 3) block certifier** | `exp4_certify.certify`: from a Gen1 greedy start, repeatedly solves every block of 8 route-periods exactly within a 3-rung window (the current rung and one either side), until a full round improves nothing (max 120 rounds). Guarantee: *no block of 8 route-periods moved within that 3-rung window improves the objective*. That is a local, not global, guarantee. |
-| **certified** | Used in three senses; the report (`docs/report/TECHNICAL_REPORT.md` §4) keeps them apart: **path-set adequate** (Exp 1, gate 4), **seed-distinguishable** (\|mean Δ\| / SD > 3 at stated effort, or effect against the seed spread or preregistered floor), and **block-local certified** (a converged (8, 3)-block-local optimum, Exp 4–7). **Not** "real-world significant" and **not** "globally optimal". |
+| **certified** | Used in three senses; the report (`docs/report/TECHNICAL_REPORT.md` §4) keeps them apart: **path-set adequate** (Exp 1, gate 4), **seed-distinguishable** (\|mean Δ\| / SD > 3 at stated effort, or effect against the seed spread or pre-specified floor), and **block-local certified** (a converged (8, 3)-block-local optimum, Exp 4–7). **Not** "real-world significant" and **not** "globally optimal". |
 | **D17** | The Exp 1 optimum is flat: seeds disagree on ~19% of route-periods at equal score. There are no per-route recommendations. |
 | **D27** | The optimizer was chosen by the treatment: a snapped incumbent was rejected on some networks and the solver silently fell back to greedy. This led to the firewall's execution-receipt rule. |
 | **D33-B** | The maximum local heuristic gap, 0.0018970% (375 cells, Stage B effort). **Veto-only**: below it a difference is noise; above it nothing is established. It is **not** a bound on start-basin effects (D39 exceeds it ~900×). |

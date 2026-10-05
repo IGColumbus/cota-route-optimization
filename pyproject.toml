@@ -1,7 +1,7 @@
 [project]
 name = "cota-opt"
 version = "0.1.0"
-description = "Columbus/COTA transit digital twin and optimization harness"
+description = "COTA Transit Network Model and Optimization Harness"
 requires-python = ">=3.11"
 dependencies = [
     "pandas>=2.0",

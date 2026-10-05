@@ -47,7 +47,7 @@ Runners: `scripts/run_exp2.py`, `run_exp2_eval.py`, `exp2b_subsets.py`,
 days of compute. The practical check is the certification artifact
 `outputs/exp2b_certification.json`.
 
-## Experiment 3 (closed, frozen at `exp3-final-v1`)
+## Experiment 3 (closed, frozen at commit `8c2841c4`; tag `exp3-final-v1` not yet public)
 
 Re-running Stage B (200 cells, 5 seeds) is days of compute. The closure is
 verified, not re-run:
@@ -55,7 +55,7 @@ verified, not re-run:
 ```bash
 python scripts/exp3_verify_closure.py        # every number in EXPERIMENT3_CLOSURE.md recomputed from JSON
 python scripts/exp3_freeze.py --verify       # frozen artifact hashes + receipt stores (default --tag exp3-frozen-v1)
-python scripts/gen1_freeze.py --verify       # Gen1 manifest; NEEDS the tags exp3-frozen-v1 / exp3-final-v1
+python scripts/gen1_freeze.py --verify       # Gen1 manifest; NEEDS the tags exp3-frozen-v1 / exp3-final-v1, which are not yet public on GitHub (fetch them from a clone that has them)
 ```
 **Known blocker:** the freeze tags are not on GitHub (see §F of the prep note),
 so `gen1_freeze.py --verify` fails from a fresh GitHub clone until they are

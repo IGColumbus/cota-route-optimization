@@ -17,10 +17,10 @@ are no runs in flight.
 
 | exp | question | status | read |
 |---|---|---|---|
-| 1 | frequency redistribution, geometry fixed | **CLOSED, certified λ ≥ 2**: −6.65% unserved demand | `outputs/canonical/exp1_final.json` |
+| 1 | frequency redistribution, geometry fixed | **CLOSED, certified λ ≥ 2**: ~680 more modeled weekday trips served; −6.65% unserved demand (solver-seed SD 0.06 percentage points) | `outputs/canonical/exp1_final.json` |
 | 2 / 2B | through-routing geometry | **CLOSED**: no supportable gain; the leader is +0.090% unserved under matched starts, worse than no edit (errata E17); the 240-set sweep is discovery-stage | `EXPERIMENT2_CLOSEOUT.md`, `outputs/exp2b_certification.json → _confirmation` |
-| 3 | route mutation, eight edit kinds | **CLOSED**: certified leader −0.187% (`exp3-final-v1`) | `EXPERIMENT3_CLOSURE.md` |
-| 4 / 4N / 4A | greenfield design; normalized rerun; vs Exp 3 | **CLOSED**: legacy ordering superseded; greenfield worse by +9.66% | `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`, `EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` |
+| 3 | route mutation, eight edit kinds | **CLOSED**: certified leader −0.187% (commit `8c2841c4`; tag `exp3-final-v1` not yet public) | `EXPERIMENT3_CLOSURE.md` |
+| 4 / 4N / 4A | greenfield design; normalized rerun; vs Exp 3 | **CLOSED**: legacy ordering superseded; N4, the best of the 200 promoted and certified greenfield candidates, worse than N3 by +9.66% | `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`, `EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` |
 | 5 | modeled resource frontier | **FAILED** monotonicity gate (on N4 only); N0 half informative | `EXPERIMENT5_CLOSEOUT.md` |
 | 6 | price of service-standard safeguards | **CLOSED, certified**: 0 to +0.91% | `EXPERIMENT6_CLOSEOUT.md` |
 | 7 | robustness of F1–F6 | **CLOSED**: Stage 1 and Stage 2 complete | `EXPERIMENT7_CLOSEOUT.md` + `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`, `docs/EXPERIMENT7_F1_ADDENDUM.md` |
@@ -33,11 +33,16 @@ are no runs in flight.
   friction, A6). Re-optimized in the closest cell to Exp 1's rules (R1_H60) it holds at every
   λ ≥ 2 level re-optimized (A5, A6; one closure per cell; post hoc).
 * **Geometry adds nothing.** Recombining routes is null, editing them gives
-  ~0.2%, and the greenfield design is worse.
-* **Safeguards are cheap.** 0–0.9% of the objective each.
-* **When service may be cut freely, the objective does not identify unserved
-  demand.** At λ = 1 it nearly empties the network (Exp 7 errata E3,
-  closeout §5.2).
+  ~0.2%, and N4, the best of the 200 promoted and certified greenfield
+  candidates, is worse than N3 (the best of all 2,000 generated is not
+  identified).
+* **Safeguards are cheap in the model.** On N0 each study safeguard worsened
+  the modeled objective by 0–0.91% (N3: 0–0.63%); study safeguards, not COTA
+  policy.
+* **At λ = 2 in the OFF-permitting decision space, the objective does not
+  identify unserved demand:** two fixed points 0.16% apart in objective give
+  −5.4% and +30.5% (Exp 7 errata E3). At λ = 1 re-optimization nearly empties
+  the network, a stronger low-penalty failure (closeout §5.2).
 
 **The written record:**
 
@@ -51,14 +56,14 @@ are no runs in flight.
 | `outputs/CANONICAL_RESULTS_v5.json` | registry of every canonical and superseded artifact |
 | `EXPERIMENT7_CLOSEOUT.md` | Exp 7 closeout (registered by sha256; not edited) |
 | `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md` | corrections to the Exp 7 closeout (E1–E15) |
-| `docs/EXPERIMENT7_F1_ADDENDUM.md` | post hoc F1 analysis (not preregistered) |
+| `docs/EXPERIMENT7_F1_ADDENDUM.md` | post hoc F1 analysis (not pre-specified) |
 | `docs/EXPERIMENT7_RESULTS.md` | short Exp 7 results note |
 
 > **Authority order for Experiment 7:**
 >
 > 1. the JSON artifacts (`outputs/exp7/…`, registered in `CANONICAL_RESULTS_v5.json`);
 > 2. `EXPERIMENT7_CLOSEOUT.md` **as corrected by** `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`. Where they conflict, the errata wins;
-> 3. `docs/EXPERIMENT7_F1_ADDENDUM.md`: post hoc; never relabels a preregistered result;
+> 3. `docs/EXPERIMENT7_F1_ADDENDUM.md`: post hoc; never relabels a pre-specified result;
 > 4. `docs/EXPERIMENT7_RESULTS.md`: a summary of 2 and 3;
 > 5. `docs/report/TECHNICAL_REPORT.md`: synthesis, draft.
 
@@ -70,7 +75,7 @@ are no runs in flight.
   19% of route-periods.
 * **The geometry nulls.**
 * **The Exp 6 safeguard prices** as a 0–1% order of magnitude. Individual
-  prices moved by up to 0.1 points under further closure in Exp 7, and the
+  prices moved by up to 0.1 percentage points under further closure in Exp 7, and the
   zero prices of the 25%/10% OFF-share caps hold only in one basin (errata
   E8).
 * **The direction of F4.**
@@ -144,7 +149,7 @@ during Experiment 7:
 In order (detail in `docs/FUTURE_EXPERIMENTS.md`):
 
 1. **Release:** push, tag and pin, so that every number has a public commit.
-2. **E21:** preregistered confirmation of the post hoc F1 result across
+2. **E21:** pre-specified confirmation of the post hoc F1 result across
    independent closures (runnable now; needs no external data).
 3. **E8:** validation and calibration against COTA APC, farebox, fare-card and
    survey data.
@@ -165,7 +170,7 @@ re-optimized frequency result holds in the closest cell to Experiment 1's
 service rules (R1_H60; study
 safeguards in `config/constraints.yaml`; no documented COTA numeric standard)
 (post hoc, A5 and A6 levels), while without them the λ = 2 objective does not
-identify unserved demand.
+identify unserved demand in the OFF-permitting decision space.
 
 The model does not say what COTA should do. It says what the current geometry
 and budget make possible under stated assumptions. Its own retractions show how

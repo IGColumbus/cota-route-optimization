@@ -1,12 +1,16 @@
 # AGENTS.md — Governing Development & Research Contract
 
-Columbus/COTA Transit Digital Twin and Optimization Harness.
+COTA Transit Network Model and Optimization Harness (formerly titled "Transit
+Digital Twin", a prototype description; the model is not a calibrated
+operational twin).
 
 ## Mission
 
-Holding COTA's approximate current operating resources constant, quantify how much
-passenger generalized travel cost can be reduced through improved frequency
-allocation, transfer timing, stop structure, and eventually route topology.
+Holding modeled operating resources approximately constant, determine how
+frequency allocation and network-design interventions trade off modeled
+unserved demand and passenger generalized cost, and how much the study's
+λ-weighted objective can improve under those interventions. (Framing corrected
+2026-10-05; `docs/REPORTING_CORRECTIONS.md` C1.)
 
 ## Non-negotiable rules
 
