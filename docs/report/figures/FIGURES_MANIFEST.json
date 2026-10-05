@@ -1,0 +1,40 @@
+{
+  "generator": "scripts/make_report_figures.py",
+  "guideline": "docs/RELEASE_AND_REPORTING_GUIDELINES.md \u00a7Figures",
+  "figures": {
+    "fig1_exp1_frontier": "G1",
+    "fig2_exp1_change_map": "G7",
+    "fig3_exp2_geometry_null": "G3",
+    "fig4_exp5_resource_curve": "G4",
+    "fig5_exp6_policy_frontiers": "G5",
+    "fig6_exp7_robustness": "G6",
+    "fig7_exp7_f1_decision_space": "G2-a (amendment)",
+    "fig8_route_vs_path_scoring": "G2"
+  },
+  "change_map": {
+    "units": 17,
+    "dropped": 0,
+    "agreeing": 15,
+    "seed_cells": [
+      "seed20260825|lam2.0|r2",
+      "seed20260826|lam2.0|r2",
+      "seed20260827|lam2.0|r2"
+    ]
+  },
+  "inputs_sha256": {
+    "config/change_map_aggregation.yaml": "1f1f341c02028354ee80f399386503548a73076a18d42de30c96d252fcb3a37b",
+    "data/raw/cota_gtfs_static/cota.gtfs.zip": "b11634f117a35a27a1813ed1eeef2b29b9484c6afdda0757262026ed2c9b3bf0",
+    "outputs/canonical/exp1_final.json": "1f4624ad1e36e1b17e9802366a6f8c82c0058aee87b6b751ffa553a7aeabc68b",
+    "outputs/exp2_summary.json": "2befe69faf159f2ac734ee4345e32eba5ea07864e53ed6ecc911d8c85ed34951",
+    "outputs/exp2_treatments.jsonl": "76715c495ee340090d553897da872961e8018bab46d819135448b623ef62eb9d",
+    "outputs/exp2b_certification.json": "ece93db3ff94d8a6d227cd1b9c2a76a0f7e2299a86a9a2fc5947bd89b5c7f0be",
+    "outputs/exp2b_confirmation.json": "9b5a1e0285413313b7d4af1104eb118b004ee1b15fa9c4661f8dd739fe16f626",
+    "outputs/exp5/EXP5_ANALYSIS.json": "f563c1916b7afc8814afabb0ddf9e3c30ca01b97186e0712b5fa2ad7b024e7de",
+    "outputs/exp6/EXP6_ANALYSIS.json": "b96aca0d719964724227607a7f43e3367cddab0895a13392e0c64f4353ac4391",
+    "outputs/exp7/EXP7_ANALYSIS.json": "b7dfa4e0d09c823dce974824d1d37547904b54d6b56ee79677dd412bf3fef8e8",
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json": "0d5e3da76ebdc6ad67493e4ce93061c1536e313ac558e605e9d631a764015280",
+    "outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json": "182b662d68f018e810c042a4eff654d9107b89e520076635b345dd4755ee9ff0",
+    "outputs/matrix.jsonl": "66c1ed3176096dc720e5a38792216e222f91715d9f7ae5bd582dae05db3b64e9",
+    "outputs/seedcheck_modelB.jsonl": "7bcd95e196369349284bf20edceaf17438d258a774c5d952b7e6e5484d3e11f0"
+  }
+}

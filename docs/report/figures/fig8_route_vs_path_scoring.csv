@@ -1,0 +1,54 @@
+source,model,lambda,route_level_own_unserved_pct,path_level_scored_unserved_pct,network,claimed_unserved,modelB_unserved,claim_gap_unserved_pct
+matrix.jsonl (pre-Model-B),R,0.25,69.0016,8.407,,,,
+matrix.jsonl (pre-Model-B),R,0.5,3.0614,-3.0791,,,,
+matrix.jsonl (pre-Model-B),R,1.0,-14.0488,-6.0727,,,,
+matrix.jsonl (pre-Model-B),R,2.0,-21.0476,-6.9965,,,,
+matrix.jsonl (pre-Model-B),R,4.0,-22.7108,-7.1592,,,,
+matrix.jsonl (pre-Model-B),R,8.0,-24.7408,-7.5019,,,,
+matrix.jsonl (pre-Model-B),R,16.0,-25.6458,-7.8025,,,,
+matrix.jsonl (pre-Model-B),C,0.25,17.5672,17.5672,,,,
+matrix.jsonl (pre-Model-B),C,0.5,12.0103,12.0103,,,,
+matrix.jsonl (pre-Model-B),C,1.0,-1.0135,-1.0135,,,,
+matrix.jsonl (pre-Model-B),C,2.0,-6.3266,-6.3266,,,,
+matrix.jsonl (pre-Model-B),C,4.0,-6.9503,-6.9503,,,,
+matrix.jsonl (pre-Model-B),C,8.0,-6.8828,-6.8828,,,,
+matrix.jsonl (pre-Model-B),C,16.0,-6.9542,-6.9542,,,,
+exp2_treatments.jsonl (Model B),,1.0,,,control,3863.5,9889.3,-60.9325
+exp2_treatments.jsonl (Model B),,2.0,,,control,3607.73,9811.04,-63.2278
+exp2_treatments.jsonl (Model B),,4.0,,,control,3476.75,9714.62,-64.2111
+exp2_treatments.jsonl (Model B),,1.0,,,splice|001|021|PICBETS,2966.0,10219.8,-70.9779
+exp2_treatments.jsonl (Model B),,2.0,,,splice|001|021|PICBETS,2909.89,10318.96,-71.8005
+exp2_treatments.jsonl (Model B),,4.0,,,splice|001|021|PICBETS,2875.67,10316.92,-72.1267
+exp2_treatments.jsonl (Model B),,1.0,,,splice|002|011|HIGFITN,2976.07,9734.63,-69.428
+exp2_treatments.jsonl (Model B),,2.0,,,splice|002|011|HIGFITN,2833.45,9724.91,-70.864
+exp2_treatments.jsonl (Model B),,4.0,,,splice|002|011|HIGFITN,2793.75,9752.29,-71.3529
+exp2_treatments.jsonl (Model B),,1.0,,,splice|002|033|WESHIGW,3044.29,10304.16,-70.4557
+exp2_treatments.jsonl (Model B),,2.0,,,splice|002|033|WESHIGW,2915.83,10341.19,-71.8038
+exp2_treatments.jsonl (Model B),,4.0,,,splice|002|033|WESHIGW,2886.94,10337.4,-72.0728
+exp2_treatments.jsonl (Model B),,1.0,,,splice|002|034|WESHIGW,3071.29,9755.26,-68.5166
+exp2_treatments.jsonl (Model B),,2.0,,,splice|002|034|WESHIGW,2919.36,9788.61,-70.1759
+exp2_treatments.jsonl (Model B),,4.0,,,splice|002|034|WESHIGW,2869.19,9812.05,-70.7585
+exp2_treatments.jsonl (Model B),,1.0,,,splice|005|006|NMURBEAN,2974.57,10008.25,-70.2788
+exp2_treatments.jsonl (Model B),,2.0,,,splice|005|006|NMURBEAN,2904.97,10045.75,-71.0826
+exp2_treatments.jsonl (Model B),,4.0,,,splice|005|006|NMURBEAN,2856.29,10101.21,-71.7232
+exp2_treatments.jsonl (Model B),,1.0,,,splice|005|021|NMURBEAN,2903.47,10269.37,-71.7269
+exp2_treatments.jsonl (Model B),,2.0,,,splice|005|021|NMURBEAN,2822.02,10349.19,-72.732
+exp2_treatments.jsonl (Model B),,4.0,,,splice|005|021|NMURBEAN,2794.45,10343.14,-72.9826
+exp2_treatments.jsonl (Model B),,1.0,,,splice|006|021|NMURBEAN,3059.72,9924.31,-69.1695
+exp2_treatments.jsonl (Model B),,2.0,,,splice|006|021|NMURBEAN,2998.37,9941.68,-69.8404
+exp2_treatments.jsonl (Model B),,4.0,,,splice|006|021|NMURBEAN,2946.0,9931.35,-70.3364
+exp2_treatments.jsonl (Model B),,1.0,,,splice|007|101|EMO4THW,3068.77,9957.92,-69.1826
+exp2_treatments.jsonl (Model B),,2.0,,,splice|007|101|EMO4THW,2958.11,10012.06,-70.4545
+exp2_treatments.jsonl (Model B),,4.0,,,splice|007|101|EMO4THW,2909.33,10035.47,-71.0095
+exp2_treatments.jsonl (Model B),,1.0,,,splice|008|035|BOASHAN,3002.47,9993.66,-69.9562
+exp2_treatments.jsonl (Model B),,2.0,,,splice|008|035|BOASHAN,2921.67,9965.21,-70.6813
+exp2_treatments.jsonl (Model B),,4.0,,,splice|008|035|BOASHAN,2882.1,9955.53,-71.0503
+exp2_treatments.jsonl (Model B),,1.0,,,splice|011|033|WESHIGW,3032.37,9901.77,-69.3755
+exp2_treatments.jsonl (Model B),,2.0,,,splice|011|033|WESHIGW,2950.64,9940.99,-70.3184
+exp2_treatments.jsonl (Model B),,4.0,,,splice|011|033|WESHIGW,2924.47,9934.49,-70.5625
+exp2_treatments.jsonl (Model B),,1.0,,,splice|011|034|WESHIGW,3043.68,9725.8,-68.705
+exp2_treatments.jsonl (Model B),,2.0,,,splice|011|034|WESHIGW,2961.09,9744.97,-69.6141
+exp2_treatments.jsonl (Model B),,4.0,,,splice|011|034|WESHIGW,2906.0,9759.19,-70.2229
+exp2_treatments.jsonl (Model B),,1.0,,,splice|033|034|WESHIGW,3134.45,10104.78,-68.9805
+exp2_treatments.jsonl (Model B),,2.0,,,splice|033|034|WESHIGW,3029.27,10160.64,-70.1863
+exp2_treatments.jsonl (Model B),,4.0,,,splice|033|034|WESHIGW,2990.15,10138.15,-70.506

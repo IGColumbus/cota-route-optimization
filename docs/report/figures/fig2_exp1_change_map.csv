@@ -1,0 +1,18 @@
+unit,n_hex,n_routes,seed_directions,agreement,band
+31,24,19,rises/rises/rises,True,rises more than 10%
+44,1,5,falls/falls/falls,True,falls 2-10%
+56,1,3,rises/rises/unchanged,False,no stable pattern
+70,22,37,rises/rises/rises,True,rises 2-10%
+71,1,16,falls/falls/falls,True,falls 2-10%
+72,1,11,rises/rises/rises,True,rises more than 10%
+82,1,6,falls/falls/falls,True,falls 2-10%
+83,1,30,falls/falls/falls,True,falls more than 10%
+84,1,11,falls/falls/falls,True,falls more than 10%
+85,1,8,unchanged/rises/unchanged,False,no stable pattern
+95,10,11,rises/rises/rises,True,rises more than 10%
+96,1,7,falls/falls/falls,True,falls more than 10%
+97,1,7,falls/falls/falls,True,falls more than 10%
+98,1,6,rises/rises/rises,True,rises more than 10%
+99,1,8,falls/falls/falls,True,falls more than 10%
+109,1,4,falls/falls/falls,True,falls more than 10%
+111,4,13,rises/rises/rises,True,rises 2-10%

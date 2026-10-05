@@ -101,6 +101,9 @@ CLAIMS = [
     ("93,301", 0, lambda: J("outputs/exp4_addendum/diag_N4.json")["common_lines_bound"]["total_bound_min"]
         - J("outputs/exp4_addendum/diag_N3.json")["common_lines_bound"]["total_bound_min"], [REPORT]),
     ("283,973", 0, lambda: J("outputs/exp4_addendum/DELTA43.json")["comparison"]["effect"], [REPORT]),
+    ("70.5%", 1, lambda: sorted(r["claim_gap_unserved_pct"] for r in map(__import__("json").loads, (ROOT / "outputs/exp2_treatments.jsonl").read_text().splitlines()) if r.get("treatment") == "route_level")[19] * -1, [REPORT]),
+    ("0.50–0.63%", 2, lambda: 100 * min(r["price"] for r in J("outputs/exp7/EXP7_ANALYSIS.json")["f6_prices"] if r["level"] == "BASE" and r["network"] == "N0" and r["cell"] in ("R1_H60", "R1_H30", "R3_SPAN")), [REPORT]),
+    ("–0.63%", 2, lambda: 100 * max(r["price"] for r in J("outputs/exp7/EXP7_ANALYSIS.json")["f6_prices"] if r["level"] == "BASE" and r["network"] == "N0" and r["cell"] in ("R1_H60", "R1_H30", "R3_SPAN")), [REPORT]),
     ("+9.66%", 2, lambda: float(__import__("re").search(r"\(\+([0-9.]+)% of N3\)", d43()).group(1)), [REPORT]),
     ("−5.43%", 2, lambda: f1a("BASE"), [CLOSE7, ADD7]),
     ("+181.72%", 2, lambda: f1a("A5_LAM1"), [CLOSE7, ADD7]),
@@ -150,8 +153,36 @@ CLAIMS = [
 
 
 def norm(s: str) -> float:
+    if "–" in s:  # a range token: "a–b" checks a, "–b%" checks b
+        a, b = s.split("–", 1)
+        s = a if a else b
     return float(s.replace("−", "-").replace("±", "").replace("%", "")
                  .replace(",", "").replace("+", "").replace("SD ", ""))
+
+
+def check_figures() -> int:
+    """Figures are current: every input hash in the manifest matches the file,
+    and the change-map counts quoted in the report match the manifest."""
+    import hashlib
+    mf = ROOT / "docs/report/figures/FIGURES_MANIFEST.json"
+    if not mf.exists():
+        print("FAIL figures: FIGURES_MANIFEST.json missing")
+        return 1
+    m = json.loads(mf.read_text())
+    stale = [p for p, h in m["inputs_sha256"].items()
+             if hashlib.sha256((ROOT / p).read_bytes()).hexdigest() != h]
+    missing = [n for n in m["figures"]
+               if not all((ROOT / "docs/report/figures" / f"{n}.{x}").exists()
+                          for x in ("svg", "png", "csv"))]
+    cm = m.get("change_map") or {}
+    text = (ROOT / REPORT).read_text()
+    quoted = f"{cm.get('agreeing')}\nof {cm.get('units')} units" in text or \
+        f"{cm.get('agreeing')} of {cm.get('units')} units" in text
+    ok = not stale and not missing and quoted
+    print(("ok  " if ok else "FAIL") + f" figures: {len(m['figures'])} figures, "
+          f"{len(m['inputs_sha256'])} inputs, stale={stale}, missing={missing}, "
+          f"map counts quoted={quoted}")
+    return 0 if ok else 1
 
 
 def main() -> int:
@@ -171,6 +202,7 @@ def main() -> int:
               + (f"  missing in {missing}" if missing else "")
               + ("" if ok_val else "  VALUE MISMATCH"))
     print(f"{len(CLAIMS) - bad}/{len(CLAIMS)} claims verified")
+    bad += check_figures()
     return 1 if bad else 0
 
 

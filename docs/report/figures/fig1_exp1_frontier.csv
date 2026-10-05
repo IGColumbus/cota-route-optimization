@@ -1,0 +1,9 @@
+lambda,gc_change_pct,unserved_change_pct,path_set_adequate,gc_seed_sd_pts,unserved_seed_sd_pts
+0.25,-4.594,15.3131,False,,
+0.5,-3.4359,6.8458,False,,
+1.0,-1.3899,-1.4244,False,,
+2.0,0.8416,-6.6023,True,,
+4.0,1.236,-7.1247,True,,
+8.0,1.4597,-7.2466,True,,
+16.0,1.4845,-7.2756,True,,
+2 (3-seed headline),0.8782,-6.652,,0.0409,0.0637

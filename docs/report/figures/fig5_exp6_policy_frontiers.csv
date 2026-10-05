@@ -1,0 +1,35 @@
+regime,cell,level,network,exp6_price_pct,exp7_base_reclosed_price_pct,infeasible_under_envelope
+R1: maximum headway,REF,none,N0,0.0,0.0,False
+R1: maximum headway,R1_H60,"max(60, base)",N0,0.482,0.5311,False
+R1: maximum headway,R1_H30,30 min,N0,0.5746,0.6329,False
+R1: maximum headway,R1_H20,20 min,N0,0.9118,0.9667,False
+R1: maximum headway,REF,none,N3,0.0,0.0,False
+R1: maximum headway,R1_H60,"max(60, base)",N3,0.5235,0.5606,False
+R1: maximum headway,R1_H30,30 min,N3,0.6345,0.671,False
+R1: maximum headway,R1_H20,20 min,N3,,,True
+R2: OFF-share cap,REF,none,N0,0.0,0.0,False
+R2: OFF-share cap,R2_S25,25%,N0,0.0,0.0,False
+R2: OFF-share cap,R2_S10,10%,N0,0.0,0.0,False
+R2: OFF-share cap,R2_S05,5%,N0,0.212,0.2602,False
+R2: OFF-share cap,REF,none,N3,0.0,0.0,False
+R2: OFF-share cap,R2_S25,25%,N3,0.0,0.0,False
+R2: OFF-share cap,R2_S10,10%,N3,0.0,0.0,False
+R2: OFF-share cap,R2_S05,5%,N3,0.2497,0.2867,False
+R4: coverage c,REF,none,N0,0.0,0.0,False
+R4: coverage c,R4_C05,0.05,N0,0.2441,0.1462,False
+R4: coverage c,R4_C01,0.01,N0,0.4279,0.3892,False
+R4: coverage c,R4_C00,0,N0,0.482,0.5311,False
+R4: coverage c,REF,none,N3,0.0,0.0,False
+R4: coverage c,R4_C05,0.05,N3,0.3207,0.2255,False
+R4: coverage c,R4_C01,0.01,N3,0.4771,0.4361,False
+R4: coverage c,R4_C00,0,N3,0.5235,0.5606,False
+"R3, R6 and bundles",REF,none,N0,0.0,0.0,False
+"R3, R6 and bundles",R3_SPAN,span,N0,0.482,0.5003,False
+"R3, R6 and bundles",R6_ADA,¾-mile,N0,0.4404,0.4895,False
+"R3, R6 and bundles",B1,B1,N0,0.482,0.5311,False
+"R3, R6 and bundles",B2,B2,N0,0.482,0.5003,False
+"R3, R6 and bundles",REF,none,N3,0.0,0.0,False
+"R3, R6 and bundles",R3_SPAN,span,N3,0.5235,0.5606,False
+"R3, R6 and bundles",R6_ADA,¾-mile,N3,0.4854,0.5225,False
+"R3, R6 and bundles",B1,B1,N3,0.5235,0.5606,False
+"R3, R6 and bundles",B2,B2,N3,0.5235,0.5606,False

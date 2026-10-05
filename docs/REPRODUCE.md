@@ -232,3 +232,16 @@ BASE`, then compare `rows` with the committed
 ```bash
 python prep/n3_vs_n0_crossexp_check.py          # -> prep/n3_vs_n0_crossexp_check.json
 ```
+
+## Report figures
+
+```
+python scripts/make_report_figures.py            # all eight figures (a few minutes; the change map rebuilds the GTFS baseline)
+python scripts/make_report_figures.py --skip-map # everything except the change map
+python scripts/verify_report_claims.py           # also checks FIGURES_MANIFEST.json input hashes
+```
+
+Outputs go to `docs/report/figures/` as SVG, PNG and CSV. The change map's
+aggregation rules are frozen in `config/change_map_aggregation.yaml`; it reads
+the registered GTFS feed in `data/raw/cota_gtfs_static/`, which is not
+committed.
