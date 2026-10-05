@@ -1,0 +1,65 @@
+name: ci
+
+# Runs on a clean checkout with no raw data (data/ is never committed).
+# Outcomes are kept apart:
+#   * a genuine failure fails the job;
+#   * a test whose registered external raw data is absent SKIPS with the reason
+#     prefix EXTERNAL_DATA_UNAVAILABLE and is counted in the summary;
+#   * full reproductions (hours of solver time) are intentionally not run here.
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # provenance checks resolve historical commits
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install from pyproject.toml
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+
+      - name: Unit tests
+        run: |
+          set -o pipefail
+          LOG=$(mktemp)
+          python -m pytest -rs -p no:cacheprovider 2>&1 | tee "$LOG"
+          echo "skipped, external raw data unavailable: $(grep -c 'EXTERNAL_DATA_UNAVAILABLE' "$LOG" || true)"
+          echo "skipped, other reasons: $(grep '^SKIPPED' "$LOG" | grep -vc 'EXTERNAL_DATA_UNAVAILABLE' || true)"
+
+      - name: Report claim verification
+        run: python scripts/verify_report_claims.py
+
+      - name: Report figures and manifest
+        run: python scripts/make_report_figures.py --check
+
+      - name: CLI and import smoke test
+        run: |
+          cota-opt --help
+          python -c "import cota_opt, cota_opt.frequency, cota_opt.pathset, cota_opt.firewall"
+
+      - name: Provenance integrity
+        run: |
+          python scripts/build_path_reference_map.py --check
+          python - <<'PY'
+          import json, pathlib
+          moves = json.loads(pathlib.Path("docs/research-record/MOVES.json").read_text())["moves"]
+          missing = [n for n in moves.values() if not pathlib.Path(n).exists()]
+          assert not missing, missing
+          print(f"MOVES.json: {len(moves)} moved files all present")
+          PY
+          git cat-file -e cd03af9c^{commit} && echo "frozen research commit cd03af9c present"
+          if git rev-parse -q --verify refs/tags/exp3-frozen-v1 >/dev/null; then
+            python scripts/gen1_freeze.py --verify
+          else
+            echo "SKIP gen1 freeze verify: freeze tags are not public yet (docs/RELEASE_PROVENANCE.md)"
+          fi

@@ -836,11 +836,46 @@ GUIDELINE_ID = {
 }
 
 
+def check() -> int:
+    """CI mode: regenerate every figure that needs no raw data into a temp dir
+    and require its CSV to equal the committed CSV; verify the manifest's input
+    hashes for every input present. Inputs that are external raw data (absent
+    from a clean clone) are reported, not failed."""
+    import filecmp
+    import tempfile
+    global OUT
+    committed = OUT
+    m = json.loads((committed / "FIGURES_MANIFEST.json").read_text())
+    bad, external = [], []
+    for p, h in m["inputs_sha256"].items():
+        if not (ROOT / p).exists():
+            (external if p.startswith("data/") else bad).append(p)
+        elif sha(p) != h:
+            bad.append(f"{p}: hash differs")
+    with tempfile.TemporaryDirectory() as td:
+        OUT = Path(td)
+        for f in (fig1_frontier, fig3_geometry_null, fig4_resource_curve,
+                  fig5_policy_frontiers, fig6_robustness, fig7_decision_space,
+                  fig8_route_vs_path):
+            f()
+        for csvf in sorted(Path(td).glob("*.csv")):
+            if not filecmp.cmp(csvf, committed / csvf.name, shallow=False):
+                bad.append(f"{csvf.name}: regenerated CSV differs from committed")
+        OUT = committed
+    print(json.dumps({"figures_check": "FAIL" if bad else "OK", "problems": bad,
+                      "external_inputs_unavailable": external}, indent=1))
+    return 1 if bad else 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--skip-map", action="store_true")
+    ap.add_argument("--check", action="store_true",
+                    help="verify committed figures without writing (CI)")
     args = ap.parse_args()
     sys.path.insert(0, str(ROOT / "src"))
+    if args.check:
+        return check()
     fig1_frontier()
     map_info = None if args.skip_map else fig2_change_map()
     fig3_geometry_null()

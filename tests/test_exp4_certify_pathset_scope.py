@@ -122,8 +122,8 @@ def test_scope_violation_is_a_certification_error():
 def small_candidate():
     """Smallest selection that exercises multiple periods and blocks.
 
-    Nothing here is `importorskip` or a conditional `pytest.skip`. Both inputs
-    are committed to the repository, so a missing one is a broken checkout, and
+    The two committed inputs are asserted, never skipped: both are committed to
+    the repository, so a missing one is a broken checkout, and
     the right response is a red test rather than a green run with the identity
     claim quietly unproven. That failure mode already cost this project once:
     an undeclared dependency silently skipped 8 tests while the reproducibility
@@ -140,6 +140,15 @@ def small_candidate():
     pool_path = ROOT / "outputs/exp4/run/pool.json"
     for p in (env_path, pool_path):
         assert p.exists(), f"{p} is committed and must be present"
+
+    # The registered raw GTFS feed is external data (data/raw is never
+    # committed). Its absence is not a broken checkout, so it skips with an
+    # explicit, greppable reason instead of erroring; CI reports these skips
+    # separately from failures.
+    from cota_opt.registry import Registry
+    if Registry().get("cota_gtfs_static") is None:
+        pytest.skip("EXTERNAL_DATA_UNAVAILABLE: registered COTA GTFS feed not "
+                    "present (data/raw is not committed; docs/REPRODUCE.md)")
 
     st = fixtures._boot()
     H, sg, graph = st["H"], st["sg"], st["graph"]

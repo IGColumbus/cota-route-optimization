@@ -13,6 +13,13 @@ sources:
       COTA data terms (cota.com/data): non-exclusive, limited, revocable right to
       use/reproduce/redistribute; as-is, no warranty; no COTA trademark use.
     download_method: HTTP GET (user-mediated in this environment)
+    version: "feed_info feed_version 2026-MAY-04-BB_20260630 (service 2026-05-04 to 2026-09-06)"
+    citation: "Central Ohio Transit Authority (2026). COTA GTFS static feed, version 2026-MAY-04-BB_20260630. https://www.cota.com/data/"
+    retrieval: >-
+      Original retrieval date not recorded in the registry. Registry record:
+      restored 2026-09-25 after the container loss, sha256 verified against
+      the digests recorded in committed experiment artifacts (data/raw/_provenance.json).
+    sha256: b11634f117a35a27a1813ed1eeef2b29b9484c6afdda0757262026ed2c9b3bf0
     status: BLOCKED_EGRESS
     notes: URL confirmed on cota.com/data 2026-08-25.
   cota_gtfs_rt_alerts:
@@ -58,6 +65,12 @@ sources:
     coverage: COTA, calendar year 2024
     license: US federal government work, public domain
     download_method: HTTP GET (user-mediated in this environment)
+    version: "2024 Annual Agency Profile, NTD ID 50016"
+    citation: "Federal Transit Administration. National Transit Database 2024 Annual Agency Profile: Central Ohio Transit Authority (NTD ID 50016). https://www.transit.dot.gov/ntd"
+    retrieval: >-
+      Profile PDF parsed by cota_opt.ntd; not registered under data/raw, so no
+      registry checksum or retrieval timestamp is recorded.
+    sha256: UNKNOWN
     status: BLOCKED_EGRESS
     notes: >-
       COTA's NTD ID is 50016 (an earlier guess of 50066 was wrong). Parsed
@@ -72,6 +85,14 @@ sources:
     url: https://lehd.ces.census.gov/data/lodes/LODES8/oh/od/oh_od_main_JT00_2022.csv.gz
     data_type: block-to-block home→work job flows
     coverage: Ohio, 2022
+    license: US federal government work (U.S. Census Bureau LEHD), public domain; cite the LEHD program
+    version: "LODES8, oh_od_main_JT00_2022"
+    citation: "U.S. Census Bureau, LEHD Program. LEHD Origin-Destination Employment Statistics (LODES 8), Ohio OD main JT00 2022. https://lehd.ces.census.gov/data/#lodes"
+    retrieval: >-
+      Original retrieval date not recorded in the registry. Registry record:
+      restored 2026-09-25 after the container loss, sha256 verified against
+      the digests recorded in committed experiment artifacts (data/raw/_provenance.json).
+    sha256: 98cd08aa85ff1dc839bbedabf3a5d2ecbc7e85c0f6d9c220b6b5892ea838f8db
     status: BLOCKED_EGRESS
     notes: Large; WAC/RAC used first for stop-catchment weights.
   lodes_wac_oh:
@@ -80,6 +101,14 @@ sources:
     url: https://lehd.ces.census.gov/data/lodes/LODES8/oh/wac/oh_wac_S000_JT00_2022.csv.gz
     data_type: jobs by workplace census block
     coverage: Ohio, 2022
+    license: US federal government work (U.S. Census Bureau LEHD), public domain; cite the LEHD program
+    version: "LODES8, oh_wac_S000_JT00_2022"
+    citation: "U.S. Census Bureau, LEHD Program. LODES 8 Workplace Area Characteristics, Ohio S000 JT00 2022. https://lehd.ces.census.gov/data/#lodes"
+    retrieval: >-
+      Original retrieval date not recorded in the registry. Registry record:
+      restored 2026-09-25 after the container loss, sha256 verified against
+      the digests recorded in committed experiment artifacts (data/raw/_provenance.json).
+    sha256: 921573335891c204f8fddeffbf0e9f7ea0105560739dae469bfdc59dff892dab
     status: BLOCKED_EGRESS
   lodes_rac_oh:
     name: LEHD LODES8 Ohio RAC (S000 JT00 2022)
@@ -87,6 +116,14 @@ sources:
     url: https://lehd.ces.census.gov/data/lodes/LODES8/oh/rac/oh_rac_S000_JT00_2022.csv.gz
     data_type: workers by residence census block
     coverage: Ohio, 2022
+    license: US federal government work (U.S. Census Bureau LEHD), public domain; cite the LEHD program
+    version: "LODES8, oh_rac_S000_JT00_2022"
+    citation: "U.S. Census Bureau, LEHD Program. LODES 8 Residence Area Characteristics, Ohio S000 JT00 2022. https://lehd.ces.census.gov/data/#lodes"
+    retrieval: >-
+      Original retrieval date not recorded in the registry. Registry record:
+      restored 2026-09-25 after the container loss, sha256 verified against
+      the digests recorded in committed experiment artifacts (data/raw/_provenance.json).
+    sha256: 848b5941128427947acad6a9fabba99d35563ee0313e10dfba74053c261041e4
     status: BLOCKED_EGRESS
   cenpop_bg_oh:
     name: 2020 Census block-group population centroids, Ohio
@@ -94,6 +131,14 @@ sources:
     url: https://www2.census.gov/geo/docs/reference/cenpop2020/blkgrp/CenPop2020_Mean_BG39.txt
     data_type: CSV (GEOID, population, mean center lat/lon)
     coverage: Ohio block groups
+    license: US federal government work (U.S. Census Bureau), public domain
+    version: "CenPop2020_Mean_BG39"
+    citation: "U.S. Census Bureau. 2020 Census Centers of Population by Block Group, Ohio (CenPop2020_Mean_BG39). https://www2.census.gov/geo/docs/reference/cenpop2020/blkgrp/"
+    retrieval: >-
+      Original retrieval date not recorded in the registry. Registry record:
+      restored 2026-09-25 after the container loss, sha256 verified against
+      the digests recorded in committed experiment artifacts (data/raw/_provenance.json).
+    sha256: ca6e3344ed678e3ac448edf67f151353559fb85cb040266a1dac8868d11805ef
     status: BLOCKED_EGRESS
   acs_5yr:
     name: ACS 5-year estimates via Census API

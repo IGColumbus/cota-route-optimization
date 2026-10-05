@@ -1,0 +1,1192 @@
+{
+ "generated_by": "scripts/verify_report_claims.py --write-numbers",
+ "note": "Every value is computed from the listed committed artifacts by the extractor in the verifier; documents are checked to contain the written string. coverage reports how much of the report's numeric text this registry reaches; the remainder is not yet machine-checked.",
+ "claims": [
+  {
+   "written": "−6.65%",
+   "decimals": 2,
+   "artifact_value": -6.651987702,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "SD 0.06",
+   "decimals": 2,
+   "artifact_value": 0.063715662,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+3.30%",
+   "decimals": 2,
+   "artifact_value": 3.299058567,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+0.88%",
+   "decimals": 2,
+   "artifact_value": 0.878238775,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "−2.34%",
+   "decimals": 2,
+   "artifact_value": -2.343508042,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "19.1%",
+   "decimals": 1,
+   "artifact_value": 19.075144509,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "19.7%",
+   "decimals": 1,
+   "artifact_value": 19.653179191,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "10,262",
+   "decimals": 0,
+   "artifact_value": 10261.917192383,
+   "sources": [
+    "outputs/exp1_baseline_modelB.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "9,583",
+   "decimals": 0,
+   "artifact_value": 9583.055873794,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "−1.42%",
+   "decimals": 2,
+   "artifact_value": -1.424399949,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "107,248",
+   "decimals": 0,
+   "artifact_value": 107248.124536034,
+   "sources": [
+    "outputs/exp4_addendum/diag_N4.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "93,301",
+   "decimals": 0,
+   "artifact_value": 93301.219956532,
+   "sources": [
+    "outputs/exp4_addendum/diag_N4.json",
+    "outputs/exp4_addendum/diag_N3.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "283,973",
+   "decimals": 0,
+   "artifact_value": 283973.36681352,
+   "sources": [
+    "outputs/exp4_addendum/DELTA43.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "70.5%",
+   "decimals": 1,
+   "artifact_value": 70.454525794,
+   "sources": [
+    "outputs/exp2_treatments.jsonl"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "0.50–0.63%",
+   "decimals": 2,
+   "artifact_value": 0.50028047,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "–0.63%",
+   "decimals": 2,
+   "artifact_value": 0.632913614,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "~680 more",
+   "decimals": -1,
+   "artifact_value": 682.478977722,
+   "sources": [
+    "outputs/exp1_baseline_modelB.json",
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "~2.2% of the 30,949",
+   "decimals": 1,
+   "artifact_value": 2.205172955,
+   "sources": [
+    "outputs/exp1_baseline_modelB.json",
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "628",
+   "decimals": 0,
+   "artifact_value": 627.918505146,
+   "sources": [
+    "outputs/exp7/stage1/evals/N0/A1_NC025.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC050.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC100.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT01.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT02.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT03.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT04.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT05.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT06.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT07.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT08.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT09.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT10.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT11.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT12.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT13.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT14.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT15.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT16.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT17.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT18.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT19.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT20.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT110.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT120.json",
+    "outputs/exp7/stage1/evals/N0/A3_RTNOISE.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM1.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM4.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP050.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP200.json",
+    "outputs/exp7/stage1/evals/N0/A6_MAXWALK75.json",
+    "outputs/exp7/stage1/evals/N0/A6_WALKSPD85.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM01.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM02.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM03.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM04.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM05.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM06.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM07.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM08.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM09.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM10.json",
+    "outputs/exp7/stage1/evals/N0/A8_FLOOR0.json",
+    "outputs/exp7/stage1/evals/N0/A8_ZERO150.json",
+    "outputs/exp7/stage1/evals/N0/B1_COMMONLINES.json",
+    "outputs/exp7/stage1/evals/N0/BASE.json",
+    "outputs/exp7/stage1/evals/N0/X_ROUNDS4.json",
+    "outputs/exp7/stage1/evals/N0/X_TOPK40K.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "316–970",
+   "decimals": 0,
+   "artifact_value": 315.894014213,
+   "sources": [
+    "outputs/exp7/stage1/evals/N0/A1_NC025.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC050.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC100.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT01.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT02.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT03.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT04.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT05.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT06.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT07.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT08.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT09.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT10.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT11.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT12.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT13.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT14.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT15.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT16.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT17.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT18.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT19.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT20.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT110.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT120.json",
+    "outputs/exp7/stage1/evals/N0/A3_RTNOISE.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM1.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM4.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP050.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP200.json",
+    "outputs/exp7/stage1/evals/N0/A6_MAXWALK75.json",
+    "outputs/exp7/stage1/evals/N0/A6_WALKSPD85.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM01.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM02.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM03.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM04.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM05.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM06.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM07.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM08.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM09.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM10.json",
+    "outputs/exp7/stage1/evals/N0/A8_FLOOR0.json",
+    "outputs/exp7/stage1/evals/N0/A8_ZERO150.json",
+    "outputs/exp7/stage1/evals/N0/B1_COMMONLINES.json",
+    "outputs/exp7/stage1/evals/N0/BASE.json",
+    "outputs/exp7/stage1/evals/N0/X_ROUNDS4.json",
+    "outputs/exp7/stage1/evals/N0/X_TOPK40K.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "–970",
+   "decimals": 0,
+   "artifact_value": 969.539191028,
+   "sources": [
+    "outputs/exp7/stage1/evals/N0/A1_NC025.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC050.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC100.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT01.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT02.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT03.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT04.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT05.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT06.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT07.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT08.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT09.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT10.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT11.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT12.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT13.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT14.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT15.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT16.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT17.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT18.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT19.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT20.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT110.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT120.json",
+    "outputs/exp7/stage1/evals/N0/A3_RTNOISE.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM1.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM4.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP050.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP200.json",
+    "outputs/exp7/stage1/evals/N0/A6_MAXWALK75.json",
+    "outputs/exp7/stage1/evals/N0/A6_WALKSPD85.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM01.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM02.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM03.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM04.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM05.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM06.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM07.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM08.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM09.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM10.json",
+    "outputs/exp7/stage1/evals/N0/A8_FLOOR0.json",
+    "outputs/exp7/stage1/evals/N0/A8_ZERO150.json",
+    "outputs/exp7/stage1/evals/N0/B1_COMMONLINES.json",
+    "outputs/exp7/stage1/evals/N0/BASE.json",
+    "outputs/exp7/stage1/evals/N0/X_ROUNDS4.json",
+    "outputs/exp7/stage1/evals/N0/X_TOPK40K.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "316–760",
+   "decimals": 0,
+   "artifact_value": 315.894014213,
+   "sources": [
+    "outputs/exp7/stage1/evals/N0/A1_NC025.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC050.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC100.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT01.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT02.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT03.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT04.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT05.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT06.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT07.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT08.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT09.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT10.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT11.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT12.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT13.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT14.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT15.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT16.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT17.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT18.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT19.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT20.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT110.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT120.json",
+    "outputs/exp7/stage1/evals/N0/A3_RTNOISE.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM1.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM4.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP050.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP200.json",
+    "outputs/exp7/stage1/evals/N0/A6_MAXWALK75.json",
+    "outputs/exp7/stage1/evals/N0/A6_WALKSPD85.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM01.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM02.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM03.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM04.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM05.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM06.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM07.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM08.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM09.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM10.json",
+    "outputs/exp7/stage1/evals/N0/A8_FLOOR0.json",
+    "outputs/exp7/stage1/evals/N0/A8_ZERO150.json",
+    "outputs/exp7/stage1/evals/N0/B1_COMMONLINES.json",
+    "outputs/exp7/stage1/evals/N0/BASE.json",
+    "outputs/exp7/stage1/evals/N0/X_ROUNDS4.json",
+    "outputs/exp7/stage1/evals/N0/X_TOPK40K.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "–760",
+   "decimals": 0,
+   "artifact_value": 759.591170171,
+   "sources": [
+    "outputs/exp7/stage1/evals/N0/A1_NC025.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC050.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC100.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT01.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT02.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT03.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT04.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT05.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT06.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT07.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT08.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT09.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT10.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT11.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT12.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT13.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT14.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT15.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT16.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT17.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT18.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT19.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT20.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT110.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT120.json",
+    "outputs/exp7/stage1/evals/N0/A3_RTNOISE.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM1.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM4.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP050.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP200.json",
+    "outputs/exp7/stage1/evals/N0/A6_MAXWALK75.json",
+    "outputs/exp7/stage1/evals/N0/A6_WALKSPD85.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM01.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM02.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM03.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM04.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM05.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM06.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM07.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM08.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM09.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM10.json",
+    "outputs/exp7/stage1/evals/N0/A8_FLOOR0.json",
+    "outputs/exp7/stage1/evals/N0/A8_ZERO150.json",
+    "outputs/exp7/stage1/evals/N0/B1_COMMONLINES.json",
+    "outputs/exp7/stage1/evals/N0/BASE.json",
+    "outputs/exp7/stage1/evals/N0/X_ROUNDS4.json",
+    "outputs/exp7/stage1/evals/N0/X_TOPK40K.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "575–616",
+   "decimals": 0,
+   "artifact_value": 574.668010611,
+   "sources": [
+    "outputs/exp7/stage1/evals/N0/A1_NC025.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC050.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC100.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT01.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT02.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT03.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT04.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT05.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT06.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT07.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT08.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT09.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT10.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT11.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT12.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT13.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT14.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT15.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT16.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT17.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT18.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT19.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT20.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT110.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT120.json",
+    "outputs/exp7/stage1/evals/N0/A3_RTNOISE.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM1.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM4.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP050.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP200.json",
+    "outputs/exp7/stage1/evals/N0/A6_MAXWALK75.json",
+    "outputs/exp7/stage1/evals/N0/A6_WALKSPD85.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM01.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM02.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM03.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM04.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM05.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM06.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM07.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM08.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM09.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM10.json",
+    "outputs/exp7/stage1/evals/N0/A8_FLOOR0.json",
+    "outputs/exp7/stage1/evals/N0/A8_ZERO150.json",
+    "outputs/exp7/stage1/evals/N0/B1_COMMONLINES.json",
+    "outputs/exp7/stage1/evals/N0/BASE.json",
+    "outputs/exp7/stage1/evals/N0/X_ROUNDS4.json",
+    "outputs/exp7/stage1/evals/N0/X_TOPK40K.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "–616",
+   "decimals": 0,
+   "artifact_value": 616.184433306,
+   "sources": [
+    "outputs/exp7/stage1/evals/N0/A1_NC025.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC050.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC100.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT01.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT02.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT03.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT04.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT05.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT06.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT07.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT08.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT09.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT10.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT11.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT12.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT13.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT14.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT15.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT16.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT17.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT18.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT19.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT20.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT110.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT120.json",
+    "outputs/exp7/stage1/evals/N0/A3_RTNOISE.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM1.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM4.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP050.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP200.json",
+    "outputs/exp7/stage1/evals/N0/A6_MAXWALK75.json",
+    "outputs/exp7/stage1/evals/N0/A6_WALKSPD85.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM01.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM02.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM03.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM04.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM05.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM06.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM07.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM08.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM09.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM10.json",
+    "outputs/exp7/stage1/evals/N0/A8_FLOOR0.json",
+    "outputs/exp7/stage1/evals/N0/A8_ZERO150.json",
+    "outputs/exp7/stage1/evals/N0/B1_COMMONLINES.json",
+    "outputs/exp7/stage1/evals/N0/BASE.json",
+    "outputs/exp7/stage1/evals/N0/X_ROUNDS4.json",
+    "outputs/exp7/stage1/evals/N0/X_TOPK40K.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "to 316 modeled trips",
+   "decimals": 0,
+   "artifact_value": 315.894014213,
+   "sources": [
+    "outputs/exp7/stage1/evals/N0/A1_NC025.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC050.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC100.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT01.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT02.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT03.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT04.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT05.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT06.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT07.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT08.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT09.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT10.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT11.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT12.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT13.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT14.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT15.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT16.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT17.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT18.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT19.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT20.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT110.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT120.json",
+    "outputs/exp7/stage1/evals/N0/A3_RTNOISE.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM1.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM4.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP050.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP200.json",
+    "outputs/exp7/stage1/evals/N0/A6_MAXWALK75.json",
+    "outputs/exp7/stage1/evals/N0/A6_WALKSPD85.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM01.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM02.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM03.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM04.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM05.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM06.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM07.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM08.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM09.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM10.json",
+    "outputs/exp7/stage1/evals/N0/A8_FLOOR0.json",
+    "outputs/exp7/stage1/evals/N0/A8_ZERO150.json",
+    "outputs/exp7/stage1/evals/N0/B1_COMMONLINES.json",
+    "outputs/exp7/stage1/evals/N0/BASE.json",
+    "outputs/exp7/stage1/evals/N0/X_ROUNDS4.json",
+    "outputs/exp7/stage1/evals/N0/X_TOPK40K.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+9.66%",
+   "decimals": 2,
+   "artifact_value": 9.659,
+   "sources": [
+    "outputs/CANONICAL_RESULTS_v5.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "−5.43%",
+   "decimals": 2,
+   "artifact_value": -5.428277467,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT.md",
+    "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md"
+   ]
+  },
+  {
+   "written": "+181.72%",
+   "decimals": 2,
+   "artifact_value": 181.724886891,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT.md",
+    "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md"
+   ]
+  },
+  {
+   "written": "+45.11%",
+   "decimals": 2,
+   "artifact_value": 45.105363598,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT.md",
+    "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md"
+   ]
+  },
+  {
+   "written": "+16.57%",
+   "decimals": 2,
+   "artifact_value": 16.56819093,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT.md",
+    "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md"
+   ]
+  },
+  {
+   "written": "+4.58%",
+   "decimals": 2,
+   "artifact_value": 4.584102572,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT.md",
+    "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md"
+   ]
+  },
+  {
+   "written": "+8.55%",
+   "decimals": 2,
+   "artifact_value": 8.547370233,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT.md",
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+30.79%",
+   "decimals": 2,
+   "artifact_value": 30.789838261,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT.md"
+   ]
+  },
+  {
+   "written": "−0.98%",
+   "decimals": 2,
+   "artifact_value": -0.98126032,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT.md",
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "−6.57%",
+   "decimals": 2,
+   "artifact_value": -6.571377463,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md"
+   ]
+  },
+  {
+   "written": "+0.12%",
+   "decimals": 2,
+   "artifact_value": 0.117860257,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md",
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "−7.00%",
+   "decimals": 2,
+   "artifact_value": -6.998974989,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md"
+   ]
+  },
+  {
+   "written": "−2.14%",
+   "decimals": 2,
+   "artifact_value": -2.140672279,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md"
+   ]
+  },
+  {
+   "written": "+0.482%",
+   "decimals": 3,
+   "artifact_value": 0.48196608,
+   "sources": [
+    "outputs/exp6/EXP6_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+0.912%",
+   "decimals": 3,
+   "artifact_value": 0.911818085,
+   "sources": [
+    "outputs/exp6/EXP6_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+0.212%",
+   "decimals": 3,
+   "artifact_value": 0.211985882,
+   "sources": [
+    "outputs/exp6/EXP6_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+0.634%",
+   "decimals": 3,
+   "artifact_value": 0.634494311,
+   "sources": [
+    "outputs/exp6/EXP6_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "−6.024",
+   "decimals": 3,
+   "artifact_value": -6.023959398,
+   "sources": [
+    "outputs/exp7/EXP7_CLOSEOUT_TABLE.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT.md"
+   ]
+  },
+  {
+   "written": "−1.897",
+   "decimals": 3,
+   "artifact_value": -1.897450589,
+   "sources": [
+    "outputs/exp7/EXP7_CLOSEOUT_TABLE.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT.md"
+   ]
+  },
+  {
+   "written": "−6.998",
+   "decimals": 3,
+   "artifact_value": -6.998293248,
+   "sources": [
+    "outputs/exp7/EXP7_CLOSEOUT_TABLE.json"
+   ],
+   "documents": [
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT.md"
+   ]
+  },
+  {
+   "written": "+30.5%",
+   "decimals": 1,
+   "artifact_value": 30.47682247,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md",
+    "experiments/exp7/EXPERIMENT7_RESULTS.md",
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "0.161%",
+   "decimals": 3,
+   "artifact_value": 0.16120832,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md",
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md"
+   ]
+  },
+  {
+   "written": "2,940,186",
+   "decimals": 0,
+   "artifact_value": 2940186.286176101,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md"
+   ]
+  },
+  {
+   "written": "2,935,446",
+   "decimals": 0,
+   "artifact_value": 2935446.461251211,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md"
+   ]
+  },
+  {
+   "written": "557",
+   "decimals": 0,
+   "artifact_value": 556.589795918,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "experiments/exp7/EXPERIMENT7_RESULTS.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "1,583",
+   "decimals": 0,
+   "artifact_value": 1582.887422387,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "experiments/exp7/EXPERIMENT7_RESULTS.md"
+   ]
+  },
+  {
+   "written": "29,366",
+   "decimals": 0,
+   "artifact_value": 29366.112577613,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "experiments/exp7/EXPERIMENT7_RESULTS.md"
+   ]
+  },
+  {
+   "written": "−0.226",
+   "decimals": 3,
+   "artifact_value": -0.226116209,
+   "sources": [
+    "outputs/exp7/EXP7_CLOSEOUT_TABLE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "experiments/exp7/EXPERIMENT7_RESULTS.md",
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md"
+   ]
+  },
+  {
+   "written": "+0.166",
+   "decimals": 3,
+   "artifact_value": 0.1658575,
+   "sources": [
+    "outputs/exp7/EXP7_CLOSEOUT_TABLE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "experiments/exp7/EXPERIMENT7_RESULTS.md",
+    "experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md"
+   ]
+  },
+  {
+   "written": "+0.090%",
+   "decimals": 3,
+   "artifact_value": 0.090164421,
+   "sources": [
+    "outputs/exp2b_certification.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+0.054%",
+   "decimals": 3,
+   "artifact_value": 0.054032949,
+   "sources": [
+    "outputs/exp2b_certification.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "0.31",
+   "decimals": 2,
+   "artifact_value": 0.314161745,
+   "sources": [
+    "outputs/exp2b_certification.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "−2.21%",
+   "decimals": 2,
+   "artifact_value": -2.213308137,
+   "sources": [
+    "outputs/exp1_baseline_modelB.json",
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "66.8%",
+   "decimals": 1,
+   "artifact_value": 66.842491866,
+   "sources": [
+    "outputs/exp1_baseline_modelB.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "1.16%",
+   "decimals": 2,
+   "artifact_value": 1.164104114,
+   "sources": [
+    "outputs/exp4_addendum/diag_N3.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "12.47%",
+   "decimals": 2,
+   "artifact_value": 12.472038803,
+   "sources": [
+    "outputs/exp4_addendum/diag_N4.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "0.516%",
+   "decimals": 3,
+   "artifact_value": 0.516229381,
+   "sources": [
+    "outputs/model_diagnostics_modelB.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "2,516.65",
+   "decimals": 2,
+   "artifact_value": 2516.645363242,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+15.31%",
+   "decimals": 2,
+   "artifact_value": 15.313082808,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  }
+ ],
+ "coverage": {
+  "numeric_tokens": 921,
+  "artifact_checked_tokens": 326,
+  "unchecked_distinct": 321,
+  "unchecked_examples": [
+   "+0.0065%",
+   "+0.060%",
+   "+0.09%",
+   "+0.124",
+   "+0.146%",
+   "+0.160%",
+   "+0.166%",
+   "+0.225%",
+   "+0.244%",
+   "+0.250%",
+   "+0.260%",
+   "+0.287%",
+   "+0.32%",
+   "+0.321%",
+   "+0.3566",
+   "+0.389%",
+   "+0.41%",
+   "+0.428%",
+   "+0.436%",
+   "+0.440%",
+   "+0.477%",
+   "+0.485%",
+   "+0.489%",
+   "+0.500%",
+   "+0.522%",
+   "+0.524%",
+   "+0.531%",
+   "+0.561%",
+   "+0.57%",
+   "+0.575%",
+   "+0.633%",
+   "+0.671%",
+   "+0.91%",
+   "+0.967%",
+   "+1.24%",
+   "+1.49%",
+   "+100%",
+   "+182%",
+   "+19.35%",
+   "+2.05%",
+   "+2.51%",
+   "+25%",
+   "+28%",
+   "+3.3%",
+   "+30.8%",
+   "+6.85%",
+   "+7.86%",
+   "+7.87%",
+   "+8.82%",
+   "+9.28%",
+   "+9.659%",
+   "+9.67%",
+   "0.0018",
+   "0.0019%",
+   "0.0024%",
+   "0.006",
+   "0.009",
+   "0.01",
+   "0.0147%",
+   "0.02"
+  ]
+ }
+}

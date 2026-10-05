@@ -430,46 +430,50 @@ entirely legitimate from the inside.
   candidate network is known; see `docs/research-record/exp4/FLEET_AND_BLOCKING.md` and
   `docs/research-record/exp5/EXPERIMENT5_PREMISE_AUDIT.md`.
 
+## Where to find things
+
+| you want | go to |
+|---|---|
+| the current result and its limits | `docs/report/TECHNICAL_REPORT.md` (abstract, §1 summary table, §8 limitations) |
+| one experiment's contract and closeout | `experiments/exp1/README.md` … `experiments/exp7/README.md` (index: `experiments/README.md`) |
+| canonical artifacts | `outputs/CANONICAL_RESULTS_v5.json` (authority), `outputs/README.md` (index) |
+| superseded and retracted material | `outputs/SUPERSEDED.md`, `outputs/superseded/`, report §9 (retractions), errata files in `experiments/exp2/` and `experiments/exp7/` |
+| the frozen research state and what is public | `docs/RELEASE_PROVENANCE.md` (frozen commit `cd03af9c`) |
+| how to reproduce | `docs/REPRODUCE.md`; `cota-opt reproduce exp1 --smoke` |
+| wording corrections since the freeze | `docs/REPORTING_CORRECTIONS.md` |
+| where an old path went | `docs/research-record/MOVES.md` |
+| the research history | `docs/research-record/` (`DISCOVERIES.md`, `STATE_OF_PLAY.md`, superseded designs) |
+
 ## Layout
 
 ```
-src/cota_opt/      production logic (typed, tested)
-  registry.py      immutable raw store + provenance
-  gtfs.py          parsing and structural validation
-  baseline.py      scheduled-service baseline tables
-  raptor.py        timetabled + frequency-based routing
-  odmatrix.py      LODES OD, gravity fallback, zone system
-  pathset.py       candidate path enumeration and fast re-costing
-  frequency.py     FrequencyPlan / ResourceBudget / solver
-  crowding.py      link loads and peak-load-point crowding
-  routeclass.py    service-pattern route classification
-  ntd.py           ratio-verified NTD profile parsing
-  harness.py       one cached entry point for the whole build chain
-  cache.py         content-addressed cache + checkpointed result store
-tests/             890 deterministic tests (collected at master f79227cc, 2026-09-29)
-config/            sources, assumptions, cost weights, constraints, scenarios
-scripts/           experiment runners
-outputs/           reports, experiment records, per-cell checkpoints
+src/cota_opt/      the research code (its content digest is pinned by the frozen contracts)
+src/cota_release/  release tooling: the `cota-opt` entry point and `reproduce`
+experiments/       one folder per experiment: contract/protocol, closeout, README
+scripts/           experiment runners and report tooling (verifier, figures)
+config/            sources (with terms), assumptions, cost weights, constraints
+tests/             deterministic tests; tests needing registered raw data skip
+                   with the reason EXTERNAL_DATA_UNAVAILABLE
+outputs/           canonical and superseded artifacts (see outputs/README.md)
+docs/              report, reproduction, glossary, provenance, engineering rules,
+                   process notes (docs/process/), research record (docs/research-record/)
 ```
 
 ## Running it
 
 ```bash
 pip install -e ".[dev]"
-python -m pytest                      # 890 tests; the `slow` ones need data/raw + data/cache
-
-python -m cota_opt.cli sources        # what data is registered
-python -m cota_opt.cli ingest-gtfs path/to/cota.gtfs.zip
-python -m cota_opt.cli validate
-python -m cota_opt.cli baseline
-python -m cota_opt.cli report
-
-python scripts/convergence.py         # how much search this problem needs
-python scripts/run_matrix.py --iterations 150000 --restarts 5 --width 48
+python -m pytest -rs                  # raw-data tests skip cleanly without data/raw
+python scripts/verify_report_claims.py
+python scripts/make_report_figures.py --check
+cota-opt --help
+cota-opt reproduce exp1 --smoke       # needs the registered raw data (docs/REPRODUCE.md §0)
 ```
 
-The first build takes ~12 minutes; after that `data/cache/` makes it 0.2
-seconds. Long runs checkpoint per cell and resume rather than restart.
+Raw public inputs are not committed; stage them under `data/raw/` through the
+registry (`config/sources.yaml`). Long runs checkpoint per cell and resume
+rather than restart. Test counts and runtimes are not quoted here because they
+change with every commit; CI (`.github/workflows/ci.yml`) reports them per run.
 
 ## Data sources
 
@@ -491,9 +495,10 @@ constraint on everything downstream. Nothing here is a recommendation to COTA.
 
 ## Governing contract
 
-`AGENTS.md` is the development and research contract: evidence standards,
-provenance rules, CRS discipline, the scheduled-vs-actual distinction, and the
-skeptic protocol for surprising results.
+`docs/ENGINEERING_RULES.md` is the development and research contract:
+evidence standards, provenance rules, CRS discipline, the scheduled-vs-actual
+distinction, and the skeptic protocol for surprising results. The root
+`AGENTS.md` points coding agents to it.
 
 `experiments/ACCEPTANCE.md` holds the gates, each committed before the run it judges.
 `experiments/exp3/EXPERIMENT3_CONTRACT.md` fixes what Experiment 3 may mutate, before any

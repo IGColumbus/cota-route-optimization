@@ -1,0 +1,132 @@
+"""Reproduce Experiment 1 from a clean checkout plus the registered raw data.
+
+* ``--smoke`` rebuilds the Exp 1 evaluation instance exactly as
+  ``scripts/seed_check.py`` did (Model B waiting, crowding on, the shared frozen
+  path set built from the committed fixpoint plans, 14 peak-express routes
+  locked), evaluates the current plan and the three committed certified seed
+  plans, and compares every number with the canonical record. No optimization.
+* without ``--smoke`` it also re-solves each seed at certification effort
+  (400,000 iterations × 20 restarts; about 50 minutes per seed on one core)
+  into a scratch store, never the committed one, and compares the result.
+
+Raw data are not committed. Before running, stage the registered inputs under
+``data/raw/`` (``config/sources.yaml``; ``docs/REPRODUCE.md`` §0). Without them
+the command stops with exit code 3 and says what is missing.
+"""
+from __future__ import annotations
+
+import hashlib
+import json
+import platform
+import sys
+import time
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[2]
+OUT = ROOT / "outputs"
+SEP = "::"
+#: absolute tolerances for "reproduced": bit-exact is expected in the pinned
+#: environment; elsewhere drift is reported against these bounds
+TOL_ABS_TRIPS = 1e-6
+TOL_PCT_POINTS = 1e-6
+
+
+def _key(s: str):
+    a, b = s.split(SEP, 1)
+    return (a, b)
+
+
+def _rows(path: Path) -> list[dict]:
+    return [json.loads(x) for x in path.read_text().splitlines() if x.strip()]
+
+
+def _environment() -> dict:
+    import numpy
+    info = {"python": sys.version.split()[0], "platform": platform.platform(),
+            "machine": platform.machine(), "numpy": numpy.__version__}
+    try:
+        cfg = numpy.show_config(mode="dicts")
+        info["blas"] = cfg.get("Build Dependencies", {}).get("blas", {})
+    except Exception:  # noqa: BLE001
+        pass
+    import os
+    info["env"] = {k: os.environ.get(k) for k in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS",
+                                                  "MKL_NUM_THREADS", "PYTHONHASHSEED")}
+    return info
+
+
+def exp1(smoke: bool, seeds: list[int], out: str | None) -> int:
+    sys.path.insert(0, str(ROOT / "src"))
+    from cota_opt.registry import Registry
+    missing = [k for k in ("cota_gtfs_static", "lodes_od_oh") if Registry().get(k) is None]
+    if missing:
+        print(f"EXTERNAL_DATA_UNAVAILABLE: registered raw inputs missing: {missing}. "
+              "Stage them under data/raw/ (docs/REPRODUCE.md §0).")
+        return 3
+
+    from cota_opt.frequency import FrequencyPlan
+    from cota_opt.harness import build_harness
+
+    t0 = time.time()
+    base_rec = json.loads((OUT / "exp1_baseline_modelB.json").read_text())
+    fix = [r for r in _rows(OUT / "fixpoint_modelB.jsonl")
+           if str(r.get("cell", "")).startswith("final|lam") and "adequacy" not in r["cell"]]
+    finals = {r["lambda"]: {_key(k): float(v) for k, v in r["plan"].items()} for r in fix}
+    seed_rows = {r["seed"]: r for r in _rows(OUT / "seedcheck_modelB.jsonl")
+                 if str(r.get("cell", "")).startswith("seed") and "|lam2.0|" in r["cell"]}
+
+    H = build_harness(seed=seeds[0], common_lines="same_route")
+    extra = [(f"final_lam{m}", finals[m]) for m in sorted(finals)]
+    payload = [[n, sorted((f"{k[0]}{SEP}{k[1]}", round(float(v), 6)) for k, v in p.items())]
+               for n, p in extra]
+    tag = "sc-" + hashlib.sha256(json.dumps(payload, sort_keys=True).encode()).hexdigest()[:16]
+    psets = H.pathsets_with(extra, tag=tag, seed=seeds[0])
+    setup = H.setup(with_crowding=True, lock_classes=("peak_express",), seed=seeds[0],
+                    pathsets=psets)
+    n_paths = sum(p.n_paths for p in setup.pathsets.values())
+    bf = setup.model.evaluate(setup.baseline_plan)
+
+    checks = []
+
+    def check(name, got, want, tol):
+        d = abs(float(got) - float(want))
+        checks.append({"check": name, "reproduced": float(got), "recorded": float(want),
+                       "abs_drift": d, "ok": d <= tol})
+
+    check("n_paths", n_paths, base_rec["n_paths"], 0)
+    check("baseline_unserved", bf.unserved_demand, base_rec["baseline_unserved"], TOL_ABS_TRIPS)
+    check("baseline_gc", bf.generalized_cost, base_rec["baseline_gc"], TOL_ABS_TRIPS)
+
+    for sd in seeds:
+        rec = seed_rows[sd]
+        plan = FrequencyPlan({_key(k): float(v) for k, v in rec["plan"].items()})
+        f = setup.model.evaluate(plan)
+        check(f"seed{sd}.unserved_change_pct", (f.unserved_demand / bf.unserved_demand - 1) * 100,
+              rec["unserved_change_pct"], TOL_PCT_POINTS)
+        check(f"seed{sd}.gc_change_pct", (f.generalized_cost / bf.generalized_cost - 1) * 100,
+              rec["gc_change_pct"], TOL_PCT_POINTS)
+
+    if not smoke:
+        from cota_opt.frequency import optimize_frequencies
+        for sd in seeds:
+            r = optimize_frequencies(setup.model, setup.budget, ladder=[], unserved_multiplier=2.0,
+                                     local_search_iterations=400_000, seed=sd,
+                                     ladders=setup.ladders, initial=setup.baseline_plan,
+                                     n_restarts=20, candidate_width=0, greedy_start=False)
+            check(f"seed{sd}.resolved_unserved_change_pct",
+                  (r.fitness.unserved_demand / bf.unserved_demand - 1) * 100,
+                  seed_rows[sd]["unserved_change_pct"], TOL_PCT_POINTS)
+
+    ok = all(c["ok"] for c in checks)
+    record = {"command": "cota-opt reproduce exp1" + (" --smoke" if smoke else ""),
+              "status": "REPRODUCED" if ok else "DRIFT",
+              "seconds": round(time.time() - t0, 1), "environment": _environment(),
+              "recorded_artifacts": ["outputs/exp1_baseline_modelB.json",
+                                     "outputs/seedcheck_modelB.jsonl",
+                                     "outputs/fixpoint_modelB.jsonl"],
+              "checks": checks}
+    text = json.dumps(record, indent=1)
+    if out:
+        Path(out).write_text(text + "\n")
+    print(text)
+    return 0 if ok else 1

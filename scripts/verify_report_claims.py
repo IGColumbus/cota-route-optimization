@@ -207,8 +207,10 @@ def check_figures() -> int:
         print("FAIL figures: FIGURES_MANIFEST.json missing")
         return 1
     m = json.loads(mf.read_text())
-    stale = [p for p, h in m["inputs_sha256"].items()
-             if hashlib.sha256((ROOT / p).read_bytes()).hexdigest() != h]
+    external = [p for p in m["inputs_sha256"] if p.startswith("data/") and not (ROOT / p).exists()]
+    stale = [p for p, h in m["inputs_sha256"].items() if p not in external
+             and (not (ROOT / p).exists()
+                  or hashlib.sha256((ROOT / p).read_bytes()).hexdigest() != h)]
     missing = [n for n in m["figures"]
                if not all((ROOT / "docs/report/figures" / f"{n}.{x}").exists()
                           for x in ("svg", "png", "csv"))]
@@ -219,11 +221,79 @@ def check_figures() -> int:
     ok = not stale and not missing and quoted
     print(("ok  " if ok else "FAIL") + f" figures: {len(m['figures'])} figures, "
           f"{len(m['inputs_sha256'])} inputs, stale={stale}, missing={missing}, "
-          f"map counts quoted={quoted}")
+          f"map counts quoted={quoted}"
+          + (f", external raw inputs unavailable={external}" if external else ""))
     return 0 if ok else 1
 
 
+NUMBERS = ROOT / "docs/report/REPORT_NUMBERS.json"
+
+
+def _evaluate(get):
+    """Run one extractor, recording which repository files it read."""
+    read: list[str] = []
+    orig = Path.read_text
+
+    def spy(self, *a, **k):
+        try:
+            rel = self.resolve().relative_to(ROOT).as_posix()
+            if rel not in read:
+                read.append(rel)
+        except ValueError:
+            pass
+        return orig(self, *a, **k)
+
+    Path.read_text = spy
+    try:
+        return get(), read
+    finally:
+        Path.read_text = orig
+
+
+_NUM = __import__("re").compile(r"(?<![A-Za-z0-9_./#-])[+−\-]?\d[\d,]*(?:\.\d+)?%?")
+
+
+def report_coverage() -> dict:
+    """Numeric tokens in the report body, split into artifact-checked and not.
+
+    Coverage is token-level and approximate: a number counts as checked when it
+    occurs inside a written claim string listed for the report. Section and
+    table numbering, years, commit hashes and code are excluded."""
+    import re as _re
+    text = (ROOT / REPORT).read_text()
+    text = _re.sub(r"```.*?```", " ", text, flags=_re.S)
+    text = _re.sub(r"`[^`]*`", " ", text)
+    text = _re.sub(r"^#+ .*$", " ", text, flags=_re.M)
+    text = _re.sub(r"\]\([^)]*\)", "]", text)          # link targets
+    text = _re.sub(r"§\s?[\d.]+", " ", text)
+    toks = [t for t in _NUM.findall(text)
+            if not _re.fullmatch(r"(19|20)\d\d", t) and t not in ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")]
+    claimed = " ".join(c[0] for c in CLAIMS if REPORT in c[3])
+    checked = [t for t in toks if t.lstrip("+−-") in claimed]
+    unchecked = sorted(set(toks) - set(checked))
+    return {"numeric_tokens": len(toks), "artifact_checked_tokens": len(checked),
+            "unchecked_distinct": len(unchecked), "unchecked_examples": unchecked[:60]}
+
+
+def build_numbers() -> dict:
+    rows = []
+    for text, dec, get, docs in CLAIMS:
+        v, read = _evaluate(get)
+        rows.append({"written": text, "decimals": dec, "artifact_value": round(float(v), 9),
+                     "sources": read, "documents": docs})
+    return {"generated_by": "scripts/verify_report_claims.py --write-numbers",
+            "note": ("Every value is computed from the listed committed artifacts by the "
+                     "extractor in the verifier; documents are checked to contain the "
+                     "written string. coverage reports how much of the report's numeric "
+                     "text this registry reaches; the remainder is not yet machine-checked."),
+            "claims": rows, "coverage": report_coverage()}
+
+
 def main() -> int:
+    if "--write-numbers" in sys.argv:
+        NUMBERS.write_text(json.dumps(build_numbers(), indent=1, ensure_ascii=False) + "\n")
+        print(f"wrote {NUMBERS.relative_to(ROOT)}")
+        return 0
     bad = 0
     for text, dec, get, docs in CLAIMS:
         try:
@@ -241,6 +311,18 @@ def main() -> int:
               + ("" if ok_val else "  VALUE MISMATCH"))
     print(f"{len(CLAIMS) - bad}/{len(CLAIMS)} claims verified")
     bad += check_figures()
+    if NUMBERS.exists():
+        current = json.loads(NUMBERS.read_text())
+        fresh = build_numbers()
+        same = current == fresh
+        cov = fresh["coverage"]
+        print(("ok  " if same else "FAIL") + " REPORT_NUMBERS.json "
+              + ("current" if same else "stale: rerun with --write-numbers")
+              + f"; report coverage {cov['artifact_checked_tokens']}/{cov['numeric_tokens']} numeric tokens")
+        bad += not same
+    else:
+        print("FAIL REPORT_NUMBERS.json missing: run with --write-numbers")
+        bad += 1
     return 1 if bad else 0
 
 

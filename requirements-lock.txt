@@ -1,0 +1,46 @@
+# Project dependency lock (P1-23).
+# Package set: the closure of `pip install -e ".[dev]"` in a clean Python 3.11.15 venv.
+# Versions: every pin is the version recorded in
+# docs/research-record/ENVIRONMENT_AT_FREEZE.txt (the container that ran Exp 7 Stage 2,
+# the closeouts and the figures). Earlier experiments' environments were not recorded.
+annotated-types==0.7.0
+certifi==2026.4.22
+cffi==2.0.0
+charset-normalizer==3.4.7
+contourpy==1.3.3
+cryptography==46.0.7
+cycler==0.12.1
+fonttools==4.62.1
+geopandas==1.1.4
+gtfs-realtime-bindings==3.0.0
+idna==3.13
+iniconfig==2.3.0
+kiwisolver==1.5.0
+matplotlib==3.10.9
+networkx==3.6.1
+numpy==2.4.4
+packaging==26.1
+pandas==3.0.2
+pdfminer.six==20251230
+pdfplumber==0.11.9
+pillow==12.2.0
+pluggy==1.6.0
+protobuf==7.34.1
+pycparser==3.0
+pydantic==2.13.3
+pydantic_core==2.46.3
+Pygments==2.20.0
+pyogrio==0.13.0
+pyparsing==3.3.2
+pypdfium2==5.7.1
+pyproj==3.7.2
+pytest==9.1.1
+python-dateutil==2.9.0.post0
+PyYAML==6.0.3
+requests==2.33.1
+scipy==1.17.1
+shapely==2.1.2
+six==1.17.0
+typing-inspection==0.4.2
+typing_extensions==4.15.0
+urllib3==2.6.3

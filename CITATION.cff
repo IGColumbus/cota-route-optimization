@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: >-
+  If you use this software or its results, please cite it as below. The frozen
+  research record is commit cd03af9c (tag research-final once public; see
+  docs/RELEASE_PROVENANCE.md). Results are modeled, use proxy demand and are
+  uncalibrated; the project is independent of COTA.
+type: software
+title: "COTA Transit Network Model and Optimization Harness"
+version: 0.9.0
+authors:
+  - family-names: Gregory
+    given-names: Ian
+license: Apache-2.0
+repository-code: "https://github.com/ian-gregory94/cota-route-optimization"
+abstract: >-
+  A convergence-controlled optimization harness and working paper on how
+  frequency allocation and network-design interventions trade off modeled
+  unserved demand and passenger generalized cost on the Central Ohio Transit
+  Authority (COTA) weekday bus network at approximately fixed modeled
+  resources, with a frozen, provenance-tracked research record.
+keywords:
+  - transit network design
+  - frequency setting
+  - transit assignment
+  - robustness analysis
+  - reproducibility
+  - Columbus, Ohio
+references:
+  - type: data
+    title: "COTA GTFS static feed (2026-MAY-04-BB_20260630)"
+    authors:
+      - name: Central Ohio Transit Authority
+    url: "https://www.cota.com/data/"
+  - type: data
+    title: "LEHD Origin-Destination Employment Statistics (LODES8), Ohio, 2022"
+    authors:
+      - name: U.S. Census Bureau, Longitudinal Employer-Household Dynamics
+    url: "https://lehd.ces.census.gov/data/"
+  - type: data
+    title: "National Transit Database 2024 Annual Agency Profile, NTD ID 50016"
+    authors:
+      - name: Federal Transit Administration
+    url: "https://www.transit.dot.gov/ntd"
+  - type: data
+    title: "2020 Census block group centers of population, Ohio"
+    authors:
+      - name: U.S. Census Bureau
+    url: "https://www.census.gov/geographies/reference-files/time-series/geo/centers-population.html"
