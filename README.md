@@ -120,8 +120,9 @@ python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\a
 pip install -r requirements-lock.txt && pip install --no-deps -e .   # pinned
 # or: pip install -e ".[dev]"                                         # unpinned
 
-python -m pytest -rs -m "not slow"       # seconds; tests needing raw data skip: EXTERNAL_DATA_UNAVAILABLE
-# python -m pytest -rs                   # also runs the slow tests, which need the raw data and take minutes
+python -m pytest -rs -m "not slow"       # seconds; leaves out the three slow tests, which need the raw data
+# python -m pytest -rs                   # all tests: without data/raw the slow ones skip (EXTERNAL_DATA_UNAVAILABLE);
+#                                        # with it they run real solves and take minutes
 python scripts/verify_report_claims.py   # report numbers against the committed artifacts
 cota-opt --help
 ```
@@ -156,11 +157,14 @@ been written.
 ### Reproduce
 
 ```bash
+# the recorded (bit-exact) environment also set these:
+export PYTHONHASHSEED=0 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 cota-opt reproduce exp1 --smoke   # rebuild the Exp 1 instance, re-evaluate the certified plans, compare
 cota-opt reproduce exp1           # also re-solve the three seeds at certification effort
 ```
 
-Both need the five raw inputs. The smoke run does no optimization, but its
+Both need the five raw inputs and build everything else themselves (no
+separate `validate` or `baseline` step). The smoke run does no optimization, but its
 first run builds the path sets: 42 min 42 s on one core in the recorded run,
 then about a second once `data/cache/` is warm. The full run adds three
 certification solves; the original runs took 2,829–3,008 s each
@@ -175,7 +179,7 @@ inputs missing. The recorded result and environment are in
 |---|---|
 | the current result and its limits | `docs/report/TECHNICAL_REPORT.md` (abstract, §1 summary table, §8 limitations); longer plain-language summary in `docs/FINDINGS.md` |
 | one experiment's contract and closeout | `experiments/exp1/README.md` … `experiments/exp7/README.md` (index: `experiments/README.md`) |
-| canonical artifacts | `outputs/CANONICAL_RESULTS_v5.json` (authority), `outputs/README.md` (index) |
+| canonical artifacts | `outputs/CANONICAL_RESULTS_v5.json` (authority), `outputs/README.md` (index). `outputs/canonical/` holds only three early records, not the canonical set |
 | superseded and retracted material | `outputs/SUPERSEDED.md`, `outputs/superseded/`, report §9 (retractions), errata files in `experiments/exp2/` and `experiments/exp7/` |
 | the frozen research state and what is public | `docs/RELEASE_PROVENANCE.md` (frozen commit `cd03af9c`) |
 | how to reproduce | `docs/REPRODUCE.md`; `cota-opt reproduce exp1 --smoke` |

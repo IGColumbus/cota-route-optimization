@@ -159,3 +159,36 @@ The registry v5 `experiments.exp2b.headline` (+0.0065%) and `EXPERIMENT2_CLOSEOU
 **Current instead:** `outputs/exp2b_confirmation.json` (contract digest `7157ce1de9373420`, the amended rule).
 
 <!-- exp2b-magnitude-superseded:end -->
+
+<!-- release-provenance-test:begin -->
+## Additions from the 2026-10-05 provenance tests
+
+*Added by hand. Registry v5 is frozen and does not list these; this index does.*
+
+### exp1 — Model A seed-check siblings
+
+- `outputs/seedcheck.csv` and `outputs/seedcheck.jsonl` — the per-seed table and the cell store of the same Model A seed-check as `outputs/seedcheck.json` (233,589 paths, `common_lines: pattern`). Not moved.
+
+That run started 2026-08-27 17:42 UTC (`outputs/experiments/exp6_seedcheck_20260827T174218Z/experiment.json`; the `exp6_` prefix is a run-directory name, not Experiment 6). Model B had already passed gate 10 (2026-08-26 22:29 UTC, `experiments/ACCEPTANCE.md`), so this is the Model A *control*, not a pre-correction result as the registry's group label says.
+
+**Current instead:** `outputs/seedcheck_modelB.json` (summary) and `outputs/seedcheck_modelB.jsonl` (per-seed plans).
+
+**How to tell, for older run records:** records from before evaluator provenance have no `evaluator` key at all (not `null`). Read `metrics.common_lines` instead: `pattern` is Model A, `same_route` is Model B.
+
+### Experiment 3 — Phase A1 third run, superseded for quantitative interpretation (D27)
+
+- `outputs/exp3/stageA_rows*.jsonl`, `outputs/exp3/stageA_states*`, `outputs/exp3/stageA_A1.json`, `outputs/exp3/stageA_A1_merge.json`, `outputs/exp3/stageA_promoted.superseded.json`
+
+Scored with `starts="incumbent"`, where the treatment decided the optimizer's start (D27). They share file names with the two archived sets above but sit in `outputs/exp3/` itself. Reason and what stays usable: `docs/research-record/exp3/EXPERIMENT3_A1.md` (header).
+
+**Current instead:** `outputs/exp3/stageA_rescored.jsonl` (re-scored with `starts="both"`) and the canonical `outputs/exp3/stageA_census.json`.
+
+### Notes on the Phase A1 second attempt (`unpinned_envelope/`)
+
+- `outputs/exp3/superseded/unpinned_envelope/stageA_A1.json` is a one-shard summary (`singles_scored: 1`); `outputs/exp3/superseded/unpinned_envelope/stageA_A1_merge.json` covers all four singles.
+- "These scores are wrong" applies to states whose envelope moved with the edit. The zero-edit control's objective there (2956120.5839554886) is identical to the canonical census control, because under `starts="both"` the greedy arm wins (`docs/research-record/DISCOVERIES.md`, the D32 check near line 1737).
+
+### Missing history map
+
+`docs/research-record/exp3/HISTORY_NOTE.md` cites a history map file (condensed commits → original commits). That file was never committed. The original commits of the collapsed Exp 3 ranges are on the archival branch `exp3` and the unpublished branch `backup-exp3-preclean` (`docs/RELEASE_PROVENANCE.md`).
+<!-- release-provenance-test:end -->

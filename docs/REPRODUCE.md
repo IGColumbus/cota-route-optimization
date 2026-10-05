@@ -2,10 +2,10 @@
 
 *A draft prepared 2026-09-28; the Exp 6 section was updated 2026-09-29 to the
 frozen scripts. Each command below was checked to exist in `scripts/` with the
-stated arguments, by reading its argparse block or docstring. Only the
-Experiment 1 smoke reproduction (`cota-opt reproduce exp1 --smoke`, below) has
-been executed from a clean checkout (2026-10-05); the other commands have not
-been re-run for this document.*
+stated arguments, by reading its argparse block or docstring. Executed from a
+clean checkout on 2026-10-05: the Experiment 1 smoke reproduction (below), the
+§0 setup and data commands, and the Experiment 3 verification commands. The
+other experiments' commands have not been re-run for this document.*
 
 ## 0. Setup common to every experiment
 
@@ -59,8 +59,8 @@ solves took 2,829–3,008 s each (`outputs/seedcheck_modelB.jsonl → seconds`).
 
 ### Recorded reproduction (2026-10-05)
 
-* **Command:** `cota-opt reproduce exp1 --smoke`, at commit `ad3f9a3d` with the
-  gated-check change that follows it.
+* **Command:** `cota-opt reproduce exp1 --smoke`, cold run at commit `ad3f9a3d`; the
+  warm run repeated it at `f11f5233`, which made the baseline rows informational.
 * **Environment:**
   * a fresh `git clone` of the repository;
   * a fresh venv from `requirements-lock.txt` (Python 3.11.15, numpy 2.4.4, scipy-openblas 0.3.31);
@@ -97,11 +97,11 @@ verified, not re-run:
 
 ```bash
 python scripts/exp3_verify_closure.py        # every number in experiments/exp3/EXPERIMENT3_CLOSURE.md recomputed from JSON
-python scripts/exp3_freeze.py --verify       # frozen artifact hashes + receipt stores (default --tag exp3-frozen-v1)
-python scripts/gen1_freeze.py --verify       # Gen1 manifest; needs the tags exp3-frozen-v1 / exp3-final-v1 (git fetch --tags)
+python scripts/gen1_freeze.py --verify       # Gen1 manifest; needs the tags exp3-frozen-v1 / exp3-final-v1 (a normal clone has them)
 ```
-The freeze tags are public (`git fetch --tags`), and `gen1_freeze.py --verify`
-passes from a fresh clone. **`exp3_freeze.py --verify` fails, and has since
+Both pass from a fresh clone. **Known failure, not a verification step:**
+`python scripts/exp3_freeze.py --verify` (frozen artifact hashes and receipt
+stores) exits 1, and has since
 before the freeze:** it hashes living documents (`docs/research-record/DISCOVERIES.md`,
 `docs/process/OPERATIONS.md`, …) that were appended to after Exp 3 froze, and its
 source digest predates later code. It fails identically at `research-final`

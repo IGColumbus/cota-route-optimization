@@ -62,13 +62,18 @@ cite it as inspectable. To publish it, run from a clone that has it:
 git push origin backup-exp3-preclean
 ```
 
+It matters for provenance: commits cited by `master`'s condensed history (for
+example `49e61d5f`, named in `5f6b8cee`'s message) are reachable only from it.
+The condensed-to-original commit map that `HISTORY_NOTE.md` cites was never
+committed.
+
 ## Branches
 
 | branch | role | status |
 |---|---|---|
 | `master` | the public line: research record up to `cd03af9c`, then the reporting and release work | public |
 | `exp3` (`e162d24b`) | divergent pre-collapse Experiment 3 history. It is the only public home of `exp3-frozen-v1`'s commit and of `ddf86518` (the Exp 2B matched-start confirmation rule) | public, archival |
-| `exp3-clean` (`63249104`) | condensed Experiment 3 line, an ancestor of `master` | deleted from GitHub 2026-10-05 |
+| `exp3-clean` (`63249104`) | condensed Experiment 3 line, an ancestor of `master`. `docs/research-record/exp3/HISTORY_NOTE.md` records an earlier tip, `c875fa66`, an ancestor of `63249104` | deleted from GitHub 2026-10-05 |
 | `frombundle` (`884dd4cb`) | transport branch from a bundle hand-off, an ancestor of `master` | deleted from GitHub 2026-10-05 |
 | `backup-exp3-preclean` (`e733daa8`) | pre-collapse Exp 3 working history | local only (see above) |
 
@@ -97,11 +102,12 @@ the current files. Status at the cleanup's start: 65/65 claims, figures OK.
 `python scripts/verify_report_claims.py --write-numbers` regenerates
 `docs/report/REPORT_NUMBERS.json`: every checked value, the artifacts it was
 computed from, and the share of the report's numeric text that is checked. The
-verifier fails when that file is stale. Status after the P1 work: 65/65 claims,
-figures OK, REPORT_NUMBERS current, 326 of 921 numeric tokens in the report
-machine-checked. The rest are not yet covered.
+verifier fails when that file is stale. Only part of the report's numeric
+text is machine-checked; the verifier prints the current share, and
+`REPORT_NUMBERS.json → coverage` records it.
 
 CI (`.github/workflows/ci.yml`) runs the tests, this verifier, the figure
 check, a CLI/import smoke test and the path-reference and MOVES checks on a
-checkout with no raw data. Tests that need the registered raw data skip with
-the reason prefix `EXTERNAL_DATA_UNAVAILABLE`.
+checkout with no raw data. The three tests that need the registered raw data
+are marked slow and, run without `-m "not slow"` as CI does, skip with the
+reason prefix `EXTERNAL_DATA_UNAVAILABLE`.

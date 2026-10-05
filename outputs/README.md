@@ -40,3 +40,21 @@ Generated from `CANONICAL_RESULTS_v5.json → experiments.*` (status and
 * **exp7** — STAGE1 EXP7_STAGE1_EVALUATION_COMPLETE; STAGE2 EXP7_STAGE2_REOPT_COMPLETE: `outputs/exp7/EXP7_CONTRACT.json`, `outputs/exp7/EXP7_STAGE2_SELECTION.json`, `outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json`, `outputs/exp7/EXP7_ANALYSIS.json`, `outputs/exp7/EXP7_CLOSEOUT_TABLE.json`.
 
 Closeouts and contracts for each experiment: `experiments/README.md` (index).
+
+## Known gaps in registry v5
+
+The registry is frozen; these are recorded here and in the errata rather than
+edited into it.
+
+* **exp2b:** the matched-start confirmation `outputs/exp2b_confirmation.json`
+  is not listed, `superseded` is empty, and the headline quotes the superseded
+  +0.0065% (Exp 2 errata E2).
+* **exp3:** `superseded` is empty, although three Phase A1 sets are superseded
+  (`SUPERSEDED.md`, Experiment 3 sections).
+* **exp1:** the Model A seed-check's `seedcheck.csv` and `seedcheck.jsonl` are
+  not listed alongside `seedcheck.json`. The exp1 `headline` still ends with the
+  withdrawn "197.0 of 197.0 peak vehicles"; the correction is in the same
+  entry's `reporting_corrections` block (report §9 R6).
+* Paths in the registry are as of `research-final`; `SUPERSEDED.md` and
+  `docs/research-record/MOVES.md` give current locations.
+
