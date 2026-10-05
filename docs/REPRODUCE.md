@@ -17,10 +17,12 @@ pip install -r requirements-lock.txt && pip install --no-deps -e .
 #   itself has not been tested, because the development sandbox has no Docker)
 # Raw public inputs are gitignored; they must be staged under data/raw/
 # (cota_gtfs_static, lodes_od_oh, lodes_rac_oh, lodes_wac_oh, cenpop_bg_oh)
-# through the registry. See config/sources.yaml and docs/process/PUSH_TO_GITHUB.md
-# ("What the bundle does not carry").
-python -m cota_opt.cli sources
-python -m cota_opt.cli ingest-gtfs path/to/cota.gtfs.zip
+# through the registry. Each file must match the sha256 in config/sources.yaml.
+cota-opt data status                         # registered / missing
+cota-opt data fetch lodes_od_oh              # download from the recorded URL and register
+cota-opt data register cota_gtfs_static path/to/cota.gtfs.zip   # or register a downloaded file
+# COTA's URL serves its current feed; the study's feed_version is
+# 2026-MAY-04-BB_20260630, and no public archive of that file exists yet.
 python -m cota_opt.cli validate
 python -m cota_opt.cli baseline          # first build ~12 min, then cached in data/cache/
 python -m pytest -m "not slow"           # fast suite; the full suite needs data/raw + data/cache
