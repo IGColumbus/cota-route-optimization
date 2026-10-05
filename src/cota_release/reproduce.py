@@ -122,27 +122,58 @@ def exp1(smoke: bool, seeds: list[int], out: str | None) -> int:
         check(f"seed{sd}.gc_change_pct", (f.generalized_cost / bf.generalized_cost - 1) * 100,
               rec["gc_change_pct"], TOL_PCT_POINTS)
 
+    solves = []
+
+    def record(status_override=None):
+        ok = all(c["ok"] for c in checks if c["gate"])
+        rec = {"command": "cota-opt reproduce exp1" + (" --smoke" if smoke else ""),
+               "status": status_override or ("REPRODUCED" if ok else "DRIFT"),
+               "seconds": round(time.time() - t0, 1), "environment": _environment(),
+               "recorded_artifacts": ["outputs/exp1_baseline_modelB.json",
+                                      "outputs/seedcheck_modelB.jsonl",
+                                      "outputs/fixpoint_modelB.jsonl"],
+               "checks": checks}
+        if solves:
+            rec["solves"] = solves
+        text = json.dumps(rec, indent=1)
+        if out:
+            Path(out).write_text(text + "\n")
+        return ok, text
+
     if not smoke:
         from cota_opt.frequency import optimize_frequencies
+        record("IN_PROGRESS")
         for sd in seeds:
+            ts = time.time()
             r = optimize_frequencies(setup.model, setup.budget, ladder=[], unserved_multiplier=2.0,
                                      local_search_iterations=400_000, seed=sd,
                                      ladders=setup.ladders, initial=setup.baseline_plan,
                                      n_restarts=20, candidate_width=0, greedy_start=False)
+            rec = seed_rows[sd]
+            got = {f"{k[0]}{SEP}{k[1]}": float(v) for k, v in r.plan.headways.items()}
+            want = {k: float(v) for k, v in rec["plan"].items()}
             check(f"seed{sd}.resolved_unserved_change_pct",
                   (r.fitness.unserved_demand / bf.unserved_demand - 1) * 100,
-                  seed_rows[sd]["unserved_change_pct"], TOL_PCT_POINTS)
+                  rec["unserved_change_pct"], TOL_PCT_POINTS)
+            check(f"seed{sd}.resolved_gc_change_pct",
+                  (r.fitness.generalized_cost / bf.generalized_cost - 1) * 100,
+                  rec["gc_change_pct"], TOL_PCT_POINTS)
+            n_diff = sum(1 for k in want if abs(got.get(k, float("nan")) - want[k]) > 1e-9
+                         or k not in got) + len(set(got) - set(want))
+            check(f"seed{sd}.resolved_plan_route_periods_differing", n_diff, 0, 0)
+            solves.append({"seed": sd, "seconds": round(time.time() - ts, 1),
+                           "recorded_seconds": rec.get("seconds"),
+                           "plan_digest": _plan_digest(got),
+                           "recorded_plan_digest": _plan_digest(want),
+                           "unserved": r.fitness.unserved_demand,
+                           "generalized_cost": r.fitness.generalized_cost})
+            record("IN_PROGRESS")
 
-    ok = all(c["ok"] for c in checks if c["gate"])
-    record = {"command": "cota-opt reproduce exp1" + (" --smoke" if smoke else ""),
-              "status": "REPRODUCED" if ok else "DRIFT",
-              "seconds": round(time.time() - t0, 1), "environment": _environment(),
-              "recorded_artifacts": ["outputs/exp1_baseline_modelB.json",
-                                     "outputs/seedcheck_modelB.jsonl",
-                                     "outputs/fixpoint_modelB.jsonl"],
-              "checks": checks}
-    text = json.dumps(record, indent=1)
-    if out:
-        Path(out).write_text(text + "\n")
+    ok, text = record()
     print(text)
     return 0 if ok else 1
+
+
+def _plan_digest(plan: dict[str, float]) -> str:
+    payload = json.dumps(sorted((k, round(v, 6)) for k, v in plan.items()))
+    return hashlib.sha256(payload.encode()).hexdigest()[:16]
