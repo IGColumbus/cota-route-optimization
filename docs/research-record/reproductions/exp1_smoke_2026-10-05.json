@@ -1,0 +1,218 @@
+{
+ "what": "Experiment 1 smoke reproduction from a clean clone and a fresh venv built from requirements-lock.txt (docs/REPRODUCE.md, 'Recorded reproduction')",
+ "date": "2026-10-05",
+ "commit": "ad3f9a3d (cold run); ad3f9a3d plus the gated-baseline change to src/cota_release/reproduce.py (warm run)",
+ "host_note": "same Linux x86_64 development container that produced the late-stage artifacts; not a different machine",
+ "raw_inputs_sha256": {
+  "cenpop_bg_oh": "ca6e3344ed678e3ac448edf67f151353559fb85cb040266a1dac8868d11805ef",
+  "cota_gtfs_static": "b11634f117a35a27a1813ed1eeef2b29b9484c6afdda0757262026ed2c9b3bf0",
+  "lodes_od_oh": "98cd08aa85ff1dc839bbedabf3a5d2ecbc7e85c0f6d9c220b6b5892ea838f8db",
+  "lodes_rac_oh": "848b5941128427947acad6a9fabba99d35563ee0313e10dfba74053c261041e4",
+  "lodes_wac_oh": "921573335891c204f8fddeffbf0e9f7ea0105560739dae469bfdc59dff892dab"
+ },
+ "cold_run": {
+  "command": "cota-opt reproduce exp1 --smoke",
+  "status": "DRIFT",
+  "seconds": 2561.1,
+  "environment": {
+   "python": "3.11.15",
+   "platform": "Linux-6.18.44-fc-v70-x86_64-with-glibc2.39",
+   "machine": "x86_64",
+   "numpy": "2.4.4",
+   "blas": {
+    "name": "scipy-openblas",
+    "found": true,
+    "version": "0.3.31.188.0",
+    "detection method": "pkgconfig",
+    "include directory": "/opt/_internal/cpython-3.11.14/lib/python3.11/site-packages/scipy_openblas64/include",
+    "lib directory": "/opt/_internal/cpython-3.11.14/lib/python3.11/site-packages/scipy_openblas64/lib",
+    "openblas configuration": "OpenBLAS 0.3.31.188.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64",
+    "pc file directory": "/project/.openblas"
+   },
+   "env": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "PYTHONHASHSEED": "0"
+   }
+  },
+  "recorded_artifacts": [
+   "outputs/exp1_baseline_modelB.json",
+   "outputs/seedcheck_modelB.jsonl",
+   "outputs/fixpoint_modelB.jsonl"
+  ],
+  "checks": [
+   {
+    "check": "n_paths",
+    "reproduced": 243257.0,
+    "recorded": 243257.0,
+    "abs_drift": 0.0,
+    "ok": true
+   },
+   {
+    "check": "baseline_unserved",
+    "reproduced": 10260.485263541552,
+    "recorded": 10261.917192383251,
+    "abs_drift": 1.4319288416991185,
+    "ok": false
+   },
+   {
+    "check": "baseline_gc",
+    "reproduced": 1772778.6768324552,
+    "recorded": 1772726.8929242054,
+    "abs_drift": 51.78390824981034,
+    "ok": false
+   },
+   {
+    "check": "seed20260825.unserved_change_pct",
+    "reproduced": -6.602313363819379,
+    "recorded": -6.602313363819379,
+    "abs_drift": 0.0,
+    "ok": true
+   },
+   {
+    "check": "seed20260825.gc_change_pct",
+    "reproduced": 0.8416348950901265,
+    "recorded": 0.8416348950901265,
+    "abs_drift": 0.0,
+    "ok": true
+   },
+   {
+    "check": "seed20260826.unserved_change_pct",
+    "reproduced": -6.723825197642974,
+    "recorded": -6.723825197642974,
+    "abs_drift": 0.0,
+    "ok": true
+   },
+   {
+    "check": "seed20260826.gc_change_pct",
+    "reproduced": 0.9223400157561734,
+    "recorded": 0.9223400157561734,
+    "abs_drift": 0.0,
+    "ok": true
+   },
+   {
+    "check": "seed20260827.unserved_change_pct",
+    "reproduced": -6.629824544437534,
+    "recorded": -6.629824544437534,
+    "abs_drift": 0.0,
+    "ok": true
+   },
+   {
+    "check": "seed20260827.gc_change_pct",
+    "reproduced": 0.870741414211551,
+    "recorded": 0.870741414211551,
+    "abs_drift": 0.0,
+    "ok": true
+   }
+  ]
+ },
+ "warm_run_gated": {
+  "command": "cota-opt reproduce exp1 --smoke",
+  "status": "REPRODUCED",
+  "seconds": 1.0,
+  "environment": {
+   "python": "3.11.15",
+   "platform": "Linux-6.18.44-fc-v70-x86_64-with-glibc2.39",
+   "machine": "x86_64",
+   "numpy": "2.4.4",
+   "blas": {
+    "name": "scipy-openblas",
+    "found": true,
+    "version": "0.3.31.188.0",
+    "detection method": "pkgconfig",
+    "include directory": "/opt/_internal/cpython-3.11.14/lib/python3.11/site-packages/scipy_openblas64/include",
+    "lib directory": "/opt/_internal/cpython-3.11.14/lib/python3.11/site-packages/scipy_openblas64/lib",
+    "openblas configuration": "OpenBLAS 0.3.31.188.0  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64",
+    "pc file directory": "/project/.openblas"
+   },
+   "env": {
+    "OMP_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "PYTHONHASHSEED": "0"
+   }
+  },
+  "recorded_artifacts": [
+   "outputs/exp1_baseline_modelB.json",
+   "outputs/seedcheck_modelB.jsonl",
+   "outputs/fixpoint_modelB.jsonl"
+  ],
+  "checks": [
+   {
+    "check": "n_paths",
+    "reproduced": 243257.0,
+    "recorded": 243257.0,
+    "abs_drift": 0.0,
+    "ok": true,
+    "gate": true
+   },
+   {
+    "check": "baseline_unserved_vs_frontier_instance",
+    "reproduced": 10260.485263541552,
+    "recorded": 10261.917192383251,
+    "abs_drift": 1.4319288416991185,
+    "ok": false,
+    "gate": false,
+    "note": "reference is the frontier instance (exp1_baseline_modelB.json); the seed-check instance's own baseline is not recorded in any artifact"
+   },
+   {
+    "check": "baseline_gc_vs_frontier_instance",
+    "reproduced": 1772778.6768324552,
+    "recorded": 1772726.8929242054,
+    "abs_drift": 51.78390824981034,
+    "ok": false,
+    "gate": false,
+    "note": "reference is the frontier instance (exp1_baseline_modelB.json); the seed-check instance's own baseline is not recorded in any artifact"
+   },
+   {
+    "check": "seed20260825.unserved_change_pct",
+    "reproduced": -6.602313363819379,
+    "recorded": -6.602313363819379,
+    "abs_drift": 0.0,
+    "ok": true,
+    "gate": true
+   },
+   {
+    "check": "seed20260825.gc_change_pct",
+    "reproduced": 0.8416348950901265,
+    "recorded": 0.8416348950901265,
+    "abs_drift": 0.0,
+    "ok": true,
+    "gate": true
+   },
+   {
+    "check": "seed20260826.unserved_change_pct",
+    "reproduced": -6.723825197642974,
+    "recorded": -6.723825197642974,
+    "abs_drift": 0.0,
+    "ok": true,
+    "gate": true
+   },
+   {
+    "check": "seed20260826.gc_change_pct",
+    "reproduced": 0.9223400157561734,
+    "recorded": 0.9223400157561734,
+    "abs_drift": 0.0,
+    "ok": true,
+    "gate": true
+   },
+   {
+    "check": "seed20260827.unserved_change_pct",
+    "reproduced": -6.629824544437534,
+    "recorded": -6.629824544437534,
+    "abs_drift": 0.0,
+    "ok": true,
+    "gate": true
+   },
+   {
+    "check": "seed20260827.gc_change_pct",
+    "reproduced": 0.870741414211551,
+    "recorded": 0.870741414211551,
+    "abs_drift": 0.0,
+    "ok": true,
+    "gate": true
+   }
+  ]
+ }
+}

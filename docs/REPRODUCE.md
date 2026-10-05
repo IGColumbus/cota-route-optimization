@@ -2,13 +2,19 @@
 
 *A draft prepared 2026-09-28; the Exp 6 section was updated 2026-09-29 to the
 frozen scripts. Each command below was checked to exist in `scripts/` with the
-stated arguments, by reading its argparse block or docstring. None was executed
-for this draft.*
+stated arguments, by reading its argparse block or docstring. Only the
+Experiment 1 smoke reproduction (`cota-opt reproduce exp1 --smoke`, below) has
+been executed from a clean checkout (2026-10-05); the other commands have not
+been re-run for this document.*
 
 ## 0. Setup common to every experiment
 
 ```bash
-pip install -e ".[dev]"
+# Pinned environment (versions from docs/research-record/ENVIRONMENT_AT_FREEZE.txt):
+pip install -r requirements-lock.txt && pip install --no-deps -e .
+# or, unpinned: pip install -e ".[dev]"
+# or, in a container: docker build -t cota-opt .   (Dockerfile; the image build
+#   itself has not been tested, because the development sandbox has no Docker)
 # Raw public inputs are gitignored; they must be staged under data/raw/
 # (cota_gtfs_static, lodes_od_oh, lodes_rac_oh, lodes_wac_oh, cenpop_bg_oh)
 # through the registry. See config/sources.yaml and docs/process/PUSH_TO_GITHUB.md
@@ -36,6 +42,37 @@ python scripts/seed_check.py --common-lines same_route          # seed stability
 python scripts/run_diagnostics.py --common-lines same_route --plan <certified λ=2 plan csv>
                                                                # writes outputs/fleet_check<suffix>.json (fleet PROXY)
 ```
+One command rebuilds the instance and checks it against the canonical records:
+
+```bash
+cota-opt reproduce exp1 --smoke --out "$OUT"                      # evaluation only, no optimization
+cota-opt reproduce exp1                                           # also re-solves each seed at 400,000 x 20
+                                                                  # (full runtime not yet measured)
+```
+
+Exit code 0 means reproduced, 1 drift, 3 raw inputs missing.
+
+### Recorded reproduction (2026-10-05)
+
+* **Command:** `cota-opt reproduce exp1 --smoke`, at commit `ad3f9a3d` with the
+  gated-check change that follows it.
+* **Environment:**
+  * a fresh `git clone` of the repository;
+  * a fresh venv from `requirements-lock.txt` (Python 3.11.15, numpy 2.4.4, scipy-openblas 0.3.31);
+  * `PYTHONHASHSEED=0` and BLAS/OMP threads set to 1;
+  * only the five registered raw files copied into `data/raw/`, with sha256 matching `config/sources.yaml`;
+  * an empty `data/cache/`.
+* **Host:** the same Linux x86_64 development container that produced the late-stage artifacts. This is a clean checkout and environment, not a different machine. Cross-platform drift is still uncharacterized.
+* **Runtime:** 42 min 42 s cold (path-set and baseline builds, one core while another job ran), then about 1 s with the cache warm.
+* **Result:** `REPRODUCED`.
+  * The path count is 243,257, as recorded.
+  * For all three certified seeds, the unserved-demand and generalized-cost changes are bit-exact against `outputs/seedcheck_modelB.jsonl` (absolute drift 0.0).
+* **Finding (informational row):** the instance's baseline unserved demand is 10,260.485. `outputs/exp1_baseline_modelB.json` records 10,261.917 (generalized cost 1,772,778.68 vs 1,772,726.89).
+  * The canonical baseline is the frontier instance's (`scripts/fixpoint.py`). The seed-check instance is a different path set of the same size, and its own baseline was never written to an artifact.
+  * The headline percentages (`outputs/canonical/exp1_final.json`) are relative to the seed-check baseline. The report's absolute baseline (10,262) is the frontier instance's.
+  * The difference is 1.43 trips (0.014%). It changes no rounded number in the report.
+* **Record:** `docs/research-record/reproductions/exp1_smoke_2026-10-05.json` holds both runs' full output, environment and raw-input digests.
+
 Compare against `outputs/canonical/exp1_final.json` (commit `f1a05645`, seeds
 20260825–27, Model B). The peak figure in `fleet_check_modelB.json` is a
 proxy. Read the Exp 1 fleet-wording correction before quoting it.

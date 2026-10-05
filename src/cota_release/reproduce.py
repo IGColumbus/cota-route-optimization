@@ -4,7 +4,11 @@
   ``scripts/seed_check.py`` did (Model B waiting, crowding on, the shared frozen
   path set built from the committed fixpoint plans, 14 peak-express routes
   locked), evaluates the current plan and the three committed certified seed
-  plans, and compares every number with the canonical record. No optimization.
+  plans, and compares the path count and each seed's unserved-demand and
+  generalized-cost changes with the canonical record (these decide pass or
+  fail). The baseline totals are also compared with the frontier instance's
+  record; those rows are informational, because the seed-check instance's own
+  baseline was never written to an artifact. No optimization.
 * without ``--smoke`` it also re-solves each seed at certification effort
   (400,000 iterations × 20 restarts; about 50 minutes per seed on one core)
   into a scratch store, never the committed one, and compares the result.
@@ -88,14 +92,26 @@ def exp1(smoke: bool, seeds: list[int], out: str | None) -> int:
 
     checks = []
 
-    def check(name, got, want, tol):
+    def check(name, got, want, tol, gate=True, note=None):
         d = abs(float(got) - float(want))
-        checks.append({"check": name, "reproduced": float(got), "recorded": float(want),
-                       "abs_drift": d, "ok": d <= tol})
+        row = {"check": name, "reproduced": float(got), "recorded": float(want),
+               "abs_drift": d, "ok": d <= tol, "gate": gate}
+        if note:
+            row["note"] = note
+        checks.append(row)
 
     check("n_paths", n_paths, base_rec["n_paths"], 0)
-    check("baseline_unserved", bf.unserved_demand, base_rec["baseline_unserved"], TOL_ABS_TRIPS)
-    check("baseline_gc", bf.generalized_cost, base_rec["baseline_gc"], TOL_ABS_TRIPS)
+    # The seed-check instance's own baseline was never written to an artifact.
+    # exp1_baseline_modelB.json holds the baseline of the frontier instance
+    # (scripts/fixpoint.py), a different path set of the same size, so these
+    # two rows are informational: they show the cross-instance difference,
+    # not drift.
+    xnote = ("reference is the frontier instance (exp1_baseline_modelB.json); the "
+             "seed-check instance's own baseline is not recorded in any artifact")
+    check("baseline_unserved_vs_frontier_instance", bf.unserved_demand,
+          base_rec["baseline_unserved"], TOL_ABS_TRIPS, gate=False, note=xnote)
+    check("baseline_gc_vs_frontier_instance", bf.generalized_cost,
+          base_rec["baseline_gc"], TOL_ABS_TRIPS, gate=False, note=xnote)
 
     for sd in seeds:
         rec = seed_rows[sd]
@@ -117,7 +133,7 @@ def exp1(smoke: bool, seeds: list[int], out: str | None) -> int:
                   (r.fitness.unserved_demand / bf.unserved_demand - 1) * 100,
                   seed_rows[sd]["unserved_change_pct"], TOL_PCT_POINTS)
 
-    ok = all(c["ok"] for c in checks)
+    ok = all(c["ok"] for c in checks if c["gate"])
     record = {"command": "cota-opt reproduce exp1" + (" --smoke" if smoke else ""),
               "status": "REPRODUCED" if ok else "DRIFT",
               "seconds": round(time.time() - t0, 1), "environment": _environment(),

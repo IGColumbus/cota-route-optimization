@@ -27,7 +27,7 @@ Recorded on 2026-10-05 from `git ls-remote origin`:
 | canonical results registry | `outputs/CANONICAL_RESULTS_v5.json` (v5; sha256 `e24c3f0e2bf075c1…`). v1–v4 are kept unchanged. |
 | Experiment 7 contract | digest `1263bedaebe6a45d` (`outputs/exp7/EXP7_CONTRACT.json`), frozen at `4a2ba9f6` |
 | Experiment 7 closeout | `experiments/exp7/EXPERIMENT7_CLOSEOUT.md`, sha256 `27bfc7390c777051…`. It is registered and unchanged; corrections are in `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md`. |
-| environment snapshot | `docs/research-record/ENVIRONMENT_AT_FREEZE.txt`: a pip freeze of the late-stage development container, Python 3.11.15. No container image is recorded. Status: dependency snapshot recorded; clean-machine reproduction not yet demonstrated. |
+| environment snapshot | `docs/research-record/ENVIRONMENT_AT_FREEZE.txt`: a pip freeze of the late-stage development container, Python 3.11.15. No container image is recorded. `requirements-lock.txt` pins the project's dependency closure to these versions, and a `Dockerfile` is provided (its build has not been tested). Status: the Experiment 1 smoke reproduction passed from a clean clone in a fresh venv built from the lock (2026-10-05; `docs/REPRODUCE.md`, "Recorded reproduction"). The full re-solve and the other experiments have not been reproduced on a clean machine. |
 
 ## Historical freeze tags
 
@@ -81,3 +81,15 @@ as errata, for example `experiments/exp2/EXPERIMENT2_CLOSEOUT_ERRATA.md` and
 `scripts/verify_report_claims.py` checks the report's headline numbers against
 their artifacts. It also checks that the figure manifest's input hashes match
 the current files. Status at the cleanup's start: 65/65 claims, figures OK.
+
+`python scripts/verify_report_claims.py --write-numbers` regenerates
+`docs/report/REPORT_NUMBERS.json`: every checked value, the artifacts it was
+computed from, and the share of the report's numeric text that is checked. The
+verifier fails when that file is stale. Status after the P1 work: 65/65 claims,
+figures OK, REPORT_NUMBERS current, 326 of 921 numeric tokens in the report
+machine-checked. The rest are not yet covered.
+
+CI (`.github/workflows/ci.yml`) runs the tests, this verifier, the figure
+check, a CLI/import smoke test and the path-reference and MOVES checks on a
+checkout with no raw data. Tests that need the registered raw data skip with
+the reason prefix `EXTERNAL_DATA_UNAVAILABLE`.
