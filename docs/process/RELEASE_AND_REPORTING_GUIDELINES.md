@@ -237,7 +237,7 @@ The one pre-Exp 7 item is done; everything else follows the freeze in order.
 - [x] Exp 7 close-out table certified; no halted or in-flight runs.
 - [x] (2026-10-05: `master` at `cd03af9c` on GitHub.) Get every container commit to GitHub: bundle → commit to your folder → `git fetch` → merge `cloud/exp3-clean` → push from GitHub Desktop. GitHub has `exp3-clean` only through `099d0527` (9/21); every EXP4N commit so far exists only in the container and in hand-carried bundles.
 - [x] All work branches merged into `master` (`exp3-clean`, `exp45-work`, `exp6-work`, `exp7-work`, `exp7-work-b`). `exp3` is the separate pre-collapse history: it stays a branch on GitHub, and `exp3-frozen-v1` is reachable only from it.
-- [ ] Tag `research-final` at `cd03af9c`, **publicly**. The annotated tag exists in the author's clone but is not yet pushed to GitHub (2026-10-05). Lockfile: `docs/research-record/ENVIRONMENT_AT_FREEZE.txt` (late-stage container only); the container image cannot be exported from the sandbox and is not recorded.
+- [x] Tag `research-final` at `cd03af9c`, **publicly**. (2026-10-05: annotated tag object `78a4355d` pushed; `git ls-remote origin` shows `refs/tags/research-final^{}` = `cd03af9c`.) Lockfile: `docs/research-record/ENVIRONMENT_AT_FREEZE.txt` (late-stage container only); the container image cannot be exported from the sandbox and is not recorded.
 
 **Clean**
 

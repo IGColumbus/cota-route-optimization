@@ -19,7 +19,7 @@ are no runs in flight.
 |---|---|---|---|
 | 1 | frequency redistribution, geometry fixed | **CLOSED, certified λ ≥ 2**: ~680 more modeled weekday trips served; −6.65% unserved demand (solver-seed SD 0.06 percentage points) | `outputs/canonical/exp1_final.json` |
 | 2 / 2B | through-routing geometry | **CLOSED**: no supportable gain; the leader is +0.090% unserved under matched starts, worse than no edit (errata E17); the 240-set sweep is discovery-stage | `experiments/exp2/EXPERIMENT2_CLOSEOUT.md`, `outputs/exp2b_certification.json → _confirmation` |
-| 3 | route mutation, eight edit kinds | **CLOSED**: certified leader −0.187% (commit `8c2841c4`; tag `exp3-final-v1` not yet public) | `experiments/exp3/EXPERIMENT3_CLOSURE.md` |
+| 3 | route mutation, eight edit kinds | **CLOSED**: certified leader −0.187% (commit `8c2841c4`, tag `exp3-final-v1`) | `experiments/exp3/EXPERIMENT3_CLOSURE.md` |
 | 4 / 4N / 4A | greenfield design; normalized rerun; vs Exp 3 | **CLOSED**: legacy ordering superseded; N4, the best of the 200 promoted and certified greenfield candidates, worse than N3 by +9.66% | `experiments/exp4/EXPERIMENT4_NORMALIZED_CLOSEOUT.md`, `experiments/exp4/EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` |
 | 5 | modeled resource frontier | **FAILED** monotonicity gate (on N4 only); N0 half informative | `experiments/exp5/EXPERIMENT5_CLOSEOUT.md` |
 | 6 | price of service-standard safeguards | **CLOSED, certified**: 0 to +0.91% | `experiments/exp6/EXPERIMENT6_CLOSEOUT.md` |

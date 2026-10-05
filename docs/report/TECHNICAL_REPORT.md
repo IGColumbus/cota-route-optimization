@@ -11,10 +11,8 @@ not affiliated with or endorsed by COTA.
 
 *Status of this draft.*
 
-* Written from the frozen research record. The freeze tag `research-final`
-  (commit `cd03af9c`) exists in the author's clone but is **not yet public**
-  on GitHub; until it is, cite the commit hash
-  (`docs/RELEASE_PROVENANCE.md`).
+* Written from the frozen research record: tag `research-final`, commit
+  `cd03af9c`, public on GitHub (`docs/RELEASE_PROVENANCE.md`).
 * Every number is transcribed from a named artifact, cited inline or in
   Appendix A. Numbers not indexed by registry v5 are labelled (run log,
   historical ablation, diagnostic files, closeout orientation figure, post hoc
@@ -29,8 +27,8 @@ not affiliated with or endorsed by COTA.
   `outputs/figures` are pre-Model-B and are not used.
 * **Not submission-ready.** Apache-2.0 code licensing is present (`LICENSE`;
   documentation, report and figures CC BY 4.0, `LICENSES/CC-BY-4.0.txt`).
-  `CITATION.cff`, the canonical-envelope units sidecar and remaining
-  source-terms metadata are pending.
+  `CITATION.cff` and the source terms in `config/sources.yaml` are present.
+  The canonical-envelope units sidecar is pending.
 * The abstract (≤ 250 words), highlights and keywords follow typical
   journal norms for this field; the target journal's limits are to be
   confirmed at submission.
@@ -696,8 +694,7 @@ evaluator Model B. Data: `figures/fig3_exp2_geometry_null.csv`.
 84 census states across eight edit kinds went through Stage A. 39 were promoted
 and 30 certified at Stage B (20 restarts). **29 remain certified** after a
 pre-specified escalation (40 restarts). Source: `experiments/exp3/EXPERIMENT3_CLOSURE.md`, tag
-`exp3-final-v1` (in the project's local clone, not yet pushed; see Data and code
-availability).
+`exp3-final-v1` (commit `8c2841c4`; see Data and code availability).
 
 | leader | effect | stability |
 |---|---|---|
@@ -1304,10 +1301,9 @@ mislabel and the superseded 2B magnitude) were found by audits outside it.
 ## Data and code availability
 
 * **Code:** this repository (`cota_opt` package, scripts and configs). The
-  frozen research record is commit `cd03af9c`; its annotated tag
-  `research-final` and the earlier freeze tags (e.g. `exp3-final-v1`) exist in
-  the author's clone and are **not yet public**, so cite commit hashes
-  (`docs/RELEASE_PROVENANCE.md`). Licensing: Apache-2.0 for code (`LICENSE`),
+  frozen research record is commit `cd03af9c`, annotated tag
+  `research-final`. The earlier freeze tags (e.g. `exp3-final-v1`) are also
+  public (`docs/RELEASE_PROVENANCE.md`). Licensing: Apache-2.0 for code (`LICENSE`),
   CC BY 4.0 for documentation, the report and its figures
   (`LICENSES/CC-BY-4.0.txt`); derived files under `outputs/` keep the source
   data's terms (`config/sources.yaml`).

@@ -1,7 +1,7 @@
 # Release provenance
 
-*Keep this file true to what GitHub shows. Last updated 2026-10-05, during the
-release cleanup. Nothing here should claim that a tag or branch is public until
+*Keep this file true to what GitHub shows. Last updated 2026-10-05, at the
+end of the release cleanup. Nothing here should claim that a tag or branch is public until
 `git ls-remote origin` shows it.*
 
 ## Starting public state (recorded before the cleanup)
@@ -18,12 +18,31 @@ Recorded on 2026-10-05 from `git ls-remote origin`:
 
 `git log --oneline origin/master..HEAD` was empty, so no local-only commits existed.
 
+## Public state after the cleanup (2026-10-05)
+
+Recorded from `git ls-remote origin` after the push:
+
+| ref | object | commit |
+|---|---|---|
+| `refs/heads/master` | | release/reporting line. Its HEAD is the commit that carries this file; the last commit before this update was `f11f5233`. |
+| `refs/heads/exp3` | | `e162d24b` (archival) |
+| `refs/tags/research-final` | `78a4355d` | `cd03af9c` |
+| `refs/tags/exp3-final-v1` | `f0e6a81e` | `8c2841c4` |
+| `refs/tags/exp3-frozen-v1` | `93a67bdb` | `80221f75` |
+| `refs/tags/gen1-frozen-v1` | `bb533e7c` | `4b62c728` |
+| `refs/tags/pre-exp3-v1` | `c217a45c` | `5b23446e` |
+| `refs/tags/pre-exp3-v2` | `34f4f91f` | `9ee905eb` |
+
+`exp3-clean` and `frombundle` were deleted from GitHub (P1-19). Both were
+ancestors of `master`, so no commit was lost; their tips are recorded under
+Branches below.
+
 ## Frozen research state
 
 | item | value |
 |---|---|
 | frozen research commit | `cd03af9c` (`master`, 2026-10-05). Every contract, digest and canonical artifact verifies against it. |
-| freeze tag | `research-final`, an annotated tag (object `78a4355d`) pointing at `cd03af9c`. **It exists in the author's clone and in the development container. It is not yet public on GitHub.** Until it is, cite `cd03af9c`. |
+| freeze tag | `research-final`, an annotated tag (object `78a4355d`) pointing at `cd03af9c`. Public on GitHub since 2026-10-05. |
 | canonical results registry | `outputs/CANONICAL_RESULTS_v5.json` (v5; sha256 `e24c3f0e2bf075c1…`). v1–v4 are kept unchanged. |
 | Experiment 7 contract | digest `1263bedaebe6a45d` (`outputs/exp7/EXP7_CONTRACT.json`), frozen at `4a2ba9f6` |
 | Experiment 7 closeout | `experiments/exp7/EXPERIMENT7_CLOSEOUT.md`, sha256 `27bfc7390c777051…`. It is registered and unchanged; corrections are in `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md`. |
@@ -31,34 +50,27 @@ Recorded on 2026-10-05 from `git ls-remote origin`:
 
 ## Historical freeze tags
 
-All of these exist in the author's clone and in the development container. **None is public yet.**
-
-| tag | tag object | commit | commit public? |
-|---|---|---|---|
-| `exp3-final-v1` | `f0e6a81e` | `8c2841c4` | yes, reachable from `master` |
-| `exp3-frozen-v1` | `93a67bdb` | `80221f75` | yes, reachable from the archival branch `exp3` only |
-| `gen1-frozen-v1` | `bb533e7c` | `4b62c728` | yes, reachable from `master` |
-| `pre-exp3-v1` | `c217a45c` | `5b23446e` | yes, reachable from `master` |
-| `pre-exp3-v2` | `34f4f91f` | `9ee905eb` | yes, reachable from `master` |
+All are public (table above). `exp3-frozen-v1`'s commit is reachable only from
+the archival branch `exp3`; the others are reachable from `master`.
 
 The branch `backup-exp3-preclean` (`e733daa8`, 190 commits) holds the
 pre-collapse Experiment 3 history. It exists in the author's clone and in the
-container. **Its history is not on GitHub.**
-
-To publish these refs, run this from a clone that has them (needs push rights):
+development container. **It is not on GitHub**, and no public document should
+cite it as inspectable. To publish it, run from a clone that has it:
 
 ```
-git push origin research-final exp3-final-v1 exp3-frozen-v1 gen1-frozen-v1 pre-exp3-v1 pre-exp3-v2 backup-exp3-preclean
+git push origin backup-exp3-preclean
 ```
 
 ## Branches
 
-| branch | role | plan |
+| branch | role | status |
 |---|---|---|
-| `master` | the public line: research record up to `cd03af9c`, then the reporting and release work | kept |
-| `exp3-clean` (`63249104`) | condensed Experiment 3 line, an ancestor of `master` | recorded here; delete from GitHub (P1-19) |
-| `frombundle` (`884dd4cb`) | transport branch from a bundle hand-off, an ancestor of `master` | recorded here; delete from GitHub (P1-19) |
-| `exp3` (`e162d24b`) | divergent pre-collapse Experiment 3 history. It is the only public home of `exp3-frozen-v1`'s commit and of `ddf86518` (the Exp 2B matched-start confirmation rule) | keep as a labelled archival branch |
+| `master` | the public line: research record up to `cd03af9c`, then the reporting and release work | public |
+| `exp3` (`e162d24b`) | divergent pre-collapse Experiment 3 history. It is the only public home of `exp3-frozen-v1`'s commit and of `ddf86518` (the Exp 2B matched-start confirmation rule) | public, archival |
+| `exp3-clean` (`63249104`) | condensed Experiment 3 line, an ancestor of `master` | deleted from GitHub 2026-10-05 |
+| `frombundle` (`884dd4cb`) | transport branch from a bundle hand-off, an ancestor of `master` | deleted from GitHub 2026-10-05 |
+| `backup-exp3-preclean` (`e733daa8`) | pre-collapse Exp 3 working history | local only (see above) |
 
 ## Frozen state vs post-freeze work
 

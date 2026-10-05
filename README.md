@@ -120,7 +120,7 @@ The same leader wins at λ ∈ {1, 2, 4}, so this is a result about the network
 rather than about one point on the cost/coverage trade-off. Full account in
 `experiments/exp2/EXPERIMENT2_CLOSEOUT.md`.
 
-**Experiment 3 — route mutation, closed and certified** (frozen at commit `8c2841c4`; its tag `exp3-final-v1` is not yet public).
+**Experiment 3 — route mutation, closed and certified** (frozen at commit `8c2841c4`, tag `exp3-final-v1`).
 
 > Of 84 census states across eight edit kinds, 39 were promoted and **29 remain
 > certified** against the unedited control. The leader,

@@ -61,5 +61,5 @@ jobs:
           if git rev-parse -q --verify refs/tags/exp3-frozen-v1 >/dev/null; then
             python scripts/gen1_freeze.py --verify
           else
-            echo "SKIP gen1 freeze verify: freeze tags are not public yet (docs/RELEASE_PROVENANCE.md)"
+            echo "SKIP gen1 freeze verify: freeze tags were not fetched"
           fi
