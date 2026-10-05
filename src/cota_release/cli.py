@@ -21,10 +21,13 @@ def main(argv: list[str] | None = None) -> int:
         ap.add_argument("--seeds", default="20260825,20260826,20260827",
                         help="comma-separated certified seeds to check (default: all three)")
         ap.add_argument("--out", default=None, help="write the reproduction record here")
+        ap.add_argument("--state", default=None,
+                        help="full run only: checkpoint file for restart-safe resume "
+                             "(default: <out>.state.jsonl)")
         a = ap.parse_args(argv[1:])
         from cota_release import reproduce
         return reproduce.exp1(smoke=a.smoke, seeds=[int(s) for s in a.seeds.split(",")],
-                              out=a.out)
+                              out=a.out, state=a.state)
     if argv and argv[0] == "data":
         ap = argparse.ArgumentParser(prog="cota-opt data",
                                      description="stage the registered raw inputs under data/raw/")

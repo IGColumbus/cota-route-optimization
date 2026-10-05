@@ -59,7 +59,7 @@ def _environment() -> dict:
     return info
 
 
-def exp1(smoke: bool, seeds: list[int], out: str | None) -> int:
+def exp1(smoke: bool, seeds: list[int], out: str | None, state: str | None = None) -> int:
     sys.path.insert(0, str(ROOT / "src"))
     from cota_opt.registry import Registry
     missing = [k for k in ("cota_gtfs_static", "lodes_od_oh") if Registry().get(k) is None]
@@ -141,32 +141,60 @@ def exp1(smoke: bool, seeds: list[int], out: str | None) -> int:
         return ok, text
 
     if not smoke:
+        from cota_opt.cache import ResultStore
         from cota_opt.frequency import optimize_frequencies
+        # Restart-safe: restart-level progress is checkpointed exactly as the
+        # original seed check did (optimize_frequencies progress/resume), and a
+        # finished seed is never re-solved. The store lives outside outputs/.
+        store = ResultStore(Path(state or (str(out or "reproduce_exp1") + ".state.jsonl")))
         record("IN_PROGRESS")
         for sd in seeds:
-            ts = time.time()
-            r = optimize_frequencies(setup.model, setup.budget, ladder=[], unserved_multiplier=2.0,
-                                     local_search_iterations=400_000, seed=sd,
-                                     ladders=setup.ladders, initial=setup.baseline_plan,
-                                     n_restarts=20, candidate_width=0, greedy_start=False)
             rec = seed_rows[sd]
-            got = {f"{k[0]}{SEP}{k[1]}": float(v) for k, v in r.plan.headways.items()}
-            want = {k: float(v) for k, v in rec["plan"].items()}
+            done = store.get(f"done|{sd}")
+            if done is None:
+                part = f"part|{sd}"
+                resume = None
+                if store.has(part):
+                    p = store.get(part)
+                    resume = {"next_restart": int(p["next_restart"]),
+                              "best_idx": [int(i) for i in p["best_idx"]],
+                              "best_obj": float(p["best_obj"]), "moves": int(p.get("moves", 0))}
+
+                def progress(k, idx, obj, moves, _part=part):
+                    store.put(_part, {"next_restart": int(k), "best_idx": [int(i) for i in idx],
+                                      "best_obj": float(obj), "moves": int(moves),
+                                      "at": time.time()})
+
+                ts = time.time()
+                r = optimize_frequencies(setup.model, setup.budget, ladder=[],
+                                         unserved_multiplier=2.0,
+                                         local_search_iterations=400_000, seed=sd,
+                                         ladders=setup.ladders, initial=setup.baseline_plan,
+                                         n_restarts=20, candidate_width=0, greedy_start=False,
+                                         progress=progress, resume=resume)
+                done = {"plan": {f"{k[0]}{SEP}{k[1]}": float(v) for k, v in r.plan.headways.items()},
+                        "unserved": r.fitness.unserved_demand,
+                        "generalized_cost": r.fitness.generalized_cost,
+                        "seconds_this_session": round(time.time() - ts, 1),
+                        "resumed_at_restart": resume["next_restart"] if resume else 0}
+                store.put(f"done|{sd}", done)
+            got, want = done["plan"], {k: float(v) for k, v in rec["plan"].items()}
             check(f"seed{sd}.resolved_unserved_change_pct",
-                  (r.fitness.unserved_demand / bf.unserved_demand - 1) * 100,
+                  (done["unserved"] / bf.unserved_demand - 1) * 100,
                   rec["unserved_change_pct"], TOL_PCT_POINTS)
             check(f"seed{sd}.resolved_gc_change_pct",
-                  (r.fitness.generalized_cost / bf.generalized_cost - 1) * 100,
+                  (done["generalized_cost"] / bf.generalized_cost - 1) * 100,
                   rec["gc_change_pct"], TOL_PCT_POINTS)
-            n_diff = sum(1 for k in want if abs(got.get(k, float("nan")) - want[k]) > 1e-9
-                         or k not in got) + len(set(got) - set(want))
+            n_diff = sum(1 for k in want if k not in got or abs(got[k] - want[k]) > 1e-9) \
+                + len(set(got) - set(want))
             check(f"seed{sd}.resolved_plan_route_periods_differing", n_diff, 0, 0)
-            solves.append({"seed": sd, "seconds": round(time.time() - ts, 1),
+            solves.append({"seed": sd, "seconds_last_session": done.get("seconds_this_session"),
+                           "resumed_at_restart": done.get("resumed_at_restart"),
                            "recorded_seconds": rec.get("seconds"),
                            "plan_digest": _plan_digest(got),
                            "recorded_plan_digest": _plan_digest(want),
-                           "unserved": r.fitness.unserved_demand,
-                           "generalized_cost": r.fitness.generalized_cost})
+                           "unserved": done["unserved"],
+                           "generalized_cost": done["generalized_cost"]})
             record("IN_PROGRESS")
 
     ok, text = record()
