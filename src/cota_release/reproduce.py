@@ -40,6 +40,25 @@ def _key(s: str):
     return (a, b)
 
 
+def use_registered_demand_files() -> dict:
+    """Point the frozen harness at the registered RAC/WAC/centroid files.
+
+    ``cota_opt.harness.DEMAND_FILES`` hard-codes the development container's
+    upload folder (``/mnt/user-data/uploads/Downloads``) instead of asking the
+    registry, so on any other machine ``build_harness`` cannot find them. The
+    research code is frozen and is not edited; release tooling substitutes the
+    registered paths, whose sha256 the registry verifies against the same
+    digests. Same bytes, so the same model.
+    """
+    import cota_opt.harness as harness
+    from cota_opt.registry import Registry
+    reg = Registry()
+    files = {"rac": reg.path_for("lodes_rac_oh"), "wac": reg.path_for("lodes_wac_oh"),
+             "centroids": reg.path_for("cenpop_bg_oh")}
+    harness.DEMAND_FILES = files
+    return files
+
+
 def _rows(path: Path) -> list[dict]:
     return [json.loads(x) for x in path.read_text().splitlines() if x.strip()]
 
@@ -62,7 +81,8 @@ def _environment() -> dict:
 def exp1(smoke: bool, seeds: list[int], out: str | None, state: str | None = None) -> int:
     sys.path.insert(0, str(ROOT / "src"))
     from cota_opt.registry import Registry
-    missing = [k for k in ("cota_gtfs_static", "lodes_od_oh") if Registry().get(k) is None]
+    missing = [k for k in ("cota_gtfs_static", "lodes_od_oh", "lodes_rac_oh", "lodes_wac_oh",
+                           "cenpop_bg_oh") if Registry().get(k) is None]
     if missing:
         print(f"EXTERNAL_DATA_UNAVAILABLE: registered raw inputs missing: {missing}. "
               "Stage them under data/raw/ (docs/REPRODUCE.md §0).")
@@ -70,6 +90,7 @@ def exp1(smoke: bool, seeds: list[int], out: str | None, state: str | None = Non
 
     from cota_opt.frequency import FrequencyPlan
     from cota_opt.harness import build_harness
+    use_registered_demand_files()
 
     t0 = time.time()
     base_rec = json.loads((OUT / "exp1_baseline_modelB.json").read_text())
