@@ -50,6 +50,8 @@ jobs:
       - name: Provenance integrity
         run: |
           python scripts/build_path_reference_map.py --check
+          python scripts/current_locations.py outputs/SUPERSEDED.md --check
+          python scripts/exp3_verify_closure.py
           python - <<'PY'
           import json, pathlib
           moves = json.loads(pathlib.Path("docs/research-record/MOVES.json").read_text())["moves"]

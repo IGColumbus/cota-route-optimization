@@ -81,7 +81,7 @@ The repository has no license. Without an explicit license, downstream reuse rig
 
 ### 2. Data interfaces
 
-`docs/DATA_INTERFACES.md` lists every place outside data enters, and what a user might bring instead.
+*(Planned; not yet written as of 2026-10-05.)* `docs/DATA_INTERFACES.md` lists every place outside data enters, and what a user might bring instead.
 
 | Input | Entry point | Current source | What a user might bring | Status |
 | --- | --- | --- | --- | --- |
@@ -105,7 +105,7 @@ Live provenance records cite the file, so it stays unchanged through `research-f
 
 ### 3. Calibration register
 
-`docs/CALIBRATION.md` lists every assumed parameter, what data would calibrate it, and how sensitive the findings were to it in Exp 7.
+*(Planned; not yet written as of 2026-10-05.)* `docs/CALIBRATION.md` lists every assumed parameter, what data would calibrate it, and how sensitive the findings were to it in Exp 7.
 
 | Parameter | Current value | File | Status | Data that would calibrate it |
 | --- | --- | --- | --- | --- |
@@ -143,7 +143,7 @@ Each dimension is marked `passed`, `failed`, or `unavailable`, against pass thre
 
 ### 6. Scaling
 
-`docs/SCALING.md` explains how to throw compute at it. Certification cells are independent, so the work is trivially parallel. The one-cell-at-a-time pace so far is a limit of the container, not of the method.
+*(Planned; not yet written as of 2026-10-05.)* `docs/SCALING.md` explains how to throw compute at it. Certification cells are independent, so the work is trivially parallel. The one-cell-at-a-time pace so far is a limit of the container, not of the method.
 
 - Provide a Slurm job-array recipe for the Ohio Supercomputer Center: one cell per array task, a shared read-only cache, one output file per cell, and resume by file existence.
 - Pin BLAS and OpenMP threads to 1 per process. Threaded linear algebra can change floating-point results, and that would break bit-exact checks. Parallelize across cells instead.

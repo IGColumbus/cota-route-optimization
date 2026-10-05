@@ -66,7 +66,7 @@ def register(key: str, file: str, origin: str | None = None) -> int:
         return 2
     got, want = sha256_file(path), src[key].get("sha256")
     if got != want:
-        print(f"REFUSED {key}: sha256 {got} does not match the registered {want}.\n"
+        print(f"REFUSED {key}: sha256 {got} does not match the expected (study) sha256 {want}.\n"
               "This is a different version of the data from the one the study used.")
         return 1
     if path.name != REQUIRED[key]:
@@ -74,9 +74,11 @@ def register(key: str, file: str, origin: str | None = None) -> int:
         with tempfile.TemporaryDirectory() as td:
             tmp = Path(td) / REQUIRED[key]
             tmp.write_bytes(path.read_bytes())
-            rec = Registry().register_file(key, tmp, origin=origin or str(path))
+            rec = Registry().register_file(key, tmp, origin=origin or str(path),
+                                           version=str(src[key].get("version", "UNKNOWN")))
     else:
-        rec = Registry().register_file(key, path, origin=origin or str(path))
+        rec = Registry().register_file(key, path, origin=origin or str(path),
+                                       version=str(src[key].get("version", "UNKNOWN")))
     print(f"REGISTERED {key}: data/raw/{rec.path} (sha256 {rec.sha256[:16]}…)")
     return 0
 

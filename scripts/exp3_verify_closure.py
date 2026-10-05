@@ -14,6 +14,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
+sys.path.insert(0, str(ROOT / "scripts"))
+from repo_paths import resolve  # noqa: E402  (EXPERIMENT3_CLOSURE.md moved 2026-10-05)
 OUT = ROOT / "outputs" / "exp3"
 
 
@@ -30,7 +32,7 @@ def _no_phase5b_cells() -> bool:
 
 
 def main() -> int:
-    doc = (ROOT / "EXPERIMENT3_CLOSURE.md").read_text()
+    doc = resolve("EXPERIMENT3_CLOSURE.md").read_text()
     e = json.loads((OUT / "escalation_report.json").read_text())
     sb = json.loads((OUT / "stageB_report.json").read_text())
     d33 = json.loads((OUT / "d33_stageb" / "d33_stageb_report.json").read_text())

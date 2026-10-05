@@ -135,7 +135,7 @@ during Experiment 7:
   computer-use grants.
   * Long runs must checkpoint and resume.
   * Keep a liveness check that reads `/proc/<pid>/cmdline`, not `pgrep`.
-  * Relaunch scripts must be idempotent (`outputs/exp7/run/s2_ensure.sh`).
+  * Relaunch scripts must be idempotent (the Exp 7 Stage 2 relauncher was a container-only script, never committed).
 * **Two runners on one closure state corrupt it.** `exp7_run.py closure` now
   takes an exclusive lock per (track, network).
 * **The output folder used for transfers stops accepting new files** after

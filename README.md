@@ -27,8 +27,9 @@ every assumption. It has retracted its own headline answer **five
 times** — for a modelling error, an under-powered search, an evaluator that was
 silently the wrong model, a benefit that turned out to be the search rather
 than the intervention, and a geometry ranking that turned out to rank each
-candidate's self-drawn resource cap. Those retractions are the most useful
-output so far, and all five are documented rather than quietly fixed.
+candidate's self-drawn resource cap (report §9, R1–R5). Those retractions are
+the most useful output so far, and all five are documented rather than quietly
+fixed; §9 lists all 16 retractions and protocol amendments.
 
 ## Status
 
@@ -80,14 +81,14 @@ objective is better.
 | experiment | result | detail |
 |---|---|---|
 | 1. Frequency reallocation | the headline above | report §5.1 |
-| 2 / 2B. Through-routing splices | no supportable gain; the best combination of the 240 feasible sets is none | report §5.2 |
-| 3. Route mutation | 29 certified improvements, the leader **−0.18657%** of the objective | report §5.3 |
-| 4 / 4N / 4A. Greenfield design | N4, the best of the 200 promoted and certified greenfield candidates, is **+9.66% of N3** (worse); the best of all 2,000 generated is not identified | report §5.4 |
+| 2 / 2B. Through-routing splices | no supportable gain: under matched starts the leading splice is +0.090% unserved, worse than no edit and inside the noise floor; the 240-set combination sweep is discovery-stage | report §5.2 |
+| 3. Route mutation | 29 seed-distinguishable improvements; the leader (20 restarts) **−0.18657%** of the objective | report §5.3 |
+| 4 / 4N / 4A. Greenfield design | N4, the best of the 200 promoted and certified greenfield candidates, is +8.55% to **+9.66%** of N3's objective (worse) across the matched comparisons; the best of all 2,000 generated is not identified | report §5.4 |
 | 5. Resource frontier | failed its monotonicity gate on N4; on N0 both resource axes bind at today's levels | report §5.5 |
 | 6. Study safeguards | on N0, study-safeguard constraints worsened the modeled objective by 0–0.91% (N3: 0–0.63%); these are study safeguards, not COTA policy | report §5.6 |
 | 7. Robustness | Exp 1's sign holds at every fixed-plan level. At λ = 2 with route-periods allowed OFF, two fixed points 0.16% apart give −5.4% and **+30.5%** unserved, so unserved demand is not identified there. At λ = 1 the optimizer nearly empties the network (**557** of 2,516 vehicle-hours) | report §6 |
 
-The five retractions are in report §9 and `outputs/SUPERSEDED.md`.
+Retractions: report §9. Superseded artifacts: `outputs/SUPERSEDED.md`.
 `docs/FINDINGS.md` gives each experiment in plain language.
 
 ## Primary limitations
@@ -119,7 +120,8 @@ python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\a
 pip install -r requirements-lock.txt && pip install --no-deps -e .   # pinned
 # or: pip install -e ".[dev]"                                         # unpinned
 
-python -m pytest -rs                     # tests needing raw data skip: EXTERNAL_DATA_UNAVAILABLE
+python -m pytest -rs -m "not slow"       # seconds; tests needing raw data skip: EXTERNAL_DATA_UNAVAILABLE
+# python -m pytest -rs                   # also runs the slow tests, which need the raw data and take minutes
 python scripts/verify_report_claims.py   # report numbers against the committed artifacts
 cota-opt --help
 ```
@@ -146,19 +148,26 @@ Caveat: COTA's URL serves its *current* feed. The study used `feed_version
 may already serve a later feed, which will be refused. No public archive of the
 study's feed file exists yet.
 
-To use your own data instead (another feed, other demand), see report §10 and
-`docs/REPRODUCE.md`.
+Using other data (another feed, other demand) is not yet packaged: report §10
+lists what would change, and the planned interface document
+(`docs/process/RELEASE_AND_REPORTING_GUIDELINES.md`, "Data interfaces") has not
+been written.
 
 ### Reproduce
 
 ```bash
-cota-opt reproduce exp1 --smoke   # rebuilds the Exp 1 instance and checks it against the canonical records
+cota-opt reproduce exp1 --smoke   # rebuild the Exp 1 instance, re-evaluate the certified plans, compare
+cota-opt reproduce exp1           # also re-solve the three seeds at certification effort
 ```
 
-It needs the five raw inputs. The first run builds path sets (about 40 minutes
-on one core in the recorded run); later runs use `data/cache/`. The recorded
-result and environment are in `docs/REPRODUCE.md`, with commands for every
-other experiment.
+Both need the five raw inputs. The smoke run does no optimization, but its
+first run builds the path sets: 42 min 42 s on one core in the recorded run,
+then about a second once `data/cache/` is warm. The full run adds three
+certification solves; the original runs took 2,829–3,008 s each
+(`outputs/seedcheck_modelB.jsonl → seconds`), and the full command has not
+been timed from a clean checkout. Exit codes: 0 reproduced, 1 drift, 3 raw
+inputs missing. The recorded result and environment are in
+`docs/REPRODUCE.md`, with commands for every other experiment.
 
 ## Where to find things
 

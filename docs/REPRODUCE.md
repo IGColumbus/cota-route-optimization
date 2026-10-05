@@ -24,8 +24,9 @@ cota-opt data register cota_gtfs_static path/to/cota.gtfs.zip   # or register a 
 # COTA's URL serves its current feed; the study's feed_version is
 # 2026-MAY-04-BB_20260630, and no public archive of that file exists yet.
 python -m cota_opt.cli validate
-python -m cota_opt.cli baseline          # first build ~12 min, then cached in data/cache/
-python -m pytest -m "not slow"           # fast suite; the full suite needs data/raw + data/cache
+python -m cota_opt.cli baseline          # first build, then cached in data/cache/
+python -m pytest -rs -m "not slow"       # fast suite; runs without raw data
+python -m pytest -rs                     # full suite; the slow tests need data/raw and take minutes
 ```
 
 **Reproduction standard.** "Bit-exact" means the objective string, the plan
@@ -47,12 +48,14 @@ python scripts/run_diagnostics.py --common-lines same_route --plan <certified λ
 One command rebuilds the instance and checks it against the canonical records:
 
 ```bash
-cota-opt reproduce exp1 --smoke --out "$OUT"                      # evaluation only, no optimization
-cota-opt reproduce exp1                                           # also re-solves each seed at 400,000 x 20
-                                                                  # (full runtime not yet measured)
+cota-opt reproduce exp1 --smoke                 # no optimization; first run builds the path sets
+cota-opt reproduce exp1                         # also re-solves each seed at 400,000 x 20
+# add --out <file> to either to save the JSON record
 ```
 
-Exit code 0 means reproduced, 1 drift, 3 raw inputs missing.
+Exit code 0 means reproduced, 1 drift, 3 raw inputs missing. The full run's
+runtime has not been measured from a clean checkout; the original seed-check
+solves took 2,829–3,008 s each (`outputs/seedcheck_modelB.jsonl → seconds`).
 
 ### Recorded reproduction (2026-10-05)
 
@@ -82,7 +85,8 @@ proxy. Read the Exp 1 fleet-wording correction before quoting it.
 ## Experiment 2 / 2B (closed)
 Runners: `scripts/run_exp2.py`, `run_exp2_eval.py`, `exp2b_subsets.py`,
 `exp2b_confirm.py`. The canonical artifacts are listed in
-`outputs/CANONICAL_RESULTS_v3.json` → `exp2`, `exp2b`. Re-running 2B in full is
+`outputs/CANONICAL_RESULTS_v5.json` → `exp2`, `exp2b` (v5 is the authority;
+the 2B entry is corrected by Exp 2 errata E2). Re-running 2B in full is
 days of compute. The practical check is the certification artifact
 `outputs/exp2b_certification.json`.
 
@@ -96,13 +100,12 @@ python scripts/exp3_verify_closure.py        # every number in experiments/exp3/
 python scripts/exp3_freeze.py --verify       # frozen artifact hashes + receipt stores (default --tag exp3-frozen-v1)
 python scripts/gen1_freeze.py --verify       # Gen1 manifest; needs the tags exp3-frozen-v1 / exp3-final-v1 (git fetch --tags)
 ```
-**Known blocker:** the freeze tags are not on GitHub (see §F of the prep note),
-so `gen1_freeze.py --verify` fails from a fresh GitHub clone until they are
-pushed. The tagged commits themselves are reachable: `8c2841c4` from
-`origin/master`, and `80221f75` from `origin/exp3`. `exp3_freeze.py` also
-hashes living documents (`docs/research-record/DISCOVERIES.md`, `experiments/ACCEPTANCE.md`, `docs/process/OPERATIONS.md`,
-…), so check whether its verify still passes on current `master` before
-relying on it.
+The freeze tags are public (`git fetch --tags`), and `gen1_freeze.py --verify`
+passes from a fresh clone. **`exp3_freeze.py --verify` fails, and has since
+before the freeze:** it hashes living documents (`docs/research-record/DISCOVERIES.md`,
+`docs/process/OPERATIONS.md`, …) that were appended to after Exp 3 froze, and its
+source digest predates later code. It fails identically at `research-final`
+(`cd03af9c`). Use `exp3_verify_closure.py` and `gen1_freeze.py --verify`.
 
 ## Experiment 4 legacy (ordering superseded) and EXP4N (certified)
 

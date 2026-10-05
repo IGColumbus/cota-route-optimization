@@ -1123,11 +1123,12 @@
   }
  ],
  "coverage": {
-  "numeric_tokens": 921,
-  "artifact_checked_tokens": 326,
-  "unchecked_distinct": 321,
+  "numeric_tokens": 926,
+  "artifact_checked_tokens": 329,
+  "unchecked_distinct": 322,
   "unchecked_examples": [
    "+0.0065%",
+   "+0.007%",
    "+0.060%",
    "+0.09%",
    "+0.124",
@@ -1185,8 +1186,7 @@
    "0.006",
    "0.009",
    "0.01",
-   "0.0147%",
-   "0.02"
+   "0.0147%"
   ]
  }
 }

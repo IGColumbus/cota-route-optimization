@@ -400,12 +400,15 @@ froze, in a repository commit before its production run:
 "Pre-specified" in this report means frozen in an author-controlled git commit
 before the outcome it governs was inspected. Git establishes the temporal order;
 it is not independent third-party registration, and no external registry (such
-as OSF) was used. The freeze commits (committer dates, UTC):
+as OSF) was used. On `master`, commits from the collapsed Experiment 2B/3
+history (late August to 1 September 2026) share one rewritten timestamp; their
+original dates are on the archival branch `exp3` and tag `exp3-frozen-v1`. The
+freeze commits (committer dates, UTC, from the commits cited):
 
 | rule or design | frozen at | before |
 |---|---|---|
 | Exp 2/2B acceptance gates, incl. the NULL rule and floor | `2ac3b1dd`, 2026-08-29 | Stage C (`6ccfc09f`, 2026-08-30) |
-| Exp 2B matched-start confirmation rule | `ddf86518`, 2026-08-31 (archival branch `exp3`) | first confirmation cell |
+| Exp 2B matched-start confirmation rule | `ddf86518`, 2026-08-31 (archival branch `exp3`); **amended** at `e07a2d81`, 2026-08-31 15:50 (`exp3`; `894dc6e3` on `master`): code identity became a content digest, and the incumbent repair was declared with a written justification | first confirmation cell. The amendment came after a first batch whose per-cell results were recorded but whose comparisons the firewall refused; that batch is preserved (`outputs/exp3/observations_cert.superseded/`) and agrees with the re-run (`992a8d4d`, 2026-08-31 17:01), which used the amended rule (digest `7157ce1de9373420`) |
 | Exp 3 Stage B escalation rule (§6) | `23bb99bd`, 2026-09-01 | first Stage B cell (`a833df28`) |
 | Exp 4A contract | `16a0c86a`, 2026-09-28 | Δ43 run (`9a9a63ca`) |
 | Exp 5 contract, monotonicity gate | `4a9bc6b5`, 2026-09-28 | first production cell (`48811f1c`) |
@@ -1403,7 +1406,8 @@ superseded artifacts; exceptions are labelled in the table above and in the
 next paragraph. `outputs/SUPERSEDED.md` indexes retired ones.
 
 Registry v5 `experiments.exp2b.headline` and `experiments/exp2/EXPERIMENT2_CLOSEOUT.md` still
-quote the superseded +0.0065%. Both are immutable; the canonical value is
+quote the superseded value (+0.0065%; the closeout rounds it to +0.007%); Exp 2
+errata E2 records the correction. Both are immutable; the canonical value is
 `exp2b_certification.json → _confirmation`, and a future registry v6 should
 correct the headline and list `exp2b_certification.superseded.json` under
 `superseded`. `outputs/SUPERSEDED.md` indexes it (block

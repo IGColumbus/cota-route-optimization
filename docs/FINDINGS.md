@@ -1,7 +1,8 @@
 # Findings in detail
 
 *Moved here from the README on 2026-10-05, unchanged, when the README was
-rewritten as a short front door (`docs/REPORTING_CORRECTIONS.md` C18). The
+rewritten as a short front door (`docs/REPORTING_CORRECTIONS.md` C18); the
+only later edit adds a commit to one code-line citation. The
 technical report (`docs/report/TECHNICAL_REPORT.md`) is the authoritative
 write-up; this page is the longer plain-language summary.*
 
@@ -122,7 +123,7 @@ envelope.**
 
 The first run reported a different leader, `ecb2ffc4bcce`. Under the common
 envelope it ranks **185 of 200**. That run resolved each candidate's
-peak-concurrency-proxy cap against the candidate's own baseline plan (`exp2.py:324`), so
+peak-concurrency-proxy cap against the candidate's own baseline plan (`src/cota_opt/exp2.py:324` at commit `46a88393`), so
 every candidate was optimized inside a box it drew for itself: it ranked
 candidate-specific optimization problems, not geometries. Fixing the envelope,
 and nothing else, inverted **36.7%** of pairwise orderings (Spearman
