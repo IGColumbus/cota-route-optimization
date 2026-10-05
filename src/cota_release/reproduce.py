@@ -59,6 +59,44 @@ def use_registered_demand_files() -> dict:
     return files
 
 
+CONTAINER_UPLOADS = "/mnt/user-data/uploads/Downloads"
+
+
+def redirect_container_paths() -> None:
+    """Make every frozen entry point read registered files, not the container folder.
+
+    Twelve research modules and scripts name ``/mnt/user-data/uploads/Downloads``
+    directly (the development container's upload folder). This wraps
+    ``cota_opt.baseline.build_baseline`` so any demand file under that folder is
+    replaced by the registered file of the same name, and sets the harness
+    constant. Call it before importing or running a research script.
+    """
+    import cota_opt.baseline as baseline
+    import cota_opt.harness as harness
+    from cota_opt.registry import Registry
+    reg = Registry()
+    by_name = {}
+    for key in ("lodes_rac_oh", "lodes_wac_oh", "cenpop_bg_oh", "lodes_od_oh", "cota_gtfs_static"):
+        try:
+            p = reg.path_for(key)
+            by_name[p.name] = p
+        except Exception:  # noqa: BLE001 - a missing input is reported where it is used
+            pass
+    original = getattr(baseline.build_baseline, "__wrapped__", baseline.build_baseline)
+
+    def build_baseline(*a, demand_files=None, **k):
+        if demand_files:
+            demand_files = {role: (by_name.get(Path(p).name, p)
+                                   if str(p).startswith(CONTAINER_UPLOADS) else p)
+                            for role, p in demand_files.items()}
+        return original(*a, demand_files=demand_files, **k)
+
+    build_baseline.__wrapped__ = original
+    baseline.build_baseline = build_baseline
+    harness.build_baseline = build_baseline
+    use_registered_demand_files()
+
+
 def _rows(path: Path) -> list[dict]:
     return [json.loads(x) for x in path.read_text().splitlines() if x.strip()]
 
@@ -154,6 +192,8 @@ def exp1(smoke: bool, seeds: list[int], out: str | None, state: str | None = Non
                                       "outputs/seedcheck_modelB.jsonl",
                                       "outputs/fixpoint_modelB.jsonl"],
                "checks": checks}
+        from cota_release.model_status import status_record
+        rec["model_status"] = status_record()
         if solves:
             rec["solves"] = solves
         text = json.dumps(rec, indent=1)

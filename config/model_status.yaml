@@ -1,0 +1,30 @@
+# Release-facing model status (docs/CALIBRATION.md, docs/process/RELEASE_AND_REPORTING_GUIDELINES.md
+# "Model status box"). Read by src/cota_release/model_status.py, which renders the
+# status box in the briefs and stamps this status into every artifact the release
+# tooling writes (reproduce, validate-model). Frozen research artifacts are not
+# retrofitted; they predate this file.
+#
+# Update this file, not the generated boxes, when the model's status changes.
+calibration:
+  status: uncalibrated
+  statement: >-
+    The current study is uncalibrated against observed route volumes, stop
+    activity, transfer behavior and trip-length distributions.
+  register: docs/CALIBRATION.md
+validation:
+  # One status per dimension; there is deliberately no overall "validated" flag.
+  # Values: passed | failed | unavailable. Set from a `cota-opt validate-model` run.
+  route_volume: unavailable
+  stop_pattern: unavailable
+  transfer_behavior: unavailable
+  trip_length: unavailable
+  as_of: "2026-10-05"
+  reason: no observed agency data (APC, farebox, fare-card, survey) has been supplied
+demand_source: >-
+  LODES-based commute OD proxy (LEHD LODES8 Ohio 2022), scaled to an NTD-derived
+  30,949 weekday linked trips; non-work travel absent
+service_basis: scheduled service (GTFS), not observed operations
+disclaimers:
+  - Not an operating plan.
+  - Not COTA-endorsed; the project is independent of COTA.
+  - No route-level headway is a recommendation.

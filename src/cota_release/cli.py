@@ -28,6 +28,35 @@ def main(argv: list[str] | None = None) -> int:
         from cota_release import reproduce
         return reproduce.exp1(smoke=a.smoke, seeds=[int(s) for s in a.seeds.split(",")],
                               out=a.out, state=a.state)
+    if argv and argv[0] == "run-script":
+        # Run a research script with the container-path redirect applied
+        # (docs/REPRODUCE.md §0): cota-opt run-script scripts/seed_check.py --common-lines same_route
+        if len(argv) < 2:
+            print("usage: cota-opt run-script <scripts/x.py> [args...]")
+            return 2
+        import runpy
+        from cota_release.reproduce import redirect_container_paths
+        redirect_container_paths()
+        sys.argv = [argv[1], *argv[2:]]
+        runpy.run_path(argv[1], run_name="__main__")
+        return 0
+    if argv and argv[0] == "validate-model":
+        ap = argparse.ArgumentParser(
+            prog="cota-opt validate-model",
+            description="external validation on four independent dimensions (route volume, "
+                        "stop pattern, transfer behavior, trip length); each reports passed, "
+                        "failed or unavailable. Not the research CLI's `validate`, which checks "
+                        "GTFS feed structure.")
+        ap.add_argument("--config", default=None, help="default: config/validation.yaml")
+        ap.add_argument("--modeled", default=None, help="JSON of modeled metrics per dimension")
+        ap.add_argument("--from-study", action="store_true",
+                        help="compute modeled route volumes from the study model "
+                             "(needs the registered raw inputs)")
+        ap.add_argument("--out", default=None, help="write the validation artifact here")
+        a = ap.parse_args(argv[1:])
+        from cota_release import validation
+        return validation.run(config=a.config or validation.CONFIG, modeled_file=a.modeled,
+                              from_study=a.from_study, out=a.out)
     if argv and argv[0] == "data":
         ap = argparse.ArgumentParser(prog="cota-opt data",
                                      description="stage the registered raw inputs under data/raw/")
@@ -50,8 +79,11 @@ def main(argv: list[str] | None = None) -> int:
     if not argv or argv[0] in ("-h", "--help"):
         print("Release commands (use these):\n"
               "  cota-opt data status|register|fetch   stage the five raw inputs (docs/REPRODUCE.md §0)\n"
-              "  cota-opt reproduce exp1 [--smoke]     reproduce Experiment 1 (docs/REPRODUCE.md)\n\n"
-              "Research commands (below). `ingest-gtfs`, `download-gtfs` and `sources` are the\n"
+              "  cota-opt reproduce exp1 [--smoke]     reproduce Experiment 1 (docs/REPRODUCE.md)\n"
+              "  cota-opt validate-model               external validation, four dimensions\n"
+              "                                        (docs/DATA_INTERFACES.md)\n\n"
+              "Research commands (below). `validate` there checks GTFS feed structure only.\n"
+              "`ingest-gtfs`, `download-gtfs` and `sources` are the\n"
               "older forms of `data register/fetch/status`; `sources` also lists optional sources\n"
               "(GTFS-Realtime, GIS, NTD) that no experiment needs as raw files.\n")
     return research_main(argv)

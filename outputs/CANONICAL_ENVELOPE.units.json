@@ -1,0 +1,66 @@
+{
+ "artifact": "CANONICAL_ENVELOPE.units",
+ "version": 1,
+ "created": "2026-10-05",
+ "what": "Release-facing units sidecar for the frozen resource-envelope artifacts. It classifies every numeric field as a physical vehicle count, a modeled peak-concurrency proxy, revenue vehicle-hours, a dimensionless share, or another explicitly defined unit, and records where each value comes from. The envelope artifacts themselves are frozen and unchanged; their `contract_text` and field names use physical-vehicle language for proxy quantities, so wording and unit labels must be taken from this file, never from them (docs/process/RELEASE_AND_REPORTING_GUIDELINES.md, report rule 4).",
+ "classes": {
+  "physical_vehicle_count": {
+   "label": "vehicles (block-derived, existing schedule only)",
+   "meaning": "A count of physical buses. In this study the only physical counts are COTA's vehicle blocks reconstructed from the published schedule (including interlining) and the NTD-reported vehicles in maximum service. They describe the existing schedule only; no modified plan has a physical vehicle count."
+  },
+  "modeled_peak_concurrency_proxy": {
+   "label": "peak-concurrency proxy units (not vehicles)",
+   "meaning": "Sum over routes of cycle time / headway in a period (cycle = 2 x runtime x (1 + layover)): the solver's resource instrument. It ignores interlining and deadhead and is not a bus count."
+  },
+  "revenue_vehicle_hours": {
+   "label": "revenue vehicle-hours per weekday",
+   "meaning": "Scheduled weekday revenue vehicle-hours from GTFS."
+  },
+  "dimensionless_share": {
+   "label": "% or fraction",
+   "meaning": "A ratio, share, tolerance or percentage difference."
+  },
+  "other": {
+   "label": "see field definition",
+   "meaning": "A unit defined on the field itself (time of day, a count of blocks or route-periods, a digest)."
+  }
+ },
+ "fields": {
+  "outputs/CANONICAL_ENVELOPE.json": {
+   "weekday_revenue_vehicle_hours": {"class": "revenue_vehicle_hours", "provenance": "outputs/experiments/exp1_frequency_redistribution_20260826T003902Z/experiment.json (GTFS scheduled; reproduced by exp2.build_setup to better than 1e-9)"},
+   "peak_vehicles": {"class": "physical_vehicle_count", "provenance": "outputs/fleet_check_modelB.json: COTA vehicle blocks reconstructed from the feed at 17:13, 284 blocks"},
+   "peak_vehicles_by_period.am_peak": {"class": "physical_vehicle_count", "provenance": "block reconstruction, as peak_vehicles"},
+   "peak_vehicles_by_period.early": {"class": "physical_vehicle_count", "provenance": "block reconstruction, as peak_vehicles"},
+   "peak_vehicles_by_period.evening": {"class": "physical_vehicle_count", "provenance": "block reconstruction, as peak_vehicles"},
+   "peak_vehicles_by_period.midday": {"class": "physical_vehicle_count", "provenance": "block reconstruction, as peak_vehicles"},
+   "peak_vehicles_by_period.owl": {"class": "physical_vehicle_count", "provenance": "block reconstruction, as peak_vehicles"},
+   "peak_vehicles_by_period.pm_peak": {"class": "physical_vehicle_count", "provenance": "block reconstruction, as peak_vehicles"},
+   "peak_time": {"class": "other", "unit": "time of day (HH:MM), the block-derived peak", "provenance": "block reconstruction"},
+   "n_blocks": {"class": "other", "unit": "count of vehicle blocks", "provenance": "block reconstruction"},
+   "ntd_reported_voms": {"class": "physical_vehicle_count", "provenance": "NTD 2024 Annual Agency Profile, NTD ID 50016 (vehicles operated in maximum service, all bus modes)"},
+   "ntd_agreement_pct": {"class": "dimensionless_share", "unit": "% difference, block-derived vs NTD VOMS", "provenance": "computed from the two counts"},
+   "NOT_THE_CAP.frequency_model_peak_concurrency.value_on_baseline_pm_peak": {"class": "modeled_peak_concurrency_proxy", "provenance": "FitnessVector.peak_vehicles on the baseline plan, pm peak (with the 1.307 interlining factor)"},
+   "NOT_THE_CAP.routewise_peak.value_on_baseline_pm_peak": {"class": "modeled_peak_concurrency_proxy", "provenance": "the same proxy before interlining"},
+   "NOT_THE_CAP.optimized_plan_usage.example": {"class": "revenue_vehicle_hours", "provenance": "one optimized plan's realised hours (an output, never a cap)"},
+   "version": {"class": "other", "unit": "artifact version number", "provenance": "artifact metadata"},
+   "envelope_digest": {"class": "other", "unit": "digest", "provenance": "artifact metadata"}
+  },
+  "outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json": {
+   "peak_fleet_by_period.early": {"class": "modeled_peak_concurrency_proxy", "provenance": "FrequencyModel.peak_vehicles (cycle/headway) on the unedited reference network, frozen 2026-09-22; the field name says 'fleet' but the quantity is the proxy"},
+   "peak_fleet_by_period.am_peak": {"class": "modeled_peak_concurrency_proxy", "provenance": "as peak_fleet_by_period.early"},
+   "peak_fleet_by_period.midday": {"class": "modeled_peak_concurrency_proxy", "provenance": "as peak_fleet_by_period.early"},
+   "peak_fleet_by_period.pm_peak": {"class": "modeled_peak_concurrency_proxy", "provenance": "as peak_fleet_by_period.early"},
+   "peak_fleet_by_period.evening": {"class": "modeled_peak_concurrency_proxy", "provenance": "as peak_fleet_by_period.early"},
+   "peak_fleet_by_period.owl": {"class": "modeled_peak_concurrency_proxy", "provenance": "as peak_fleet_by_period.early"},
+   "weekday_revenue_vehicle_hours": {"class": "revenue_vehicle_hours", "provenance": "outputs/CANONICAL_ENVELOPE.json"},
+   "reference_baseline_revenue_veh_hours": {"class": "revenue_vehicle_hours", "provenance": "reference network baseline"},
+   "budget_tolerance": {"class": "dimensionless_share", "unit": "fraction", "provenance": "EXP4N contract"},
+   "n_reference_route_periods": {"class": "other", "unit": "count of route-periods", "provenance": "reference network"},
+   "agreement_with_audit_reference_worst_abs": {"class": "modeled_peak_concurrency_proxy", "provenance": "worst absolute difference against the audit reference vector"}
+  }
+ },
+ "display_labels": {
+  "resource_curve_peak_axis": {"class": "modeled_peak_concurrency_proxy", "text": "% of peak envelope — proxy units"},
+  "resource_curve_hours_axis": {"class": "revenue_vehicle_hours", "text": "% of revenue-hour budget (below 100 = service cuts)"}
+ }
+}

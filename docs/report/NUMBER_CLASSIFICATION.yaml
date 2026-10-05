@@ -1,0 +1,64 @@
+# Classification of numbers in public-facing priority sections that are NOT
+# machine-checked claims (scripts/audit_public_numbers.py).
+#
+# Classes:
+#   config        configuration constant or experiment design parameter (a value the
+#                 study set, quoted from config/, a contract or a level definition)
+#   design_count  a count fixed by the study design (candidates generated, cells run)
+#   retracted     a withdrawn value quoted as withdrawn (report §9)
+#   descriptive   non-load-bearing description
+#   traced        a scientific number traced to a named artifact or record, NOT yet
+#                 machine-checked; the source is given. These are the remaining gap.
+#
+# Keys are tokens as they appear in the document (per document). A token listed
+# here covers every occurrence in that document's audited sections, so only list
+# tokens whose every occurrence has the stated class.
+
+docs/report/TECHNICAL_REPORT.md:
+  "0.5%": {class: retracted, reason: "the spurious through-routing gain (§9 R3/R4), quoted as withdrawn"}
+  "0.9%": {class: retracted, reason: "§9 R3, the Model-A-mislabelled through-routing claim"}
+  "20": {class: config, reason: "restart counts (20 restarts), the 20-min headway floor level (R1_H20), and the 20× effort ratio of the R2 ablation"}
+  "2,000": {class: design_count, reason: "greenfield candidates generated (EXPERIMENT4_CONTRACT.md)"}
+  "90%": {class: config, reason: "Exp 5 hours level H090"}
+  "0.1": {class: traced, reason: "basin dependence of Exp 6 prices: re-closure moved prices by -0.10 to +0.06 points (Exp 7 errata E8; outputs/exp7/EXP7_ANALYSIS.json f6_prices)"}
+  "24.7%": {class: traced, reason: "transit-accessible share of regional commute jobs; demand-build run log (docs/research-record/run-logs), not in a JSON artifact"}
+  "78,210": {class: traced, reason: "accessible block-group pairs; same run log"}
+  "317,706": {class: traced, reason: "all block-group pairs; same run log"}
+  "20,000": {class: config, reason: "path_assignment.od_top_k"}
+  "64.9%": {class: traced, reason: "share of accessible flow in the top 20,000 pairs; same run log"}
+  "66.3%": {class: traced, reason: "served share in the Exp 6/7 instance (outputs/exp7/stage1/evals/N0/BASE.json)"}
+  "35.5%": {class: traced, reason: "Exp 4A structural (no-path) unserved share, N3 (outputs/exp4_addendum/diag_N3.json totals)"}
+  "54.7%": {class: traced, reason: "same, N4 (outputs/exp4_addendum/diag_N4.json totals)"}
+  "32": {class: design_count, reason: "Exp 5 cells (16 per network x 2)"}
+  "−157": {class: traced, reason: "stop-service penalty fit from this feed (D-log; outputs/stop evidence diagnostics)"}
+  "17.2": {class: traced, reason: "novel-link runtime MAE, outputs/runtime_validation.json"}
+  "+0.41%": {class: traced, reason: "aggregate runtime bias, outputs/runtime_validation.json explanation field"}
+  "20.5%": {class: traced, reason: "median APE, outputs/runtime_validation.json median_ape_pct (also in EXP7_LEVELS A3_RTNOISE rationale)"}
+  "8,": {class: config, reason: "(8, 3)-block-local certification neighbourhood"}
+  "120": {class: config, reason: "derived constant: lambda x 60 min at lambda = 2; also 120 min in the retention statement and the 30-120 min tier quoted in R16"}
+  "210": {class: config, reason: "cost_retention_zero_min"}
+  "173.3": {class: traced, reason: "lower edge of the exposed cost band at lambda = 2 (report §6.2 analysis)"}
+  "60": {class: config, reason: "unserved penalty / retention full-retention cost / 60-min headway floor"}
+  "0.10": {class: config, reason: "cost_retention_floor"}
+  "0,": {class: config, reason: "A8_FLOOR0 level value"}
+  "150": {class: config, reason: "A8_ZERO150 level value"}
+  "0.40%": {class: traced, reason: "N0 REF closed twice (Exp 7 errata E3; outputs/exp7/EXP7_F1_DECISION_SPACE.json)"}
+  "36": {class: traced, reason: "same, F1 difference in percentage points"}
+  "+100%": {class: config, reason: "A1_NC100 level (non-commute trips at 100% of commute volume)"}
+  "197.0": {class: traced, reason: "the peak-concurrency proxy figure quoted in R6 (outputs/fleet_check_modelB.json candidate_fleet)"}
+  "25": {class: traced, reason: "Exp 6 firewall policy comparisons admitted (outputs/exp6/EXP6_ANALYSIS.json firewall)"}
+  "13": {class: traced, reason: "Exp 6 firewall structure comparisons admitted (same)"}
+  "26": {class: retracted, reason: "count stated in the withdrawn Exp 7 closeout wording (R12)"}
+  "0.02": {class: retracted, reason: "the superseded 2B noise-floor multiple (R14)"}
+  "4": {class: config, reason: "lambda value in 'lambda = 1 and 4'"}
+  "30": {class: retracted, reason: "the withdrawn '30-120-minute tier' wording (R16)"}
+
+README.md:
+  "20": {class: config, reason: "restart count (20 restarts)"}
+  "2,000": {class: design_count, reason: "greenfield candidates generated"}
+
+docs/PLANNING_BRIEF.md:
+  "60": {class: config, reason: "60-minute headway floor / maximum headway (study safeguard R1_H60)"}
+  "20": {class: config, reason: "20-minute headway floor level (R1_H20)"}
+  "5%": {class: config, reason: "R2_S05 cap on switched-off service"}
+  "2,000": {class: design_count, reason: "greenfield candidates generated"}

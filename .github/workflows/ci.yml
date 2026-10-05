@@ -52,6 +52,11 @@ jobs:
           python scripts/build_path_reference_map.py --check
           python scripts/current_locations.py outputs/SUPERSEDED.md --check
           python scripts/exp3_verify_closure.py
+          python scripts/reconstruct_history_map.py --check
+          python scripts/model_status_box.py --check
+          python scripts/make_calibration_tables.py --check
+          python scripts/audit_public_numbers.py --check
+          cota-opt validate-model > /dev/null
           python - <<'PY'
           import json, pathlib
           moves = json.loads(pathlib.Path("docs/research-record/MOVES.json").read_text())["moves"]

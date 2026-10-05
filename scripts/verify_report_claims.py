@@ -110,6 +110,58 @@ def exp1_trip_gain() -> float:
 
 
 
+# ---- release pass 2026-10-05: decision-relevant numbers in public documents
+def f1_class_a():
+    return row7("F1")["class_a_range"]
+
+
+def exp3_certified_effects():
+    er = J("outputs/exp3/escalation_report.json")
+    return [abs(c["mean_pct"]) for c in er["combined"]
+            if c.get("certified") and c["state"] in er["certified"]]
+
+
+def e6_range(net):
+    v = [r["policy_cost_closed_pct"] for r in J("outputs/exp6/EXP6_ANALYSIS.json")["frontier"]
+         if r["network"] == net and r.get("policy_cost_closed_pct") is not None]
+    return min(v), max(v)
+
+
+def exp5_n0_hours(mult):
+    fr = [r for r in J("outputs/exp5/EXP5_ANALYSIS.json")["frontier"] if r["network"] == "N0"]
+    ref = next(r for r in fr if r["cell"].endswith("J100"))
+    cell = next(r for r in fr if r["arm"] == "B_hours_only" and abs(r["hours_mult"] - mult) < 1e-9)
+    return 100 * (cell["objective"] - ref["objective"]) / ref["objective"]
+
+
+def n_class_a_levels():
+    return sum(1 for lv in J("outputs/exp7/EXP7_LEVELS.json")["levels"]
+               if lv["dimension"].startswith("A"))
+
+
+def served_share_pct():
+    return 100 * J("outputs/exp1_baseline_modelB.json")["baseline_served"] / 30949
+
+
+
+def _blocking(net: str) -> list[float]:
+    b = J("outputs/exp5/EXP5_ANALYSIS.json")["blocking_DIAGNOSTIC_ONLY"]
+    return [c["tt_vs_model_hours"] for k, c in b.items() if k.startswith(net)]
+
+
+def _retention(cost_min: float) -> float:
+    """The study's cost-based retention curve, from config/assumptions.yaml."""
+    import yaml
+    pa = yaml.safe_load((ROOT / "config/assumptions.yaml").read_text())["path_assignment"]
+    full, zero, floor = (pa["cost_retention_full_min"], pa["cost_retention_zero_min"],
+                         pa["cost_retention_floor"])
+    if cost_min <= full:
+        return 1.0
+    if cost_min >= zero:
+        return floor
+    return 1.0 - (1.0 - floor) * (cost_min - full) / (zero - full)
+
+
 # (written string, decimals, extractor, documents)
 CLAIMS = [
     ("−6.65%", 2, lambda: exp1()["headline"]["unserved_demand"]["mean_pct"], [REPORT]),
@@ -184,6 +236,58 @@ CLAIMS = [
     ("0.516%", 3, lambda: J("outputs/model_diagnostics_modelB.json")["hyperpath"]["bound_share_of_generalized_cost_pct"], [REPORT]),
     ("2,516.65", 2, lambda: next(r["revenue_veh_hours"] for r in exp1()["frontier"] if r["lambda"] == 2.0), [REPORT]),
     ("+15.31%", 2, lambda: next(r["unserved_change_pct"] for r in exp1()["frontier"] if r["lambda"] == 0.25), [REPORT]),
+    # release pass 2026-10-05 (scripts/audit_public_numbers.py priority sections)
+    ("+3.3%", 1, lambda: exp1()["headline"]["trips_served"]["mean_pct"], [README]),
+    ("6.65%", 2, lambda: -exp1()["headline"]["unserved_demand"]["mean_pct"], [README]),
+    ("0.88%", 2, lambda: exp1()["headline"]["generalized_cost"]["mean_pct"], [README]),
+    ("67% of that total", 0, served_share_pct, [REPORT]),
+    ("33% unserved", 0, lambda: 100 - served_share_pct(), [REPORT]),
+    ("44 pre-specified", 0, n_class_a_levels, [REPORT, README]),
+    ("−1.9% to −7.0%", 1, lambda: f1_class_a()[1], [REPORT, README]),
+    ("to −7.0%", 1, lambda: f1_class_a()[0], [REPORT, README]),
+    ("−1.897%", 3, lambda: f1_class_a()[1], []),
+    ("12 through-routing", 0, lambda: len(J("outputs/exp2_candidate_classes.json")["candidates"]), [REPORT]),
+    ("the 0.287", 3, lambda: J("outputs/exp2_summary.json")["recheck_D19"]["full_effort_floor_pts"], [REPORT]),
+    ("240-set", 0, lambda: J("outputs/exp2_summary.json")["subset_search_2B"]["n_subsets_solved"], [REPORT, README]),
+    ("29 seed-distinguishable", 0, lambda: len(J("outputs/exp3/escalation_report.json")["certified"]), [REPORT, README]),
+    ("0.01–0.19%", 2, lambda: min(exp3_certified_effects()), [REPORT]),
+    ("at most 0.19%", 2, lambda: max(exp3_certified_effects()), [REPORT]),
+    ("−0.18657%", 5, lambda: J("outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json")["values"]["BASE"]["F3"], [README]),
+    ("−0.19%", 2, lambda: J("outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json")["values"]["BASE"]["F3"], [REPORT]),
+    ("200 promoted", 0, lambda: len(J("outputs/exp4_normalized/EXP4N_RANKING.json")["ordering"]), [REPORT, README]),
+    ("8.5–9.7%", 1, lambda: f4("BASE", "N3"), [REPORT]),
+    ("–9.7%", 1, lambda: float(__import__("re").search(r"\(\+([0-9.]+)% of N3\)", d43()).group(1)), [REPORT]),
+    ("36.7%", 1, lambda: 100 * J("outputs/exp4_normalized/EXP4N_RANKING.json")["normalized_vs_legacy"]["pairwise_inverted_fraction"], [REPORT]),
+    ("0–0.91%", 0, lambda: e6_range("N0")[0], [REPORT, README]),
+    ("–0.91%", 2, lambda: e6_range("N0")[1], [REPORT, README]),
+    ("0–0.63%", 0, lambda: e6_range("N3")[0], [REPORT, README]),
+    ("+0.91%", 2, lambda: e6_range("N0")[1], [REPORT]),
+    ("0 to +0.912%", 0, lambda: e6_range("N0")[0], []),
+    ("0.16% apart", 2, ref_gap_pct, [REPORT, README]),
+    ("give −5.4%", 1, lambda: f1a("BASE"), [REPORT, README]),
+    ("+0.56%", 2, lambda: exp5_n0_hours(0.9), [REPORT]),
+    ("+2.04%", 2, lambda: exp5_n0_hours(0.75), [REPORT]),
+    ("0.56–2.04%", 2, lambda: exp5_n0_hours(0.9), ["docs/FINDINGS.md"]),
+    ("1.70%", 2, lambda: max(float(p["regression_pct"]) for p in
+                            J("outputs/exp5/EXP5_ANALYSIS.json")["monotonicity"]["pairs"]
+                            if p["status"] != "MONOTONE"), [REPORT]),
+    ("of 2,516", 0, lambda: dspace("BASE")["cells"]["REF"]["revenue_veh_hours"], [README]),
+    ("19% of route-periods", 0, lambda: exp1()["plan_disagreement"]["mean_share_changed_pct"], []),
+    ("−2.1% to −7.0%", 1, lambda: r1h60("A6_MAXWALK75"), [REPORT]),
+    ("698 and 753", 0, lambda: s1_gains()["A8_FLOOR0"], [REPORT]),
+    ("and 753 trips", 0, lambda: s1_gains()["A8_ZERO150"], [REPORT]),
+    ("(0.415", 3, lambda: J("outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json")["stage2_metric"]["scores"]["A1"], [REPORT]),
+    ("0.685", 3, lambda: J("outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json")["stage2_metric"]["scores"]["A6"], [REPORT]),
+    ("+0.09% unserved", 2, lambda: c2b()["matched_start_unserved_effect_pct"], [REPORT]),
+    ("+0.0065% unserved", 4, lambda: J("outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json")["values"]["BASE"]["F2_unserved"], [REPORT]),
+    ("keeps 64% of riders", 0, lambda: 100 * _retention(120), [REPORT]),
+    ("and 10% beyond", 0, lambda: 100 * _retention(1e9), [REPORT]),
+    ("(−5.4% versus", 1, lambda: f1a("BASE"), ["docs/PUBLIC_BRIEF.md"]),
+    ("(139 route-periods", 0, lambda: dspace("A5_LAM1")["cells"]["REF"]["n_off"], [REPORT]),
+    ("by 17.8–22.7%", 1, lambda: 100 * min(_blocking("N0")), [REPORT]),
+    ("–22.7% (N0)", 1, lambda: 100 * max(_blocking("N0")), [REPORT]),
+    ("and 45.6–47.0% (N4)", 1, lambda: 100 * min(_blocking("N4")), [REPORT]),
+    ("–47.0% (N4)", 1, lambda: 100 * max(_blocking("N4")), [REPORT]),
 ]
 
 
@@ -191,6 +295,7 @@ def norm(s: str) -> float:
     import re as _re
     s = _re.sub(r"^[^0-9+\-−–±]*", "", s)  # leading words ("about 680")
     s = _re.sub(r"(%?)\s.*$", r"\1", s)  # trailing words ("2.2% of ...")
+    s = _re.sub(r"(?<=[0-9%])-[A-Za-z].*$", "", s)  # hyphenated suffix ("240-set")
     if "–" in s:  # a range token: "a–b" checks a, "–b%" checks b
         a, b = s.split("–", 1)
         s = a if a else b

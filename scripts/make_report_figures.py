@@ -34,6 +34,14 @@ from matplotlib.patches import Patch  # noqa: E402
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "docs" / "report" / "figures"
+sys.path.insert(0, str(ROOT / "src"))
+from cota_release.units import display_label  # noqa: E402
+
+# Resource-unit wording comes from the envelope units sidecar, never from the
+# frozen envelope's contract_text (guidelines, report rule 4).
+UNITS_SIDECAR = "outputs/CANONICAL_ENVELOPE.units.json"
+PEAK_AXIS_LABEL = display_label("resource_curve_peak_axis")
+HOURS_AXIS_LABEL = display_label("resource_curve_hours_axis")
 
 # ---------------------------------------------------------------- inputs
 EXP1 = "outputs/canonical/exp1_final.json"
@@ -487,6 +495,7 @@ def _near_binding(r: dict) -> list[str]:
 def fig4_resource_curve() -> None:
     """G4. Exp 5 objective vs envelope level; hours arm separately."""
     e = J(EXP5)
+    USED.add(UNITS_SIDECAR)
     fr = e["frontier"]
     viol = [p for p in e["monotonicity"]["pairs"]
             if p.get("status") == "EXP5_MONOTONICITY_FAILURE"]
@@ -533,8 +542,7 @@ def fig4_resource_curve() -> None:
                         ax.scatter(x, y, s=70, marker="o", facecolor="none",
                                    edgecolor=INK, linewidth=0.9, zorder=4)
             if i == 1:
-                ax.set_xlabel("% of peak envelope — proxy units" if j == 0
-                              else "% of revenue-hour budget (below 100 = service cuts)")
+                ax.set_xlabel(PEAK_AXIS_LABEL if j == 0 else HOURS_AXIS_LABEL)
             if j == 0:
                 ax.set_ylabel(f"{net}: objective vs J100 (%)")
             ax.set_title(f"{'abcd'[2 * i + j]}  {net}, {ttl}")

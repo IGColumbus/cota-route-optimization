@@ -1,8 +1,8 @@
 cff-version: 1.2.0
 message: >-
   If you use this software or its results, please cite it as below. The frozen
-  research record is commit cd03af9c (tag research-final once public; see
-  docs/RELEASE_PROVENANCE.md). Results are modeled, use proxy demand and are
+  research record is commit cd03af9c, tag research-final
+  (docs/RELEASE_PROVENANCE.md). Results are modeled, use proxy demand and are
   uncalibrated; the project is independent of COTA.
 type: software
 title: "COTA Transit Network Model and Optimization Harness"

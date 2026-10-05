@@ -24,6 +24,7 @@
   "inputs_sha256": {
     "config/change_map_aggregation.yaml": "1f1f341c02028354ee80f399386503548a73076a18d42de30c96d252fcb3a37b",
     "data/raw/cota_gtfs_static/cota.gtfs.zip": "b11634f117a35a27a1813ed1eeef2b29b9484c6afdda0757262026ed2c9b3bf0",
+    "outputs/CANONICAL_ENVELOPE.units.json": "9011bc0b3d728650a991807e2b8449e4732b5f12f8dec278d55a490f58c11147",
     "outputs/canonical/exp1_final.json": "1f4624ad1e36e1b17e9802366a6f8c82c0058aee87b6b751ffa553a7aeabc68b",
     "outputs/exp2_summary.json": "2befe69faf159f2ac734ee4345e32eba5ea07864e53ed6ecc911d8c85ed34951",
     "outputs/exp2_treatments.jsonl": "76715c495ee340090d553897da872961e8018bab46d819135448b623ef62eb9d",

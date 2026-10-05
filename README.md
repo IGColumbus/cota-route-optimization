@@ -1,5 +1,7 @@
 # COTA Transit Network Model and Optimization Harness
 
+[![ci](https://github.com/ian-gregory94/cota-route-optimization/actions/workflows/ci.yml/badge.svg)](https://github.com/ian-gregory94/cota-route-optimization/actions/workflows/ci.yml)
+
 *(Formerly titled "Transit Digital Twin". That was a prototype description: the
 model is uncalibrated and is not an operational digital twin.)*
 
@@ -63,8 +65,8 @@ change conclusions.
 > modeled resources served **~680 more modeled weekday trips** (+3.3% served;
 > ~2.2% of the 30,949 modeled weekday trips) and reduced modeled unserved
 > demand by **6.65%** (solver-seed SD 0.06 percentage points), while total
-> generalized cost rose 0.88%. The gain stayed positive under all 44
-> pre-specified fixed-plan perturbations (−1.9% to −7.0% unserved).
+> generalized cost rose 0.88%. The gain stayed positive under all
+> 44 pre-specified fixed-plan perturbations (−1.9% to −7.0% unserved).
 
 *Solver-seed SD measures optimization variability with data and assumptions
 fixed. It is not a confidence interval and does not quantify real-world
@@ -149,10 +151,12 @@ Caveat: COTA's URL serves its *current* feed. The study used `feed_version
 may already serve a later feed, which will be refused. No public archive of the
 study's feed file exists yet.
 
-Using other data (another feed, other demand) is not yet packaged: report §10
-lists what would change, and the planned interface document
-(`docs/process/RELEASE_AND_REPORTING_GUIDELINES.md`, "Data interfaces") has not
-been written.
+Using other data: `docs/DATA_INTERFACES.md` says, input by input, what can be
+substituted and what cannot. There is a tested adapter for OD demand
+(`examples/demand_from_csv.py`). Observed ridership plugs into
+`cota-opt validate-model`, which reports route volume, stop pattern, transfer
+behavior and trip length separately. Research scripts run as
+`cota-opt run-script scripts/<name>.py`, so they read the registered files.
 
 ### Reproduce
 
@@ -182,7 +186,11 @@ inputs missing. The recorded result and environment are in
 | canonical artifacts | `outputs/CANONICAL_RESULTS_v5.json` (authority), `outputs/README.md` (index). `outputs/canonical/` holds only three early records, not the canonical set |
 | superseded and retracted material | `outputs/SUPERSEDED.md`, `outputs/superseded/`, report §9 (retractions), errata files in `experiments/exp2/` and `experiments/exp7/` |
 | the frozen research state and what is public | `docs/RELEASE_PROVENANCE.md` (frozen commit `cd03af9c`) |
-| how to reproduce | `docs/REPRODUCE.md`; `cota-opt reproduce exp1 --smoke` |
+| how to reproduce, and how strong each experiment's reproduction evidence is | `docs/REPRODUCE.md`; `cota-opt reproduce exp1 --smoke` |
+| plain-language and planning summaries | `docs/PUBLIC_BRIEF.md`, `docs/PLANNING_BRIEF.md` |
+| where your own data plugs in | `docs/DATA_INTERFACES.md`; validation: `cota-opt validate-model` |
+| every assumed parameter and what would calibrate it | `docs/CALIBRATION.md` |
+| running it in parallel | `docs/SCALING.md` |
 | wording corrections since the freeze | `docs/REPORTING_CORRECTIONS.md` |
 | where an old path went | `docs/research-record/MOVES.md` |
 | the research history | `docs/research-record/` (`DISCOVERIES.md`, `STATE_OF_PLAY.md`, superseded designs) |

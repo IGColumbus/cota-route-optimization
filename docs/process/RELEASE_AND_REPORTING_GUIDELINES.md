@@ -6,6 +6,15 @@ Updated 2026-09-23 · Ian
 > governing release spec. Amendments G1-a/b/c below incorporate the three
 > corrections raised from `docs/research-record/RELEASE_GUIDELINES_INTAKE.md` (`b5c23226`).
 
+> **How to read this document (2026-10-05).** The text below is the original
+> specification, kept so its intent survives. Where the release as built
+> differs, a note marked **Implemented 2026-10-05** or **Final implementation
+> differs from the original specification** follows the paragraph. Those
+> deviations are deliberate, mostly to keep frozen provenance paths and the
+> frozen research code intact. Do not "fix" them back to the original design
+> without reading the note. Current state of every item: the checklist at the
+> end and `docs/RELEASE_PROVENANCE.md`.
+
 ## Purpose and definition of done
 
 The release turns the research repository into a harness someone else can pick up, feed their own data, and scale. The findings travel with it, but the harness is the product.
@@ -34,6 +43,14 @@ Cleanup starts only after the research record is frozen. Every contract digest a
 - Every experiment status is resolved, with no halted or in-flight runs.
 - Every commit that exists only in the development container has reached GitHub. The sandbox cannot push, so this needs Ian at a keyboard.
 - All work branches, including `exp3-clean` and anything newer, are merged into `master`.
+
+> **Implemented 2026-10-05:** all preconditions met. `research-final` (tag object
+> `78a4355d`) points at `cd03af9c` and is public, with the historical freeze tags.
+> The environment pin is `docs/research-record/ENVIRONMENT_AT_FREEZE.txt` plus
+> `requirements-lock.txt`. **Final implementation differs from the original
+> specification:** no container image was recorded at the freeze, because the
+> sandbox could not export one. A `Dockerfile` was added afterwards; its build
+> status is in `docs/RELEASE_PROVENANCE.md`.
 
 **Freeze the research record.** Tag the merged state `research-final` before any cleanup commit. Every contract, digest, and canonical artifact verifies against that tag. The cleaned release reproduces the results; the tag reproduces the exact code that produced them.
 
@@ -69,6 +86,27 @@ data/                    untracked; rebuilt from sources.yaml
 - `AGENTS.md` becomes `docs/ENGINEERING_RULES.md`. Its rules are how the harness stays honest, so users extending it need them.
 - Collapse each experiment's many documents into one contract and one closeout. Superseded designs and abandoned phases move to the research record.
 
+> **Final implementation differs from the original specification (2026-10-05,
+> `6a278bf1`; 231 moves in `docs/research-record/MOVES.md`).** Deliberate
+> deviations, each to keep frozen provenance resolvable:
+>
+> * `src/cota_opt` was **not** split into `core/` and experiment modules. The
+>   frozen contracts pin a content digest of `src/cota_opt/**/*.py`, so moving a
+>   module would break every certification check. Release-only code lives in
+>   `src/cota_release/`.
+> * Canonical artifacts stay at their registered paths under `outputs/`, not
+>   `outputs/canonical/`. The frozen registry (`CANONICAL_RESULTS_v5.json`), the
+>   freeze manifests and the contracts name them by path. `outputs/README.md`
+>   is the index; `outputs/canonical/` is an older folder holding three records.
+> * Superseded files moved to `outputs/superseded/` where nothing frozen hashes
+>   them in place. Four sets stayed put (`outputs/SUPERSEDED.md`).
+> * `scripts/` stays at the root, because experiment records cite script paths.
+> * Experiment documents were **not merged** into one contract and one
+>   closeout. Each `experiments/expN/` has a README naming its one authoritative
+>   contract or protocol and its one closeout. Registered contracts, closeouts
+>   and errata remain separate immutable documents, and supporting or
+>   historical material moved to `docs/research-record/`.
+
 ## Required additions
 
 Six additions turn the repository into something another team can use. Each has an acceptance test, and the release is not tagged until all six pass.
@@ -79,9 +117,16 @@ The repository has no license. Without an explicit license, downstream reuse rig
 
 *Acceptance:* `LICENSE` and `CITATION.cff` present, the README states the license, and every source in `sources.yaml` has a terms field.
 
+> **Implemented 2026-10-05:** the repository now has licences. Apache-2.0
+> (`LICENSE`) covers code; CC BY 4.0 (`LICENSES/CC-BY-4.0.txt`) covers
+> documentation, the report and figures. `CITATION.cff` is present, and every
+> registered source in `config/sources.yaml` has a licence, version, citation,
+> retrieval note and sha256. Still open: the Zenodo archive and DOI, which come
+> with `v1.0`.
+
 ### 2. Data interfaces
 
-*(Planned; not yet written as of 2026-10-05.)* `docs/DATA_INTERFACES.md` lists every place outside data enters, and what a user might bring instead.
+`docs/DATA_INTERFACES.md` lists every place outside data enters, and what a user might bring instead.
 
 | Input | Entry point | Current source | What a user might bring | Status |
 | --- | --- | --- | --- | --- |
@@ -103,9 +148,29 @@ Live provenance records cite the file, so it stays unchanged through `research-f
 
 *Acceptance:* a new demand source can be added with one constructor and one test, without editing `core`.
 
+> **Implemented 2026-10-05, with a deviation.** `docs/DATA_INTERFACES.md`
+> covers every input. It states for each whether exact, newer-version,
+> same-schema or different-kind substitution is actually supported, and marks
+> inputs with no adapter. The demand-constructor acceptance is met at the
+> release boundary rather than inside `core`, because `src/cota_opt` is frozen:
+> `src/cota_release/demand.py` (zone-to-zone CSV → `ODTable`, the study's
+> market rules, path sets keyed by the table's digest), tested by
+> `tests/test_release_demand.py` and exercised by `examples/demand_from_csv.py`.
+> The table in this section predates that work; where they differ,
+> `docs/DATA_INTERFACES.md` is current.
+>
+> **Implemented 2026-10-05:** the units sidecar is
+> `outputs/CANONICAL_ENVELOPE.units.json`. It is additive; the frozen envelope
+> artifacts are unchanged. It classifies every numeric field of
+> `outputs/CANONICAL_ENVELOPE.json` and
+> `outputs/exp4_normalized/COMMON_RESOURCE_ENVELOPE.json`. The figure tooling
+> takes its resource-axis labels from it (`src/cota_release/units.py`), and
+> `tests/test_envelope_units.py` fails if a proxy is labelled as vehicles or a
+> physical count as a proxy.
+
 ### 3. Calibration register
 
-*(Planned; not yet written as of 2026-10-05.)* `docs/CALIBRATION.md` lists every assumed parameter, what data would calibrate it, and how sensitive the findings were to it in Exp 7.
+`docs/CALIBRATION.md` lists every assumed parameter, what data would calibrate it, and how sensitive the findings were to it in Exp 7.
 
 | Parameter | Current value | File | Status | Data that would calibrate it |
 | --- | --- | --- | --- | --- |
@@ -119,6 +184,18 @@ Live provenance records cite the file, so it stays unchanged through `research-f
 The register covers every assumed parameter in `config/`, including walking and waiting terms. Any output produced with an assumed parameter carries the label "uncalibrated". Every current output therefore does, and saying so is correct.
 
 The retention curve is the largest untested assumption, and it is absent from the Exp 7 Class A matrix. Amend the Exp 7 protocol to add it before Exp 7 runs, not after. *(Done: added as Class A perturbation A8.)*
+
+> **Implemented 2026-10-05:** the register is `docs/CALIBRATION.md`. Its Exp 7
+> sensitivity table is generated from the artifacts by
+> `scripts/make_calibration_tables.py`, and CI checks it.
+>
+> **Final implementation differs from the original specification:** the
+> "uncalibrated" label is **not** written into frozen research artifacts, which
+> stay byte-identical. It lives in release-facing `config/model_status.yaml`.
+> Every artifact written by release tooling (`cota-opt reproduce`,
+> `cota-opt validate-model`) carries it, and the briefs' model-status box is
+> generated from it. All existing research outputs are uncalibrated by
+> definition.
 
 ### 4. Validation step
 
@@ -135,15 +212,50 @@ Each dimension is marked `passed`, `failed`, or `unavailable`, against pass thre
 
 *Acceptance:* with deliberately mismatched route-volume data and no stop data, validation reports route volume `failed` and stop pattern `unavailable`, and both statuses appear on the output artifact.
 
+> **Final implementation differs from the original specification (2026-10-05):
+> the command is `cota-opt validate-model`, not `cota-opt validate`.** The
+> research CLI already had a `validate` command, which checks GTFS feed
+> structure (`python -m cota_opt.cli validate`), and historical instructions
+> use it. Overloading the name would make those instructions ambiguous.
+>
+> * **Configuration:** `config/validation.yaml` holds the observed files and
+>   the thresholds, set before the run.
+> * **Statuses:** each dimension reports `passed`, `failed` or `unavailable`,
+>   and there is no global flag.
+> * **Acceptance test:** `tests/test_release_validation.py`.
+> * **Modeled side:** route volume is extracted from the study model
+>   (`--from-study`). Stop pattern, transfer behavior and trip length have no
+>   modeled extractor yet, so they stay `unavailable` until one is written or
+>   modeled values are supplied (`--modeled`).
+> * **Current status:** all four are `unavailable`, because no observed data
+>   exists.
+
 ### 5. One-command reproduction
 
 `cota-opt reproduce exp1` fetches public inputs by checksum and validates the feed. It then asserts the baseline identities: revenue vehicle-hours equal the published schedule, and COTA's published blocking reconstructs to 197 peak vehicles. That count applies to the existing schedule only. No modified plan has a certified vehicle count, so the Exp 1 plan is reported in the resource terminology Exp 1 actually certified. The command then runs Exp 1 at certification effort and compares the result with the canonical objective. A `--smoke` mode runs the same pipeline at reduced effort in minutes. The full run's time is measured and published in the README, not estimated.
 
 *Acceptance:* on a fresh machine the result is bit-exact in the pinned container and within `0.0018970%` elsewhere. A quickstart of three commands or fewer is the usability goal, but correctness and visible setup win any conflict. No hidden setup steps are added to hit the command count.
 
+> **Final implementation differs from the original specification (2026-10-05).**
+>
+> * **Inputs:** `cota-opt reproduce exp1` does **not** fetch inputs itself.
+>   They are staged first with `cota-opt data status|register|fetch`, which
+>   refuses any file whose sha256 differs from the study's. COTA's URL serves
+>   its current feed, not the study's, so a fetch-everything command could not
+>   be correct.
+> * **Smoke mode:** `--smoke` does no optimization. It rebuilds the instance
+>   and re-evaluates the three certified plans; the first run takes about 40
+>   minutes on one core, for the path sets.
+> * **Full mode:** re-solves the three seeds at certification effort.
+> * **Recorded results and the evidence level per experiment:**
+>   `docs/REPRODUCE.md`.
+> * **Container:** the pinned container could not be built in the development
+>   sandbox (`docs/RELEASE_PROVENANCE.md`).
+> * **Cross-machine drift:** still uncharacterized.
+
 ### 6. Scaling
 
-*(Planned; not yet written as of 2026-10-05.)* `docs/SCALING.md` explains how to throw compute at it. Certification cells are independent, so the work is trivially parallel. The one-cell-at-a-time pace so far is a limit of the container, not of the method.
+`docs/SCALING.md` explains how to throw compute at it. Certification cells are independent, so the work is trivially parallel. The one-cell-at-a-time pace so far is a limit of the container, not of the method.
 
 - Provide a Slurm job-array recipe for the Ohio Supercomputer Center: one cell per array task, a shared read-only cache, one output file per cell, and resume by file existence.
 - Pin BLAS and OpenMP threads to 1 per process. Threaded linear algebra can change floating-point results, and that would break bit-exact checks. Parallelize across cells instead.
@@ -151,6 +263,11 @@ Each dimension is marked `passed`, `failed`, or `unavailable`, against pass thre
 - Keeper beats and hold loops are workarounds for the development container. They belong in `docs/process/`, not in the user path.
 
 *Acceptance:* the Exp 5 matrix run as a job array reproduces the serial results cell for cell.
+
+> **Status 2026-10-05:** `docs/SCALING.md` documents the parallel structure,
+> with a Slurm/OSC job-array recipe, cache-key rules and thread pinning. The
+> Exp 5 job-array acceptance run has **not** been done. It remains a `v1.0`
+> requirement for the reusable harness, not for the working paper.
 
 ## Report
 
@@ -161,6 +278,15 @@ The written product is three documents for three audiences, built from one sourc
 | Public brief | Full City Columbus readers | 1–2 pages | The directional findings in plain language, and what the model is not |
 | Planning brief | COTA planners | 4–6 pages | Findings with their Exp 7 labels, the price of each policy regime, how to rerun on COTA data |
 | Technical report | Researchers | As long as needed | Full methods, results, methodological findings, limitations, appendices |
+
+> **Implemented 2026-10-05:** all three exist.
+>
+> * `docs/PUBLIC_BRIEF.md` and `docs/PLANNING_BRIEF.md` take every
+>   decision-relevant number from claims that `scripts/verify_report_claims.py`
+>   checks against artifacts, audited by `scripts/audit_public_numbers.py`.
+> * Their model-status boxes are generated from `config/model_status.yaml` by
+>   `scripts/model_status_box.py`, and CI checks the boxes are current.
+> * `README.md` is the front door, not a fourth report.
 
 **Model status box — mandatory.** The public brief and the planning brief open with a visually distinct box, placed before any finding. It states the calibration status, the four validation statuses, the demand source (commute-only unless replaced), the service basis (scheduled, not observed), and that the results are not an operating plan and not COTA-endorsed. The box is generated from artifact metadata, so it cannot drift from the actual state of the model. A brief without it does not ship.
 
@@ -198,6 +324,12 @@ The current README's "no additional buses" claim for Exp 1 is replaced with the 
 ## Figures
 
 The report uses a fixed set of seven figures. Each is generated by a script from canonical artifacts, and none is edited by hand.
+
+> **Final implementation differs from the original specification:** the report
+> has **eight** figures. Amendment G2-a (below) added the post hoc F1
+> decision-space figure. Report figures are numbered by first mention; the
+> guideline IDs G1–G7 map to report figure numbers in
+> `docs/report/figures/FIGURES_MANIFEST.json`.
 
 | # | Figure | Shows | Must carry |
 | --- | --- | --- | --- |
@@ -243,25 +375,25 @@ The one pre-Exp 7 item is done; everything else follows the freeze in order.
 
 - [x] Remove the `.bundle` files, `_to_delete/`, and lock debris in a normal commit; update `.gitignore`. (2026-10-05: none of these is tracked; `.gitignore` now excludes them.)
 - [x] Restructure to the target layout; record every move in `MOVES.md`. (2026-10-05, `6a278bf1`: 231 moves in `docs/research-record/MOVES.md`/`.json`. Deviations: canonical artifacts stay at their registered paths under `outputs/`, `scripts/` stays at the root, and `src/` is not split, because frozen registries, manifests and the code digest cite those paths.)
-- [ ] Collapse each experiment's documents to one contract and one closeout; move the rest to the research record. (Partial, 2026-10-05: each `experiments/expN/` holds its contract, closeout and errata with a README index; supporting documents moved to `docs/research-record/`. Registered documents were moved, not merged.)
+- [x] Collapse each experiment's documents to one contract and one closeout; move the rest to the research record. (Complete with provenance-preserving deviation, 2026-10-05: each experiment has one obvious contract/protocol and closeout entry point through its README (`experiments/expN/README.md`). Registered contracts, closeouts and errata remain separate immutable documents rather than being merged. Do not merge them.)
 - [x] Move process documents to `docs/process/`; `AGENTS.md` becomes `docs/ENGINEERING_RULES.md`. (2026-10-05; a root `AGENTS.md` pointer remains.)
 
 **Add**
 
 - [x] `LICENSE`, `CITATION.cff`, and terms of use for each source in `sources.yaml`. (2026-10-05: Apache-2.0 code, CC BY 4.0 docs; `CITATION.cff`; licence, version, citation, retrieval note and sha256 for every registered source. Original retrieval dates were never recorded and are stated as unknown.)
-- [ ] `docs/DATA_INTERFACES.md`, with a demand-constructor example and test.
-- [ ] `CANONICAL_ENVELOPE.units.json` sidecar; report and figure generators read units from it.
-- [ ] `docs/CALIBRATION.md`, with the "uncalibrated" label wired into artifacts.
-- [ ] `cota-opt validate`, with a failing-validation test.
-- [ ] `cota-opt reproduce exp1` and `--smoke`; full runtime measured and published. (Partial, 2026-10-05: both commands exist and the smoke run is recorded in `docs/REPRODUCE.md`; the full re-solve runtime has not been measured.)
-- [ ] `docs/SCALING.md`, with the Exp 5 job-array reproduction passing.
+- [x] `docs/DATA_INTERFACES.md`, with a demand-constructor example and test. (2026-10-05; the adapter is in `src/cota_release/demand.py` because `src/cota_opt` is frozen.)
+- [x] `CANONICAL_ENVELOPE.units.json` sidecar; report and figure generators read units from it. (2026-10-05: `outputs/CANONICAL_ENVELOPE.units.json`; figure tooling reads it; `tests/test_envelope_units.py`.)
+- [x] `docs/CALIBRATION.md`, with the "uncalibrated" label wired into artifacts. (2026-10-05: the label lives in `config/model_status.yaml` and is stamped into release-generated artifacts and the briefs; frozen artifacts are not retrofitted.)
+- [x] `cota-opt validate`, with a failing-validation test. (2026-10-05: implemented as `cota-opt validate-model`; the research CLI's `validate` keeps its meaning. `tests/test_release_validation.py`.)
+- [ ] `cota-opt reproduce exp1` and `--smoke`; full runtime measured and published. (2026-10-05: both commands exist; smoke reproduction recorded; full reproduction status in `docs/REPRODUCE.md`.)
+- [ ] `docs/SCALING.md`, with the Exp 5 job-array reproduction passing. (2026-10-05: document written; the job-array acceptance run is a `v1.0` requirement and has not been done.)
 
 **Report**
 
 - [x] README rewritten as the front door. (2026-10-05; the long per-experiment text moved unchanged to `docs/FINDINGS.md`.)
-- [ ] Public brief, planning brief, and technical report drafted from canonical artifacts.
+- [x] Public brief, planning brief, and technical report drafted from canonical artifacts. (2026-10-05: `docs/PUBLIC_BRIEF.md`, `docs/PLANNING_BRIEF.md`, `docs/report/TECHNICAL_REPORT.md`.)
 - [x] Seven figures generated by script, each with its source CSV (`scripts/make_report_figures.py` → `docs/report/figures/`, 2026-10-05; report Figures 1–6 and 8, plus amendment G2-a's Figure 7).
-- [ ] Every number in every document checked against rule 1 of the report rules. (Partial, 2026-10-05: `docs/report/REPORT_NUMBERS.json` is generated from the artifacts and records its own coverage of the report's numeric text; see that file.)
+- [ ] Every number in every document checked against rule 1 of the report rules. **Revised acceptance (2026-10-05):** every decision-relevant scientific numerical claim in public-facing documents is machine-traceable to committed evidence. The criterion is not 100% of numeric tokens. `scripts/audit_public_numbers.py` classifies every number in the priority sections (abstract, README headline and results, report summary, limitations, retractions and conclusion, both briefs) and fails if one is neither machine-checked nor explicitly classified as non-scientific. Status: see `docs/RELEASE_PROVENANCE.md`.
 
 **Release**
 

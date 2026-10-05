@@ -187,7 +187,7 @@ firewall (46/46) and order sentinels (4/4). `experiments/exp5/EXPERIMENT5_CLOSEO
 
 * **On N0 (all 99 nested pairs monotone):** both axes bind at today's levels.
   Above them, only the peak proxy binds; extra hours change nothing. Below them,
-  cutting hours costs 0.57–2.05% of the objective.
+  cutting hours costs 0.56–2.04% of the objective (Exp 5 errata E1).
 * **N4 is worse than N0 at all 16 cells**, by 8.07–11.59%.
 * **On N4, 12 of 99 pairs regress** by up to 1.70%: a looser budget certifies a
   worse plan. The cause is the start, which differs by cap, landing the (8,3)

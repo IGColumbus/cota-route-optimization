@@ -46,7 +46,7 @@ Branches below.
 | canonical results registry | `outputs/CANONICAL_RESULTS_v5.json` (v5; sha256 `e24c3f0e2bf075c1…`). v1–v4 are kept unchanged. |
 | Experiment 7 contract | digest `1263bedaebe6a45d` (`outputs/exp7/EXP7_CONTRACT.json`), frozen at `4a2ba9f6` |
 | Experiment 7 closeout | `experiments/exp7/EXPERIMENT7_CLOSEOUT.md`, sha256 `27bfc7390c777051…`. It is registered and unchanged; corrections are in `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md`. |
-| environment snapshot | `docs/research-record/ENVIRONMENT_AT_FREEZE.txt`: a pip freeze of the late-stage development container, Python 3.11.15. No container image is recorded. `requirements-lock.txt` pins the project's dependency closure to these versions, and a `Dockerfile` is provided (its build has not been tested). Status: the Experiment 1 smoke reproduction passed from a clean clone in a fresh venv built from the lock (2026-10-05; `docs/REPRODUCE.md`, "Recorded reproduction"). The full re-solve and the other experiments have not been reproduced on a clean machine. |
+| environment snapshot | `docs/research-record/ENVIRONMENT_AT_FREEZE.txt`: a pip freeze of the late-stage development container, Python 3.11.15. No container image was recorded at the freeze. `requirements-lock.txt` pins the project's dependency closure to these versions. Reproduction evidence per experiment: `docs/REPRODUCE.md`. |
 
 ## Historical freeze tags
 
@@ -62,10 +62,35 @@ cite it as inspectable. To publish it, run from a clone that has it:
 git push origin backup-exp3-preclean
 ```
 
-It matters for provenance: commits cited by `master`'s condensed history (for
-example `49e61d5f`, named in `5f6b8cee`'s message) are reachable only from it.
-The condensed-to-original commit map that `HISTORY_NOTE.md` cites was never
-committed.
+### Condensed Experiment 3 history: resolution (2026-10-05)
+
+`docs/research-record/exp3/HISTORY_NOTE.md` cites a condensed-to-original
+history map that was never committed. It has been rebuilt additively from git itself by
+`scripts/reconstruct_history_map.py`, which writes
+`docs/research-record/exp3/EXP3_HISTORY_MAP.reconstructed.json`. No commit was
+modified.
+
+* **Condensed `exp3-clean` line (94 commits since `b014c26c`, tip `c875fa66`):**
+  all 94 are matched to their originals on the public archival branch `exp3`
+  by tree identity. The collapse reused the original tree objects, so the match
+  is exact. Every "Original commits A..B" range cited in those messages
+  resolves publicly.
+* **Commit-message references across all of `master`:** 76 resolve publicly.
+  **8 do not.** They are the `cherry picked from commit …` lines of the earlier
+  Phase A1 collapse, before `b014c26c`, in commits `5f6b8cee`, `2f748dac`,
+  `49b372e9`, `be22279c`, `fbd4a7b2`, `c1ed7d74`, `d2df670f` and `2d86d703`. The
+  cherry-picked originals exist only on `backup-exp3-preclean`. The content of
+  each change is public, because the cherry-pick commit carries it; only the
+  original commit objects and their timestamps are not.
+* **Live documents:** none cites a non-public commit as inspectable, apart from
+  this file, which names them as unpublished. CI checks this with
+  `python scripts/reconstruct_history_map.py --check`. Four citations in frozen
+  or historical research-record documents name `e733daa8` (this branch's tip) or
+  `49e61d5f`; they resolve only after the branch is published.
+
+Publishing `backup-exp3-preclean` as an archival branch (above) would make the
+remaining 8 references resolvable. It is for historical reconstruction only and
+is not an active research line.
 
 ## Branches
 
@@ -75,7 +100,7 @@ committed.
 | `exp3` (`e162d24b`) | divergent pre-collapse Experiment 3 history. It is the only public home of `exp3-frozen-v1`'s commit and of `ddf86518` (the Exp 2B matched-start confirmation rule) | public, archival |
 | `exp3-clean` (`63249104`) | condensed Experiment 3 line, an ancestor of `master`. `docs/research-record/exp3/HISTORY_NOTE.md` records an earlier tip, `c875fa66`, an ancestor of `63249104` | deleted from GitHub 2026-10-05 |
 | `frombundle` (`884dd4cb`) | transport branch from a bundle hand-off, an ancestor of `master` | deleted from GitHub 2026-10-05 |
-| `backup-exp3-preclean` (`e733daa8`) | pre-collapse Exp 3 working history | local only (see above) |
+| `backup-exp3-preclean` (`e733daa8`) | pre-collapse Exp 3 working history; archival only, for provenance reconstruction | local only; publishing needs `git push origin backup-exp3-preclean` from the author's clone (see above) |
 
 ## Frozen state vs post-freeze work
 
@@ -93,21 +118,72 @@ or `src/cota_opt` behaviour. Each framing correction is logged in
 as errata, for example `experiments/exp2/EXPERIMENT2_CLOSEOUT_ERRATA.md` and
 `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md`.
 
-## Report verification
+## Container image
 
-`scripts/verify_report_claims.py` checks the report's headline numbers against
-their artifacts. It also checks that the figure manifest's input hashes match
-the current files. Status at the cleanup's start: 65/65 claims, figures OK.
+`Dockerfile` (base `python:3.11.15-slim-bookworm`, installs `requirements-lock.txt`).
+**Not built.** On 2026-10-05 a Docker daemon was started in the development
+sandbox, but pulling the base image from `registry-1.docker.io` was refused by
+the sandbox's egress policy (HTTP 403). The policy was not routed around. The
+image build and the in-image checks (tests, claim verifier, figure check, CLI,
+path-reference check, smoke reproduction) remain to be run on a machine with
+Docker Hub access.
 
-`python scripts/verify_report_claims.py --write-numbers` regenerates
-`docs/report/REPORT_NUMBERS.json`: every checked value, the artifacts it was
-computed from, and the share of the report's numeric text that is checked. The
-verifier fails when that file is stale. Only part of the report's numeric
-text is machine-checked; the verifier prints the current share, and
-`REPORT_NUMBERS.json → coverage` records it.
+## Report and public-number verification
 
-CI (`.github/workflows/ci.yml`) runs the tests, this verifier, the figure
-check, a CLI/import smoke test and the path-reference and MOVES checks on a
-checkout with no raw data. The three tests that need the registered raw data
-are marked slow and, run without `-m "not slow"` as CI does, skip with the
-reason prefix `EXTERNAL_DATA_UNAVAILABLE`.
+`scripts/verify_report_claims.py` checks numbers in the report, README and
+briefs against their artifacts, and checks that the figure manifest's input
+hashes match the current files. `--write-numbers` regenerates
+`docs/report/REPORT_NUMBERS.json`, which records every checked value and the
+artifacts it was computed from. The verifier fails when that file is stale.
+Status: 65/65 claims at the start of the cleanup; see the verifier output for
+the current count.
+
+**Release gate (revised 2026-10-05):** every decision-relevant scientific
+numerical claim in public-facing documents is machine-traceable to committed
+evidence. It is not 100% of numeric tokens.
+
+* **How it is enforced:** `scripts/audit_public_numbers.py --check` (in CI)
+  classifies every number in the priority sections and fails if any is
+  neither machine-checked nor explicitly classified.
+  * The priority sections are the abstract and highlights; the report's
+    summary table, limitations table, retraction table and conclusion; the
+    README's headline, results and limitations; and both briefs.
+  * The classes for numbers that are not machine-checked are in
+    `docs/report/NUMBER_CLASSIFICATION.yaml`: configuration constant, design
+    count, retracted value, descriptive, or "traced". A traced number is
+    scientific and has a named source, but is not yet machine-checked.
+* **Status:** the gate passes. The script prints how many priority-section
+  numbers are machine-checked and how many are only traced. The traced ones
+  sit almost entirely in the limitations and retraction tables.
+* **Coverage outside the priority sections:** report §5–§6 and
+  `docs/FINDINGS.md` are reported, not gated.
+* **Finding:** the audit found one rounding error in a frozen closeout, Exp 5
+  errata E1 (`docs/REPORTING_CORRECTIONS.md` C21).
+
+## Calibration, validation and data interfaces
+
+* `docs/CALIBRATION.md`: the calibration register, with a generated Exp 7
+  sensitivity table.
+* `config/model_status.yaml`: calibration status (uncalibrated) and the four
+  validation statuses (all `unavailable`). It is stamped into release-generated
+  artifacts and the briefs; frozen artifacts are not retrofitted.
+* `cota-opt validate-model`: external validation on four independent
+  dimensions, with an acceptance test.
+* `docs/DATA_INTERFACES.md`: per-input substitution support, including the OD
+  demand adapter.
+
+## CI
+
+`.github/workflows/ci.yml` runs on a checkout with no raw data:
+
+* the tests;
+* the claim verifier;
+* the figure check;
+* a CLI/import smoke test;
+* the path-reference, MOVES, SUPERSEDED-locations and commit-citation checks;
+* the Exp 3 closure verifier;
+* the model-status, calibration-table and public-number gates.
+
+The three tests that need the registered raw data are marked slow and, run
+without `-m "not slow"` as CI does, skip with the reason prefix
+`EXTERNAL_DATA_UNAVAILABLE`.

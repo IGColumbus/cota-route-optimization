@@ -1,0 +1,24 @@
+# External validation setup for `cota-opt validate-model` (docs/DATA_INTERFACES.md,
+# "Validation observations"). Set thresholds BEFORE running: a dimension without a
+# threshold, without observed data, or without a modeled counterpart reports
+# `unavailable`, never `passed`. There is no overall "validated" result.
+#
+# Observed files (paths relative to the repository root; null = not supplied):
+#   route_volume       CSV: route_id, boardings          (weekday boardings per route)
+#   stop_pattern       CSV: stop_id, boardings, alightings
+#   transfer_behavior  CSV: metric, value                (metric = transfer_rate: transfers per linked trip)
+#   trip_length        CSV: bin_upper_min, share         (share of linked trips by in-vehicle time bin)
+observed:
+  route_volume: null
+  stop_pattern: null
+  transfer_behavior: null
+  trip_length: null
+thresholds:
+  # route volume: percent RMSE of modeled vs observed route boardings, over routes in both
+  route_volume_max_pct_rmse: null
+  # stop pattern: percent RMSE of stop boardings
+  stop_pattern_max_pct_rmse: null
+  # transfer behavior: absolute difference in transfers per linked trip
+  transfer_rate_max_abs_diff: null
+  # trip length: maximum absolute difference in cumulative share across bins
+  trip_length_max_ks: null

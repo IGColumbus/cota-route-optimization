@@ -1120,17 +1120,653 @@
    "documents": [
     "docs/report/TECHNICAL_REPORT.md"
    ]
+  },
+  {
+   "written": "+3.3%",
+   "decimals": 1,
+   "artifact_value": 3.299058567,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "README.md"
+   ]
+  },
+  {
+   "written": "6.65%",
+   "decimals": 2,
+   "artifact_value": 6.651987702,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "README.md"
+   ]
+  },
+  {
+   "written": "0.88%",
+   "decimals": 2,
+   "artifact_value": 0.878238775,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": [
+    "README.md"
+   ]
+  },
+  {
+   "written": "67% of that total",
+   "decimals": 0,
+   "artifact_value": 66.842491866,
+   "sources": [
+    "outputs/exp1_baseline_modelB.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "33% unserved",
+   "decimals": 0,
+   "artifact_value": 33.157508134,
+   "sources": [
+    "outputs/exp1_baseline_modelB.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "44 pre-specified",
+   "decimals": 0,
+   "artifact_value": 44.0,
+   "sources": [
+    "outputs/exp7/EXP7_LEVELS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "−1.9% to −7.0%",
+   "decimals": 1,
+   "artifact_value": -1.897450589,
+   "sources": [
+    "outputs/exp7/EXP7_CLOSEOUT_TABLE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "to −7.0%",
+   "decimals": 1,
+   "artifact_value": -6.998293248,
+   "sources": [
+    "outputs/exp7/EXP7_CLOSEOUT_TABLE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "−1.897%",
+   "decimals": 3,
+   "artifact_value": -1.897450589,
+   "sources": [
+    "outputs/exp7/EXP7_CLOSEOUT_TABLE.json"
+   ],
+   "documents": []
+  },
+  {
+   "written": "12 through-routing",
+   "decimals": 0,
+   "artifact_value": 12.0,
+   "sources": [
+    "outputs/exp2_candidate_classes.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "the 0.287",
+   "decimals": 3,
+   "artifact_value": 0.2871,
+   "sources": [
+    "outputs/exp2_summary.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "240-set",
+   "decimals": 0,
+   "artifact_value": 240.0,
+   "sources": [
+    "outputs/exp2_summary.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "29 seed-distinguishable",
+   "decimals": 0,
+   "artifact_value": 29.0,
+   "sources": [
+    "outputs/exp3/escalation_report.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "0.01–0.19%",
+   "decimals": 2,
+   "artifact_value": 0.009566653,
+   "sources": [
+    "outputs/exp3/escalation_report.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "at most 0.19%",
+   "decimals": 2,
+   "artifact_value": 0.186565132,
+   "sources": [
+    "outputs/exp3/escalation_report.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "−0.18657%",
+   "decimals": 5,
+   "artifact_value": -0.186565132,
+   "sources": [
+    "outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json"
+   ],
+   "documents": [
+    "README.md"
+   ]
+  },
+  {
+   "written": "−0.19%",
+   "decimals": 2,
+   "artifact_value": -0.186565132,
+   "sources": [
+    "outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "200 promoted",
+   "decimals": 0,
+   "artifact_value": 200.0,
+   "sources": [
+    "outputs/exp4_normalized/EXP4N_RANKING.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "8.5–9.7%",
+   "decimals": 1,
+   "artifact_value": 8.547370233,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "–9.7%",
+   "decimals": 1,
+   "artifact_value": 9.659,
+   "sources": [
+    "outputs/CANONICAL_RESULTS_v5.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "36.7%",
+   "decimals": 1,
+   "artifact_value": 36.663316583,
+   "sources": [
+    "outputs/exp4_normalized/EXP4N_RANKING.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "0–0.91%",
+   "decimals": 0,
+   "artifact_value": 0.0,
+   "sources": [
+    "outputs/exp6/EXP6_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "–0.91%",
+   "decimals": 2,
+   "artifact_value": 0.911818085,
+   "sources": [
+    "outputs/exp6/EXP6_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "0–0.63%",
+   "decimals": 0,
+   "artifact_value": 0.0,
+   "sources": [
+    "outputs/exp6/EXP6_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "+0.91%",
+   "decimals": 2,
+   "artifact_value": 0.911818085,
+   "sources": [
+    "outputs/exp6/EXP6_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "0 to +0.912%",
+   "decimals": 0,
+   "artifact_value": 0.0,
+   "sources": [
+    "outputs/exp6/EXP6_ANALYSIS.json"
+   ],
+   "documents": []
+  },
+  {
+   "written": "0.16% apart",
+   "decimals": 2,
+   "artifact_value": 0.16120832,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "give −5.4%",
+   "decimals": 1,
+   "artifact_value": -5.428277467,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md",
+    "README.md"
+   ]
+  },
+  {
+   "written": "+0.56%",
+   "decimals": 2,
+   "artifact_value": 0.564806372,
+   "sources": [
+    "outputs/exp5/EXP5_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+2.04%",
+   "decimals": 2,
+   "artifact_value": 2.04495877,
+   "sources": [
+    "outputs/exp5/EXP5_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "0.56–2.04%",
+   "decimals": 2,
+   "artifact_value": 0.564806372,
+   "sources": [
+    "outputs/exp5/EXP5_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/FINDINGS.md"
+   ]
+  },
+  {
+   "written": "1.70%",
+   "decimals": 2,
+   "artifact_value": 1.703418319,
+   "sources": [
+    "outputs/exp5/EXP5_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "of 2,516",
+   "decimals": 0,
+   "artifact_value": 2515.535126725,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "README.md"
+   ]
+  },
+  {
+   "written": "19% of route-periods",
+   "decimals": 0,
+   "artifact_value": 19.075144509,
+   "sources": [
+    "outputs/canonical/exp1_final.json"
+   ],
+   "documents": []
+  },
+  {
+   "written": "−2.1% to −7.0%",
+   "decimals": 1,
+   "artifact_value": -2.140672279,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "698 and 753",
+   "decimals": 0,
+   "artifact_value": 697.68722794,
+   "sources": [
+    "outputs/exp7/stage1/evals/N0/A1_NC025.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC050.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC100.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT01.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT02.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT03.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT04.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT05.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT06.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT07.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT08.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT09.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT10.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT11.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT12.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT13.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT14.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT15.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT16.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT17.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT18.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT19.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT20.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT110.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT120.json",
+    "outputs/exp7/stage1/evals/N0/A3_RTNOISE.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM1.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM4.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP050.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP200.json",
+    "outputs/exp7/stage1/evals/N0/A6_MAXWALK75.json",
+    "outputs/exp7/stage1/evals/N0/A6_WALKSPD85.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM01.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM02.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM03.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM04.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM05.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM06.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM07.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM08.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM09.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM10.json",
+    "outputs/exp7/stage1/evals/N0/A8_FLOOR0.json",
+    "outputs/exp7/stage1/evals/N0/A8_ZERO150.json",
+    "outputs/exp7/stage1/evals/N0/B1_COMMONLINES.json",
+    "outputs/exp7/stage1/evals/N0/BASE.json",
+    "outputs/exp7/stage1/evals/N0/X_ROUNDS4.json",
+    "outputs/exp7/stage1/evals/N0/X_TOPK40K.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "and 753 trips",
+   "decimals": 0,
+   "artifact_value": 752.791052024,
+   "sources": [
+    "outputs/exp7/stage1/evals/N0/A1_NC025.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC050.json",
+    "outputs/exp7/stage1/evals/N0/A1_NC100.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT01.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT02.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT03.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT04.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT05.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT06.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT07.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT08.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT09.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT10.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT11.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT12.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT13.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT14.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT15.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT16.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT17.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT18.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT19.json",
+    "outputs/exp7/stage1/evals/N0/A2_BOOT20.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT110.json",
+    "outputs/exp7/stage1/evals/N0/A3_RT120.json",
+    "outputs/exp7/stage1/evals/N0/A3_RTNOISE.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM1.json",
+    "outputs/exp7/stage1/evals/N0/A5_LAM4.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP050.json",
+    "outputs/exp7/stage1/evals/N0/A5_TP200.json",
+    "outputs/exp7/stage1/evals/N0/A6_MAXWALK75.json",
+    "outputs/exp7/stage1/evals/N0/A6_WALKSPD85.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM01.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM02.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM03.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM04.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM05.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM06.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM07.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM08.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM09.json",
+    "outputs/exp7/stage1/evals/N0/A7_RM10.json",
+    "outputs/exp7/stage1/evals/N0/A8_FLOOR0.json",
+    "outputs/exp7/stage1/evals/N0/A8_ZERO150.json",
+    "outputs/exp7/stage1/evals/N0/B1_COMMONLINES.json",
+    "outputs/exp7/stage1/evals/N0/BASE.json",
+    "outputs/exp7/stage1/evals/N0/X_ROUNDS4.json",
+    "outputs/exp7/stage1/evals/N0/X_TOPK40K.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "(0.415",
+   "decimals": 3,
+   "artifact_value": 0.414958701,
+   "sources": [
+    "outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "0.685",
+   "decimals": 3,
+   "artifact_value": 0.68501604,
+   "sources": [
+    "outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+0.09% unserved",
+   "decimals": 2,
+   "artifact_value": 0.090164421,
+   "sources": [
+    "outputs/exp2b_certification.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "+0.0065% unserved",
+   "decimals": 4,
+   "artifact_value": 0.006484242,
+   "sources": [
+    "outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "keeps 64% of riders",
+   "decimals": 0,
+   "artifact_value": 64.0,
+   "sources": [
+    "config/assumptions.yaml"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "and 10% beyond",
+   "decimals": 0,
+   "artifact_value": 10.0,
+   "sources": [
+    "config/assumptions.yaml"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "(−5.4% versus",
+   "decimals": 1,
+   "artifact_value": -5.428277467,
+   "sources": [
+    "outputs/exp7/EXP7_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/PUBLIC_BRIEF.md"
+   ]
+  },
+  {
+   "written": "(139 route-periods",
+   "decimals": 0,
+   "artifact_value": 139.0,
+   "sources": [
+    "outputs/exp7/EXP7_F1_DECISION_SPACE.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "by 17.8–22.7%",
+   "decimals": 1,
+   "artifact_value": 17.755990724,
+   "sources": [
+    "outputs/exp5/EXP5_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "–22.7% (N0)",
+   "decimals": 1,
+   "artifact_value": 22.692159402,
+   "sources": [
+    "outputs/exp5/EXP5_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "and 45.6–47.0% (N4)",
+   "decimals": 1,
+   "artifact_value": 45.570515158,
+   "sources": [
+    "outputs/exp5/EXP5_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
+  },
+  {
+   "written": "–47.0% (N4)",
+   "decimals": 1,
+   "artifact_value": 46.976595233,
+   "sources": [
+    "outputs/exp5/EXP5_ANALYSIS.json"
+   ],
+   "documents": [
+    "docs/report/TECHNICAL_REPORT.md"
+   ]
   }
  ],
  "coverage": {
-  "numeric_tokens": 926,
-  "artifact_checked_tokens": 329,
-  "unchecked_distinct": 322,
+  "numeric_tokens": 929,
+  "artifact_checked_tokens": 478,
+  "unchecked_distinct": 280,
   "unchecked_examples": [
-   "+0.0065%",
    "+0.007%",
    "+0.060%",
-   "+0.09%",
    "+0.124",
    "+0.146%",
    "+0.160%",
@@ -1160,7 +1796,6 @@
    "+0.575%",
    "+0.633%",
    "+0.671%",
-   "+0.91%",
    "+0.967%",
    "+1.24%",
    "+1.49%",
@@ -1183,10 +1818,13 @@
    "0.0018",
    "0.0019%",
    "0.0024%",
-   "0.006",
    "0.009",
-   "0.01",
-   "0.0147%"
+   "0.0147%",
+   "0.02",
+   "0.03",
+   "0.03%",
+   "0.04",
+   "0.064"
   ]
  }
 }

@@ -27,8 +27,9 @@ not affiliated with or endorsed by COTA.
   `outputs/figures` are pre-Model-B and are not used.
 * **Not submission-ready.** Apache-2.0 code licensing is present (`LICENSE`;
   documentation, report and figures CC BY 4.0, `LICENSES/CC-BY-4.0.txt`).
-  `CITATION.cff` and the source terms in `config/sources.yaml` are present.
-  The canonical-envelope units sidecar is pending.
+  `CITATION.cff`, the source terms in `config/sources.yaml` and the
+  canonical-envelope units sidecar (`outputs/CANONICAL_ENVELOPE.units.json`)
+  are present.
 * The abstract (≤ 250 words), highlights and keywords follow typical
   journal norms for this field; the target journal's limits are to be
   confirmed at submission.
@@ -36,8 +37,9 @@ not affiliated with or endorsed by COTA.
   `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md` conflict, the errata wins.
 * Outline: §§1–11, Data and code availability, References, plus Appendices
   A–C (Appendix C covers only the Exp 7 amendment sequence); the guideline appendices (decision log →
-  `docs/research-record/DISCOVERIES.md`, protocol amendments, superseded-artifact index,
-  calibration register) are pending release work.
+  `docs/research-record/DISCOVERIES.md`, protocol amendments, superseded-artifact index
+  `outputs/SUPERSEDED.md`, calibration register `docs/CALIBRATION.md`) are kept as
+  separate documents rather than appended here.
 
 > **Model status**
 >
@@ -82,7 +84,7 @@ effect sizes are not formally comparable.
 | Through-routing splices (Exp 2 / 2B) | leader +0.090% unserved demand, +0.054% of the objective under matched starts: worse than no edit | not distinguishable from zero at certification effort (Exp 2B floor); single-splice harm verdicts are mostly ranking-effort (§5.2) | The 240-set sweep is discovery-stage; the 0.287-percentage-point floor is an incumbent-start replicate spread (§5.2) |
 | Route mutation (Exp 3) | 29 seed-distinguishable improvements of 0.01–0.19% of the objective; leader adds a stop on route 010, −0.19% (model result; not a recommendation) | seed-distinguishable; the leader at 20 restarts only | Within its own Exp 7 sensitivity range; add_stop runtime cost rests on an unvalidated regression intercept (§5.3, §8) |
 | Greenfield network design (Exp 4 / 4N / 4A) | N4, the best of the 200 promoted and certified greenfield candidates, is +8.55% to +9.66% of N3's objective (worse); the best of all 2,000 generated is not identified | firewall-admitted; single basin to closed | Path model fits N4 worse; cross-route common lines omitted; equal proxy budgets need not be equal fleets; leader not identified (§5.4) |
-| Operating resources (Exp 5) | N0: cutting hours to 90% costs +0.57% of the objective; more peak proxy at fixed hours helps with diminishing returns | `EXP5_MONOTONICITY_FAILURE` (on N4); N0 monotone, informative | Start-basin dependence ≥ 1.70% on N4; the proxy is not a vehicle count (§5.5) |
+| Operating resources (Exp 5) | N0: cutting hours to 90% costs +0.56% of the objective; more peak proxy at fixed hours helps with diminishing returns | `EXP5_MONOTONICITY_FAILURE` (on N4); N0 monotone, informative | Start-basin dependence ≥ 1.70% on N4; the proxy is not a vehicle count (§5.5) |
 | Study safeguards (Exp 6) | 0 to +0.91% of the objective on N0, 0 to +0.63% on N3; 20-min headway floor infeasible on N3 under the modeled envelope | block-local certified with basin closure | The zero prices are caps that do not bind at the pricing reference plan; against the best-known REF plan they would bind. Prices are basin-dependent at about 0.1–0.16 percentage points (§5.6) |
 
 > Holding modeled operating resources approximately constant, how do frequency
@@ -804,7 +806,8 @@ percentage of the EXP4N envelope (e.g. J100 is the envelope itself).
   monotone.
   * Both axes bind at today's levels.
   * Above 100%, only the peak proxy binds: extra hours alone change nothing.
-  * Cutting hours costs +0.57% (to 90%) and +2.05% (to 75%) of the objective.
+  * Cutting hours costs +0.56% (to 90%) and +2.04% (to 75%) of the objective
+    (Exp 5 errata E1; the closeout over-rounded to +0.57% and +2.05%).
   * Adding peak-proxy capacity with hours fixed helps, with diminishing
     returns: −0.74%, −0.94% and −1.48% at 110%, 125% and 150%.
 * **N4 is worse than N0 at all 16 cells**, by 8.07–11.59% of N0's objective at
@@ -1327,8 +1330,11 @@ mislabel and the superseded 2B magnitude) were found by audits outside it.
   their captions; `docs/report/figures/FIGURES_MANIFEST.json` records each
   input's sha256, and `scripts/verify_report_claims.py` checks them.
 * **Reproduction:** `docs/REPRODUCE.md`. Runs were made in a two-core
-  container. Per-experiment runtimes are in the closeouts. The one-command
-  reproduction and the pinned environment are pending release work.
+  container. Per-experiment runtimes are in the closeouts. The pinned
+  environment is `requirements-lock.txt`. `cota-opt reproduce exp1 [--smoke]`
+  rebuilds and checks Experiment 1 from a clean checkout. `docs/REPRODUCE.md`
+  tabulates the reproduction evidence each experiment has: full for Exp 1,
+  verification or artifact checks for the rest.
 
 ## References
 

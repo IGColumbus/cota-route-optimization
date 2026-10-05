@@ -3,9 +3,33 @@
 *A draft prepared 2026-09-28; the Exp 6 section was updated 2026-09-29 to the
 frozen scripts. Each command below was checked to exist in `scripts/` with the
 stated arguments, by reading its argparse block or docstring. Executed from a
-clean checkout on 2026-10-05: the Experiment 1 smoke reproduction (below), the
-§0 setup and data commands, and the Experiment 3 verification commands. The
-other experiments' commands have not been re-run for this document.*
+clean checkout on 2026-10-05: the §0 setup and data commands, the Experiment 1
+smoke and full reproductions, and the Experiment 3 verification commands. The
+other experiments' commands have not been re-run for this document; see the
+evidence table below.*
+
+## Reproduction evidence by experiment
+
+What has actually been run from a clean checkout, as of 2026-10-05. "Reproduced"
+means re-computed and compared; "verified" means committed artifacts were
+re-checked without re-computing the experiment.
+
+| experiment | clean-checkout evidence | level |
+|---|---|---|
+| Exp 1 | `cota-opt reproduce exp1 --smoke` (instance rebuilt, three certified plans re-evaluated, bit-exact) and `cota-opt reproduce exp1` (three seeds re-solved at 400,000 × 20; result in "Recorded reproduction" below) | **full** |
+| Exp 2 / 2B | headline numbers re-checked against artifacts (`scripts/verify_report_claims.py`); no candidate re-solved | artifact-verified (not reproduced) |
+| Exp 3 | `scripts/exp3_verify_closure.py` recomputes every number in the closure from the committed JSON; `scripts/gen1_freeze.py --verify` re-hashes the Gen1 freeze manifest. `scripts/exp3_freeze.py --verify` fails for a known, pre-freeze reason (below) | verification (not reproduced) |
+| Exp 4 / 4N / 4A | headline numbers re-checked against `EXP4N_RANKING.json`, `DELTA43.json` and the diagnostics; no leader re-solved | artifact-verified (not reproduced) |
+| Exp 5 | headline numbers re-checked against `EXP5_ANALYSIS.json` (one rounding erratum found: Exp 5 errata E1); no cell re-solved | artifact-verified (not reproduced) |
+| Exp 6 | prices re-checked against `EXP6_ANALYSIS.json`; no cell or sentinel re-run | artifact-verified (not reproduced) |
+| Exp 7 | F1–F6 values re-checked against the Stage 1/2 analyses and the decision-space artifact; report figures regenerated from artifacts (`make_report_figures.py --check`); no cell re-run | artifact-verified (not reproduced) |
+
+Historical, same-container evidence also exists for Experiments 4–7: order
+sentinels, reproduction gates and bit-exact Stage 1 BASE reproductions,
+recorded in each experiment's artifacts. It was produced when the experiments
+ran, not from a clean checkout, and is not counted above. Nothing here shows
+cross-machine reproduction: every run was on the same Linux x86_64 container
+type.
 
 ## 0. Setup common to every experiment
 
@@ -13,8 +37,8 @@ other experiments' commands have not been re-run for this document.*
 # Pinned environment (versions from docs/research-record/ENVIRONMENT_AT_FREEZE.txt):
 pip install -r requirements-lock.txt && pip install --no-deps -e .
 # or, unpinned: pip install -e ".[dev]"
-# or, in a container: docker build -t cota-opt .   (Dockerfile; the image build
-#   itself has not been tested, because the development sandbox has no Docker)
+# or, in a container: docker build -t cota-opt .   (Dockerfile; not yet built:
+#   the development sandbox cannot pull the python base image, docs/RELEASE_PROVENANCE.md)
 # Raw public inputs are gitignored; they must be staged under data/raw/
 # (cota_gtfs_static, lodes_od_oh, lodes_rac_oh, lodes_wac_oh, cenpop_bg_oh)
 # through the registry. Each file must match the sha256 in config/sources.yaml.
@@ -24,7 +48,12 @@ cota-opt data register cota_gtfs_static path/to/cota.gtfs.zip   # or register a 
 # COTA's URL serves its current feed; the study's feed_version is
 # 2026-MAY-04-BB_20260630, and no public archive of that file exists yet.
 python -m cota_opt.cli validate
-python -m cota_opt.cli baseline          # first build, then cached in data/cache/
+cota-opt run-script scripts/<name>.py [args]   # how to run every research script below:
+#   the frozen code reads RAC/WAC/centroid files from a hard-coded container
+#   folder (/mnt/user-data/uploads/Downloads); run-script redirects those paths
+#   to the registered data/raw/ files. `python scripts/<name>.py` works only
+#   where that folder exists.
+python -m cota_opt.cli baseline          # schedule statistics; first build, then cached in data/cache/
 python -m pytest -rs -m "not slow"       # fast suite; runs without raw data
 python -m pytest -rs                     # full suite; the slow tests need data/raw and take minutes
 ```
@@ -65,7 +94,14 @@ solves took 2,829–3,008 s each (`outputs/seedcheck_modelB.jsonl → seconds`).
   * a fresh `git clone` of the repository;
   * a fresh venv from `requirements-lock.txt` (Python 3.11.15, numpy 2.4.4, scipy-openblas 0.3.31);
   * `PYTHONHASHSEED=0` and BLAS/OMP threads set to 1;
-  * only the five registered raw files copied into `data/raw/`, with sha256 matching `config/sources.yaml`;
+  * the five registered raw files copied into `data/raw/`, with sha256 matching `config/sources.yaml`;
+  * **correction (found later the same day):** the frozen harness also read the
+    RAC, WAC and centroid files from the container's upload folder
+    (`cota_opt.harness.DEMAND_FILES`, a hard-coded path), not from
+    `data/raw/`. The bytes are identical (same sha256), so the result stands,
+    but the run was not as self-contained as stated. Release tooling now
+    points the harness at the registered files (`9bdb530b`), and the full
+    reproduction below ran with that folder hidden;
   * an empty `data/cache/`.
 * **Host:** the same Linux x86_64 development container that produced the late-stage artifacts. This is a clean checkout and environment, not a different machine. Cross-platform drift is still uncharacterized.
 * **Runtime:** 42 min 42 s cold (path-set and baseline builds, one core while another job ran), then about 1 s with the cache warm.
