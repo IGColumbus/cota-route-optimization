@@ -152,8 +152,9 @@ network beats Experiment 3's leader. EXP4N never ran that comparison. Run under
 the identical EXP4N certification contract (`EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md`):
 
 > obj(N4) − obj(N3) = **+283,973 (+9.66% of N3)**. Lower is better, so the
-> greenfield leader is **worse**. It serves **31.5% fewer** modeled trips on the
-> same hours and peak proxy. Firewall-admitted; only network fields differ.
+> greenfield leader is **worse**. Firewall-admitted; only network fields differ.
+> (No served-trip comparison is quoted: Experiment 7 showed served demand is not
+> identified once service can be switched off.)
 
 The pipeline first reproduced EXP4N's N4 bit-exactly. The result is conditional
 on the path model, which fits N4 much worse, and on the same-route waiting
@@ -469,3 +470,23 @@ candidate exists. `DISCOVERIES.md` is the research diary and keeps every path
 taken, including the wrong ones; this README describes what we currently
 believe, which is a much shorter list. `STATE_OF_PLAY.md` is the long-form
 current state.
+
+## License and data terms
+
+Copyright 2026 Ian Gregory. The code is licensed under the Apache License,
+Version 2.0 (`LICENSE`). Documentation, the technical report and its figures are
+licensed under CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+
+The licences cover this project's own work, not the source data. Files derived
+from external data keep their sources' terms:
+
+* **COTA GTFS** (cota.com/data). COTA grants a non-exclusive, limited and
+  revocable right to use, reproduce and redistribute its data, as is. COTA
+  keeps ownership. COTA trademarks may not be used in association with the
+  data.
+* **LEHD LODES and NTD.** These are US federal government works.
+
+This project is independent of COTA. It is not affiliated with or endorsed by
+COTA, and nothing here is COTA policy or a recommendation to COTA. This is a
+summary, not legal advice. `config/sources.yaml` records the COTA and NTD terms;
+the LODES entries do not yet carry a terms field.

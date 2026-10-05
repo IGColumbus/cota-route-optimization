@@ -46,13 +46,13 @@
 
 ## Abstract
 
-We estimate how far changes to service frequency, stop placement, route geometry and whole-network design could reduce a λ-weighted sum of passenger generalized cost and modeled unserved demand on the Central Ohio Transit Authority's (COTA) weekday bus network, holding revenue vehicle-hours and a peak-concurrency proxy fixed. The model assigns LEHD LODES commute flows, scaled to an NTD-derived weekday total, to enumerated paths on the GTFS schedule, with an uncalibrated retention curve; at the current timetable it serves 67% of that total. At λ = 2, reallocating frequencies reduces modeled unserved demand by 6.65% (solver seed SD 0.06 points) and the objective by 2.21%, while total generalized cost rises 0.88%. Through-routing splices give no gain: the best of 12 is slightly worse than no edit under matched solver starts. Route mutation yields 29 seed-distinguishable improvements of 0.01–0.19% of the objective; the leader, an added stop certified at 20 restarts, lies within its own sensitivity range. The best of 200 certified greenfield networks (of 2,000 generated) is 8.5–9.7% worse than the mutated existing network, conditional on path and waiting models that both fit it less well. Study safeguards cost 0–0.91%. Across 44 preregistered perturbations the certified frequency plans keep their sign (−1.9% to −7.0%); when re-optimization may switch service off, the objective no longer identifies unserved demand. Two methodological lessons are likely to transfer: compare at matched convergence, not matched nominal effort; and a resource cap drawn from each candidate's own baseline ranks budgets, not designs (36.7% of pairwise orderings inverted).
+We estimate how far changes to service frequency, stop placement, route geometry and whole-network design could reduce a λ-weighted sum of generalized cost and modeled unserved demand on the Central Ohio Transit Authority's (COTA) weekday bus network at fixed revenue vehicle-hours and peak-concurrency proxy. The model assigns LEHD LODES commute flows, scaled to an NTD-derived weekday total, to enumerated paths on the GTFS schedule, with an uncalibrated retention curve; the current timetable serves 67% of that total. At λ = 2, reallocating frequency within existing routes serves about 680 more modeled weekday trips at fixed vehicle-hours (+3.3% served; 2.2% of modeled demand). Under 44 preregistered perturbations the fixed plans' gain stays positive (316–970 trips; unserved −1.9% to −7.0%). Unserved demand falls 6.65% and the objective 2.21%; total generalized cost rises 0.88%. The best of 12 through-routing splices is slightly worse than no edit under matched starts. Route mutation yields 29 seed-distinguishable improvements of 0.01–0.19% of the objective; the leader, an added stop certified at 20 restarts, lies within its own sensitivity range. The best of 200 certified greenfield networks (of 2,000 generated) is 8.5–9.7% worse than the mutated existing network, conditional on path and waiting models that fit it less well. Study safeguards cost 0–0.91%. When re-optimization may switch service off, the objective no longer identifies unserved demand. Two methodological lessons are likely to transfer: compare at matched convergence, not nominal effort; and caps drawn from each candidate's own baseline rank budgets, not designs (36.7% of pairwise orderings inverted).
 
 **Highlights**
 
-* Frequency reallocation cut modeled unserved demand 6.65% at fixed resources
-* Through-routing and added stops gave little or no gain; greenfield was worse
-* The best of 200 certified greenfield networks was 8.5–9.7% worse
+* Frequency reallocation served ~680 more modeled weekday trips at fixed hours
+* The gain stayed positive under all 44 perturbations tested (316–970 trips)
+* Through-routing and stop edits gave ≤0.19%; greenfield designs were 8.5–9.7% worse
 * Unmatched convergence and solver starts produced a spurious 0.5% gain
 * Self-drawn resource caps inverted 36.7% of pairwise network rankings
 
@@ -496,6 +496,19 @@ Objective row computed from `exp1_baseline_modelB.json → baseline_gc,
 baseline_unserved` and `exp1_final.json → headline` means (linear); the λ = 2
 frontier run gives −2.213%.
 
+**In trips.** The three seed plans serve 677, 690 and 680 more modeled weekday
+trips than the current plan (mean 682: +3.30% served, 2.2% of the 30,949
+modeled trips; `seedcheck_modelB.jsonl → served_change_pct` ×
+`exp1_baseline_modelB.json → baseline_served`). The seed SD in the table
+measures search noise: how much the result depends on the solver's random seed
+with data and assumptions held fixed. It is not uncertainty about the effect;
+§6 (perturbations) and §8 (limitations) address that. Evaluated as fixed plans
+in the Exp 6/7 model instance, where the gain at BASE is 628 trips, the 44
+Class A perturbations give 316 trips (shorter walking radii, §10) to 970
+(non-commute demand +100%, which doubles total demand); at the 41 levels that
+keep total demand at 30,949, 316–760 (`outputs/exp7/stage1/evals/N0/*.json →
+rows`).
+
 * In modeled trips, at the λ = 2 frontier point, unserved demand falls from
   10,262 to 9,583 and served trips rise from 20,687 to 21,366 (of 30,949).
   (This is the single λ = 2 frontier run, −6.60%; the three-seed headline mean
@@ -567,7 +580,10 @@ no route carries more than half the unit's change; bands, never headways.
 `outputs/seedcheck_modelB.jsonl` (cells `seed2026082{5,6,7}|lam2.0|r2`), commit
 `f1a05645`; current plan and route shapes from the registered GTFS feed via
 `cota_opt.baseline`; network N0; evaluator Model B. Scheduled estimates, not
-operated service. Data: `figures/fig2_exp1_change_map.csv`.
+operated service. Two untested assumptions bear on this pattern more than on
+F1's sign: the retention knee (60 min, never varied) and cross-route common
+lines, which the waiting model omits where routes overlap downtown (§8.1).
+Data: `figures/fig2_exp1_change_map.csv`.
 
 **Returns in λ plateau.** Past λ = 4, the last 0.15 points of unserved-demand
 reduction (−7.12% → −7.28%) cost 0.25 points of total generalized cost
@@ -1125,16 +1141,17 @@ Ordered by how much each would mislead a study that skipped it.
 | Scheduled ≠ observed | not quantified; reliability (A4) unimplemented | No reliability claim |
 | Physical fleet | Not measured for any modified plan. The Exp 1 plan is NOT MEASURED, and all 32 Exp 5 diagnostic cells are UNDECIDABLE. The blocking materializer misses the plans' own vehicle-hours by 17.8–22.7% (N0) and 45.6–47.0% (N4); deadhead and terminal identity not public | No bus, fleet or deployability claim, including for Exp 1 |
 | Per-route identification | 19.1% route-period disagreement across seeds | Only aggregates are reported |
-| Cross-route common lines | upper bound on served-leg wait saving: 0.516% of GC (N0; am_peak and midday only), 1.16% (N3), 12.47% (N4) (Exp 4A instance, all six periods); not on a common basis; retention effect unmeasured | Overstates waiting where parallel routes overlap. Biases F4 against N4 (Exp 4A: crediting all of N4's bound and none of N3's, 107,248 min, or 93,301 net of both, still leaves Δ43 positive). Not tested by any Exp 7 level, including B1 (R13) |
+| Cross-route common lines | upper bound on served-leg wait saving: 0.516% of GC (N0; am_peak and midday only), 1.16% (N3), 12.47% (N4) (Exp 4A instance, all six periods); not on a common basis; retention effect unmeasured | Overstates waiting where parallel routes overlap. Biases F4 against N4 (Exp 4A: crediting all of N4's bound and none of N3's, 107,248 min, or 93,301 net of both, still leaves Δ43 positive). Not tested by any Exp 7 level, including B1 (R13). With same-route waiting and best-single-path assignment, frequency is mispriced where routes overlap, which is mostly downtown, where Figure 2's cuts are. The direction on that pattern is not established: a bus gets no credit from riders of an overlapping route who could board it (undervaluing it), while each route's own riders are charged the full single-route wait (overvaluing its margin). Bears on the spatial pattern more than on F1's sign |
 | Stop cost | unmeasurable from this feed (−157 s/stop, inverted) | Stop removal and consolidation are credited zero runtime saving, so no consolidation claim. Added stops are timed by observed link times or by the novel-link estimator, whose intercept absorbs dwell and acceleration but is not validated as a stop cost. The bias on add_stop effects, F3 included, has unknown direction |
 | Novel-link runtimes | MAE 17.2 s, aggregate bias +0.41%, median APE 20.5% | Unbiased in aggregate; Exp 7 A3 bounds it |
 | Local, not global, optimality | (8, 3)-block-local; closure fixed points | Better plans may exist in any cell (Exp 6 flat objective) |
 | λ ≤ 1 | uncertified (D15); degenerate under OFF-permitting re-optimization | Quote from λ = 2 upward |
 | Unserved penalty vs retention curve | λ · 60 = 120 min at λ = 2, while the retention curve still keeps 64% of riders at 120 min and 10% beyond its 210-min floor point (`cost_retention_zero_min`) | the objective prefers losing trips the model's own demand curve treats as mostly still made; drives the shedding in §6.2 (post hoc analysis). The share of baseline flow in the exposed band (173.3–210 min at λ = 2) is not recorded, so the size of this construct-validity threat is unquantified |
+| Retention knee | `cost_retention_full_min` = 60 min, the cost at which retention starts to fall, was never varied. A8 moved only the floor (0.10 → 0, A8_FLOOR0) and the zero point (210 → 150 min, A8_ZERO150) | The knee decides which trips count as discouraged, and so where frequency is worth adding. F1's sign held at both A8 levels (698 and 753 trips vs 628 at BASE), but a different knee could move the spatial pattern (Figure 2); untested |
 | Period demand shares | six shares assumed (LODES has no time dimension); period tilt NOT INCLUDED in Exp 7 | unknown; bears directly on where frequency moves by period |
 | Single closure per cell | the only cell closed twice (N0 REF) differs by up to 0.40% in objective and 36 points in F1 across tracks | re-optimized F1, served-trip and GC figures in OFF-permitting cells are basin-dependent; R1 cells not independently re-closed (FUTURE E21) |
 | Stage 2 scope | A5 and A6 only | no re-optimized claim for demand, runtime, route-removal or retention perturbations. A1 (demand) ranked third under the preregistered metric (0.415, vs A6 0.685), so no demand perturbation was re-optimized |
-| Operationalization bounds | A1 commute pairs only; A3 envelope fixed; A6 caps bundled; A8 `full_min` fixed | Exp 7 claims are bounded to these forms. A1 changes demand volume as well as pattern (as issued). At +100%, demand reaches the scale at which D5's no-crowding premise is stated to fail, and crowding is off in that instance |
+| Operationalization bounds | A1 commute pairs only; A3 envelope fixed; A6 caps bundled; A8 `full_min` fixed (see Retention knee) | Exp 7 claims are bounded to these forms. A1 changes demand volume as well as pattern (as issued). At +100%, demand reaches the scale at which D5's no-crowding premise is stated to fail, and crowding is off in that instance |
 
 ## 9. Retractions and protocol amendments
 
@@ -1162,6 +1179,16 @@ Ordered by how much each would mislead a study that skipped it.
 Each assumption above has a defined entry point (`docs/RELEASE_AND_REPORTING_GUIDELINES.md`,
 "Data interfaces"):
 
+* **Walking radii: the first calibration target.** Of the levels that keep
+  total demand fixed, this assumption moves the uplift most. At 450 m access
+  and 300 m transfer walking (A6_MAXWALK75; 600 m and 400 m in the base
+  instance), Stage 1's gain falls from 628 to 316 modeled trips. The 20
+  bootstrap demand draws give 575–616. A6 varied the two radii together, so
+  their separate effects are unknown. On-board survey or fare-card trip
+  chains with stop-level boardings and home or work locations would calibrate
+  them (`path_assignment.access_radius_m`, `walk_radius_m` in
+  `config/assumptions.yaml`).
+
 * **Demand.** A new OD source is a new `odmatrix` constructor. Examples are
   APC-derived OD, fare-card chains, the MORPC regional model and on-board
   surveys.
@@ -1186,8 +1213,9 @@ At COTA's current resources, under a commute-only proxy demand and an
 uncalibrated cost model:
 
 * **Reallocating frequencies inside the existing routes is the one lever that
-  materially reduced modeled unserved demand:** −6.65% in the Exp 1 instance
-  (−6.02% at Exp 7 Stage 1 BASE), −2.21% of the objective.
+  materially helped:** about 680 more modeled weekday trips served at fixed
+  vehicle-hours (+3.3%; unserved −6.65%; −2.21% of the objective) in the Exp 1
+  instance, and 628 at Exp 7 Stage 1 BASE.
 * That result keeps its sign at every implemented Stage 1 level for the
   certified plans (SIGN_ROBUST; magnitude Highly sensitive to walking
   friction). Re-optimized in the closest cell to Experiment 1's rules (R1_H60:

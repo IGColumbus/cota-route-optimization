@@ -85,6 +85,31 @@ def obj_change_lam2():
     return 100 * ((f["gc"] + 120 * f["unserved"]) - base) / base
 
 
+def s1_gains() -> dict:
+    """Stage 1 served-trip gain per level: mean over the three seed plans."""
+    import glob
+    out = {}
+    for f in sorted(glob.glob(str(ROOT / "outputs/exp7/stage1/evals/N0/*.json"))):
+        d = json.loads(Path(f).read_text())
+        rows = d["rows"]
+        b = rows["F1_BASELINE"]["served_demand"]
+        g = [rows[k]["served_demand"] - b for k in rows if k.startswith("F1_PLAN_")]
+        out[d["level"]["name"]] = sum(g) / len(g)
+    return out
+
+
+def class_a(fixed_total: bool = False) -> list[float]:
+    g = s1_gains()
+    keep = ("A2", "A3", "A5", "A6", "A7", "A8") if fixed_total else ("A1", "A2", "A3", "A5", "A6", "A7", "A8")
+    return [v for k, v in g.items() if k.split("_")[0] in keep]
+
+
+def exp1_trip_gain() -> float:
+    b = J("outputs/exp1_baseline_modelB.json")["baseline_served"]
+    return b * exp1()["headline"]["trips_served"]["mean_pct"] / 100
+
+
+
 # (written string, decimals, extractor, documents)
 CLAIMS = [
     ("−6.65%", 2, lambda: exp1()["headline"]["unserved_demand"]["mean_pct"], [REPORT]),
@@ -104,6 +129,16 @@ CLAIMS = [
     ("70.5%", 1, lambda: sorted(r["claim_gap_unserved_pct"] for r in map(__import__("json").loads, (ROOT / "outputs/exp2_treatments.jsonl").read_text().splitlines()) if r.get("treatment") == "route_level")[19] * -1, [REPORT]),
     ("0.50–0.63%", 2, lambda: 100 * min(r["price"] for r in J("outputs/exp7/EXP7_ANALYSIS.json")["f6_prices"] if r["level"] == "BASE" and r["network"] == "N0" and r["cell"] in ("R1_H60", "R1_H30", "R3_SPAN")), [REPORT]),
     ("–0.63%", 2, lambda: 100 * max(r["price"] for r in J("outputs/exp7/EXP7_ANALYSIS.json")["f6_prices"] if r["level"] == "BASE" and r["network"] == "N0" and r["cell"] in ("R1_H60", "R1_H30", "R3_SPAN")), [REPORT]),
+    ("about 680", -1, exp1_trip_gain, [REPORT]),
+    ("2.2% of modeled demand", 1, lambda: 100 * exp1_trip_gain() / 30949, [REPORT]),
+    ("628", 0, lambda: s1_gains()["BASE"], [REPORT]),
+    ("316–970", 0, lambda: min(class_a()), [REPORT]),
+    ("–970", 0, lambda: max(class_a()), [REPORT]),
+    ("316–760", 0, lambda: min(class_a(True)), [REPORT]),
+    ("–760", 0, lambda: max(class_a(True)), [REPORT]),
+    ("575–616", 0, lambda: min(v for k, v in s1_gains().items() if k.startswith("A2")), [REPORT]),
+    ("–616", 0, lambda: max(v for k, v in s1_gains().items() if k.startswith("A2")), [REPORT]),
+    ("to 316 modeled trips", 0, lambda: s1_gains()["A6_MAXWALK75"], [REPORT]),
     ("+9.66%", 2, lambda: float(__import__("re").search(r"\(\+([0-9.]+)% of N3\)", d43()).group(1)), [REPORT]),
     ("−5.43%", 2, lambda: f1a("BASE"), [CLOSE7, ADD7]),
     ("+181.72%", 2, lambda: f1a("A5_LAM1"), [CLOSE7, ADD7]),
@@ -153,6 +188,9 @@ CLAIMS = [
 
 
 def norm(s: str) -> float:
+    import re as _re
+    s = _re.sub(r"^[^0-9+\-−–±]*", "", s)  # leading words ("about 680")
+    s = _re.sub(r"(%?)\s.*$", r"\1", s)  # trailing words ("2.2% of ...")
     if "–" in s:  # a range token: "a–b" checks a, "–b%" checks b
         a, b = s.split("–", 1)
         s = a if a else b

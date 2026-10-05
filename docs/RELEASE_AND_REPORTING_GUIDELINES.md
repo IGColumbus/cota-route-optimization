@@ -234,10 +234,10 @@ The one pre-Exp 7 item is done; everything else follows the freeze in order.
 
 **Freeze**
 
-- [ ] Exp 7 close-out table certified; no halted or in-flight runs.
-- [ ] Get every container commit to GitHub: bundle → commit to your folder → `git fetch` → merge `cloud/exp3-clean` → push from GitHub Desktop. GitHub has `exp3-clean` only through `099d0527` (9/21); every EXP4N commit so far exists only in the container and in hand-carried bundles.
-- [ ] All work branches merged into `master`.
-- [ ] Tag `research-final`; record the lockfile and container image with it.
+- [x] Exp 7 close-out table certified; no halted or in-flight runs.
+- [x] (2026-10-05: `master` at `cd03af9c` on GitHub.) Get every container commit to GitHub: bundle → commit to your folder → `git fetch` → merge `cloud/exp3-clean` → push from GitHub Desktop. GitHub has `exp3-clean` only through `099d0527` (9/21); every EXP4N commit so far exists only in the container and in hand-carried bundles.
+- [x] All work branches merged into `master` (`exp3-clean`, `exp45-work`, `exp6-work`, `exp7-work`, `exp7-work-b`). `exp3` is the separate pre-collapse history: it stays a branch on GitHub, and `exp3-frozen-v1` is reachable only from it.
+- [x] Tag `research-final` at `cd03af9c`; lockfile in `docs/research-record/ENVIRONMENT_AT_FREEZE.txt` (late-stage container only). The container image cannot be exported from the sandbox and is not recorded.
 
 **Clean**
 
@@ -248,7 +248,7 @@ The one pre-Exp 7 item is done; everything else follows the freeze in order.
 
 **Add**
 
-- [ ] `LICENSE`, `CITATION.cff`, and terms of use for each source in `sources.yaml`.
+- [ ] `LICENSE`, `CITATION.cff`, and terms of use for each source in `sources.yaml`. (`LICENSE` added 2026-10-05: Apache-2.0 code, CC BY 4.0 docs, stated in the README; `CITATION.cff` and the LODES terms fields remain.)
 - [ ] `docs/DATA_INTERFACES.md`, with a demand-constructor example and test.
 - [ ] `CANONICAL_ENVELOPE.units.json` sidecar; report and figure generators read units from it.
 - [ ] `docs/CALIBRATION.md`, with the "uncalibrated" label wired into artifacts.
