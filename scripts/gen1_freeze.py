@@ -40,6 +40,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from repo_paths import resolve  # noqa: E402  (historical paths after the 2026-10-05 restructure)
 sys.path.insert(0, str(ROOT / "src"))
 OUT = ROOT / "outputs"
 MANIFEST = OUT / "GEN1_FREEZE_MANIFEST.json"
@@ -118,8 +120,8 @@ def collect() -> dict:
             },
             "stores": stores,
             "artifact_sha256": {
-                f: sha256(ROOT / f) for f in ASSERTED_ARTIFACTS
-                if (ROOT / f).exists()},
+                f: sha256(resolve(f)) for f in ASSERTED_ARTIFACTS
+                if resolve(f).exists()},
         },
         "recorded": {
             "source_digest_at_freeze": code_version(),
@@ -128,15 +130,15 @@ def collect() -> dict:
                 "definition. Gen1 results stay verifiable because every "
                 "receipt carries the code_version it was produced under.",
             "artifact_sha256": {
-                f: sha256(ROOT / f) for f in RECORDED_ARTIFACTS
-                if (ROOT / f).exists()},
+                f: sha256(resolve(f)) for f in RECORDED_ARTIFACTS
+                if resolve(f).exists()},
         },
     }
 
 
 def do_write() -> int:
     m = collect()
-    missing = [f for f in ASSERTED_ARTIFACTS if not (ROOT / f).exists()]
+    missing = [f for f in ASSERTED_ARTIFACTS if not resolve(f).exists()]
     if missing:
         print("REFUSING: asserted artifacts missing:", file=sys.stderr)
         for f in missing:
@@ -189,7 +191,7 @@ def do_verify() -> int:
             have["code_versions"] == want["code_versions"],
             ",".join(have["code_versions"]))
     bad = [f for f, want in m["asserted"]["artifact_sha256"].items()
-           if not (ROOT / f).exists() or sha256(ROOT / f) != want]
+           if not resolve(f).exists() or sha256(resolve(f)) != want]
     say(f"all {len(m['asserted']['artifact_sha256'])} asserted artifacts hash the same",
         not bad, "; ".join(bad[:4]))
     for t, want in m.get("tags", {}).items():
@@ -205,7 +207,7 @@ def do_verify() -> int:
         print("       (expected once Gen2 work begins; Gen1 receipts carry "
               "their own code_version and stay verifiable)")
     for f, want in m["recorded"]["artifact_sha256"].items():
-        p = ROOT / f
+        p = resolve(f)
         state = ("missing" if not p.exists()
                  else "unchanged" if sha256(p) == want else "appended/edited")
         print(f"  {f:<52} {state}")

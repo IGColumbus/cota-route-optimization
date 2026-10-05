@@ -1,6 +1,6 @@
 {
   "generator": "scripts/make_report_figures.py",
-  "guideline": "docs/RELEASE_AND_REPORTING_GUIDELINES.md \u00a7Figures",
+  "guideline": "docs/process/RELEASE_AND_REPORTING_GUIDELINES.md \u00a7Figures",
   "figures": {
     "fig1_exp1_frontier": "G1",
     "fig2_exp1_change_map": "G7",

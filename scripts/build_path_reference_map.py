@@ -36,6 +36,15 @@ FROZEN_DOCS = {
     "EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md", "EXPERIMENT5_CLOSEOUT.md",
     "EXPERIMENT6_CLOSEOUT.md", "EXPERIMENT7_CLOSEOUT.md", "DISCOVERIES.md",
 }
+# moved documents that are maintained downstream prose (checked); every other
+# moved document is historical or frozen and keeps its paths
+EDITABLE_MOVED = {"experiments/exp7/EXPERIMENT7_RESULTS.md",
+                  "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md",
+                  "docs/process/HANDOFF.md",
+                  "docs/process/RELEASE_AND_REPORTING_GUIDELINES.md",
+                  "docs/ENGINEERING_RULES.md"}
+# historical records inside release-facing folders: their paths are history
+HISTORICAL = ("docs/report/reviews/ROUND", "docs/research-record/MOVES.md")
 RELEASE_FACING = ("README.md", "AGENTS.md", "CITATION.cff", "pyproject.toml",
                   "docs/report/", "docs/REPRODUCE.md", "docs/GLOSSARY.md",
                   "docs/RELEASE_PROVENANCE.md", "docs/REPORTING_CORRECTIONS.md",
@@ -104,15 +113,23 @@ def main() -> int:
     if a.check:
         fileset = set(files)
         bases = {Path(f).name for f in files}
+        mj = ROOT / "docs" / "research-record" / "MOVES.json"
+        moved_to = set(json.loads(mj.read_text())["moves"].values()) if mj.exists() else set()
         broken = []
         for src in files:
             if not src.startswith(RELEASE_FACING) or not (ROOT / src).is_file():
                 continue
+            if src.startswith(HISTORICAL):
+                continue
+            if src in moved_to and src not in EDITABLE_MOVED:
+                continue  # a moved historical/frozen document keeps its historical paths
             if (ROOT / src).suffix not in TEXT_EXT:
                 continue
             for ln, line in enumerate((ROOT / src).read_text(encoding="utf-8", errors="replace").splitlines(), 1):
                 for tok in set(TOKEN.findall(line)):
-                    if any(c in tok for c in "{}*"):
+                    if any(c in tok for c in "{}*") or tok.startswith("/"):
+                        continue
+                    if "<scratch>" in line and tok in line.split("<scratch>", 1)[1]:
                         continue
                     t = tok[2:] if tok.startswith("./") else tok
                     if t in fileset or ("/" not in t and t in bases):

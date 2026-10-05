@@ -8,9 +8,9 @@ the entry says so.*
 
 | term | meaning | source |
 |---|---|---|
-| **N0** | COTA's existing local route geometry as built from the GTFS feed (`H.baseline.network`), content digest `f0f24936ab06b4ec`. In Exp 5/6 the peak-only express routes are locked. | `EXPERIMENT6_D39_AMENDMENT.md` §2 |
-| **N3** | N0 plus the single Experiment 3 edit `add_stop-010#22c4c35ac5b2`, the certified Exp 3 leader. Content digest `430aca035c70715b`. The "constrained redesign". | `EXPERIMENT3_CLOSURE.md`, `EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` |
-| **N4** | The EXP4N normalized leader `…35e351133d6f`, a 65-line greenfield network from the Experiment 4 proposal generator. It is **not** an Exp 6 production network and is used only for the D39 preflight. | `EXPERIMENT4_NORMALIZED_CLOSEOUT.md` |
+| **N0** | COTA's existing local route geometry as built from the GTFS feed (`H.baseline.network`), content digest `f0f24936ab06b4ec`. In Exp 5/6 the peak-only express routes are locked. | `experiments/exp6/EXPERIMENT6_D39_AMENDMENT.md` §2 |
+| **N3** | N0 plus the single Experiment 3 edit `add_stop-010#22c4c35ac5b2`, the certified Exp 3 leader. Content digest `430aca035c70715b`. The "constrained redesign". | `experiments/exp3/EXPERIMENT3_CLOSURE.md`, `experiments/exp4/EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` |
+| **N4** | The EXP4N normalized leader `…35e351133d6f`, a 65-line greenfield network from the Experiment 4 proposal generator. It is **not** an Exp 6 production network and is used only for the D39 preflight. | `experiments/exp4/EXPERIMENT4_NORMALIZED_CLOSEOUT.md` |
 
 ## Experiments and runs
 

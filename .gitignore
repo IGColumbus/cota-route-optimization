@@ -45,3 +45,13 @@ outputs/exp7/run/
 outputs/exp7/smoke/run/
 outputs/exp7/stage1/*.events.log
 outputs/exp7/stage1/emptiness/RAW.*
+
+# Release hygiene (2026-10-05): transport and run debris never belongs in the tree.
+*.bundle
+_to_delete/
+*.lock
+*.pid
+*.hb.json
+tmp_pack_*
+tmp_obj_*
+outputs/**/*.log

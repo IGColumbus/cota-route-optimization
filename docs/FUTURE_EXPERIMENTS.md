@@ -4,7 +4,7 @@
 pre-specified**: each needs its own contract, acceptance gates and freeze
 before it runs, as Experiments 1–7 had. They are ordered by how much they could
 change the study's answer, not by cost. Item numbers (E8–E21) are independent
-of the row numbers in `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`; "errata E16"
+of the row numbers in `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md`; "errata E16"
 always means the errata row.*
 
 The study's current answer:
@@ -18,7 +18,7 @@ The study's current answer:
   Re-optimized in the closest cell to Experiment 1's service rules (R1_H60: no
   route-period switched off, 60-minute maximum headway; study safeguards, not COTA policy), F1 is
   −2.1% to −7.0% at every λ ≥ 2 level re-optimized in Exp 7 (A5 and A6 only),
-  with one closure per cell. Post hoc (`docs/EXPERIMENT7_F1_ADDENDUM.md`). At
+  with one closure per cell. Post hoc (`experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md`). At
   λ = 1 it is +0.12%.
 * Geometry and stop edits add little: Exp 3's 29 certified improvements are
   each at most 0.19%, within model uncertainty. Route recombination is null.
@@ -33,7 +33,7 @@ Everything below either:
 
 Compute estimates assume the 2-core container used so far. Stage 1 cells and
 initial solves are independent and parallelise per cell (a cluster job array,
-`docs/RELEASE_AND_REPORTING_GUIDELINES.md`, "Scaling"); basin closure as
+`docs/process/RELEASE_AND_REPORTING_GUIDELINES.md`, "Scaling"); basin closure as
 implemented runs one process per (track, network) (`exp7_run.py closure`) and
 is not divided by core count.
 
@@ -103,7 +103,7 @@ is not divided by core count.
   or walking costs. Today the answer depends on whether a service-preservation
   rule is imposed.
 * **Design:** three formulations, each versioned separately from Gen1
-  (`METHODOLOGY.md`, Class C):
+  (`docs/METHODOLOGY.md`, Class C):
   1. **ε-constraint:** minimize GC subject to unserved ≤ ε, swept over ε.
   2. **Unserved penalty consistent with the retention curve:** set
      λ · w_unserved at or above the generalized cost at which the retention
@@ -234,7 +234,7 @@ Runnable now; needs no external data.
   * Run MILP or CP-SAT on a linearized frequency subproblem, or large-neighbourhood
     search with many starts, as a Class B solver.
   * Bridge-test against Gen1 and the block certifier on N0 and N3.
-  * Reopen a result only if the measured gap threatens it (`METHODOLOGY.md`).
+  * Reopen a result only if the measured gap threatens it (`docs/METHODOLOGY.md`).
 * **Effort:** high; research-grade.
 
 ### E17. Certified resource frontier (Exp 5 redone with closure)
@@ -289,7 +289,7 @@ supersede the demand and calibration it depends on.
 
 ## Not experiments, but required before any of them is quoted
 
-The release work in `docs/RELEASE_AND_REPORTING_GUIDELINES.md`:
+The release work in `docs/process/RELEASE_AND_REPORTING_GUIDELINES.md`:
 
 * push to GitHub and merge to `master`;
 * the `research-final` tag and a pinned environment;

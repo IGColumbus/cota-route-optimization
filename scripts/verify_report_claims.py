@@ -18,10 +18,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = "docs/report/TECHNICAL_REPORT.md"
-CLOSE7 = "EXPERIMENT7_CLOSEOUT.md"
-ADD7 = "docs/EXPERIMENT7_F1_ADDENDUM.md"
-RES7 = "docs/EXPERIMENT7_RESULTS.md"
-ERR7 = "docs/EXPERIMENT7_CLOSEOUT_ERRATA.md"
+CLOSE7 = "experiments/exp7/EXPERIMENT7_CLOSEOUT.md"
+ADD7 = "experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md"
+RES7 = "experiments/exp7/EXPERIMENT7_RESULTS.md"
+ERR7 = "experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md"
 README = "README.md"
 
 

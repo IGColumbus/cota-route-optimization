@@ -18,12 +18,12 @@ are no runs in flight.
 | exp | question | status | read |
 |---|---|---|---|
 | 1 | frequency redistribution, geometry fixed | **CLOSED, certified λ ≥ 2**: ~680 more modeled weekday trips served; −6.65% unserved demand (solver-seed SD 0.06 percentage points) | `outputs/canonical/exp1_final.json` |
-| 2 / 2B | through-routing geometry | **CLOSED**: no supportable gain; the leader is +0.090% unserved under matched starts, worse than no edit (errata E17); the 240-set sweep is discovery-stage | `EXPERIMENT2_CLOSEOUT.md`, `outputs/exp2b_certification.json → _confirmation` |
-| 3 | route mutation, eight edit kinds | **CLOSED**: certified leader −0.187% (commit `8c2841c4`; tag `exp3-final-v1` not yet public) | `EXPERIMENT3_CLOSURE.md` |
-| 4 / 4N / 4A | greenfield design; normalized rerun; vs Exp 3 | **CLOSED**: legacy ordering superseded; N4, the best of the 200 promoted and certified greenfield candidates, worse than N3 by +9.66% | `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`, `EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` |
-| 5 | modeled resource frontier | **FAILED** monotonicity gate (on N4 only); N0 half informative | `EXPERIMENT5_CLOSEOUT.md` |
-| 6 | price of service-standard safeguards | **CLOSED, certified**: 0 to +0.91% | `EXPERIMENT6_CLOSEOUT.md` |
-| 7 | robustness of F1–F6 | **CLOSED**: Stage 1 and Stage 2 complete | `EXPERIMENT7_CLOSEOUT.md` + `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`, `docs/EXPERIMENT7_F1_ADDENDUM.md` |
+| 2 / 2B | through-routing geometry | **CLOSED**: no supportable gain; the leader is +0.090% unserved under matched starts, worse than no edit (errata E17); the 240-set sweep is discovery-stage | `experiments/exp2/EXPERIMENT2_CLOSEOUT.md`, `outputs/exp2b_certification.json → _confirmation` |
+| 3 | route mutation, eight edit kinds | **CLOSED**: certified leader −0.187% (commit `8c2841c4`; tag `exp3-final-v1` not yet public) | `experiments/exp3/EXPERIMENT3_CLOSURE.md` |
+| 4 / 4N / 4A | greenfield design; normalized rerun; vs Exp 3 | **CLOSED**: legacy ordering superseded; N4, the best of the 200 promoted and certified greenfield candidates, worse than N3 by +9.66% | `experiments/exp4/EXPERIMENT4_NORMALIZED_CLOSEOUT.md`, `experiments/exp4/EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` |
+| 5 | modeled resource frontier | **FAILED** monotonicity gate (on N4 only); N0 half informative | `experiments/exp5/EXPERIMENT5_CLOSEOUT.md` |
+| 6 | price of service-standard safeguards | **CLOSED, certified**: 0 to +0.91% | `experiments/exp6/EXPERIMENT6_CLOSEOUT.md` |
+| 7 | robustness of F1–F6 | **CLOSED**: Stage 1 and Stage 2 complete | `experiments/exp7/EXPERIMENT7_CLOSEOUT.md` + `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md`, `experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md` |
 
 **The answer, one line each:**
 
@@ -51,20 +51,20 @@ are no runs in flight.
 | `docs/report/TECHNICAL_REPORT.md` | full technical report (draft, paper-style) |
 | `docs/FUTURE_EXPERIMENTS.md` | what to run next, prioritized |
 | `README.md` | front door |
-| `STATE_OF_PLAY.md` | long-form state as of Exp 6 |
-| `DISCOVERIES.md` | D1–D39 decision log, including the wrong turns |
+| `docs/research-record/STATE_OF_PLAY.md` | long-form state as of Exp 6 |
+| `docs/research-record/DISCOVERIES.md` | D1–D39 decision log, including the wrong turns |
 | `outputs/CANONICAL_RESULTS_v5.json` | registry of every canonical and superseded artifact |
-| `EXPERIMENT7_CLOSEOUT.md` | Exp 7 closeout (registered by sha256; not edited) |
-| `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md` | corrections to the Exp 7 closeout (E1–E15) |
-| `docs/EXPERIMENT7_F1_ADDENDUM.md` | post hoc F1 analysis (not pre-specified) |
-| `docs/EXPERIMENT7_RESULTS.md` | short Exp 7 results note |
+| `experiments/exp7/EXPERIMENT7_CLOSEOUT.md` | Exp 7 closeout (registered by sha256; not edited) |
+| `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md` | corrections to the Exp 7 closeout (E1–E15) |
+| `experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md` | post hoc F1 analysis (not pre-specified) |
+| `experiments/exp7/EXPERIMENT7_RESULTS.md` | short Exp 7 results note |
 
 > **Authority order for Experiment 7:**
 >
 > 1. the JSON artifacts (`outputs/exp7/…`, registered in `CANONICAL_RESULTS_v5.json`);
-> 2. `EXPERIMENT7_CLOSEOUT.md` **as corrected by** `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`. Where they conflict, the errata wins;
-> 3. `docs/EXPERIMENT7_F1_ADDENDUM.md`: post hoc; never relabels a pre-specified result;
-> 4. `docs/EXPERIMENT7_RESULTS.md`: a summary of 2 and 3;
+> 2. `experiments/exp7/EXPERIMENT7_CLOSEOUT.md` **as corrected by** `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md`. Where they conflict, the errata wins;
+> 3. `experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md`: post hoc; never relabels a pre-specified result;
+> 4. `experiments/exp7/EXPERIMENT7_RESULTS.md`: a summary of 2 and 3;
 > 5. `docs/report/TECHNICAL_REPORT.md`: synthesis, draft.
 
 ## 2. What to trust, and how much
@@ -109,10 +109,10 @@ All four validation dimensions are `unavailable`.
   `exp7-work`, so merging is a clean fast-forward.
 * **Next git action:** in GitHub Desktop, merge `exp7-work` into `master` and
   push. Then verify with `git ls-remote origin refs/heads/master`
-  (`OPERATIONS.md` rule 36). The cloud session cannot push: the repository is
+  (`docs/process/OPERATIONS.md` rule 36). The cloud session cannot push: the repository is
   not in its authorized sources.
 * After the push, follow the release checklist in
-  `docs/RELEASE_AND_REPORTING_GUIDELINES.md`:
+  `docs/process/RELEASE_AND_REPORTING_GUIDELINES.md`:
   * tag `research-final`;
   * pin the environment;
   * restructure;
@@ -128,7 +128,7 @@ uncharacterized.
 
 ## 5. Operational traps
 
-`OPERATIONS.md` has 36 rules, each bought with lost work. The ones that bit
+`docs/process/OPERATIONS.md` has 36 rules, each bought with lost work. The ones that bit
 during Experiment 7:
 
 * **The cloud container restarts without warning,** about every 1–24 h, and on
@@ -141,7 +141,7 @@ during Experiment 7:
 * **The output folder used for transfers stops accepting new files** after
   roughly 360. Bundles were then delivered as chat attachments instead.
 * **A batch in flight freezes the code that can change its numbers.** Post-freeze
-  edits must be reporting-only, and must be disclosed: `EXPERIMENT7_CLOSEOUT.md`
+  edits must be reporting-only, and must be disclosed: `experiments/exp7/EXPERIMENT7_CLOSEOUT.md`
   §1.1.
 
 ## 6. What to do next

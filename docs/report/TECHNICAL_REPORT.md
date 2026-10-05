@@ -34,11 +34,11 @@ not affiliated with or endorsed by COTA.
 * The abstract (≤ 250 words), highlights and keywords follow typical
   journal norms for this field; the target journal's limits are to be
   confirmed at submission.
-* Authority order for Exp 7: `HANDOFF.md` §1; where the closeout and
-  `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md` conflict, the errata wins.
+* Authority order for Exp 7: `docs/process/HANDOFF.md` §1; where the closeout and
+  `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md` conflict, the errata wins.
 * Outline: §§1–11, Data and code availability, References, plus Appendices
   A–C (Appendix C covers only the Exp 7 amendment sequence); the guideline appendices (decision log →
-  `DISCOVERIES.md`, protocol amendments, superseded-artifact index,
+  `docs/research-record/DISCOVERIES.md`, protocol amendments, superseded-artifact index,
   calibration register) are pending release work.
 
 > **Model status**
@@ -113,7 +113,7 @@ seed spread (SD) of 0.064 percentage points. No individual route's headway is id
 here (reporting rule 8).
 
 Seven experiments ran in sequence. Each froze a contract before its
-production run (`ACCEPTANCE.md`, the per-experiment contracts); analyses added
+production run (`experiments/ACCEPTANCE.md`, the per-experiment contracts); analyses added
 afterwards are marked post hoc (§6.0).
 
 | # | question | status |
@@ -177,7 +177,7 @@ It is:
 | input | source | validation |
 |---|---|---|
 | Schedule | COTA GTFS static, feed `2026-MAY-04-BB_20260630`; representative weekday 2026-05-26 | `validate_feed`: 0 errors, 0 warnings |
-| Demand | LEHD LODES8 `oh_od_main_JT00_2022`: 4,640,957 block pairs → 317,706 block-group pairs → 823,915 jobs (LODES JT00 home–work pairs, block-group aggregated) | Restricted to transit-accessible pairs (24.7% of jobs), truncated to the top 20,000 pairs (64.9% of accessible jobs), then rescaled to an assumed **30,949** weekday linked transit trips. That total is derived from NTD as 38,694 weekday unlinked trips × 95.98% bus share ÷ 1.20, assuming a 20% transfer rate that is unobserved. Rescaling after truncation inflates each retained pair by about 1.54×. Six period shares are assumed, because LODES has no time dimension. Counts from the run log `outputs/verify.log` (not a canonical artifact). |
+| Demand | LEHD LODES8 `oh_od_main_JT00_2022`: 4,640,957 block pairs → 317,706 block-group pairs → 823,915 jobs (LODES JT00 home–work pairs, block-group aggregated) | Restricted to transit-accessible pairs (24.7% of jobs), truncated to the top 20,000 pairs (64.9% of accessible jobs), then rescaled to an assumed **30,949** weekday linked transit trips. That total is derived from NTD as 38,694 weekday unlinked trips × 95.98% bus share ÷ 1.20, assuming a 20% transfer rate that is unobserved. Rescaling after truncation inflates each retained pair by about 1.54×. Six period shares are assumed, because LODES has no time dimension. Counts from the run log `docs/research-record/run-logs/verify.log` (not a canonical artifact). |
 | Zones | 2020 Census block-group population-weighted centroids | — |
 | System totals | FTA NTD 2024 agency profile, agency 50016, motorbus directly operated | The parser **refuses** unless it reproduces all 18 of the profile's printed ratios |
 | Physical fleet (baseline only) | GTFS `block_id` reconstruction: **197** peak vehicles at 17:13, 284 blocks | NTD VOMS 198; nothing tuned. A check on the baseline schedule only; it says nothing about modified plans. |
@@ -210,7 +210,7 @@ as an identity, asserted at run time to 1e-9.
 * Experiments 2–3: the Experiment 1 set on the edited network (no OFF).
 * Experiments 4–7: the Experiment 1 set plus OFF (`frequency.build_ladders`
   with `allow_off=True`), subject to the active policy constraints R1–R6
-  (`EXPERIMENT6_CONSTRAINT_CATALOG.md`).
+  (`experiments/exp6/EXPERIMENT6_CONSTRAINT_CATALOG.md`).
 
 **Waiting.** Expected wait for effective headway H (`config/assumptions.yaml →
 waiting`):
@@ -362,7 +362,7 @@ not reported here.
   The removal channel above is how, below some λ, the optimizer drops
   hard-to-serve riders and spends the freed hours elsewhere (§6.2). An
   operating-cost term would not prevent this
-  (`docs/EXPERIMENT7_CLOSEOUT_ERRATA.md` E7).
+  (`experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md` E7).
 * Experiment 1's frontier is certified only from λ = 2 upward. The λ ≤ 1 corner
   fails the path-set adequacy test on both waiting models (D15).
 
@@ -397,7 +397,7 @@ froze, in a repository commit before its production run:
 
 * a contract: digests of the code, envelope, candidate set and acceptance
   gates;
-* its acceptance rules (`ACCEPTANCE.md`).
+* its acceptance rules (`experiments/ACCEPTANCE.md`).
 
 "Pre-specified" in this report means frozen in an author-controlled git commit
 before the outcome it governs was inspected. Git establishes the temporal order;
@@ -414,17 +414,17 @@ as OSF) was used. The freeze commits (committer dates, UTC):
 | Exp 7 Class A levels, sign labels, magnitude bands (amendment §13) | `b18c2f24`, 2026-09-29 | any Stage 1 evaluation |
 | Exp 7 amendment §14: Stage 1 BASE reference, Stage 2 selection metric, adaptive definitions (contract `1263bedaebe6a45d`) | `4a2ba9f6`, 2026-09-29 | the Stage 1 production run and Stage 2; **not** before all outcomes: the same commit holds 13 smoke Stage 1 cells, and a λ = 1 smoke re-optimization (`48e96a0f`) preceded it |
 
-Experiment 1's acceptance gates (`ACCEPTANCE.md`, `1a2b6e2d`, 2026-08-26)
+Experiment 1's acceptance gates (`experiments/ACCEPTANCE.md`, `1a2b6e2d`, 2026-08-26)
 were committed after a first exploratory Exp 1 run (`e792be6b`), so Exp 1 is
 not described as pre-specified.
 
 Amendments are separate, dated documents. Acceptance rules are not waived
 after the fact. Analysis exclusions made after results were seen are labelled
 post hoc (§6.0), as are Exp 3's two display-only analysis-code fixes
-(`EXPERIMENT3_CLOSURE.md` §8). A failed gate is reported as a failure
+(`experiments/exp3/EXPERIMENT3_CLOSURE.md` §8). A failed gate is reported as a failure
 (Experiment 5).
 
-**Semantic comparison firewall** (`ARCHITECTURE_FIREWALL.md`):
+**Semantic comparison firewall** (`docs/ARCHITECTURE_FIREWALL.md`):
 
 * Every field of an evaluation carries a semantic class: identity, opportunity,
   outcome or none.
@@ -475,7 +475,7 @@ experiment's own closeout. Artifact status strings (e.g.
 
 **Reproducibility.** Order sentinels re-run cells in reversed order and must be
 bit-exact. Runs checkpoint per cell and resume. Generations of methodology are
-frozen (`METHODOLOGY.md`), and a newer algorithm reopens an old result only on
+frozen (`docs/METHODOLOGY.md`), and a newer algorithm reopens an old result only on
 evidence.
 
 ### 4.1 Model instances and their differences
@@ -634,7 +634,7 @@ measured at λ = 2.
 
 Twelve splice candidates (two routes merged at a shared stop) were screened
 from 60 and evaluated with frequency re-optimized on each network
-(`EXPERIMENT2_CLOSEOUT.md`).
+(`experiments/exp2/EXPERIMENT2_CLOSEOUT.md`).
 
 * **Singles.** At ranking effort (60,000/2/32, discovery stage), six of the
   twelve single splices exceeded the ranking-effort unserved-demand floor (0.13
@@ -644,9 +644,9 @@ from 60 and evaluated with frequency re-optimized on each network
   inside it (+0.060%, +0.160%). None exceeded a floor in the beneficial
   direction at certification effort. These runs used incumbent starts, and
   matched-start confirmation was performed for the Exp 2B leader only, so the
-  harm magnitudes are not re-sized here. (`EXPERIMENT2_CLOSEOUT.md` describes
+  harm magnitudes are not re-sized here. (`experiments/exp2/EXPERIMENT2_CLOSEOUT.md` describes
   all six as certified at 400,000/20; the artifacts hold only these four,
-  `docs/EXPERIMENT2_CLOSEOUT_ERRATA.md` E1.)
+  `experiments/exp2/EXPERIMENT2_CLOSEOUT_ERRATA.md` E1.)
 * **Combinations (2B), discovery stage:** all 240 structurally feasible subsets
   were solved at discovery effort (60,000/2/32). This exhaustive sweep is
   discovery-stage under gate 12: it orders sets and does not size effects. It
@@ -664,7 +664,7 @@ from 60 and evaluated with frequency re-optimized on each network
     (`outputs/exp2b_certification.json → _confirmation`; D31).
   * The originally recorded +0.0065% came from an incumbent-start run in which
     the splice silently fell back to a greedy build (D27). It is superseded for
-    quantitative interpretation (`outputs/exp2b_certification.superseded.json`).
+    quantitative interpretation (`outputs/superseded/exp2b_certification.superseded.json`).
 * **Floor provenance.** The 0.287-percentage-point floor is the spread of three
   incumbent-start zero-edit replicates (9,749.1–9,765.1 unserved; D24). Under
   matched starts the control's spread is about 0.009 percentage points (D32). Replicate
@@ -695,7 +695,7 @@ evaluator Model B. Data: `figures/fig3_exp2_geometry_null.csv`.
 
 84 census states across eight edit kinds went through Stage A. 39 were promoted
 and 30 certified at Stage B (20 restarts). **29 remain certified** after a
-pre-specified escalation (40 restarts). Source: `EXPERIMENT3_CLOSURE.md`, tag
+pre-specified escalation (40 restarts). Source: `experiments/exp3/EXPERIMENT3_CLOSURE.md`, tag
 `exp3-final-v1` (in the project's local clone, not yet pushed; see Data and code
 availability).
 
@@ -741,7 +741,7 @@ ranking, 200 were promoted and certified by the exact certifier.
 | Spearman (legacy vs normalized) | +0.3566 |
 | pairwise orderings inverted | 7,296 of 19,900 (36.7%) |
 
-  (`EXPERIMENT4_NORMALIZED_CLOSEOUT.md`)
+  (`experiments/exp4/EXPERIMENT4_NORMALIZED_CLOSEOUT.md`)
 * **Experiment 4A asked the original question under the same contract:** does
   N4, the best of the 200 promoted and certified greenfield candidates, beat the
   Experiment 3 redesign (N3)? (The best of all 2,000 generated candidates is
@@ -763,7 +763,7 @@ ranking, 200 were promoted and certified by the exact certifier.
     with its whole common-lines bound and N3 with none (107,248 min; 93,301 min
     net of both bounds) still leaves Δ43 (283,973 min) positive, but
     retained-rider effects are not measured
-    (`EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` §5; registry `exp4a.caveats`).
+    (`experiments/exp4/EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md` §5; registry `exp4a.caveats`).
     The addendum attaches its rounded 93,300 to the N4-only case; that figure
     is the net of both bounds.
   * **Resources.** Both networks share the EXP4N proxy envelope, not a common
@@ -778,7 +778,7 @@ ranking, 200 were promoted and certified by the exact certifier.
   * N4 stays worse at every fixed-plan λ above 1.087.
   * Single-basin diagnostic; descriptive only; not a finding: in the
     OFF-permitting Exp 4A instance N3 serves 53.1% and N4 36.3% of the 30,949
-    modeled trips (`diag_N3/N4.json → totals`). Served demand is basin-dependent
+    modeled trips (`diag_N3.json`, `diag_N4.json` → `totals`). Served demand is basin-dependent
     there (§6.2).
 * **The promotion cap was invalid.** An out-of-band audit found an excluded
   proposal (discovery rank 237) that certifies 0.0147% better than the legacy
@@ -809,7 +809,7 @@ percentage of the EXP4N envelope (e.g. J100 is the envelope itself).
     returns: −0.74%, −0.94% and −1.48% at 110%, 125% and 150%.
 * **N4 is worse than N0 at all 16 cells**, by 8.07–11.59% of N0's objective at
   the same cell
-  (`EXPERIMENT5_CLOSEOUT.md`).
+  (`experiments/exp5/EXPERIMENT5_CLOSEOUT.md`).
 
 ![Figure 4](figures/fig4_exp5_resource_curve.svg)
 
@@ -826,7 +826,7 @@ networks N0, N4; Exp 6 model instance, block certifier. Data:
 ### 5.6 Experiment 6: modeled price of service-standard safeguards
 
 Safeguards were imposed one at a time on N0 and N3, with basin closure
-(`EXPERIMENT6_CLOSEOUT.md`). Every regime is a **study safeguard**: none has a
+(`experiments/exp6/EXPERIMENT6_CLOSEOUT.md`). Every regime is a **study safeguard**: none has a
 documented COTA numeric anchor, so none is COTA policy or a Title VI
 determination.
 
@@ -899,7 +899,7 @@ additional items, path-width/scenario count (DROPPED as inert) and period tilt
 | A7 | remove each of the 10 busiest routes, resources kept in the envelope |
 | A8 | retention floor point (`cost_retention_zero_min`) 150 min; floor 0 (amendment 29 Sep; `full_min` not varied) |
 
-It ran in two stages (`EXPERIMENT7_CLOSEOUT.md`):
+It ran in two stages (`experiments/exp7/EXPERIMENT7_CLOSEOUT.md`):
 
 * **Stage 1:** 60 frozen solutions from Experiments 1–6, including the N0
   current plan (59 evaluable), evaluated unchanged on four network variants at
@@ -941,7 +941,7 @@ is unrelated; see Glossary.)
 | Level settings | 42 as issued 23 Sep (A1 and A6_MAXWALK75 operationalized 29 Sep); A8 amendment 29 Sep; 2 additional; 1 Class B | `EXP7_LEVELS.json → levels[].provenance` |
 | F3/AF1 labels excluding A7_RM04/RM05 | added at closeout (post hoc flag) | `scripts/exp7_closeout.py` |
 | F2 not-applicable exclusion | corrected at closeout | `scripts/exp7_closeout.py` |
-| F1 under R1_H60/R1_H30/R3_SPAN; second REF fixed point | post hoc | `docs/EXPERIMENT7_F1_ADDENDUM.md`, `EXP7_F1_DECISION_SPACE.json` (pre-specified: false) |
+| F1 under R1_H60/R1_H30/R3_SPAN; second REF fixed point | post hoc | `experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md`, `EXP7_F1_DECISION_SPACE.json` (pre-specified: false) |
 | λ = 1 and shedding mechanism tables (closeout §5.2); errata E7–E8 analyses | post hoc diagnostic | closeout §5.2, errata |
 
 SIGN_ROBUST and the bands are descriptive labels across 44 Class A levels, 20 of
@@ -999,7 +999,7 @@ Both are certified fixed points. This is Experiment 6's flat objective,
 appearing directly in F1. Plans a fraction of a percent apart in objective
 differ by tens of percent in unserved demand. The pre-specified F1 adaptive
 values are therefore basin-dependent
-(`outputs/exp7/EXP7_F1_DECISION_SPACE.json`, `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`
+(`outputs/exp7/EXP7_F1_DECISION_SPACE.json`, `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md`
 E3).
 
 ![Figure 7](figures/fig7_exp7_f1_decision_space.svg)
@@ -1048,7 +1048,7 @@ is shown for comparison:
   (R1_H60: no route-period switched off, 60-minute maximum headway; study
   safeguards in `config/constraints.yaml`; no documented COTA numeric standard)
   none is switched off. There, F1 holds at every λ ≥ 2 level re-optimized and
-  is +0.12% at λ = 1 (`docs/EXPERIMENT7_F1_ADDENDUM.md`, post hoc; Exp 6 model
+  is +0.12% at λ = 1 (`experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md`, post hoc; Exp 6 model
   instance and block certifier; one closure per cell; at five of seven levels
   closure did not improve the initial solve).
 
@@ -1103,7 +1103,7 @@ Ordered by how much each would mislead a study that skipped it.
    * A warning was logged each time but never counted. The fallback rate
      correlated with score (r = −0.711; n = 8 edit kinds; descriptive).
    * The corrected 84-state census reordered the edit-kind ranking outright
-     (`STATE_OF_PLAY.md`, D27).
+     (`docs/research-record/STATE_OF_PLAY.md`, D27).
 4. **The evaluator reported one waiting model and ran another.**
    * For three days Experiment 2 was scored under Model A while reporting
      Model B. Six of twelve candidates changed sign (D23).
@@ -1184,7 +1184,7 @@ Ordered by how much each would mislead a study that skipped it.
 
 | limitation | size | direction / consequence |
 |---|---|---|
-| Commute-only demand | transit-accessible pairs carry 24.7% of regional commute jobs (78,210 of 317,706 block-group pairs; run log `outputs/verify.log`); top 20,000 pairs are 64.9% of that; non-work travel absent | Unknown. The largest unquantified error. Exp 7 A1 tested added non-commute demand on commute pairs only; A1 also changes volume (see Operationalization bounds) |
+| Commute-only demand | transit-accessible pairs carry 24.7% of regional commute jobs (78,210 of 317,706 block-group pairs; run log `docs/research-record/run-logs/verify.log`); top 20,000 pairs are 64.9% of that; non-work travel absent | Unknown. The largest unquantified error. Exp 7 A1 tested added non-commute demand on commute pairs only; A1 also changes volume (see Operationalization bounds) |
 | Baseline reproduction of the NTD total | 66.8% served at the current plan (Exp 1 instance; 66.3% in the Exp 6/7 instance) | Unserved-demand changes are changes in a model construct. In OFF-permitting instances most unserved demand is structural (Exp 4A: N3 35.5%, N4 54.7% of all demand has no path) |
 | Uncalibrated parameters | cost weights, unserved penalty, retention curve all assumed | Exp 7 A5/A8 bound some. λ and the unserved penalty determine whether the objective is well posed (§6.2). λ is a value judgement (calibration register). It interacts with the retention curve: λ·60 sets the cost band in which the objective rewards worse service (§3.1) |
 | Scheduled ≠ observed | not quantified; reliability (A4) unimplemented | No reliability claim |
@@ -1218,7 +1218,7 @@ Ordered by how much each would mislead a study that skipped it.
 | R9 | Exp 7 walk/access "harness-build key" refusal | the knob does reach the evaluator | corrected in amendment §14 |
 | R10 | Exp 7 mixed-level comparison admitted in development | level not bound into receipts | level digest in `data_digest` |
 | R11 | "F1 is not robust under re-optimization" (stated informally 2026-10-04) | compared a larger decision space than Exp 1 was certified in | pre-specified result stands as SIGN_SENSITIVE; post hoc addendum shows F1 holds in the closest cell to Exp 1's rules (R1_H60) at every λ ≥ 2 level re-optimized |
-| R12 | Exp 7 closeout: F1 re-optimized "holds where the unserved penalty dominates"; 26 priced F6 cells; "exactly three" post-freeze changes | Independent closures of the same REF cell reached F1 −5.4% and +30.5% at BASE; the count of cells and the diff list were off; later rows: mechanism wording, R2 label, λ = 1 attribution, F2 label, non-negativity scope, BASE price movement | `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md` E1–E18; closeout left unchanged because it is registered |
+| R12 | Exp 7 closeout: F1 re-optimized "holds where the unserved penalty dominates"; 26 priced F6 cells; "exactly three" post-freeze changes | Independent closures of the same REF cell reached F1 −5.4% and +30.5% at BASE; the count of cells and the diff list were off; later rows: mechanism wording, R2 label, λ = 1 attribution, F2 label, non-negativity scope, BASE price movement | `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md` E1–E18; closeout left unchanged because it is registered |
 | R13 | Exp 7 level B1 reported as "cross-route common lines" (§6) | The level ran Model A (`common_lines = "pattern"`); the as-issued common-lines/hyperpath assignment was never implemented | Relabelled "Model A waiting (model disagreement)"; cross-route common lines untested; findings conditional on Model B waiting (errata E16) |
 | R14 | Exp 2B leader "+0.0065% unserved, 0.02 noise floors"; "all 240 combinations make up a certified null"; "the null holds at λ ∈ {1, 2, 4}" | The value came from an incumbent-start run superseded after D27. The 240-set sweep is discovery-stage (gate 12). λ = 1 and 4 have one seed and no floor | +0.090% unserved / +0.054% objective under matched starts, the leader worse than no edit, 0.31 floors (D31). At certification effort: two of four rechecked singles harmful, none beneficial, leader not better than no edit (errata E17; Exp 2 errata E1) |
 | R15 | Cross-route common-lines omission "bounded at 0.516%" and quoted for N0 only | 0.516% is an upper bound on served-leg wait savings (two periods, Exp 1 instance), not on the objective; F4 compares N4 with N3 | Quoted for N0, N3 and N4 (0.516%, 1.16%, 12.47%) with scope; retention effect unmeasured |
@@ -1226,7 +1226,7 @@ Ordered by how much each would mislead a study that skipped it.
 
 ## 10. Using this with better data
 
-Each assumption above has a defined entry point (`docs/RELEASE_AND_REPORTING_GUIDELINES.md`,
+Each assumption above has a defined entry point (`docs/process/RELEASE_AND_REPORTING_GUIDELINES.md`,
 "Data interfaces"):
 
 * **Walking radii: the first calibration target.** Of the levels that keep
@@ -1274,7 +1274,7 @@ uncalibrated cost model:
   no route-period switched off, 60-minute maximum headway; study safeguards,
   not COTA policy), it is −2.1% to −7.0% at every λ ≥ 2 level re-optimized in
   Exp 7 (A5 and A6 only), with one closure per cell (post hoc;
-  `docs/EXPERIMENT7_F1_ADDENDUM.md`; Exp 6 model instance and block certifier;
+  `experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md`; Exp 6 model instance and block certifier;
   at five of seven levels closure did not improve the initial solve). At λ = 1
   it is +0.12%.
 * At λ = 2 in the OFF-permitting decision space, two independently closed
@@ -1387,17 +1387,17 @@ mislabel and the superseded 2B magnitude) were found by audits outside it.
 | 22% / 78% structural / discouraged (indicative, pre-Model-B) | `outputs/experiments/exp3_ablation_20260826T112047Z/experiment.json` (not canonical) | `metrics.configs["A path"].baseline.total` | commit `acb0e919` |
 | 19.1% / 19.7% / 6.9 min | `outputs/canonical/exp1_final.json` | `plan_disagreement` | commit `f1a05645` |
 | 2B leader +0.090% unserved / +0.054% objective, 0.31 floors | `outputs/exp2b_certification.json` | `_confirmation.matched_start_*`; per-seed in `outputs/exp2b_confirmation.json` | contract `7157ce1de9373420` |
-| 240 / 227 (discovery stage) | `EXPERIMENT2_CLOSEOUT.md`; `outputs/exp2b_stageA.csv` | — | not recorded in artifact |
+| 240 / 227 (discovery stage) | `experiments/exp2/EXPERIMENT2_CLOSEOUT.md`; `outputs/exp2b_stageA.csv` | — | not recorded in artifact |
 | −0.18657%, 78.6, 29 certified | `outputs/CANONICAL_RESULTS_v5.json` | `experiments.exp3.headline` | escalation contract `45e23ae01be4d071` (`outputs/exp3/escalation_report.json`) |
 | EXP4N leader, margin, Spearman, 36.7% | `outputs/exp4_normalized/EXP4N_RANKING.json` via `experiments.exp4.headline` | — | contract `2125984c82b60a83` (`EXP4N_RANKING.json → contract_digest`) |
 | +9.66% (+9.659%) | `outputs/exp4_addendum/DELTA43.json`; indexed in `outputs/CANONICAL_RESULTS_v5.json` | `experiments.exp4a.headline` (registry) | contract `0f62aeabfa341a98` (`DELTA43.json → contract.digest`) |
-| +9.28% | `EXPERIMENT6_CLOSEOUT.md` §9 (orientation only) | — | not recorded in artifact |
+| +9.28% | `experiments/exp6/EXPERIMENT6_CLOSEOUT.md` §9 (orientation only) | — | not recorded in artifact |
 | +8.55% (F4 Stage 2 BASE) | `outputs/exp7/EXP7_ANALYSIS.json` | `f4[level=BASE, control=N3]` | contract `1263bedaebe6a45d` |
 | Common-lines bounds 0.516% (N0), 1.16% (N3), 12.47% (N4) | `outputs/model_diagnostics_modelB.json`; `outputs/exp4_addendum/diag_N3.json`, `diag_N4.json` | `hyperpath.bound_share_of_generalized_cost_pct`; `common_lines_bound.bound_share_of_generalized_cost_pct` | not recorded in artifact; diagnostic files, not in registry v5 |
 | Common-lines bound minutes 107,248 (N4), 13,947 (N3), net 93,301; Δ43 283,973 min | `outputs/exp4_addendum/diag_N4.json`, `diag_N3.json`, `DELTA43.json` | `common_lines_bound.total_bound_min`; `comparison.effect` | not recorded in artifact; `diag_*` are diagnostic files, not in registry v5 (`DELTA43.json` is indexed) |
 | Exp 4A served / structural shares (N3 53.1% / 35.5%; N4 36.3% / 54.7%); single-basin diagnostic; descriptive only; not a finding | `outputs/exp4_addendum/diag_N3.json`, `diag_N4.json` | `totals` | not recorded in artifact; diagnostic files, not in registry v5 |
-| Exp 5 cells | `outputs/exp5/EXP5_ANALYSIS.json` | `EXPERIMENT5_CLOSEOUT.md` §3 | contract `395ee3c960f51935` (registry `experiments.exp5.contract`) |
-| Exp 6 prices | `outputs/exp6/EXP6_ANALYSIS.json` | `EXPERIMENT6_CLOSEOUT.md` §10 | `outputs/exp6/EXP6_CONTRACT.json` (registry `experiments.exp6.contract`) |
+| Exp 5 cells | `outputs/exp5/EXP5_ANALYSIS.json` | `experiments/exp5/EXPERIMENT5_CLOSEOUT.md` §3 | contract `395ee3c960f51935` (registry `experiments.exp5.contract`) |
+| Exp 6 prices | `outputs/exp6/EXP6_ANALYSIS.json` | `experiments/exp6/EXPERIMENT6_CLOSEOUT.md` §10 | `outputs/exp6/EXP6_CONTRACT.json` (registry `experiments.exp6.contract`) |
 | Exp 7 Stage 1 | `outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json`, `outputs/exp7/EXP7_CLOSEOUT_TABLE.json` | `rows` | contract `1263bedaebe6a45d`, analysis `b0f6f416` |
 | Exp 7 Stage 2 | `outputs/exp7/EXP7_ANALYSIS.json` | `f1_adaptive`, `f4`, `af1_n3_minus_n0`, `f6_ranks` | contract `1263bedaebe6a45d`, analysis `b0f6f416` |
 | Exp 7 post hoc F1; two REF fixed points | `outputs/exp7/EXP7_F1_DECISION_SPACE.json` | `rows[].cells.R1_H60`, `rows[].ref_f4_track` | `5dc3f408`; sha256 `0d5e3da76ebdc6ad67493e4ce93061c1536e313ac558e605e9d631a764015280`; not in registry v5 |
@@ -1406,7 +1406,7 @@ The registry `outputs/CANONICAL_RESULTS_v5.json` indexes most canonical and
 superseded artifacts; exceptions are labelled in the table above and in the
 next paragraph. `outputs/SUPERSEDED.md` indexes retired ones.
 
-Registry v5 `experiments.exp2b.headline` and `EXPERIMENT2_CLOSEOUT.md` still
+Registry v5 `experiments.exp2b.headline` and `experiments/exp2/EXPERIMENT2_CLOSEOUT.md` still
 quote the superseded +0.0065%. Both are immutable; the canonical value is
 `exp2b_certification.json → _confirmation`, and a future registry v6 should
 correct the headline and list `exp2b_certification.superseded.json` under
@@ -1465,7 +1465,7 @@ correct the headline and list `exp2b_certification.superseded.json` under
 * **R1–R6, B1–B2 (study safeguards):** R1 max-headway floor; R2 OFF-share cap;
   R3 span preservation; R4 coverage preservation; R5 accessibility-loss cap
   (not implemented); R6 ¾-mile area preservation; B1 bundle R2 s = 0.10 + R3 +
-  R6; B2 bundle R4 c = 0.01 + R3 (`EXPERIMENT6_CONSTRAINT_CATALOG.md`).
+  R6; B2 bundle R4 c = 0.01 + R3 (`experiments/exp6/EXPERIMENT6_CONSTRAINT_CATALOG.md`).
 * **Fixed point:** a closure state in which no anchor transfer improves any
   cell. Not a global optimum.
 * **Anchor:** a feasible certified plan handed to the certifier as the start
@@ -1511,16 +1511,16 @@ correct the headline and list `exp2b_certification.superseded.json` under
   that differ by tens of percent in the quantity, so the optimizer does not
   determine it.
 
-The full glossary is `docs/GLOSSARY.md`. The decision log is `DISCOVERIES.md`
+The full glossary is `docs/GLOSSARY.md`. The decision log is `docs/research-record/DISCOVERIES.md`
 (D1–D39).
 
 ## Appendix C. Experiment 7 amendment sequence
 
 | step | what | source |
 |---|---|---|
-| As issued, 23 Sep | protocol text committed verbatim | `docs/EXPERIMENT7_PROTOCOL_AS_ISSUED.md` |
-| Sept 23 finalization | sign and magnitude classification | `docs/EXPERIMENT7_SEPT23_FINALIZATION.md` |
-| Amendment §§13–14 | two-stage contract (full ~2,300 h closure rejected); firewall level binding; walk/access correction | `docs/EXPERIMENT7_AMENDMENT.md` |
+| As issued, 23 Sep | protocol text committed verbatim | `experiments/exp7/EXPERIMENT7_PROTOCOL_AS_ISSUED.md` |
+| Sept 23 finalization | sign and magnitude classification | `experiments/exp7/EXPERIMENT7_SEPT23_FINALIZATION.md` |
+| Amendment §§13–14 | two-stage contract (full ~2,300 h closure rejected); firewall level binding; walk/access correction | `experiments/exp7/EXPERIMENT7_AMENDMENT.md` |
 | 29 Sep operationalizations | A1 gravity form, A6_MAXWALK75 bundling (as-issued rows); A8 and A4 levels (amendment) | `EXP7_LEVELS.json → levels[].provenance` |
 
 Source: closeout §7.

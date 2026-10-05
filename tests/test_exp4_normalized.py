@@ -152,9 +152,15 @@ def test_legacy_file_digests_still_match():
     """If anything under outputs/exp4/ changed, this fails."""
     import hashlib
     arch = json.loads(ARCHIVE.read_text())
+    # files moved by the 2026-10-05 release restructure are checked at their
+    # new location under their historical name (docs/research-record/MOVES.json)
+    mj = ROOT / "docs" / "research-record" / "MOVES.json"
+    moved = json.loads(mj.read_text())["moves"] if mj.exists() else {}
     bad = []
     for rel, meta in arch["file_digests"].items():
         p = ROOT / rel
+        if not p.exists() and rel in moved:
+            p = ROOT / moved[rel]
         if not p.exists():
             bad.append((rel, "MISSING")); continue
         h = hashlib.sha256()

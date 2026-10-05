@@ -1,6 +1,6 @@
 # Experiment 7: results (two-stage final production contract)
 
-*Written 2026-10-04. The formal closeout is `EXPERIMENT7_CLOSEOUT.md`. The governing contract is `docs/EXPERIMENT7_AMENDMENT.md` §14. The machine-readable results are in `outputs/exp7/EXP7_CLOSEOUT_TABLE.{json,md}`, `outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json` and `outputs/exp7/EXP7_ANALYSIS.json`. Authority order for Exp 7: `HANDOFF.md` §1; where the closeout and `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md` conflict, the errata wins.*
+*Written 2026-10-04. The formal closeout is `experiments/exp7/EXPERIMENT7_CLOSEOUT.md`. The governing contract is `experiments/exp7/EXPERIMENT7_AMENDMENT.md` §14. The machine-readable results are in `outputs/exp7/EXP7_CLOSEOUT_TABLE.{json,md}`, `outputs/exp7/stage1/EXP7_STAGE1_ANALYSIS.json` and `outputs/exp7/EXP7_ANALYSIS.json`. Authority order for Exp 7: `docs/process/HANDOFF.md` §1; where the closeout and `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md` conflict, the errata wins.*
 
 ## Status
 
@@ -55,7 +55,7 @@ The same mechanism appears in milder form at A5_TP200, A6_WALKSPD85 and A6_MAXWA
 
 - **Reading:** the pre-specified F1 adaptive label is SIGN_SENSITIVE. Its values are basin-dependent: a second certified closure of the BASE cell gives +30.5% (errata E3), so the per-level signs are not a finding.
   - F1 is SIGN_ROBUST for the fixed plans Exp 1 produced (magnitude Highly sensitive, A6). It is **not** a property of re-optimization under every objective calibration.
-- **Post hoc, not pre-specified (`docs/EXPERIMENT7_F1_ADDENDUM.md`).** REF may switch route-periods OFF; Exp 1's plans could not (span preserved, 60-minute maximum headway).
+- **Post hoc, not pre-specified (`experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md`).** REF may switch route-periods OFF; Exp 1's plans could not (span preserved, 60-minute maximum headway).
   - Re-optimized under Exp 1's service rules (the R1_H60 cell: no route-period switched off, 60-minute maximum headway; study safeguards, not COTA policy), F1 is −2.1% to −7.0% at every λ ≥ 2 level re-optimized in Exp 7 (A5 and A6 only), with one closure per cell.
   - At λ = 1 it is +0.12%, a near-tie.
   - Every pre-specified reversal coincides with the optimizer switching 38–139 route-periods off.

@@ -11,7 +11,7 @@ for this draft.*
 pip install -e ".[dev]"
 # Raw public inputs are gitignored; they must be staged under data/raw/
 # (cota_gtfs_static, lodes_od_oh, lodes_rac_oh, lodes_wac_oh, cenpop_bg_oh)
-# through the registry. See config/sources.yaml and PUSH_TO_GITHUB.md
+# through the registry. See config/sources.yaml and docs/process/PUSH_TO_GITHUB.md
 # ("What the bundle does not carry").
 python -m cota_opt.cli sources
 python -m cota_opt.cli ingest-gtfs path/to/cota.gtfs.zip
@@ -23,10 +23,10 @@ python -m pytest -m "not slow"           # fast suite; the full suite needs data
 **Reproduction standard.** "Bit-exact" means the objective string, the plan
 digest and the round trajectory are identical. That holds in the same
 environment. Cross-environment reproduction has not been characterized.
-`docs/RELEASE_AND_REPORTING_GUIDELINES.md` proposes the D33-B band as the
+`docs/process/RELEASE_AND_REPORTING_GUIDELINES.md` proposes the D33-B band as the
 tolerance elsewhere, but D33-B measures a local solver gap and not
 floating-point drift across platforms (see the audit note in
-`prep/EXP6_PARALLEL_CLOSEOUT_PREP.md`).
+`docs/research-record/exp6/EXP6_PARALLEL_CLOSEOUT_PREP.md`).
 
 ## Experiment 1 — frequency redistribution (closed, certified λ ≥ 2)
 
@@ -53,7 +53,7 @@ Re-running Stage B (200 cells, 5 seeds) is days of compute. The closure is
 verified, not re-run:
 
 ```bash
-python scripts/exp3_verify_closure.py        # every number in EXPERIMENT3_CLOSURE.md recomputed from JSON
+python scripts/exp3_verify_closure.py        # every number in experiments/exp3/EXPERIMENT3_CLOSURE.md recomputed from JSON
 python scripts/exp3_freeze.py --verify       # frozen artifact hashes + receipt stores (default --tag exp3-frozen-v1)
 python scripts/gen1_freeze.py --verify       # Gen1 manifest; NEEDS the tags exp3-frozen-v1 / exp3-final-v1, which are not yet public on GitHub (fetch them from a clone that has them)
 ```
@@ -61,7 +61,7 @@ python scripts/gen1_freeze.py --verify       # Gen1 manifest; NEEDS the tags exp
 so `gen1_freeze.py --verify` fails from a fresh GitHub clone until they are
 pushed. The tagged commits themselves are reachable: `8c2841c4` from
 `origin/master`, and `80221f75` from `origin/exp3`. `exp3_freeze.py` also
-hashes living documents (`DISCOVERIES.md`, `ACCEPTANCE.md`, `OPERATIONS.md`,
+hashes living documents (`docs/research-record/DISCOVERIES.md`, `experiments/ACCEPTANCE.md`, `docs/process/OPERATIONS.md`,
 …), so check whether its verify still passes on current `master` before
 relying on it.
 
@@ -184,7 +184,7 @@ checker (the Exp 3 analogue is `scripts/exp3_verify_closure.py`).
 Verified against the argparse blocks on local `master` at the Exp 7 closeout,
 at `5dc3f408`. The contract is `outputs/exp7/EXP7_CONTRACT.json` (sha256[:16]
 `1263bedaebe6a45d`). Freeze and selection steps **refuse to overwrite**. Read
-`EXPERIMENT7_CLOSEOUT.md` §1.1, as corrected by errata E14, for the post-freeze
+`experiments/exp7/EXPERIMENT7_CLOSEOUT.md` §1.1, as corrected by errata E14, for the post-freeze
 script changes; none affects a number.
 
 Freeze steps (done; do not re-run in the canonical checkout):
@@ -230,7 +230,7 @@ BASE`, then compare `rows` with the committed
 
 ## Cross-experiment consistency check (read-only, minutes)
 ```bash
-python prep/n3_vs_n0_crossexp_check.py          # -> prep/n3_vs_n0_crossexp_check.json
+python scripts/n3_vs_n0_crossexp_check.py       # -> outputs/n3_vs_n0_crossexp_check.json
 ```
 
 ## Report figures

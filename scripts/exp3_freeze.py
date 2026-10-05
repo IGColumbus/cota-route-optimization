@@ -23,6 +23,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from repo_paths import resolve  # noqa: E402  (historical paths after the 2026-10-05 restructure)
 sys.path.insert(0, str(ROOT / "src"))
 
 from cota_opt.exp3_cell import code_version, repo_revision   # noqa: E402
@@ -93,7 +95,7 @@ def verify() -> int:
 
     bad = []
     for path, want in sorted(m["artifact_sha256"].items()):
-        f = ROOT / path
+        f = resolve(path)
         if not f.exists():
             bad.append(f"{path}: missing")
         elif sha256(f) != want:
@@ -225,8 +227,8 @@ def main() -> int:
         "n_receipts": len(receipts),
         "receipt_digests": sorted(r.digest for r in receipts),
         "spec_digests": sorted(r.spec.digest for r in receipts),
-        "artifact_sha256": {a: sha256(ROOT / a) for a in ARTIFACTS
-                            if (ROOT / a).exists()},
+        "artifact_sha256": {a: sha256(resolve(a)) for a in ARTIFACTS
+                            if resolve(a).exists()},
         "note": "Content hashes, not commit ids. The history is collapsed after "
                 "this freeze, which changes every commit id and must change no "
                 "content. Verify a rewrite against this file.",

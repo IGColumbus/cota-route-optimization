@@ -49,7 +49,7 @@ def test_limits_match_the_committed_contract():
     """The numbers in ContractLimits are the numbers in the contract file."""
     from pathlib import Path
     doc = (Path(__file__).resolve().parents[1]
-           / "EXPERIMENT3_CONTRACT.md").read_text(encoding="utf-8")
+           / "experiments" / "exp3" / "EXPERIMENT3_CONTRACT.md").read_text(encoding="utf-8")
     assert "1,200 m" in doc
     assert "40% of its baseline stop-visits" in doc
     assert "15%" in doc
@@ -65,7 +65,7 @@ def test_limits_match_the_committed_contract():
 def test_every_permitted_operation_in_the_doc_is_a_real_kind():
     from pathlib import Path
     doc = (Path(__file__).resolve().parents[1]
-           / "EXPERIMENT3_CONTRACT.md").read_text(encoding="utf-8")
+           / "experiments" / "exp3" / "EXPERIMENT3_CONTRACT.md").read_text(encoding="utf-8")
     advertised = set(re.findall(r"\| `(\w+)` \| yes", doc))
     assert advertised, "the operation table lost its kind column"
     assert advertised <= set(EDIT_KINDS), (

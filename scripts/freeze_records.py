@@ -29,6 +29,8 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "scripts"))
+from repo_paths import resolve  # noqa: E402  (historical paths after the 2026-10-05 restructure)
 sys.path.insert(0, str(ROOT / "src"))
 
 OUT = ROOT / "outputs"
@@ -87,7 +89,7 @@ def _exp2b_headline() -> str:
 def hashes(paths: dict[str, str]) -> dict[str, dict]:
     out = {}
     for label, rel in paths.items():
-        p = ROOT / rel
+        p = resolve(rel)
         out[label] = {"path": rel, "sha256": sha(p),
                       "bytes": p.stat().st_size if p.exists() else None,
                       "present": p.exists()}
@@ -95,7 +97,7 @@ def hashes(paths: dict[str, str]) -> dict[str, dict]:
 
 
 def load(rel: str):
-    p = ROOT / rel
+    p = resolve(rel)
     try:
         return json.loads(p.read_text())
     except Exception:

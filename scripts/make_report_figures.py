@@ -1,6 +1,6 @@
 """Generate the technical report's figures from the study's artifacts.
 
-Implements the figure set in ``docs/RELEASE_AND_REPORTING_GUIDELINES.md``
+Implements the figure set in ``docs/process/RELEASE_AND_REPORTING_GUIDELINES.md``
 §Figures (seven required figures, guideline IDs G1–G7) plus one figure added by
 amendment G2-a (the post hoc F1 decision-space figure). Figures are numbered in
 order of first mention in ``docs/report/TECHNICAL_REPORT.md``; the guideline ID
@@ -76,6 +76,7 @@ plt.rcParams.update({
     "legend.frameon": False, "legend.fontsize": 8,
     "figure.facecolor": SURFACE, "axes.facecolor": SURFACE,
     "svg.fonttype": "none", "savefig.dpi": 200,
+    "svg.hashsalt": "cota-report-figures",  # deterministic SVG element ids
 })
 
 USED: set[str] = set()
@@ -854,7 +855,7 @@ def main() -> int:
         prev = json.loads(mf.read_text())
     manifest = {
         "generator": "scripts/make_report_figures.py",
-        "guideline": "docs/RELEASE_AND_REPORTING_GUIDELINES.md §Figures",
+        "guideline": "docs/process/RELEASE_AND_REPORTING_GUIDELINES.md §Figures",
         "figures": {n: GUIDELINE_ID[n] for n in GUIDELINE_ID},
         "change_map": map_info if map_info is not None else prev.get("change_map"),
         "inputs_sha256": {p: sha(p) for p in sorted(USED | set(prev.get("inputs_sha256", {})))

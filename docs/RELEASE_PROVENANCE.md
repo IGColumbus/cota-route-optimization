@@ -26,7 +26,7 @@ Recorded on 2026-10-05 from `git ls-remote origin`:
 | freeze tag | `research-final`, an annotated tag (object `78a4355d`) pointing at `cd03af9c`. **It exists in the author's clone and in the development container. It is not yet public on GitHub.** Until it is, cite `cd03af9c`. |
 | canonical results registry | `outputs/CANONICAL_RESULTS_v5.json` (v5; sha256 `e24c3f0e2bf075c1…`). v1–v4 are kept unchanged. |
 | Experiment 7 contract | digest `1263bedaebe6a45d` (`outputs/exp7/EXP7_CONTRACT.json`), frozen at `4a2ba9f6` |
-| Experiment 7 closeout | `EXPERIMENT7_CLOSEOUT.md`, sha256 `27bfc7390c777051…`. It is registered and unchanged; corrections are in `docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`. |
+| Experiment 7 closeout | `experiments/exp7/EXPERIMENT7_CLOSEOUT.md`, sha256 `27bfc7390c777051…`. It is registered and unchanged; corrections are in `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md`. |
 | environment snapshot | `docs/research-record/ENVIRONMENT_AT_FREEZE.txt`: a pip freeze of the late-stage development container, Python 3.11.15. No container image is recorded. Status: dependency snapshot recorded; clean-machine reproduction not yet demonstrated. |
 
 ## Historical freeze tags
@@ -73,8 +73,8 @@ Commits after `cd03af9c` are reporting and release work:
 None of them changes a frozen artifact, a registered closeout, a canonical JSON
 or `src/cota_opt` behaviour. Each framing correction is logged in
 `docs/REPORTING_CORRECTIONS.md`. Errors found in frozen artifacts are recorded
-as errata, for example `docs/EXPERIMENT2_CLOSEOUT_ERRATA.md` and
-`docs/EXPERIMENT7_CLOSEOUT_ERRATA.md`.
+as errata, for example `experiments/exp2/EXPERIMENT2_CLOSEOUT_ERRATA.md` and
+`experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md`.
 
 ## Report verification
 

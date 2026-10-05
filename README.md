@@ -60,7 +60,7 @@ by the baseline's interlining factor 197 / 150.73 = 1.307. The baseline reads
 197.0 by construction, and the plan reads 196.999. The only physical count here,
 197 from COTA's published blocks, applies to the existing schedule only.
 No modified plan has a blocking-based vehicle count
-(`FLEET_AND_BLOCKING.md`, `docs/RELEASE_AND_REPORTING_GUIDELINES.md`). The
+(`docs/research-record/exp4/FLEET_AND_BLOCKING.md`, `docs/process/RELEASE_AND_REPORTING_GUIDELINES.md`). The
 canonical records (`outputs/canonical/exp1_final.json`,
 `CANONICAL_RESULTS*.json`) are immutable and keep the old wording. The
 correction is carried additively in the results registry.
@@ -84,7 +84,7 @@ Two things travel with that number and may not be dropped:
 > Twelve splice candidates. None does measurable good. Six single splices
 > exceeded the unserved-demand floor at ranking effort; of the four re-run at
 > certification effort, two exceeded the 0.287-percentage-point floor
-> (`docs/EXPERIMENT2_CLOSEOUT_ERRATA.md` E1). Matched-start confirmation was
+> (`experiments/exp2/EXPERIMENT2_CLOSEOUT_ERRATA.md` E1). Matched-start confirmation was
 > performed for the leader only, so the harm magnitudes are not re-sized here.
 > The best available geometry intervention in this candidate set is no
 > geometry intervention.
@@ -118,7 +118,7 @@ and scores +0.007% — two hundredths of a noise floor.
 
 The same leader wins at λ ∈ {1, 2, 4}, so this is a result about the network
 rather than about one point on the cost/coverage trade-off. Full account in
-`EXPERIMENT2_CLOSEOUT.md`.
+`experiments/exp2/EXPERIMENT2_CLOSEOUT.md`.
 
 **Experiment 3 — route mutation, closed and certified** (frozen at commit `8c2841c4`; its tag `exp3-final-v1` is not yet public).
 
@@ -134,7 +134,7 @@ uniform in effort: 23 of the 29 carry 40-restart verdicts and 6, the leader
 among them, carry 20-restart verdicts. Anyone quoting the number quotes that
 split with it. The discovery stage was also found to have had its optimizer
 chosen by the treatment (D27) and was corrected before certification.
-`EXPERIMENT3_CLOSURE.md`.
+`experiments/exp3/EXPERIMENT3_CLOSURE.md`.
 
 **Experiment 4 — route geometry at scale, certified under one common resource
 envelope.**
@@ -153,7 +153,7 @@ candidate-specific optimization problems, not geometries. Fixing the envelope,
 and nothing else, inverted **36.7%** of pairwise orderings (Spearman
 **+0.3566**); `src/cota_opt` is byte-identical across the rerun. The first run's
 objective values remain exactly reproducible and are not withdrawn — its
-ordering is superseded. `EXPERIMENT4_NORMALIZED_CLOSEOUT.md`.
+ordering is superseded. `experiments/exp4/EXPERIMENT4_NORMALIZED_CLOSEOUT.md`.
 
 It does not establish:
 
@@ -164,7 +164,7 @@ It does not establish:
 * **any fleet or deployability claim** — the fleet instrument returns
   `UNDECIDABLE` for every candidate;
 * **anything about the 1,800 proposals** the top-200 promotion cap excluded. An
-  out-of-band audit showed that cap is invalid (`EXPERIMENT4_AUDIT_CLOSEOUT.md`).
+  out-of-band audit showed that cap is invalid (`docs/research-record/exp4/EXPERIMENT4_AUDIT_CLOSEOUT.md`).
 
 The common envelope also changed how much service the plans run. Under the
 first run's self-drawn caps, certified plans spent **36.16–37.33%** of the 2,517 weekday
@@ -177,7 +177,7 @@ constrained redesign.** Experiment 4 was built to ask whether its greenfield
 leader beats Experiment 3's leader. N4 is the best of the 200 promoted and
 certified greenfield candidates; the best of all 2,000 generated candidates is
 not identified. EXP4N never ran that comparison. Run under
-the identical EXP4N certification contract (`EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md`):
+the identical EXP4N certification contract (`experiments/exp4/EXPERIMENT4_ORIGINAL_QUESTION_ADDENDUM.md`):
 
 > obj(N4) − obj(N3) = **+283,973 (+9.66% of N3)**. Lower is better, so the
 > greenfield leader is **worse**. Firewall-admitted; only network fields differ.
@@ -195,7 +195,7 @@ survives an omission-corrected costing (+7.87%) and every fixed-plan λ above
 **Experiment 5 — modeled resource frontier: run, and its acceptance rule
 (pre-specified at commit `4a9bc6b5`, 2026-09-28, before the first production
 cell) FAILED on N4 (`EXP5_MONOTONICITY_FAILURE`).** The original
-design is retired (`EXPERIMENT5_PREMISE_RETIREMENT.md`): hours were not slack
+design is retired (`docs/research-record/exp5/EXPERIMENT5_PREMISE_RETIREMENT.md`): hours were not slack
 once plans were normalized.
 
 The reframed experiment:
@@ -207,7 +207,7 @@ The reframed experiment:
 * EXP4N's certifier throughout.
 
 Every gate passed except monotonicity: reproduction, reach, convergence, the
-firewall (46/46) and order sentinels (4/4). `EXPERIMENT5_CLOSEOUT.md`.
+firewall (46/46) and order sentinels (4/4). `experiments/exp5/EXPERIMENT5_CLOSEOUT.md`.
 
 * **On N0 (all 99 nested pairs monotone):** both axes bind at today's levels.
   Above them, only the peak proxy binds; extra hours change nothing. Below them,
@@ -220,7 +220,7 @@ firewall (46/46) and order sentinels (4/4). `EXPERIMENT5_CLOSEOUT.md`.
   cannot be read as robust among closely spaced candidates.
 
 **Experiment 6 — the modeled price of policy constraints on N0 and N3:
-`EXP6_POLICY_FRONTIER_CERTIFIED`.** Details are in `EXPERIMENT6_CLOSEOUT.md`.
+`EXP6_POLICY_FRONTIER_CERTIFIED`.** Details are in `experiments/exp6/EXPERIMENT6_CLOSEOUT.md`.
 
 The question: what does imposing a policy constraint cost on the **modeled**
 objective? It is asked for the existing geometry (N0) and for the Experiment 3
@@ -301,7 +301,7 @@ Scope notes:
 
 **Experiment 7: robustness of findings F1–F6.** Stage 1
 `EXP7_STAGE1_EVALUATION_COMPLETE` and Stage 2 `EXP7_STAGE2_REOPT_COMPLETE`
-(`EXPERIMENT7_CLOSEOUT.md`). Not an operating plan; not COTA-endorsed;
+(`experiments/exp7/EXPERIMENT7_CLOSEOUT.md`). Not an operating plan; not COTA-endorsed;
 commute-only proxy demand; scheduled service.
 
 The design:
@@ -329,7 +329,7 @@ Results:
     `config/constraints.yaml`, not COTA policy; no documented COTA numeric
     standard), F1 is −2.1% to −7.0% at every λ ≥ 2 level re-optimized in Exp 7
     (A5 and A6 only), with one closure per cell. Post hoc
-    (`docs/EXPERIMENT7_F1_ADDENDUM.md`). At λ = 1 it is +0.12%.
+    (`experiments/exp7/EXPERIMENT7_F1_ADDENDUM.md`). At λ = 1 it is +0.12%.
   * At λ = 2 in the OFF-permitting decision space, unserved demand is not
     identified by the objective: two certified plans 0.16% apart give −5.4%
     and +30.5% at base assumptions.
@@ -427,8 +427,8 @@ entirely legitimate from the inside.
   (150.73 on the baseline against the block-derived 197) and is **not** a fleet
   constraint — `contract.py` declines the corresponding certification check
   rather than run it against the wrong quantity. No fleet number for any
-  candidate network is known; see `FLEET_AND_BLOCKING.md` and
-  `EXPERIMENT5_PREMISE_AUDIT.md`.
+  candidate network is known; see `docs/research-record/exp4/FLEET_AND_BLOCKING.md` and
+  `docs/research-record/exp5/EXPERIMENT5_PREMISE_AUDIT.md`.
 
 ## Layout
 
@@ -495,11 +495,11 @@ constraint on everything downstream. Nothing here is a recommendation to COTA.
 provenance rules, CRS discipline, the scheduled-vs-actual distinction, and the
 skeptic protocol for surprising results.
 
-`ACCEPTANCE.md` holds the gates, each committed before the run it judges.
-`EXPERIMENT3_CONTRACT.md` fixes what Experiment 3 may mutate, before any
-candidate exists. `DISCOVERIES.md` is the research diary and keeps every path
+`experiments/ACCEPTANCE.md` holds the gates, each committed before the run it judges.
+`experiments/exp3/EXPERIMENT3_CONTRACT.md` fixes what Experiment 3 may mutate, before any
+candidate exists. `docs/research-record/DISCOVERIES.md` is the research diary and keeps every path
 taken, including the wrong ones; this README describes what we currently
-believe, which is a much shorter list. `STATE_OF_PLAY.md` is the long-form
+believe, which is a much shorter list. `docs/research-record/STATE_OF_PLAY.md` is the long-form
 current state.
 
 ## License and data terms

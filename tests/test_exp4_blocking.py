@@ -1059,7 +1059,7 @@ def test_all_blockers_are_reported_not_just_the_first():
 # the contract document says what the code does
 # ===========================================================================
 
-CONTRACT_MD = ROOT / "EXPERIMENT4_BLOCKING_CONTRACT.md"
+CONTRACT_MD = ROOT / "docs" / "research-record" / "exp4" / "EXPERIMENT4_BLOCKING_CONTRACT.md"
 
 
 def test_the_contract_document_exists_and_carries_both_versions_of_9():
