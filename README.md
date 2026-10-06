@@ -171,11 +171,14 @@ Both need the five raw inputs and build everything else themselves (no
 separate `validate` or `baseline` step). The smoke run does no optimization, but its
 first run builds the path sets: 42 min 42 s on one core in the recorded run,
 then about a second once `data/cache/` is warm. The full run adds three
-certification solves; the original runs took 2,829–3,008 s each
-(`outputs/seedcheck_modelB.jsonl → seconds`), and the full command has not
-been timed from a clean checkout. Exit codes: 0 reproduced, 1 drift, 3 raw
-inputs missing. The recorded result and environment are in
-`docs/REPRODUCE.md`, with commands for every other experiment.
+certification solves of about 50 minutes each (2,994 s for the one seed that
+ran uninterrupted in the recorded clean-checkout run): roughly 3 hours from an
+empty cache on one core. It is restart-safe (`--state`). The recorded full
+run re-solved all three seeds to plans identical to the certified ones
+(`docs/research-record/reproductions/exp1_full_2026-10-06.json`). Exit
+codes: 0 reproduced, 1 drift, 3 raw inputs missing. The recorded results and
+environment are in `docs/REPRODUCE.md`, with commands for every other
+experiment.
 
 ## Where to find things
 

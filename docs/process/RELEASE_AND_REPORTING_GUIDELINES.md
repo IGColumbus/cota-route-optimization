@@ -247,6 +247,11 @@ Each dimension is marked `passed`, `failed`, or `unavailable`, against pass thre
 >   and re-evaluates the three certified plans; the first run takes about 40
 >   minutes on one core, for the path sets.
 > * **Full mode:** re-solves the three seeds at certification effort.
+>   **Implemented 2026-10-05:** restart-safe (`--state`). The clean-checkout
+>   full run (2026-10-06) reproduced all three certified plans exactly; it was
+>   on the same host class, so "bit-exact in the pinned container" is met for
+>   that platform only (receipt
+>   `docs/research-record/reproductions/exp1_full_2026-10-06.json`).
 > * **Recorded results and the evidence level per experiment:**
 >   `docs/REPRODUCE.md`.
 > * **Container:** the pinned container could not be built in the development
@@ -385,7 +390,7 @@ The one pre-Exp 7 item is done; everything else follows the freeze in order.
 - [x] `CANONICAL_ENVELOPE.units.json` sidecar; report and figure generators read units from it. (2026-10-05: `outputs/CANONICAL_ENVELOPE.units.json`; figure tooling reads it; `tests/test_envelope_units.py`.)
 - [x] `docs/CALIBRATION.md`, with the "uncalibrated" label wired into artifacts. (2026-10-05: the label lives in `config/model_status.yaml` and is stamped into release-generated artifacts and the briefs; frozen artifacts are not retrofitted.)
 - [x] `cota-opt validate`, with a failing-validation test. (2026-10-05: implemented as `cota-opt validate-model`; the research CLI's `validate` keeps its meaning. `tests/test_release_validation.py`.)
-- [ ] `cota-opt reproduce exp1` and `--smoke`; full runtime measured and published. (2026-10-05: both commands exist; smoke reproduction recorded; full reproduction status in `docs/REPRODUCE.md`.)
+- [x] `cota-opt reproduce exp1` and `--smoke`; full runtime measured and published. (2026-10-06: smoke and full clean-checkout reproductions recorded, both `REPRODUCED`; runtime and receipts in `docs/REPRODUCE.md` and `docs/research-record/reproductions/`.)
 - [ ] `docs/SCALING.md`, with the Exp 5 job-array reproduction passing. (2026-10-05: document written; the job-array acceptance run is a `v1.0` requirement and has not been done.)
 
 **Report**

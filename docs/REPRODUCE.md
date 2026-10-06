@@ -16,7 +16,7 @@ re-checked without re-computing the experiment.
 
 | experiment | clean-checkout evidence | level |
 |---|---|---|
-| Exp 1 | `cota-opt reproduce exp1 --smoke` (instance rebuilt, three certified plans re-evaluated, bit-exact) and `cota-opt reproduce exp1` (three seeds re-solved at 400,000 × 20; result in "Recorded reproduction" below) | **full** |
+| Exp 1 | `cota-opt reproduce exp1 --smoke` (instance rebuilt, three certified plans re-evaluated, bit-exact) and `cota-opt reproduce exp1` (three seeds re-solved at 400,000 × 20 from a clean clone and empty cache; all three plans identical to the certified plans; receipt `docs/research-record/reproductions/exp1_full_2026-10-06.json`) | **full** |
 | Exp 2 / 2B | headline numbers re-checked against artifacts (`scripts/verify_report_claims.py`); no candidate re-solved | artifact-verified (not reproduced) |
 | Exp 3 | `scripts/exp3_verify_closure.py` recomputes every number in the closure from the committed JSON; `scripts/gen1_freeze.py --verify` re-hashes the Gen1 freeze manifest. `scripts/exp3_freeze.py --verify` fails for a known, pre-freeze reason (below) | verification (not reproduced) |
 | Exp 4 / 4N / 4A | headline numbers re-checked against `EXP4N_RANKING.json`, `DELTA43.json` and the diagnostics; no leader re-solved | artifact-verified (not reproduced) |
@@ -82,11 +82,42 @@ cota-opt reproduce exp1                         # also re-solves each seed at 40
 # add --out <file> to either to save the JSON record
 ```
 
-Exit code 0 means reproduced, 1 drift, 3 raw inputs missing. The full run's
-runtime has not been measured from a clean checkout; the original seed-check
-solves took 2,829–3,008 s each (`outputs/seedcheck_modelB.jsonl → seconds`).
+Exit code 0 means reproduced, 1 drift, 3 raw inputs missing. The full run
+re-solves three seeds at about 50 minutes each on one core (the original
+solves took 2,829–3,008 s, `outputs/seedcheck_modelB.jsonl → seconds`), plus
+the cold path-set build: plan on roughly 3 hours from an empty cache on one
+core. It is restart-safe: `--state <file>` (by default a state file beside the `--out` file)
+checkpoints every optimizer restart, and re-running the same command resumes
+exactly.
 
-### Recorded reproduction (2026-10-05)
+### Recorded full reproduction (2026-10-05/06)
+
+* **Command:** `cota-opt reproduce exp1 --out … --state …` at commit `9bdb530b`.
+* **Environment:**
+  * a fresh `git clone`;
+  * a fresh venv from `requirements-lock.txt` (Python 3.11.15, numpy 2.4.4, scipy-openblas 0.3.31);
+  * an empty `data/cache/`;
+  * `env -i` with `PYTHONHASHSEED=0` and OMP/OpenBLAS/MKL threads set to 1;
+  * the five registered raw files in `data/raw/` (sha256 as in `config/sources.yaml`);
+  * the development container's upload folder masked by an empty tmpfs, so the
+    frozen code could read only `data/raw/`.
+* **Host:** the same Linux x86_64 development container (Intel Xeon @ 2.10GHz, 2 cores, one process). Not a different machine.
+* **Sessions:** the container restarted twice. The command resumed from its
+  checkpoint each time: seed 20260825 at optimizer restart 12, seed 20260827
+  at restart 5. Seed 20260826 ran uninterrupted (2,994.2 s; the original took
+  3,008.3 s). First launch to finish was about 6.3 h, including the cold
+  build and the work redone after each restart.
+* **Result:** `REPRODUCED`. All 16 gated checks have drift 0.0.
+  * The three re-solved plans are identical to the certified plans: plan
+    digests `8cde2792e0013d58`, `3b9d8342e73ed8eb` and `1d61abac11b27fda`,
+    with 0 route-periods differing.
+  * Their unserved-demand and generalized-cost changes are bit-exact against
+    `outputs/seedcheck_modelB.jsonl`.
+  * Resuming did not perturb the result.
+  * The baseline rows are informational, with the same values as the smoke run below.
+* **Record:** `docs/research-record/reproductions/exp1_full_2026-10-06.json`.
+
+### Recorded smoke reproduction (2026-10-05)
 
 * **Command:** `cota-opt reproduce exp1 --smoke`, cold run at commit `ad3f9a3d`; the
   warm run repeated it at `f11f5233`, which made the baseline rows informational.

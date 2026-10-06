@@ -1,0 +1,87 @@
+{
+ "what": "Experiment 1 FULL reproduction (re-solves all three certified seeds) from a clean clone, a fresh venv built from requirements-lock.txt and an emptied data/cache/ (docs/REPRODUCE.md, 'Recorded reproduction')",
+ "date": "2026-10-05 to 2026-10-06",
+ "commit": "9bdb530b",
+ "command": "cota-opt reproduce exp1 --out <scratch>/full_exp1.json --state <scratch>/full_exp1.state.jsonl",
+ "launcher": "env -i PATH=<venv>/bin:/usr/bin:/bin HOME=/root PYTHONHASHSEED=0 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1, run under `unshare -m` with the development container's upload folder masked by an empty tmpfs, so the frozen code could read only the registered files under data/raw/",
+ "cache": "data/cache/ empty at the first launch (cold): the path-set build is part of this run",
+ "hardware": {
+  "cpu": "Intel Xeon @ 2.10GHz",
+  "cores_available": 2,
+  "processes": 1,
+  "host_note": "the same Linux x86_64 development container that produced the late-stage artifacts; not a different machine"
+ },
+ "environment": {
+  "python": "3.11.15",
+  "platform": "Linux-6.18.44-fc-v70-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "numpy": "2.4.4",
+  "blas": "scipy-openblas 0.3.31.188.0 (OpenBLAS 0.3.31.188.0 USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=64)",
+  "env": {
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1",
+   "PYTHONHASHSEED": "0"
+  }
+ },
+ "raw_inputs_sha256": {
+  "cenpop_bg_oh": "ca6e3344ed678e3ac448edf67f151353559fb85cb040266a1dac8868d11805ef",
+  "cota_gtfs_static": "b11634f117a35a27a1813ed1eeef2b29b9484c6afdda0757262026ed2c9b3bf0",
+  "lodes_od_oh": "98cd08aa85ff1dc839bbedabf3a5d2ecbc7e85c0f6d9c220b6b5892ea838f8db",
+  "lodes_rac_oh": "848b5941128427947acad6a9fabba99d35563ee0313e10dfba74053c261041e4",
+  "lodes_wac_oh": "921573335891c204f8fddeffbf0e9f7ea0105560739dae469bfdc59dff892dab"
+ },
+ "sessions": {
+  "note": "The development container restarted twice during the run. Each restart killed the process; the launcher was re-run and the command resumed from its checkpoint file (--state), which records each completed optimizer restart per seed. Resuming is exact: the resumed seed-20260825 and seed-20260827 solves returned the recorded plan digests.",
+  "launches_utc": ["2026-10-05T19:35:14Z", "2026-10-05T23:51:47Z", "2026-10-06T01:16:51Z"],
+  "finished_utc_approx": "2026-10-06T01:55Z (third launch plus its 2328.5 s)",
+  "resume_points": [
+   {"seed": 20260825, "resumed_at_optimizer_restart": 12},
+   {"seed": 20260826, "resumed_at_optimizer_restart": 0, "note": "solved within one session"},
+   {"seed": 20260827, "resumed_at_optimizer_restart": 5}
+  ]
+ },
+ "wall_time": {
+  "first_launch_to_finish_hours_approx": 6.3,
+  "note": "includes the cold path-set build and the time lost to the two restarts (work after a seed's last checkpoint was redone). Uninterrupted solve times recorded by the original study: 2860.6 s, 3008.3 s, 2829.3 s per seed; seed 20260826, which ran uninterrupted here, took 2994.2 s.",
+  "last_session_seconds": 2328.5
+ },
+ "per_seed": [
+  {"seed": 20260825, "plan_digest": "8cde2792e0013d58", "recorded_plan_digest": "8cde2792e0013d58",
+   "plan_route_periods_differing": 0, "unserved": 9583.05587379403, "generalized_cost": 1787699.0007893941,
+   "unserved_change_pct": -6.602313363819379, "gc_change_pct": 0.8416348950901265,
+   "seconds_last_session": 1151.3, "recorded_seconds": 2860.5774993896484},
+  {"seed": 20260826, "plan_digest": "3b9d8342e73ed8eb", "recorded_plan_digest": "3b9d8342e73ed8eb",
+   "plan_route_periods_differing": 0, "unserved": 9570.5881699911, "generalized_cost": 1789129.7239596737,
+   "unserved_change_pct": -6.723825197642974, "gc_change_pct": 0.9223400157561734,
+   "seconds_last_session": 2994.2, "recorded_seconds": 3008.2685220241547},
+  {"seed": 20260827, "plan_digest": "1d61abac11b27fda", "recorded_plan_digest": "1d61abac11b27fda",
+   "plan_route_periods_differing": 0, "unserved": 9580.233093160878, "generalized_cost": 1788214.9949539471,
+   "unserved_change_pct": -6.629824544437534, "gc_change_pct": 0.870741414211551,
+   "seconds_last_session": 2322.8, "recorded_seconds": 2829.28736948967}
+ ],
+ "gated_drift": {
+  "gated_checks": 16,
+  "gated_checks_passed": 16,
+  "max_abs_drift": 0.0,
+  "checks": "n_paths (243257); per seed: unserved_change_pct and gc_change_pct of the recorded plan re-evaluated, and resolved_unserved_change_pct, resolved_gc_change_pct and resolved_plan_route_periods_differing of the newly solved plan"
+ },
+ "informational_not_gated": [
+  {"check": "baseline_unserved_vs_frontier_instance", "reproduced": 10260.485263541552, "recorded": 10261.917192383251,
+   "abs_drift": 1.4319288416991185},
+  {"check": "baseline_gc_vs_frontier_instance", "reproduced": 1772778.6768324552, "recorded": 1772726.8929242054,
+   "abs_drift": 51.78390824981034},
+  {"note": "the reference is the frontier instance (outputs/exp1_baseline_modelB.json); the seed-check instance's own baseline is not recorded in any artifact. Same values as the smoke receipt exp1_smoke_2026-10-05.json."}
+ ],
+ "recorded_artifacts": [
+  "outputs/exp1_baseline_modelB.json",
+  "outputs/seedcheck_modelB.jsonl",
+  "outputs/fixpoint_modelB.jsonl"
+ ],
+ "status": "REPRODUCED",
+ "status_meaning": "every gated check has zero drift and all three re-solved plans are identical (plan digest and route-period-by-route-period) to the recorded certified plans",
+ "limits": [
+  "same platform as the original study: this is a reproduction on the original host class, not a cross-platform replication",
+  "single process per seed, threads pinned to 1; multi-threaded BLAS was not tested"
+ ]
+}

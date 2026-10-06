@@ -46,7 +46,7 @@ Branches below.
 | canonical results registry | `outputs/CANONICAL_RESULTS_v5.json` (v5; sha256 `e24c3f0e2bf075c1…`). v1–v4 are kept unchanged. |
 | Experiment 7 contract | digest `1263bedaebe6a45d` (`outputs/exp7/EXP7_CONTRACT.json`), frozen at `4a2ba9f6` |
 | Experiment 7 closeout | `experiments/exp7/EXPERIMENT7_CLOSEOUT.md`, sha256 `27bfc7390c777051…`. It is registered and unchanged; corrections are in `experiments/exp7/EXPERIMENT7_CLOSEOUT_ERRATA.md`. |
-| environment snapshot | `docs/research-record/ENVIRONMENT_AT_FREEZE.txt`: a pip freeze of the late-stage development container, Python 3.11.15. No container image was recorded at the freeze. `requirements-lock.txt` pins the project's dependency closure to these versions. Reproduction evidence per experiment: `docs/REPRODUCE.md`. |
+| environment snapshot | `docs/research-record/ENVIRONMENT_AT_FREEZE.txt`: a pip freeze of the late-stage development container, Python 3.11.15. No container image was recorded at the freeze. `requirements-lock.txt` pins the project's dependency closure to these versions. Reproduction evidence per experiment: `docs/REPRODUCE.md`. Full clean-checkout Exp 1 reproduction (2026-10-06, commit `9bdb530b`, fresh venv from the lock, empty cache, threads pinned to 1, upload folder masked): `REPRODUCED`, all three seeds re-solved to the certified plans; receipt `docs/research-record/reproductions/exp1_full_2026-10-06.json`. Same host class as the study; cross-machine drift is uncharacterized. |
 
 ## Historical freeze tags
 

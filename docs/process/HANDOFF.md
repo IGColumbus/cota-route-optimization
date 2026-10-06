@@ -111,8 +111,11 @@ release work. Before making changes, confirm current CI is green and read
 ## 4. Reproducing
 
 `docs/REPRODUCE.md` has per-experiment commands and a table of the
-reproduction evidence each experiment has from a clean checkout. Reproduction
-is bit-exact within one environment. Cross-machine drift is uncharacterized.
+reproduction evidence each experiment has from a clean checkout. Exp 1 has a
+full clean-checkout reproduction (`cota-opt reproduce exp1`, about 3 h cold on
+one core, restart-safe with `--state`); the other experiments have
+verification or representative evidence only. Reproduction is bit-exact
+within one environment. Cross-machine drift is uncharacterized.
 
 ## 5. Operational traps
 
