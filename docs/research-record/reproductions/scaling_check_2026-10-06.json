@@ -1,0 +1,92 @@
+{
+ "what": "Scaling acceptance check (docs/SCALING.md): four Experiment 5 cells run as independent array tasks, two concurrently, each compared with the committed serial production record",
+ "date": "2026-10-06",
+ "commit": "ed9dfb79 plus scripts/scaling_check.py (committed with this receipt)",
+ "command": "python scripts/scaling_check.py local --out-dir <scratch> --parallel 2; python scripts/scaling_check.py compare --out-dir <scratch>",
+ "array_model": "local stand-in for a Slurm job array: one fresh process per cell, one output file per task, two tasks running concurrently on two cores; resume by record existence. Not run under Slurm.",
+ "each_task": "cota-opt run-script scripts/exp45_certify_cell.py cell ... --experiment exp5 --reach-test (the production flags), so the frozen code reads data/raw/",
+ "launched_utc": "2026-10-06T14:15:08Z",
+ "hardware": {
+  "cpu": "Intel Xeon @ 2.10GHz",
+  "cores_available": 2,
+  "concurrent_tasks": 2,
+  "peak_rss_per_task_mb_approx": 250
+ },
+ "environment": {
+  "python": "3.11.15",
+  "platform": "Linux-6.18.44-fc-v70-x86_64-with-glibc2.39",
+  "numpy": "2.4.4",
+  "env": {
+   "PYTHONHASHSEED": "0",
+   "OMP_NUM_THREADS": "1",
+   "OPENBLAS_NUM_THREADS": "1",
+   "MKL_NUM_THREADS": "1"
+  }
+ },
+ "cache": "data/cache/ shared, already built (read by both tasks; no task built a cache entry)",
+ "status": "PASS",
+ "cells": [
+  {
+   "cell": "N0_H075",
+   "status": "IDENTICAL",
+   "differing_fields": [],
+   "objective_EXACT": "3005869.1996278185",
+   "recorded_objective_EXACT": "3005869.1996278185",
+   "plan_digest": "1b0941c43873df68",
+   "recorded_plan_digest": "1b0941c43873df68",
+   "rounds": 1,
+   "seconds": 502.1,
+   "recorded_seconds": 542.9
+  },
+  {
+   "cell": "N0_H090",
+   "status": "IDENTICAL",
+   "differing_fields": [],
+   "objective_EXACT": "2962269.3534685564",
+   "recorded_objective_EXACT": "2962269.3534685564",
+   "plan_digest": "167957c0180d9bb8",
+   "recorded_plan_digest": "167957c0180d9bb8",
+   "rounds": 1,
+   "seconds": 544.3,
+   "recorded_seconds": 581.6
+  },
+  {
+   "cell": "N0_J075",
+   "status": "IDENTICAL",
+   "differing_fields": [],
+   "objective_EXACT": "3034452.178453237",
+   "recorded_objective_EXACT": "3034452.178453237",
+   "plan_digest": "fa3d74fae45c03c3",
+   "recorded_plan_digest": "fa3d74fae45c03c3",
+   "rounds": 1,
+   "seconds": 512.3,
+   "recorded_seconds": 1208.1
+  },
+  {
+   "cell": "N0_J090",
+   "status": "IDENTICAL",
+   "differing_fields": [],
+   "objective_EXACT": "2979723.4217099035",
+   "recorded_objective_EXACT": "2979723.4217099035",
+   "plan_digest": "7974cdbe8d208d3d",
+   "recorded_plan_digest": "7974cdbe8d208d3d",
+   "rounds": 1,
+   "seconds": 530.0,
+   "recorded_seconds": 844.5
+  }
+ ],
+ "compared": [
+  "objective_EXACT",
+  "plan_digest",
+  "rounds",
+  "converged",
+  "fitness_EXACT",
+  "round_trajectory"
+ ],
+ "reference": "outputs/exp5/cells/<cell>.json (serial production records)",
+ "limits": [
+  "four cells, all N0 and all converging in one round: the cheapest cells in the grid, chosen to keep the check short; N4 cells (hundreds of solve calls) were not included",
+  "same host class as the study; not a cross-machine check",
+  "the Slurm template in docs/SCALING.md was not itself executed"
+ ]
+}

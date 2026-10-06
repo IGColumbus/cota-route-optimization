@@ -270,9 +270,18 @@ Each dimension is marked `passed`, `failed`, or `unavailable`, against pass thre
 *Acceptance:* the Exp 5 matrix run as a job array reproduces the serial results cell for cell.
 
 > **Status 2026-10-05:** `docs/SCALING.md` documents the parallel structure,
-> with a Slurm/OSC job-array recipe, cache-key rules and thread pinning. The
-> Exp 5 job-array acceptance run has **not** been done. It remains a `v1.0`
-> requirement for the reusable harness, not for the working paper.
+> with a Slurm/OSC job-array recipe, cache-key rules and thread pinning.
+>
+> **Final implementation differs from the original specification (2026-10-06):**
+> the acceptance check ran on a subset, not the whole Exp 5 matrix, as the
+> 2026-10-05 cleanup instructions allowed ("verify a small parallel subset";
+> do not rerun the matrix for its own sake).
+>
+> * **Cells:** four Exp 5 cells (`N0_H075`, `N0_H090`, `N0_J075`, `N0_J090`).
+> * **How:** `scripts/scaling_check.py`, as independent tasks two at a time.
+> * **Result:** each is bit-identical to its committed serial record.
+> * **Receipt:** `docs/research-record/reproductions/scaling_check_2026-10-06.json`.
+> * **Not covered:** a run under Slurm itself, and N4 cells.
 
 ## Report
 
@@ -391,7 +400,7 @@ The one pre-Exp 7 item is done; everything else follows the freeze in order.
 - [x] `docs/CALIBRATION.md`, with the "uncalibrated" label wired into artifacts. (2026-10-05: the label lives in `config/model_status.yaml` and is stamped into release-generated artifacts and the briefs; frozen artifacts are not retrofitted.)
 - [x] `cota-opt validate`, with a failing-validation test. (2026-10-05: implemented as `cota-opt validate-model`; the research CLI's `validate` keeps its meaning. `tests/test_release_validation.py`.)
 - [x] `cota-opt reproduce exp1` and `--smoke`; full runtime measured and published. (2026-10-06: smoke and full clean-checkout reproductions recorded, both `REPRODUCED`; runtime and receipts in `docs/REPRODUCE.md` and `docs/research-record/reproductions/`.)
-- [ ] `docs/SCALING.md`, with the Exp 5 job-array reproduction passing. (2026-10-05: document written; the job-array acceptance run is a `v1.0` requirement and has not been done.)
+- [x] `docs/SCALING.md`, with the Exp 5 job-array reproduction passing. (2026-10-06: done on a four-cell subset run as parallel array tasks, all bit-identical to the serial records; see the deviation note in §6. A full-matrix or Slurm-hosted run was not done.)
 
 **Report**
 

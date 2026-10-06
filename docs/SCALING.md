@@ -3,11 +3,21 @@
 How to run the harness's certification work in parallel, for example on an
 Ohio Supercomputer Center (OSC) cluster with Slurm.
 
-**Status (2026-10-05):** documented, **not yet demonstrated**. No job-array run
-has been compared cell for cell with the serial results. That acceptance test
-(`docs/process/RELEASE_AND_REPORTING_GUIDELINES.md`, "Scaling") is a `v1.0`
-requirement for the reusable harness, not for the working paper. Every study
-result was produced serially, one cell per process, in a two-core container.
+**Status (2026-10-06):** the acceptance check passed on a small subset.
+Four Experiment 5 cells were run as independent array tasks, two at a time,
+and each is bit-identical to its committed serial record: exact objective,
+plan digest, rounds, every fitness component and the round trajectory
+(receipt `docs/research-record/reproductions/scaling_check_2026-10-06.json`).
+
+The limits of that check:
+
+* the four cells are N0 cells that converge in one round, the cheapest in the grid;
+* it ran as a local stand-in for a job array (`scripts/scaling_check.py local`),
+  not under Slurm, and the Slurm template below has not been executed;
+* it ran on the same host class as the study.
+
+The study results themselves were produced one cell per process in a two-core
+container.
 
 ## Why it parallelizes
 
@@ -95,10 +105,23 @@ Before the array:
 After the array, run the experiment's sentinels and analysis serially, for
 example `scripts/exp5_run.py sentinels` and then `scripts/exp5_analyze.py`.
 
-## Acceptance check (not yet run)
+## Acceptance check
 
-Run a small subset as an array (for example Exp 5's N0 cells), then compare
-each record's objective string and plan digest with the committed
-`outputs/exp5/cells/*.json`. Bit-exact equality is expected on the same
-platform with threads pinned. A mismatch is a finding to report, not to tune
-away.
+`scripts/scaling_check.py` runs a subset of Exp 5 cells as array tasks and
+compares each with the committed `outputs/exp5/cells/*.json`. Bit-exact
+equality is expected on the same platform with threads pinned. A mismatch is a
+finding to report, not to tune away.
+
+```bash
+# on one machine: P concurrent tasks (the recorded check used P=2)
+python scripts/scaling_check.py local --out-dir <dir> --parallel 2
+# under Slurm: one cell per array index (default subset has 4 cells)
+#SBATCH --array=0-3
+python scripts/scaling_check.py task --out-dir <dir>      # reads SLURM_ARRAY_TASK_ID
+# afterwards, serially
+python scripts/scaling_check.py compare --out-dir <dir> --receipt <file>
+```
+
+Each task needs about 250 MB of memory and 8–9 minutes on one core with the
+caches built. `--cells` takes any comma-separated list of committed cell names
+(for example `N4_J100`, recorded at about 35 minutes).
