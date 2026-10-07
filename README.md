@@ -116,7 +116,7 @@ Full table with sizes: report §8.
 Requires Python 3.11.
 
 ```bash
-git clone https://github.com/ian-gregory94/cota-route-optimization.git
+git clone https://github.com/IGColumbus/cota-route-optimization.git
 cd cota-route-optimization
 python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\activate
 pip install -r requirements-lock.txt && pip install --no-deps -e .   # pinned
