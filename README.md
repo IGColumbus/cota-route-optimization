@@ -1,6 +1,6 @@
 # COTA Transit Network Model and Optimization Harness
 
-[![ci](https://github.com/ian-gregory94/cota-route-optimization/actions/workflows/ci.yml/badge.svg)](https://github.com/ian-gregory94/cota-route-optimization/actions/workflows/ci.yml)
+[![ci](https://github.com/IGColumbus/cota-route-optimization/actions/workflows/ci.yml/badge.svg)](https://github.com/ian-gregory94/cota-route-optimization/actions/workflows/ci.yml)
 
 *(Formerly titled "Transit Digital Twin". That was a prototype description: the
 model is uncalibrated and is not an operational digital twin.)*
